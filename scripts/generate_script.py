@@ -1,7 +1,7 @@
 """
 Quietlyy — Script Generator
+Generates nostalgic POETRY in the exact Quietlyy voice.
 4-layer fallback: Groq → Cerebras → Gemini → Template
-No Stability AI. All free APIs, no credit card needed.
 """
 
 import os
@@ -18,7 +18,6 @@ def load_templates():
 
 
 def pick_topic(templates):
-    """Pick a random topic from the pool, avoiding recently used ones."""
     used_path = os.path.join(os.path.dirname(__file__), "..", "output", "used_topics.json")
     os.makedirs(os.path.dirname(used_path), exist_ok=True)
     used = []
@@ -37,46 +36,52 @@ def pick_topic(templates):
     used = used[-20:]
     with open(used_path, "w") as f:
         json.dump(used, f)
-
     return topic
 
 
 def build_prompt(topic, examples):
-    """Build a minimal prompt with 2 examples for the AI."""
-    ex = random.sample(examples, 2)
-    examples_text = "\n---\n".join([
-        f"Topic: {e['topic']}\n{e['script']}" for e in ex
-    ])
+    """Build prompt that forces the EXACT poetic structure."""
+    # Always show all 3 original examples — they define the voice
+    examples_text = ""
+    for e in examples[:3]:
+        examples_text += f'\nTopic: {e["topic"]}\n{e["script"]}\n'
 
-    return f"""Write a nostalgic 30-second voiceover script about "{topic}".
+    return f"""You are a poet writing about "{topic}" for the page Quietlyy.
 
-Style rules:
-- 5 lines maximum, short pauses shown with "…"
-- Structure: "There was a time…" → "Back then…" → "Not because… but because…" → "And now…" → "Maybe…"
-- Tone: heavy, exhausted, reflective male voice
-- Contrast old (valued) vs modern (lost meaning)
-- End with a gut-punch "Maybe…" line
-- No hashtags, no emojis, no stage directions
+STRICT FORMAT — follow this EXACTLY:
+Line 1: "There was a time… when [something emotional about {topic}]."
+Line 2: "Back then… [how people used to do it with care/love/patience]."
+Line 3: "Not because [practical reason]… but because [emotional reason]."
+Line 4: "And now… [how modern people have ruined/lost it]."
+Line 5: "Maybe… [they didn't lose X]… [they just stopped Y]."
 
-Also provide 4 visual keywords for AI image generation (nostalgic, warm, anime-style scenes).
+RULES:
+- Use "…" for pauses (NOT "...")
+- Each line is its OWN paragraph (separated by newline)
+- Write like POETRY — each line hits emotionally
+- The "Maybe…" line must be a GUT PUNCH
+- DO NOT use hashtags, emojis, or stage directions
+- Keep it about PEOPLE and HUMAN CONNECTION, not the object itself
+- Write exactly 5 lines, no more
+
+Also provide 4 visual keywords showing PEOPLE/EMOTIONS (not objects).
 
 Return ONLY valid JSON:
-{{"script": "the full script text", "visual_keywords": ["keyword1", "keyword2", "keyword3", "keyword4"]}}
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5", "visual_keywords": ["keyword1", "keyword2", "keyword3", "keyword4"]}}
 
-Examples:
+EXAMPLES (match this exact tone and structure):
 {examples_text}"""
 
 
-def _call_openai_compatible(url, key, model, prompt, name):
-    """Generic caller for OpenAI-compatible APIs (Groq, Cerebras, SambaNova, Mistral)."""
+def _call_openai_compatible(url, key, model, prompt):
     resp = requests.post(
         url,
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
         json={
             "model": model,
             "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": 300,
-            "temperature": 0.8,
+            "max_tokens": 350,
+            "temperature": 0.7,
             "response_format": {"type": "json_object"},
         },
         timeout=30,
@@ -86,34 +91,30 @@ def _call_openai_compatible(url, key, model, prompt, name):
     return json.loads(content)
 
 
-# ── Layer 1: Groq (free 500K tokens/day) ──
 def generate_with_groq(prompt):
     key = os.environ.get("GROQ_API_KEY")
     if not key:
         return None
     return _call_openai_compatible(
         "https://api.groq.com/openai/v1/chat/completions",
-        key, "llama-3.3-70b-versatile", prompt, "Groq",
+        key, "llama-3.3-70b-versatile", prompt,
     )
 
 
-# ── Layer 2: Cerebras (free 1M tokens/day) ──
 def generate_with_cerebras(prompt):
     key = os.environ.get("CEREBRAS_API_KEY")
     if not key:
         return None
     return _call_openai_compatible(
         "https://api.cerebras.ai/v1/chat/completions",
-        key, "llama-3.3-70b", prompt, "Cerebras",
+        key, "llama-3.3-70b", prompt,
     )
 
 
-# ── Layer 3: Gemini Flash (free 250 req/day) ──
 def generate_with_gemini(prompt):
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         return None
-
     resp = requests.post(
         f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={key}",
         headers={"Content-Type": "application/json"},
@@ -121,8 +122,8 @@ def generate_with_gemini(prompt):
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
                 "responseMimeType": "application/json",
-                "maxOutputTokens": 300,
-                "temperature": 0.8,
+                "maxOutputTokens": 350,
+                "temperature": 0.7,
             },
         },
         timeout=30,
@@ -132,12 +133,7 @@ def generate_with_gemini(prompt):
     return json.loads(text)
 
 
-# ── Layer 4: Template fallback (always works, no API) ──
-# Built into generate_script() below
-
-
 def generate_script():
-    """Main entry: generate a script with 4-layer fallback."""
     templates = load_templates()
     topic = pick_topic(templates)
     prompt = build_prompt(topic, templates["example_scripts"])
@@ -155,18 +151,23 @@ def generate_script():
         try:
             result = gen_fn(prompt)
             if result and "script" in result:
-                print(f"[script] Generated via {name}")
-                break
+                # Validate it has the right structure
+                lines = [l.strip() for l in result["script"].split("\n") if l.strip()]
+                if len(lines) >= 4 and "…" in result["script"]:
+                    print(f"[script] Generated via {name}")
+                    break
+                else:
+                    print(f"[script] {name} output wrong format, trying next...")
+                    result = None
         except Exception as e:
             print(f"[script] {name} failed: {e}")
             result = None
 
     if not result:
-        # Layer 4: template fallback — always works
         ex = random.choice(templates["example_scripts"])
         result = {"script": ex["script"], "visual_keywords": ex["visual_keywords"]}
         topic = ex["topic"]
-        print("[script] Using template fallback (Layer 4)")
+        print("[script] Using template fallback")
 
     result["topic"] = topic
     return result

@@ -29,11 +29,13 @@ VOICE_CONFIGS = [
 
 
 def format_script_for_speech(script_text):
-    """Format script with natural pauses."""
+    """Format script with LONG emotional pauses between lines.
+    Each '…' becomes a real pause. Between lines = heavy breath pause."""
     text = script_text.replace("...", "…")
     lines = [line.strip() for line in text.split("\n") if line.strip()]
-    # Use periods for natural pauses between lines
-    return " ... ".join(lines)
+    # Long pause between each line (2 seconds of silence via repeated periods)
+    # The "… … …" creates a ~2 second natural pause in edge-tts
+    return " … … … ".join(lines)
 
 
 async def _generate_edge_tts(script_text, output_path, subtitle_path, voice_config):
