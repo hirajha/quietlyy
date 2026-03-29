@@ -1,7 +1,10 @@
 """
 Quietlyy — Audio Generator
-3-layer fallback: edge-tts (primary) → edge-tts alt voice → gTTS
-edge-tts is free forever, no API key, no limits.
+3-layer fallback with NATURAL voices (no pitch shifting):
+  Layer 1: edge-tts AndrewMultilingual (deep, natural, cinematic)
+  Layer 2: edge-tts GuyNeural (natural male)
+  Layer 3: edge-tts ChristopherNeural (natural male)
+No artificial pitch/rate changes that make it sound like voice-changing software.
 """
 
 import asyncio
@@ -10,22 +13,28 @@ import os
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
-# Voice configs ranked by preference for deep exhausted male voice
+# Natural deep male voices — NO pitch shifting, just slightly slower for that
+# heavy, exhausted, reflective delivery. These are Microsoft's best male voices.
 VOICE_CONFIGS = [
-    {"voice": "en-US-GuyNeural", "pitch": "-30Hz", "rate": "-18%", "volume": "+0%"},
-    {"voice": "en-US-ChristopherNeural", "pitch": "-25Hz", "rate": "-15%", "volume": "+0%"},
-    {"voice": "en-GB-RyanNeural", "pitch": "-20Hz", "rate": "-15%", "volume": "+0%"},
+    # Andrew Multilingual — deepest, most cinematic male voice
+    {"voice": "en-US-AndrewMultilingualNeural", "pitch": "+0Hz", "rate": "-12%", "volume": "+0%"},
+    # Guy — natural deep US male
+    {"voice": "en-US-GuyNeural", "pitch": "+0Hz", "rate": "-10%", "volume": "+0%"},
+    # Christopher — warm deep US male
+    {"voice": "en-US-ChristopherNeural", "pitch": "+0Hz", "rate": "-10%", "volume": "+0%"},
+    # Ryan — deep British male
+    {"voice": "en-GB-RyanNeural", "pitch": "+0Hz", "rate": "-10%", "volume": "+0%"},
 ]
 
 
 def format_script_for_speech(script_text):
-    """Add natural pauses via ellipsis."""
+    """Format script with natural pauses."""
     text = script_text.replace("...", "…")
     lines = [line.strip() for line in text.split("\n") if line.strip()]
+    # Use periods for natural pauses between lines
     return " ... ".join(lines)
 
 
-# ── Layer 1 & 2: edge-tts (free, unlimited, multiple voice fallbacks) ──
 async def _generate_edge_tts(script_text, output_path, subtitle_path, voice_config):
     import edge_tts
 
@@ -53,79 +62,33 @@ async def _generate_edge_tts(script_text, output_path, subtitle_path, voice_conf
     with open(subtitle_path, "w") as f:
         json.dump(subtitles, f, indent=2)
 
-    # Verify file was created and has content
     if os.path.getsize(output_path) < 1000:
-        raise ValueError("Audio file too small, likely failed")
+        raise ValueError("Audio file too small")
 
-    return subtitles
-
-
-def generate_with_edge_tts(script_text, output_path, subtitle_path):
-    """Try multiple edge-tts voices as fallback layers."""
-    for i, config in enumerate(VOICE_CONFIGS):
-        try:
-            subs = asyncio.run(_generate_edge_tts(script_text, output_path, subtitle_path, config))
-            print(f"[audio] Generated via edge-tts ({config['voice']})")
-            return subs
-        except Exception as e:
-            print(f"[audio] edge-tts voice {config['voice']} failed: {e}")
-    return None
-
-
-# ── Layer 3: gTTS fallback (Google Translate TTS, free, no key) ──
-def generate_with_gtts(script_text, output_path, subtitle_path):
-    """Last resort: gTTS. Less natural but always works."""
-    try:
-        from gtts import gTTS
-    except ImportError:
-        # Install on the fly in GitHub Actions
-        import subprocess
-        subprocess.run(["pip", "install", "gTTS"], check=True, capture_output=True)
-        from gtts import gTTS
-
-    formatted = format_script_for_speech(script_text)
-    tts = gTTS(text=formatted, lang="en", slow=True)
-    tts.save(output_path)
-
-    # gTTS doesn't provide word timing, create approximate subtitles
-    words = formatted.split()
-    # Rough estimate: 2 words/second for slow speech
-    subtitles = []
-    for i, word in enumerate(words):
-        subtitles.append({
-            "text": word,
-            "offset_ms": i * 500,
-            "duration_ms": 400,
-        })
-
-    with open(subtitle_path, "w") as f:
-        json.dump(subtitles, f, indent=2)
-
-    print("[audio] Generated via gTTS (fallback)")
     return subtitles
 
 
 def generate_audio(script_text):
-    """Main entry: generate audio + subtitles with 3-layer fallback."""
+    """Main entry: generate audio with natural voice fallbacks."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     audio_path = os.path.join(OUTPUT_DIR, "voiceover.mp3")
     subtitle_path = os.path.join(OUTPUT_DIR, "subtitles.json")
 
-    # Layer 1 & 2: edge-tts with multiple voices
-    subtitles = generate_with_edge_tts(script_text, audio_path, subtitle_path)
+    for config in VOICE_CONFIGS:
+        try:
+            subtitles = asyncio.run(
+                _generate_edge_tts(script_text, audio_path, subtitle_path, config)
+            )
+            print(f"[audio] Generated with {config['voice']} (natural, no pitch shift)")
+            return {
+                "audio_path": audio_path,
+                "subtitle_path": subtitle_path,
+                "subtitles": subtitles,
+            }
+        except Exception as e:
+            print(f"[audio] {config['voice']} failed: {e}")
 
-    # Layer 3: gTTS
-    if subtitles is None:
-        subtitles = generate_with_gtts(script_text, audio_path, subtitle_path)
-
-    if subtitles is None:
-        raise RuntimeError("All audio generation layers failed")
-
-    return {
-        "audio_path": audio_path,
-        "subtitle_path": subtitle_path,
-        "subtitles": subtitles,
-    }
+    raise RuntimeError("All voice layers failed")
 
 
 if __name__ == "__main__":
@@ -137,4 +100,4 @@ if __name__ == "__main__":
         "Maybe… They didn't lose connection… They just stopped valuing it."
     )
     result = generate_audio(test_script)
-    print(json.dumps({k: v for k, v in result.items() if k != "subtitles"}, indent=2))
+    print(f"Audio: {result['audio_path']}")

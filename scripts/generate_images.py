@@ -1,41 +1,43 @@
 """
 Quietlyy — Image Generator
-4-layer fallback: Gemini → Pexels → Pixabay → Gradient
-No Stability AI. All free APIs.
+3-layer fallback for AI art (no Stability AI):
+  Layer 1: Gemini 2.5 Flash Image (free 500 img/day — primary on GitHub Actions)
+  Layer 2: Pexels stock photos (free 200 req/hr — moody/atmospheric search)
+  Layer 3: Gradient fallback (always works, no API)
 """
 
 import os
 import json
 import base64
 import random
+import time
 import requests
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
 
-def generate_image_prompt(topic, visual_keywords, panel_num, total_panels):
+def generate_image_prompt(topic, visual_keywords, panel_num):
     """Create a prompt for one panel image."""
     keywords_str = ", ".join(visual_keywords)
     mood_map = {
-        0: "warm nostalgic golden-hour lighting, peaceful past, sepia warmth",
-        1: "warm sepia tones, people connecting meaningfully, intimate",
-        2: "bittersweet transition, fading warmth to cool tones",
-        3: "cold modern blue tones, isolation, person alone with phone, disconnection",
-        4: "melancholic wide shot, solitary figure in vast space, dusk, loss",
+        0: "warm nostalgic golden-hour lighting, peaceful past, sepia warmth, cozy interior",
+        1: "warm amber tones, people connecting meaningfully, intimate moment, gentle light",
+        2: "bittersweet transition scene, fading warmth to cool tones, twilight",
+        3: "cold modern blue tones, person alone with phone, isolation, disconnection, night",
+        4: "melancholic wide shot, solitary dark figure from behind, dusk sky, vast emptiness",
     }
     mood = mood_map.get(panel_num, mood_map[2])
 
     return (
-        f"Anime illustration, cinematic vertical composition (9:16 aspect ratio), "
-        f"topic: {topic}, scene keywords: {keywords_str}. "
+        f"Anime illustration, cinematic vertical portrait composition, "
+        f"topic: {topic}, {keywords_str}. "
         f"Mood: {mood}. "
-        f"Style: detailed anime art, soft lighting, atmospheric, Studio Ghibli inspired, "
-        f"muted warm color palette, painterly textures, no text or watermarks. "
-        f"High quality, emotional, nostalgic."
+        f"Style: detailed anime art, atmospheric lighting, Studio Ghibli inspired, "
+        f"muted color palette, painterly textures, emotional, no text, no watermarks, no words."
     )
 
 
-# ── Layer 1: Gemini Image Generation (free tier) ──
+# ── Layer 1: Gemini 2.5 Flash Image (free 500 img/day) ──
 def generate_with_gemini(prompt, output_path):
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
@@ -67,7 +69,7 @@ def generate_with_gemini(prompt, output_path):
     return False
 
 
-# ── Layer 2: Pexels (free, 200 req/hour) ──
+# ── Layer 3: Pexels (free, 200 req/hour) ──
 def fetch_from_pexels(keywords, output_path):
     key = os.environ.get("PEXELS_API_KEY")
     if not key:
@@ -99,47 +101,6 @@ def fetch_from_pexels(keywords, output_path):
     return False
 
 
-# ── Layer 3: Pixabay (free, 100 req/min, no key needed for low volume) ──
-def fetch_from_pixabay(keywords, output_path):
-    key = os.environ.get("PIXABAY_API_KEY")
-    if not key:
-        # Pixabay allows limited keyless access
-        return False
-
-    query = "+".join(keywords[:2])
-    try:
-        resp = requests.get(
-            "https://pixabay.com/api/",
-            params={
-                "key": key,
-                "q": query,
-                "image_type": "photo",
-                "orientation": "vertical",
-                "per_page": 10,
-                "safesearch": "true",
-            },
-            timeout=15,
-        )
-        resp.raise_for_status()
-        hits = resp.json().get("hits", [])
-        if not hits:
-            return False
-
-        photo = random.choice(hits)
-        img_url = photo.get("largeImageURL", photo.get("webformatURL"))
-        if not img_url:
-            return False
-
-        img_resp = requests.get(img_url, timeout=30)
-        img_resp.raise_for_status()
-        with open(output_path, "wb") as f:
-            f.write(img_resp.content)
-        return True
-    except Exception as e:
-        print(f"[images] Pixabay failed: {e}")
-    return False
-
-
 # ── Layer 4: Gradient fallback (always works, no API) ──
 def create_gradient_fallback(output_path, panel_num):
     from PIL import Image, ImageDraw, ImageFilter
@@ -148,13 +109,12 @@ def create_gradient_fallback(output_path, panel_num):
     img = Image.new("RGB", (width, height))
     draw = ImageDraw.Draw(img)
 
-    # Warm-to-cool gradient palettes matching the moody aesthetic
     palettes = [
-        [(65, 42, 20), (120, 75, 35)],     # warm amber
-        [(80, 55, 28), (140, 90, 45)],      # sepia gold
-        [(50, 45, 55), (90, 70, 85)],       # dusty purple transition
-        [(20, 30, 55), (45, 55, 85)],       # cold blue isolation
-        [(15, 18, 30), (40, 35, 55)],       # dark dusk melancholy
+        [(65, 42, 20), (120, 75, 35)],
+        [(80, 55, 28), (140, 90, 45)],
+        [(50, 45, 55), (90, 70, 85)],
+        [(20, 30, 55), (45, 55, 85)],
+        [(15, 18, 30), (40, 35, 55)],
     ]
     top_color, bottom_color = palettes[min(panel_num, 4)]
 
@@ -165,7 +125,6 @@ def create_gradient_fallback(output_path, panel_num):
         b = int(top_color[2] + (bottom_color[2] - top_color[2]) * ratio)
         draw.line([(0, y), (width, y)], fill=(r, g, b))
 
-    # Add some noise/texture for atmosphere
     import random as rng
     rng.seed(panel_num * 42)
     for _ in range(3000):
@@ -175,9 +134,7 @@ def create_gradient_fallback(output_path, panel_num):
         px = img.getpixel((x, y))
         img.putpixel((x, y), tuple(max(0, min(255, c + brightness)) for c in px))
 
-    # Slight blur for softness
     img = img.filter(ImageFilter.GaussianBlur(radius=2))
-
     img.save(output_path, "PNG")
     return True
 
@@ -189,31 +146,30 @@ def generate_images(topic, visual_keywords, num_panels=5):
 
     for i in range(num_panels):
         output_path = os.path.join(OUTPUT_DIR, f"panel_{i}.png")
-        prompt = generate_image_prompt(topic, visual_keywords, i, num_panels)
+        prompt = generate_image_prompt(topic, visual_keywords, i)
 
         print(f"[images] Panel {i+1}/{num_panels}: generating...")
 
         # Try each layer in order
-        success = False
-        for layer_fn, layer_name in [
-            (lambda: generate_with_gemini(prompt, output_path), "Gemini"),
-            (lambda: fetch_from_pexels(visual_keywords, output_path), "Pexels"),
-            (lambda: fetch_from_pixabay(visual_keywords, output_path), "Pixabay"),
-            (lambda: create_gradient_fallback(output_path, i), "Gradient"),
-        ]:
+        layers = [
+            ("Gemini", lambda: generate_with_gemini(prompt, output_path)),
+            ("Pexels", lambda: fetch_from_pexels(visual_keywords, output_path)),
+            ("Gradient", lambda: create_gradient_fallback(output_path, i)),
+        ]
+
+        for name, fn in layers:
             try:
-                if layer_fn():
-                    print(f"[images] Panel {i+1}: {layer_name}")
-                    success = True
+                if fn():
+                    print(f"[images] Panel {i+1}: {name}")
                     break
             except Exception as e:
-                print(f"[images] Panel {i+1} {layer_name} error: {e}")
-
-        if not success:
-            # This should never happen since gradient always works
-            create_gradient_fallback(output_path, i)
+                print(f"[images] Panel {i+1} {name} error: {e}")
 
         paths.append(output_path)
+
+        # Small delay between API calls to be polite
+        if i < num_panels - 1:
+            time.sleep(1)
 
     print(f"[images] Generated {len(paths)} panels")
     return paths
@@ -222,6 +178,6 @@ def generate_images(topic, visual_keywords, num_panels=5):
 if __name__ == "__main__":
     paths = generate_images(
         "Telephone",
-        ["old telephone", "rotary phone", "vintage phone booth", "phone cord"],
+        ["old telephone", "rotary phone", "vintage phone booth", "warm lamp light"],
     )
     print(json.dumps(paths, indent=2))
