@@ -64,7 +64,40 @@ def generate_image_prompt(topic, visual_keywords, panel_num):
     )
 
 
-# ── Layer 1: Gemini 2.5 Flash Image (free 500 img/day) ──
+# ── Layer 1: Together.ai FLUX (free tier, no credit card) ──
+def generate_with_together(prompt, output_path):
+    key = os.environ.get("TOGETHER_API_KEY")
+    if not key:
+        return False
+
+    try:
+        resp = requests.post(
+            "https://api.together.xyz/v1/images/generations",
+            headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+            json={
+                "model": "black-forest-labs/FLUX.1-schnell-Free",
+                "prompt": prompt,
+                "width": 768,
+                "height": 1344,
+                "steps": 4,
+                "n": 1,
+                "response_format": "b64_json",
+            },
+            timeout=60,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        img_b64 = data["data"][0]["b64_json"]
+        img_data = base64.b64decode(img_b64)
+        with open(output_path, "wb") as f:
+            f.write(img_data)
+        return True
+    except Exception as e:
+        print(f"[images] Together.ai failed: {e}")
+    return False
+
+
+# ── Layer 2: Gemini 2.5 Flash Image (free 500 img/day) ──
 def generate_with_gemini(prompt, output_path):
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
@@ -187,6 +220,7 @@ def generate_images(topic, visual_keywords, num_panels=5):
         print(f"[images] Panel {i+1}/{num_panels}: generating...")
 
         layers = [
+            ("Together.ai", lambda: generate_with_together(prompt, output_path)),
             ("Gemini", lambda: generate_with_gemini(prompt, output_path)),
             ("Pexels", lambda: fetch_from_pexels(visual_keywords, output_path, i)),
             ("Gradient", lambda: create_gradient_fallback(output_path, i)),

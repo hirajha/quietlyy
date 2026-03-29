@@ -1,60 +1,46 @@
 """
 Quietlyy — Audio Generator
-3-layer fallback with NATURAL voices (no pitch shifting):
-  Layer 1: edge-tts AndrewMultilingual (deep, natural, cinematic)
-  Layer 2: edge-tts GuyNeural (natural male)
-  Layer 3: edge-tts ChristopherNeural (natural male)
-No artificial pitch/rate changes that make it sound like voice-changing software.
+Records each line SEPARATELY then joins with REAL silence.
+This eliminates the "Oh" sound and creates proper emotional pauses.
+Voice: strong, clear, deep male narrator at +20% volume.
 """
 
 import asyncio
 import json
 import os
+import subprocess
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
-# Natural deep male voices — NO pitch shifting.
-# Slightly slower rate for heavy, reflective delivery.
-# BrianMultilingual is the clearest and deepest narrator voice.
-VOICE_CONFIGS = [
-    # Brian Multilingual — very clear deep narrator, best for this style
-    {"voice": "en-US-BrianMultilingualNeural", "pitch": "+0Hz", "rate": "-8%", "volume": "+0%"},
-    # Steffan — clear, warm, deep narrator
-    {"voice": "en-US-SteffanNeural", "pitch": "+0Hz", "rate": "-8%", "volume": "+0%"},
-    # Andrew Multilingual — cinematic male voice
-    {"voice": "en-US-AndrewMultilingualNeural", "pitch": "+0Hz", "rate": "-10%", "volume": "+0%"},
-    # Ryan — deep British male
-    {"voice": "en-GB-RyanNeural", "pitch": "+0Hz", "rate": "-8%", "volume": "+0%"},
+# Strong deep male voices — +20% volume for strength, slight slowdown
+VOICE = os.environ.get("VOICE", "en-US-GuyNeural")
+RATE = os.environ.get("RATE", "-5%")
+VOLUME = os.environ.get("VOLUME", "+20%")
+
+# Silence between lines (seconds)
+LINE_GAP = 1.8
+
+# Voice fallback order
+VOICES = [
+    "en-US-GuyNeural",            # Strong, deep, commanding
+    "en-US-BrianMultilingualNeural",  # Clear narrator
+    "en-US-SteffanNeural",        # Warm, clear
+    "en-GB-RyanNeural",           # Deep British
 ]
 
 
-def format_script_for_speech(script_text):
-    """Format script with LONG emotional pauses between lines.
-    Each '…' becomes a real pause. Between lines = heavy breath pause."""
-    text = script_text.replace("...", "…")
-    lines = [line.strip() for line in text.split("\n") if line.strip()]
-    # Long pause between each line (2 seconds of silence via repeated periods)
-    # The "… … …" creates a ~2 second natural pause in edge-tts
-    return " … … … ".join(lines)
-
-
-async def _generate_edge_tts(script_text, output_path, subtitle_path, voice_config):
+async def _record_line(text, voice, output_path):
+    """Record a single line of speech."""
     import edge_tts
-
-    formatted = format_script_for_speech(script_text)
     communicate = edge_tts.Communicate(
-        formatted,
-        voice=voice_config["voice"],
-        pitch=voice_config["pitch"],
-        rate=voice_config["rate"],
-        volume=voice_config["volume"],
+        text, voice=voice, rate=RATE, volume=VOLUME, pitch="+0Hz",
     )
 
     subtitles = []
-    with open(output_path, "wb") as audio_file:
+    with open(output_path, "wb") as f:
         async for chunk in communicate.stream():
             if chunk["type"] == "audio":
-                audio_file.write(chunk["data"])
+                f.write(chunk["data"])
             elif chunk["type"] == "WordBoundary":
                 subtitles.append({
                     "text": chunk["text"],
@@ -62,36 +48,111 @@ async def _generate_edge_tts(script_text, output_path, subtitle_path, voice_conf
                     "duration_ms": chunk["duration"] / 10000,
                 })
 
-    with open(subtitle_path, "w") as f:
-        json.dump(subtitles, f, indent=2)
-
-    if os.path.getsize(output_path) < 1000:
-        raise ValueError("Audio file too small")
+    if os.path.getsize(output_path) < 500:
+        raise ValueError("Audio too small")
 
     return subtitles
 
 
+def _create_silence(output_path, duration_s):
+    """Create a silent audio file."""
+    subprocess.run([
+        "ffmpeg", "-y", "-f", "lavfi",
+        "-i", f"anullsrc=r=24000:cl=mono",
+        "-t", str(duration_s),
+        "-b:a", "192k", output_path,
+    ], capture_output=True, check=True)
+
+
+def _concat_audio(line_files, silence_file, output_path):
+    """Join line audio files with silence gaps."""
+    concat_path = os.path.join(OUTPUT_DIR, "concat_list.txt")
+    with open(concat_path, "w") as f:
+        for i, lf in enumerate(line_files):
+            f.write(f"file '{lf}'\n")
+            if i < len(line_files) - 1:
+                f.write(f"file '{silence_file}'\n")
+
+    subprocess.run([
+        "ffmpeg", "-y", "-f", "concat", "-safe", "0",
+        "-i", concat_path,
+        "-b:a", "192k", output_path,
+    ], capture_output=True, check=True)
+
+    # Cleanup
+    os.remove(concat_path)
+    for lf in line_files:
+        os.remove(lf)
+    os.remove(silence_file)
+
+
 def generate_audio(script_text):
-    """Main entry: generate audio with natural voice fallbacks."""
+    """Record each line separately, join with real silence. No 'Oh' sounds."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     audio_path = os.path.join(OUTPUT_DIR, "voiceover.mp3")
     subtitle_path = os.path.join(OUTPUT_DIR, "subtitles.json")
 
-    for config in VOICE_CONFIGS:
+    # Split into lines
+    lines = [line.strip() for line in script_text.split("\n") if line.strip()]
+
+    # Try each voice until one works
+    for voice in VOICES:
         try:
-            subtitles = asyncio.run(
-                _generate_edge_tts(script_text, audio_path, subtitle_path, config)
-            )
-            print(f"[audio] Generated with {config['voice']} (natural, no pitch shift)")
+            all_subtitles = []
+            line_files = []
+            cumulative_offset = 0
+
+            print(f"[audio] Recording {len(lines)} lines with {voice}...")
+
+            for i, line in enumerate(lines):
+                line_path = os.path.join(OUTPUT_DIR, f"_line_{i}.mp3")
+
+                # Record this line
+                line_subs = asyncio.run(_record_line(line, voice, line_path))
+                line_files.append(line_path)
+
+                # Adjust subtitle offsets for cumulative timing
+                for sub in line_subs:
+                    sub["offset_ms"] += cumulative_offset
+                    all_subtitles.append(sub)
+
+                # Get line duration
+                result = subprocess.run(
+                    ["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
+                     "-of", "csv=p=0", line_path],
+                    capture_output=True, text=True,
+                )
+                line_duration_ms = float(result.stdout.strip()) * 1000
+                cumulative_offset += line_duration_ms + (LINE_GAP * 1000)
+
+                print(f"[audio]   Line {i+1}/{len(lines)}: done")
+
+            # Create silence gap
+            silence_path = os.path.join(OUTPUT_DIR, "_silence.mp3")
+            _create_silence(silence_path, LINE_GAP)
+
+            # Join everything
+            _concat_audio(line_files, silence_path, audio_path)
+
+            # Save subtitles
+            with open(subtitle_path, "w") as f:
+                json.dump(all_subtitles, f, indent=2)
+
+            print(f"[audio] Done: {voice}, {len(lines)} lines, {LINE_GAP}s gaps")
             return {
                 "audio_path": audio_path,
                 "subtitle_path": subtitle_path,
-                "subtitles": subtitles,
+                "subtitles": all_subtitles,
             }
-        except Exception as e:
-            print(f"[audio] {config['voice']} failed: {e}")
 
-    raise RuntimeError("All voice layers failed")
+        except Exception as e:
+            print(f"[audio] {voice} failed: {e}")
+            # Cleanup any partial files
+            for f in os.listdir(OUTPUT_DIR):
+                if f.startswith("_line_") or f == "_silence.mp3":
+                    os.remove(os.path.join(OUTPUT_DIR, f))
+
+    raise RuntimeError("All voice options failed")
 
 
 if __name__ == "__main__":
