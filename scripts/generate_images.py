@@ -43,13 +43,12 @@ def generate_with_gemini(prompt, output_path):
 
     try:
         resp = requests.post(
-            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key={key}",
+            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent?key={key}",
             headers={"Content-Type": "application/json"},
             json={
                 "contents": [{"parts": [{"text": prompt}]}],
                 "generationConfig": {
                     "responseModalities": ["IMAGE", "TEXT"],
-                    "imageSizes": ["1024x1792"],
                 },
             },
             timeout=90,
