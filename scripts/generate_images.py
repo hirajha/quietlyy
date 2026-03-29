@@ -1,9 +1,13 @@
 """
 Quietlyy — Image Generator
-3-layer fallback for AI art (no Stability AI):
-  Layer 1: Gemini 2.5 Flash Image (free 500 img/day — primary on GitHub Actions)
-  Layer 2: Pexels stock photos (free 200 req/hr — moody/atmospheric search)
+3-layer fallback (no Stability AI):
+  Layer 1: Gemini 2.5 Flash Image (free 500 img/day)
+  Layer 2: Pexels stock photos (free 200 req/hr)
   Layer 3: Gradient fallback (always works, no API)
+
+Image style: Whisprs-inspired — focus on PEOPLE, families, human
+connection vs disconnection. The topic (telephone, radio etc) is just
+the script's theme, visuals show human emotions.
 """
 
 import os
@@ -17,23 +21,46 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
 
 def generate_image_prompt(topic, visual_keywords, panel_num):
-    """Create a prompt for one panel image."""
+    """Create Whisprs-style prompts focused on PEOPLE and emotions, not objects."""
     keywords_str = ", ".join(visual_keywords)
-    mood_map = {
-        0: "warm nostalgic golden-hour lighting, peaceful past, sepia warmth, cozy interior",
-        1: "warm amber tones, people connecting meaningfully, intimate moment, gentle light",
-        2: "bittersweet transition scene, fading warmth to cool tones, twilight",
-        3: "cold modern blue tones, person alone with phone, isolation, disconnection, night",
-        4: "melancholic wide shot, solitary dark figure from behind, dusk sky, vast emptiness",
+
+    # Each panel tells the human story, not the object story
+    scene_map = {
+        0: (
+            f"A warm scene of a family gathered together in a cozy room, "
+            f"golden lamplight, holding hands, laughing softly, "
+            f"related to {topic}, {keywords_str}, feeling of togetherness and love"
+        ),
+        1: (
+            f"Two people sitting close together, sharing a meaningful moment, "
+            f"warm amber light, eye contact, genuine connection, "
+            f"theme of {topic}, {keywords_str}, intimate and personal"
+        ),
+        2: (
+            f"A person standing at a crossroads or doorway, looking back, "
+            f"half warm light half cold shadow, transition from old to new, "
+            f"bittersweet moment, related to {topic}, twilight atmosphere"
+        ),
+        3: (
+            f"A person sitting alone in a modern room, cold blue light from phone screen, "
+            f"empty chairs around them, isolation and disconnection, "
+            f"modern loneliness, contrast with {topic} era, night time"
+        ),
+        4: (
+            f"A solitary dark silhouette figure seen from behind, standing alone, "
+            f"vast empty landscape at dusk, sense of loss and reflection, "
+            f"melancholic atmosphere, thinking about {topic} and what was lost"
+        ),
     }
-    mood = mood_map.get(panel_num, mood_map[2])
+
+    scene = scene_map.get(panel_num, scene_map[2])
 
     return (
-        f"Anime illustration, cinematic vertical portrait composition, "
-        f"topic: {topic}, {keywords_str}. "
-        f"Mood: {mood}. "
-        f"Style: detailed anime art, atmospheric lighting, Studio Ghibli inspired, "
-        f"muted color palette, painterly textures, emotional, no text, no watermarks, no words."
+        f"Anime illustration, cinematic vertical portrait composition. "
+        f"{scene}. "
+        f"Style: detailed anime art like Whisprs Facebook page, atmospheric lighting, "
+        f"dark moody tones, Studio Ghibli inspired, painterly textures, emotional depth, "
+        f"no text, no watermarks, no words, no letters."
     )
 
 
@@ -69,18 +96,27 @@ def generate_with_gemini(prompt, output_path):
     return False
 
 
-# ── Layer 3: Pexels (free, 200 req/hour) ──
-def fetch_from_pexels(keywords, output_path):
+# ── Layer 2: Pexels (free, 200 req/hour) — people-focused searches ──
+def fetch_from_pexels(visual_keywords, output_path, panel_num):
     key = os.environ.get("PEXELS_API_KEY")
     if not key:
         return False
 
-    query = " ".join(keywords[:2]) + " vintage nostalgic"
+    # Search for PEOPLE scenes, not objects
+    people_queries = {
+        0: "family together warm home love",
+        1: "two people connection intimate moment",
+        2: "person alone window silhouette thinking",
+        3: "lonely person phone dark room night",
+        4: "solitary figure dusk landscape alone walking",
+    }
+    query = people_queries.get(panel_num, "person alone thinking nostalgic")
+
     try:
         resp = requests.get(
             "https://api.pexels.com/v1/search",
             headers={"Authorization": key},
-            params={"query": query, "per_page": 10, "orientation": "portrait"},
+            params={"query": query, "per_page": 15, "orientation": "portrait"},
             timeout=15,
         )
         resp.raise_for_status()
@@ -101,7 +137,7 @@ def fetch_from_pexels(keywords, output_path):
     return False
 
 
-# ── Layer 4: Gradient fallback (always works, no API) ──
+# ── Layer 3: Gradient fallback (always works, no API) ──
 def create_gradient_fallback(output_path, panel_num):
     from PIL import Image, ImageDraw, ImageFilter
 
@@ -140,7 +176,7 @@ def create_gradient_fallback(output_path, panel_num):
 
 
 def generate_images(topic, visual_keywords, num_panels=5):
-    """Generate panel images with 4-layer fallback per panel."""
+    """Generate people-focused panel images with 3-layer fallback."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     paths = []
 
@@ -150,10 +186,9 @@ def generate_images(topic, visual_keywords, num_panels=5):
 
         print(f"[images] Panel {i+1}/{num_panels}: generating...")
 
-        # Try each layer in order
         layers = [
             ("Gemini", lambda: generate_with_gemini(prompt, output_path)),
-            ("Pexels", lambda: fetch_from_pexels(visual_keywords, output_path)),
+            ("Pexels", lambda: fetch_from_pexels(visual_keywords, output_path, i)),
             ("Gradient", lambda: create_gradient_fallback(output_path, i)),
         ]
 
@@ -167,7 +202,6 @@ def generate_images(topic, visual_keywords, num_panels=5):
 
         paths.append(output_path)
 
-        # Small delay between API calls to be polite
         if i < num_panels - 1:
             time.sleep(1)
 

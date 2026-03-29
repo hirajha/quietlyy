@@ -13,17 +13,18 @@ import os
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
-# Natural deep male voices — NO pitch shifting, just slightly slower for that
-# heavy, exhausted, reflective delivery. These are Microsoft's best male voices.
+# Natural deep male voices — NO pitch shifting.
+# Slightly slower rate for heavy, reflective delivery.
+# BrianMultilingual is the clearest and deepest narrator voice.
 VOICE_CONFIGS = [
-    # Andrew Multilingual — deepest, most cinematic male voice
-    {"voice": "en-US-AndrewMultilingualNeural", "pitch": "+0Hz", "rate": "-12%", "volume": "+0%"},
-    # Guy — natural deep US male
-    {"voice": "en-US-GuyNeural", "pitch": "+0Hz", "rate": "-10%", "volume": "+0%"},
-    # Christopher — warm deep US male
-    {"voice": "en-US-ChristopherNeural", "pitch": "+0Hz", "rate": "-10%", "volume": "+0%"},
+    # Brian Multilingual — very clear deep narrator, best for this style
+    {"voice": "en-US-BrianMultilingualNeural", "pitch": "+0Hz", "rate": "-8%", "volume": "+0%"},
+    # Steffan — clear, warm, deep narrator
+    {"voice": "en-US-SteffanNeural", "pitch": "+0Hz", "rate": "-8%", "volume": "+0%"},
+    # Andrew Multilingual — cinematic male voice
+    {"voice": "en-US-AndrewMultilingualNeural", "pitch": "+0Hz", "rate": "-10%", "volume": "+0%"},
     # Ryan — deep British male
-    {"voice": "en-GB-RyanNeural", "pitch": "+0Hz", "rate": "-10%", "volume": "+0%"},
+    {"voice": "en-GB-RyanNeural", "pitch": "+0Hz", "rate": "-8%", "volume": "+0%"},
 ]
 
 

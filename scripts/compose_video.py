@@ -338,24 +338,71 @@ def _calculate_line_timings(script_lines, subtitles, total_duration):
     return line_timings
 
 
+def _pick_background_music():
+    """Pick a background music track from assets/music/."""
+    music_dir = os.path.join(os.path.dirname(__file__), "..", "assets", "music")
+    if not os.path.exists(music_dir):
+        return None
+
+    tracks = [f for f in os.listdir(music_dir) if f.endswith(".mp3")]
+    if not tracks:
+        return None
+
+    import random
+    track = random.choice(tracks)
+    return os.path.join(music_dir, track)
+
+
 def _assemble_video(frames_dir, audio_path, output_path, duration):
-    """Use ffmpeg to combine frames + audio into final MP4."""
-    cmd = [
-        "ffmpeg", "-y",
-        "-framerate", str(FPS),
-        "-i", os.path.join(frames_dir, "frame_%05d.png"),
-        "-i", audio_path,
-        "-c:v", "libx264",
-        "-preset", "medium",
-        "-crf", "23",
-        "-pix_fmt", "yuv420p",
-        "-c:a", "aac",
-        "-b:a", "192k",
-        "-shortest",
-        "-movflags", "+faststart",
-        output_path,
-    ]
-    print(f"[video] Assembling with ffmpeg...")
+    """Combine frames + voiceover + background music into final MP4."""
+    music_path = _pick_background_music()
+
+    if music_path:
+        # Mix voiceover (loud) + background music (quiet, faded)
+        print(f"[video] Assembling with background music: {os.path.basename(music_path)}")
+        cmd = [
+            "ffmpeg", "-y",
+            "-framerate", str(FPS),
+            "-i", os.path.join(frames_dir, "frame_%05d.png"),
+            "-i", audio_path,
+            "-stream_loop", "-1", "-i", music_path,  # Loop music
+            "-filter_complex",
+            # Voice at full volume, music at 15% volume, trim to voice length
+            # Music fades in 2s and out last 3s
+            f"[1:a]volume=1.0[voice];"
+            f"[2:a]volume=0.15,afade=t=in:d=2,afade=t=out:st={max(0,duration-3)}:d=3[music];"
+            f"[voice][music]amix=inputs=2:duration=shortest[aout]",
+            "-map", "0:v",
+            "-map", "[aout]",
+            "-c:v", "libx264",
+            "-preset", "medium",
+            "-crf", "23",
+            "-pix_fmt", "yuv420p",
+            "-c:a", "aac",
+            "-b:a", "192k",
+            "-shortest",
+            "-movflags", "+faststart",
+            output_path,
+        ]
+    else:
+        # No music available, voice only
+        print("[video] Assembling (voice only, no background music found)")
+        cmd = [
+            "ffmpeg", "-y",
+            "-framerate", str(FPS),
+            "-i", os.path.join(frames_dir, "frame_%05d.png"),
+            "-i", audio_path,
+            "-c:v", "libx264",
+            "-preset", "medium",
+            "-crf", "23",
+            "-pix_fmt", "yuv420p",
+            "-c:a", "aac",
+            "-b:a", "192k",
+            "-shortest",
+            "-movflags", "+faststart",
+            output_path,
+        ]
+
     subprocess.run(cmd, check=True, capture_output=True)
 
 
