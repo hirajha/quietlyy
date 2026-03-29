@@ -1,0 +1,61 @@
+{
+  "example_scripts": [
+    {
+      "topic": "Telephone",
+      "visual_keywords": ["old telephone", "rotary phone", "vintage phone booth", "phone cord"],
+      "script": "There was a time… when hearing someone's voice… meant everything.\nBack then… people waited hours… sometimes days… just for a call.\nNot because it was easy… but because it mattered.\nAnd now… They silence calls… from the people who care the most.\nMaybe… They didn't lose connection… They just stopped valuing it."
+    },
+    {
+      "topic": "Typewriter",
+      "visual_keywords": ["typewriter", "vintage writing", "old letters", "ink pen"],
+      "script": "There was a time… when every word carried weight.\nBack then… people thought twice… before putting it down.\nNot because it was hard… but because it stayed.\nAnd now… They say things instantly… and forget them just as fast.\nMaybe… They didn't lose meaning… They just stopped respecting it."
+    },
+    {
+      "topic": "Train Station",
+      "visual_keywords": ["old train station", "vintage railway", "steam train", "platform goodbye"],
+      "script": "There was a time… when goodbyes felt heavier.\nBack then… people waited on platforms… holding on to every moment.\nNot because they had time… but because it mattered.\nAnd now… we leave without looking back… as if nothing stays behind.\nMaybe… we didn't lose people… we just stopped holding on."
+    },
+    {
+      "topic": "Handwritten Letters",
+      "visual_keywords": ["old letters", "handwriting", "wax seal", "vintage envelope"],
+      "script": "There was a time… when distance didn't mean silence.\nBack then… people wrote letters… folded them carefully… and waited.\nNot because they had patience… but because someone was worth the wait.\nAnd now… we have instant messages… but nothing to say.\nMaybe… we didn't lose words… we just lost the reason to write them."
+    },
+    {
+      "topic": "Film Camera",
+      "visual_keywords": ["vintage camera", "film roll", "old photographs", "darkroom"],
+      "script": "There was a time… when every photo was a promise.\nBack then… people saved their last frame… for something that mattered.\nNot because film was expensive… but because moments were.\nAnd now… we take thousands of pictures… and remember none.\nMaybe… we didn't lose memories… we just stopped being present for them."
+    }
+  ],
+  "topics_pool": [
+    "Vinyl Records",
+    "Grandfather Clock",
+    "Library Card",
+    "Handshake",
+    "Dinner Table",
+    "Front Porch",
+    "Neighborhood",
+    "Sunday Mornings",
+    "Walking Together",
+    "Eye Contact",
+    "Patience",
+    "Silence Between Friends",
+    "Old Bookshop",
+    "Cassette Tape",
+    "Landline Phone",
+    "Paper Map",
+    "Window Seat",
+    "Childhood Games",
+    "Street Lamps",
+    "Wooden Bench",
+    "Old Radio",
+    "Pocket Watch",
+    "Black and White TV",
+    "Pen Pal",
+    "Village Well",
+    "Bicycle Rides",
+    "Love Letters",
+    "Family Album",
+    "Handmade Gifts",
+    "Waiting at the Door"
+  ]
+}

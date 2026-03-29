@@ -1,0 +1,80 @@
+name: Quietlyy — Generate & Post Video
+
+on:
+  # Run daily at 10:00 AM IST (4:30 AM UTC)
+  schedule:
+    - cron: '30 4 * * *'
+
+  # Manual trigger from GitHub (works from Android tablet too)
+  workflow_dispatch:
+    inputs:
+      skip_post:
+        description: 'Skip Facebook posting (just generate video)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+      custom_topic:
+        description: 'Override topic (leave empty for random)'
+        required: false
+        default: ''
+        type: string
+
+jobs:
+  generate-video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install system fonts
+        run: |
+          sudo apt-get install -y fonts-dejavu fonts-liberation
+
+      - name: Run pipeline
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.skip_post }}" = "true" ]; then
+            ARGS="--skip-post"
+          fi
+          python scripts/pipeline.py $ARGS
+
+      - name: Upload video artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quietlyy-video-${{ github.run_number }}
+          path: |
+            output/quietlyy_video.mp4
+            output/script.json
+          retention-days: 30
+
+      - name: Upload post result
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: post-result-${{ github.run_number }}
+          path: output/post_result.json
+          retention-days: 30
+          if-no-files-found: ignore
