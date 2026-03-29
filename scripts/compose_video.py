@@ -310,21 +310,35 @@ def _calculate_line_timings(script_lines, subtitles, total_duration):
 
 
 def _pick_background_music():
+    """Pick background music — prefer instrumental.mp3 (reference track)."""
     music_dir = os.path.join(os.path.dirname(__file__), "..", "assets", "music")
     if not os.path.exists(music_dir):
         return None
-    tracks = [f for f in os.listdir(music_dir) if f.endswith(".mp3")]
+    # Prefer the reference instrumental
+    preferred = os.path.join(music_dir, "instrumental.mp3")
+    if os.path.exists(preferred):
+        return preferred
+    tracks = [f for f in os.listdir(music_dir) if f.endswith((".mp3", ".wav"))]
     if not tracks:
         return None
-    return os.path.join(music_dir, random.choice(tracks))
+    return os.path.join(music_dir, tracks[0])
 
 
 def _assemble_video(frames_dir, audio_path, output_path, duration):
-    """Combine frames + voiceover + background music."""
+    """
+    Combine frames + voiceover + background music.
+    Music style (from reference analysis):
+      - Starts low
+      - Builds slightly in middle
+      - Supports emotion without overpowering
+      - Voice is clear and dominant
+    """
     music_path = _pick_background_music()
 
     if music_path:
-        print(f"[video] Mixing with background music: {os.path.basename(music_path)}")
+        print(f"[video] Mixing: voice + {os.path.basename(music_path)}")
+        # Music at 20% volume — present but never overpowering voice
+        # Fade in 3s, fade out last 3s
         cmd = [
             "ffmpeg", "-y",
             "-framerate", str(FPS),
@@ -332,9 +346,9 @@ def _assemble_video(frames_dir, audio_path, output_path, duration):
             "-i", audio_path,
             "-stream_loop", "-1", "-i", music_path,
             "-filter_complex",
-            f"[1:a]volume=1.0[voice];"
-            f"[2:a]volume=0.12,afade=t=in:d=2,afade=t=out:st={max(0,duration-3)}:d=3[music];"
-            f"[voice][music]amix=inputs=2:duration=shortest[aout]",
+            f"[1:a]loudnorm=I=-16:TP=-1.5[voice];"
+            f"[2:a]volume=0.20,afade=t=in:d=3,afade=t=out:st={max(0,duration-3)}:d=3[music];"
+            f"[voice][music]amix=inputs=2:duration=shortest:normalize=0[aout]",
             "-map", "0:v", "-map", "[aout]",
             "-c:v", "libx264", "-preset", "medium", "-crf", "23",
             "-pix_fmt", "yuv420p",
