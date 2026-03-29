@@ -30,10 +30,17 @@ VOICES = [
 
 
 async def _record_line(text, voice, output_path):
-    """Record a single line of speech."""
+    """Record a single line of speech. Strip ellipsis to prevent 'Oh' sound."""
     import edge_tts
+    # Replace "…" with comma for natural pause — prevents edge-tts saying "Oh"
+    clean_text = text.replace("…", ",").replace("...", ",")
+    # Clean up double commas
+    while ",," in clean_text:
+        clean_text = clean_text.replace(",,", ",")
+    clean_text = clean_text.replace(", ,", ",").strip().strip(",").strip()
+
     communicate = edge_tts.Communicate(
-        text, voice=voice, rate=RATE, volume=VOLUME, pitch="+0Hz",
+        clean_text, voice=voice, rate=RATE, volume=VOLUME, pitch="+0Hz",
     )
 
     subtitles = []
