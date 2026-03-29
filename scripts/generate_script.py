@@ -1,7 +1,7 @@
 """
 Quietlyy — Script Generator
-Uses Groq (free) to generate nostalgic scripts in the established style.
-Falls back to Gemini if Groq fails.
+4-layer fallback: Groq → Cerebras → Gemini → Template
+No Stability AI. All free APIs, no credit card needed.
 """
 
 import os
@@ -20,6 +20,7 @@ def load_templates():
 def pick_topic(templates):
     """Pick a random topic from the pool, avoiding recently used ones."""
     used_path = os.path.join(os.path.dirname(__file__), "..", "output", "used_topics.json")
+    os.makedirs(os.path.dirname(used_path), exist_ok=True)
     used = []
     if os.path.exists(used_path):
         with open(used_path, "r") as f:
@@ -28,13 +29,11 @@ def pick_topic(templates):
     pool = templates["topics_pool"]
     available = [t for t in pool if t not in used]
     if not available:
-        # Reset if all topics used
         used = []
         available = pool
 
     topic = random.choice(available)
     used.append(topic)
-    # Keep only last 20
     used = used[-20:]
     with open(used_path, "w") as f:
         json.dump(used, f)
@@ -68,17 +67,13 @@ Examples:
 {examples_text}"""
 
 
-def generate_with_groq(prompt):
-    """Use Groq (free, fast) for script generation."""
-    key = os.environ.get("GROQ_API_KEY")
-    if not key:
-        return None
-
+def _call_openai_compatible(url, key, model, prompt, name):
+    """Generic caller for OpenAI-compatible APIs (Groq, Cerebras, SambaNova, Mistral)."""
     resp = requests.post(
-        "https://api.groq.com/openai/v1/chat/completions",
+        url,
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
         json={
-            "model": "llama-3.3-70b-versatile",
+            "model": model,
             "messages": [{"role": "user", "content": prompt}],
             "max_tokens": 300,
             "temperature": 0.8,
@@ -91,8 +86,30 @@ def generate_with_groq(prompt):
     return json.loads(content)
 
 
+# ── Layer 1: Groq (free 500K tokens/day) ──
+def generate_with_groq(prompt):
+    key = os.environ.get("GROQ_API_KEY")
+    if not key:
+        return None
+    return _call_openai_compatible(
+        "https://api.groq.com/openai/v1/chat/completions",
+        key, "llama-3.3-70b-versatile", prompt, "Groq",
+    )
+
+
+# ── Layer 2: Cerebras (free 1M tokens/day) ──
+def generate_with_cerebras(prompt):
+    key = os.environ.get("CEREBRAS_API_KEY")
+    if not key:
+        return None
+    return _call_openai_compatible(
+        "https://api.cerebras.ai/v1/chat/completions",
+        key, "llama-3.3-70b", prompt, "Cerebras",
+    )
+
+
+# ── Layer 3: Gemini Flash (free 250 req/day) ──
 def generate_with_gemini(prompt):
-    """Fallback: Gemini Flash (free 250 req/day)."""
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         return None
@@ -115,17 +132,26 @@ def generate_with_gemini(prompt):
     return json.loads(text)
 
 
+# ── Layer 4: Template fallback (always works, no API) ──
+# Built into generate_script() below
+
+
 def generate_script():
-    """Main entry: generate a script for a random topic."""
+    """Main entry: generate a script with 4-layer fallback."""
     templates = load_templates()
     topic = pick_topic(templates)
     prompt = build_prompt(topic, templates["example_scripts"])
 
     print(f"[script] Topic: {topic}")
 
-    # Try Groq first (free), then Gemini
+    providers = [
+        (generate_with_groq, "Groq"),
+        (generate_with_cerebras, "Cerebras"),
+        (generate_with_gemini, "Gemini"),
+    ]
+
     result = None
-    for gen_fn, name in [(generate_with_groq, "Groq"), (generate_with_gemini, "Gemini")]:
+    for gen_fn, name in providers:
         try:
             result = gen_fn(prompt)
             if result and "script" in result:
@@ -136,11 +162,11 @@ def generate_script():
             result = None
 
     if not result:
-        # Ultimate fallback: pick a random example
+        # Layer 4: template fallback — always works
         ex = random.choice(templates["example_scripts"])
         result = {"script": ex["script"], "visual_keywords": ex["visual_keywords"]}
         topic = ex["topic"]
-        print("[script] Using template fallback")
+        print("[script] Using template fallback (Layer 4)")
 
     result["topic"] = topic
     return result
