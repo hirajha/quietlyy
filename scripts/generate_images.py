@@ -171,7 +171,7 @@ def generate_with_dalle(prompt, output_path):
                 "quality": "standard",
                 "response_format": "url",
             },
-            timeout=60,
+            timeout=120,
         )
         resp.raise_for_status()
         data = resp.json()
