@@ -428,8 +428,8 @@ def generate_images(topic, visual_keywords, num_panels=5):
         if not success:
             raise RuntimeError(f"All image sources failed for panel {i+1}. Cannot produce quality video.")
 
-        # Save to gallery for future reuse
-        _add_to_gallery(output_path, topic, i, source)
+        # Save to gallery for future reuse (disabled until test approval)
+        # _add_to_gallery(output_path, topic, i, source)
         paths.append(output_path)
 
         if i < num_panels - 1:
