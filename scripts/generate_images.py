@@ -134,8 +134,9 @@ def generate_image_prompt(topic, visual_keywords, panel_num):
     scene = scene_map.get(panel_num, scene_map[2])
 
     return (
+        f"IMPORTANT: This image MUST be VERTICAL PORTRAIT orientation — taller than wide, like a phone screen. "
         f"Digital anime illustration, hand-painted style, NOT a photograph. "
-        f"Cinematic vertical portrait composition (9:16 aspect ratio). "
+        f"Vertical portrait composition (9:16 aspect ratio, tall and narrow). "
         f"{scene}. "
         f"Style: illustrated anime art, Makoto Shinkai lighting, Studio Ghibli warmth, "
         f"soft painterly brush strokes, visible illustration textures, "
@@ -143,34 +144,30 @@ def generate_image_prompt(topic, visual_keywords, panel_num):
         f"dark moody cinematic tones, emotional depth, bokeh light particles. "
         f"Must look like a digital painting NOT a real photo. "
         f"No text, no watermarks, no words, no letters, no UI elements. "
-        f"No borders, no frames, no colored bars — image must fill the entire canvas edge to edge."
+        f"No borders, no frames, no colored bars — image must fill the entire canvas edge to edge. "
+        f"The image must be PORTRAIT — height greater than width."
     )
 
 
-def _validate_portrait(image_path):
-    """Check if image is portrait orientation. If landscape, rotate it."""
+def _is_portrait(image_path):
+    """Check if image is portrait orientation (taller than wide)."""
     from PIL import Image
     try:
         img = Image.open(image_path)
         w, h = img.size
-        if w > h:
-            # Landscape — rotate 90° to make portrait
-            print(f"[images] Image was landscape ({w}x{h}), rotating to portrait")
-            img = img.rotate(90, expand=True)
-            img.save(image_path)
-        return True
-    except Exception as e:
-        print(f"[images] Validation failed: {e}")
-        return False
+        print(f"[images] Image dimensions: {w}x{h}")
+        return h >= w
+    except Exception:
+        return True  # Can't check, assume OK
 
 
 def generate_with_dalle(prompt, output_path):
-    """Generate image using OpenAI DALL-E 3 API. Retries once on timeout."""
+    """Generate image using OpenAI DALL-E 3 API. Retries up to 3 times."""
     key = os.environ.get("OPENAI_API_KEY")
     if not key:
         return False
 
-    for attempt in range(2):  # Try twice
+    for attempt in range(3):
         try:
             resp = requests.post(
                 "https://api.openai.com/v1/images/generations",
@@ -200,12 +197,17 @@ def generate_with_dalle(prompt, output_path):
             with open(output_path, "wb") as f:
                 f.write(img_resp.content)
 
-            # Validate portrait orientation — rotate if landscape
-            _validate_portrait(output_path)
+            # Reject landscape images — retry
+            if not _is_portrait(output_path):
+                print(f"[images] DALL-E returned landscape, retrying...")
+                os.remove(output_path)
+                time.sleep(3)
+                continue
+
             return True
         except Exception as e:
             print(f"[images] DALL-E attempt {attempt+1} failed: {e}")
-            if attempt == 0:
+            if attempt < 2:
                 time.sleep(3)
     return False
 

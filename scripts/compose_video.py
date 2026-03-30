@@ -93,38 +93,15 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
     num_panels = len(image_paths)
     num_lines = len(lines)
 
-    # Calculate per-line duration from audio
-    # Each line was recorded separately with 1.5s gaps
-    line_durations = []
-    for i in range(num_lines):
-        line_path = os.path.join(OUTPUT_DIR, f"_line_{i}.mp3")
-        if os.path.exists(line_path):
-            line_durations.append(get_audio_duration(line_path))
-        else:
-            # Estimate from total duration
-            line_durations.append((duration - 1.5 * (num_lines - 1)) / num_lines)
-
-    # If we don't have individual line files, split evenly
-    if not line_durations or len(line_durations) != num_lines:
-        seg = (duration - 1.5 * (num_lines - 1)) / num_lines
-        line_durations = [seg] * num_lines
-
-    # Total per-segment = line_duration + gap (1.5s)
-    # Last line gets extra padding so video NEVER ends before voice finishes
-    GAP = 1.5
-    TAIL_PAD = 4.0
-    seg_durations = [d + GAP for d in line_durations]
-    seg_durations[-1] = line_durations[-1] + TAIL_PAD
-
-    # Normalize segments to match audio, THEN add tail pad on top
-    # This ensures the voice timing is correct AND video extends past audio end
-    audio_portion = sum(seg_durations[:-1]) + line_durations[-1]  # without tail pad
-    scale = duration / audio_portion if audio_portion > 0 else 1
-    seg_durations = [d * scale for d in seg_durations[:-1]]
-    seg_durations.append(line_durations[-1] * scale + TAIL_PAD)  # tail pad ADDED, not scaled
+    # Simple approach: split audio duration evenly, then add tail pad
+    # This guarantees video is ALWAYS longer than audio
+    TAIL_PAD = 5.0
+    per_seg = duration / num_lines
+    seg_durations = [per_seg] * num_lines
+    seg_durations[-1] = per_seg + TAIL_PAD  # Last segment extends past audio
 
     total_video = sum(seg_durations)
-    print(f"[video] Audio: {duration:.1f}s, Video: {total_video:.1f}s (includes {TAIL_PAD}s tail pad)")
+    print(f"[video] Audio: {duration:.1f}s, Video: {total_video:.1f}s (last segment +{TAIL_PAD}s pad)")
 
     print(f"[video] Baking text onto {num_panels} panels...")
 
