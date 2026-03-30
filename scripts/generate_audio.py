@@ -42,9 +42,9 @@ def _record_line_elevenlabs(text, output_path):
         "text": clean,
         "model_id": ELEVENLABS_MODEL,
         "voice_settings": {
-            "stability": 0.65,
-            "similarity_boost": 0.80,
-            "style": 0.35,
+            "stability": 0.80,
+            "similarity_boost": 0.75,
+            "style": 0.25,
             "use_speaker_boost": True,
         },
     }

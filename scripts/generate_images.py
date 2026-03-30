@@ -105,28 +105,28 @@ def generate_image_prompt(topic, visual_keywords, panel_num):
 
     scene_map = {
         0: (
-            f"A warm scene of a family gathered together in a cozy room, "
-            f"golden lamplight, holding hands, laughing softly, "
-            f"related to {topic}, {keywords_str}, feeling of togetherness and love"
+            f"A person standing by a window, looking outside at rain, "
+            f"soft dim lamplight behind them, quiet contemplation, "
+            f"related to {topic}, {keywords_str}, feeling of gentle nostalgia"
         ),
         1: (
-            f"Two people sitting close together, sharing a meaningful moment, "
-            f"warm amber light, eye contact, genuine connection, "
+            f"Two people sitting on a bench under a streetlight at night, "
+            f"cool moonlight, subtle mist, quiet emotional moment, "
             f"theme of {topic}, {keywords_str}, intimate and personal"
         ),
         2: (
-            f"A person standing at a crossroads or doorway, looking back, "
-            f"half warm light half cold shadow, transition from old to new, "
+            f"A person walking alone on an empty street at dusk, "
+            f"cool blue and purple tones, fading daylight, long shadows, "
             f"bittersweet moment, related to {topic}, twilight atmosphere"
         ),
         3: (
-            f"A person sitting alone in a modern room, cold blue light from phone screen, "
-            f"empty chairs around them, isolation and disconnection, "
-            f"modern loneliness, contrast with {topic} era, night time"
+            f"A person sitting alone on a park bench at night, "
+            f"cold blue moonlight, distant city lights blurred, "
+            f"modern loneliness, contrast with {topic} era, quiet night"
         ),
         4: (
-            f"A solitary dark silhouette figure seen from behind, standing alone, "
-            f"vast empty landscape at dusk, sense of loss and reflection, "
+            f"A solitary figure seen from behind, standing at the edge of water, "
+            f"dark blue sky with stars, reflection in still water, "
             f"melancholic atmosphere, thinking about {topic} and what was lost"
         ),
     }
@@ -134,34 +134,44 @@ def generate_image_prompt(topic, visual_keywords, panel_num):
     scene = scene_map.get(panel_num, scene_map[2])
 
     return (
-        f"Digital anime illustration for a VERTICAL phone screen (9:16 portrait). "
-        f"All people must be standing or sitting UPRIGHT — heads at the top, feet at the bottom. "
-        f"The horizon line must be HORIZONTAL. The scene must look correct when viewed on a phone held upright. "
+        f"Digital anime illustration, muted cool color palette. "
+        f"Dark, moody, cinematic. Cool blue and purple tones, NOT warm orange or golden. "
+        f"Subdued lighting — moonlight, streetlights, dusk. NOT bright or sunny. "
         f"Hand-painted anime style, NOT a photograph. "
         f"{scene}. "
-        f"Style: illustrated anime art, Makoto Shinkai lighting, Studio Ghibli warmth, "
-        f"soft painterly brush strokes, glowing atmospheric lighting, dreamy color palette, "
-        f"dark moody cinematic tones, emotional depth, bokeh light particles. "
+        f"Style: illustrated anime art, Makoto Shinkai lighting, "
+        f"soft painterly brush strokes, muted desaturated colors, "
+        f"cool blue shadows, dim atmospheric lighting, "
+        f"dark moody cinematic tones, emotional depth, subtle bokeh. "
+        f"Color palette: dark blues, muted purples, cool grays, soft teal. "
+        f"Avoid bright warm colors like orange, yellow, gold. "
         f"Must look like a digital painting NOT a real photo. "
-        f"No text, no watermarks, no words, no letters, no UI elements. "
-        f"No borders, no frames — image fills the entire canvas edge to edge."
+        f"No text, no watermarks, no words, no UI elements."
     )
 
 
-def _is_portrait(image_path):
-    """Check if image is portrait orientation (taller than wide)."""
+def _crop_to_portrait(image_path):
+    """Crop square image to 9:16 portrait (center crop, keep top for faces)."""
     from PIL import Image
-    try:
-        img = Image.open(image_path)
-        w, h = img.size
-        print(f"[images] Image dimensions: {w}x{h}")
-        return h >= w
-    except Exception:
-        return True  # Can't check, assume OK
+    img = Image.open(image_path)
+    w, h = img.size
+    print(f"[images] Raw dimensions: {w}x{h}")
+
+    # Target: 9:16 ratio. From 1024x1024 → crop to 576x1024
+    target_w = int(h * 9 / 16)
+    if target_w > w:
+        target_w = w
+    # Center crop horizontally
+    left = (w - target_w) // 2
+    img = img.crop((left, 0, left + target_w, h))
+    img.save(image_path)
+    print(f"[images] Cropped to portrait: {img.size[0]}x{img.size[1]}")
 
 
 def generate_with_dalle(prompt, output_path):
-    """Generate image using OpenAI DALL-E 3 API. Retries up to 3 times."""
+    """Generate image using OpenAI DALL-E 3 API.
+    Uses 1024x1024 (square) to avoid sideways composition bug,
+    then crops to portrait in PIL."""
     key = os.environ.get("OPENAI_API_KEY")
     if not key:
         return False
@@ -178,7 +188,7 @@ def generate_with_dalle(prompt, output_path):
                     "model": "dall-e-3",
                     "prompt": prompt,
                     "n": 1,
-                    "size": "1024x1792",  # Portrait 9:16 for vertical video
+                    "size": "1024x1024",  # Square — no sideways composition
                     "quality": "standard",
                     "response_format": "url",
                 },
@@ -196,13 +206,8 @@ def generate_with_dalle(prompt, output_path):
             with open(output_path, "wb") as f:
                 f.write(img_resp.content)
 
-            # Reject landscape images — retry
-            if not _is_portrait(output_path):
-                print(f"[images] DALL-E returned landscape, retrying...")
-                os.remove(output_path)
-                time.sleep(3)
-                continue
-
+            # Crop square to portrait (9:16)
+            _crop_to_portrait(output_path)
             return True
         except Exception as e:
             print(f"[images] DALL-E attempt {attempt+1} failed: {e}")
