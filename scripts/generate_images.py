@@ -147,6 +147,23 @@ def generate_image_prompt(topic, visual_keywords, panel_num):
     )
 
 
+def _validate_portrait(image_path):
+    """Check if image is portrait orientation. If landscape, rotate it."""
+    from PIL import Image
+    try:
+        img = Image.open(image_path)
+        w, h = img.size
+        if w > h:
+            # Landscape — rotate 90° to make portrait
+            print(f"[images] Image was landscape ({w}x{h}), rotating to portrait")
+            img = img.rotate(90, expand=True)
+            img.save(image_path)
+        return True
+    except Exception as e:
+        print(f"[images] Validation failed: {e}")
+        return False
+
+
 def generate_with_dalle(prompt, output_path):
     """Generate image using OpenAI DALL-E 3 API. Retries once on timeout."""
     key = os.environ.get("OPENAI_API_KEY")
@@ -182,6 +199,9 @@ def generate_with_dalle(prompt, output_path):
                 continue
             with open(output_path, "wb") as f:
                 f.write(img_resp.content)
+
+            # Validate portrait orientation — rotate if landscape
+            _validate_portrait(output_path)
             return True
         except Exception as e:
             print(f"[images] DALL-E attempt {attempt+1} failed: {e}")

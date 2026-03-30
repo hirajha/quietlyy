@@ -110,16 +110,21 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         line_durations = [seg] * num_lines
 
     # Total per-segment = line_duration + gap (1.5s)
-    # Last line gets extra 2s so video doesn't cut off before voice finishes
+    # Last line gets extra padding so video NEVER ends before voice finishes
     GAP = 1.5
-    TAIL_PAD = 4.0  # Extra padding so video never ends before voice finishes
+    TAIL_PAD = 4.0
     seg_durations = [d + GAP for d in line_durations]
     seg_durations[-1] = line_durations[-1] + TAIL_PAD
 
-    # Normalize so total matches audio duration
-    total_seg = sum(seg_durations)
-    scale = duration / total_seg if total_seg > 0 else 1
-    seg_durations = [d * scale for d in seg_durations]
+    # Normalize segments to match audio, THEN add tail pad on top
+    # This ensures the voice timing is correct AND video extends past audio end
+    audio_portion = sum(seg_durations[:-1]) + line_durations[-1]  # without tail pad
+    scale = duration / audio_portion if audio_portion > 0 else 1
+    seg_durations = [d * scale for d in seg_durations[:-1]]
+    seg_durations.append(line_durations[-1] * scale + TAIL_PAD)  # tail pad ADDED, not scaled
+
+    total_video = sum(seg_durations)
+    print(f"[video] Audio: {duration:.1f}s, Video: {total_video:.1f}s (includes {TAIL_PAD}s tail pad)")
 
     print(f"[video] Baking text onto {num_panels} panels...")
 
