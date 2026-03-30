@@ -1,11 +1,9 @@
 """
 Quietlyy — Image Generator
-5-layer fallback (no Stability AI):
-  Layer 1: Together.ai FLUX.1-schnell (free tier)
-  Layer 2: Gemini 2.5 Flash Image (free 500 img/day)
-  Layer 3: Pollinations.ai FLUX (free, no key)
-  Layer 4: Pixabay / Pexels stock photos (free)
-  Layer 5: Gradient fallback (always works, no API)
+3-layer fallback:
+  Layer 1: Pollinations.ai FLUX (free, no key) — PRIMARY
+  Layer 2: Pixabay / Pexels stock photos (free)
+  NO gradient fallback — if all fail, pipeline fails.
 
 Image style: Whisprs-inspired — focus on PEOPLE, families, human
 connection vs disconnection. The topic (telephone, radio etc) is just
@@ -14,7 +12,6 @@ the script's theme, visuals show human emotions.
 
 import os
 import json
-import base64
 import random
 import time
 import requests
@@ -66,72 +63,7 @@ def generate_image_prompt(topic, visual_keywords, panel_num):
     )
 
 
-# ── Layer 1: Together.ai FLUX (free tier, no credit card) ──
-def generate_with_together(prompt, output_path):
-    key = os.environ.get("TOGETHER_API_KEY")
-    if not key:
-        return False
-
-    try:
-        resp = requests.post(
-            "https://api.together.xyz/v1/images/generations",
-            headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
-            json={
-                "model": "black-forest-labs/FLUX.1-schnell-Free",
-                "prompt": prompt,
-                "width": 768,
-                "height": 1344,
-                "steps": 4,
-                "n": 1,
-                "response_format": "b64_json",
-            },
-            timeout=60,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        img_b64 = data["data"][0]["b64_json"]
-        img_data = base64.b64decode(img_b64)
-        with open(output_path, "wb") as f:
-            f.write(img_data)
-        return True
-    except Exception as e:
-        print(f"[images] Together.ai failed: {e}")
-    return False
-
-
-# ── Layer 2: Gemini 2.5 Flash Image (free 500 img/day) ──
-def generate_with_gemini(prompt, output_path):
-    key = os.environ.get("GEMINI_API_KEY")
-    if not key:
-        return False
-
-    try:
-        resp = requests.post(
-            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent?key={key}",
-            headers={"Content-Type": "application/json"},
-            json={
-                "contents": [{"parts": [{"text": prompt}]}],
-                "generationConfig": {
-                    "responseModalities": ["IMAGE", "TEXT"],
-                },
-            },
-            timeout=90,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-
-        for part in data["candidates"][0]["content"]["parts"]:
-            if "inlineData" in part:
-                img_data = base64.b64decode(part["inlineData"]["data"])
-                with open(output_path, "wb") as f:
-                    f.write(img_data)
-                return True
-    except Exception as e:
-        print(f"[images] Gemini failed: {e}")
-    return False
-
-
-# ── Layer 3: Pollinations.ai FLUX (free, no API key needed) ──
+# ── Layer 1: Pollinations.ai FLUX (free, no API key needed) — PRIMARY ──
 def generate_with_pollinations(prompt, output_path):
     try:
         from urllib.parse import quote
@@ -149,7 +81,7 @@ def generate_with_pollinations(prompt, output_path):
     return False
 
 
-# ── Layer 4a: Pixabay (free, 100 req/min) — people-focused searches ──
+# ── Layer 2a: Pixabay (free, 100 req/min) — people-focused searches ──
 def fetch_from_pixabay(visual_keywords, output_path, panel_num):
     key = os.environ.get("PIXABAY_API_KEY")
     if not key:
@@ -197,7 +129,7 @@ def fetch_from_pixabay(visual_keywords, output_path, panel_num):
     return False
 
 
-# ── Layer 4b: Pexels (free, 200 req/hour) — people-focused searches ──
+# ── Layer 2b: Pexels (free, 200 req/hour) — people-focused searches ──
 def fetch_from_pexels(visual_keywords, output_path, panel_num):
     key = os.environ.get("PEXELS_API_KEY")
     if not key:
@@ -238,46 +170,9 @@ def fetch_from_pexels(visual_keywords, output_path, panel_num):
     return False
 
 
-# ── Layer 3: Gradient fallback (always works, no API) ──
-def create_gradient_fallback(output_path, panel_num):
-    from PIL import Image, ImageDraw, ImageFilter
-
-    width, height = 1080, 1920
-    img = Image.new("RGB", (width, height))
-    draw = ImageDraw.Draw(img)
-
-    palettes = [
-        [(65, 42, 20), (120, 75, 35)],
-        [(80, 55, 28), (140, 90, 45)],
-        [(50, 45, 55), (90, 70, 85)],
-        [(20, 30, 55), (45, 55, 85)],
-        [(15, 18, 30), (40, 35, 55)],
-    ]
-    top_color, bottom_color = palettes[min(panel_num, 4)]
-
-    for y in range(height):
-        ratio = y / height
-        r = int(top_color[0] + (bottom_color[0] - top_color[0]) * ratio)
-        g = int(top_color[1] + (bottom_color[1] - top_color[1]) * ratio)
-        b = int(top_color[2] + (bottom_color[2] - top_color[2]) * ratio)
-        draw.line([(0, y), (width, y)], fill=(r, g, b))
-
-    import random as rng
-    rng.seed(panel_num * 42)
-    for _ in range(3000):
-        x = rng.randint(0, width - 1)
-        y = rng.randint(0, height - 1)
-        brightness = rng.randint(-15, 15)
-        px = img.getpixel((x, y))
-        img.putpixel((x, y), tuple(max(0, min(255, c + brightness)) for c in px))
-
-    img = img.filter(ImageFilter.GaussianBlur(radius=2))
-    img.save(output_path, "PNG")
-    return True
-
-
 def generate_images(topic, visual_keywords, num_panels=5):
-    """Generate people-focused panel images with 3-layer fallback."""
+    """Generate people-focused panel images. Pollinations primary, Pixabay/Pexels fallback.
+    Raises error if any panel fails (no gradient fallback)."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     paths = []
 
@@ -288,21 +183,23 @@ def generate_images(topic, visual_keywords, num_panels=5):
         print(f"[images] Panel {i+1}/{num_panels}: generating...")
 
         layers = [
-            ("Together.ai", lambda: generate_with_together(prompt, output_path)),
-            ("Gemini", lambda: generate_with_gemini(prompt, output_path)),
-            ("Pollinations", lambda: generate_with_pollinations(prompt, output_path)),
-            ("Pixabay", lambda: fetch_from_pixabay(visual_keywords, output_path, i)),
-            ("Pexels", lambda: fetch_from_pexels(visual_keywords, output_path, i)),
-            ("Gradient", lambda: create_gradient_fallback(output_path, i)),
+            ("Pollinations", lambda p=prompt, o=output_path: generate_with_pollinations(p, o)),
+            ("Pixabay", lambda kw=visual_keywords, o=output_path, idx=i: fetch_from_pixabay(kw, o, idx)),
+            ("Pexels", lambda kw=visual_keywords, o=output_path, idx=i: fetch_from_pexels(kw, o, idx)),
         ]
 
+        success = False
         for name, fn in layers:
             try:
                 if fn():
                     print(f"[images] Panel {i+1}: {name}")
+                    success = True
                     break
             except Exception as e:
                 print(f"[images] Panel {i+1} {name} error: {e}")
+
+        if not success:
+            raise RuntimeError(f"All image sources failed for panel {i+1}. Cannot produce quality video.")
 
         paths.append(output_path)
 

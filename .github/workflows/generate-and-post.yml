@@ -1,9 +1,9 @@
 name: Quietlyy — Generate & Post Video
 
 on:
-  # Run daily at 10:00 AM IST (4:30 AM UTC)
+  # Run daily at 2:00 PM UTC (9 AM EST / 7:30 PM IST — peak global engagement)
   schedule:
-    - cron: '30 4 * * *'
+    - cron: '0 14 * * *'
 
   # Manual trigger from GitHub (works from Android tablet)
   workflow_dispatch:
@@ -44,15 +44,13 @@ jobs:
 
       - name: Run pipeline
         env:
-          # Script generation (4 layers)
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+          # Script generation (Gemini primary, Groq fallback)
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          # Voice (ElevenLabs primary, edge-tts fallback)
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          # Voice (ElevenLabs only)
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
-          # Image generation (4 layers)
-          TOGETHER_API_KEY: ${{ secrets.TOGETHER_API_KEY }}
+          # Image generation (Pollinations primary, Pixabay/Pexels fallback)
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           # Facebook posting

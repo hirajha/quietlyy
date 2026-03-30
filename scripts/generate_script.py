@@ -1,7 +1,7 @@
 """
 Quietlyy — Script Generator
 Generates nostalgic POETRY in the exact Quietlyy voice.
-4-layer fallback: Groq → Cerebras → Gemini → Template
+2-layer fallback: Gemini (primary) -> Groq (fallback)
 """
 
 import os
@@ -49,17 +49,17 @@ def build_prompt(topic, examples):
     return f"""You are a poet writing about "{topic}" for the page Quietlyy.
 
 STRICT FORMAT — follow this EXACTLY:
-Line 1: "There was a time… when [something emotional about {topic}]."
-Line 2: "Back then… [how people used to do it with care/love/patience]."
-Line 3: "Not because [practical reason]… but because [emotional reason]."
-Line 4: "And now… [how modern people have ruined/lost it]."
-Line 5: "Maybe… [they didn't lose X]… [they just stopped Y]."
+Line 1: "There was a time\u2026 when [something emotional about {topic}]."
+Line 2: "Back then\u2026 [how people used to do it with care/love/patience]."
+Line 3: "Not because [practical reason]\u2026 but because [emotional reason]."
+Line 4: "And now\u2026 [how modern people have ruined/lost it]."
+Line 5: "Maybe\u2026 [they didn't lose X]\u2026 [they just stopped Y]."
 
 RULES:
-- Use "…" for pauses (NOT "...")
+- Use "\u2026" for pauses (NOT "...")
 - Each line is its OWN paragraph (separated by newline)
 - Write like POETRY — each line hits emotionally
-- The "Maybe…" line must be a GUT PUNCH
+- The "Maybe\u2026" line must be a GUT PUNCH
 - DO NOT use hashtags, emojis, or stage directions
 - Keep it about PEOPLE and HUMAN CONNECTION, not the object itself
 - Write exactly 5 lines, no more
@@ -91,32 +91,12 @@ def _call_openai_compatible(url, key, model, prompt):
     return json.loads(content)
 
 
-def generate_with_groq(prompt):
-    key = os.environ.get("GROQ_API_KEY")
-    if not key:
-        return None
-    return _call_openai_compatible(
-        "https://api.groq.com/openai/v1/chat/completions",
-        key, "llama-3.3-70b-versatile", prompt,
-    )
-
-
-def generate_with_cerebras(prompt):
-    key = os.environ.get("CEREBRAS_API_KEY")
-    if not key:
-        return None
-    return _call_openai_compatible(
-        "https://api.cerebras.ai/v1/chat/completions",
-        key, "llama-3.3-70b", prompt,
-    )
-
-
 def generate_with_gemini(prompt):
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         return None
     resp = requests.post(
-        f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={key}",
+        f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={key}",
         headers={"Content-Type": "application/json"},
         json={
             "contents": [{"parts": [{"text": prompt}]}],
@@ -133,6 +113,16 @@ def generate_with_gemini(prompt):
     return json.loads(text)
 
 
+def generate_with_groq(prompt):
+    key = os.environ.get("GROQ_API_KEY")
+    if not key:
+        return None
+    return _call_openai_compatible(
+        "https://api.groq.com/openai/v1/chat/completions",
+        key, "llama-3.3-70b-versatile", prompt,
+    )
+
+
 def generate_script():
     templates = load_templates()
     topic = pick_topic(templates)
@@ -141,9 +131,8 @@ def generate_script():
     print(f"[script] Topic: {topic}")
 
     providers = [
-        (generate_with_groq, "Groq"),
-        (generate_with_cerebras, "Cerebras"),
         (generate_with_gemini, "Gemini"),
+        (generate_with_groq, "Groq"),
     ]
 
     result = None
@@ -153,7 +142,7 @@ def generate_script():
             if result and "script" in result:
                 # Validate it has the right structure
                 lines = [l.strip() for l in result["script"].split("\n") if l.strip()]
-                if len(lines) >= 4 and "…" in result["script"]:
+                if len(lines) >= 4 and "\u2026" in result["script"]:
                     print(f"[script] Generated via {name}")
                     break
                 else:
@@ -164,10 +153,7 @@ def generate_script():
             result = None
 
     if not result:
-        ex = random.choice(templates["example_scripts"])
-        result = {"script": ex["script"], "visual_keywords": ex["visual_keywords"]}
-        topic = ex["topic"]
-        print("[script] Using template fallback")
+        raise RuntimeError("All script generators failed (Gemini + Groq). Cannot proceed.")
 
     result["topic"] = topic
     return result

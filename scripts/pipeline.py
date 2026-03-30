@@ -1,6 +1,7 @@
 """
 Quietlyy — Main Pipeline Orchestrator
-Runs the full pipeline: script → audio → images → video → post to Facebook.
+Runs the full pipeline: script -> audio -> images -> video -> post to Facebook.
+Quality control: if images or audio fail, skip the day gracefully.
 """
 
 import json
@@ -44,7 +45,12 @@ def run(skip_post=False):
 
     # Step 1: Generate script
     print("\n[1/5] Generating script...")
-    script_data = generate_script()
+    try:
+        script_data = generate_script()
+    except Exception as e:
+        print(f"\nSkipping today — script generation failed: {e}. Will retry tomorrow.")
+        sys.exit(0)
+
     topic = script_data["topic"]
     script_text = script_data["script"]
     visual_keywords = script_data.get("visual_keywords", [topic.lower()])
@@ -55,16 +61,26 @@ def run(skip_post=False):
     with open(os.path.join(OUTPUT_DIR, "script.json"), "w") as f:
         json.dump(script_data, f, indent=2)
 
-    # Step 2: Generate voiceover audio
+    # Step 2: Generate voiceover audio (STRICT — fail = skip day)
     print("\n[2/5] Generating voiceover...")
-    audio_result = generate_audio(script_text)
+    try:
+        audio_result = generate_audio(script_text)
+    except Exception as e:
+        print(f"\nSkipping today — audio generation failed: {e}. Will retry tomorrow.")
+        sys.exit(0)
+
     audio_path = audio_result["audio_path"]
     subtitle_path = audio_result["subtitle_path"]
     print(f"  Audio: {audio_path}")
 
-    # Step 3: Generate images
+    # Step 3: Generate images (STRICT — fail = skip day)
     print("\n[3/5] Generating panel images...")
-    image_paths = generate_images(topic, visual_keywords, num_panels=5)
+    try:
+        image_paths = generate_images(topic, visual_keywords, num_panels=5)
+    except Exception as e:
+        print(f"\nSkipping today — image generation failed: {e}. Will retry tomorrow.")
+        sys.exit(0)
+
     print(f"  Generated {len(image_paths)} panels")
 
     # Step 4: Compose video
