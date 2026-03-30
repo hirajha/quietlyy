@@ -1,17 +1,15 @@
 """
-Quietlyy — Video Compositor (ffmpeg-native)
-Uses ffmpeg filters for Ken Burns, text overlay, and audio mixing.
-~1 minute instead of 16 minutes.
-
-Text overlays rendered with PIL (5 images, <1 second),
-everything else done with ffmpeg filter_complex.
+Quietlyy — Video Compositor (Simple & Clean)
+Bakes text directly onto panel images with PIL.
+Uses ffmpeg only for concat + audio mix. No complex filter_complex.
+Text style: clean italic, subtle shadow — like Whisprs.
 """
 
 import json
 import os
 import subprocess
 import textwrap
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 ASSETS_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
@@ -19,10 +17,6 @@ ASSETS_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
 WIDTH = 1080
 HEIGHT = 1920
 FPS = 30
-
-TEXT_COLOR = (255, 255, 255)
-SHADOW_COLOR = (0, 0, 0)
-WATERMARK_COLOR = (255, 255, 255, 80)
 
 
 def get_font(size):
@@ -42,37 +36,28 @@ def get_font(size):
     return ImageFont.load_default()
 
 
-def get_audio_duration(audio_path):
-    result = subprocess.run(
+def get_audio_duration(path):
+    r = subprocess.run(
         ["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
-         "-of", "csv=p=0", audio_path],
+         "-of", "csv=p=0", path],
         capture_output=True, text=True,
     )
-    return float(result.stdout.strip())
+    return float(r.stdout.strip())
 
 
-def parse_script_lines(script_text):
-    return [line.strip() for line in script_text.split("\n") if line.strip()]
+def _draw_text_on_image(img, text, watermark=True):
+    """Draw clean Whisprs-style text on image. Subtle shadow, no heavy backdrop."""
+    draw_img = img.copy().convert("RGBA")
+    overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
 
-
-def _render_text_image(text, output_path):
-    """Render one line of text on a transparent 1080x1920 canvas."""
-    img = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
-    draw = ImageDraw.Draw(img)
-    font = get_font(56)
-
-    wrapped = textwrap.wrap(text, width=26)
-    line_height = font.size + 20
-    text_y = HEIGHT * 3 // 5
+    font = get_font(52)
+    wrapped = textwrap.wrap(text, width=28)
+    line_height = font.size + 18
     total_h = len(wrapped) * line_height
 
-    # Semi-transparent dark backdrop for readability
-    pad_x, pad_y = 60, 30
-    draw.rounded_rectangle(
-        [(pad_x, text_y - pad_y), (WIDTH - pad_x, text_y + total_h + pad_y)],
-        radius=20,
-        fill=(0, 0, 0, 90),
-    )
+    # Text position — center of screen vertically, like Whisprs
+    text_y = (HEIGHT - total_h) // 2
 
     for i, wline in enumerate(wrapped):
         bbox = draw.textbbox((0, 0), wline, font=font)
@@ -80,205 +65,201 @@ def _render_text_image(text, output_path):
         x = (WIDTH - text_w) // 2
         wy = text_y + i * line_height
 
-        # Strong shadow/glow for visibility
-        for dx, dy in [(0, 4), (4, 0), (0, -2), (-2, 0),
-                       (3, 3), (-3, 3), (3, -3), (-3, -3),
-                       (0, 2), (2, 0), (0, -1), (-1, 0)]:
-            draw.text((x + dx, wy + dy), wline, font=font,
-                      fill=(*SHADOW_COLOR, 102))
+        # Subtle shadow — just 2 layers, not heavy
+        draw.text((x + 2, wy + 2), wline, font=font, fill=(0, 0, 0, 160))
+        draw.text((x + 1, wy + 1), wline, font=font, fill=(0, 0, 0, 120))
+        # Main text — bright white
+        draw.text((x, wy), wline, font=font, fill=(255, 255, 255, 255))
 
-        draw.text((x, wy), wline, font=font, fill=(*TEXT_COLOR, 255))
+    # Watermark
+    if watermark:
+        wm_font = get_font(26)
+        wm = "@Quietlyy"
+        bbox = draw.textbbox((0, 0), wm, font=wm_font)
+        wm_w = bbox[2] - bbox[0]
+        draw.text(((WIDTH - wm_w) // 2, HEIGHT - 80), wm, font=wm_font,
+                  fill=(255, 255, 255, 80))
 
-    img.save(output_path, "PNG")
-
-
-def _render_watermark(output_path):
-    """Render @Quietlyy watermark on transparent canvas."""
-    img = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
-    draw = ImageDraw.Draw(img)
-    font = get_font(28)
-    text = "@Quietlyy"
-    bbox = draw.textbbox((0, 0), text, font=font)
-    text_w = bbox[2] - bbox[0]
-    draw.text(((WIDTH - text_w) // 2, HEIGHT - 80), text, font=font, fill=WATERMARK_COLOR)
-    img.save(output_path, "PNG")
-
-
-def _calculate_line_timings(script_lines, subtitles, total_duration):
-    if not subtitles:
-        gap = total_duration / len(script_lines)
-        return [(i * gap, (i + 0.8) * gap) for i in range(len(script_lines))]
-
-    sub_words = [s["text"].lower().strip(".,\u2026!?\"'") for s in subtitles]
-    line_timings = []
-    sub_idx = 0
-
-    for line in script_lines:
-        line_words = [w.lower().strip(".,\u2026!?\"'") for w in line.split()
-                      if w.strip(".,\u2026!?\"'")]
-        if not line_words:
-            continue
-
-        start_time = None
-        end_time = None
-
-        for si in range(sub_idx, len(subtitles)):
-            word = sub_words[si] if si < len(sub_words) else ""
-            if word == line_words[0] or (len(line_words[0]) > 3 and line_words[0] in word):
-                start_time = subtitles[si]["offset_ms"] / 1000.0
-                sub_idx = si
-                break
-
-        for si in range(sub_idx, min(sub_idx + len(line_words) + 5, len(subtitles))):
-            end_time = (subtitles[si]["offset_ms"] + subtitles[si]["duration_ms"]) / 1000.0
-
-        if start_time is None:
-            last_end = line_timings[-1][1] if line_timings else 0
-            start_time = last_end + 0.5
-            end_time = start_time + (total_duration / len(script_lines)) * 0.8
-
-        sub_idx = min(sub_idx + len(line_words), len(subtitles) - 1)
-        line_timings.append((start_time, end_time))
-
-    return line_timings
+    result = Image.alpha_composite(draw_img, overlay)
+    return result.convert("RGB")
 
 
 def compose_video(script_data, image_paths, audio_path, subtitle_path, music_path=None):
-    """Compose video using ffmpeg filters. ~1 min instead of 16 min.
-
-    Approach:
-    1. Render 5 text overlay PNGs with PIL (<1 second)
-    2. Use ffmpeg for everything: Ken Burns, concat, overlay, audio mix
-    """
+    """Simple compositor: bake text onto panels, concat with ffmpeg."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     duration = get_audio_duration(audio_path)
-    lines = parse_script_lines(script_data["script"])
+    lines = [l.strip() for l in script_data["script"].split("\n") if l.strip()]
     num_panels = len(image_paths)
-    seg_dur = duration / num_panels
+    num_lines = len(lines)
 
-    with open(subtitle_path) as f:
-        subtitles = json.load(f)
-    line_timings = _calculate_line_timings(lines, subtitles, duration)
+    # Calculate per-line duration from audio
+    # Each line was recorded separately with 1.5s gaps
+    line_durations = []
+    for i in range(num_lines):
+        line_path = os.path.join(OUTPUT_DIR, f"_line_{i}.mp3")
+        if os.path.exists(line_path):
+            line_durations.append(get_audio_duration(line_path))
+        else:
+            # Estimate from total duration
+            line_durations.append((duration - 1.5 * (num_lines - 1)) / num_lines)
 
-    # Step 1: Render text overlays with PIL (~0.5s total)
-    print(f"[video] Rendering {len(lines)} text overlays...")
-    text_paths = []
-    for i, line in enumerate(lines):
-        path = os.path.join(OUTPUT_DIR, f"_text_{i}.png")
-        _render_text_image(line, path)
-        text_paths.append(path)
+    # If we don't have individual line files, split evenly
+    if not line_durations or len(line_durations) != num_lines:
+        seg = (duration - 1.5 * (num_lines - 1)) / num_lines
+        line_durations = [seg] * num_lines
 
-    wm_path = os.path.join(OUTPUT_DIR, "_watermark.png")
-    _render_watermark(wm_path)
+    # Total per-segment = line_duration + gap (1.5s)
+    # Last line gets extra 2s so video doesn't cut off before voice finishes
+    GAP = 1.5
+    TAIL_PAD = 2.0
+    seg_durations = [d + GAP for d in line_durations]
+    seg_durations[-1] = line_durations[-1] + TAIL_PAD
 
-    # Step 2: Build ffmpeg inputs
-    # Layout: [0..P-1] panels, [P..P+L-1] text overlays, [P+L] watermark, [P+L+1] voice, [P+L+2] music
-    inputs = []
-    for p in image_paths:
-        inputs += ["-loop", "1", "-t", f"{seg_dur:.3f}", "-i", p]
-    for tp in text_paths:
-        inputs += ["-loop", "1", "-t", f"{duration:.3f}", "-i", tp]
-    inputs += ["-loop", "1", "-t", f"{duration:.3f}", "-i", wm_path]
+    # Normalize so total matches audio duration
+    total_seg = sum(seg_durations)
+    scale = duration / total_seg if total_seg > 0 else 1
+    seg_durations = [d * scale for d in seg_durations]
 
-    voice_idx = num_panels + len(lines) + 1
-    inputs += ["-i", audio_path]
+    print(f"[video] Baking text onto {num_panels} panels...")
 
-    music_idx = None
-    if music_path:
-        music_idx = voice_idx + 1
-        inputs += ["-stream_loop", "-1", "-i", music_path]
+    # Step 1: For each line, bake text onto its panel image
+    panel_videos = []
+    for i in range(num_lines):
+        panel_idx = min(i, num_panels - 1)
+        img = Image.open(image_paths[panel_idx]).convert("RGBA")
 
-    # Step 3: Build filter_complex
-    filters = []
+        # Scale to cover frame
+        img_ratio = img.width / img.height
+        target_ratio = WIDTH / HEIGHT
+        if img_ratio > target_ratio:
+            new_h = HEIGHT
+            new_w = int(new_h * img_ratio)
+        else:
+            new_w = WIDTH
+            new_h = int(new_w / img_ratio)
+        img = img.resize((new_w, new_h), Image.LANCZOS)
+        # Center crop
+        left = (new_w - WIDTH) // 2
+        top = (new_h - HEIGHT) // 2
+        img = img.crop((left, top, left + WIDTH, top + HEIGHT))
 
-    # Ken Burns on each panel (scale up, crop, slow zoom)
-    for i in range(num_panels):
-        frames = int(seg_dur * FPS)
-        filters.append(
-            f"[{i}:v]scale=1400:2400:force_original_aspect_ratio=increase,"
-            f"crop=1400:2400,"
-            f"zoompan=z='min(zoom+0.0008,1.12)'"
-            f":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
-            f":d={frames}:s={WIDTH}x{HEIGHT}:fps={FPS},"
-            f"format=yuv420p[v{i}]"
-        )
+        # Darken image slightly for text readability
+        dark = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 60))
+        img = Image.alpha_composite(img.convert("RGBA"), dark)
 
-    # Concat all panels
-    concat_in = "".join(f"[v{i}]" for i in range(num_panels))
-    filters.append(f"{concat_in}concat=n={num_panels}:v=1:a=0[vcat]")
+        # Bake text
+        frame = _draw_text_on_image(img, lines[i])
+        frame_path = os.path.join(OUTPUT_DIR, f"_panel_{i}.png")
+        frame.save(frame_path, "PNG")
 
-    # Vignette for cinematic look
-    filters.append("[vcat]vignette=angle=PI/6[vvig]")
+        # Create a short video clip from this static image
+        clip_path = os.path.join(OUTPUT_DIR, f"_clip_{i}.mp4")
+        subprocess.run([
+            "ffmpeg", "-y",
+            "-loop", "1", "-i", frame_path,
+            "-t", f"{seg_durations[i]:.3f}",
+            "-vf", f"fps={FPS},format=yuv420p",
+            "-c:v", "libx264", "-preset", "ultrafast", "-crf", "18",
+            "-pix_fmt", "yuv420p",
+            clip_path,
+        ], capture_output=True, check=True)
 
-    # Overlay text lines with fade in/out
-    FADE_IN = 0.6
-    FADE_OUT = 0.4
-    GAP = 0.3
-    current = "vvig"
+        panel_videos.append(clip_path)
+        print(f"[video]   Panel {i+1}/{num_lines}: {seg_durations[i]:.1f}s")
 
-    for i, (start, end) in enumerate(line_timings):
-        s = max(0, start - 0.1)
-        e = end + GAP
-        ti = num_panels + i
+    # Step 2: Concat all clips with crossfade
+    XFADE = 0.6
+    output_no_audio = os.path.join(OUTPUT_DIR, "_video_noaudio.mp4")
 
-        # Fade the text overlay alpha
-        filters.append(
-            f"[{ti}:v]fade=t=in:st={s:.2f}:d={FADE_IN}:alpha=1,"
-            f"fade=t=out:st={e - FADE_OUT:.2f}:d={FADE_OUT}:alpha=1[tf{i}]"
-        )
-
-        nxt = f"vo{i}"
-        filters.append(
-            f"[{current}][tf{i}]overlay=format=auto:"
-            f"enable='between(t,{s:.2f},{e:.2f})'[{nxt}]"
-        )
-        current = nxt
-
-    # Overlay watermark (always visible)
-    wm_input = num_panels + len(lines)
-    filters.append(f"[{current}][{wm_input}:v]overlay=format=auto[vout]")
-
-    # Audio mixing
-    if music_idx is not None:
-        filters.append(f"[{voice_idx}:a]loudnorm=I=-16:TP=-1.5[voice]")
-        filters.append(
-            f"[{music_idx}:a]volume=0.20,"
-            f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 3):.2f}:d=3[music]"
-        )
-        filters.append("[voice][music]amix=inputs=2:duration=shortest:normalize=0[aout]")
+    if len(panel_videos) == 1:
+        # Just copy
+        import shutil
+        shutil.copy2(panel_videos[0], output_no_audio)
     else:
-        filters.append(f"[{voice_idx}:a]loudnorm=I=-16:TP=-1.5[aout]")
+        # Build xfade chain
+        filters = []
+        offsets = []
+        cumulative = 0
+        for i in range(len(panel_videos) - 1):
+            offset = cumulative + seg_durations[i] - XFADE
+            offsets.append(offset)
+            cumulative += seg_durations[i] - XFADE
 
-    # Write filter to script file (avoids command-line length limits)
-    filter_str = ";\n".join(filters)
-    filter_path = os.path.join(OUTPUT_DIR, "_filter.txt")
-    with open(filter_path, "w") as f:
-        f.write(filter_str)
+        inputs = []
+        for v in panel_videos:
+            inputs += ["-i", v]
 
+        # Chain xfade filters
+        if len(panel_videos) == 2:
+            filters.append(
+                f"[0:v][1:v]xfade=transition=fade:duration={XFADE}:offset={offsets[0]:.3f}[vout]"
+            )
+        else:
+            # First xfade
+            filters.append(
+                f"[0:v][1:v]xfade=transition=fade:duration={XFADE}:offset={offsets[0]:.3f}[xf0]"
+            )
+            # Middle xfades
+            for i in range(1, len(panel_videos) - 2):
+                filters.append(
+                    f"[xf{i-1}][{i+1}:v]xfade=transition=fade:duration={XFADE}:offset={offsets[i]:.3f}[xf{i}]"
+                )
+            # Last xfade
+            last = len(panel_videos) - 2
+            filters.append(
+                f"[xf{last-1}][{last+1}:v]xfade=transition=fade:duration={XFADE}:offset={offsets[last]:.3f}[vout]"
+            )
+
+        filter_str = ";".join(filters)
+        subprocess.run(
+            ["ffmpeg", "-y"] + inputs + [
+                "-filter_complex", filter_str,
+                "-map", "[vout]",
+                "-c:v", "libx264", "-preset", "medium", "-crf", "23",
+                "-pix_fmt", "yuv420p",
+                output_no_audio,
+            ], capture_output=True, check=True,
+        )
+
+    # Step 3: Mix audio (voice + music)
     output_path = os.path.join(OUTPUT_DIR, "quietlyy_video.mp4")
 
-    cmd = ["ffmpeg", "-y"] + inputs + [
-        "-filter_complex_script", filter_path,
-        "-map", "[vout]", "-map", "[aout]",
-        "-c:v", "libx264", "-preset", "medium", "-crf", "23",
-        "-pix_fmt", "yuv420p",
-        "-c:a", "aac", "-b:a", "192k",
-        "-shortest", "-movflags", "+faststart",
-        output_path,
-    ]
-
-    print(f"[video] Compositing {num_panels} panels, {len(lines)} lines, {duration:.1f}s...")
-    result = subprocess.run(cmd, capture_output=True, text=True)
-    if result.returncode != 0:
-        print(f"[video] ffmpeg error:\n{result.stderr[-1000:]}")
-        raise RuntimeError("Video composition failed")
+    if music_path:
+        print(f"[video] Mixing voice + {os.path.basename(music_path)}")
+        subprocess.run([
+            "ffmpeg", "-y",
+            "-i", output_no_audio,
+            "-i", audio_path,
+            "-stream_loop", "-1", "-i", music_path,
+            "-filter_complex",
+            f"[1:a]loudnorm=I=-16:TP=-1.5[voice];"
+            f"[2:a]volume=0.18,afade=t=in:d=2,afade=t=out:st={max(0, duration - 3):.2f}:d=3[music];"
+            f"[voice][music]amix=inputs=2:duration=shortest:normalize=0[aout]",
+            "-map", "0:v", "-map", "[aout]",
+            "-c:v", "copy",
+            "-c:a", "aac", "-b:a", "192k",
+            "-shortest", "-movflags", "+faststart",
+            output_path,
+        ], capture_output=True, check=True)
+    else:
+        subprocess.run([
+            "ffmpeg", "-y",
+            "-i", output_no_audio,
+            "-i", audio_path,
+            "-map", "0:v", "-map", "1:a",
+            "-c:v", "copy",
+            "-c:a", "aac", "-b:a", "192k",
+            "-shortest", "-movflags", "+faststart",
+            output_path,
+        ], capture_output=True, check=True)
 
     # Cleanup temp files
-    os.remove(filter_path)
-    for p in text_paths:
-        os.remove(p)
-    os.remove(wm_path)
+    for f in panel_videos:
+        os.remove(f)
+    for f in os.listdir(OUTPUT_DIR):
+        if f.startswith("_"):
+            os.remove(os.path.join(OUTPUT_DIR, f))
 
     print(f"[video] Done: {output_path}")
     return output_path

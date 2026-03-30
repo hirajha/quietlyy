@@ -44,7 +44,8 @@ jobs:
 
       - name: Run pipeline
         env:
-          # Script generation (Gemini primary, Groq fallback)
+          # Script generation (ChatGPT primary, Gemini/Groq fallback)
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           # Voice (ElevenLabs only)

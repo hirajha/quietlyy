@@ -1,13 +1,17 @@
 """
 Quietlyy — Image Generator
-4-layer fallback:
-  Layer 1: Gemini 2.5 Flash Image (via google-genai SDK)
-  Layer 2: Pollinations.ai FLUX (free, no key)
-  Layer 3: Pixabay / Pexels stock photos (free)
+5-layer fallback:
+  Layer 1: OpenAI DALL-E 3 (primary — animated/illustrated style)
+  Layer 2: Gemini 2.5 Flash Image (via google-genai SDK)
+  Layer 3: Pollinations.ai FLUX (free, no key)
+  Layer 4: Pixabay / Pexels stock photos (free)
   NO gradient fallback — if all fail, pipeline fails.
 
-Generated images are saved to assets/gallery/ for reuse.
-Gallery is capped at 500 images — oldest are deleted.
+Gallery system:
+  - Generated images saved to assets/gallery/ for reuse
+  - After 25 images stored, start reusing gallery images
+  - Max 2-3 reused images per video, never at position 0 (start)
+  - Gallery capped at 500 images — oldest are deleted
 """
 
 import io
@@ -23,6 +27,8 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 GALLERY_DIR = os.path.join(os.path.dirname(__file__), "..", "assets", "gallery")
 GALLERY_INDEX = os.path.join(GALLERY_DIR, "index.json")
 GALLERY_MAX = 500
+REUSE_THRESHOLD = 25  # Start reusing after this many images in gallery
+MAX_REUSE_PER_VIDEO = 3  # Max reused images per video
 
 
 def _load_gallery_index():
@@ -43,7 +49,6 @@ def _add_to_gallery(image_path, topic, panel_num, source):
     os.makedirs(GALLERY_DIR, exist_ok=True)
     index = _load_gallery_index()
 
-    # Generate unique filename
     ts = int(time.time())
     h = hashlib.md5(f"{topic}_{panel_num}_{ts}".encode()).hexdigest()[:8]
     ext = os.path.splitext(image_path)[1] or ".png"
@@ -73,8 +78,33 @@ def _add_to_gallery(image_path, topic, panel_num, source):
     print(f"[gallery] Saved {gallery_name} ({len(index)}/{GALLERY_MAX})")
 
 
+def _pick_reuse_panels(num_panels):
+    """Decide which panels get reused gallery images.
+    Rules: never panel 0, max MAX_REUSE_PER_VIDEO panels, random selection."""
+    index = _load_gallery_index()
+    if len(index) < REUSE_THRESHOLD:
+        return {}  # Not enough images yet
+
+    # Eligible panels: 1 through num_panels-1 (never 0 = start of video)
+    eligible = list(range(1, num_panels))
+    num_reuse = min(random.randint(2, MAX_REUSE_PER_VIDEO), len(eligible))
+    reuse_panels = random.sample(eligible, num_reuse)
+
+    # Pick random gallery images (different ones)
+    chosen = random.sample(index, min(num_reuse, len(index)))
+    result = {}
+    for i, panel_idx in enumerate(reuse_panels):
+        entry = chosen[i]
+        gallery_path = os.path.join(GALLERY_DIR, entry["file"])
+        if os.path.exists(gallery_path):
+            result[panel_idx] = gallery_path
+            print(f"[images] Panel {panel_idx+1}: reusing gallery image {entry['file']} (topic: {entry['topic']})")
+
+    return result
+
+
 def generate_image_prompt(topic, visual_keywords, panel_num):
-    """Create Whisprs-style prompts focused on PEOPLE and emotions."""
+    """Create Whisprs-style prompts — animated/illustrated, people and emotions."""
     keywords_str = ", ".join(visual_keywords)
 
     scene_map = {
@@ -120,7 +150,47 @@ def generate_image_prompt(topic, visual_keywords, panel_num):
     )
 
 
-# ── Layer 1: Gemini 2.5 Flash Image (via google-genai SDK) ──
+# ── Layer 1: OpenAI DALL-E 3 (primary — best animated/illustrated style) ──
+def generate_with_dalle(prompt, output_path):
+    """Generate image using OpenAI DALL-E 3 API."""
+    key = os.environ.get("OPENAI_API_KEY")
+    if not key:
+        return False
+    try:
+        resp = requests.post(
+            "https://api.openai.com/v1/images/generations",
+            headers={
+                "Authorization": f"Bearer {key}",
+                "Content-Type": "application/json",
+            },
+            json={
+                "model": "dall-e-3",
+                "prompt": prompt,
+                "n": 1,
+                "size": "1024x1792",  # Portrait for vertical video
+                "quality": "standard",
+                "response_format": "url",
+            },
+            timeout=60,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        img_url = data["data"][0]["url"]
+
+        # Download the image
+        img_resp = requests.get(img_url, timeout=30)
+        img_resp.raise_for_status()
+        if len(img_resp.content) < 5000:
+            return False
+        with open(output_path, "wb") as f:
+            f.write(img_resp.content)
+        return True
+    except Exception as e:
+        print(f"[images] DALL-E failed: {e}")
+    return False
+
+
+# ── Layer 2: Gemini 2.5 Flash Image (via google-genai SDK) ──
 def generate_with_gemini(prompt, output_path):
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
@@ -150,7 +220,7 @@ def generate_with_gemini(prompt, output_path):
     return False
 
 
-# ── Layer 2: Pollinations.ai FLUX (free, no API key needed) ──
+# ── Layer 3: Pollinations.ai FLUX (free, no API key needed) ──
 def generate_with_pollinations(prompt, output_path):
     try:
         from urllib.parse import quote
@@ -168,26 +238,81 @@ def generate_with_pollinations(prompt, output_path):
     return False
 
 
-# ── Layer 3a: Pixabay (free, 100 req/min) ──
+# ── Layer 4a: Pixabay Video Frames (anime/lofi style) ──
 def fetch_from_pixabay(visual_keywords, output_path, panel_num):
+    """Search Pixabay for anime/illustration VIDEOS, extract a frame."""
     key = os.environ.get("PIXABAY_API_KEY")
     if not key:
         return False
 
-    people_queries = {
-        0: "family together love home",
-        1: "couple connection intimate",
-        2: "person silhouette window thinking",
-        3: "lonely person phone dark",
-        4: "solitary figure sunset alone",
+    scene_queries = {
+        0: "anime family warm light lofi",
+        1: "anime couple love together rain",
+        2: "anime person window thinking rain alone",
+        3: "anime girl alone night sad lonely lofi",
+        4: "anime silhouette sunset walking alone melancholy",
     }
-    query = people_queries.get(panel_num, "person nostalgic alone")
+    base = scene_queries.get(panel_num, "anime person alone sad lofi")
+    topic_words = " ".join(visual_keywords[:2]) if visual_keywords else ""
+    query = f"{base} {topic_words}".strip()
 
+    try:
+        resp = requests.get(
+            "https://pixabay.com/api/videos/",
+            params={
+                "key": key, "q": query,
+                "per_page": 10, "safesearch": "true",
+            },
+            timeout=15,
+        )
+        resp.raise_for_status()
+        hits = resp.json().get("hits", [])
+
+        if not hits:
+            return _fetch_pixabay_image(key, query, output_path)
+
+        video = random.choice(hits)
+        video_url = (video.get("videos", {}).get("medium", {}).get("url")
+                     or video.get("videos", {}).get("small", {}).get("url"))
+        if not video_url:
+            return False
+
+        import subprocess, tempfile
+        tmp_video = tempfile.mktemp(suffix=".mp4")
+        vid_resp = requests.get(video_url, timeout=30)
+        if vid_resp.status_code != 200:
+            return False
+        with open(tmp_video, "wb") as f:
+            f.write(vid_resp.content)
+
+        duration_str = subprocess.run(
+            ["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
+             "-of", "csv=p=0", tmp_video],
+            capture_output=True, text=True,
+        ).stdout.strip()
+        vid_dur = float(duration_str) if duration_str else 5
+        seek = vid_dur * (0.3 + random.random() * 0.4)
+
+        subprocess.run([
+            "ffmpeg", "-y", "-ss", f"{seek:.2f}",
+            "-i", tmp_video, "-frames:v", "1", output_path,
+        ], capture_output=True, check=True)
+
+        os.remove(tmp_video)
+        return os.path.exists(output_path) and os.path.getsize(output_path) > 1000
+
+    except Exception as e:
+        print(f"[images] Pixabay video failed: {e}")
+    return False
+
+
+def _fetch_pixabay_image(key, query, output_path):
+    """Fallback: fetch illustration images from Pixabay."""
     try:
         resp = requests.get(
             "https://pixabay.com/api/",
             params={
-                "key": key, "q": query, "image_type": "photo",
+                "key": key, "q": query, "image_type": "illustration",
                 "orientation": "vertical", "per_page": 15, "safesearch": "true",
             },
             timeout=15,
@@ -196,23 +321,22 @@ def fetch_from_pixabay(visual_keywords, output_path, panel_num):
         hits = resp.json().get("hits", [])
         if not hits:
             return False
-
         photo = random.choice(hits)
-        img_url = photo.get("largeImageURL", photo.get("webformatURL"))
+        preview = photo.get("previewURL", "")
+        img_url = preview.replace("_150.", "_1280.") if preview else photo.get("webformatURL")
         if not img_url:
             return False
-
         img_resp = requests.get(img_url, timeout=30)
         img_resp.raise_for_status()
         with open(output_path, "wb") as f:
             f.write(img_resp.content)
         return True
     except Exception as e:
-        print(f"[images] Pixabay failed: {e}")
+        print(f"[images] Pixabay image failed: {e}")
     return False
 
 
-# ── Layer 3b: Pexels (free, 200 req/hour) ──
+# ── Layer 4b: Pexels (free, 200 req/hour) ──
 def fetch_from_pexels(visual_keywords, output_path, panel_num):
     key = os.environ.get("PEXELS_API_KEY")
     if not key:
@@ -220,12 +344,14 @@ def fetch_from_pexels(visual_keywords, output_path, panel_num):
 
     people_queries = {
         0: "family together warm home love",
-        1: "two people connection intimate moment",
-        2: "person alone window silhouette thinking",
-        3: "lonely person phone dark room night",
-        4: "solitary figure dusk landscape alone walking",
+        1: "couple holding hands connection",
+        2: "person window silhouette thinking alone",
+        3: "lonely person phone dark room",
+        4: "solitary figure sunset walking alone",
     }
-    query = people_queries.get(panel_num, "person alone thinking nostalgic")
+    base = people_queries.get(panel_num, "person alone thinking nostalgic")
+    topic_words = " ".join(visual_keywords[:2]) if visual_keywords else ""
+    query = f"{base} {topic_words}".strip()
 
     try:
         resp = requests.get(
@@ -253,22 +379,37 @@ def fetch_from_pexels(visual_keywords, output_path, panel_num):
 
 
 def generate_images(topic, visual_keywords, num_panels=5):
-    """Generate people-focused panel images. Saves to gallery for reuse.
+    """Generate people-focused panel images with gallery reuse.
+    - Max 5 panels per video
+    - After 25 gallery images: reuse 2-3 panels (never panel 0)
+    - Saves new images to gallery (capped at 500)
     Raises error if any panel fails."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
+    num_panels = min(num_panels, 5)  # Hard cap at 5
     paths = []
+
+    # Check if we should reuse some panels from gallery
+    reuse_map = _pick_reuse_panels(num_panels)
 
     for i in range(num_panels):
         output_path = os.path.join(OUTPUT_DIR, f"panel_{i}.png")
-        prompt = generate_image_prompt(topic, visual_keywords, i)
 
+        # Use reused gallery image if assigned
+        if i in reuse_map:
+            shutil.copy2(reuse_map[i], output_path)
+            paths.append(output_path)
+            continue
+
+        # Generate fresh image
+        prompt = generate_image_prompt(topic, visual_keywords, i)
         print(f"[images] Panel {i+1}/{num_panels}: generating...")
 
         layers = [
+            ("DALL-E", lambda p=prompt, o=output_path: generate_with_dalle(p, o)),
             ("Gemini", lambda p=prompt, o=output_path: generate_with_gemini(p, o)),
             ("Pollinations", lambda p=prompt, o=output_path: generate_with_pollinations(p, o)),
-            ("Pixabay", lambda kw=visual_keywords, o=output_path, idx=i: fetch_from_pixabay(kw, o, idx)),
             ("Pexels", lambda kw=visual_keywords, o=output_path, idx=i: fetch_from_pexels(kw, o, idx)),
+            ("Pixabay", lambda kw=visual_keywords, o=output_path, idx=i: fetch_from_pixabay(kw, o, idx)),
         ]
 
         success = False
@@ -282,19 +423,19 @@ def generate_images(topic, visual_keywords, num_panels=5):
                     break
             except Exception as e:
                 print(f"[images] Panel {i+1} {name} error: {e}")
+            time.sleep(2)
 
         if not success:
             raise RuntimeError(f"All image sources failed for panel {i+1}. Cannot produce quality video.")
 
         # Save to gallery for future reuse
         _add_to_gallery(output_path, topic, i, source)
-
         paths.append(output_path)
 
         if i < num_panels - 1:
             time.sleep(1)
 
-    print(f"[images] Generated {len(paths)} panels")
+    print(f"[images] Generated {len(paths)} panels ({len(reuse_map)} reused)")
     return paths
 
 

@@ -51,34 +51,35 @@ def build_prompt(topic, examples):
 Make it:
 - Hook in first 2 lines
 - Emotional build in middle
-- Strong, relatable ending
+- Strong, relatable ending that hits like a gut punch
 
 Topic: {topic}
 Tone: deep + quiet pain
 
 Important:
 - Avoid clich\u00e9s
-- Avoid repeated sentence structures
-- Make it feel personal, like a real thought
-- Use "\u2026" for pauses (NOT "...")
+- Avoid repeated sentence structures — VARY how each line opens
+- Make it feel personal, like a real thought someone had at 3 AM
+- Use "\u2026" for emotional pauses
 - Each line is its OWN paragraph (separated by newline)
 - Write exactly 5 lines, no more
 - DO NOT use hashtags, emojis, or stage directions
-- Keep it about PEOPLE and HUMAN CONNECTION
+- Keep it about PEOPLE and HUMAN CONNECTION, not the object itself
+- The last line should make someone stop scrolling
 
-STRICT FORMAT:
-Line 1: "There was a time\u2026 when [something emotional about {topic}]."
-Line 2: "Back then\u2026 [how people used to do it with care/love/patience]."
-Line 3: "Not because [practical reason]\u2026 but because [emotional reason]."
-Line 4: "And now\u2026 [how modern people have ruined/lost it]."
-Line 5: "Maybe\u2026 [they didn't lose X]\u2026 [they just stopped Y]."
+STRUCTURE GUIDE (vary the openings — don't always use the same words):
+Line 1: Set the scene — something we lost (can start with "There was a time\u2026", "Remember when\u2026", "Once\u2026", etc)
+Line 2: How it used to feel — the beauty of the old way
+Line 3: The contrast — "Not because X\u2026 but because Y" or similar emotional turn
+Line 4: The modern reality — what we do now instead (cold, distant, hollow)
+Line 5: The gut punch — a quiet realization that stings ("Maybe\u2026", "Perhaps\u2026", "The truth is\u2026")
 
 Also provide 4 visual keywords showing PEOPLE/EMOTIONS (not objects).
 
 Return ONLY valid JSON:
 {{"script": "line1\\nline2\\nline3\\nline4\\nline5", "visual_keywords": ["keyword1", "keyword2", "keyword3", "keyword4"]}}
 
-EXAMPLES (match this exact tone and structure):
+EXAMPLES (match this emotional depth but VARY the structure):
 {examples_text}"""
 
 
@@ -100,6 +101,45 @@ def _call_openai_compatible(url, key, model, prompt):
     return json.loads(content)
 
 
+def _repair_json(text):
+    """Try to extract valid JSON from possibly malformed response."""
+    import re
+    # Try direct parse
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+    # Find JSON object in text
+    match = re.search(r'\{[\s\S]*\}', text)
+    if match:
+        try:
+            return json.loads(match.group())
+        except json.JSONDecodeError:
+            pass
+    # Fix common issues: unescaped newlines in strings
+    fixed = text.replace('\n', '\\n')
+    try:
+        return json.loads(fixed)
+    except json.JSONDecodeError:
+        pass
+    return None
+
+
+def generate_with_chatgpt(prompt):
+    """Primary: ChatGPT (OpenAI) — best for creative Quietlyy Quotes."""
+    key = os.environ.get("OPENAI_API_KEY")
+    if not key:
+        return None
+    try:
+        return _call_openai_compatible(
+            "https://api.openai.com/v1/chat/completions",
+            key, "gpt-4o-mini", prompt,
+        )
+    except Exception as e:
+        print(f"[script] ChatGPT failed: {e}")
+    return None
+
+
 def generate_with_gemini(prompt):
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
@@ -110,16 +150,23 @@ def generate_with_gemini(prompt):
         json={
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
-                "responseMimeType": "application/json",
-                "maxOutputTokens": 350,
+                "maxOutputTokens": 2000,
                 "temperature": 0.7,
             },
         },
-        timeout=30,
+        timeout=60,
     )
     resp.raise_for_status()
-    text = resp.json()["candidates"][0]["content"]["parts"][0]["text"]
-    return json.loads(text)
+    data = resp.json()
+    if "candidates" not in data or not data["candidates"]:
+        print(f"[script] Gemini no candidates: {str(data)[:200]}")
+        return None
+    text = data["candidates"][0]["content"]["parts"][0]["text"]
+    print(f"[script] Gemini raw: {text[:300]}")
+    result = _repair_json(text)
+    if result is None:
+        print(f"[script] Gemini JSON repair failed")
+    return result
 
 
 def generate_with_groq(prompt):
@@ -140,6 +187,7 @@ def generate_script():
     print(f"[script] Topic: {topic}")
 
     providers = [
+        (generate_with_chatgpt, "ChatGPT"),
         (generate_with_gemini, "Gemini"),
         (generate_with_groq, "Groq"),
     ]
