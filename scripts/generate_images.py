@@ -1,9 +1,11 @@
 """
 Quietlyy — Image Generator
-3-layer fallback (no Stability AI):
-  Layer 1: Gemini 2.5 Flash Image (free 500 img/day)
-  Layer 2: Pexels stock photos (free 200 req/hr)
-  Layer 3: Gradient fallback (always works, no API)
+5-layer fallback (no Stability AI):
+  Layer 1: Together.ai FLUX.1-schnell (free tier)
+  Layer 2: Gemini 2.5 Flash Image (free 500 img/day)
+  Layer 3: Pollinations.ai FLUX (free, no key)
+  Layer 4: Pixabay / Pexels stock photos (free)
+  Layer 5: Gradient fallback (always works, no API)
 
 Image style: Whisprs-inspired — focus on PEOPLE, families, human
 connection vs disconnection. The topic (telephone, radio etc) is just
@@ -129,7 +131,73 @@ def generate_with_gemini(prompt, output_path):
     return False
 
 
-# ── Layer 2: Pexels (free, 200 req/hour) — people-focused searches ──
+# ── Layer 3: Pollinations.ai FLUX (free, no API key needed) ──
+def generate_with_pollinations(prompt, output_path):
+    try:
+        from urllib.parse import quote
+        url = f"https://image.pollinations.ai/prompt/{quote(prompt)}?width=768&height=1344&model=flux&nologo=true"
+        resp = requests.get(url, timeout=90)
+        if resp.status_code != 200:
+            return False
+        if len(resp.content) < 5000:
+            return False
+        with open(output_path, "wb") as f:
+            f.write(resp.content)
+        return True
+    except Exception as e:
+        print(f"[images] Pollinations failed: {e}")
+    return False
+
+
+# ── Layer 4a: Pixabay (free, 100 req/min) — people-focused searches ──
+def fetch_from_pixabay(visual_keywords, output_path, panel_num):
+    key = os.environ.get("PIXABAY_API_KEY")
+    if not key:
+        return False
+
+    people_queries = {
+        0: "family together love home",
+        1: "couple connection intimate",
+        2: "person silhouette window thinking",
+        3: "lonely person phone dark",
+        4: "solitary figure sunset alone",
+    }
+    query = people_queries.get(panel_num, "person nostalgic alone")
+
+    try:
+        resp = requests.get(
+            "https://pixabay.com/api/",
+            params={
+                "key": key,
+                "q": query,
+                "image_type": "photo",
+                "orientation": "vertical",
+                "per_page": 15,
+                "safesearch": "true",
+            },
+            timeout=15,
+        )
+        resp.raise_for_status()
+        hits = resp.json().get("hits", [])
+        if not hits:
+            return False
+
+        photo = random.choice(hits)
+        img_url = photo.get("largeImageURL", photo.get("webformatURL"))
+        if not img_url:
+            return False
+
+        img_resp = requests.get(img_url, timeout=30)
+        img_resp.raise_for_status()
+        with open(output_path, "wb") as f:
+            f.write(img_resp.content)
+        return True
+    except Exception as e:
+        print(f"[images] Pixabay failed: {e}")
+    return False
+
+
+# ── Layer 4b: Pexels (free, 200 req/hour) — people-focused searches ──
 def fetch_from_pexels(visual_keywords, output_path, panel_num):
     key = os.environ.get("PEXELS_API_KEY")
     if not key:
@@ -222,6 +290,8 @@ def generate_images(topic, visual_keywords, num_panels=5):
         layers = [
             ("Together.ai", lambda: generate_with_together(prompt, output_path)),
             ("Gemini", lambda: generate_with_gemini(prompt, output_path)),
+            ("Pollinations", lambda: generate_with_pollinations(prompt, output_path)),
+            ("Pixabay", lambda: fetch_from_pixabay(visual_keywords, output_path, i)),
             ("Pexels", lambda: fetch_from_pexels(visual_keywords, output_path, i)),
             ("Gradient", lambda: create_gradient_fallback(output_path, i)),
         ]

@@ -20,9 +20,10 @@ WIDTH = 1080
 HEIGHT = 1920
 FPS = 30
 
-# Text styling
+# Text styling — Whisprs-inspired, more visible
 TEXT_COLOR = (255, 255, 255)
 SHADOW_COLOR = (0, 0, 0)
+GLOW_COLOR = (0, 0, 0, 140)
 WATERMARK_COLOR = (255, 255, 255, 80)
 
 
@@ -60,9 +61,21 @@ def parse_script_lines(script_text):
 
 
 def draw_centered_text(draw, text, y, font, alpha=255):
-    """Draw text centered horizontally with shadow. Wraps long lines."""
-    wrapped = textwrap.wrap(text, width=30)
-    line_height = font.size + 16
+    """Draw text centered with strong glow/shadow for visibility. Wraps long lines."""
+    wrapped = textwrap.wrap(text, width=26)
+    line_height = font.size + 20
+
+    total_text_h = len(wrapped) * line_height
+
+    # Draw semi-transparent dark backdrop behind text for readability
+    pad_x, pad_y = 60, 30
+    backdrop_y1 = y - pad_y
+    backdrop_y2 = y + total_text_h + pad_y
+    draw.rounded_rectangle(
+        [(pad_x, backdrop_y1), (WIDTH - pad_x, backdrop_y2)],
+        radius=20,
+        fill=(0, 0, 0, int(90 * alpha / 255)),
+    )
 
     for i, wline in enumerate(wrapped):
         bbox = draw.textbbox((0, 0), wline, font=font)
@@ -70,15 +83,17 @@ def draw_centered_text(draw, text, y, font, alpha=255):
         x = (WIDTH - text_w) // 2
         wy = y + i * line_height
 
-        # Shadow (offset + blur effect via multiple draws)
-        for dx, dy in [(2, 2), (3, 3), (1, 3)]:
+        # Strong glow/shadow (multiple layers for depth)
+        for dx, dy in [(0, 4), (4, 0), (0, -2), (-2, 0),
+                       (3, 3), (-3, 3), (3, -3), (-3, -3),
+                       (0, 2), (2, 0), (0, -1), (-1, 0)]:
             draw.text((x + dx, wy + dy), wline, font=font,
-                       fill=(*SHADOW_COLOR, int(alpha * 0.5)))
+                       fill=(*SHADOW_COLOR, int(alpha * 0.4)))
 
-        # Main text
+        # Main text — bright white
         draw.text((x, wy), wline, font=font, fill=(*TEXT_COLOR, alpha))
 
-    return len(wrapped) * line_height
+    return total_text_h
 
 
 def create_frame(bg_img, current_line_text, line_alpha, watermark=True):
@@ -102,7 +117,7 @@ def create_frame(bg_img, current_line_text, line_alpha, watermark=True):
             draw.line([(0, y), (WIDTH, y)], fill=(0, 0, 0, min(alpha, 160)))
 
     if current_line_text and line_alpha > 0:
-        font = get_font(48)
+        font = get_font(56)
         # Position text in lower-center area (like Whisprs)
         text_y = HEIGHT * 3 // 5
         draw_centered_text(draw, current_line_text, text_y, font, alpha=line_alpha)
