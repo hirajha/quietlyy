@@ -91,9 +91,7 @@ def _join_lines_with_silence(line_files, audio_path):
         "-i", concat_path, "-b:a", "192k", audio_path,
     ], capture_output=True, check=True)
 
-    # Cleanup
-    for f in line_files:
-        os.remove(f)
+    # Cleanup (keep _line_*.mp3 — compositor uses them for per-line timing)
     os.remove(silence_path)
     os.remove(concat_path)
 

@@ -93,12 +93,26 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
     num_panels = len(image_paths)
     num_lines = len(lines)
 
-    # Simple approach: split audio duration evenly, then add tail pad
-    # This guarantees video is ALWAYS longer than audio
+    # Use actual per-line audio durations so each panel matches its narration
     TAIL_PAD = 5.0
-    per_seg = duration / num_lines
-    seg_durations = [per_seg] * num_lines
-    seg_durations[-1] = per_seg + TAIL_PAD  # Last segment extends past audio
+    GAP = 1.5  # silence gap between lines in audio
+
+    line_durations = []
+    for i in range(num_lines):
+        line_path = os.path.join(OUTPUT_DIR, f"_line_{i}.mp3")
+        if os.path.exists(line_path):
+            line_durations.append(get_audio_duration(line_path))
+
+    if len(line_durations) == num_lines:
+        # Each segment = line audio + gap (except last = line + tail pad)
+        seg_durations = [d + GAP for d in line_durations]
+        seg_durations[-1] = line_durations[-1] + TAIL_PAD
+        print(f"[video] Using per-line durations: {[f'{d:.1f}s' for d in seg_durations]}")
+    else:
+        # Fallback: split evenly
+        per_seg = duration / num_lines
+        seg_durations = [per_seg] * num_lines
+        seg_durations[-1] = per_seg + TAIL_PAD
 
     total_video = sum(seg_durations)
     print(f"[video] Audio: {duration:.1f}s, Video: {total_video:.1f}s (last segment +{TAIL_PAD}s pad)")
