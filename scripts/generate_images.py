@@ -134,18 +134,17 @@ def generate_image_prompt(topic, visual_keywords, panel_num):
     scene = scene_map.get(panel_num, scene_map[2])
 
     return (
-        f"IMPORTANT: This image MUST be VERTICAL PORTRAIT orientation — taller than wide, like a phone screen. "
-        f"Digital anime illustration, hand-painted style, NOT a photograph. "
-        f"Vertical portrait composition (9:16 aspect ratio, tall and narrow). "
+        f"Digital anime illustration for a VERTICAL phone screen (9:16 portrait). "
+        f"All people must be standing or sitting UPRIGHT — heads at the top, feet at the bottom. "
+        f"The horizon line must be HORIZONTAL. The scene must look correct when viewed on a phone held upright. "
+        f"Hand-painted anime style, NOT a photograph. "
         f"{scene}. "
         f"Style: illustrated anime art, Makoto Shinkai lighting, Studio Ghibli warmth, "
-        f"soft painterly brush strokes, visible illustration textures, "
-        f"glowing atmospheric lighting, dreamy color palette, "
+        f"soft painterly brush strokes, glowing atmospheric lighting, dreamy color palette, "
         f"dark moody cinematic tones, emotional depth, bokeh light particles. "
         f"Must look like a digital painting NOT a real photo. "
         f"No text, no watermarks, no words, no letters, no UI elements. "
-        f"No borders, no frames, no colored bars — image must fill the entire canvas edge to edge. "
-        f"The image must be PORTRAIT — height greater than width."
+        f"No borders, no frames — image fills the entire canvas edge to edge."
     )
 
 

@@ -219,22 +219,26 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
 
     if music_path:
         print(f"[video] Mixing voice + {os.path.basename(music_path)}")
+        # NOTE: No loudnorm (adds latency that cuts off last line).
+        # NOTE: No -shortest (video is already padded to be longer than audio).
+        # amix duration=first = use voice duration (first input after filter).
         subprocess.run([
             "ffmpeg", "-y",
             "-i", output_no_audio,
             "-i", audio_path,
             "-stream_loop", "-1", "-i", music_path,
             "-filter_complex",
-            f"[1:a]loudnorm=I=-16:TP=-1.5[voice];"
+            f"[1:a]aresample=async=1[voice];"
             f"[2:a]volume=0.18,afade=t=in:d=2,afade=t=out:st={max(0, duration - 3):.2f}:d=3[music];"
-            f"[voice][music]amix=inputs=2:duration=shortest:normalize=0[aout]",
+            f"[voice][music]amix=inputs=2:duration=first:normalize=0[aout]",
             "-map", "0:v", "-map", "[aout]",
             "-c:v", "copy",
             "-c:a", "aac", "-b:a", "192k",
-            "-shortest", "-movflags", "+faststart",
+            "-movflags", "+faststart",
             output_path,
         ], capture_output=True, check=True)
     else:
+        # No music — just mux video + voice. No -shortest.
         subprocess.run([
             "ffmpeg", "-y",
             "-i", output_no_audio,
@@ -242,7 +246,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-map", "0:v", "-map", "1:a",
             "-c:v", "copy",
             "-c:a", "aac", "-b:a", "192k",
-            "-shortest", "-movflags", "+faststart",
+            "-movflags", "+faststart",
             output_path,
         ], capture_output=True, check=True)
 
