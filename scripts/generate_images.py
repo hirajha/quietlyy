@@ -108,11 +108,15 @@ def generate_image_prompt(topic, visual_keywords, panel_num):
     scene = scene_map.get(panel_num, scene_map[2])
 
     return (
-        f"Anime illustration, cinematic vertical portrait composition. "
+        f"Digital anime illustration, hand-painted style, NOT a photograph. "
+        f"Cinematic vertical portrait composition. "
         f"{scene}. "
-        f"Style: detailed anime art like Whisprs Facebook page, atmospheric lighting, "
-        f"dark moody tones, Studio Ghibli inspired, painterly textures, emotional depth, "
-        f"no text, no watermarks, no words, no letters."
+        f"Style: illustrated anime art, Makoto Shinkai lighting, Studio Ghibli warmth, "
+        f"soft painterly brush strokes, visible illustration textures, "
+        f"glowing atmospheric lighting, dreamy color palette, "
+        f"dark moody cinematic tones, emotional depth, bokeh light particles. "
+        f"Must look like a digital painting NOT a real photo. "
+        f"No text, no watermarks, no words, no letters, no UI elements."
     )
 
 
