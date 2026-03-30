@@ -1,9 +1,10 @@
 output/
-*.mp3
-*.mp4
-*.png
-!templates/
 .env
 __pycache__/
 *.pyc
 .DS_Store
+
+# Keep gallery images and music in repo
+!assets/gallery/
+!assets/gallery/**
+!assets/music/

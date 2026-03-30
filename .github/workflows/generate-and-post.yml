@@ -1,9 +1,9 @@
 name: Quietlyy — Generate & Post Video
 
 on:
-  # Run daily at 2:00 PM UTC (9 AM EST / 7:30 PM IST — peak global engagement)
-  schedule:
-    - cron: '0 14 * * *'
+  # DISABLED until test videos are approved — uncomment to enable daily posting
+  # schedule:
+  #   - cron: '0 14 * * *'
 
   # Manual trigger from GitHub (works from Android tablet)
   workflow_dispatch:
@@ -50,9 +50,11 @@ jobs:
           # Voice (ElevenLabs only)
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
-          # Image generation (Pollinations primary, Pixabay/Pexels fallback)
+          # Image generation (Gemini primary, Pollinations/Pixabay/Pexels fallback)
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          # Background music (Freesound, falls back to bundled)
+          FREESOUND_API_KEY: ${{ secrets.FREESOUND_API_KEY }}
           # Facebook posting
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
@@ -62,6 +64,15 @@ jobs:
             ARGS="--skip-post"
           fi
           python scripts/pipeline.py $ARGS
+
+      - name: Save gallery to repo
+        if: success()
+        run: |
+          git config user.name "Quietlyy Bot"
+          git config user.email "bot@quietlyy.com"
+          git add -f assets/gallery/ || true
+          git diff --cached --quiet || git commit -m "Add gallery images from run #${{ github.run_number }}"
+          git push || true
 
       - name: Upload video artifact
         uses: actions/upload-artifact@v4

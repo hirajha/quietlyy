@@ -15,6 +15,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from generate_script import generate_script
 from generate_audio import generate_audio
 from generate_images import generate_images
+from generate_music import generate_music
 from compose_video import compose_video
 from post_to_facebook import post
 
@@ -83,16 +84,29 @@ def run(skip_post=False):
 
     print(f"  Generated {len(image_paths)} panels")
 
-    # Step 4: Compose video
-    print("\n[4/5] Compositing video...")
-    video_path = compose_video(script_data, image_paths, audio_path, subtitle_path)
+    # Step 4: Fetch background music (topic-specific)
+    print("\n[4/6] Fetching background music...")
+    try:
+        music_path = generate_music(topic)
+    except Exception as e:
+        print(f"\nSkipping today — music failed: {e}. Will retry tomorrow.")
+        sys.exit(0)
+    if music_path:
+        print(f"  Music: {music_path}")
+    else:
+        print(f"\nSkipping today — no background music available. Will retry tomorrow.")
+        sys.exit(0)
+
+    # Step 5: Compose video
+    print("\n[5/6] Compositing video...")
+    video_path = compose_video(script_data, image_paths, audio_path, subtitle_path, music_path)
     print(f"  Video: {video_path}")
 
-    # Step 5: Post to Facebook
+    # Step 6: Post to Facebook
     if skip_post:
-        print("\n[5/5] Skipping Facebook post (--skip-post)")
+        print("\n[6/6] Skipping Facebook post (--skip-post)")
     else:
-        print("\n[5/5] Posting to Facebook...")
+        print("\n[6/6] Posting to Facebook...")
         try:
             result = post(video_path, topic, script_text)
             print(f"  Posted successfully!")

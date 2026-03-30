@@ -46,23 +46,32 @@ def build_prompt(topic, examples):
     for e in examples[:3]:
         examples_text += f'\nTopic: {e["topic"]}\n{e["script"]}\n'
 
-    return f"""You are a poet writing about "{topic}" for the page Quietlyy.
+    return f"""Generate a viral 25-second script in "Quietlyy Quotes" style.
 
-STRICT FORMAT — follow this EXACTLY:
+Make it:
+- Hook in first 2 lines
+- Emotional build in middle
+- Strong, relatable ending
+
+Topic: {topic}
+Tone: deep + quiet pain
+
+Important:
+- Avoid clich\u00e9s
+- Avoid repeated sentence structures
+- Make it feel personal, like a real thought
+- Use "\u2026" for pauses (NOT "...")
+- Each line is its OWN paragraph (separated by newline)
+- Write exactly 5 lines, no more
+- DO NOT use hashtags, emojis, or stage directions
+- Keep it about PEOPLE and HUMAN CONNECTION
+
+STRICT FORMAT:
 Line 1: "There was a time\u2026 when [something emotional about {topic}]."
 Line 2: "Back then\u2026 [how people used to do it with care/love/patience]."
 Line 3: "Not because [practical reason]\u2026 but because [emotional reason]."
 Line 4: "And now\u2026 [how modern people have ruined/lost it]."
 Line 5: "Maybe\u2026 [they didn't lose X]\u2026 [they just stopped Y]."
-
-RULES:
-- Use "\u2026" for pauses (NOT "...")
-- Each line is its OWN paragraph (separated by newline)
-- Write like POETRY — each line hits emotionally
-- The "Maybe\u2026" line must be a GUT PUNCH
-- DO NOT use hashtags, emojis, or stage directions
-- Keep it about PEOPLE and HUMAN CONNECTION, not the object itself
-- Write exactly 5 lines, no more
 
 Also provide 4 visual keywords showing PEOPLE/EMOTIONS (not objects).
 

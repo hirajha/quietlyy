@@ -1,29 +1,82 @@
 """
 Quietlyy — Image Generator
-3-layer fallback:
-  Layer 1: Pollinations.ai FLUX (free, no key) — PRIMARY
-  Layer 2: Pixabay / Pexels stock photos (free)
+4-layer fallback:
+  Layer 1: Gemini 2.5 Flash Image (via google-genai SDK)
+  Layer 2: Pollinations.ai FLUX (free, no key)
+  Layer 3: Pixabay / Pexels stock photos (free)
   NO gradient fallback — if all fail, pipeline fails.
 
-Image style: Whisprs-inspired — focus on PEOPLE, families, human
-connection vs disconnection. The topic (telephone, radio etc) is just
-the script's theme, visuals show human emotions.
+Generated images are saved to assets/gallery/ for reuse.
+Gallery is capped at 500 images — oldest are deleted.
 """
 
+import io
 import os
 import json
+import hashlib
 import random
+import shutil
 import time
 import requests
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
+GALLERY_DIR = os.path.join(os.path.dirname(__file__), "..", "assets", "gallery")
+GALLERY_INDEX = os.path.join(GALLERY_DIR, "index.json")
+GALLERY_MAX = 500
+
+
+def _load_gallery_index():
+    """Load gallery index — tracks images with metadata for reuse."""
+    if os.path.exists(GALLERY_INDEX):
+        with open(GALLERY_INDEX) as f:
+            return json.load(f)
+    return []
+
+
+def _save_gallery_index(index):
+    with open(GALLERY_INDEX, "w") as f:
+        json.dump(index, f, indent=2)
+
+
+def _add_to_gallery(image_path, topic, panel_num, source):
+    """Copy image to gallery with metadata. Caps at GALLERY_MAX."""
+    os.makedirs(GALLERY_DIR, exist_ok=True)
+    index = _load_gallery_index()
+
+    # Generate unique filename
+    ts = int(time.time())
+    h = hashlib.md5(f"{topic}_{panel_num}_{ts}".encode()).hexdigest()[:8]
+    ext = os.path.splitext(image_path)[1] or ".png"
+    gallery_name = f"{h}_{panel_num}{ext}"
+    gallery_path = os.path.join(GALLERY_DIR, gallery_name)
+
+    shutil.copy2(image_path, gallery_path)
+
+    index.append({
+        "file": gallery_name,
+        "topic": topic,
+        "panel": panel_num,
+        "source": source,
+        "timestamp": ts,
+    })
+
+    # Cap at GALLERY_MAX — delete oldest
+    if len(index) > GALLERY_MAX:
+        to_remove = index[:len(index) - GALLERY_MAX]
+        for entry in to_remove:
+            old_path = os.path.join(GALLERY_DIR, entry["file"])
+            if os.path.exists(old_path):
+                os.remove(old_path)
+        index = index[-GALLERY_MAX:]
+
+    _save_gallery_index(index)
+    print(f"[gallery] Saved {gallery_name} ({len(index)}/{GALLERY_MAX})")
 
 
 def generate_image_prompt(topic, visual_keywords, panel_num):
-    """Create Whisprs-style prompts focused on PEOPLE and emotions, not objects."""
+    """Create Whisprs-style prompts focused on PEOPLE and emotions."""
     keywords_str = ", ".join(visual_keywords)
 
-    # Each panel tells the human story, not the object story
     scene_map = {
         0: (
             f"A warm scene of a family gathered together in a cozy room, "
@@ -63,7 +116,37 @@ def generate_image_prompt(topic, visual_keywords, panel_num):
     )
 
 
-# ── Layer 1: Pollinations.ai FLUX (free, no API key needed) — PRIMARY ──
+# ── Layer 1: Gemini 2.5 Flash Image (via google-genai SDK) ──
+def generate_with_gemini(prompt, output_path):
+    key = os.environ.get("GEMINI_API_KEY")
+    if not key:
+        return False
+    try:
+        from google import genai
+        from google.genai import types
+        from PIL import Image
+
+        client = genai.Client(api_key=key)
+        response = client.models.generate_content(
+            model="gemini-2.5-flash-image",
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_modalities=["IMAGE"],
+            ),
+        )
+
+        for part in response.candidates[0].content.parts:
+            if part.inline_data is not None:
+                img = Image.open(io.BytesIO(part.inline_data.data))
+                img.save(output_path, "PNG")
+                return True
+        return False
+    except Exception as e:
+        print(f"[images] Gemini SDK failed: {e}")
+    return False
+
+
+# ── Layer 2: Pollinations.ai FLUX (free, no API key needed) ──
 def generate_with_pollinations(prompt, output_path):
     try:
         from urllib.parse import quote
@@ -81,7 +164,7 @@ def generate_with_pollinations(prompt, output_path):
     return False
 
 
-# ── Layer 2a: Pixabay (free, 100 req/min) — people-focused searches ──
+# ── Layer 3a: Pixabay (free, 100 req/min) ──
 def fetch_from_pixabay(visual_keywords, output_path, panel_num):
     key = os.environ.get("PIXABAY_API_KEY")
     if not key:
@@ -100,12 +183,8 @@ def fetch_from_pixabay(visual_keywords, output_path, panel_num):
         resp = requests.get(
             "https://pixabay.com/api/",
             params={
-                "key": key,
-                "q": query,
-                "image_type": "photo",
-                "orientation": "vertical",
-                "per_page": 15,
-                "safesearch": "true",
+                "key": key, "q": query, "image_type": "photo",
+                "orientation": "vertical", "per_page": 15, "safesearch": "true",
             },
             timeout=15,
         )
@@ -129,13 +208,12 @@ def fetch_from_pixabay(visual_keywords, output_path, panel_num):
     return False
 
 
-# ── Layer 2b: Pexels (free, 200 req/hour) — people-focused searches ──
+# ── Layer 3b: Pexels (free, 200 req/hour) ──
 def fetch_from_pexels(visual_keywords, output_path, panel_num):
     key = os.environ.get("PEXELS_API_KEY")
     if not key:
         return False
 
-    # Search for PEOPLE scenes, not objects
     people_queries = {
         0: "family together warm home love",
         1: "two people connection intimate moment",
@@ -171,8 +249,8 @@ def fetch_from_pexels(visual_keywords, output_path, panel_num):
 
 
 def generate_images(topic, visual_keywords, num_panels=5):
-    """Generate people-focused panel images. Pollinations primary, Pixabay/Pexels fallback.
-    Raises error if any panel fails (no gradient fallback)."""
+    """Generate people-focused panel images. Saves to gallery for reuse.
+    Raises error if any panel fails."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     paths = []
 
@@ -183,23 +261,29 @@ def generate_images(topic, visual_keywords, num_panels=5):
         print(f"[images] Panel {i+1}/{num_panels}: generating...")
 
         layers = [
+            ("Gemini", lambda p=prompt, o=output_path: generate_with_gemini(p, o)),
             ("Pollinations", lambda p=prompt, o=output_path: generate_with_pollinations(p, o)),
             ("Pixabay", lambda kw=visual_keywords, o=output_path, idx=i: fetch_from_pixabay(kw, o, idx)),
             ("Pexels", lambda kw=visual_keywords, o=output_path, idx=i: fetch_from_pexels(kw, o, idx)),
         ]
 
         success = False
+        source = None
         for name, fn in layers:
             try:
                 if fn():
                     print(f"[images] Panel {i+1}: {name}")
                     success = True
+                    source = name
                     break
             except Exception as e:
                 print(f"[images] Panel {i+1} {name} error: {e}")
 
         if not success:
             raise RuntimeError(f"All image sources failed for panel {i+1}. Cannot produce quality video.")
+
+        # Save to gallery for future reuse
+        _add_to_gallery(output_path, topic, i, source)
 
         paths.append(output_path)
 
