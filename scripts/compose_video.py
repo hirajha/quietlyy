@@ -112,7 +112,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
     # Total per-segment = line_duration + gap (1.5s)
     # Last line gets extra 2s so video doesn't cut off before voice finishes
     GAP = 1.5
-    TAIL_PAD = 2.0
+    TAIL_PAD = 4.0  # Extra padding so video never ends before voice finishes
     seg_durations = [d + GAP for d in line_durations]
     seg_durations[-1] = line_durations[-1] + TAIL_PAD
 
@@ -129,24 +129,34 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         panel_idx = min(i, num_panels - 1)
         img = Image.open(image_paths[panel_idx]).convert("RGBA")
 
-        # Scale to cover frame
+        # Start with black canvas — guarantees exact 1080x1920, no colored bars
+        canvas = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 255))
+
+        # Scale image to COVER the frame (crop excess, never leave gaps)
         img_ratio = img.width / img.height
         target_ratio = WIDTH / HEIGHT
         if img_ratio > target_ratio:
+            # Image is wider — scale to match height, crop sides
             new_h = HEIGHT
             new_w = int(new_h * img_ratio)
         else:
+            # Image is taller — scale to match width, crop top/bottom
             new_w = WIDTH
             new_h = int(new_w / img_ratio)
         img = img.resize((new_w, new_h), Image.LANCZOS)
-        # Center crop
+
+        # Center crop to exact 1080x1920
         left = (new_w - WIDTH) // 2
         top = (new_h - HEIGHT) // 2
         img = img.crop((left, top, left + WIDTH, top + HEIGHT))
 
+        # Paste onto black canvas (safety — covers any rounding pixel gaps)
+        canvas.paste(img, (0, 0))
+        img = canvas
+
         # Darken image slightly for text readability
         dark = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 60))
-        img = Image.alpha_composite(img.convert("RGBA"), dark)
+        img = Image.alpha_composite(img, dark)
 
         # Bake text
         frame = _draw_text_on_image(img, lines[i])

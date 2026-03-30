@@ -1,11 +1,7 @@
 """
 Quietlyy — Image Generator
-5-layer fallback:
-  Layer 1: OpenAI DALL-E 3 (primary — animated/illustrated style)
-  Layer 2: Gemini 2.5 Flash Image (via google-genai SDK)
-  Layer 3: Pollinations.ai FLUX (free, no key)
-  Layer 4: Pixabay / Pexels stock photos (free)
-  NO gradient fallback — if all fail, pipeline fails.
+DALL-E 3 ONLY — no stock photos, no gradients.
+If DALL-E fails for a panel, reuse an earlier successful panel from same video.
 
 Gallery system:
   - Generated images saved to assets/gallery/ for reuse
@@ -139,254 +135,73 @@ def generate_image_prompt(topic, visual_keywords, panel_num):
 
     return (
         f"Digital anime illustration, hand-painted style, NOT a photograph. "
-        f"Cinematic vertical portrait composition. "
+        f"Cinematic vertical portrait composition (9:16 aspect ratio). "
         f"{scene}. "
         f"Style: illustrated anime art, Makoto Shinkai lighting, Studio Ghibli warmth, "
         f"soft painterly brush strokes, visible illustration textures, "
         f"glowing atmospheric lighting, dreamy color palette, "
         f"dark moody cinematic tones, emotional depth, bokeh light particles. "
         f"Must look like a digital painting NOT a real photo. "
-        f"No text, no watermarks, no words, no letters, no UI elements."
+        f"No text, no watermarks, no words, no letters, no UI elements. "
+        f"No borders, no frames, no colored bars — image must fill the entire canvas edge to edge."
     )
 
 
-# ── Layer 1: OpenAI DALL-E 3 (primary — best animated/illustrated style) ──
 def generate_with_dalle(prompt, output_path):
-    """Generate image using OpenAI DALL-E 3 API."""
+    """Generate image using OpenAI DALL-E 3 API. Retries once on timeout."""
     key = os.environ.get("OPENAI_API_KEY")
     if not key:
         return False
-    try:
-        resp = requests.post(
-            "https://api.openai.com/v1/images/generations",
-            headers={
-                "Authorization": f"Bearer {key}",
-                "Content-Type": "application/json",
-            },
-            json={
-                "model": "dall-e-3",
-                "prompt": prompt,
-                "n": 1,
-                "size": "1024x1792",  # Portrait for vertical video
-                "quality": "standard",
-                "response_format": "url",
-            },
-            timeout=120,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        img_url = data["data"][0]["url"]
 
-        # Download the image
-        img_resp = requests.get(img_url, timeout=30)
-        img_resp.raise_for_status()
-        if len(img_resp.content) < 5000:
-            return False
-        with open(output_path, "wb") as f:
-            f.write(img_resp.content)
-        return True
-    except Exception as e:
-        print(f"[images] DALL-E failed: {e}")
-    return False
+    for attempt in range(2):  # Try twice
+        try:
+            resp = requests.post(
+                "https://api.openai.com/v1/images/generations",
+                headers={
+                    "Authorization": f"Bearer {key}",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "model": "dall-e-3",
+                    "prompt": prompt,
+                    "n": 1,
+                    "size": "1024x1792",  # Portrait 9:16 for vertical video
+                    "quality": "standard",
+                    "response_format": "url",
+                },
+                timeout=120,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            img_url = data["data"][0]["url"]
 
-
-# ── Layer 2: Gemini 2.5 Flash Image (via google-genai SDK) ──
-def generate_with_gemini(prompt, output_path):
-    key = os.environ.get("GEMINI_API_KEY")
-    if not key:
-        return False
-    try:
-        from google import genai
-        from google.genai import types
-        from PIL import Image
-
-        client = genai.Client(api_key=key)
-        response = client.models.generate_content(
-            model="gemini-2.5-flash-image",
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                response_modalities=["IMAGE"],
-            ),
-        )
-
-        for part in response.candidates[0].content.parts:
-            if part.inline_data is not None:
-                img = Image.open(io.BytesIO(part.inline_data.data))
-                img.save(output_path, "PNG")
-                return True
-        return False
-    except Exception as e:
-        print(f"[images] Gemini SDK failed: {e}")
-    return False
-
-
-# ── Layer 3: Pollinations.ai FLUX (free, no API key needed) ──
-def generate_with_pollinations(prompt, output_path):
-    try:
-        from urllib.parse import quote
-        url = f"https://image.pollinations.ai/prompt/{quote(prompt)}?width=768&height=1344&model=flux&nologo=true"
-        resp = requests.get(url, timeout=90)
-        if resp.status_code != 200:
-            return False
-        if len(resp.content) < 5000:
-            return False
-        with open(output_path, "wb") as f:
-            f.write(resp.content)
-        return True
-    except Exception as e:
-        print(f"[images] Pollinations failed: {e}")
-    return False
-
-
-# ── Layer 4a: Pixabay Video Frames (anime/lofi style) ──
-def fetch_from_pixabay(visual_keywords, output_path, panel_num):
-    """Search Pixabay for anime/illustration VIDEOS, extract a frame."""
-    key = os.environ.get("PIXABAY_API_KEY")
-    if not key:
-        return False
-
-    scene_queries = {
-        0: "anime family warm light lofi",
-        1: "anime couple love together rain",
-        2: "anime person window thinking rain alone",
-        3: "anime girl alone night sad lonely lofi",
-        4: "anime silhouette sunset walking alone melancholy",
-    }
-    base = scene_queries.get(panel_num, "anime person alone sad lofi")
-    topic_words = " ".join(visual_keywords[:2]) if visual_keywords else ""
-    query = f"{base} {topic_words}".strip()
-
-    try:
-        resp = requests.get(
-            "https://pixabay.com/api/videos/",
-            params={
-                "key": key, "q": query,
-                "per_page": 10, "safesearch": "true",
-            },
-            timeout=15,
-        )
-        resp.raise_for_status()
-        hits = resp.json().get("hits", [])
-
-        if not hits:
-            return _fetch_pixabay_image(key, query, output_path)
-
-        video = random.choice(hits)
-        video_url = (video.get("videos", {}).get("medium", {}).get("url")
-                     or video.get("videos", {}).get("small", {}).get("url"))
-        if not video_url:
-            return False
-
-        import subprocess, tempfile
-        tmp_video = tempfile.mktemp(suffix=".mp4")
-        vid_resp = requests.get(video_url, timeout=30)
-        if vid_resp.status_code != 200:
-            return False
-        with open(tmp_video, "wb") as f:
-            f.write(vid_resp.content)
-
-        duration_str = subprocess.run(
-            ["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
-             "-of", "csv=p=0", tmp_video],
-            capture_output=True, text=True,
-        ).stdout.strip()
-        vid_dur = float(duration_str) if duration_str else 5
-        seek = vid_dur * (0.3 + random.random() * 0.4)
-
-        subprocess.run([
-            "ffmpeg", "-y", "-ss", f"{seek:.2f}",
-            "-i", tmp_video, "-frames:v", "1", output_path,
-        ], capture_output=True, check=True)
-
-        os.remove(tmp_video)
-        return os.path.exists(output_path) and os.path.getsize(output_path) > 1000
-
-    except Exception as e:
-        print(f"[images] Pixabay video failed: {e}")
-    return False
-
-
-def _fetch_pixabay_image(key, query, output_path):
-    """Fallback: fetch illustration images from Pixabay."""
-    try:
-        resp = requests.get(
-            "https://pixabay.com/api/",
-            params={
-                "key": key, "q": query, "image_type": "illustration",
-                "orientation": "vertical", "per_page": 15, "safesearch": "true",
-            },
-            timeout=15,
-        )
-        resp.raise_for_status()
-        hits = resp.json().get("hits", [])
-        if not hits:
-            return False
-        photo = random.choice(hits)
-        preview = photo.get("previewURL", "")
-        img_url = preview.replace("_150.", "_1280.") if preview else photo.get("webformatURL")
-        if not img_url:
-            return False
-        img_resp = requests.get(img_url, timeout=30)
-        img_resp.raise_for_status()
-        with open(output_path, "wb") as f:
-            f.write(img_resp.content)
-        return True
-    except Exception as e:
-        print(f"[images] Pixabay image failed: {e}")
-    return False
-
-
-# ── Layer 4b: Pexels (free, 200 req/hour) ──
-def fetch_from_pexels(visual_keywords, output_path, panel_num):
-    key = os.environ.get("PEXELS_API_KEY")
-    if not key:
-        return False
-
-    people_queries = {
-        0: "family together warm home love",
-        1: "couple holding hands connection",
-        2: "person window silhouette thinking alone",
-        3: "lonely person phone dark room",
-        4: "solitary figure sunset walking alone",
-    }
-    base = people_queries.get(panel_num, "person alone thinking nostalgic")
-    topic_words = " ".join(visual_keywords[:2]) if visual_keywords else ""
-    query = f"{base} {topic_words}".strip()
-
-    try:
-        resp = requests.get(
-            "https://api.pexels.com/v1/search",
-            headers={"Authorization": key},
-            params={"query": query, "per_page": 15, "orientation": "portrait"},
-            timeout=15,
-        )
-        resp.raise_for_status()
-        photos = resp.json().get("photos", [])
-        if not photos:
-            return False
-
-        photo = random.choice(photos)
-        img_url = photo["src"]["large2x"]
-
-        img_resp = requests.get(img_url, timeout=30)
-        img_resp.raise_for_status()
-        with open(output_path, "wb") as f:
-            f.write(img_resp.content)
-        return True
-    except Exception as e:
-        print(f"[images] Pexels failed: {e}")
+            # Download the image
+            img_resp = requests.get(img_url, timeout=30)
+            img_resp.raise_for_status()
+            if len(img_resp.content) < 5000:
+                continue
+            with open(output_path, "wb") as f:
+                f.write(img_resp.content)
+            return True
+        except Exception as e:
+            print(f"[images] DALL-E attempt {attempt+1} failed: {e}")
+            if attempt == 0:
+                time.sleep(3)
     return False
 
 
 def generate_images(topic, visual_keywords, num_panels=5):
-    """Generate people-focused panel images with gallery reuse.
+    """Generate panel images using DALL-E ONLY.
     - Max 5 panels per video
+    - DALL-E is the only generator — no stock photos or gradients
+    - If DALL-E fails for a panel, reuse an earlier successful panel from same video
     - After 25 gallery images: reuse 2-3 panels (never panel 0)
     - Saves new images to gallery (capped at 500)
-    Raises error if any panel fails."""
+    At least 1 image must succeed or pipeline fails."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     num_panels = min(num_panels, 5)  # Hard cap at 5
     paths = []
+    successful_paths = []  # Track successfully generated images for reuse within this video
 
     # Check if we should reuse some panels from gallery
     reuse_map = _pick_reuse_panels(num_panels)
@@ -400,42 +215,33 @@ def generate_images(topic, visual_keywords, num_panels=5):
             paths.append(output_path)
             continue
 
-        # Generate fresh image
+        # Generate fresh image with DALL-E
         prompt = generate_image_prompt(topic, visual_keywords, i)
-        print(f"[images] Panel {i+1}/{num_panels}: generating...")
+        print(f"[images] Panel {i+1}/{num_panels}: generating with DALL-E...")
 
-        layers = [
-            ("DALL-E", lambda p=prompt, o=output_path: generate_with_dalle(p, o)),
-            ("Gemini", lambda p=prompt, o=output_path: generate_with_gemini(p, o)),
-            ("Pollinations", lambda p=prompt, o=output_path: generate_with_pollinations(p, o)),
-            ("Pexels", lambda kw=visual_keywords, o=output_path, idx=i: fetch_from_pexels(kw, o, idx)),
-            ("Pixabay", lambda kw=visual_keywords, o=output_path, idx=i: fetch_from_pixabay(kw, o, idx)),
-        ]
+        success = generate_with_dalle(prompt, output_path)
 
-        success = False
-        source = None
-        for name, fn in layers:
-            try:
-                if fn():
-                    print(f"[images] Panel {i+1}: {name}")
-                    success = True
-                    source = name
-                    break
-            except Exception as e:
-                print(f"[images] Panel {i+1} {name} error: {e}")
-            time.sleep(2)
+        if success:
+            print(f"[images] Panel {i+1}: DALL-E")
+            successful_paths.append(output_path)
 
-        if not success:
-            raise RuntimeError(f"All image sources failed for panel {i+1}. Cannot produce quality video.")
+            # Save to gallery for future reuse (disabled until test approval)
+            # _add_to_gallery(output_path, topic, i, "DALL-E")
+        else:
+            # DALL-E failed — reuse an earlier panel from THIS video
+            if successful_paths:
+                reuse_src = random.choice(successful_paths)
+                shutil.copy2(reuse_src, output_path)
+                print(f"[images] Panel {i+1}: reusing earlier panel (DALL-E failed)")
+            else:
+                raise RuntimeError(f"DALL-E failed for panel {i+1} and no earlier panels to reuse. Cannot proceed.")
 
-        # Save to gallery for future reuse (disabled until test approval)
-        # _add_to_gallery(output_path, topic, i, source)
         paths.append(output_path)
 
         if i < num_panels - 1:
-            time.sleep(1)
+            time.sleep(2)  # Respect rate limits between DALL-E calls
 
-    print(f"[images] Generated {len(paths)} panels ({len(reuse_map)} reused)")
+    print(f"[images] Generated {len(paths)} panels ({len(reuse_map)} from gallery, {len(successful_paths)} fresh DALL-E)")
     return paths
 
 
