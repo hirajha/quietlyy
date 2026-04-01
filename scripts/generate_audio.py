@@ -14,10 +14,10 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 # ElevenLabs config
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
 ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "b0jrjvawVNjnHsrN2WGU")
-ELEVENLABS_MODEL = "eleven_multilingual_v2"  # supports speed parameter
+ELEVENLABS_MODEL = "eleven_turbo_v2_5"  # clear, natural, supports speed param
 
-# Silence between lines (seconds) — increased for slower, more emotional pace
-LINE_GAP = 2.5
+# Silence between lines (seconds)
+LINE_GAP = 2.1
 
 
 def _clean_text(text):
@@ -40,11 +40,11 @@ def _record_line_elevenlabs(text, output_path):
         "text": clean,
         "model_id": ELEVENLABS_MODEL,
         "voice_settings": {
-            "stability": 0.80,
-            "similarity_boost": 0.75,
-            "style": 0.25,
+            "stability": 0.65,        # lower = more expressive and human
+            "similarity_boost": 0.80, # higher = stays true to the voice
+            "style": 0.20,
             "use_speaker_boost": True,
-            "speed": 0.85,  # slightly slower — more emotional, less rushed
+            "speed": 0.90,            # slight slowdown, not sluggish
         },
     }
 
