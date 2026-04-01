@@ -18,6 +18,7 @@ from generate_images import generate_images
 from generate_music import generate_music
 from compose_video import compose_video
 from post_to_facebook import post
+from post_to_youtube import post as post_youtube
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
@@ -36,7 +37,7 @@ def clean_output():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
-def run(skip_post=False):
+def run(skip_post=False, skip_youtube=False):
     """Run the full Quietlyy pipeline."""
     print("=" * 50)
     print("  QUIETLYY — Automated Video Pipeline")
@@ -102,21 +103,35 @@ def run(skip_post=False):
     video_path = compose_video(script_data, image_paths, audio_path, subtitle_path, music_path)
     print(f"  Video: {video_path}")
 
-    # Step 6: Post to Facebook
+    # Step 6: Post to Facebook/Instagram
     if skip_post:
-        print("\n[6/6] Skipping Facebook post (--skip-post)")
+        print("\n[6/7] Skipping Facebook post (--skip-post)")
     else:
-        print("\n[6/6] Posting to Facebook...")
+        print("\n[6/7] Posting to Facebook/Instagram...")
         try:
             result = post(video_path, topic, script_text)
             print(f"  Posted successfully!")
-
-            # Save post record
             with open(os.path.join(OUTPUT_DIR, "post_result.json"), "w") as f:
                 json.dump(result, f, indent=2)
         except Exception as e:
             print(f"  Facebook posting failed: {e}")
             print("  Video saved locally — you can post manually.")
+
+    # Step 7: Post to YouTube Shorts
+    if skip_youtube:
+        print("\n[7/7] Skipping YouTube post (--skip-youtube)")
+    elif not os.environ.get("YOUTUBE_CLIENT_ID"):
+        print("\n[7/7] Skipping YouTube post (YOUTUBE_CLIENT_ID not set)")
+    else:
+        print("\n[7/7] Posting to YouTube Shorts...")
+        try:
+            yt_result = post_youtube(video_path, topic, script_text)
+            print(f"  Short posted: {yt_result['url']}")
+            with open(os.path.join(OUTPUT_DIR, "youtube_result.json"), "w") as f:
+                json.dump(yt_result, f, indent=2)
+        except Exception as e:
+            print(f"  YouTube posting failed: {e}")
+            print("  Video saved locally — you can upload manually.")
 
     print("\n" + "=" * 50)
     print("  PIPELINE COMPLETE")
@@ -129,4 +144,5 @@ def run(skip_post=False):
 
 if __name__ == "__main__":
     skip = "--skip-post" in sys.argv
-    run(skip_post=skip)
+    skip_yt = "--skip-youtube" in sys.argv
+    run(skip_post=skip, skip_youtube=skip_yt)
