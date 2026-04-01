@@ -112,6 +112,20 @@ def _generate_with_gemini(prompt):
         return None
 
 
+def _generate_with_openai(prompt):
+    key = os.environ.get("OPENAI_API_KEY")
+    if not key:
+        return None
+    try:
+        return _call_openai_compatible(
+            "https://api.openai.com/v1/chat/completions",
+            key, "gpt-4o-mini", prompt,
+        )
+    except Exception as e:
+        print(f"[seo] OpenAI failed: {e}")
+        return None
+
+
 def _generate_with_groq(prompt):
     key = os.environ.get("GROQ_API_KEY")
     if not key:
@@ -165,7 +179,7 @@ def generate_seo(topic, script_text, visual_keywords):
     )
 
     ai_data = None
-    for fn, name in [(_generate_with_gemini, "Gemini"), (_generate_with_groq, "Groq")]:
+    for fn, name in [(_generate_with_gemini, "Gemini"), (_generate_with_openai, "OpenAI"), (_generate_with_groq, "Groq")]:
         ai_data = fn(prompt)
         if ai_data and "instagram_hashtags" in ai_data:
             print(f"[seo] Generated via {name}")
@@ -195,14 +209,17 @@ def generate_seo(topic, script_text, visual_keywords):
     yt_tags = ai_data.get("youtube_tags", BASE_YT_TAGS)[:15]
     yt_tag_str = " ".join(f"#{t.lstrip('#')}" for t in yt_tags)
 
+    # IMPORTANT: hashtags go at the TOP of YouTube description.
+    # YouTube picks first 3 hashtags and shows them as clickable blue links
+    # directly above the video title in the watch page — maximum discoverability.
     yt_description = (
+        f"{yt_tag_str}\n\n"                      # ← hashtags first = shown above title
         f"{caption}\n\n"
         f"— Quietlyy\n\n"
         f"━━━━━━━━━━━━━━━━━━━━\n"
         f"{seo_line}\n\n"
-        f"📌 Follow for daily reflections: @Quietlyy\n"
+        f"Subscribe for daily reflections → @SayQuietlyy\n"
         f"━━━━━━━━━━━━━━━━━━━━\n\n"
-        f"{yt_tag_str}\n\n"
         f"{YT_AI_DISCLOSURE}"
     )
 
