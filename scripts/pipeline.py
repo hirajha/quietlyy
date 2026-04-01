@@ -17,6 +17,7 @@ from generate_audio import generate_audio
 from generate_images import generate_images
 from generate_music import generate_music
 from compose_video import compose_video
+from generate_seo import generate_seo
 from post_to_facebook import post
 from post_to_youtube import post as post_youtube
 
@@ -99,17 +100,29 @@ def run(skip_post=False, skip_youtube=False):
         sys.exit(0)
 
     # Step 5: Compose video
-    print("\n[5/6] Compositing video...")
+    print("\n[5/7] Compositing video...")
     video_path = compose_video(script_data, image_paths, audio_path, subtitle_path, music_path)
     print(f"  Video: {video_path}")
 
-    # Step 6: Post to Facebook/Instagram
+    # Step 6: Generate SEO metadata (AI-optimised titles, hashtags, AI disclosures)
+    print("\n[6/7] Generating SEO metadata...")
+    try:
+        seo_metadata = generate_seo(topic, script_text, visual_keywords)
+        print(f"  SEO ready — {len(seo_metadata['facebook']['hashtags'])} FB tags, "
+              f"YouTube title: {seo_metadata['youtube']['title'][:50]}...")
+        with open(os.path.join(OUTPUT_DIR, "seo_metadata.json"), "w") as f:
+            json.dump(seo_metadata, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"  SEO generation failed ({e}), using fallback descriptions")
+        seo_metadata = None
+
+    # Step 7a: Post to Facebook/Instagram
     if skip_post:
-        print("\n[6/7] Skipping Facebook post (--skip-post)")
+        print("\n[7a/7] Skipping Facebook post (--skip-post)")
     else:
-        print("\n[6/7] Posting to Facebook/Instagram...")
+        print("\n[7a/7] Posting to Facebook/Instagram...")
         try:
-            result = post(video_path, topic, script_text)
+            result = post(video_path, topic, script_text, seo_metadata=seo_metadata)
             print(f"  Posted successfully!")
             with open(os.path.join(OUTPUT_DIR, "post_result.json"), "w") as f:
                 json.dump(result, f, indent=2)
@@ -117,15 +130,15 @@ def run(skip_post=False, skip_youtube=False):
             print(f"  Facebook posting failed: {e}")
             print("  Video saved locally — you can post manually.")
 
-    # Step 7: Post to YouTube Shorts
+    # Step 7b: Post to YouTube Shorts
     if skip_youtube:
-        print("\n[7/7] Skipping YouTube post (--skip-youtube)")
+        print("\n[7b/7] Skipping YouTube post (--skip-youtube)")
     elif not os.environ.get("YOUTUBE_CLIENT_ID"):
-        print("\n[7/7] Skipping YouTube post (YOUTUBE_CLIENT_ID not set)")
+        print("\n[7b/7] Skipping YouTube post (YOUTUBE_CLIENT_ID not set)")
     else:
-        print("\n[7/7] Posting to YouTube Shorts...")
+        print("\n[7b/7] Posting to YouTube Shorts...")
         try:
-            yt_result = post_youtube(video_path, topic, script_text)
+            yt_result = post_youtube(video_path, topic, script_text, seo_metadata=seo_metadata)
             print(f"  Short posted: {yt_result['url']}")
             with open(os.path.join(OUTPUT_DIR, "youtube_result.json"), "w") as f:
                 json.dump(yt_result, f, indent=2)
