@@ -59,21 +59,30 @@ def post_as_reel(video_path, description):
         )
     upload_resp.raise_for_status()
 
-    # Step 3: Publish
+    # Step 3: Publish (optionally cross-post to Instagram simultaneously)
     print("[facebook] Publishing Reel...")
+    publish_payload = {
+        "upload_phase": "finish",
+        "video_id": video_id,
+        "title": "Quietlyy",
+        "description": description,
+    }
+    ig_user_id = os.environ.get("INSTAGRAM_USER_ID")
+    if ig_user_id:
+        publish_payload["instagram_user_id"] = ig_user_id
+        print("[facebook] Cross-posting to Instagram...")
+
     publish_resp = requests.post(
         f"{GRAPH_API}/{page_id}/video_reels",
         params={"access_token": token},
-        json={
-            "upload_phase": "finish",
-            "video_id": video_id,
-            "title": "Quietlyy",
-            "description": description,
-        },
+        json=publish_payload,
     )
     publish_resp.raise_for_status()
     result = publish_resp.json()
-    print(f"[facebook] Reel posted! ID: {result.get('id', video_id)}")
+    if ig_user_id:
+        print(f"[facebook] Reel posted to Facebook + Instagram! ID: {result.get('id', video_id)}")
+    else:
+        print(f"[facebook] Reel posted to Facebook! ID: {result.get('id', video_id)}")
     return result
 
 
