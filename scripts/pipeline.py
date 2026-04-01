@@ -1,7 +1,17 @@
 """
 Quietlyy — Main Pipeline Orchestrator
-Runs the full pipeline: script -> audio -> images -> video -> post to Facebook.
-Quality control: if images or audio fail, skip the day gracefully.
+Full pipeline: market research → script → audio → images → music →
+              video → SEO → quality gate → Facebook/Instagram → YouTube Shorts.
+
+Quality rules (never post incomplete videos):
+  - ElevenLabs audio is STRICT: quota / key error = skip day
+  - Images: DALL-E / Gemini only — no gradient fallbacks allowed
+  - Music: required — no silent videos
+  - Video must pass size check before any upload attempt
+
+Quota handling:
+  - HTTP 429 / quota errors = graceful skip (sys.exit(0)), retry tomorrow
+  - Permanent errors = also skip gracefully, log reason
 """
 
 import json
@@ -9,7 +19,6 @@ import os
 import sys
 import shutil
 
-# Add parent to path
 sys.path.insert(0, os.path.dirname(__file__))
 
 from generate_script import generate_script
@@ -18,14 +27,20 @@ from generate_images import generate_images
 from generate_music import generate_music
 from compose_video import compose_video
 from generate_seo import generate_seo
+from market_research import get_research, get_tone_hints, get_top_themes
 from post_to_facebook import post
 from post_to_youtube import post as post_youtube
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
+# ── Quality thresholds ──────────────────────────────────────────────────────
+MIN_AUDIO_BYTES   = 100_000   # 100 KB — ElevenLabs audio for 5 lines
+MIN_IMAGE_BYTES   =  50_000   # 50 KB  — real AI image (not gradient/placeholder)
+MIN_VIDEO_BYTES   = 800_000   # 800 KB — 30s vertical video
+NUM_PANELS        = 5
+
 
 def clean_output():
-    """Clean previous output files (keep used_topics.json)."""
     if os.path.exists(OUTPUT_DIR):
         for f in os.listdir(OUTPUT_DIR):
             path = os.path.join(OUTPUT_DIR, f)
@@ -38,85 +53,159 @@ def clean_output():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
+def quality_check(audio_path, image_paths, music_path, video_path):
+    """
+    Hard quality gate — returns (passed: bool, reason: str).
+    If failed, pipeline must NOT post — skip the day instead.
+    """
+    errors = []
+
+    # 1. Audio
+    if not os.path.exists(audio_path):
+        errors.append("Audio file missing")
+    elif os.path.getsize(audio_path) < MIN_AUDIO_BYTES:
+        errors.append(f"Audio too small ({os.path.getsize(audio_path)} bytes) — likely not ElevenLabs")
+
+    # 2. Images — all panels must exist and be real AI images
+    if len(image_paths) < NUM_PANELS:
+        errors.append(f"Only {len(image_paths)}/{NUM_PANELS} image panels generated")
+    else:
+        for i, img in enumerate(image_paths):
+            if not os.path.exists(img):
+                errors.append(f"Panel {i} missing: {img}")
+            elif os.path.getsize(img) < MIN_IMAGE_BYTES:
+                errors.append(f"Panel {i} too small ({os.path.getsize(img)} bytes) — may be placeholder")
+
+    # 3. Music
+    if not music_path or not os.path.exists(music_path):
+        errors.append("Background music missing")
+
+    # 4. Video
+    if not os.path.exists(video_path):
+        errors.append("Video file missing")
+    elif os.path.getsize(video_path) < MIN_VIDEO_BYTES:
+        errors.append(f"Video too small ({os.path.getsize(video_path)} bytes)")
+
+    if errors:
+        return False, " | ".join(errors)
+    return True, "OK"
+
+
+def _is_quota_error(exc):
+    """Detect API quota / rate limit errors."""
+    msg = str(exc).lower()
+    return any(k in msg for k in ["429", "quota", "rate limit", "rate_limit",
+                                   "resource_exhausted", "insufficient_quota",
+                                   "credits"])
+
+
 def run(skip_post=False, skip_youtube=False):
-    """Run the full Quietlyy pipeline."""
     print("=" * 50)
     print("  QUIETLYY — Automated Video Pipeline")
     print("=" * 50)
 
     clean_output()
 
-    # Step 1: Generate script
-    print("\n[1/5] Generating script...")
+    # ── Step 0: Market research (cached weekly, always fast) ───────────────
+    print("\n[0/7] Loading audience intelligence...")
     try:
-        script_data = generate_script()
+        research = get_research()
+        tone_hints = get_tone_hints(research)
+        top_themes = get_top_themes(research)
+        peak_times = research.get("peak_posting_times_IST", {})
+        print(f"  Top geo: {', '.join(research.get('target_demographics', {}).get('top_geos', [])[:3])}")
+        print(f"  Peak FB/IG: {peak_times.get('instagram_reels', ['?', '?'])}")
+        print(f"  Peak YT: {peak_times.get('youtube_shorts', ['?', '?'])}")
     except Exception as e:
-        print(f"\nSkipping today — script generation failed: {e}. Will retry tomorrow.")
+        print(f"  Market research failed ({e}), continuing with defaults")
+        tone_hints = ""
+        top_themes = []
+
+    # ── Step 1: Generate script ─────────────────────────────────────────────
+    print("\n[1/7] Generating script...")
+    try:
+        script_data = generate_script(tone_hints=tone_hints, theme_hints=top_themes)
+    except Exception as e:
+        reason = "quota exceeded" if _is_quota_error(e) else str(e)
+        print(f"\nSkipping today — script failed: {reason}. Will retry tomorrow.")
         sys.exit(0)
 
     topic = script_data["topic"]
     script_text = script_data["script"]
     visual_keywords = script_data.get("visual_keywords", [topic.lower()])
     print(f"  Topic: {topic}")
-    print(f"  Script preview: {script_text[:80]}...")
+    print(f"  Preview: {script_text[:80]}...")
 
-    # Save script for reference
     with open(os.path.join(OUTPUT_DIR, "script.json"), "w") as f:
         json.dump(script_data, f, indent=2)
 
-    # Step 2: Generate voiceover audio (STRICT — fail = skip day)
-    print("\n[2/5] Generating voiceover...")
+    # ── Step 2: Audio (ElevenLabs only — quota = skip day) ─────────────────
+    print("\n[2/7] Generating voiceover...")
     try:
         audio_result = generate_audio(script_text)
     except Exception as e:
-        print(f"\nSkipping today — audio generation failed: {e}. Will retry tomorrow.")
+        if _is_quota_error(e):
+            print(f"\nSkipping today — ElevenLabs quota exceeded. Will retry tomorrow.")
+        else:
+            print(f"\nSkipping today — audio failed: {e}. Will retry tomorrow.")
         sys.exit(0)
 
     audio_path = audio_result["audio_path"]
     subtitle_path = audio_result["subtitle_path"]
     print(f"  Audio: {audio_path}")
 
-    # Step 3: Generate images (STRICT — fail = skip day)
-    print("\n[3/5] Generating panel images...")
+    # ── Step 3: Images (AI only — quota = skip day) ─────────────────────────
+    print("\n[3/7] Generating panel images...")
     try:
-        image_paths = generate_images(topic, visual_keywords, num_panels=5)
+        image_paths = generate_images(topic, visual_keywords, num_panels=NUM_PANELS)
     except Exception as e:
-        print(f"\nSkipping today — image generation failed: {e}. Will retry tomorrow.")
+        if _is_quota_error(e):
+            print(f"\nSkipping today — image API quota exceeded. Will retry tomorrow.")
+        else:
+            print(f"\nSkipping today — image generation failed: {e}. Will retry tomorrow.")
         sys.exit(0)
 
     print(f"  Generated {len(image_paths)} panels")
 
-    # Step 4: Fetch background music (topic-specific)
-    print("\n[4/6] Fetching background music...")
+    # ── Step 4: Music ───────────────────────────────────────────────────────
+    print("\n[4/7] Fetching background music...")
     try:
         music_path = generate_music(topic)
     except Exception as e:
         print(f"\nSkipping today — music failed: {e}. Will retry tomorrow.")
         sys.exit(0)
-    if music_path:
-        print(f"  Music: {music_path}")
-    else:
+    if not music_path:
         print(f"\nSkipping today — no background music available. Will retry tomorrow.")
         sys.exit(0)
+    print(f"  Music: {music_path}")
 
-    # Step 5: Compose video
+    # ── Step 5: Compose video ───────────────────────────────────────────────
     print("\n[5/7] Compositing video...")
     video_path = compose_video(script_data, image_paths, audio_path, subtitle_path, music_path)
     print(f"  Video: {video_path}")
 
-    # Step 6: Generate SEO metadata (AI-optimised titles, hashtags, AI disclosures)
+    # ── QUALITY GATE — must pass before any upload ──────────────────────────
+    print("\n[QC] Running quality check...")
+    passed, reason = quality_check(audio_path, image_paths, music_path, video_path)
+    if not passed:
+        print(f"\nQUALITY GATE FAILED: {reason}")
+        print("Skipping today — will not post an incomplete video. Retry tomorrow.")
+        sys.exit(0)
+    print(f"  Quality check passed ✓")
+
+    # ── Step 6: SEO metadata ────────────────────────────────────────────────
     print("\n[6/7] Generating SEO metadata...")
     try:
         seo_metadata = generate_seo(topic, script_text, visual_keywords)
-        print(f"  SEO ready — {len(seo_metadata['facebook']['hashtags'])} FB tags, "
-              f"YouTube title: {seo_metadata['youtube']['title'][:50]}...")
+        print(f"  {len(seo_metadata['facebook']['hashtags'])} FB/IG tags | "
+              f"YT title: {seo_metadata['youtube']['title'][:50]}...")
         with open(os.path.join(OUTPUT_DIR, "seo_metadata.json"), "w") as f:
             json.dump(seo_metadata, f, indent=2, ensure_ascii=False)
     except Exception as e:
-        print(f"  SEO generation failed ({e}), using fallback descriptions")
+        print(f"  SEO failed ({e}), using fallback")
         seo_metadata = None
 
-    # Step 7a: Post to Facebook/Instagram
+    # ── Step 7a: Facebook / Instagram ───────────────────────────────────────
     if skip_post:
         print("\n[7a/7] Skipping Facebook post (--skip-post)")
     else:
@@ -128,9 +217,9 @@ def run(skip_post=False, skip_youtube=False):
                 json.dump(result, f, indent=2)
         except Exception as e:
             print(f"  Facebook posting failed: {e}")
-            print("  Video saved locally — you can post manually.")
+            print("  Video saved — post manually.")
 
-    # Step 7b: Post to YouTube Shorts
+    # ── Step 7b: YouTube Shorts ─────────────────────────────────────────────
     if skip_youtube:
         print("\n[7b/7] Skipping YouTube post (--skip-youtube)")
     elif not os.environ.get("YOUTUBE_CLIENT_ID"):
@@ -143,8 +232,11 @@ def run(skip_post=False, skip_youtube=False):
             with open(os.path.join(OUTPUT_DIR, "youtube_result.json"), "w") as f:
                 json.dump(yt_result, f, indent=2)
         except Exception as e:
-            print(f"  YouTube posting failed: {e}")
-            print("  Video saved locally — you can upload manually.")
+            if _is_quota_error(e):
+                print(f"  YouTube quota exceeded — will retry tomorrow.")
+            else:
+                print(f"  YouTube posting failed: {e}")
+            print("  Video saved — upload manually if needed.")
 
     print("\n" + "=" * 50)
     print("  PIPELINE COMPLETE")

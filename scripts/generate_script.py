@@ -17,7 +17,7 @@ def load_templates():
         return json.load(f)
 
 
-def pick_topic(templates):
+def pick_topic(templates, theme_hints=None):
     used_path = os.path.join(os.path.dirname(__file__), "..", "output", "used_topics.json")
     os.makedirs(os.path.dirname(used_path), exist_ok=True)
     used = []
@@ -31,7 +31,19 @@ def pick_topic(templates):
         used = []
         available = pool
 
-    topic = random.choice(available)
+    # Bias toward high-performing themes from market research (30% chance)
+    if theme_hints:
+        preferred = [t for t in available if any(
+            hint.lower() in t.lower() or t.lower() in hint.lower()
+            for hint in theme_hints
+        )]
+        if preferred and random.random() < 0.3:
+            topic = random.choice(preferred)
+        else:
+            topic = random.choice(available)
+    else:
+        topic = random.choice(available)
+
     used.append(topic)
     used = used[-20:]
     with open(used_path, "w") as f:
@@ -39,14 +51,17 @@ def pick_topic(templates):
     return topic
 
 
-def build_prompt(topic, examples):
+def build_prompt(topic, examples, tone_hints=""):
     """Build prompt that forces the EXACT poetic structure."""
-    # Always show all 3 original examples — they define the voice
     examples_text = ""
     for e in examples[:3]:
         examples_text += f'\nTopic: {e["topic"]}\n{e["script"]}\n'
 
-    return f"""Generate a viral 25-second script in "Quietlyy Quotes" style.
+    audience_block = ""
+    if tone_hints:
+        audience_block = f"\nAudience intelligence (apply these to maximise engagement):\n{tone_hints}\n"
+
+    return f"""Generate a viral 25-second script in "Quietlyy Quotes" style.{audience_block}
 
 Make it:
 - Hook in first 2 lines
@@ -179,10 +194,10 @@ def generate_with_groq(prompt):
     )
 
 
-def generate_script():
+def generate_script(tone_hints="", theme_hints=None):
     templates = load_templates()
-    topic = pick_topic(templates)
-    prompt = build_prompt(topic, templates["example_scripts"])
+    topic = pick_topic(templates, theme_hints=theme_hints)
+    prompt = build_prompt(topic, templates["example_scripts"], tone_hints=tone_hints)
 
     print(f"[script] Topic: {topic}")
 

@@ -46,16 +46,13 @@ def build_fallback_snippet(topic, script_text):
     description = (
         "\n".join(lines) + "\n\n"
         "— Quietlyy\n\n"
-        "🤖 AI Disclosure: This video was created using AI tools for script writing, "
-        "voice synthesis, and image generation, as required by YouTube's Creator "
-        "Responsibility & Synthetic Media policies.\n\n"
         f"#Shorts #Quietlyy #{topic.replace(' ', '')} #nostalgia #deepthoughts "
-        "#lifequotes #reflection #AIGenerated #AIcontent"
+        "#lifequotes #reflection #viral #emotionalquotes\n\n"
+        "Made with AI tools."
     )
     tags = ["Shorts", "Quietlyy", topic, "nostalgia", "deepthoughts",
-            "lifequotes", "reflection", "AIgenerated", "AIcontent",
-            "emotionalquotes", "viral", "youtubeshorts", "relatable",
-            "motivation", "feelings"]
+            "lifequotes", "reflection", "emotionalquotes", "viral",
+            "youtubeshorts", "relatable", "motivation", "feelings", "trending"]
     return title[:100], description, tags
 
 

@@ -1,15 +1,25 @@
 name: Quietlyy — Generate & Post Video
 
 on:
-  # DISABLED until test videos are approved — uncomment to enable daily posting
-  # schedule:
-  #   - cron: '0 14 * * *'
+  # 2x daily: 11:00 AM IST (05:30 UTC) + 8:00 PM IST (14:30 UTC)
+  # Research-backed peak engagement times for nostalgic content in India/global
+  schedule:
+    - cron: '30 5 * * *'   # 11:00 AM IST — morning scroll peak
+    - cron: '30 14 * * *'  # 8:00 PM IST  — evening wind-down peak
 
-  # Manual trigger from GitHub (works from Android tablet)
+  # Manual trigger (testing / emergency post)
   workflow_dispatch:
     inputs:
       skip_post:
-        description: 'Skip Facebook posting (just generate video)'
+        description: 'Skip all social posting (generate video only)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+      skip_youtube:
+        description: 'Skip YouTube posting'
         required: false
         default: 'false'
         type: choice
@@ -17,7 +27,7 @@ on:
           - 'false'
           - 'true'
       custom_topic:
-        description: 'Override topic (leave empty for random)'
+        description: 'Override topic (leave empty for AI-selected)'
         required: false
         default: ''
         type: string
@@ -25,7 +35,7 @@ on:
 jobs:
   generate-video:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
 
     steps:
       - name: Checkout repo
@@ -44,57 +54,61 @@ jobs:
 
       - name: Run pipeline
         env:
-          # Script generation (ChatGPT primary, Gemini/Groq fallback)
+          # Script generation (ChatGPT → Gemini → Groq fallback)
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          # Voice (ElevenLabs only)
+          # Voice — ElevenLabs only (no fallback: incomplete audio = skip day)
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
-          # Image generation (Gemini primary, Pollinations/Pixabay/Pexels fallback)
+          # Image generation
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-          # Background music (Freesound, falls back to bundled)
+          # Background music
           FREESOUND_API_KEY: ${{ secrets.FREESOUND_API_KEY }}
-          # Facebook + Instagram posting
+          # Facebook + Instagram
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
-          # YouTube Shorts posting
+          # YouTube Shorts
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         run: |
           ARGS=""
           if [ "${{ github.event.inputs.skip_post }}" = "true" ]; then
-            ARGS="--skip-post"
+            ARGS="$ARGS --skip-post"
+          fi
+          if [ "${{ github.event.inputs.skip_youtube }}" = "true" ]; then
+            ARGS="$ARGS --skip-youtube"
           fi
           python scripts/pipeline.py $ARGS
 
-      - name: Save gallery to repo
+      - name: Save gallery + research cache to repo
         if: success()
         run: |
           git config user.name "Quietlyy Bot"
           git config user.email "bot@quietlyy.com"
-          git add -f assets/gallery/ || true
-          git diff --cached --quiet || git commit -m "Add gallery images from run #${{ github.run_number }}"
+          git add -f assets/gallery/ assets/market_research.json || true
+          git diff --cached --quiet || git commit -m "Bot: gallery + research cache [run #${{ github.run_number }}]"
           git push || true
 
       - name: Upload video artifact
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: quietlyy-video-${{ github.run_number }}
+          name: quietlyy-${{ github.run_number }}-${{ github.run_attempt }}
           path: |
             output/quietlyy_video.mp4
             output/script.json
-            output/manual_caption.txt
+            output/seo_metadata.json
             output/post_result.json
             output/youtube_result.json
+            output/manual_caption.txt
           retention-days: 30
           if-no-files-found: ignore
 
-      - name: Upload debug info
+      - name: Upload debug info on failure
         uses: actions/upload-artifact@v4
         if: failure()
         with:

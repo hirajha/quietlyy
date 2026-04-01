@@ -13,19 +13,13 @@ import os
 import json
 import requests
 
-# ── AI disclosure text (required by platform policies) ─────────────────────
+# ── AI disclosure text (platform-policy compliant, minimal/end-of-post) ───
 
-FB_AI_DISCLOSURE = (
-    "⚠️ AI Disclosure: This content was created using AI-assisted tools "
-    "(script writing, voice synthesis & imagery), "
-    "as required by Meta's AI content policies."
-)
+# Facebook/Instagram: buried after all hashtags — visible only if expanded
+FB_AI_DISCLOSURE = "Made with AI tools."
 
-YT_AI_DISCLOSURE = (
-    "🤖 AI Disclosure: This video was created using AI tools for script "
-    "writing, voice synthesis, and image generation. This is disclosed as "
-    "required by YouTube's Creator Responsibility & Synthetic Media policies."
-)
+# YouTube: last line of description, after all tags
+YT_AI_DISCLOSURE = "Made with AI tools."
 
 # ── Fallback hashtag sets by category ──────────────────────────────────────
 
@@ -38,7 +32,7 @@ BASE_FB_TAGS = [
 BASE_YT_TAGS = [
     "Shorts", "Quietlyy", "nostalgia", "deepthoughts", "lifequotes",
     "reflection", "emotionalquotes", "relatable", "viral", "shortsvideo",
-    "youtubeshorts", "motivationalquotes", "sadquotes", "feelings", "AIgenerated",
+    "youtubeshorts", "motivationalquotes", "sadquotes", "feelings", "trending",
 ]
 
 SEO_PROMPT = """You are an expert social media SEO specialist for short-form emotional content.
@@ -188,11 +182,12 @@ def generate_seo(topic, script_text, visual_keywords):
     ig_tags = ai_data.get("instagram_hashtags", BASE_FB_TAGS)[:25]
     hashtag_str = " ".join(f"#{t.lstrip('#')}" for t in ig_tags)
 
+    # Disclosure goes AFTER all hashtags — only visible if audience taps "more"
     fb_description = (
         f"{caption}\n\n"
         f"— Quietlyy\n\n"
-        f"{FB_AI_DISCLOSURE}\n\n"
-        f"{hashtag_str}"
+        f"{hashtag_str}\n\n"
+        f"{FB_AI_DISCLOSURE}"
     )
 
     # ── YouTube description ─────────────────────────────────────────────────
@@ -207,8 +202,8 @@ def generate_seo(topic, script_text, visual_keywords):
         f"{seo_line}\n\n"
         f"📌 Follow for daily reflections: @Quietlyy\n"
         f"━━━━━━━━━━━━━━━━━━━━\n\n"
-        f"{YT_AI_DISCLOSURE}\n\n"
-        f"{yt_tag_str}"
+        f"{yt_tag_str}\n\n"
+        f"{YT_AI_DISCLOSURE}"
     )
 
     raw_title = ai_data.get("youtube_title", topic)
@@ -223,7 +218,7 @@ def generate_seo(topic, script_text, visual_keywords):
         "youtube": {
             "title": yt_title[:100],
             "description": yt_description,
-            "tags": yt_tags + ["AIgenerated", "AIcontent"],
+            "tags": yt_tags,
         },
     }
 
