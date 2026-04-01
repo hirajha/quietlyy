@@ -2,28 +2,33 @@
   "example_scripts": [
     {
       "topic": "Telephone",
-      "visual_keywords": ["old telephone", "rotary phone", "vintage phone booth", "phone cord"],
+      "visual_keywords": ["person waiting by phone", "empty hallway", "late night silence"],
       "script": "There was a time… when hearing someone's voice… meant everything.\nBack then… people waited hours… sometimes days… just for a call.\nNot because it was easy… but because it mattered.\nAnd now… They silence calls… from the people who care the most.\nMaybe… They didn't lose connection… They just stopped valuing it."
     },
     {
-      "topic": "Typewriter",
-      "visual_keywords": ["typewriter", "vintage writing", "old letters", "ink pen"],
-      "script": "There was a time… when every word carried weight.\nBack then… people thought twice… before putting it down.\nNot because it was hard… but because it stayed.\nAnd now… They say things instantly… and forget them just as fast.\nMaybe… They didn't lose meaning… They just stopped respecting it."
+      "topic": "Sunday Mornings",
+      "visual_keywords": ["slow morning light", "family sitting together", "quiet kitchen"],
+      "script": "Sunday used to feel like the world agreed to pause.\nEveryone gathered… not because they were summoned… but because they wanted to be there.\nThe table wasn't fancy… but every seat was filled.\nNow Sundays come and go… and most people spend them alone with a screen.\nWe have more freedom than ever… and nowhere we truly want to be."
     },
     {
-      "topic": "Train Station",
-      "visual_keywords": ["old train station", "vintage railway", "steam train", "platform goodbye"],
-      "script": "There was a time… when goodbyes felt heavier.\nBack then… people waited on platforms… holding on to every moment.\nNot because they had time… but because it mattered.\nAnd now… we leave without looking back… as if nothing stays behind.\nMaybe… we didn't lose people… we just stopped holding on."
+      "topic": "Eye Contact",
+      "visual_keywords": ["two people facing each other", "crowded room isolation", "unspoken understanding"],
+      "script": "Remember when you could tell someone everything… without saying a word?\nA glance across a room used to carry the weight of a whole conversation.\nPeople knew how to look at each other… really look.\nNow we stare at glass… and call it connection.\nThe saddest part… is we don't even notice what we've stopped seeing."
     },
     {
-      "topic": "Handwritten Letters",
-      "visual_keywords": ["old letters", "handwriting", "wax seal", "vintage envelope"],
-      "script": "There was a time… when distance didn't mean silence.\nBack then… people wrote letters… folded them carefully… and waited.\nNot because they had patience… but because someone was worth the wait.\nAnd now… we have instant messages… but nothing to say.\nMaybe… we didn't lose words… we just lost the reason to write them."
+      "topic": "Waiting at the Door",
+      "visual_keywords": ["empty doorway", "person sitting by window watching", "late evening light"],
+      "script": "Someone used to wait at the door when you came home.\nNot because they had to… but because your arrival made the room feel complete.\nThat kind of love never announced itself… it just stood there, quietly.\nThese days we walk into empty houses and call them peaceful.\nBut peace and loneliness… sound exactly the same in an empty hallway."
     },
     {
-      "topic": "Film Camera",
-      "visual_keywords": ["vintage camera", "film roll", "old photographs", "darkroom"],
-      "script": "There was a time… when every photo was a promise.\nBack then… people saved their last frame… for something that mattered.\nNot because film was expensive… but because moments were.\nAnd now… we take thousands of pictures… and remember none.\nMaybe… we didn't lose memories… we just stopped being present for them."
+      "topic": "Handmade Gifts",
+      "visual_keywords": ["handmade object with care", "wrapping paper and hands", "the moment of giving"],
+      "script": "Once… someone stayed up three nights making something just for you.\nThey didn't have money… so they gave you time instead.\nThat was the point — not the thing itself, but the hours it held.\nNow we click a button and wonder why it doesn't feel the same.\nYou can't order the feeling of being someone's whole thought for three days."
+    },
+    {
+      "topic": "Bicycle Rides",
+      "visual_keywords": ["childhood streets at dusk", "two kids riding side by side", "fading light"],
+      "script": "There was a version of you… who had nowhere to be and didn't care.\nYou rode until the streetlights came on… and even then, just a little longer.\nThe world was small enough to be whole back then.\nNow you pass those same streets in a car… and don't even look up.\nGrowing up is just learning to stop noticing what you've lost."
     }
   ],
   "topics_pool": [
@@ -56,6 +61,21 @@
     "Love Letters",
     "Family Album",
     "Handmade Gifts",
-    "Waiting at the Door"
+    "Waiting at the Door",
+    "Sleeping Without Alarms",
+    "Asking for Directions",
+    "Cooking From Memory",
+    "Sitting in Silence Together",
+    "Coming Home",
+    "The Smell of Rain",
+    "Watching the Clock",
+    "Saying Goodbye Properly",
+    "Reading Someone's Face",
+    "Growing Old With Someone",
+    "Knowing Your Neighbor",
+    "Being Truly Bored",
+    "Holding Space",
+    "The Last Train Home",
+    "Unplanned Visits"
   ]
 }

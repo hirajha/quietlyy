@@ -20,6 +20,39 @@ def get_credentials():
     return page_id, token
 
 
+def verify_credentials():
+    """Pre-flight check: verify token works and page is accessible.
+    Prints debug info. Raises on hard failure."""
+    page_id, token = get_credentials()
+    print(f"[facebook] Pre-flight check (page_id={page_id})...")
+
+    # 1. Check the token is valid at all
+    me_resp = requests.get(
+        f"{GRAPH_API}/me",
+        params={"access_token": token, "fields": "name,id"},
+        timeout=10,
+    )
+    if me_resp.status_code != 200:
+        raise ValueError(f"Token invalid — /me returned {me_resp.status_code}: {me_resp.text[:300]}")
+    me = me_resp.json()
+    print(f"[facebook] Token valid for: {me.get('name')} (id={me.get('id')})")
+
+    # 2. Check the page is accessible
+    page_resp = requests.get(
+        f"{GRAPH_API}/{page_id}",
+        params={"access_token": token, "fields": "name,id,fan_count"},
+        timeout=10,
+    )
+    if page_resp.status_code != 200:
+        raise ValueError(
+            f"Page {page_id} not accessible — {page_resp.status_code}: {page_resp.text[:300]}\n"
+            f"HINT: FB_PAGE_ID should be the numeric Page ID from /me/accounts, "
+            f"NOT the profile.php?id= number."
+        )
+    page = page_resp.json()
+    print(f"[facebook] Page found: '{page.get('name')}' (id={page.get('id')}, followers={page.get('fan_count', 'unknown')})")
+
+
 def build_description(topic, script_text):
     """Fallback description builder (used only if SEO metadata not provided)."""
     lines = [line.strip() for line in script_text.split("\n") if line.strip()]
@@ -127,6 +160,14 @@ def post(video_path, topic, script_text, seo_metadata=None):
     """Main entry: post video with 3-layer fallback.
     seo_metadata: dict from generate_seo.generate_seo() — uses facebook.description if provided.
     """
+    # Pre-flight: verify token and page before attempting upload
+    try:
+        verify_credentials()
+    except Exception as e:
+        print(f"[facebook] Pre-flight FAILED: {e}")
+        print("[facebook] Skipping upload — credentials invalid.")
+        return save_for_manual(video_path, build_description(topic, script_text))
+
     if seo_metadata and "facebook" in seo_metadata:
         description = seo_metadata["facebook"]["description"]
         print("[facebook] Using AI-optimised SEO description")

@@ -99,54 +99,93 @@ def _pick_reuse_panels(num_panels):
     return result
 
 
+# Large pool of diverse scene templates — randomly shuffled each video run
+# so no two videos share the same visual sequence
+_SCENE_POOL = [
+    # Solo introspective — indoors
+    "A person sitting alone at a kitchen table late at night, a single cup of tea steaming, dim overhead light, staring at nothing",
+    "Someone lying on their bed staring at the ceiling in a dark room, city glow through the curtains, phone face-down on the mattress",
+    "A person leaning against a closed door, sliding down slowly, eyes closed, emotional exhaustion",
+    "A figure silhouetted at a large window, looking out at the rain, soft lamp glow behind them, reflections in the glass",
+    "Someone sitting on the floor of an empty apartment, back against the wall, knees pulled up, surrounded by moving boxes",
+    "A person sitting at a desk in lamplight, holding an old photograph, eyes distant and soft",
+    # Solo introspective — outdoors
+    "A person standing alone on a rooftop at night, city lights stretching to the horizon, wind in their hair",
+    "A solitary figure on a nearly empty train, head against the window, watching dark fields pass outside",
+    "Someone sitting at the end of a pier, feet dangling over dark still water, stars reflected below them",
+    "A person walking alone down a long empty street at dusk, long shadow stretching behind, mist at ground level",
+    "A figure standing at a crossroads under a single streetlamp, coat collar up, rain just started",
+    "Someone on a fire escape, one knee up, looking at the sky between buildings at night",
+    "A person sitting under a bare tree in a park at twilight, leaves scattered around, empty benches nearby",
+    "A figure seen from behind standing at a cliff edge, vast ocean below, clouds heavy and low",
+    # Two-person / relational
+    "Two people on a bench under a streetlight at night, not touching, looking in different directions",
+    "Two silhouettes walking apart on a rainy street, umbrellas not overlapping",
+    "An empty bench with two coffee cups side by side, steam rising, nobody sitting there",
+    "A person waiting under an awning in the rain, checking their watch, no one coming",
+    "Two people on opposite sides of a glass door, one inside, one outside, not opening it",
+    "A child and an elderly person sitting on porch steps in the fading light, not speaking, just present",
+    # Environmental / symbolic
+    "An empty swing set moving gently in the wind at night, playground deserted, soft moonlight",
+    "A deserted train platform at dusk, single figure far in the distance, tracks vanishing to horizon",
+    "An old telephone booth on a foggy street corner, light on inside, no one in it",
+    "A narrow alley at night, warm light from a window high above, a lone cat on a windowsill",
+    "A library at closing time, last person still reading at a table, librarian dimming lights around them",
+]
+
+# Art style variants — randomly picked per video to avoid every video looking identical
+_STYLE_VARIANTS = [
+    (
+        "Digital anime illustration, Makoto Shinkai lighting style. "
+        "Dark moody cinematic. Cool blue and purple tones, moonlight and streetlights. "
+        "Soft painterly brush strokes, muted desaturated palette, emotional depth, subtle bokeh. "
+        "Color palette: dark blues, muted purples, cool grays, soft teal. NOT warm orange or gold."
+    ),
+    (
+        "Studio Ghibli-inspired hand-painted illustration. "
+        "Quiet and melancholic atmosphere, soft watercolor textures. "
+        "Evening or night setting, cool muted tones — dusty blues, faded greens, pale mauves. "
+        "Gentle lighting, no harsh shadows, painterly and emotional."
+    ),
+    (
+        "Retro 80s Japanese anime illustration style. "
+        "Slightly grainy film texture, cool neon-tinged night scenes. "
+        "Deep blues and teals, subtle magenta highlights from distant signs, "
+        "low-key lighting, cinematic widescreen composition adapted to portrait."
+    ),
+    (
+        "Contemporary graphic novel illustration style. "
+        "High contrast between deep shadows and single warm light source. "
+        "Ink-wash textures, muted palette with one accent color — a faint amber lamp "
+        "against dark cool surroundings. Quiet and literary atmosphere."
+    ),
+]
+
+# Module-level: pick a style once per import (i.e., once per pipeline run)
+_CHOSEN_STYLE = random.choice(_STYLE_VARIANTS)
+# Shuffle a copy of the scene pool once per run so panel order is always fresh
+_SHUFFLED_SCENES = random.sample(_SCENE_POOL, len(_SCENE_POOL))
+
+
 def generate_image_prompt(topic, visual_keywords, panel_num):
-    """Create Whisprs-style prompts — animated/illustrated, people and emotions."""
+    """Create varied scene prompts — each run gets a different scene sequence and art style."""
     keywords_str = ", ".join(visual_keywords)
 
-    scene_map = {
-        0: (
-            f"A person standing by a window, looking outside at rain, "
-            f"soft dim lamplight behind them, quiet contemplation, "
-            f"related to {topic}, {keywords_str}, feeling of gentle nostalgia"
-        ),
-        1: (
-            f"Two people sitting on a bench under a streetlight at night, "
-            f"cool moonlight, subtle mist, quiet emotional moment, "
-            f"theme of {topic}, {keywords_str}, intimate and personal"
-        ),
-        2: (
-            f"A person walking alone on an empty street at dusk, "
-            f"cool blue and purple tones, fading daylight, long shadows, "
-            f"bittersweet moment, related to {topic}, twilight atmosphere"
-        ),
-        3: (
-            f"A person sitting alone on a park bench at night, "
-            f"cold blue moonlight, distant city lights blurred, "
-            f"modern loneliness, contrast with {topic} era, quiet night"
-        ),
-        4: (
-            f"A solitary figure seen from behind, standing at the edge of water, "
-            f"dark blue sky with stars, reflection in still water, "
-            f"melancholic atmosphere, thinking about {topic} and what was lost"
-        ),
-    }
+    # Pick scene from pre-shuffled pool (wraps around if more panels than scenes)
+    scene = _SHUFFLED_SCENES[panel_num % len(_SHUFFLED_SCENES)]
 
-    scene = scene_map.get(panel_num, scene_map[2])
+    # Inject topic context into the scene naturally
+    scene_with_topic = (
+        f"{scene}, evoking themes of {topic} and quiet human longing, "
+        f"related to: {keywords_str}"
+    )
 
     return (
-        f"Digital anime illustration, muted cool color palette. "
-        f"Dark, moody, cinematic. Cool blue and purple tones, NOT warm orange or golden. "
-        f"Subdued lighting — moonlight, streetlights, dusk. NOT bright or sunny. "
-        f"Hand-painted anime style, NOT a photograph. "
-        f"{scene}. "
-        f"Style: illustrated anime art, Makoto Shinkai lighting, "
-        f"soft painterly brush strokes, muted desaturated colors, "
-        f"cool blue shadows, dim atmospheric lighting, "
-        f"dark moody cinematic tones, emotional depth, subtle bokeh. "
-        f"Color palette: dark blues, muted purples, cool grays, soft teal. "
-        f"Avoid bright warm colors like orange, yellow, gold. "
+        f"{_CHOSEN_STYLE} "
+        f"{scene_with_topic}. "
         f"Must look like a digital painting NOT a real photo. "
-        f"No text, no watermarks, no words, no UI elements."
+        f"No text, no watermarks, no words, no UI elements. "
+        f"Portrait orientation composition (tall, not wide)."
     )
 
 
