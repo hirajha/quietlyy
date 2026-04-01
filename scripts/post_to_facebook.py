@@ -86,7 +86,7 @@ def post_as_reel(video_path, description):
     return result
 
 
-# ── Layer 2: Facebook Page Video (simpler, reliable) ──
+# ── Layer 2: Facebook Page Video (uses pages_manage_posts, no publish_video needed) ──
 def post_as_video(video_path, description):
     page_id, token = get_credentials()
 
