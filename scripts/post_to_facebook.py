@@ -33,17 +33,27 @@ def build_description(topic, script_text):
     )
 
 
+def _raise_with_body(resp):
+    """Raise HTTPError with full API response body for debugging."""
+    try:
+        resp.raise_for_status()
+    except requests.HTTPError as e:
+        raise requests.HTTPError(
+            f"{e} | API response: {resp.text[:500]}", response=resp
+        ) from e
+
+
 # ── Layer 1: Facebook Reel (best reach) ──
 def post_as_reel(video_path, description):
     page_id, token = get_credentials()
 
-    print("[facebook] Layer 1: Initializing Reel upload...")
+    print(f"[facebook] Layer 1: Initializing Reel upload (page_id={page_id})...")
     init_resp = requests.post(
         f"{GRAPH_API}/{page_id}/video_reels",
         params={"access_token": token},
         json={"upload_phase": "start"},
     )
-    init_resp.raise_for_status()
+    _raise_with_body(init_resp)
     video_id = init_resp.json()["video_id"]
 
     print(f"[facebook] Uploading video (ID: {video_id})...")
@@ -55,7 +65,7 @@ def post_as_reel(video_path, description):
             headers={"offset": "0", "file_size": str(file_size)},
             data=f,
         )
-    upload_resp.raise_for_status()
+    _raise_with_body(upload_resp)
 
     print("[facebook] Publishing Reel...")
     publish_payload = {
@@ -74,7 +84,7 @@ def post_as_reel(video_path, description):
         params={"access_token": token},
         json=publish_payload,
     )
-    publish_resp.raise_for_status()
+    _raise_with_body(publish_resp)
     result = publish_resp.json()
     if ig_user_id:
         print(f"[facebook] Reel posted to Facebook + Instagram! ID: {result.get('id', video_id)}")
@@ -87,7 +97,7 @@ def post_as_reel(video_path, description):
 def post_as_video(video_path, description):
     page_id, token = get_credentials()
 
-    print("[facebook] Layer 2: Uploading as Page video...")
+    print(f"[facebook] Layer 2: Uploading as Page video (page_id={page_id})...")
     with open(video_path, "rb") as f:
         resp = requests.post(
             f"{GRAPH_API}/{page_id}/videos",
@@ -96,7 +106,7 @@ def post_as_video(video_path, description):
             data={"description": description, "title": "Quietlyy"},
             timeout=120,
         )
-    resp.raise_for_status()
+    _raise_with_body(resp)
     result = resp.json()
     print(f"[facebook] Video posted! ID: {result.get('id', 'unknown')}")
     return result

@@ -14,18 +14,16 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 # ElevenLabs config
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
 ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "b0jrjvawVNjnHsrN2WGU")
-ELEVENLABS_MODEL = "eleven_monolingual_v1"
+ELEVENLABS_MODEL = "eleven_multilingual_v2"  # supports speed parameter
 
-# Silence between lines (seconds)
-LINE_GAP = 1.5
+# Silence between lines (seconds) — increased for slower, more emotional pace
+LINE_GAP = 2.5
 
 
 def _clean_text(text):
-    """Strip ellipsis and clean punctuation to prevent TTS artifacts."""
-    clean = text.replace("\u2026", ",").replace("...", ",")
-    while ",," in clean:
-        clean = clean.replace(",,", ",")
-    clean = clean.replace(", ,", ",").strip().strip(",").strip()
+    """Clean text for TTS — preserve ellipsis as natural pauses."""
+    # Keep … as ... so ElevenLabs reads it as a pause, not a comma rush
+    clean = text.replace("\u2026", "...").strip()
     return clean
 
 
@@ -46,6 +44,7 @@ def _record_line_elevenlabs(text, output_path):
             "similarity_boost": 0.75,
             "style": 0.25,
             "use_speaker_boost": True,
+            "speed": 0.85,  # slightly slower — more emotional, less rushed
         },
     }
 
