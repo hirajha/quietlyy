@@ -232,8 +232,8 @@ def generate_with_dalle(prompt, output_path):
                     "model": "dall-e-3",
                     "prompt": prompt,
                     "n": 1,
-                    "size": "1024x1024",  # Square — no sideways composition
-                    "quality": "hd",      # HD = sharper, more detailed, more vibrant
+                    "size": "1024x1024",
+                    "quality": "standard",  # hd costs 2x quota — standard is fine for shorts
                     "response_format": "url",
                 },
                 timeout=120,
