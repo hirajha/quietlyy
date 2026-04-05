@@ -9,6 +9,8 @@ import json
 import random
 import requests
 
+from review_script import review_script, save_used_script
+
 TEMPLATES_PATH = os.path.join(os.path.dirname(__file__), "..", "templates", "scripts.json")
 
 
@@ -86,7 +88,8 @@ Tone: quiet, melancholic, deeply human
 
 Rules:
 - Hook in first 2 lines. Gut-punch ending.
-- Vary sentence openings — NOT all "There was a time"
+- NEVER start with "There was a time" — this is strictly banned. Use a different, more personal opener.
+- NEVER start with "In a world", "We live in", "Have you ever", or any generic opener.
 - Use "\u2026" for emotional pauses
 - Exactly 5 lines, each on its own line
 - About PEOPLE and HUMAN CONNECTION, not the object itself
@@ -234,20 +237,13 @@ def generate_with_groq(prompt):
     )
 
 
-def generate_script(tone_hints="", theme_hints=None):
-    templates = load_templates()
-    style, topic = pick_style_and_topic(templates, theme_hints=theme_hints)
-    prompt = build_prompt(topic, templates["example_scripts"], style=style, tone_hints=tone_hints)
-
-    print(f"[script] Style: {style} | Topic: {topic}")
-
+def _generate_raw(prompt, style):
+    """Try all providers until one returns a valid script."""
     providers = [
         (generate_with_chatgpt, "ChatGPT"),
         (generate_with_gemini, "Gemini"),
         (generate_with_groq, "Groq"),
     ]
-
-    result = None
     for gen_fn, name in providers:
         try:
             result = gen_fn(prompt)
@@ -256,20 +252,44 @@ def generate_script(tone_hints="", theme_hints=None):
                 min_lines = 4 if style == "nostalgic" else 5
                 if len(lines) >= min_lines:
                     print(f"[script] Generated via {name}")
-                    break
-                else:
-                    print(f"[script] {name} output wrong format, trying next...")
-                    result = None
+                    return result
+                print(f"[script] {name} output wrong format, trying next...")
         except Exception as e:
             print(f"[script] {name} failed: {e}")
-            result = None
+    return None
 
-    if not result:
-        raise RuntimeError("All script generators failed (Gemini + Groq). Cannot proceed.")
 
-    result["topic"] = topic
-    result["style"] = style
-    return result
+def generate_script(tone_hints="", theme_hints=None):
+    templates = load_templates()
+    examples = templates["example_scripts"]
+    MAX_ATTEMPTS = 3
+
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        style, topic = pick_style_and_topic(templates, theme_hints=theme_hints)
+        prompt = build_prompt(topic, examples, style=style, tone_hints=tone_hints)
+        print(f"[script] Attempt {attempt}/{MAX_ATTEMPTS} — Style: {style} | Topic: {topic}")
+
+        result = _generate_raw(prompt, style)
+        if not result:
+            print(f"[script] All providers failed on attempt {attempt}, retrying...")
+            continue
+
+        script_text = result["script"]
+
+        # Quality gate — checks banned openers, duplicates, and AI vibe score
+        approved, reason, score = review_script(script_text, topic, style, examples)
+        if not approved:
+            print(f"[script] Quality gate failed (attempt {attempt}): {reason} — retrying with new topic...")
+            continue
+
+        # Approved — save to used scripts history and return
+        save_used_script(script_text, topic, style)
+        result["topic"] = topic
+        result["style"] = style
+        result["quality_score"] = score
+        return result
+
+    raise RuntimeError(f"Script quality gate failed after {MAX_ATTEMPTS} attempts. Cannot proceed.")
 
 
 if __name__ == "__main__":
