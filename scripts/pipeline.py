@@ -28,6 +28,7 @@ from generate_music import generate_music
 from compose_video import compose_video
 from generate_seo import generate_seo
 from market_research import get_research, get_tone_hints, get_top_themes
+from fetch_ideas import fetch_fresh_ideas, ideas_to_theme_hints
 from post_to_facebook import post
 from post_to_youtube import post as post_youtube
 
@@ -121,10 +122,23 @@ def run(skip_post=False, skip_youtube=False):
         tone_hints = ""
         top_themes = []
 
-    # ── Step 1: Generate script ─────────────────────────────────────────────
-    print("\n[1/7] Generating script...")
+    # ── Step 0b: Fresh Ideas Agent (web search for trending emotional topics) ─
+    print("\n[0b/7] Fetching fresh ideas from web...")
+    idea_hints = ""
     try:
-        script_data = generate_script(tone_hints=tone_hints, theme_hints=top_themes)
+        fresh_ideas = fetch_fresh_ideas(existing_topics=top_themes)
+        idea_hints = ideas_to_theme_hints(fresh_ideas)
+        if idea_hints:
+            print(f"  {len(fresh_ideas)} fresh ideas loaded from web research")
+        else:
+            print("  No web ideas — using topic pool only")
+    except Exception as e:
+        print(f"  Ideas agent failed ({e}) — continuing without web ideas")
+
+    # ── Step 1: Generate script (Ideas → Script → Quality Gate) ────────────
+    print("\n[1/7] Generating script (with quality gate)...")
+    try:
+        script_data = generate_script(tone_hints=tone_hints, theme_hints=top_themes, idea_hints=idea_hints)
     except Exception as e:
         reason = "quota exceeded" if _is_quota_error(e) else str(e)
         print(f"\nSkipping today — script failed: {reason}. Will retry tomorrow.")

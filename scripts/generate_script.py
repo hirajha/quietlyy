@@ -73,12 +73,16 @@ def pick_topic(templates, theme_hints=None):
     return topic
 
 
-def build_prompt(topic, examples, style="nostalgic", tone_hints=""):
+def build_prompt(topic, examples, style="nostalgic", tone_hints="", idea_hints=""):
     """Build prompt for the given style: 'nostalgic' or 'emotional'."""
     style_examples = [e for e in examples if e.get("style") == style][:3]
     examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
 
-    audience_block = f"\nAudience intelligence:\n{tone_hints}\n" if tone_hints else ""
+    audience_block = ""
+    if tone_hints:
+        audience_block += f"\nAudience intelligence:\n{tone_hints}\n"
+    if idea_hints:
+        audience_block += f"\n{idea_hints}\n"
 
     if style == "nostalgic":
         return f"""Generate a viral 25-second script in "Quietlyy" nostalgic style.{audience_block}
@@ -259,14 +263,14 @@ def _generate_raw(prompt, style):
     return None
 
 
-def generate_script(tone_hints="", theme_hints=None):
+def generate_script(tone_hints="", theme_hints=None, idea_hints=""):
     templates = load_templates()
     examples = templates["example_scripts"]
-    MAX_ATTEMPTS = 3
+    MAX_ATTEMPTS = 5
 
     for attempt in range(1, MAX_ATTEMPTS + 1):
         style, topic = pick_style_and_topic(templates, theme_hints=theme_hints)
-        prompt = build_prompt(topic, examples, style=style, tone_hints=tone_hints)
+        prompt = build_prompt(topic, examples, style=style, tone_hints=tone_hints, idea_hints=idea_hints)
         print(f"[script] Attempt {attempt}/{MAX_ATTEMPTS} — Style: {style} | Topic: {topic}")
 
         result = _generate_raw(prompt, style)
