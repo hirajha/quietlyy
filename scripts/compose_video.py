@@ -98,7 +98,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
 
     # Use actual per-line audio durations so each panel matches its narration
     TAIL_PAD = 5.0
-    GAP = 1.8  # silence gap between lines — must match LINE_GAP in generate_audio.py
+    GAP = 1.6  # silence gap between lines — must match LINE_GAP in generate_audio.py
 
     line_durations = []
     for i in range(num_lines):
