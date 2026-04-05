@@ -65,20 +65,23 @@ def _draw_text_on_image(img, text, watermark=True):
         x = (WIDTH - text_w) // 2
         wy = text_y + i * line_height
 
-        # Subtle shadow — just 2 layers, not heavy
-        draw.text((x + 2, wy + 2), wline, font=font, fill=(0, 0, 0, 160))
-        draw.text((x + 1, wy + 1), wline, font=font, fill=(0, 0, 0, 120))
-        # Main text — bright white
-        draw.text((x, wy), wline, font=font, fill=(255, 255, 255, 255))
+        # Rich shadow — 3 layers for clean legibility against any background
+        draw.text((x + 3, wy + 3), wline, font=font, fill=(0, 0, 0, 180))
+        draw.text((x + 2, wy + 2), wline, font=font, fill=(0, 0, 0, 140))
+        draw.text((x + 1, wy + 1), wline, font=font, fill=(0, 0, 0, 100))
+        # Main text — warm cream/ivory (complements dark+amber woodcut palette,
+        # much easier on the eye than harsh pure white)
+        draw.text((x, wy), wline, font=font, fill=(255, 245, 210, 255))
 
     # Watermark
     if watermark:
         wm_font = get_font(26)
-        wm = "@Whiprs"
+        wm = "@Quietlyy"
         bbox = draw.textbbox((0, 0), wm, font=wm_font)
         wm_w = bbox[2] - bbox[0]
+        # Warm cream, very subtle — visible but not distracting
         draw.text(((WIDTH - wm_w) // 2, HEIGHT - 80), wm, font=wm_font,
-                  fill=(255, 255, 255, 80))
+                  fill=(255, 245, 210, 90))
 
     result = Image.alpha_composite(draw_img, overlay)
     return result.convert("RGB")
