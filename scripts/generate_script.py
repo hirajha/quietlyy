@@ -93,11 +93,11 @@ Rules:
 - NO hashtags, emojis, stage directions
 
 Structure:
-Line 1: Something we lost or used to have
-Line 2: Why it mattered — the beauty of that time
-Line 3: The contrast or emotional turn
-Line 4: The cold modern reality
-Line 5: Quiet gut-punch realization
+Line 1: HOOK — something we lost or used to have (make it feel personal, not generic)
+Line 2: Why it mattered — the warmth or beauty of that time
+Line 3: The emotional turn — when things changed
+Line 4: The cold modern contrast — what we do now instead
+Line 5: Quiet lesson or realization — give them something to carry
 
 Also provide 4 visual keywords (emotional scenes/people, not objects).
 
@@ -111,27 +111,30 @@ EXAMPLES:
         return f"""Generate a viral 25-second emotional script in "Quietlyy" spoken-word style.{audience_block}
 
 Topic: {topic}
-Tone: raw, psychological, like a quiet truth at 3 AM
+Tone: raw, deeply human — heartbreak, friendship, missing someone, growing apart
 
 Rules:
+- Line 1 MUST be a scroll-stopping hook — something people feel in their chest instantly
+- Write about real human pain: heartbreak, lost friendships, missing someone, being used, moving on
 - Short punchy lines — NOT long sentences
-- First line must hook immediately
-- Use a single powerful metaphor or image
-- Line breaks create dramatic breathing room
-- Ending = revelation or a sting
+- Use a single powerful image or metaphor in the middle
+- MUST end with a lesson, realization, or quiet empowerment — not just sadness
 - Write 6-9 short lines total
 - NO hashtags, emojis, stage directions
 - Do NOT start with "There was a time"
 
-Structure flow:
-Opening hook (1-2 lines) → Metaphor/image (2-3 lines) → Twist (2 lines) → Gut-punch close (1-2 lines)
+Structure (follow this exactly):
+Line 1-2: HOOK — something universally painful that stops the scroll
+Line 3-4: The deeper truth or metaphor — why it really hurts
+Line 5-6: The twist or quiet realization
+Line 7-8: LESSON — a piece of wisdom, empowerment, or truth that gives them something to hold onto
 
-Also provide 4 visual keywords (emotional scenes, symbolic moments, people).
+Also provide 4 visual keywords (emotional scenes, symbolic moments, people — no objects).
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
 
-EXAMPLES:
+EXAMPLES (study the hook + lesson structure carefully):
 {examples_text}"""
 
 

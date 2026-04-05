@@ -1,6 +1,42 @@
 {
   "example_scripts": [
     {
+      "topic": "The Friend Who Disappeared",
+      "style": "emotional",
+      "visual_keywords": ["two people walking away", "empty bench", "fading silhouette in fog"],
+      "script": "You didn't lose them in a fight.\nYou lost them in a silence that grew too long.\nOne day they were your whole world.\nThe next, just someone you used to know.\nAnd the worst part?\nYou never got to say goodbye.\nSome people leave without leaving — and that's the wound that never closes."
+    },
+    {
+      "topic": "Missing Someone Alive",
+      "style": "emotional",
+      "visual_keywords": ["person staring at phone", "unanswered message", "empty chair at table"],
+      "script": "Missing someone who's still alive is the loneliest kind of pain.\nBecause you can't grieve them properly.\nThey're out there — living, laughing, breathing.\nJust not with you anymore.\nAnd every time you see their name, your chest still tightens.\nSome distances aren't measured in miles.\nThey're measured in what was never said."
+    },
+    {
+      "topic": "Heartbreak Lesson",
+      "style": "emotional",
+      "visual_keywords": ["person sitting alone at window", "rain on glass", "soft light at dawn"],
+      "script": "They broke your heart.\nBut here's what they didn't break — your ability to love.\nYou didn't become cold.\nYou became careful.\nAnd there's a difference.\nCold people stop feeling. Careful people feel everything — they just choose better.\nYour next love won't get a broken version of you.\nThey'll get a wiser one."
+    },
+    {
+      "topic": "Friendship That Faded",
+      "style": "emotional",
+      "visual_keywords": ["two silhouettes growing apart", "old photographs", "empty hallway"],
+      "script": "We didn't have a falling out.\nWe just... stopped showing up for each other.\nLittle by little.\nUntil one day I realized — I couldn't remember the last time we laughed together.\nFriendships don't always end in arguments.\nSometimes they end in unanswered texts and forgotten plans.\nAnd somehow that's even harder to accept."
+    },
+    {
+      "topic": "People Who Use You",
+      "style": "emotional",
+      "visual_keywords": ["umbrella in storm", "person walking alone after rain", "empty street"],
+      "script": "You were never too much.\nJust too real for people who only needed you in their storms.\nThey held you close when the rain came.\nAnd forgot you the moment the sky cleared.\nBut here's your lesson — you are not a crisis hotline.\nStart saving your warmth for people who stay when it's sunny."
+    },
+    {
+      "topic": "Borrowed Love",
+      "style": "emotional",
+      "visual_keywords": ["temporary connection", "empty doorway", "fading light"],
+      "script": "Not everyone who says I love you means I'll stay.\nSome people just mean — I like how you make me feel right now.\nYou were giving forever to people who were only visiting.\nAnd that's why it hurt.\nNot because they left.\nBut because you thought they'd live there.\nLesson: the right person won't need you to convince them to stay."
+    },
+    {
       "topic": "Telephone",
       "style": "nostalgic",
       "visual_keywords": ["person waiting by phone", "empty hallway", "late night silence"],
@@ -17,27 +53,47 @@
       "style": "nostalgic",
       "visual_keywords": ["two people facing each other", "crowded room isolation", "unspoken understanding"],
       "script": "Remember when you could tell someone everything… without saying a word?\nA glance across a room used to carry the weight of a whole conversation.\nPeople knew how to look at each other… really look.\nNow we stare at glass… and call it connection.\nThe saddest part… is we don't even notice what we've stopped seeing."
-    },
-    {
-      "topic": "People Who Use You",
-      "style": "emotional",
-      "visual_keywords": ["umbrella in storm", "person walking alone after rain", "empty street"],
-      "script": "You were never too much.\nJust too real for people who only needed you in their storms.\nThey held you close when the rain came.\nAnd forgot you the moment the sky cleared.\nThe cruelest part — they knew you'd stay anyway."
-    },
-    {
-      "topic": "Borrowed Love",
-      "style": "emotional",
-      "visual_keywords": ["temporary connection", "empty doorway", "fading light"],
-      "script": "Not everyone who says I love you means I'll stay.\nSome people just mean… I like how you make me feel right now.\nYou were giving forever.\nTo people who were only visiting.\nAnd that's why it hurt — not because they left… but because you thought they'd live there."
-    },
-    {
-      "topic": "Losing Yourself",
-      "style": "emotional",
-      "visual_keywords": ["mirror reflection", "old photographs", "solitary figure"],
-      "script": "You're not scared of losing them.\nYou're scared of losing the version of you that existed with them.\nBecause some connections don't just touch your life.\nThey rewrite who you are.\nAnd when they leave… you don't just miss them. You meet a stranger in the mirror."
     }
   ],
   "topics_pool": {
+    "emotional": [
+      "The Friend Who Disappeared",
+      "Missing Someone Alive",
+      "Heartbreak Lesson",
+      "Friendship That Faded",
+      "People Who Use You",
+      "Borrowed Love",
+      "Losing Yourself",
+      "When You Stop Explaining",
+      "One-Sided Effort",
+      "Outgrowing People",
+      "The Person You Became",
+      "Loving the Wrong People",
+      "Letting Go With Grace",
+      "Being Misunderstood",
+      "Carrying Others Too Long",
+      "The Quiet Exit",
+      "When Someone Changes",
+      "Growing Apart",
+      "Learning to Be Alone",
+      "Healing Alone",
+      "The Last Text You Never Sent",
+      "When You Loved More Than They Did",
+      "The One Who Got Away",
+      "Friends Who Only Call When They Need You",
+      "Falling Out of Love Slowly",
+      "The Apology That Never Came",
+      "When You Miss Who They Used to Be",
+      "Loving Someone Who Can't Love Back",
+      "The Goodbye You Didn't Get",
+      "Staying Too Long",
+      "When Friendship Becomes One-Sided",
+      "The First Heartbreak",
+      "Moving On vs Moving Forward",
+      "When You Outgrow Your Best Friend",
+      "The Night You Stopped Waiting",
+      "Finding Yourself After Them"
+    ],
     "nostalgic": [
       "Vinyl Records",
       "Grandfather Clock",
@@ -60,43 +116,21 @@
       "Street Lamps",
       "Wooden Bench",
       "Old Radio",
-      "Pocket Watch",
-      "Black and White TV",
       "Pen Pal",
       "Bicycle Rides",
       "Love Letters",
       "Family Album",
       "Handmade Gifts",
       "Waiting at the Door",
-      "Sleeping Without Alarms",
       "Cooking From Memory",
       "Sitting in Silence Together",
       "Coming Home",
       "Saying Goodbye Properly",
       "Knowing Your Neighbor",
-      "Unplanned Visits"
-    ],
-    "emotional": [
-      "People Who Use You",
-      "Borrowed Love",
-      "Losing Yourself",
-      "The Shift",
-      "Eclipse Love",
-      "Emotional Silence",
-      "The Real Loss",
-      "When You Stop Explaining",
-      "One-Sided Effort",
-      "Outgrowing People",
-      "Healing Alone",
-      "The Person You Became",
-      "Loving the Wrong People",
-      "Letting Go",
-      "Being Misunderstood",
-      "Carrying Others Too Long",
-      "The Quiet Exit",
-      "When Someone Changes",
-      "Growing Apart",
-      "Learning to Be Alone"
+      "Unplanned Visits",
+      "Childhood Best Friend",
+      "The House You Grew Up In",
+      "Old Friendships That Faded"
     ]
   }
 }
