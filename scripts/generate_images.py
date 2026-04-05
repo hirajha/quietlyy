@@ -138,33 +138,37 @@ _SCENE_POOL = [
 # Art style — matches Typewriters Voice: woodcut/linocut illustration with warm amber + bold red accent
 _STYLE_VARIANTS = [
     (
-        "Dark cinematic woodcut illustration style. Deep dark background (near-black forest green or charcoal). "
-        "Warm golden-amber foreground lighting — glowing fields, lamp light, fire. "
-        "Bold red accent color on one element (umbrella, coat, flowers, roof). "
-        "Heavy cross-hatching texture, bold ink lines, dramatic light contrast. "
-        "Style: Tim Burton meets classic linocut print meets vintage storybook illustration. "
-        "Rich textured look, NOT photorealistic, NOT anime."
+        "Richly colored woodcut/linocut illustration. "
+        "Background: deep near-black forest green or charcoal with heavy cross-hatch texture. "
+        "Foreground: VIBRANT golden-amber fields or warm lamp glow — saturated, glowing bright. "
+        "ONE bold accent: a vivid crimson-red umbrella, coat, poppies, or roof tile — pure saturated red. "
+        "High contrast: very dark background vs very bright warm gold vs bold red. "
+        "Thick inked outlines, hatching and stippling texture throughout. "
+        "Style: linocut print meets Tim Burton storybook. NOT anime, NOT photo."
     ),
     (
-        "Painterly dark illustration in the style of a vintage graphic novel. "
-        "Deep navy and forest green backgrounds, single warm amber light source. "
-        "One vivid accent color — deep crimson or burnt orange on a focal element. "
-        "Lush textured brush strokes, heavily stylized, cinematic composition. "
-        "Atmospheric rain or mist adding drama. NOT photorealistic."
+        "Dramatic vintage illustration, richly saturated palette. "
+        "Deep dark background — near-black indigo or forest green, heavy rain diagonal lines. "
+        "Warm amber street lamp or window glow — saturated golden yellow, not pale. "
+        "ONE vivid red accent element (umbrella, coat, door, flowers) — bold pure red. "
+        "Lush textured brush strokes, bold ink outlines, cinematic composition. "
+        "Colors must pop — high contrast and fully saturated, not washed out."
     ),
     (
-        "Dramatic storybook illustration, dark fantasy atmosphere. "
-        "Dark moody backgrounds with rich deep greens, blacks, indigos. "
-        "Warm candlelight or lamp glow as the hero light — amber and gold. "
-        "A single bold accent: red poppies, a red door, crimson clothing. "
-        "Detailed texture: hatching, stippling, layered ink washes. Cinematic and emotional."
+        "Cinematic storybook illustration — bold and colorful. "
+        "Very dark stormy sky with swirling black clouds, dramatic cross-hatching. "
+        "Below: warm golden countryside — bright saturated amber wheat or rolling golden hills. "
+        "One element in vivid scarlet red — a single figure, roof, or flowers. "
+        "Bright whites for moon/light source. Rich saturated color throughout. "
+        "Detailed ink texture, Gustave Doré meets modern graphic novel. NOT anime, NOT photo."
     ),
     (
-        "High-contrast painterly illustration in the style of classic Eastern ink painting meets Western graphic novel. "
-        "Misty grey-blue mountains or landscape in background, dark foreground. "
-        "Small human figure dwarfed by vast landscape — epic scale, emotional weight. "
-        "Muted palette with ONE warm accent: amber lantern, red garment, golden light. "
-        "Textured, painterly, NOT anime, NOT photo."
+        "High-contrast painterly illustration — Eastern meets Western. "
+        "Misty blue-grey mountain backdrop, dramatic atmospheric perspective. "
+        "Vivid foreground: lush greens or golden warmth, richly saturated. "
+        "Small human figure in bold red or deep crimson clothing against the pale mist. "
+        "Epic scale — figure small, landscape vast. Saturated color, NOT muted or grey. "
+        "Painterly texture, ink-wash, NOT anime, NOT photo."
     ),
 ]
 
@@ -229,7 +233,7 @@ def generate_with_dalle(prompt, output_path):
                     "prompt": prompt,
                     "n": 1,
                     "size": "1024x1024",  # Square — no sideways composition
-                    "quality": "standard",
+                    "quality": "hd",      # HD = sharper, more detailed, more vibrant
                     "response_format": "url",
                 },
                 timeout=120,

@@ -74,7 +74,7 @@ def _draw_text_on_image(img, text, watermark=True):
     # Watermark
     if watermark:
         wm_font = get_font(26)
-        wm = "@Quietlyy"
+        wm = "@Whiprs"
         bbox = draw.textbbox((0, 0), wm, font=wm_font)
         wm_w = bbox[2] - bbox[0]
         draw.text(((WIDTH - wm_w) // 2, HEIGHT - 80), wm, font=wm_font,
