@@ -21,6 +21,27 @@ def get_credentials():
     return page_id, token
 
 
+def get_page_token(page_id, token):
+    """
+    Exchange any valid token (User, System User, or Page) for a Page Access Token.
+    Page Access Tokens are required by the Reels and video upload endpoints.
+    If the token is already a Page token, this is a no-op.
+    """
+    resp = requests.get(
+        f"{GRAPH_API}/{page_id}",
+        params={"access_token": token, "fields": "access_token,name,id"},
+        timeout=10,
+    )
+    if resp.status_code == 200:
+        data = resp.json()
+        page_token = data.get("access_token")
+        if page_token and page_token != token:
+            print(f"[facebook] Exchanged System User token → Page Access Token for '{data.get('name')}'")
+            return page_token
+    # Already a page token or exchange not possible — use as-is
+    return token
+
+
 def verify_credentials():
     """Pre-flight check: verify token works and page is accessible.
     Prints debug info. Raises on hard failure."""
@@ -79,7 +100,9 @@ def _raise_with_body(resp):
 
 # ── Layer 1: Facebook Reel (best reach) ──
 def post_as_reel(video_path, description):
-    page_id, token = get_credentials()
+    page_id, raw_token = get_credentials()
+    # Exchange System User token → Page Access Token (required for Reels API)
+    token = get_page_token(page_id, raw_token)
 
     print(f"[facebook] Layer 1: Initializing Reel upload (page_id={page_id})...")
     init_resp = requests.post(
@@ -134,7 +157,9 @@ def post_as_reel(video_path, description):
 
 # ── Layer 2: Facebook Page Video (uses pages_manage_posts, no publish_video needed) ──
 def post_as_video(video_path, description):
-    page_id, token = get_credentials()
+    page_id, raw_token = get_credentials()
+    # Exchange System User token → Page Access Token
+    token = get_page_token(page_id, raw_token)
 
     print(f"[facebook] Layer 2: Uploading as Page video (page_id={page_id})...")
     with open(video_path, "rb") as f:
@@ -192,4 +217,3 @@ def post(video_path, topic, script_text, seo_metadata=None):
 if __name__ == "__main__":
     print("Facebook poster ready. Run via pipeline.py")
     print("Required env vars: FB_PAGE_ID, FB_PAGE_ACCESS_TOKEN")
-
