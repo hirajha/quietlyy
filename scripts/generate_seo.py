@@ -16,10 +16,10 @@ import requests
 # ── AI disclosure text (platform-policy compliant, minimal/end-of-post) ───
 
 # Facebook/Instagram: buried after all hashtags — visible only if expanded
-FB_AI_DISCLOSURE = "Made with AI tools."
+FB_AI_DISCLOSURE = "AI assistance was used in the making of this video."
 
-# YouTube: last line of description, after all tags
-YT_AI_DISCLOSURE = "Made with AI tools."
+# YouTube: last line of description
+YT_AI_DISCLOSURE = "AI assistance was used in the making of this video."
 
 # ── Fallback hashtag sets by category ──────────────────────────────────────
 
@@ -54,7 +54,7 @@ Rules:
 - instagram_hashtags: exactly 25 tags, NO # symbol, NO spaces, all lowercase
   Mix: 5 broad (nostalgia, quotes, viral), 10 topic-specific, 10 engagement (foryou, reels, trending)
 - youtube_title: under 60 chars, emotionally compelling, NO hashtags, makes people stop scrolling
-- youtube_tags: exactly 15 tags, mix broad + niche + topic-specific, include "AIgenerated"
+- youtube_tags: exactly 15 tags, mix broad + niche + topic-specific, NO AI-related tags
 - youtube_seo_line: 1 sentence (under 120 chars) describing the video for search discovery"""
 
 

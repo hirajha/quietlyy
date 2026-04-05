@@ -14,10 +14,10 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 # ElevenLabs config
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
 ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "b0jrjvawVNjnHsrN2WGU")
-ELEVENLABS_MODEL = "eleven_turbo_v2_5"  # clear, natural, supports speed param
+ELEVENLABS_MODEL = "eleven_multilingual_v2"  # clear, natural, supports speed param
 
 # Silence between lines (seconds)
-LINE_GAP = 2.1
+LINE_GAP = 1.6
 
 
 def _clean_text(text):

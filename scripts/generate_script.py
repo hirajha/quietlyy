@@ -17,21 +17,32 @@ def load_templates():
         return json.load(f)
 
 
-def pick_topic(templates, theme_hints=None):
-    used_path = os.path.join(os.path.dirname(__file__), "..", "output", "used_topics.json")
-    os.makedirs(os.path.dirname(used_path), exist_ok=True)
-    used = []
-    if os.path.exists(used_path):
-        with open(used_path, "r") as f:
-            used = json.load(f)
+def pick_style_and_topic(templates, theme_hints=None):
+    """Alternate between 'nostalgic' and 'emotional' styles each run."""
+    state_path = os.path.join(os.path.dirname(__file__), "..", "output", "used_topics.json")
+    os.makedirs(os.path.dirname(state_path), exist_ok=True)
 
-    pool = templates["topics_pool"]
+    state = {"used_nostalgic": [], "used_emotional": [], "last_style": "emotional"}
+    if os.path.exists(state_path):
+        with open(state_path) as f:
+            try:
+                state = json.load(f)
+            except Exception:
+                pass
+
+    # Alternate style each run
+    style = "nostalgic" if state.get("last_style") == "emotional" else "emotional"
+
+    pool = templates["topics_pool"][style]
+    used_key = f"used_{style}"
+    used = state.get(used_key, [])
+
     available = [t for t in pool if t not in used]
     if not available:
         used = []
         available = pool
 
-    # Bias toward high-performing themes from market research (30% chance)
+    # Bias toward high-performing themes (30%)
     if theme_hints:
         preferred = [t for t in available if any(
             hint.lower() in t.lower() or t.lower() in hint.lower()
@@ -45,56 +56,82 @@ def pick_topic(templates, theme_hints=None):
         topic = random.choice(available)
 
     used.append(topic)
-    used = used[-20:]
-    with open(used_path, "w") as f:
-        json.dump(used, f)
+    state[used_key] = used[-20:]
+    state["last_style"] = style
+
+    with open(state_path, "w") as f:
+        json.dump(state, f)
+
+    return style, topic
+
+
+# Keep old name as alias for compatibility
+def pick_topic(templates, theme_hints=None):
+    _, topic = pick_style_and_topic(templates, theme_hints)
     return topic
 
 
-def build_prompt(topic, examples, tone_hints=""):
-    """Build prompt that forces the EXACT poetic structure."""
-    examples_text = ""
-    for e in examples[:3]:
-        examples_text += f'\nTopic: {e["topic"]}\n{e["script"]}\n'
+def build_prompt(topic, examples, style="nostalgic", tone_hints=""):
+    """Build prompt for the given style: 'nostalgic' or 'emotional'."""
+    style_examples = [e for e in examples if e.get("style") == style][:3]
+    examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
 
-    audience_block = ""
-    if tone_hints:
-        audience_block = f"\nAudience intelligence (apply these to maximise engagement):\n{tone_hints}\n"
+    audience_block = f"\nAudience intelligence:\n{tone_hints}\n" if tone_hints else ""
 
-    return f"""Generate a viral 25-second script in "Quietlyy Quotes" style.{audience_block}
-
-Make it:
-- Hook in first 2 lines
-- Emotional build in middle
-- Strong, relatable ending that hits like a gut punch
+    if style == "nostalgic":
+        return f"""Generate a viral 25-second script in "Quietlyy" nostalgic style.{audience_block}
 
 Topic: {topic}
-Tone: deep + quiet pain
+Tone: quiet, melancholic, deeply human
 
-Important:
-- Avoid clich\u00e9s
-- Avoid repeated sentence structures — VARY how each line opens
-- Make it feel personal, like a real thought someone had at 3 AM
+Rules:
+- Hook in first 2 lines. Gut-punch ending.
+- Vary sentence openings — NOT all "There was a time"
 - Use "\u2026" for emotional pauses
-- Each line is its OWN paragraph (separated by newline)
-- Write exactly 5 lines, no more
-- DO NOT use hashtags, emojis, or stage directions
-- Keep it about PEOPLE and HUMAN CONNECTION, not the object itself
-- The last line should make someone stop scrolling
+- Exactly 5 lines, each on its own line
+- About PEOPLE and HUMAN CONNECTION, not the object itself
+- NO hashtags, emojis, stage directions
 
-STRUCTURE GUIDE (vary the openings — don't always use the same words):
-Line 1: Set the scene — something we lost (can start with "There was a time\u2026", "Remember when\u2026", "Once\u2026", etc)
-Line 2: How it used to feel — the beauty of the old way
-Line 3: The contrast — "Not because X\u2026 but because Y" or similar emotional turn
-Line 4: The modern reality — what we do now instead (cold, distant, hollow)
-Line 5: The gut punch — a quiet realization that stings ("Maybe\u2026", "Perhaps\u2026", "The truth is\u2026")
+Structure:
+Line 1: Something we lost or used to have
+Line 2: Why it mattered — the beauty of that time
+Line 3: The contrast or emotional turn
+Line 4: The cold modern reality
+Line 5: Quiet gut-punch realization
 
-Also provide 4 visual keywords showing PEOPLE/EMOTIONS (not objects).
+Also provide 4 visual keywords (emotional scenes/people, not objects).
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5", "visual_keywords": ["keyword1", "keyword2", "keyword3", "keyword4"]}}
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
 
-EXAMPLES (match this emotional depth but VARY the structure):
+EXAMPLES:
+{examples_text}"""
+
+    else:
+        return f"""Generate a viral 25-second emotional script in "Quietlyy" spoken-word style.{audience_block}
+
+Topic: {topic}
+Tone: raw, psychological, like a quiet truth at 3 AM
+
+Rules:
+- Short punchy lines — NOT long sentences
+- First line must hook immediately
+- Use a single powerful metaphor or image
+- Line breaks create dramatic breathing room
+- Ending = revelation or a sting
+- Write 6-9 short lines total
+- NO hashtags, emojis, stage directions
+- Do NOT start with "There was a time"
+
+Structure flow:
+Opening hook (1-2 lines) → Metaphor/image (2-3 lines) → Twist (2 lines) → Gut-punch close (1-2 lines)
+
+Also provide 4 visual keywords (emotional scenes, symbolic moments, people).
+
+Return ONLY valid JSON:
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
+
+EXAMPLES:
 {examples_text}"""
 
 
@@ -196,10 +233,10 @@ def generate_with_groq(prompt):
 
 def generate_script(tone_hints="", theme_hints=None):
     templates = load_templates()
-    topic = pick_topic(templates, theme_hints=theme_hints)
-    prompt = build_prompt(topic, templates["example_scripts"], tone_hints=tone_hints)
+    style, topic = pick_style_and_topic(templates, theme_hints=theme_hints)
+    prompt = build_prompt(topic, templates["example_scripts"], style=style, tone_hints=tone_hints)
 
-    print(f"[script] Topic: {topic}")
+    print(f"[script] Style: {style} | Topic: {topic}")
 
     providers = [
         (generate_with_chatgpt, "ChatGPT"),
@@ -212,9 +249,9 @@ def generate_script(tone_hints="", theme_hints=None):
         try:
             result = gen_fn(prompt)
             if result and "script" in result:
-                # Validate it has the right structure
                 lines = [l.strip() for l in result["script"].split("\n") if l.strip()]
-                if len(lines) >= 4 and "\u2026" in result["script"]:
+                min_lines = 4 if style == "nostalgic" else 5
+                if len(lines) >= min_lines:
                     print(f"[script] Generated via {name}")
                     break
                 else:
@@ -228,6 +265,7 @@ def generate_script(tone_hints="", theme_hints=None):
         raise RuntimeError("All script generators failed (Gemini + Groq). Cannot proceed.")
 
     result["topic"] = topic
+    result["style"] = style
     return result
 
 

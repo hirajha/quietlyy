@@ -10,6 +10,7 @@ import json
 import requests
 
 GRAPH_API = "https://graph.facebook.com/v22.0"
+FB_UPLOAD_API = "https://rupload.facebook.com/video-upload/v22.0"
 
 
 def get_credentials():
@@ -60,9 +61,9 @@ def build_description(topic, script_text):
     return (
         f"{caption}\n\n"
         f"— Quietlyy\n\n"
-        f"⚠️ AI Disclosure: This content was created using AI-assisted tools.\n\n"
         f"#Quietlyy #{topic.replace(' ', '')} #nostalgia #memories "
-        f"#deepthoughts #lifequotes #reflection #lostmoments #AIGenerated"
+        f"#deepthoughts #lifequotes #reflection #lostmoments\n\n"
+        f"AI assistance was used in the making of this video."
     )
 
 
@@ -89,14 +90,19 @@ def post_as_reel(video_path, description):
     _raise_with_body(init_resp)
     video_id = init_resp.json()["video_id"]
 
-    print(f"[facebook] Uploading video (ID: {video_id})...")
+    print(f"[facebook] Uploading video bytes (ID: {video_id})...")
     file_size = os.path.getsize(video_path)
     with open(video_path, "rb") as f:
         upload_resp = requests.post(
-            f"{GRAPH_API}/{video_id}",
-            params={"access_token": token},
-            headers={"offset": "0", "file_size": str(file_size)},
+            f"{FB_UPLOAD_API}/{video_id}",  # rupload endpoint — required for Reels
+            headers={
+                "Authorization": f"OAuth {token}",
+                "offset": "0",
+                "file_size": str(file_size),
+                "Content-Type": "video/mp4",
+            },
             data=f,
+            timeout=300,
         )
     _raise_with_body(upload_resp)
 

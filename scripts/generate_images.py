@@ -99,71 +99,78 @@ def _pick_reuse_panels(num_panels):
     return result
 
 
-# Large pool of diverse scene templates — randomly shuffled each video run
-# so no two videos share the same visual sequence
+# Scene pool — cinematic, atmospheric, varied settings
+# Matches the Typewriters Voice / Whisprs aesthetic:
+# dark environments, warm accent light, solitary or paired figures, epic or intimate scale
 _SCENE_POOL = [
-    # Solo introspective — indoors
-    "A person sitting alone at a kitchen table late at night, a single cup of tea steaming, dim overhead light, staring at nothing",
-    "Someone lying on their bed staring at the ceiling in a dark room, city glow through the curtains, phone face-down on the mattress",
-    "A person leaning against a closed door, sliding down slowly, eyes closed, emotional exhaustion",
-    "A figure silhouetted at a large window, looking out at the rain, soft lamp glow behind them, reflections in the glass",
-    "Someone sitting on the floor of an empty apartment, back against the wall, knees pulled up, surrounded by moving boxes",
-    "A person sitting at a desk in lamplight, holding an old photograph, eyes distant and soft",
-    # Solo introspective — outdoors
-    "A person standing alone on a rooftop at night, city lights stretching to the horizon, wind in their hair",
-    "A solitary figure on a nearly empty train, head against the window, watching dark fields pass outside",
-    "Someone sitting at the end of a pier, feet dangling over dark still water, stars reflected below them",
-    "A person walking alone down a long empty street at dusk, long shadow stretching behind, mist at ground level",
-    "A figure standing at a crossroads under a single streetlamp, coat collar up, rain just started",
-    "Someone on a fire escape, one knee up, looking at the sky between buildings at night",
-    "A person sitting under a bare tree in a park at twilight, leaves scattered around, empty benches nearby",
-    "A figure seen from behind standing at a cliff edge, vast ocean below, clouds heavy and low",
-    # Two-person / relational
-    "Two people on a bench under a streetlight at night, not touching, looking in different directions",
-    "Two silhouettes walking apart on a rainy street, umbrellas not overlapping",
-    "An empty bench with two coffee cups side by side, steam rising, nobody sitting there",
-    "A person waiting under an awning in the rain, checking their watch, no one coming",
-    "Two people on opposite sides of a glass door, one inside, one outside, not opening it",
-    "A child and an elderly person sitting on porch steps in the fading light, not speaking, just present",
-    # Environmental / symbolic
-    "An empty swing set moving gently in the wind at night, playground deserted, soft moonlight",
-    "A deserted train platform at dusk, single figure far in the distance, tracks vanishing to horizon",
-    "An old telephone booth on a foggy street corner, light on inside, no one in it",
-    "A narrow alley at night, warm light from a window high above, a lone cat on a windowsill",
-    "A library at closing time, last person still reading at a table, librarian dimming lights around them",
+    # Countryside / nature — dramatic skies
+    "A lone stone cottage with a glowing amber window in a dark golden field, massive swirling storm clouds above, red poppies in the foreground",
+    "A woman in a red coat walking alone on a winding country road at dusk, cypress trees on both sides, stormy violet sky above",
+    "A small farmhouse on a hill, warm light in one window, dark dramatic clouds rolling in, golden wheat in the foreground",
+    "A solitary figure with a red umbrella crossing a flooded stone bridge in heavy rain, dark medieval castle behind them, golden reflections in water",
+    "A man standing on a rocky cliff overlooking a misty valley, massive mountain peaks in fog, single tree beside him bending in wind",
+    # Architecture — Mediterranean / European / Eastern
+    "A cobblestone Mediterranean courtyard at night, two figures near an arched doorway with warm amber lamp light, palm fronds and rain",
+    "A Japanese pagoda nestled in misty mountains at dawn, ancient trees surrounding it, soft mist rising from forest below",
+    "A narrow European village alley at night, rain-slicked cobblestones reflecting amber street lamps, one figure disappearing around a corner",
+    "An ancient stone archway with warm golden light pouring through, two cloaked figures meeting beneath it in the rain",
+    "A tall Mediterranean villa at night, one lit window high up, dark palm trees, rain falling diagonally across the scene",
+    # Human figures — emotional close-ups
+    "A woman silhouette holding a large red umbrella against a dark grey rainy sky, her figure in rich burgundy coat, dramatic and solitary",
+    "A samurai figure from behind standing on a misty mountain peak, traditional robes flowing, vast foggy valley below",
+    "An old man sitting alone on a bench in a winter park, bare trees, cold blue light, a letter in his hands",
+    "A young woman at an old wooden desk by a rain-streaked window, single candle lit, writing a letter, storm outside",
+    "Two silhouettes on a bridge over a river at night, not touching, city lights reflected in the water below",
+    # Dramatic nature — symbolic
+    "A lone lighthouse on dark jagged rocks, massive waves crashing, single warm beam sweeping through storm clouds",
+    "A figure in a small rowboat on a perfectly still dark lake, surrounded by misty mountains, predawn grey light",
+    "A cherry blossom tree in full bloom at night, one person sitting beneath it alone, pale petals falling like snow",
+    "An ancient stone staircase climbing through dense forest, golden light filtering down through dark canopy, figure ascending alone",
+    "Autumn forest path, carpet of red and gold leaves, a figure walking away into the distance, mist between the trees",
+    # Interior — intimate and warm
+    "An old wooden library interior at night, warm amber lamp on a reading table, single figure surrounded by tall shelves of books",
+    "A small café window at night, rain outside, one person inside holding a cup looking out, warm light inside vs dark street",
+    "A vintage train compartment, one passenger looking out the rain-streaked window at passing dark countryside at night",
+    "An attic room with a round window showing a stormy sky, old trunk open, letters scattered, warm single lamp",
+    "A kitchen in an old stone house, fire in the hearth, elderly hands cradling a teacup, rain on the window",
 ]
 
-# Art style variants — randomly picked per video to avoid every video looking identical
+# Art style — matches Typewriters Voice: woodcut/linocut illustration with warm amber + bold red accent
 _STYLE_VARIANTS = [
     (
-        "Digital anime illustration, Makoto Shinkai lighting style. "
-        "Dark moody cinematic. Cool blue and purple tones, moonlight and streetlights. "
-        "Soft painterly brush strokes, muted desaturated palette, emotional depth, subtle bokeh. "
-        "Color palette: dark blues, muted purples, cool grays, soft teal. NOT warm orange or gold."
+        "Dark cinematic woodcut illustration style. Deep dark background (near-black forest green or charcoal). "
+        "Warm golden-amber foreground lighting — glowing fields, lamp light, fire. "
+        "Bold red accent color on one element (umbrella, coat, flowers, roof). "
+        "Heavy cross-hatching texture, bold ink lines, dramatic light contrast. "
+        "Style: Tim Burton meets classic linocut print meets vintage storybook illustration. "
+        "Rich textured look, NOT photorealistic, NOT anime."
     ),
     (
-        "Studio Ghibli-inspired hand-painted illustration. "
-        "Quiet and melancholic atmosphere, soft watercolor textures. "
-        "Evening or night setting, cool muted tones — dusty blues, faded greens, pale mauves. "
-        "Gentle lighting, no harsh shadows, painterly and emotional."
+        "Painterly dark illustration in the style of a vintage graphic novel. "
+        "Deep navy and forest green backgrounds, single warm amber light source. "
+        "One vivid accent color — deep crimson or burnt orange on a focal element. "
+        "Lush textured brush strokes, heavily stylized, cinematic composition. "
+        "Atmospheric rain or mist adding drama. NOT photorealistic."
     ),
     (
-        "Retro 80s Japanese anime illustration style. "
-        "Slightly grainy film texture, cool neon-tinged night scenes. "
-        "Deep blues and teals, subtle magenta highlights from distant signs, "
-        "low-key lighting, cinematic widescreen composition adapted to portrait."
+        "Dramatic storybook illustration, dark fantasy atmosphere. "
+        "Dark moody backgrounds with rich deep greens, blacks, indigos. "
+        "Warm candlelight or lamp glow as the hero light — amber and gold. "
+        "A single bold accent: red poppies, a red door, crimson clothing. "
+        "Detailed texture: hatching, stippling, layered ink washes. Cinematic and emotional."
     ),
     (
-        "Contemporary graphic novel illustration style. "
-        "High contrast between deep shadows and single warm light source. "
-        "Ink-wash textures, muted palette with one accent color — a faint amber lamp "
-        "against dark cool surroundings. Quiet and literary atmosphere."
+        "High-contrast painterly illustration in the style of classic Eastern ink painting meets Western graphic novel. "
+        "Misty grey-blue mountains or landscape in background, dark foreground. "
+        "Small human figure dwarfed by vast landscape — epic scale, emotional weight. "
+        "Muted palette with ONE warm accent: amber lantern, red garment, golden light. "
+        "Textured, painterly, NOT anime, NOT photo."
     ),
 ]
 
-# Module-level: pick a style once per import (i.e., once per pipeline run)
+# Module-level: pick a style once per import (once per pipeline run)
 _CHOSEN_STYLE = random.choice(_STYLE_VARIANTS)
-# Shuffle a copy of the scene pool once per run so panel order is always fresh
+# Shuffle scenes once per run for fresh panel order every video
 _SHUFFLED_SCENES = random.sample(_SCENE_POOL, len(_SCENE_POOL))
 
 
@@ -171,21 +178,15 @@ def generate_image_prompt(topic, visual_keywords, panel_num):
     """Create varied scene prompts — each run gets a different scene sequence and art style."""
     keywords_str = ", ".join(visual_keywords)
 
-    # Pick scene from pre-shuffled pool (wraps around if more panels than scenes)
+    # Pick scene from pre-shuffled pool (wraps if more panels than scenes)
     scene = _SHUFFLED_SCENES[panel_num % len(_SHUFFLED_SCENES)]
-
-    # Inject topic context into the scene naturally
-    scene_with_topic = (
-        f"{scene}, evoking themes of {topic} and quiet human longing, "
-        f"related to: {keywords_str}"
-    )
 
     return (
         f"{_CHOSEN_STYLE} "
-        f"{scene_with_topic}. "
-        f"Must look like a digital painting NOT a real photo. "
-        f"No text, no watermarks, no words, no UI elements. "
-        f"Portrait orientation composition (tall, not wide)."
+        f"Scene: {scene}. "
+        f"Emotional theme: {topic}. Mood keywords: {keywords_str}. "
+        f"Portrait orientation (tall, 9:16). "
+        f"No text, no watermarks, no words, no UI elements."
     )
 
 
