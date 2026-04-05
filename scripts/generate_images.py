@@ -103,72 +103,72 @@ def _pick_reuse_panels(num_panels):
 # Matches the Typewriters Voice / Whisprs aesthetic:
 # dark environments, warm accent light, solitary or paired figures, epic or intimate scale
 _SCENE_POOL = [
-    # Countryside / nature — dramatic skies
-    "A lone stone cottage with a glowing amber window in a dark golden field, massive swirling storm clouds above, red poppies in the foreground",
-    "A woman in a red coat walking alone on a winding country road at dusk, cypress trees on both sides, stormy violet sky above",
-    "A small farmhouse on a hill, warm light in one window, dark dramatic clouds rolling in, golden wheat in the foreground",
-    "A solitary figure with a red umbrella crossing a flooded stone bridge in heavy rain, dark medieval castle behind them, golden reflections in water",
-    "A man standing on a rocky cliff overlooking a misty valley, massive mountain peaks in fog, single tree beside him bending in wind",
-    # Architecture — Mediterranean / European / Eastern
-    "A cobblestone Mediterranean courtyard at night, two figures near an arched doorway with warm amber lamp light, palm fronds and rain",
-    "A Japanese pagoda nestled in misty mountains at dawn, ancient trees surrounding it, soft mist rising from forest below",
-    "A narrow European village alley at night, rain-slicked cobblestones reflecting amber street lamps, one figure disappearing around a corner",
-    "An ancient stone archway with warm golden light pouring through, two cloaked figures meeting beneath it in the rain",
-    "A tall Mediterranean villa at night, one lit window high up, dark palm trees, rain falling diagonally across the scene",
-    # Human figures — emotional close-ups
-    "A woman silhouette holding a large red umbrella against a dark grey rainy sky, her figure in rich burgundy coat, dramatic and solitary",
-    "A samurai figure from behind standing on a misty mountain peak, traditional robes flowing, vast foggy valley below",
-    "An old man sitting alone on a bench in a winter park, bare trees, cold blue light, a letter in his hands",
-    "A young woman at an old wooden desk by a rain-streaked window, single candle lit, writing a letter, storm outside",
-    "Two silhouettes on a bridge over a river at night, not touching, city lights reflected in the water below",
-    # Dramatic nature — symbolic
-    "A lone lighthouse on dark jagged rocks, massive waves crashing, single warm beam sweeping through storm clouds",
-    "A figure in a small rowboat on a perfectly still dark lake, surrounded by misty mountains, predawn grey light",
-    "A cherry blossom tree in full bloom at night, one person sitting beneath it alone, pale petals falling like snow",
-    "An ancient stone staircase climbing through dense forest, golden light filtering down through dark canopy, figure ascending alone",
-    "Autumn forest path, carpet of red and gold leaves, a figure walking away into the distance, mist between the trees",
-    # Interior — intimate and warm
-    "An old wooden library interior at night, warm amber lamp on a reading table, single figure surrounded by tall shelves of books",
-    "A small café window at night, rain outside, one person inside holding a cup looking out, warm light inside vs dark street",
-    "A vintage train compartment, one passenger looking out the rain-streaked window at passing dark countryside at night",
-    "An attic room with a round window showing a stormy sky, old trunk open, letters scattered, warm single lamp",
-    "A kitchen in an old stone house, fire in the hearth, elderly hands cradling a teacup, rain on the window",
+    # Epic landscapes — figure small vs vast world
+    "A lone figure in a red coat standing at the edge of a cliff, vast misty grey mountains stretching endlessly behind them, cold pale sky",
+    "A samurai seen from behind on a rocky peak, traditional flowing robes, enormous misty mountain range disappearing into fog below",
+    "A woman in a deep crimson dress standing on ancient stone steps, a massive Japanese temple gate above her, grey mist all around",
+    "A small human figure walking a narrow path through towering misty pine forest, shafts of pale light cutting through the fog",
+    "A solitary figure on a wooden pier extending into a perfectly still lake, surrounded by misty mountains, predawn silence",
+    # Rain and weather — cinematic
+    "A woman holding a vivid red umbrella, silhouetted against a dark grey rainy sky, wet cobblestones reflecting her figure below",
+    "A person standing in heavy rain on an empty city bridge at night, neon lights blurred in the wet pavement, alone",
+    "Two people under one umbrella on a rain-drenched street at night, not touching, looking in different directions",
+    "A lone figure walking away down a long alley in the rain, puddles reflecting warm amber streetlight, mist in the distance",
+    "A woman in red walking through rain toward distant city lights, wet street, dark sky, one umbrella, one direction",
+    # Japanese / Asian aesthetic
+    "A Japanese pagoda rising from thick morning mist, ancient pine trees surrounding it, cool blue-grey atmospheric haze",
+    "A red torii gate standing in shallow misty water, pale grey sky, single figure approaching from distance",
+    "Cherry blossoms falling at night, one person sitting alone beneath the tree, soft pink petals against dark sky",
+    "A narrow Japanese alley at night, paper lanterns casting warm amber glow, wet stone path, one figure passing",
+    "Ancient stone steps ascending through dense bamboo forest, dappled pale light, a lone figure climbing upward",
+    # Emotional human moments
+    "A person sitting alone in an empty train at night, head resting on the window, dark countryside passing, reflection visible in glass",
+    "A woman at a rain-streaked window in a dark room, one candle, holding a letter, city lights blurred outside",
+    "An old man on a park bench in winter, bare trees, cold blue light, a single red scarf around his neck",
+    "Two people sitting on opposite ends of a park bench at dusk, mist between them, neither looking at the other",
+    "A figure standing in a doorway looking out at falling snow, warm light behind them, cold white world ahead",
+    # Epic nature — symbolic scale
+    "A small rowing boat on a vast dark lake, perfect reflection of stormy sky above, mountains in the distance",
+    "A lone tree on a hilltop in autumn, figure sitting beneath it, red and gold leaves swirling, horizon wide and pale",
+    "Ancient stone bridge over a misty gorge, single figure crossing, fog filling the valley below, cold morning light",
+    "A lighthouse on dark rocks in a storm, massive waves, one warm beam of light cutting through grey-black clouds",
+    "A field of tall grass at dusk, figure walking through it away from us, golden light at the horizon, purple sky above",
 ]
 
 # Art style — matches Typewriters Voice: woodcut/linocut illustration with warm amber + bold red accent
 _STYLE_VARIANTS = [
     (
-        "Richly colored woodcut/linocut illustration. "
-        "Background: deep near-black forest green or charcoal with heavy cross-hatch texture. "
-        "Foreground: VIBRANT golden-amber fields or warm lamp glow — saturated, glowing bright. "
-        "ONE bold accent: a vivid crimson-red umbrella, coat, poppies, or roof tile — pure saturated red. "
-        "High contrast: very dark background vs very bright warm gold vs bold red. "
-        "Thick inked outlines, hatching and stippling texture throughout. "
-        "Style: linocut print meets Tim Burton storybook. NOT anime, NOT photo."
+        "Ultra-realistic cinematic digital art, Makoto Shinkai / Solo Leveling style. "
+        "Photorealistic quality with painterly details. "
+        "Atmospheric mist, volumetric light rays, epic scale. "
+        "Cool blue-grey misty tones for backgrounds (mountains, fog, sky). "
+        "ONE vivid accent color on the focal subject: deep red coat, crimson umbrella, or amber lamp glow. "
+        "Hyper-detailed textures: fabric folds, stone surfaces, water reflections. "
+        "Cinematic depth of field, soft bokeh in background. NOT cartoon, NOT woodcut."
     ),
     (
-        "Dramatic vintage illustration, richly saturated palette. "
-        "Deep dark background — near-black indigo or forest green, heavy rain diagonal lines. "
-        "Warm amber street lamp or window glow — saturated golden yellow, not pale. "
-        "ONE vivid red accent element (umbrella, coat, door, flowers) — bold pure red. "
-        "Lush textured brush strokes, bold ink outlines, cinematic composition. "
-        "Colors must pop — high contrast and fully saturated, not washed out."
+        "Modern cinematic concept art, semi-realistic digital painting. "
+        "Dramatic atmospheric perspective — vast misty landscape with small human figure. "
+        "Cool desaturated background (grey mist, pale blue sky, dark storm clouds). "
+        "Warm golden or deep red accent on one element — a lantern, a coat, a gate. "
+        "Highly detailed, photorealistic quality, moody and cinematic. "
+        "Style: movie poster illustration meets fine art photography. NOT anime cartoon."
     ),
     (
-        "Cinematic storybook illustration — bold and colorful. "
-        "Very dark stormy sky with swirling black clouds, dramatic cross-hatching. "
-        "Below: warm golden countryside — bright saturated amber wheat or rolling golden hills. "
-        "One element in vivid scarlet red — a single figure, roof, or flowers. "
-        "Bright whites for moon/light source. Rich saturated color throughout. "
-        "Detailed ink texture, Gustave Doré meets modern graphic novel. NOT anime, NOT photo."
+        "Cinematic digital painting, Korean webtoon realism style. "
+        "Dark dramatic sky — deep navy or slate grey with subtle light breaking through. "
+        "Lush detailed foreground: wet cobblestones, cherry blossoms, ancient stone steps. "
+        "Figure dressed in bold color (red, deep burgundy) against the muted scene. "
+        "Photorealistic textures, cinematic lighting, dramatic emotional atmosphere. "
+        "High detail, sharp focus on subject with soft background. NOT illustration."
     ),
     (
-        "High-contrast painterly illustration — Eastern meets Western. "
-        "Misty blue-grey mountain backdrop, dramatic atmospheric perspective. "
-        "Vivid foreground: lush greens or golden warmth, richly saturated. "
-        "Small human figure in bold red or deep crimson clothing against the pale mist. "
-        "Epic scale — figure small, landscape vast. Saturated color, NOT muted or grey. "
-        "Painterly texture, ink-wash, NOT anime, NOT photo."
+        "Atmospheric cinematic digital art, painterly realism. "
+        "Japanese aesthetic — misty mountain peaks, stone temples, bamboo forest at dusk. "
+        "Cool grey-blue atmospheric haze, soft diffused light. "
+        "One element in vivid contrast: red torii gate, crimson kimono, amber lantern. "
+        "Ultra-detailed, cinematic quality, emotional and still. "
+        "Style: between a photograph and a painting. NOT cartoon, NOT flat illustration."
     ),
 ]
 
