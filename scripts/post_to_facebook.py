@@ -135,6 +135,7 @@ def post_as_reel(video_path, description):
         "video_id": video_id,
         "title": "Quietlyy",
         "description": description,
+        "video_state": "PUBLISHED",
     }
     ig_user_id = os.environ.get("INSTAGRAM_USER_ID")
     if ig_user_id:
