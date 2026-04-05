@@ -75,12 +75,13 @@ def test_token():
     )
     perms_data = resp3.json().get("data", [])
     granted = {p["permission"] for p in perms_data if p.get("status") == "granted"}
-    needed = {"pages_manage_posts", "pages_read_engagement"}
+    needed = {"pages_manage_posts", "pages_read_engagement", "publish_video"}
     missing = needed - granted
 
     if missing:
         print(f"WARN: Missing permissions: {', '.join(missing)}")
         print("  Re-generate the token with these permissions checked.")
+        print("  Required: pages_manage_posts, pages_read_engagement, publish_video, pages_show_list")
     else:
         print(f"OK: Permissions granted — {', '.join(sorted(granted))}")
 
