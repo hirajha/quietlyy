@@ -1,11 +1,11 @@
 name: Quietlyy — Generate & Post Video
 
 on:
-  # 2x daily: 11:00 AM IST (05:30 UTC) + 8:00 PM IST (14:30 UTC)
+  # 2x daily: 11:00 AM IST (05:30 UTC) + 10:00 PM IST (16:30 UTC)
   # Research-backed peak engagement times for nostalgic content in India/global
   schedule:
     - cron: '30 5 * * *'   # 11:00 AM IST — morning scroll peak
-    - cron: '30 14 * * *'  # 8:00 PM IST  — evening wind-down peak
+    - cron: '30 16 * * *'  # 10:00 PM IST — late-night scroll peak (best for emotional content)
 
   # Manual trigger (testing / emergency post)
   workflow_dispatch:
