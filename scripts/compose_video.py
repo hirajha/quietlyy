@@ -246,7 +246,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-stream_loop", "-1", "-i", music_path,
             "-filter_complex",
             f"[1:a]aresample=async=1[voice];"
-            f"[2:a]volume=0.18,afade=t=in:d=2,afade=t=out:st={max(0, duration - 3):.2f}:d=3[music];"
+            f"[2:a]volume=0.10,afade=t=in:d=2,afade=t=out:st={max(0, duration - 3):.2f}:d=3[music];"
             f"[voice][music]amix=inputs=2:duration=first:normalize=0[aout]",
             "-map", "0:v", "-map", "[aout]",
             "-c:v", "copy",
