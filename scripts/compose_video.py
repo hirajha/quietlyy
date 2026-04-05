@@ -98,7 +98,8 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
 
     # Use actual per-line audio durations so each panel matches its narration
     TAIL_PAD = 5.0
-    GAP = 1.3  # silence gap between lines — must match LINE_GAP in generate_audio.py
+    AUDIO_GAP = 1.6  # must match LINE_GAP in generate_audio.py
+    GAP = 0.8   # visual panel change gap — shorter than audio for snappier feel
 
     line_durations = []
     for i in range(num_lines):
@@ -178,7 +179,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         print(f"[video]   Panel {i+1}/{num_lines}: {seg_durations[i]:.1f}s")
 
     # Step 2: Concat all clips with crossfade
-    XFADE = 0.6
+    XFADE = 0.3
     output_no_audio = os.path.join(OUTPUT_DIR, "_video_noaudio.mp4")
 
     if len(panel_videos) == 1:

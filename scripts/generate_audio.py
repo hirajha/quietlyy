@@ -17,7 +17,7 @@ ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "b0jrjvawVNjnHsrN2WG
 ELEVENLABS_MODEL = "eleven_multilingual_v2"  # clear, natural, supports speed param
 
 # Silence between lines (seconds)
-LINE_GAP = 1.3
+LINE_GAP = 1.6
 
 
 def _clean_text(text):
