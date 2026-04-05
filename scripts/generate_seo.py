@@ -14,7 +14,7 @@ import os
 import json
 import requests
 
-BRAND = "Whiprs"
+BRAND = "Quietlyy"
 YT_HANDLE = "@SayQuietlyy"
 
 # AI disclosure — platform-policy compliant, minimal

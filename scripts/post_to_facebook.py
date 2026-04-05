@@ -61,7 +61,7 @@ def build_description(topic, script_text):
     return (
         f"{caption}\n\n"
         f"— Quietlyy\n\n"
-        f"#Whiprs #{topic.replace(' ', '')} #nostalgia #memories "
+        f"#Quietlyy #{topic.replace(' ', '')} #nostalgia #memories "
         f"#deepthoughts #lifequotes #reflection #lostmoments\n\n"
         f"AI assistance was used in the making of this video."
     )
