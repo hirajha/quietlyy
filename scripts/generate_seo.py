@@ -31,6 +31,12 @@ BASE_FB_TAGS = [
     "feelingsdeep", "mindfulness", "poetrylovers", "wordsthatmatter",
 ]
 
+LOVE_FB_TAGS = [
+    "love", "lovequotes", "couplegoals", "relationship", "tagsomeone",
+    "romanticquotes", "lovepoetry", "soulmate", "truelove", "heartfelt",
+    "lovestory", "romanticreels", "lovecaptions", "relationshipgoals",
+]
+
 BASE_YT_TAGS = [
     "Shorts", "nostalgia", "deepthoughts", "lifequotes", "reflection",
     "emotionalquotes", "relatable", "viral", "youtubeshorts",
@@ -177,7 +183,7 @@ def _template_fallback(topic, script_text):
 
 # ── Public API ──────────────────────────────────────────────────────────────
 
-def generate_seo(topic, script_text, visual_keywords):
+def generate_seo(topic, script_text, visual_keywords, style="emotional"):
     """
     Returns platform-specific SEO metadata dict:
     {
@@ -206,23 +212,36 @@ def generate_seo(topic, script_text, visual_keywords):
         print("[seo] Using template fallback")
         ai_data = _template_fallback(topic, script_text)
 
-    # ── Hashtags — always inject geo tags ─────────────────────────────────
-    ig_tags = ai_data.get("instagram_hashtags", BASE_FB_TAGS)
-    # Ensure geo tags are present (AI may omit them)
+    # ── Hashtags — inject geo tags + love tags for love style ─────────────
+    base_tags = LOVE_FB_TAGS if style == "love" else BASE_FB_TAGS
+    ig_tags = ai_data.get("instagram_hashtags", base_tags)
     ig_tags_clean = [t.lstrip("#").lower().replace(" ", "") for t in ig_tags]
     for geo in GEO_TAGS:
         if geo not in ig_tags_clean:
             ig_tags_clean.append(geo)
-    ig_tags_clean = list(dict.fromkeys(ig_tags_clean))[:25]  # dedupe, cap 25
+    if style == "love":
+        for lt in ["love", "tagsomeone", "lovequotes"]:
+            if lt not in ig_tags_clean:
+                ig_tags_clean.append(lt)
+    ig_tags_clean = list(dict.fromkeys(ig_tags_clean))[:25]
     hashtag_str = " ".join(f"#{t}" for t in ig_tags_clean)
 
-    # ── Facebook / Instagram — SHORT caption, no script ───────────────────
+    # ── Facebook / Instagram — CTA varies by style ────────────────────────
     short_caption = ai_data.get("short_caption", theme)
+    if style == "love":
+        cta_block = (
+            "❤️ Tag the person you thought of while reading this.\n"
+            "💾 Send it to them. They need to know.\n"
+        )
+    else:
+        cta_block = (
+            "💾 Save this for when you need it.\n"
+            "❤️ Like if this hit different.\n"
+            "👇 Tag someone who needs to hear this.\n"
+        )
     fb_description = (
         f"{short_caption}\n\n"
-        f"💾 Save this for when you need it.\n"
-        f"❤️ Like if this hit different.\n"
-        f"👇 Tag someone who needs to hear this.\n\n"
+        f"{cta_block}\n"
         f"— {BRAND}\n\n"
         f"{hashtag_str}\n\n"
         f"{FB_AI_DISCLOSURE}"

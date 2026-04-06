@@ -19,14 +19,14 @@ def load_templates():
         return json.load(f)
 
 
-STYLES = ["emotional", "nostalgic", "poetic"]
+STYLES = ["emotional", "love", "nostalgic", "poetic"]
 
 def pick_style_and_topic(templates, theme_hints=None):
     """Rotate between 'emotional', 'nostalgic', and 'poetic' styles each run."""
     state_path = os.path.join(os.path.dirname(__file__), "..", "output", "used_topics.json")
     os.makedirs(os.path.dirname(state_path), exist_ok=True)
 
-    state = {"used_nostalgic": [], "used_emotional": [], "used_poetic": [], "last_style": "nostalgic"}
+    state = {"used_nostalgic": [], "used_emotional": [], "used_poetic": [], "used_love": [], "last_style": "nostalgic"}
     if os.path.exists(state_path):
         with open(state_path) as f:
             try:
@@ -118,6 +118,32 @@ Return ONLY valid JSON:
 {{"script": "line1\\nline2\\n\\nline3\\nline4\\nline5\\n\\nline6\\nline7\\n\\nline8\\nline9", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
 
 EXAMPLES (study the structure — metaphor, paradox, quiet ending):
+{examples_text}"""
+
+    elif style == "love":
+        style_examples = [e for e in examples if e.get("style") == "love"][:2]
+        examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
+        return f"""Generate a viral 20-30 second short love script in "Quietlyy" style.{audience_block}
+
+Topic: {topic}
+Tone: soft, intimate, romantic — makes people think of someone they love and want to share it with them
+
+Rules:
+- Write in second person ("you") — speak directly to the person being loved
+- Short fragmented lines — 4-8 words, feels like a whisper
+- Must feel universally relatable — ANY couple or person in love will recognize it
+- Use "…" for pauses
+- End with a gentle CTA that makes people tag or send to someone: e.g. "Tag the person who is your calm ❤️" or "Send this to them. They need to know. ❤️" or "Tag the one who makes you feel this way ❤️"
+- DO NOT be dramatic or painful — this is warm, safe, loving. Not heartbreak.
+- 8-12 lines total including CTA
+- NO hashtags anywhere except the CTA line which may have ❤️
+
+Also provide 4 visual keywords: romantic couple scenes, soft light, intimate moments — dark moody illustrated style.
+
+Return ONLY valid JSON:
+{{"script": "line1\\nline2\\n\\nline3\\nline4\\n\\nline5", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
+
+EXAMPLES:
 {examples_text}"""
 
     elif style == "nostalgic":

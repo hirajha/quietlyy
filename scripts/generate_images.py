@@ -180,6 +180,31 @@ _SCENE_POOL = [
 
 # Art style — matches Whisprs: graphic novel illustration with warm earthy palette
 # Key: illustrated style NOT photorealistic, character-focused, warm muted tones
+# Dark romantic style — matches Whispers of Heart: B&W anime couple art, moody, high contrast
+_LOVE_STYLE_VARIANTS = [
+    (
+        "Dark romantic anime illustration style, black and white with soft grey tones. "
+        "Intimate couple scene — close faces, gentle touch, tender moment. "
+        "High contrast: deep blacks, soft white highlights, cinematic mood. "
+        "Style similar to romantic manhwa or webtoon — detailed linework, emotional expressions. "
+        "Dark background, subjects softly lit. NOT colorful. Moody, intimate, beautifully dark."
+    ),
+    (
+        "Romantic illustrated art, dark and cinematic. Monochrome palette — charcoal, silver, soft white. "
+        "Two people in an intimate moment — forehead to forehead, holding hands, close together. "
+        "Detailed semi-realistic illustration, soft linework, deeply emotional. "
+        "Dark atmospheric background with subtle light source (moon, lamp, window). "
+        "Style: beautiful dark romance illustration. NOT colorful. Moody and tender."
+    ),
+    (
+        "Black and white romantic illustration, manga-inspired emotional art. "
+        "Close-up of a couple in a tender quiet moment — not dramatic, just present with each other. "
+        "Soft detailed facial expressions, gentle touch or gaze. "
+        "Deep dark background, subjects illuminated by soft diffuse light. "
+        "High contrast, cinematic composition. Style: romantic webtoon meets fine art illustration."
+    ),
+]
+
 _STYLE_VARIANTS = [
     (
         "Semi-realistic graphic novel illustration style, like Loish or Ilya Kuvshinov. "
@@ -220,16 +245,36 @@ _CHOSEN_STYLE = random.choice(_STYLE_VARIANTS)
 # Shuffle scenes once per run for fresh panel order every video
 _SHUFFLED_SCENES = random.sample(_SCENE_POOL, len(_SCENE_POOL))
 
+# Love-specific scene pool — dark romantic couple art (Whispers of Heart style)
+_LOVE_SCENE_POOL = [
+    "A couple close together in the dark, one resting head on the other's shoulder, soft moonlight",
+    "Two people facing each other, eyes closed, foreheads almost touching, intimate and quiet",
+    "A person holding another from behind, both looking out at a dark night sky with stars",
+    "Close-up of two hands intertwined, soft diffuse light, dark background",
+    "A couple sitting together in silence, one lamp casting warm light, dark room around them",
+    "Side profile of two people about to kiss, soft light on faces, everything else in shadow",
+    "A person leaning into another's neck, eyes closed, peaceful and safe, dark background",
+    "Two silhouettes standing close in rain at night, street lamp behind them, reflections below",
+    "Close-up of a face being cradled gently by two hands, eyes closed, tender moment",
+    "Two people lying close, one watching the other sleep, soft window light, night outside",
+]
 
-def generate_image_prompt(topic, visual_keywords, panel_num):
-    """Create varied scene prompts — each run gets a different scene sequence and art style."""
+
+def generate_image_prompt(topic, visual_keywords, panel_num, style="emotional"):
+    """Create varied scene prompts — each run gets a different scene sequence and art style.
+    Love style uses dark romantic B&W aesthetic; others use warm illustrated style."""
     keywords_str = ", ".join(visual_keywords)
 
-    # Pick scene from pre-shuffled pool (wraps if more panels than scenes)
-    scene = _SHUFFLED_SCENES[panel_num % len(_SHUFFLED_SCENES)]
+    if style == "love":
+        chosen_style = random.choice(_LOVE_STYLE_VARIANTS)
+        shuffled_love = random.sample(_LOVE_SCENE_POOL, len(_LOVE_SCENE_POOL))
+        scene = shuffled_love[panel_num % len(_LOVE_SCENE_POOL)]
+    else:
+        chosen_style = _CHOSEN_STYLE
+        scene = _SHUFFLED_SCENES[panel_num % len(_SHUFFLED_SCENES)]
 
     return (
-        f"{_CHOSEN_STYLE} "
+        f"{chosen_style} "
         f"Scene: {scene}. "
         f"Emotional theme: {topic}. Mood keywords: {keywords_str}. "
         f"Portrait orientation (tall, 9:16). "
@@ -303,7 +348,7 @@ def generate_with_dalle(prompt, output_path):
     return False
 
 
-def generate_images(topic, visual_keywords, num_panels=5):
+def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
     """Generate panel images using DALL-E ONLY.
     - Max 5 panels per video
     - DALL-E is the only generator — no stock photos or gradients
@@ -329,7 +374,7 @@ def generate_images(topic, visual_keywords, num_panels=5):
             continue
 
         # Generate fresh image with DALL-E
-        prompt = generate_image_prompt(topic, visual_keywords, i)
+        prompt = generate_image_prompt(topic, visual_keywords, i, style=style)
         print(f"[images] Panel {i+1}/{num_panels}: generating with DALL-E...")
 
         success = generate_with_dalle(prompt, output_path)

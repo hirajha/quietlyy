@@ -159,7 +159,8 @@ def run(skip_post=False, skip_youtube=False):
     topic = script_data["topic"]
     script_text = script_data["script"]
     visual_keywords = script_data.get("visual_keywords", [topic.lower()])
-    print(f"  Topic: {topic}")
+    script_style = script_data.get("style", "emotional")
+    print(f"  Topic: {topic} [{script_style}]")
     print(f"  Preview: {script_text[:80]}...")
 
     with open(os.path.join(OUTPUT_DIR, "script.json"), "w") as f:
@@ -183,7 +184,7 @@ def run(skip_post=False, skip_youtube=False):
     # ── Step 3: Images (AI only — quota = skip day) ─────────────────────────
     print("\n[3/7] Generating panel images...")
     try:
-        image_paths = generate_images(topic, visual_keywords, num_panels=NUM_PANELS)
+        image_paths = generate_images(topic, visual_keywords, num_panels=NUM_PANELS, style=script_style)
     except Exception as e:
         if _is_quota_error(e):
             print(f"\nSkipping today — image API quota exceeded. Will retry tomorrow.")
@@ -222,7 +223,7 @@ def run(skip_post=False, skip_youtube=False):
     # ── Step 6: SEO metadata ────────────────────────────────────────────────
     print("\n[6/7] Generating SEO metadata...")
     try:
-        seo_metadata = generate_seo(topic, script_text, visual_keywords)
+        seo_metadata = generate_seo(topic, script_text, visual_keywords, style=script_style)
         print(f"  {len(seo_metadata['facebook']['hashtags'])} FB/IG tags | "
               f"YT title: {seo_metadata['youtube']['title'][:50]}...")
         with open(os.path.join(OUTPUT_DIR, "seo_metadata.json"), "w") as f:

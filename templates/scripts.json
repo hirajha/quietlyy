@@ -155,6 +155,47 @@
       "The Sky and Its Colors",
       "Roots That Never Got Seen",
       "What the Storm Takes With It"
+    ],
+    "love": [
+      "More Than My Favorite Person",
+      "The One I Think About First",
+      "When You Found Me",
+      "The Safest Place I Know",
+      "What Home Actually Feels Like",
+      "The Person Who Stayed",
+      "How You Changed Everything",
+      "The Way You Look at Me",
+      "What I Never Said Out Loud",
+      "Loving You Quietly",
+      "You Didn't Fix Me, You Stayed",
+      "The First Time I Knew",
+      "What Real Love Feels Like",
+      "When Someone Chooses You Every Day",
+      "The Little Things You Do",
+      "You Are My Calm",
+      "What I'd Tell You If I Could",
+      "Loving You in Silence",
+      "The Person Behind My Smile",
+      "Someone Worth Staying For",
+      "When Love Feels Like Coming Home",
+      "You Make the Hard Days Easier",
+      "I Didn't Know Love Could Feel This Soft",
+      "The Kind of Love That Doesn't Shout",
+      "What I Mean When I Say I Love You"
     ]
-  }
+  },
+  "love_example_scripts": [
+    {
+      "topic": "More Than My Favorite Person",
+      "style": "love",
+      "visual_keywords": ["two people close together", "soft warm light", "quiet moment", "gentle hands"],
+      "script": "To be honest…\nyou're more than just my favorite person.\n\nYou're the thought I reach for\nwhen the day gets too heavy.\nThe voice I want to hear\nbefore I fall asleep.\n\nI don't know how to explain it to anyone else.\nI just know that everything feels quieter\nwhen you're near.\n\nTag the person who makes the world feel smaller — in the best way. ❤️"
+    },
+    {
+      "topic": "You Are My Calm",
+      "style": "love",
+      "visual_keywords": ["two people in soft light", "leaning on each other", "peaceful moment"],
+      "script": "You don't even know what you do.\n\nYou walk in\nand my whole chest just… exhales.\nLike something that was held tight\nfinally remembers how to let go.\n\nI've been looking for that feeling my whole life.\nTurns out it had your name.\n\nSend this to the person who is your calm. ❤️"
+    }
+  ]
 }
