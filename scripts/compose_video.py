@@ -122,7 +122,10 @@ def _draw_cta_overlay(img):
 
 
 def _draw_follow_button(img):
-    """Small blue 'Follow ↑' pill in bottom-right — shown on non-last panels only."""
+    """
+    Frosted-glass 'Follow ↑' pill — bottom-right, panels 1+ only (not thumbnail).
+    Semi-transparent white glass fill with soft white border and white text.
+    """
     draw_img = img.copy().convert("RGBA") if img.mode != "RGBA" else img.copy()
     overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
@@ -132,20 +135,24 @@ def _draw_follow_button(img):
     bbox = draw.textbbox((0, 0), label, font=btn_font)
     text_w = bbox[2] - bbox[0]
 
-    PAD_X, PAD_Y = 14, 8
+    PAD_X, PAD_Y = 16, 9
     btn_w = text_w + PAD_X * 2
-    btn_h = 24 + PAD_Y * 2  # fixed height for clean pill
+    btn_h = 24 + PAD_Y * 2
     MARGIN = 20
+    RADIUS = 14
 
     x0 = WIDTH - btn_w - MARGIN
     y0 = HEIGHT - btn_h - MARGIN
     x1 = WIDTH - MARGIN
     y1 = HEIGHT - MARGIN
 
-    # Cool blue pill — not distracting, easy on the eye
-    draw.rounded_rectangle([x0, y0, x1, y1], radius=14, fill=(30, 144, 255, 200))
+    # Frosted glass fill — white at low alpha (like iOS glass effect)
+    draw.rounded_rectangle([x0, y0, x1, y1], radius=RADIUS, fill=(255, 255, 255, 55))
+    # Subtle white border — gives the glass edge definition
+    draw.rounded_rectangle([x0, y0, x1, y1], radius=RADIUS, outline=(255, 255, 255, 140), width=1)
+    # White text — crisp on any background
     draw.text((x0 + PAD_X, y0 + PAD_Y - bbox[1]), label,
-              font=btn_font, fill=(255, 255, 255, 255))
+              font=btn_font, fill=(255, 255, 255, 230))
 
     result = Image.alpha_composite(draw_img, overlay)
     return result.convert("RGB")
@@ -227,8 +234,9 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         if i == num_lines - 1:
             # Last panel: CTA bar replaces the button (no duplicate)
             frame = _draw_cta_overlay(frame)
-        else:
-            # All other panels: small blue Follow pill (bottom-right)
+        elif i > 0:
+            # Panels 1+: frosted-glass Follow pill (bottom-right)
+            # Panel 0 is the thumbnail shown on all platforms — keep it clean
             frame = _draw_follow_button(frame)
         frame_path = os.path.join(OUTPUT_DIR, f"_panel_{i}.png")
         frame.save(frame_path, "PNG")
