@@ -123,36 +123,43 @@ def _draw_cta_overlay(img):
 
 def _draw_follow_button(img):
     """
-    Frosted-glass 'Follow ↑' pill — bottom-right, panels 1+ only (not thumbnail).
-    Semi-transparent white glass fill with soft white border and white text.
+    True frosted-glass 'Follow ↑' pill — bottom-right, panels 1+ only (not thumbnail).
+    1. Blurs the background region behind the pill (the 'frost')
+    2. Adds semi-transparent white overlay + visible white border
+    3. White text on top
     """
+    from PIL import ImageFilter
     draw_img = img.copy().convert("RGBA") if img.mode != "RGBA" else img.copy()
-    overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
-    draw = ImageDraw.Draw(overlay)
 
-    btn_font = get_font(24)
+    btn_font = get_font(22)
     label = "Follow ↑"
-    bbox = draw.textbbox((0, 0), label, font=btn_font)
-    text_w = bbox[2] - bbox[0]
+    tmp_draw = ImageDraw.Draw(draw_img)
+    bbox = tmp_draw.textbbox((0, 0), label, font=btn_font)
+    bw = bbox[2] - bbox[0]
+    bh = bbox[3] - bbox[1]
 
-    PAD_X, PAD_Y = 16, 9
-    btn_w = text_w + PAD_X * 2
-    btn_h = 24 + PAD_Y * 2
-    MARGIN = 20
-    RADIUS = 14
-
-    x0 = WIDTH - btn_w - MARGIN
-    y0 = HEIGHT - btn_h - MARGIN
+    PAD_X, PAD_Y, MARGIN, RADIUS = 18, 10, 22, 16
+    x0 = WIDTH - bw - PAD_X * 2 - MARGIN
+    y0 = HEIGHT - bh - PAD_Y * 2 - MARGIN
     x1 = WIDTH - MARGIN
     y1 = HEIGHT - MARGIN
 
-    # Frosted glass fill — white at low alpha (like iOS glass effect)
-    draw.rounded_rectangle([x0, y0, x1, y1], radius=RADIUS, fill=(255, 255, 255, 55))
-    # Subtle white border — gives the glass edge definition
-    draw.rounded_rectangle([x0, y0, x1, y1], radius=RADIUS, outline=(255, 255, 255, 140), width=1)
-    # White text — crisp on any background
+    # Step 1 — blur the background region behind the pill (frost)
+    region = draw_img.convert("RGB").crop((x0, y0, x1, y1))
+    blurred = region.filter(ImageFilter.GaussianBlur(radius=10))
+    rgb = draw_img.convert("RGB")
+    rgb.paste(blurred, (x0, y0))
+    draw_img = rgb.convert("RGBA")
+
+    # Step 2 — white glass overlay + border on top of blur
+    overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+    draw.rounded_rectangle([x0, y0, x1, y1], radius=RADIUS, fill=(255, 255, 255, 80))
+    draw.rounded_rectangle([x0, y0, x1, y1], radius=RADIUS,
+                            outline=(255, 255, 255, 180), width=2)
+    # Step 3 — white text
     draw.text((x0 + PAD_X, y0 + PAD_Y - bbox[1]), label,
-              font=btn_font, fill=(255, 255, 255, 230))
+              font=btn_font, fill=(255, 255, 255, 240))
 
     result = Image.alpha_composite(draw_img, overlay)
     return result.convert("RGB")
