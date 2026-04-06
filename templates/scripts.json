@@ -1,6 +1,12 @@
 {
   "example_scripts": [
     {
+      "topic": "The Giver Who Was Never Thanked",
+      "style": "poetic",
+      "visual_keywords": ["umbrella in storm", "person standing in rain alone", "sky releasing colors at sunset", "shelter no one returns to"],
+      "script": "You weren't loved for who you are…\nyou were loved for how gently you held others together.\n\nLike an umbrella in the storm,\nyou felt essential when the skies broke—\nbut no one thanks the shelter\nonce the sun learns how to stay.\n\nYou called it patience,\nthey called it convenience.\n\nAnd somewhere between giving and waiting,\nyou forgot—\neven the sky lets go of its colors\nevery single evening.\n\nNot because it lost them…\nbut because it knows\nthey were never meant to stay."
+    },
+    {
       "topic": "The Friend Who Disappeared",
       "style": "emotional",
       "visual_keywords": ["two people walking away", "empty bench", "fading silhouette in fog"],
@@ -131,6 +137,24 @@
       "Childhood Best Friend",
       "The House You Grew Up In",
       "Old Friendships That Faded"
+    ],
+    "poetic": [
+      "The Giver Who Was Never Thanked",
+      "Loving Someone Who Leaves",
+      "Being the Strong One",
+      "The Quiet Sacrifice",
+      "What You Carry for Others",
+      "The Person Who Always Stayed",
+      "Mistaken for Convenience",
+      "When Patience Becomes a Prison",
+      "The Love That Went Unnoticed",
+      "Giving Without Receiving",
+      "The One Who Held Everyone Together",
+      "Being Used Without Knowing It",
+      "When You Mistake Need for Love",
+      "The Sky and Its Colors",
+      "Roots That Never Got Seen",
+      "What the Storm Takes With It"
     ]
   }
 }

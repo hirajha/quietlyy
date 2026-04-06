@@ -21,7 +21,7 @@ import shutil
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from generate_script import generate_script
+from generate_script import generate_best_script
 from generate_audio import generate_audio
 from generate_images import generate_images
 from generate_music import generate_music
@@ -137,10 +137,13 @@ def run(skip_post=False, skip_youtube=False):
     except Exception as e:
         print(f"  Ideas agent failed ({e}) — continuing without web ideas")
 
-    # ── Step 1: Generate script (Ideas → Script → Quality Gate) ────────────
-    print("\n[1/7] Generating script (with quality gate)...")
+    # ── Step 1: Generate 5 scripts → predict all → post the best ───────────
+    print("\n[1/7] Generating 5 candidate scripts (quality gate + engagement scoring)...")
     try:
-        script_data = generate_script(tone_hints=tone_hints, theme_hints=top_themes, idea_hints=idea_hints)
+        script_data = generate_best_script(
+            tone_hints=tone_hints, theme_hints=top_themes,
+            idea_hints=idea_hints, n_candidates=5,
+        )
     except Exception as e:
         if _is_quota_error(e):
             print(f"\nSkipping today — quota exceeded. Will retry tomorrow.")
@@ -148,7 +151,7 @@ def run(skip_post=False, skip_youtube=False):
         elif "quality gate failed" in str(e).lower():
             print(f"\nERROR — Script quality gate exhausted all attempts: {e}")
             print("Check logs above to see why scripts were rejected.")
-            sys.exit(1)  # Fail visibly so it shows in GitHub Actions
+            sys.exit(1)
         else:
             print(f"\nSkipping today — script failed: {e}. Will retry tomorrow.")
             sys.exit(0)
@@ -215,14 +218,6 @@ def run(skip_post=False, skip_youtube=False):
         print("Skipping today — will not post an incomplete video. Retry tomorrow.")
         sys.exit(0)
     print(f"  Quality check passed ✓")
-
-    # ── Engagement Prediction ───────────────────────────────────────────────
-    try:
-        engagement = predict_engagement(script_text, topic, script_data.get("style", "emotional"))
-        with open(os.path.join(OUTPUT_DIR, "engagement_prediction.json"), "w") as f:
-            json.dump(engagement, f, indent=2)
-    except Exception as e:
-        print(f"  Engagement prediction failed ({e}) — continuing")
 
     # ── Step 6: SEO metadata ────────────────────────────────────────────────
     print("\n[6/7] Generating SEO metadata...")

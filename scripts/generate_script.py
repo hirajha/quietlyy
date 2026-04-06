@@ -19,12 +19,14 @@ def load_templates():
         return json.load(f)
 
 
+STYLES = ["emotional", "nostalgic", "poetic"]
+
 def pick_style_and_topic(templates, theme_hints=None):
-    """Alternate between 'nostalgic' and 'emotional' styles each run."""
+    """Rotate between 'emotional', 'nostalgic', and 'poetic' styles each run."""
     state_path = os.path.join(os.path.dirname(__file__), "..", "output", "used_topics.json")
     os.makedirs(os.path.dirname(state_path), exist_ok=True)
 
-    state = {"used_nostalgic": [], "used_emotional": [], "last_style": "emotional"}
+    state = {"used_nostalgic": [], "used_emotional": [], "used_poetic": [], "last_style": "nostalgic"}
     if os.path.exists(state_path):
         with open(state_path) as f:
             try:
@@ -32,10 +34,12 @@ def pick_style_and_topic(templates, theme_hints=None):
             except Exception:
                 pass
 
-    # Alternate style each run
-    style = "nostalgic" if state.get("last_style") == "emotional" else "emotional"
+    # Rotate through styles: emotional → poetic → nostalgic → emotional…
+    last = state.get("last_style", "nostalgic")
+    idx = STYLES.index(last) if last in STYLES else 0
+    style = STYLES[(idx + 1) % len(STYLES)]
 
-    pool = templates["topics_pool"][style]
+    pool = templates["topics_pool"].get(style, templates["topics_pool"]["emotional"])
     used_key = f"used_{style}"
     used = state.get(used_key, [])
 
@@ -73,7 +77,7 @@ def pick_topic(templates, theme_hints=None):
     return topic
 
 
-def build_prompt(topic, examples, style="nostalgic", tone_hints="", idea_hints=""):
+def build_prompt(topic, examples, style="emotional", tone_hints="", idea_hints=""):
     """Build prompt for the given style: 'nostalgic' or 'emotional'."""
     style_examples = [e for e in examples if e.get("style") == style][:3]
     examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
@@ -84,7 +88,39 @@ def build_prompt(topic, examples, style="nostalgic", tone_hints="", idea_hints="
     if idea_hints:
         audience_block += f"\n{idea_hints}\n"
 
-    if style == "nostalgic":
+    if style == "poetic":
+        style_examples = [e for e in examples if e.get("style") == "poetic"][:2]
+        examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
+        return f"""Generate a viral 25-35 second spoken-word poem in "Quietlyy" poetic metaphor style.{audience_block}
+
+Topic: {topic}
+Tone: lyrical, deeply felt, metaphor-driven — like spoken-word poetry meets emotional insight
+
+Rules:
+- Open with a direct "you" address — hit the viewer in the chest in line 1 ("You weren't loved for who you are…")
+- Build ONE central metaphor that runs through the poem (umbrella/storm, sky/colors, roots/tree, tide/shore)
+- Use short fragmented lines — 3-8 words per line, lots of breathing room
+- Use "…" for pauses, em-dashes for emotional breaks
+- Paradox or twist in the middle that reframes everything
+- End with a quiet, unexpected truth that feels like an exhale — NOT a motivational slogan
+- 10-16 lines total with natural stanza breaks (blank lines between stanzas)
+- NO hashtags, NO emojis, NO stage directions
+
+Structure:
+Stanza 1 (2-3 lines): Hook — address the viewer, name their wound
+Stanza 2 (3-4 lines): The metaphor — build the central image
+Stanza 3 (2 lines): The turn/paradox — "you called it X, they called it Y"
+Stanza 4 (3-5 lines): The quiet truth — the reframe that lands like a revelation
+
+Also provide 4 visual keywords (symbolic, metaphorical scenes — not literal objects).
+
+Return ONLY valid JSON:
+{{"script": "line1\\nline2\\n\\nline3\\nline4\\nline5\\n\\nline6\\nline7\\n\\nline8\\nline9", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
+
+EXAMPLES (study the structure — metaphor, paradox, quiet ending):
+{examples_text}"""
+
+    elif style == "nostalgic":
         return f"""Generate a viral 25-second script in "Quietlyy" nostalgic style.{audience_block}
 
 Topic: {topic}
@@ -298,6 +334,79 @@ def generate_script(tone_hints="", theme_hints=None, idea_hints=""):
     raise RuntimeError(f"Script quality gate failed after {MAX_ATTEMPTS} attempts. Cannot proceed.")
 
 
+def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candidates=5):
+    """
+    Generate up to n_candidates scripts that pass the quality gate,
+    score each with the engagement predictor, and return the highest-scoring one.
+
+    This is the recommended entry point for the main pipeline.
+    Falls back to the first passing script if the predictor is unavailable.
+    """
+    try:
+        from predict_engagement import predict_engagement
+        predictor_available = True
+    except ImportError:
+        predictor_available = False
+
+    templates = load_templates()
+    examples = templates["example_scripts"]
+    candidates = []
+    MAX_TOTAL_ATTEMPTS = n_candidates * 3  # avoid infinite loops
+
+    print(f"[script] Generating {n_candidates} candidate scripts for engagement scoring...")
+
+    attempt = 0
+    while len(candidates) < n_candidates and attempt < MAX_TOTAL_ATTEMPTS:
+        attempt += 1
+        style, topic = pick_style_and_topic(templates, theme_hints=theme_hints)
+        prompt = build_prompt(topic, examples, style=style, tone_hints=tone_hints, idea_hints=idea_hints)
+        print(f"[script] Candidate {len(candidates)+1}/{n_candidates} (try {attempt}) — Style: {style} | Topic: {topic}")
+
+        result = _generate_raw(prompt, style)
+        if not result:
+            continue
+
+        approved, reason, score = review_script(result["script"], topic, style, examples)
+        if not approved:
+            print(f"[script]   Quality gate: {reason} — skipping")
+            continue
+
+        result["topic"] = topic
+        result["style"] = style
+        result["quality_score"] = score
+        result["engagement_score"] = 0  # default
+
+        if predictor_available:
+            try:
+                pred = predict_engagement(result["script"], topic, style)
+                composite = (
+                    pred.get("scores", {}).get("hook", 0) * 0.3 +
+                    pred.get("scores", {}).get("save", 0) * 0.25 +
+                    pred.get("scores", {}).get("share", 0) * 0.25 +
+                    pred.get("scores", {}).get("rewatch", 0) * 0.2
+                )
+                result["engagement_score"] = round(composite, 2)
+                result["engagement_prediction"] = pred.get("prediction", "unknown")
+                print(f"[script]   Engagement score: {composite:.1f}/10 ({pred.get('prediction', '?')})")
+            except Exception as e:
+                print(f"[script]   Predictor failed ({e}) — using quality score only")
+
+        candidates.append(result)
+
+    if not candidates:
+        raise RuntimeError(f"Script quality gate failed after {MAX_TOTAL_ATTEMPTS} attempts. Cannot proceed.")
+
+    # Pick the highest engagement-scoring candidate
+    best = max(candidates, key=lambda c: (c["engagement_score"], c["quality_score"]))
+    print(f"\n[script] Selected best of {len(candidates)} candidates:")
+    print(f"  Topic: {best['topic']} | Style: {best['style']}")
+    print(f"  Quality: {best['quality_score']}/10 | Engagement: {best['engagement_score']}/10")
+    print(f"  Prediction: {best.get('engagement_prediction', 'n/a')}")
+
+    save_used_script(best["script"], best["topic"], best["style"])
+    return best
+
+
 if __name__ == "__main__":
-    script = generate_script()
+    script = generate_best_script()
     print(json.dumps(script, indent=2))

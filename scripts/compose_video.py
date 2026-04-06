@@ -46,18 +46,31 @@ def get_audio_duration(path):
 
 
 def _draw_text_on_image(img, text):
-    """Draw clean Whisprs-style text on image. Subtle shadow, no heavy backdrop."""
+    """
+    Whisprs-style text: large, bold, impactful typography.
+    Quote text IS the visual — big, centered, warm cream on soft dark scrim.
+    """
     draw_img = img.copy().convert("RGBA")
+
+    # Soft dark scrim behind text for legibility — gradient from center out
+    scrim = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
+    scrim_draw = ImageDraw.Draw(scrim)
+    # Vertical center band — darkens just the text zone
+    scrim_draw.rectangle([0, HEIGHT // 4, WIDTH, HEIGHT * 3 // 4], fill=(0, 0, 0, 90))
+    draw_img = Image.alpha_composite(draw_img, scrim)
+
     overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
 
-    font = get_font(52)
-    wrapped = textwrap.wrap(text, width=28)
-    line_height = font.size + 18
+    # Large font — text is the hero, like Whisprs
+    font = get_font(62)
+    # Tighter wrap for bigger font — fewer chars per line for impact
+    wrapped = textwrap.wrap(text, width=22)
+    line_height = font.size + 22
     total_h = len(wrapped) * line_height
 
-    # Text position — center of screen vertically, like Whisprs
-    text_y = (HEIGHT - total_h) // 2
+    # Vertically centered — biased slightly above center for portrait video
+    text_y = (HEIGHT - total_h) // 2 - 40
 
     for i, wline in enumerate(wrapped):
         bbox = draw.textbbox((0, 0), wline, font=font)
@@ -65,12 +78,12 @@ def _draw_text_on_image(img, text):
         x = (WIDTH - text_w) // 2
         wy = text_y + i * line_height
 
-        # Rich shadow — 3 layers for clean legibility against any background
-        draw.text((x + 3, wy + 3), wline, font=font, fill=(0, 0, 0, 180))
-        draw.text((x + 2, wy + 2), wline, font=font, fill=(0, 0, 0, 140))
+        # Deep shadow — 3 layers for legibility against any background
+        draw.text((x + 4, wy + 4), wline, font=font, fill=(0, 0, 0, 200))
+        draw.text((x + 2, wy + 2), wline, font=font, fill=(0, 0, 0, 150))
         draw.text((x + 1, wy + 1), wline, font=font, fill=(0, 0, 0, 100))
-        # Main text — warm cream/ivory
-        draw.text((x, wy), wline, font=font, fill=(255, 245, 210, 255))
+        # Warm cream — easy on eyes, works on illustrated backgrounds
+        draw.text((x, wy), wline, font=font, fill=(255, 248, 220, 255))
 
     result = Image.alpha_composite(draw_img, overlay)
     return result.convert("RGB")

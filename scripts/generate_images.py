@@ -99,76 +99,119 @@ def _pick_reuse_panels(num_panels):
     return result
 
 
-# Scene pool — cinematic, atmospheric, varied settings
-# Matches the Typewriters Voice / Whisprs aesthetic:
-# dark environments, warm accent light, solitary or paired figures, epic or intimate scale
+# Scene pool — character-focused, emotional, Whisprs/illustrated aesthetic
+# Priority: close-up faces > two people > small figure in landscape
+# Warm earthy palette: olive, dusty teal, warm brown, soft burgundy — NOT grey/cold
 _SCENE_POOL = [
-    # Epic landscapes — figure small vs vast world
-    "A lone figure in a red coat standing at the edge of a cliff, vast misty grey mountains stretching endlessly behind them, cold pale sky",
-    "A samurai seen from behind on a rocky peak, traditional flowing robes, enormous misty mountain range disappearing into fog below",
-    "A woman in a deep crimson dress standing on ancient stone steps, a massive Japanese temple gate above her, grey mist all around",
-    "A small human figure walking a narrow path through towering misty pine forest, shafts of pale light cutting through the fog",
-    "A solitary figure on a wooden pier extending into a perfectly still lake, surrounded by misty mountains, predawn silence",
-    # Rain and weather — cinematic
-    "A woman holding a vivid red umbrella, silhouetted against a dark grey rainy sky, wet cobblestones reflecting her figure below",
-    "A person standing in heavy rain on an empty city bridge at night, neon lights blurred in the wet pavement, alone",
-    "Two people under one umbrella on a rain-drenched street at night, not touching, looking in different directions",
-    "A lone figure walking away down a long alley in the rain, puddles reflecting warm amber streetlight, mist in the distance",
-    "A woman in red walking through rain toward distant city lights, wet street, dark sky, one umbrella, one direction",
-    # Japanese / Asian aesthetic
-    "A Japanese pagoda rising from thick morning mist, ancient pine trees surrounding it, cool blue-grey atmospheric haze",
-    "A red torii gate standing in shallow misty water, pale grey sky, single figure approaching from distance",
-    "Cherry blossoms falling at night, one person sitting alone beneath the tree, soft pink petals against dark sky",
-    "A narrow Japanese alley at night, paper lanterns casting warm amber glow, wet stone path, one figure passing",
-    "Ancient stone steps ascending through dense bamboo forest, dappled pale light, a lone figure climbing upward",
-    # Emotional human moments
-    "A person sitting alone in an empty train at night, head resting on the window, dark countryside passing, reflection visible in glass",
-    "A woman at a rain-streaked window in a dark room, one candle, holding a letter, city lights blurred outside",
-    "An old man on a park bench in winter, bare trees, cold blue light, a single red scarf around his neck",
-    "Two people sitting on opposite ends of a park bench at dusk, mist between them, neither looking at the other",
-    "A figure standing in a doorway looking out at falling snow, warm light behind them, cold white world ahead",
-    # Epic nature — symbolic scale
-    "A small rowing boat on a vast dark lake, perfect reflection of stormy sky above, mountains in the distance",
-    "A lone tree on a hilltop in autumn, figure sitting beneath it, red and gold leaves swirling, horizon wide and pale",
-    "Ancient stone bridge over a misty gorge, single figure crossing, fog filling the valley below, cold morning light",
-    "A lighthouse on dark rocks in a storm, massive waves, one warm beam of light cutting through grey-black clouds",
-    "A field of tall grass at dusk, figure walking through it away from us, golden light at the horizon, purple sky above",
+    # ── Close-up character portraits (highest engagement on thumbnail) ──────
+    "Close-up portrait of a young woman, eyes glistening with unshed tears, looking slightly off-frame, "
+    "soft warm side-light, olive and dusty teal tones, loose hair, deeply emotional expression",
+
+    "Close-up of a young man with tired, longing eyes staring into the distance, warm amber light on one side, "
+    "deep shadow on the other, contemplative and melancholy, muted brown and teal palette",
+
+    "A woman seen from the side, profile close-up, one hand near her jaw, "
+    "soft golden backlight, eyes closed as if remembering, warm earthy tones",
+
+    "A young woman lying on her back on grass, looking up at a pale sky, "
+    "loose hair spread out, soft dappled light on her face, peaceful but sad, warm olive-green palette",
+
+    "Close-up of two people almost touching foreheads, eyes closed, not quite together, "
+    "warm amber light between them, blurred background, emotional and intimate",
+
+    "A woman's face half in shadow, half lit by warm candlelight, "
+    "holding something small in her hands just off-frame, deep earthy tones, quiet grief",
+
+    "A young man with his head down, one hand over his face, soft warm light from a window, "
+    "muted browns and dusty blues, emotional weight in the posture",
+
+    "Side profile of a woman on a train, head resting on the window, "
+    "blurred landscape outside, warm interior light on her face, melancholy stillness",
+
+    # ── Two people — connection, distance, emotion ───────────────────────────
+    "Two people sitting close but facing away from each other on a bench at dusk, "
+    "warm golden-hour light behind them, long shadows, earthy browns and dusty oranges",
+
+    "A couple standing in a doorway, one staying, one leaving, warm light inside, "
+    "cool blue outside, the contrast sharp and emotional, illustrated realism style",
+
+    "Two people under one umbrella in rain, not touching, looking in different directions, "
+    "warm amber streetlight reflecting in puddles, muted teal and brown tones",
+
+    "A woman reaching out a hand toward someone just out of frame, "
+    "warm olive-toned background, soft focus, yearning in her expression",
+
+    # ── Figures in evocative settings ────────────────────────────────────────
+    "A lone woman in a rust-red coat walking through golden autumn leaves, "
+    "figure small against vast warm-toned trees, earthy amber and deep brown palette",
+
+    "A person standing at the edge of a pier at dusk, back to us, "
+    "warm orange-gold horizon, dark water below, one small figure against the vast sky",
+
+    "A figure sitting beneath a large tree in a golden field, knees drawn up, "
+    "warm summer light, olive greens and amber yellows, a sense of quiet solitude",
+
+    "Two small silhouettes on a hilltop at sunset, close but silent, "
+    "blazing orange and burgundy sky behind them, long grass in the foreground",
+
+    "A woman in a cream dress standing in a corridor of tall golden-lit windows, "
+    "light flooding in warm amber, her figure a soft silhouette, elegant and lonely",
+
+    "A young man sitting on stone steps outside an old building at night, "
+    "a warm streetlamp overhead, muted teal shadows, earthy olive tones, quiet streets",
+
+    # ── Symbolic / atmospheric ────────────────────────────────────────────────
+    "Cherry blossom petals falling around a lone figure on an empty path, "
+    "warm dusty pink and olive green, soft golden light, illustrated watercolor feel",
+
+    "An empty park bench in autumn with scattered red and orange leaves, "
+    "warm golden hour light, suggestion of recent company now gone, earthy palette",
+
+    "A lit window in a dark building on a rainy night, one figure visible inside, "
+    "warm amber glow against deep teal-blue darkness, rain streaks on glass",
+
+    "A woman's silhouette against a large window at dawn, city waking behind her, "
+    "warm peachy morning light, her form dark and still, contemplative",
+
+    "A lone small boat on still water at golden hour, "
+    "blazing amber and dusty rose sky reflected perfectly in the surface, "
+    "one figure sitting motionless, deeply peaceful and solitary",
 ]
 
-# Art style — matches Typewriters Voice: woodcut/linocut illustration with warm amber + bold red accent
+# Art style — matches Whisprs: graphic novel illustration with warm earthy palette
+# Key: illustrated style NOT photorealistic, character-focused, warm muted tones
 _STYLE_VARIANTS = [
     (
-        "Ultra-realistic cinematic digital art, Makoto Shinkai / Solo Leveling style. "
-        "Photorealistic quality with painterly details. "
-        "Atmospheric mist, volumetric light rays, epic scale. "
-        "Cool blue-grey misty tones for backgrounds (mountains, fog, sky). "
-        "ONE vivid accent color on the focal subject: deep red coat, crimson umbrella, or amber lamp glow. "
-        "Hyper-detailed textures: fabric folds, stone surfaces, water reflections. "
-        "Cinematic depth of field, soft bokeh in background. NOT cartoon, NOT woodcut."
+        "Semi-realistic graphic novel illustration style, like Loish or Ilya Kuvshinov. "
+        "Warm earthy color palette: olive green, dusty teal, warm brown, muted burgundy, soft amber. "
+        "Detailed pencil-and-ink linework with soft painterly color wash. "
+        "Emotional character portrait with expressive face as the focal point. "
+        "Soft atmospheric background, warm side-lighting. "
+        "NOT photorealistic. NOT cold grey. Warm, illustrated, deeply human."
     ),
     (
-        "Modern cinematic concept art, semi-realistic digital painting. "
-        "Dramatic atmospheric perspective — vast misty landscape with small human figure. "
-        "Cool desaturated background (grey mist, pale blue sky, dark storm clouds). "
-        "Warm golden or deep red accent on one element — a lantern, a coat, a gate. "
-        "Highly detailed, photorealistic quality, moody and cinematic. "
-        "Style: movie poster illustration meets fine art photography. NOT anime cartoon."
+        "Webtoon graphic novel art style, detailed semi-realistic illustration. "
+        "Warm muted palette: earthy olive, dusty rose, warm teal, soft amber and brown tones. "
+        "Close-up emotional portrait — expressive eyes, soft linework, painterly texture. "
+        "Warm window light or golden hour glow on the subject. "
+        "Style similar to Ross Draws or Korean manhwa illustration. "
+        "NOT photorealistic, NOT cold tones. Warm human emotional illustration."
     ),
     (
-        "Cinematic digital painting, Korean webtoon realism style. "
-        "Dark dramatic sky — deep navy or slate grey with subtle light breaking through. "
-        "Lush detailed foreground: wet cobblestones, cherry blossoms, ancient stone steps. "
-        "Figure dressed in bold color (red, deep burgundy) against the muted scene. "
-        "Photorealistic textures, cinematic lighting, dramatic emotional atmosphere. "
-        "High detail, sharp focus on subject with soft background. NOT illustration."
+        "Cinematic illustration, graphic novel realism — like a high-quality manhwa panel. "
+        "Earthy, warm color story: muted olive greens, warm amber, dusty blue-grey, soft burgundy. "
+        "Character-focused composition — face or upper body portrait, deeply emotional. "
+        "Soft detailed linework with subtle watercolor-wash background. "
+        "Warm backlighting or candle-light glow. "
+        "NOT anime cartoon. NOT photorealistic. Illustrated, warm, intimate."
     ),
     (
-        "Atmospheric cinematic digital art, painterly realism. "
-        "Japanese aesthetic — misty mountain peaks, stone temples, bamboo forest at dusk. "
-        "Cool grey-blue atmospheric haze, soft diffused light. "
-        "One element in vivid contrast: red torii gate, crimson kimono, amber lantern. "
-        "Ultra-detailed, cinematic quality, emotional and still. "
-        "Style: between a photograph and a painting. NOT cartoon, NOT flat illustration."
+        "Painterly graphic novel illustration, warm emotional portrait style. "
+        "Muted jewel tones: deep teal, warm amber, olive, dusty mauve, earthy brown. "
+        "Semi-realistic face close-up with detailed eyes and soft emotional expression. "
+        "Background is softly painted and atmospheric — blurred warm light or gentle nature. "
+        "Style: between a painted portrait and a graphic novel panel. "
+        "Warm, illustrated, NOT cold, NOT grey. Human and intimate."
     ),
 ]
 
