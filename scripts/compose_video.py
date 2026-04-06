@@ -45,7 +45,7 @@ def get_audio_duration(path):
     return float(r.stdout.strip())
 
 
-def _draw_text_on_image(img, text, watermark=True):
+def _draw_text_on_image(img, text):
     """Draw clean Whisprs-style text on image. Subtle shadow, no heavy backdrop."""
     draw_img = img.copy().convert("RGBA")
     overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
@@ -69,19 +69,8 @@ def _draw_text_on_image(img, text, watermark=True):
         draw.text((x + 3, wy + 3), wline, font=font, fill=(0, 0, 0, 180))
         draw.text((x + 2, wy + 2), wline, font=font, fill=(0, 0, 0, 140))
         draw.text((x + 1, wy + 1), wline, font=font, fill=(0, 0, 0, 100))
-        # Main text — warm cream/ivory (complements dark+amber woodcut palette,
-        # much easier on the eye than harsh pure white)
+        # Main text — warm cream/ivory
         draw.text((x, wy), wline, font=font, fill=(255, 245, 210, 255))
-
-    # Watermark
-    if watermark:
-        wm_font = get_font(26)
-        wm = "@Quietlyy"
-        bbox = draw.textbbox((0, 0), wm, font=wm_font)
-        wm_w = bbox[2] - bbox[0]
-        # Warm cream, very subtle — visible but not distracting
-        draw.text(((WIDTH - wm_w) // 2, HEIGHT - 80), wm, font=wm_font,
-                  fill=(255, 245, 210, 90))
 
     result = Image.alpha_composite(draw_img, overlay)
     return result.convert("RGB")
@@ -108,8 +97,8 @@ def _draw_cta_overlay(img):
     draw.text(((WIDTH - cta_w) // 2, HEIGHT - bar_h + 18), cta,
               font=cta_font, fill=(255, 245, 210, 230))
 
-    # Sub line
-    sub = "New video every day  ↑  Subscribe"
+    # Sub line — no "Subscribe" duplicate (button already gone on last panel)
+    sub = "New video every day  •  @Quietlyy"
     bbox2 = draw.textbbox((0, 0), sub, font=sub_font)
     sub_w = bbox2[2] - bbox2[0]
     draw.text(((WIDTH - sub_w) // 2, HEIGHT - bar_h + 68), sub,
@@ -119,36 +108,31 @@ def _draw_cta_overlay(img):
     return result.convert("RGB")
 
 
-def _draw_subscribe_button(img):
-    """Draw a small 'Subscribe ↑' button in the bottom-right corner on every panel."""
+def _draw_follow_button(img):
+    """Small blue 'Follow ↑' pill in bottom-right — shown on non-last panels only."""
     draw_img = img.copy().convert("RGBA") if img.mode != "RGBA" else img.copy()
     overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
 
-    btn_font = get_font(28)
-    label = "Subscribe ↑"
+    btn_font = get_font(24)
+    label = "Follow ↑"
     bbox = draw.textbbox((0, 0), label, font=btn_font)
     text_w = bbox[2] - bbox[0]
-    text_h = bbox[3] - bbox[1]
 
-    PAD_X, PAD_Y = 18, 10
+    PAD_X, PAD_Y = 14, 8
     btn_w = text_w + PAD_X * 2
-    btn_h = text_h + PAD_Y * 2
-    MARGIN = 24  # from right / bottom edge
+    btn_h = 24 + PAD_Y * 2  # fixed height for clean pill
+    MARGIN = 20
 
     x0 = WIDTH - btn_w - MARGIN
-    y0 = HEIGHT - btn_h - MARGIN - 20  # just above bottom edge
+    y0 = HEIGHT - btn_h - MARGIN
     x1 = WIDTH - MARGIN
-    y1 = HEIGHT - MARGIN - 20
+    y1 = HEIGHT - MARGIN
 
-    # Rounded pill background (YouTube red-ish: #FF0000)
-    RADIUS = 16
-    draw.rounded_rectangle([x0, y0, x1, y1], radius=RADIUS, fill=(255, 0, 0, 210))
-
-    # White text centered in button
-    tx = x0 + PAD_X
-    ty = y0 + PAD_Y - bbox[1]  # adjust for font ascent
-    draw.text((tx, ty), label, font=btn_font, fill=(255, 255, 255, 255))
+    # Cool blue pill — not distracting, easy on the eye
+    draw.rounded_rectangle([x0, y0, x1, y1], radius=14, fill=(30, 144, 255, 200))
+    draw.text((x0 + PAD_X, y0 + PAD_Y - bbox[1]), label,
+              font=btn_font, fill=(255, 255, 255, 255))
 
     result = Image.alpha_composite(draw_img, overlay)
     return result.convert("RGB")
@@ -227,11 +211,12 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
 
         # Bake text
         frame = _draw_text_on_image(img, lines[i])
-        # Subscribe button on every panel (bottom-right corner)
-        frame = _draw_subscribe_button(frame)
-        # Add Follow/Save CTA bar on the last panel
         if i == num_lines - 1:
+            # Last panel: CTA bar replaces the button (no duplicate)
             frame = _draw_cta_overlay(frame)
+        else:
+            # All other panels: small blue Follow pill (bottom-right)
+            frame = _draw_follow_button(frame)
         frame_path = os.path.join(OUTPUT_DIR, f"_panel_{i}.png")
         frame.save(frame_path, "PNG")
 
