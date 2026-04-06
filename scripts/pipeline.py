@@ -30,6 +30,7 @@ from generate_seo import generate_seo
 from market_research import get_research, get_tone_hints, get_top_themes
 from fetch_ideas import fetch_fresh_ideas, ideas_to_theme_hints
 from post_to_facebook import post
+from post_to_instagram import post as post_instagram
 from post_to_youtube import post as post_youtube
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
@@ -226,19 +227,40 @@ def run(skip_post=False, skip_youtube=False):
         print(f"  SEO failed ({e}), using fallback")
         seo_metadata = None
 
-    # ── Step 7a: Facebook / Instagram ───────────────────────────────────────
+    # ── Step 7a: Facebook ───────────────────────────────────────────────────
     if skip_post:
         print("\n[7a/7] Skipping Facebook post (--skip-post)")
     else:
-        print("\n[7a/7] Posting to Facebook/Instagram...")
+        print("\n[7a/7] Posting to Facebook...")
         try:
             result = post(video_path, topic, script_text, seo_metadata=seo_metadata)
-            print(f"  Posted successfully!")
+            print(f"  Facebook posted!")
             with open(os.path.join(OUTPUT_DIR, "post_result.json"), "w") as f:
                 json.dump(result, f, indent=2)
         except Exception as e:
             print(f"  Facebook posting failed: {e}")
             print("  Video saved — post manually.")
+
+    # ── Step 7a2: Instagram (direct) ────────────────────────────────────────
+    if skip_post:
+        print("\n[7a2/7] Skipping Instagram post (--skip-post)")
+    elif not os.environ.get("INSTAGRAM_USER_ID"):
+        print("\n[7a2/7] Skipping Instagram post (INSTAGRAM_USER_ID not set)")
+    else:
+        print("\n[7a2/7] Posting to Instagram Reels (direct)...")
+        try:
+            ig_caption = ""
+            if seo_metadata and "facebook" in seo_metadata:
+                ig_caption = seo_metadata["facebook"]["description"]
+            else:
+                ig_caption = f"{script_text}\n\n— Quietlyy\n\n#Quietlyy #emotional #quotes"
+            ig_result = post_instagram(video_path, ig_caption)
+            print(f"  Instagram Reel posted! ID: {ig_result.get('id')}")
+            with open(os.path.join(OUTPUT_DIR, "instagram_result.json"), "w") as f:
+                json.dump(ig_result, f, indent=2)
+        except Exception as e:
+            print(f"  Instagram posting failed: {e}")
+            print("  Video saved — post manually to Instagram.")
 
     # ── Step 7b: YouTube Shorts ─────────────────────────────────────────────
     if skip_youtube:
