@@ -105,6 +105,7 @@ Line 2: Why it mattered — the warmth or beauty of that time
 Line 3: The emotional turn — when things changed
 Line 4: The cold modern contrast — what we do now instead
 Line 5: Quiet lesson or realization — give them something to carry
+Last line (optional): A natural, soft nudge — e.g. "Share this with someone who needs it." or "Save this for the quiet days."
 
 Also provide 4 visual keywords (emotional scenes/people, not objects).
 
@@ -135,6 +136,7 @@ Line 1-2: HOOK — something universally painful that stops the scroll
 Line 3-4: The deeper truth or metaphor — why it really hurts
 Line 5-6: The twist or quiet realization
 Line 7-8: LESSON — a piece of wisdom, empowerment, or truth that gives them something to hold onto
+Last line (optional): A soft, natural send-to-someone nudge — e.g. "Send this to someone who needs to hear it." or "Save this for the days it gets heavy."
 
 Also provide 4 visual keywords (emotional scenes, symbolic moments, people — no objects).
 

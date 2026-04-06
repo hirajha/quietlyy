@@ -220,6 +220,9 @@ def generate_seo(topic, script_text, visual_keywords):
     short_caption = ai_data.get("short_caption", theme)
     fb_description = (
         f"{short_caption}\n\n"
+        f"💾 Save this for when you need it.\n"
+        f"❤️ Like if this hit different.\n"
+        f"👇 Tag someone who needs to hear this.\n\n"
         f"— {BRAND}\n\n"
         f"{hashtag_str}\n\n"
         f"{FB_AI_DISCLOSURE}"
@@ -236,10 +239,12 @@ def generate_seo(topic, script_text, visual_keywords):
     yt_description = (
         f"{yt_tag_str}\n\n"
         f"{short_caption}\n\n"
+        f"💾 Save this for when you need it.\n"
+        f"❤️ Like if this hit different.\n"
+        f"🔔 Subscribe for a new one every day → {YT_HANDLE}\n\n"
         f"— {BRAND}\n\n"
         f"━━━━━━━━━━━━━━━━━━━━\n"
         f"{seo_line}\n"
-        f"Subscribe → {YT_HANDLE}\n"
         f"━━━━━━━━━━━━━━━━━━━━\n\n"
         f"{YT_AI_DISCLOSURE}"
     )

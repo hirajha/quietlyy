@@ -87,7 +87,39 @@ def _draw_text_on_image(img, text, watermark=True):
     return result.convert("RGB")
 
 
-def compose_video(script_data, image_paths, audio_path, subtitle_path, music_path=None):
+def _draw_cta_overlay(img):
+    """Draw a subtle Follow + Save CTA at the bottom of the last panel."""
+    draw_img = img.copy().convert("RGBA") if img.mode != "RGBA" else img.copy()
+    overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+
+    # Semi-transparent dark bar at bottom
+    bar_h = 130
+    bar = Image.new("RGBA", (WIDTH, bar_h), (0, 0, 0, 140))
+    overlay.paste(bar, (0, HEIGHT - bar_h), bar)
+
+    cta_font = get_font(36)
+    sub_font = get_font(26)
+
+    # Main CTA line
+    cta = "💾 Save this  •  Follow @Quietlyy"
+    bbox = draw.textbbox((0, 0), cta, font=cta_font)
+    cta_w = bbox[2] - bbox[0]
+    draw.text(((WIDTH - cta_w) // 2, HEIGHT - bar_h + 18), cta,
+              font=cta_font, fill=(255, 245, 210, 230))
+
+    # Sub line
+    sub = "New video every day  ↑  Subscribe"
+    bbox2 = draw.textbbox((0, 0), sub, font=sub_font)
+    sub_w = bbox2[2] - bbox2[0]
+    draw.text(((WIDTH - sub_w) // 2, HEIGHT - bar_h + 68), sub,
+              font=sub_font, fill=(255, 245, 210, 160))
+
+    result = Image.alpha_composite(draw_img, overlay)
+    return result.convert("RGB")
+
+
+
     """Simple compositor: bake text onto panels, concat with ffmpeg."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -160,6 +192,9 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
 
         # Bake text
         frame = _draw_text_on_image(img, lines[i])
+        # Add Follow/Save CTA bar on the last panel
+        if i == num_lines - 1:
+            frame = _draw_cta_overlay(frame)
         frame_path = os.path.join(OUTPUT_DIR, f"_panel_{i}.png")
         frame.save(frame_path, "PNG")
 

@@ -106,6 +106,53 @@ def upload_video(video_path, access_token, title, description, tags):
     return upload_resp.json()["id"]
 
 
+def pin_comment(video_id, access_token, topic):
+    """Post and pin an engaging question comment to drive replies."""
+    import random
+    questions = [
+        f"Which line hit you the hardest? 👇",
+        f"Who in your life needs to hear this? Tag them below 💙",
+        f"Save this for the days it gets heavy 💾 What did this remind you of?",
+        f"Does this feel familiar? Drop a 🤍 if it hit home.",
+        f"Comment the name of someone you're thinking of right now 👇",
+        f"Which word from this stayed with you? 💬",
+    ]
+    comment_text = random.choice(questions)
+
+    try:
+        resp = requests.post(
+            "https://www.googleapis.com/youtube/v3/commentThreads",
+            params={"part": "snippet", "access_token": access_token},
+            json={
+                "snippet": {
+                    "videoId": video_id,
+                    "topLevelComment": {
+                        "snippet": {"textOriginal": comment_text}
+                    }
+                }
+            },
+            timeout=15,
+        )
+        if resp.status_code == 200:
+            comment_id = resp.json()["id"]
+            print(f"[youtube] Pinned comment: \"{comment_text}\"")
+            # Pin it
+            requests.post(
+                "https://www.googleapis.com/youtube/v3/comments/setModerationStatus",
+                params={
+                    "id": comment_id,
+                    "moderationStatus": "published",
+                    "banAuthor": "false",
+                    "access_token": access_token,
+                },
+                timeout=10,
+            )
+        else:
+            print(f"[youtube] Comment post failed: {resp.text[:100]}")
+    except Exception as e:
+        print(f"[youtube] Comment failed (non-critical): {e}")
+
+
 def post(video_path, topic, script_text, seo_metadata=None):
     """Main entry: upload video as a YouTube Short.
     seo_metadata: dict from generate_seo.generate_seo() — uses youtube fields if provided.
@@ -128,6 +175,10 @@ def post(video_path, topic, script_text, seo_metadata=None):
 
     url = f"https://www.youtube.com/shorts/{video_id}"
     print(f"[youtube] Short posted! {url}")
+
+    # Pin an engaging question comment to drive replies
+    pin_comment(video_id, access_token, topic)
+
     return {"video_id": video_id, "url": url}
 
 

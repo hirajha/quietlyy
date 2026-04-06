@@ -29,6 +29,7 @@ from compose_video import compose_video
 from generate_seo import generate_seo
 from market_research import get_research, get_tone_hints, get_top_themes
 from fetch_ideas import fetch_fresh_ideas, ideas_to_theme_hints
+from predict_engagement import predict_engagement
 from post_to_facebook import post
 from post_to_instagram import post as post_instagram
 from post_to_youtube import post as post_youtube
@@ -214,6 +215,14 @@ def run(skip_post=False, skip_youtube=False):
         print("Skipping today — will not post an incomplete video. Retry tomorrow.")
         sys.exit(0)
     print(f"  Quality check passed ✓")
+
+    # ── Engagement Prediction ───────────────────────────────────────────────
+    try:
+        engagement = predict_engagement(script_text, topic, script_data.get("style", "emotional"))
+        with open(os.path.join(OUTPUT_DIR, "engagement_prediction.json"), "w") as f:
+            json.dump(engagement, f, indent=2)
+    except Exception as e:
+        print(f"  Engagement prediction failed ({e}) — continuing")
 
     # ── Step 6: SEO metadata ────────────────────────────────────────────────
     print("\n[6/7] Generating SEO metadata...")
