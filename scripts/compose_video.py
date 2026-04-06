@@ -119,7 +119,42 @@ def _draw_cta_overlay(img):
     return result.convert("RGB")
 
 
+def _draw_subscribe_button(img):
+    """Draw a small 'Subscribe ↑' button in the bottom-right corner on every panel."""
+    draw_img = img.copy().convert("RGBA") if img.mode != "RGBA" else img.copy()
+    overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
 
+    btn_font = get_font(28)
+    label = "Subscribe ↑"
+    bbox = draw.textbbox((0, 0), label, font=btn_font)
+    text_w = bbox[2] - bbox[0]
+    text_h = bbox[3] - bbox[1]
+
+    PAD_X, PAD_Y = 18, 10
+    btn_w = text_w + PAD_X * 2
+    btn_h = text_h + PAD_Y * 2
+    MARGIN = 24  # from right / bottom edge
+
+    x0 = WIDTH - btn_w - MARGIN
+    y0 = HEIGHT - btn_h - MARGIN - 20  # just above bottom edge
+    x1 = WIDTH - MARGIN
+    y1 = HEIGHT - MARGIN - 20
+
+    # Rounded pill background (YouTube red-ish: #FF0000)
+    RADIUS = 16
+    draw.rounded_rectangle([x0, y0, x1, y1], radius=RADIUS, fill=(255, 0, 0, 210))
+
+    # White text centered in button
+    tx = x0 + PAD_X
+    ty = y0 + PAD_Y - bbox[1]  # adjust for font ascent
+    draw.text((tx, ty), label, font=btn_font, fill=(255, 255, 255, 255))
+
+    result = Image.alpha_composite(draw_img, overlay)
+    return result.convert("RGB")
+
+
+def compose_video(script_data, image_paths, audio_path, subtitle_path, music_path):
     """Simple compositor: bake text onto panels, concat with ffmpeg."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -192,6 +227,8 @@ def _draw_cta_overlay(img):
 
         # Bake text
         frame = _draw_text_on_image(img, lines[i])
+        # Subscribe button on every panel (bottom-right corner)
+        frame = _draw_subscribe_button(frame)
         # Add Follow/Save CTA bar on the last panel
         if i == num_lines - 1:
             frame = _draw_cta_overlay(frame)
