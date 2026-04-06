@@ -160,7 +160,7 @@ def _draw_follow_button(img):
     draw_img = img.copy().convert("RGBA") if img.mode != "RGBA" else img.copy()
 
     btn_font = get_font(32)           # bigger font → bigger pill
-    label = "Follow ↑"
+    label = "Follow @Quietlyy"
     tmp = ImageDraw.Draw(draw_img)
     bbox = tmp.textbbox((0, 0), label, font=btn_font)
     bw, bh = bbox[2] - bbox[0], bbox[3] - bbox[1]
