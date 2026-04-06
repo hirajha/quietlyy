@@ -123,43 +123,60 @@ def _draw_cta_overlay(img):
 
 def _draw_follow_button(img):
     """
-    True frosted-glass 'Follow ↑' pill — bottom-right, panels 1+ only (not thumbnail).
-    1. Blurs the background region behind the pill (the 'frost')
-    2. Adds semi-transparent white overlay + visible white border
-    3. White text on top
+    Windows 11 Acrylic-style frosted-glass pill — bottom-right, panels 1+ only.
+    - Blurs the region behind the pill (Gaussian radius 14)
+    - Samples the average color of that region → tints the overlay with it
+      (like Win11 Acrylic: glass picks up the color behind it, not flat white)
+    - Thin bright border for edge definition
+    - Tight margin — pill sits close to the bottom edge
     """
     from PIL import ImageFilter
+    import colorsys
+
     draw_img = img.copy().convert("RGBA") if img.mode != "RGBA" else img.copy()
 
     btn_font = get_font(22)
     label = "Follow ↑"
-    tmp_draw = ImageDraw.Draw(draw_img)
-    bbox = tmp_draw.textbbox((0, 0), label, font=btn_font)
-    bw = bbox[2] - bbox[0]
-    bh = bbox[3] - bbox[1]
+    tmp = ImageDraw.Draw(draw_img)
+    bbox = tmp.textbbox((0, 0), label, font=btn_font)
+    bw, bh = bbox[2] - bbox[0], bbox[3] - bbox[1]
 
-    PAD_X, PAD_Y, MARGIN, RADIUS = 18, 10, 22, 16
+    PAD_X, PAD_Y, MARGIN, RADIUS = 16, 8, 12, 14  # tight margin → close to edge
     x0 = WIDTH - bw - PAD_X * 2 - MARGIN
     y0 = HEIGHT - bh - PAD_Y * 2 - MARGIN
     x1 = WIDTH - MARGIN
     y1 = HEIGHT - MARGIN
 
-    # Step 1 — blur the background region behind the pill (frost)
+    # Step 1 — Gaussian blur on background region
     region = draw_img.convert("RGB").crop((x0, y0, x1, y1))
-    blurred = region.filter(ImageFilter.GaussianBlur(radius=10))
+    blurred = region.filter(ImageFilter.GaussianBlur(radius=14))
+
+    # Step 2 — sample average color of the blurred region for tint
+    blurred_small = blurred.resize((1, 1))
+    avg_r, avg_g, avg_b = blurred_small.getpixel((0, 0))[:3]
+    # Lighten the sampled color slightly for the overlay (Win11 Acrylic brightening)
+    h, s, v = colorsys.rgb_to_hsv(avg_r / 255, avg_g / 255, avg_b / 255)
+    v = min(1.0, v + 0.30)  # brighten
+    s = max(0.0, s - 0.15)  # slightly desaturate for glass feel
+    tr, tg, tb = colorsys.hsv_to_rgb(h, s, v)
+    tint = (int(tr * 255), int(tg * 255), int(tb * 255))
+
+    # Step 3 — paste blurred region back
     rgb = draw_img.convert("RGB")
     rgb.paste(blurred, (x0, y0))
     draw_img = rgb.convert("RGBA")
 
-    # Step 2 — white glass overlay + border on top of blur
+    # Step 4 — tinted glass overlay + border
     overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
-    draw.rounded_rectangle([x0, y0, x1, y1], radius=RADIUS, fill=(255, 255, 255, 80))
     draw.rounded_rectangle([x0, y0, x1, y1], radius=RADIUS,
-                            outline=(255, 255, 255, 180), width=2)
-    # Step 3 — white text
+                            fill=(*tint, 90))          # color-matched tint
+    draw.rounded_rectangle([x0, y0, x1, y1], radius=RADIUS,
+                            outline=(255, 255, 255, 160), width=2)  # bright border
+
+    # Step 5 — white text
     draw.text((x0 + PAD_X, y0 + PAD_Y - bbox[1]), label,
-              font=btn_font, fill=(255, 255, 255, 240))
+              font=btn_font, fill=(255, 255, 255, 245))
 
     result = Image.alpha_composite(draw_img, overlay)
     return result.convert("RGB")
