@@ -140,9 +140,16 @@ def run(skip_post=False, skip_youtube=False):
     try:
         script_data = generate_script(tone_hints=tone_hints, theme_hints=top_themes, idea_hints=idea_hints)
     except Exception as e:
-        reason = "quota exceeded" if _is_quota_error(e) else str(e)
-        print(f"\nSkipping today — script failed: {reason}. Will retry tomorrow.")
-        sys.exit(0)
+        if _is_quota_error(e):
+            print(f"\nSkipping today — quota exceeded. Will retry tomorrow.")
+            sys.exit(0)
+        elif "quality gate failed" in str(e).lower():
+            print(f"\nERROR — Script quality gate exhausted all attempts: {e}")
+            print("Check logs above to see why scripts were rejected.")
+            sys.exit(1)  # Fail visibly so it shows in GitHub Actions
+        else:
+            print(f"\nSkipping today — script failed: {e}. Will retry tomorrow.")
+            sys.exit(0)
 
     topic = script_data["topic"]
     script_text = script_data["script"]

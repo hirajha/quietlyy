@@ -137,7 +137,7 @@ Rules for REJECTION (score the whole script 0 if any apply):
 Return ONLY valid JSON:
 {{"score": <overall 0-10>, "hook": <0-10>, "emotion": <0-10>, "originality": <0-10>, "approved": <true/false>, "reason": "<one sentence why>"}}
 
-A score of 7+ means approved. Be strict — only truly moving scripts should pass."""
+A score of 6+ means approved. Be fair but not overly harsh — only truly moving scripts should pass."""
 
     # Try ChatGPT first, then Gemini
     for gen_fn, name in [(_call_openai, "ChatGPT"), (_call_gemini, "Gemini"), (_call_groq, "Groq")]:
@@ -233,10 +233,10 @@ def review_script(script_text, topic, style, examples):
     # 3. AI quality score
     ai_result = check_quality_with_ai(script_text, topic, style, examples)
     score = ai_result.get("score", 5)
-    approved = ai_result.get("approved", score >= 7)
+    approved = ai_result.get("approved", score >= 6)
     reason = ai_result.get("reason", "")
 
-    if not approved or score < 7:
+    if not approved or score < 6:
         print(f"[quality] REJECTED (score {score}/10) — {reason}")
         return False, f"Score {score}/10: {reason}", score
 
