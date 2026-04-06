@@ -40,10 +40,38 @@ def _check_meta_error(resp_data, context=""):
         raise ValueError(f"Meta API error [{context}] code={code}{f'.{subcode}' if subcode else ''}: {msg}{hint}")
 
 
+def _verify_token_permissions(token, ig_user_id):
+    """Check token has instagram_content_publish before attempting upload."""
+    try:
+        resp = requests.get(
+            f"{GRAPH_API}/me/permissions",
+            params={"access_token": token},
+            timeout=10,
+        )
+        data = resp.json()
+        if "data" in data:
+            granted = {p["permission"] for p in data["data"] if p.get("status") == "granted"}
+            needed = {"instagram_basic", "instagram_content_publish"}
+            missing = needed - granted
+            if missing:
+                raise PermissionError(
+                    f"Token is missing required Instagram permissions: {missing}. "
+                    f"Go to Meta Business Manager → System Users → Generate New Token → "
+                    f"check 'instagram_basic' and 'instagram_content_publish' → "
+                    f"update FB_PAGE_ACCESS_TOKEN secret in GitHub."
+                )
+            print(f"[instagram] Token permissions OK: {granted & needed}")
+    except PermissionError:
+        raise
+    except Exception as e:
+        print(f"[instagram] Could not verify permissions: {e} — proceeding anyway")
+
+
 def post(video_path, caption):
     """Post a Reel directly to Instagram via resumable upload."""
     ig_user_id, token = get_credentials()
 
+    _verify_token_permissions(token, ig_user_id)
     print(f"[instagram] Starting Reel upload (ig_user_id={ig_user_id})...")
 
     # Step 1: Create media container (resumable)
