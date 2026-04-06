@@ -1,11 +1,13 @@
 """
 Quietlyy — Instagram Reels Poster
 Posts directly to Instagram via Graph API resumable upload.
-No public video URL needed — uploads bytes directly like Facebook.
 
-Uses: INSTAGRAM_USER_ID + FB_PAGE_ACCESS_TOKEN (System User token)
-Token MUST have scopes: instagram_basic, instagram_content_publish,
-pages_show_list, pages_read_engagement
+SETUP CHECKLIST (both required):
+1. developers.facebook.com → Your App → App Review → Permissions and Features
+   → Add: instagram_basic, instagram_content_publish (click Request)
+2. Meta Business Manager → System Users → Generate New Token
+   → Check: instagram_basic, instagram_content_publish
+   → Update FB_PAGE_ACCESS_TOKEN secret in GitHub
 """
 
 import os
@@ -30,18 +32,26 @@ def _check_meta_error(resp_data, context=""):
         code = err.get("code", "?")
         msg = err.get("message", str(err))
         subcode = err.get("error_subcode", "")
-        hint = ""
         if code == 190:
-            hint = " (token expired or invalid — regenerate FB_PAGE_ACCESS_TOKEN)"
-        elif code == 200 or code == 10:
-            hint = " (missing permission — token needs instagram_content_publish scope)"
+            hint = "Token expired — regenerate FB_PAGE_ACCESS_TOKEN in Business Manager"
+        elif code == 10:
+            hint = (
+                "App does not have permission. TWO steps required: "
+                "(1) developers.facebook.com → Your App → App Review → Permissions and Features "
+                "→ Add 'instagram_content_publish' and 'instagram_basic'. "
+                "(2) Business Manager → System Users → Generate New Token with those scopes."
+            )
+        elif code == 200:
+            hint = "Token missing instagram_content_publish scope — regenerate in Business Manager"
         elif code == 100:
-            hint = " (invalid parameter — check INSTAGRAM_USER_ID is a Business/Creator account ID)"
-        raise ValueError(f"Meta API error [{context}] code={code}{f'.{subcode}' if subcode else ''}: {msg}{hint}")
+            hint = "Check INSTAGRAM_USER_ID — must be an Instagram Business/Creator account numeric ID"
+        else:
+            hint = ""
+        raise ValueError(f"Meta API error [{context}] code={code}{f'.{subcode}' if subcode else ''}: {msg}" + (f" | FIX: {hint}" if hint else ""))
 
 
-def _verify_token_permissions(token, ig_user_id):
-    """Check token has instagram_content_publish before attempting upload."""
+def _verify_token_permissions(token):
+    """Log token permissions to help diagnose issues."""
     try:
         resp = requests.get(
             f"{GRAPH_API}/me/permissions",
@@ -49,29 +59,29 @@ def _verify_token_permissions(token, ig_user_id):
             timeout=10,
         )
         data = resp.json()
+        if "error" in data:
+            print(f"[instagram] WARNING: Could not read permissions: {data['error'].get('message')}")
+            return
         if "data" in data:
             granted = {p["permission"] for p in data["data"] if p.get("status") == "granted"}
             needed = {"instagram_basic", "instagram_content_publish"}
+            has = needed & granted
             missing = needed - granted
+            print(f"[instagram] Token permissions — have: {has or 'none'}, missing: {missing or 'none'}")
             if missing:
-                raise PermissionError(
-                    f"Token is missing required Instagram permissions: {missing}. "
-                    f"Go to Meta Business Manager → System Users → Generate New Token → "
-                    f"check 'instagram_basic' and 'instagram_content_publish' → "
-                    f"update FB_PAGE_ACCESS_TOKEN secret in GitHub."
+                print(
+                    f"[instagram] ACTION NEEDED: Go to developers.facebook.com → App Review → "
+                    f"Permissions and Features → add {missing}. Then regenerate token in Business Manager."
                 )
-            print(f"[instagram] Token permissions OK: {granted & needed}")
-    except PermissionError:
-        raise
     except Exception as e:
-        print(f"[instagram] Could not verify permissions: {e} — proceeding anyway")
+        print(f"[instagram] Could not check permissions: {e}")
 
 
 def post(video_path, caption):
     """Post a Reel directly to Instagram via resumable upload."""
     ig_user_id, token = get_credentials()
 
-    _verify_token_permissions(token, ig_user_id)
+    _verify_token_permissions(token)
     print(f"[instagram] Starting Reel upload (ig_user_id={ig_user_id})...")
 
     # Step 1: Create media container (resumable)
@@ -96,8 +106,8 @@ def post(video_path, caption):
         raise ValueError(f"Instagram did not return container id: {init_data}")
     if not upload_uri:
         raise ValueError(
-            f"Instagram did not return upload URI. "
-            f"Ensure token has instagram_content_publish scope. Response: {init_data}"
+            f"Instagram did not return upload URI — token likely missing instagram_content_publish. "
+            f"Response: {init_data}"
         )
 
     print(f"[instagram] Container created: {container_id}")
