@@ -265,6 +265,10 @@ def run(skip_post=False, skip_youtube=False):
         except Exception as e:
             print(f"  Instagram posting failed: {e}")
             print("  Video saved — post manually to Instagram.")
+            # Save error to output so it shows up in GitHub Actions artifacts
+            import traceback
+            with open(os.path.join(OUTPUT_DIR, "instagram_error.json"), "w") as f:
+                json.dump({"error": str(e), "traceback": traceback.format_exc()}, f, indent=2)
 
     # ── Step 7b: YouTube Shorts ─────────────────────────────────────────────
     if skip_youtube:

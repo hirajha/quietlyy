@@ -4,6 +4,8 @@ Posts directly to Instagram via Graph API resumable upload.
 No public video URL needed — uploads bytes directly like Facebook.
 
 Uses: INSTAGRAM_USER_ID + FB_PAGE_ACCESS_TOKEN (System User token)
+Token MUST have scopes: instagram_basic, instagram_content_publish,
+pages_show_list, pages_read_engagement
 """
 
 import os
@@ -19,6 +21,23 @@ def get_credentials():
     if not ig_user_id or not token:
         raise ValueError("INSTAGRAM_USER_ID and FB_PAGE_ACCESS_TOKEN must be set")
     return ig_user_id, token
+
+
+def _check_meta_error(resp_data, context=""):
+    """Raise if Meta returned an error inside a 200 OK response body."""
+    if isinstance(resp_data, dict) and "error" in resp_data:
+        err = resp_data["error"]
+        code = err.get("code", "?")
+        msg = err.get("message", str(err))
+        subcode = err.get("error_subcode", "")
+        hint = ""
+        if code == 190:
+            hint = " (token expired or invalid — regenerate FB_PAGE_ACCESS_TOKEN)"
+        elif code == 200 or code == 10:
+            hint = " (missing permission — token needs instagram_content_publish scope)"
+        elif code == 100:
+            hint = " (invalid parameter — check INSTAGRAM_USER_ID is a Business/Creator account ID)"
+        raise ValueError(f"Meta API error [{context}] code={code}{f'.{subcode}' if subcode else ''}: {msg}{hint}")
 
 
 def post(video_path, caption):
@@ -40,15 +59,22 @@ def post(video_path, caption):
     )
     _raise_with_body(init_resp)
     init_data = init_resp.json()
+    _check_meta_error(init_data, "create container")
+
     container_id = init_data.get("id")
     upload_uri = init_data.get("uri")
 
-    if not container_id or not upload_uri:
-        raise ValueError(f"Instagram did not return container id/uri: {init_data}")
+    if not container_id:
+        raise ValueError(f"Instagram did not return container id: {init_data}")
+    if not upload_uri:
+        raise ValueError(
+            f"Instagram did not return upload URI. "
+            f"Ensure token has instagram_content_publish scope. Response: {init_data}"
+        )
 
     print(f"[instagram] Container created: {container_id}")
 
-    # Step 2: Upload video bytes to rupload URI
+    # Step 2: Upload video bytes to resumable URI
     file_size = os.path.getsize(video_path)
     print(f"[instagram] Uploading {file_size // 1024} KB...")
     with open(video_path, "rb") as f:
@@ -64,6 +90,8 @@ def post(video_path, caption):
             timeout=300,
         )
     _raise_with_body(upload_resp)
+    upload_data = upload_resp.json() if upload_resp.content else {}
+    _check_meta_error(upload_data, "upload video")
     print("[instagram] Upload complete — waiting for processing...")
 
     # Step 3: Poll until container status = FINISHED (max 3 min)
@@ -75,6 +103,7 @@ def post(video_path, caption):
             timeout=15,
         )
         status_data = status_resp.json()
+        _check_meta_error(status_data, "poll status")
         status_code = status_data.get("status_code", "")
         print(f"[instagram] Status ({attempt + 1}/18): {status_code}")
 
@@ -95,6 +124,7 @@ def post(video_path, caption):
     )
     _raise_with_body(pub_resp)
     result = pub_resp.json()
+    _check_meta_error(result, "publish")
     media_id = result.get("id", container_id)
     print(f"[instagram] Reel published! Media ID: {media_id}")
     return {"id": media_id, "platform": "instagram"}

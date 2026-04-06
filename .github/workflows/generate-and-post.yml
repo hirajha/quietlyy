@@ -103,6 +103,8 @@ jobs:
             output/script.json
             output/seo_metadata.json
             output/post_result.json
+            output/instagram_result.json
+            output/instagram_error.json
             output/youtube_result.json
             output/manual_caption.txt
           retention-days: 30
