@@ -40,7 +40,7 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 MIN_AUDIO_BYTES   = 100_000   # 100 KB — ElevenLabs audio for 5 lines
 MIN_IMAGE_BYTES   =  50_000   # 50 KB  — real AI image (not gradient/placeholder)
 MIN_VIDEO_BYTES   = 800_000   # 800 KB — 30s vertical video
-NUM_PANELS        = 5
+NUM_PANELS        = 8
 
 
 def clean_output():

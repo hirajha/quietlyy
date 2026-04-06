@@ -47,42 +47,66 @@ def get_audio_duration(path):
 
 def _draw_text_on_image(img, text):
     """
-    Whisprs-style text: large, bold, impactful typography.
-    Quote text IS the visual — big, centered, warm cream on soft dark scrim.
+    Text with a tight acrylic pill scrim sized to the text — not full-width.
+    Like a caption bubble that hugs the words.
     """
+    import colorsys
     draw_img = img.copy().convert("RGBA")
-
-    # Soft dark scrim behind text for legibility — gradient from center out
-    scrim = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
-    scrim_draw = ImageDraw.Draw(scrim)
-    # Vertical center band — darkens just the text zone
-    scrim_draw.rectangle([0, HEIGHT // 4, WIDTH, HEIGHT * 3 // 4], fill=(0, 0, 0, 90))
-    draw_img = Image.alpha_composite(draw_img, scrim)
-
     overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
 
-    # Large font — text is the hero, like Whisprs
     font = get_font(62)
-    # Tighter wrap for bigger font — fewer chars per line for impact
     wrapped = textwrap.wrap(text, width=22)
     line_height = font.size + 22
     total_h = len(wrapped) * line_height
 
-    # Vertically centered — biased slightly above center for portrait video
+    # Vertically centered, biased slightly above center
     text_y = (HEIGHT - total_h) // 2 - 40
 
+    # Measure the widest line to size the scrim tightly
+    max_text_w = 0
+    for wline in wrapped:
+        bb = draw.textbbox((0, 0), wline, font=font)
+        max_text_w = max(max_text_w, bb[2] - bb[0])
+
+    # Tight scrim — acrylic blurred pill fitted to text
+    SCRIM_PAD_X, SCRIM_PAD_Y, SCRIM_R = 44, 22, 20
+    sx0 = (WIDTH - max_text_w) // 2 - SCRIM_PAD_X
+    sy0 = text_y - SCRIM_PAD_Y
+    sx1 = (WIDTH + max_text_w) // 2 + SCRIM_PAD_X
+    sy1 = text_y + total_h + SCRIM_PAD_Y
+
+    # Blur the region behind the scrim (acrylic frost)
+    region = draw_img.convert("RGB").crop((sx0, sy0, sx1, sy1))
+    from PIL import ImageFilter
+    blurred = region.filter(ImageFilter.GaussianBlur(radius=12))
+    # Sample avg color for Win11-style acrylic tint
+    avg = blurred.resize((1, 1)).getpixel((0, 0))[:3]
+    h, s, v = colorsys.rgb_to_hsv(avg[0]/255, avg[1]/255, avg[2]/255)
+    v = min(1.0, v + 0.08)   # subtle brightening (text scrim, not pill)
+    s = max(0.0, s - 0.10)
+    tr, tg, tb = colorsys.hsv_to_rgb(h, s, v)
+    tint = (int(tr*255), int(tg*255), int(tb*255))
+    rgb = draw_img.convert("RGB")
+    rgb.paste(blurred, (sx0, sy0))
+    draw_img = rgb.convert("RGBA")
+    overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+
+    # Tinted dark glass pill behind text
+    draw.rounded_rectangle([sx0, sy0, sx1, sy1], radius=SCRIM_R,
+                            fill=(*tint, 140))
+    draw.rounded_rectangle([sx0, sy0, sx1, sy1], radius=SCRIM_R,
+                            outline=(255, 255, 255, 40), width=1)
+
+    # Bake the text lines on top
     for i, wline in enumerate(wrapped):
-        bbox = draw.textbbox((0, 0), wline, font=font)
-        text_w = bbox[2] - bbox[0]
+        bb = draw.textbbox((0, 0), wline, font=font)
+        text_w = bb[2] - bb[0]
         x = (WIDTH - text_w) // 2
         wy = text_y + i * line_height
-
-        # Deep shadow — 3 layers for legibility against any background
-        draw.text((x + 4, wy + 4), wline, font=font, fill=(0, 0, 0, 200))
-        draw.text((x + 2, wy + 2), wline, font=font, fill=(0, 0, 0, 150))
+        draw.text((x + 3, wy + 3), wline, font=font, fill=(0, 0, 0, 180))
         draw.text((x + 1, wy + 1), wline, font=font, fill=(0, 0, 0, 100))
-        # Warm cream — easy on eyes, works on illustrated backgrounds
         draw.text((x, wy), wline, font=font, fill=(255, 248, 220, 255))
 
     result = Image.alpha_composite(draw_img, overlay)
@@ -135,13 +159,13 @@ def _draw_follow_button(img):
 
     draw_img = img.copy().convert("RGBA") if img.mode != "RGBA" else img.copy()
 
-    btn_font = get_font(22)
+    btn_font = get_font(32)           # bigger font → bigger pill
     label = "Follow ↑"
     tmp = ImageDraw.Draw(draw_img)
     bbox = tmp.textbbox((0, 0), label, font=btn_font)
     bw, bh = bbox[2] - bbox[0], bbox[3] - bbox[1]
 
-    PAD_X, PAD_Y, MARGIN, RADIUS = 16, 8, 12, 14  # tight margin → close to edge
+    PAD_X, PAD_Y, MARGIN, RADIUS = 28, 16, 20, 22  # more padding → bigger pill
     x0 = WIDTH - bw - PAD_X * 2 - MARGIN
     y0 = HEIGHT - bh - PAD_Y * 2 - MARGIN
     x1 = WIDTH - MARGIN
@@ -194,7 +218,9 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
     # Use actual per-line audio durations so each panel matches its narration
     TAIL_PAD = 5.0
     AUDIO_GAP = 1.4  # must match LINE_GAP in generate_audio.py
-    GAP = 1.2   # visual panel change gap — shorter than audio for snappier feel
+    # Visual GAP == AUDIO_GAP: eliminates cumulative drift (each panel holds
+    # for exactly line_speech + full silence, then advances with the narrator)
+    GAP = AUDIO_GAP
 
     line_durations = []
     for i in range(num_lines):
@@ -203,7 +229,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             line_durations.append(get_audio_duration(line_path))
 
     if len(line_durations) == num_lines:
-        # Each segment = line audio + gap (except last = line + tail pad)
+        # Each segment = line audio + full gap → perfectly in sync, no drift
         seg_durations = [d + GAP for d in line_durations]
         seg_durations[-1] = line_durations[-1] + TAIL_PAD
         print(f"[video] Using per-line durations: {[f'{d:.1f}s' for d in seg_durations]}")
@@ -281,7 +307,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         print(f"[video]   Panel {i+1}/{num_lines}: {seg_durations[i]:.1f}s")
 
     # Step 2: Concat all clips with crossfade
-    XFADE = 0.3
+    XFADE = 0.6   # slower fade between images — less jarring, more cinematic
     output_no_audio = os.path.join(OUTPUT_DIR, "_video_noaudio.mp4")
 
     if len(panel_videos) == 1:

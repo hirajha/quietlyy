@@ -312,7 +312,7 @@ def generate_images(topic, visual_keywords, num_panels=5):
     - Saves new images to gallery (capped at 500)
     At least 1 image must succeed or pipeline fails."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    num_panels = min(num_panels, 5)  # Hard cap at 5
+    num_panels = min(num_panels, 8)  # Hard cap at 8 — enough for poetic scripts
     paths = []
     successful_paths = []  # Track successfully generated images for reuse within this video
 
