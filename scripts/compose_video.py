@@ -368,9 +368,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-i", audio_path,
             "-stream_loop", "-1", "-i", music_path,
             "-filter_complex",
-            f"[1:a]aresample=async=1[voice];"
-            # Music: volume 0.13 (present but under voice), EQ cut at 2kHz so it
-            # doesn't compete with voice frequencies, slow fade-in/out
+            # Music: volume 0.13, EQ cut at 2kHz, slow fade-in/out
             f"[2:a]volume=0.13,"
             f"equalizer=f=2000:width_type=o:width=2:g=-4,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4[music];"
