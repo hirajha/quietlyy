@@ -40,9 +40,9 @@ def _record_line_elevenlabs(text, output_path):
         "text": clean,
         "model_id": ELEVENLABS_MODEL,
         "voice_settings": {
-            "stability": 0.65,        # lower = more expressive and human
+            "stability": 0.55,        # lower = more human variation (ElevenLabs guide: 0.55 for emotional)
             "similarity_boost": 0.80, # higher = stays true to the voice
-            "style": 0.20,
+            "style": 0.25,            # slight bump from 0.20 = more warmth
             "use_speaker_boost": True,
             "speed": 0.92,            # natural emotional pace — not slow, not rushed
         },
