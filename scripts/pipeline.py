@@ -33,6 +33,7 @@ from predict_engagement import predict_engagement
 from post_to_facebook import post
 from post_to_instagram import post as post_instagram
 from post_to_youtube import post as post_youtube
+from copyright_check import run_compliance_check
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
@@ -222,6 +223,21 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None):
         print("Skipping today — will not post an incomplete video. Retry tomorrow.")
         sys.exit(0)
     print(f"  Quality check passed ✓")
+
+    # ── COPYRIGHT COMPLIANCE — block upload if any asset fails ────────────
+    print("\n[copyright] Running copyright compliance check...")
+    cr_ok, cr_report = run_compliance_check(
+        music_path=music_path,
+        image_paths=image_paths,
+        voice_path=audio_path,
+        script_text=script_text,
+        topic=topic,
+        music_source="freesound_cc0",
+    )
+    if not cr_ok:
+        print("\nCOPYRIGHT COMPLIANCE FAILED — blocking upload to avoid muting/strikes.")
+        print("Check output/copyright_check.json for details.")
+        sys.exit(1)
 
     # ── Step 6: SEO metadata ────────────────────────────────────────────────
     print("\n[6/7] Generating SEO metadata...")

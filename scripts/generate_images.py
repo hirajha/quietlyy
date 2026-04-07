@@ -99,192 +99,188 @@ def _pick_reuse_panels(num_panels):
     return result
 
 
-# Scene pool — MIXED types for variety across panels
-# Blend of: face closeups, wide landscapes, cityscapes, interior scenes, two-person scenes
-# Dark cinematic graphic-novel illustration style throughout
+# ── Whisprs-style aesthetic reference (1.6M / 1.8M view videos):
+# - Semi-realistic illustrated / manga-anime art style (NOT photorealistic, NOT dark gothic)
+# - Muted earthy palette: warm olive green, dusty sage, terracotta, warm beige, soft teal
+# - Backgrounds: airy, misty, light — morning mist, foggy fields, soft skies — NOT dark/creepy
+# - Characters: clear visible faces, warm skin tones, natural poses, readable emotions
+# - Like a beautiful illustrated book cover or Studio Ghibli concept art
 
 _SCENE_POOL_CLOSEUP = [
-    # Face closeups — cool-toned, emotional, rich color
-    "Close-up portrait of a young woman, eyes glistening with unshed tears, "
-    "soft cool moonlight on one side, teal-blue shadows, loose hair, deeply emotional expression, "
-    "cool blue and teal color palette, detailed illustrated style",
+    # Face closeups — warm skin tones, soft natural light, clear readable faces
+    "Close-up portrait of a young woman, chin resting on her hand, looking pensively to the side, "
+    "soft warm natural window light, warm olive-beige tones, loose hair, "
+    "semi-realistic manga illustration style — like Whisprs aesthetic",
 
-    "Close-up of a young man with tired longing eyes staring into distance, "
-    "soft blue-silver light on his face, cool teal shadows, "
-    "contemplative and melancholy, deep cerulean and teal palette",
+    "Side profile of a young woman on a train, head gently resting against the window, "
+    "soft afternoon light on her face, muted sage-green and warm beige interior, "
+    "rolling countryside visible outside, peaceful and melancholy, illustrated manga style",
 
-    "A woman seen from the side, profile close-up, eyes closed as if remembering, "
-    "cool silver moonlight as backlight, teal-blue atmospheric haze, "
-    "emotionally detailed face, cool color tones",
+    "Close-up of a young woman's face, eyes cast slightly downward, gentle sad expression, "
+    "soft diffuse daylight, warm terracotta and beige tones, hair falling loosely, "
+    "semi-realistic illustrated art — clear detailed face, emotionally resonant",
 
-    "A woman's face lit by the cool blue glow of a window at night, "
-    "one hand near her jaw, deep teal shadows, soft silver light, "
-    "quiet sadness, detailed illustration, cool blue palette",
+    "A man with tired eyes staring into the distance, soft side light on his face, "
+    "muted earthy tones — warm olive, dusty brown, sage — contemplative expression, "
+    "illustrated graphic novel style — clear face, visible emotions, warm palette",
 
-    "Side profile of a woman on a train, head resting on the window, "
-    "blurred teal-blue landscape outside, cool blue interior light on her face, "
-    "melancholy stillness, cool color palette",
+    "Close-up of two people's hands almost touching on a wooden table, "
+    "warm afternoon light, soft muted earthy tones, "
+    "illustrated style — tender, clear, emotionally meaningful",
 
-    "Close-up of two people almost touching foreheads, eyes closed, not quite together, "
-    "soft cool moonlight between them, teal-blue background, emotional and intimate, "
-    "cool silver-blue tones, deeply beautiful",
-
-    "A young man standing in the rain, face tilted slightly up, eyes closed, "
-    "teal-blue rainy light all around him, cool wet reflections, "
-    "emotional and atmospheric, rich cool blue-teal palette",
+    "A woman reading an old letter, soft daylight from a nearby window, "
+    "warm beige and terracotta tones, books and tea nearby, "
+    "semi-realistic illustration — clear face, warm and nostalgic mood",
 ]
 
 _SCENE_POOL_WIDE = [
-    # Wide landscapes & cityscapes — colorful, cool-toned, atmospheric
-    "Sweeping misty mountain valley at dawn, ancient pine forests bathed in blue-grey mist, "
-    "a single small figure on a winding path below, dramatic scale, "
-    "rich cerulean blue sky, lush green forests, silver fog — breathtaking and vast",
+    # Wide landscapes — Whisprs aesthetic: misty, airy, muted earthy tones
+    "Misty mountain valley at dawn, layered blue-green pine forests fading into pale morning mist, "
+    "a tiny lone figure on a winding path, soft pale sky above, "
+    "muted teal and olive greens, warm beige mist — airy, breathtaking, illustrated style",
 
-    "A moonlit coastline with silver waves crashing on rocks, "
-    "deep midnight blue sky full of stars, silver light on the water, "
-    "tiny figure standing at the edge looking out, cool blue-silver palette, cinematic and epic",
+    "A calm mountain lake reflecting snow-capped peaks, a small wooden boat with one person, "
+    "misty grey-blue sky, pine forest shoreline, muted teal-grey-beige palette, "
+    "vintage travel poster illustration style — peaceful and emotionally vast",
 
-    "Rolling green hills under a dramatic blue sky with building storm clouds, "
-    "shafts of golden light breaking through, small figure walking a country path, "
-    "lush green grass, deep teal-blue sky — beautiful and emotional",
+    "Wide open green field at dusk, golden-green grass, soft amber horizon, "
+    "two small silhouettes in the middle distance walking together, "
+    "warm muted palette: dusty gold, sage green, soft terracotta sky, "
+    "illustrated Ghibli-style — airy and beautiful",
 
-    "A glowing city at night seen from a hilltop, teal and blue city lights "
-    "reflecting off wet streets below, cool blue-purple sky, "
-    "one small figure watching from above, cinematic and atmospheric",
+    "Misty morning countryside, rolling hills, old farmhouses in the distance, "
+    "soft pale green and beige tones, light fog across the valley, birds in the pale sky, "
+    "one figure walking a country lane, warm illustrated style — peaceful and nostalgic",
 
-    "Ancient stone bridge over a misty teal-green river at twilight, "
-    "silver birch trees reflected in the water, lone figure crossing, "
-    "deep cerulean sky, cool blue-green palette, hauntingly beautiful",
+    "Foggy forest path at dawn, tall trees either side, soft green-grey mist, "
+    "warm diffuse morning light filtering through, a small figure walking away into the mist, "
+    "muted olive and sage palette, illustrated Ghibli aesthetic — serene and emotional",
 
-    "Vast autumn forest in full color — deep amber, burgundy, emerald green — "
-    "seen from above, a tiny figure on a path far below, "
-    "dramatic overhead perspective, rich colorful palette, epic scale",
-
-    "A lone figure in a red coat on a misty mountain road, "
-    "tall pine trees either side, cool blue-grey mist ahead, "
-    "deep forest greens and cool teal tones, atmospheric and cinematic",
+    "A moonlit lake, silver reflection stretching to the horizon, "
+    "two tiny silhouettes standing at the shore, deep blue-grey sky with soft moon, "
+    "illustrated style — muted blues and silver, not dark/gothic, peaceful and vast",
 ]
 
 _SCENE_POOL_INTERIOR = [
-    # Interior scenes — warm amber lamp vs cool blue outside (highest engagement: 156 views)
-    "A person sitting alone at a wooden desk by tall arched windows at night, "
-    "writing in a journal by warm amber lamplight, "
-    "deep cool blue moonlight flooding through the windows, rain on the glass outside, "
-    "warm amber inside vs cool midnight blue outside — beautiful contrast, atmospheric",
+    # Interior scenes — warm cosy light, clear readable setting
+    "A person sitting cross-legged by a large window at dusk, "
+    "warm lamp beside them, soft golden light on their face, "
+    "muted teal-blue evening sky outside the window, books and papers around them, "
+    "semi-realistic illustration — warm amber inside, cool blue outside, peaceful",
 
-    "A woman reading a letter by a single warm lamp near a large window at night, "
-    "cool blue moonlight and city glow outside the window, "
-    "warm amber pool around her, teal-blue shadows in the room, "
-    "emotional and cinematic interior — warm vs cool color contrast",
+    "A woman at a wooden table in a cosy kitchen, holding a cup of tea, "
+    "looking out at rain through a window, warm amber and beige interior, "
+    "illustrated manga style — clear face, warm muted palette, nostalgic mood",
 
-    "A figure standing at a rain-streaked window, back to us, "
-    "looking out at a glowing teal-blue rainy city at night, "
-    "warm soft lamp behind them, cool blue street reflections outside, "
-    "beautiful color contrast — the outside world glowing cool blue-teal",
+    "An elderly couple sitting together at a dining table, soft warm light, "
+    "simple home interior, muted earthy tones — warm cream, terracotta, olive, "
+    "illustrated realistic style — warm, tender, immediately readable",
 
-    "An old library with towering bookshelves, moonlight streaming in through tall windows, "
-    "cool silver-blue light mixing with warm amber lamp on a reading table, "
-    "a small figure at the table below, sense of vast solitude, "
-    "rich colors: deep wood browns, cool blue light, warm gold lamp",
+    "A young person sitting on the floor of their bedroom, back against the bed, "
+    "knees drawn up, looking at an old photo, warm lamp in background, "
+    "muted beige and dusty sage tones, illustrated style — clear and emotionally resonant",
 
-    "A woman sitting by a window watching rain fall on a teal-lit street below, "
-    "her face in warm amber lamp light, outside is cool blue and glowing, "
-    "books and tea on the windowsill, deeply atmospheric and emotional",
+    "A small family gathered around an old television set in a living room, "
+    "warm amber lamp light, muted earthy 1970s tones — olive, terracotta, warm brown, "
+    "illustrated vintage style — nostalgic, warm, instantly recognizable",
 
-    "A young man at a wooden desk by a floor-to-ceiling window at dusk, "
-    "the sky outside is deep cerulean blue fading to teal, "
-    "his desk lamp casting warm amber, papers around him, "
-    "cinematic and atmospheric — warm amber meets cool blue dusk",
+    "Someone writing in a journal by a window, morning light on the page, "
+    "warm beige and sage tones, tea steaming beside them, "
+    "illustrated semi-realistic style — peaceful, clear, inviting",
 ]
 
 _SCENE_POOL_TWO_PEOPLE = [
-    # Two people — connection and distance
-    "Two people under one umbrella in the rain, not touching, looking in different directions, "
-    "warm amber streetlight reflecting in puddles, muted teal and brown tones",
+    # Two people — connection, warmth, distance
+    "Two people sitting on a train facing each other through the window, "
+    "soft afternoon light, warm sage-green and beige tones, "
+    "illustrated manga style — clear faces, warm muted palette, tender mood",
 
-    "Two small silhouettes on a hilltop at sunset, close but silent, "
-    "blazing orange and burgundy sky behind them, long grass in the foreground",
+    "Two silhouettes standing in a misty green field at dawn, "
+    "pale morning light, soft fog around their feet, "
+    "warm olive and beige tones, illustrated Ghibli style — peaceful and emotional",
 
-    "A couple standing in a doorway, one staying, one leaving, warm light inside, "
-    "cool blue outside, the contrast sharp and emotional, illustrated realism style",
+    "Two people walking side by side down a leafy autumn path, "
+    "dappled golden afternoon light, muted amber and olive tones, "
+    "illustrated style — warm, nostalgic, clear and beautiful",
 
-    "Two people sitting on a rooftop at night, city lights below, "
-    "one looking up at stars, one looking down, warm amber tones, cinematic",
+    "A couple sitting on a park bench in soft autumn light, "
+    "not talking, both looking into the distance, fallen leaves around them, "
+    "muted earthy palette — dusty gold, sage, warm beige, illustrated graphic novel style",
 
-    "Two figures walking apart on a rainy cobblestone street at night, "
-    "streetlamps glowing amber, dark puddles, distance between them feels immense",
+    "Two people at a cafe window, one looking out, one looking at the other, "
+    "warm interior light, rain visible outside, muted warm palette, "
+    "illustrated semi-realistic style — intimate, clear, emotionally rich",
 ]
 
-# Combined pool — weighted: more wide + interior (they get highest engagement)
+# Combined pool — weighted for variety
 _SCENE_POOL = (
-    _SCENE_POOL_CLOSEUP * 2 +   # 14 entries
-    _SCENE_POOL_WIDE * 2 +       # 14 entries
-    _SCENE_POOL_INTERIOR * 3 +   # 18 entries (highest weight — 156 views)
-    _SCENE_POOL_TWO_PEOPLE * 1   # 5 entries
+    _SCENE_POOL_CLOSEUP * 2 +
+    _SCENE_POOL_WIDE * 2 +
+    _SCENE_POOL_INTERIOR * 3 +
+    _SCENE_POOL_TWO_PEOPLE * 2
 )
 
-# Art style — matches Whisprs: graphic novel illustration with warm earthy palette
-# Key: illustrated style NOT photorealistic, character-focused, warm muted tones
-# Dark romantic style — matches Whispers of Heart: B&W anime couple art, moody, high contrast
+# ── Art style variants — ALL based on Whisprs aesthetic ──────────────────────
+# Key: muted earthy illustrated, NOT dark gothic, NOT photorealistic, NOT creepy
 _LOVE_STYLE_VARIANTS = [
     (
-        "Dark romantic anime illustration style, black and white with soft grey tones. "
-        "Intimate couple scene — close faces, gentle touch, tender moment. "
-        "High contrast: deep blacks, soft white highlights, cinematic mood. "
-        "Style similar to romantic manhwa or webtoon — detailed linework, emotional expressions. "
-        "Dark background, subjects softly lit. NOT colorful. Moody, intimate, beautifully dark."
+        "Semi-realistic manga illustration style — warm and intimate. "
+        "Muted earthy palette: warm terracotta, soft beige, dusty rose, sage green. "
+        "Two people in a tender close moment — foreheads touching, gentle embrace, holding hands. "
+        "Soft natural lighting, clear visible faces with warm skin tones. "
+        "Like a beautiful romance manga panel — NOT dark, NOT gothic. Warm, clear, emotionally tender."
     ),
     (
-        "Romantic illustrated art, dark and cinematic. Monochrome palette — charcoal, silver, soft white. "
-        "Two people in an intimate moment — forehead to forehead, holding hands, close together. "
-        "Detailed semi-realistic illustration, soft linework, deeply emotional. "
-        "Dark atmospheric background with subtle light source (moon, lamp, window). "
-        "Style: beautiful dark romance illustration. NOT colorful. Moody and tender."
+        "Illustrated anime-style romantic art — soft warm tones, clearly readable. "
+        "Palette: warm dusty rose, soft cream, muted terracotta, sage. "
+        "Intimate couple scene — close faces, gentle expressions, clear emotions visible. "
+        "Soft diffuse light, no harsh shadows, backgrounds soft and muted. "
+        "Style: beautiful illustrated romance — like a Studio Ghibli love scene. Warm and tender."
     ),
     (
-        "Black and white romantic illustration, manga-inspired emotional art. "
-        "Close-up of a couple in a tender quiet moment — not dramatic, just present with each other. "
-        "Soft detailed facial expressions, gentle touch or gaze. "
-        "Deep dark background, subjects illuminated by soft diffuse light. "
-        "High contrast, cinematic composition. Style: romantic webtoon meets fine art illustration."
+        "Romantic graphic novel illustration — muted warm palette, clear characters. "
+        "Warm earthy tones: dusty rose, terracotta, warm olive, soft cream. "
+        "Two people close together, faces clearly visible, tender emotional expressions. "
+        "Soft natural lighting from a window or lamp, backgrounds warm and simple. "
+        "Like a beautifully drawn romance webtoon — NOT dark or moody. Clear, warm, loving."
     ),
 ]
 
 _STYLE_VARIANTS = [
     (
-        "Cinematic graphic novel illustration — rich, colorful, and emotionally atmospheric. "
-        "Color palette: deep cerulean blue, teal, forest green, soft purple, moonlit silver — cool-toned but vibrant. "
-        "Scenes feel alive with color: lush night skies, glowing city lights, moonlit water, misty forests. "
-        "Characters have detailed emotional expressions. Semi-realistic illustration, painterly style. "
-        "Think: Studio Ghibli meets graphic novel — beautiful, colorful, atmospheric. NOT dark grey. NOT near-black. "
-        "Has real color throughout. Cinematic but visually stunning and cool-toned."
+        "Semi-realistic illustrated art in the style of Whisprs — muted earthy palette, airy and clear. "
+        "Colors: warm olive green, dusty sage, terracotta, warm beige, soft teal-grey. "
+        "Scenes feel open and breathable — NOT dark, NOT gothic, NOT creepy. "
+        "Characters have clearly visible faces and warm skin tones. "
+        "Backgrounds: misty fields, soft skies, cosy interiors — all readable and immediately clear. "
+        "Style: Studio Ghibli meets manga illustration — beautiful, muted, emotionally resonant. "
+        "NOT photorealistic. NOT dark. NOT saturated neon. Muted, warm, illustrated."
     ),
     (
-        "Illustrated emotional art — cool-toned cinematic palette, rich and colorful. "
-        "Dominant colors: deep teal, midnight blue, moonlit silver, forest green, soft lavender. "
-        "Scenes: moonlit landscapes, glowing city at night, misty mountains, interior with warm lamp vs cool blue outside. "
-        "Graphic novel illustration style — detailed linework, rich color fills, dramatic lighting. "
-        "Mountains and fields: lush green or misty blue-green, NOT grey. "
-        "Night scenes: deep blue sky with bright moon and stars, NOT black. "
-        "Colorful, beautiful, atmospheric. Cool tones. Emotionally stirring."
+        "Manga-inspired semi-realistic illustration — Whisprs aesthetic, muted and earthy. "
+        "Palette: warm dusty sage, olive green, terracotta rose, warm beige, soft grey-blue sky. "
+        "Scenes are clear and instantly readable — you know immediately what you're seeing. "
+        "Characters: visible faces, warm natural skin tones, natural relaxed poses. "
+        "Lighting: soft diffuse daylight or warm lamp — NOT dramatic, NOT dark. "
+        "Style: like a beautifully illustrated graphic novel or anime film concept art. "
+        "Relaxed, warm, melancholic but NOT threatening or dark."
     ),
     (
-        "Painterly cinematic illustration — atmospheric and colorful. "
-        "Cool color palette: cerulean blue, teal-green, misty grey-blue, soft gold moonlight, silver fog. "
-        "Landscapes feel ALIVE: verdant rolling hills under dramatic blue sky, "
-        "misty blue mountains with golden sunset, moonlit valleys with silver mist. "
-        "Interior scenes: warm amber lamp glow against cool blue window light. "
-        "Characters detailed and emotional. Semi-realistic illustrated style. "
-        "NOT dark and creepy. Rich colors. Breathtaking. Like a beautiful animated film frame."
+        "Illustrated art style — vintage travel poster meets Studio Ghibli, muted earthy tones. "
+        "Colors: dusty teal, muted olive, warm terracotta, pale beige, soft sage — "
+        "all desaturated and gentle, like faded beautiful memories. "
+        "Wide scenes: misty mountains, airy fields, foggy forests — all light and breathable. "
+        "Portrait scenes: clear faces, warm light, simple readable backgrounds. "
+        "NOT dark, NOT gothic, NOT neon. Gentle, muted, illustrated, emotionally warm."
     ),
     (
-        "Emotional illustrated art, cinematic color grading — cool blue-teal dominant. "
-        "Think: moonlit nights with rich deep blue, glowing amber street lamps, "
-        "teal-lit rain-soaked streets, misty green forests with filtered light. "
-        "Wide scenes: dramatic mountain valleys in misty blue-grey, golden-hour fields with deep sky. "
-        "Interior scenes: arched windows with moonlight, warm lamp against cool dark. "
-        "Graphic novel art style — detailed, colorful, emotionally immersive. "
-        "Colors should feel COOL and BEAUTIFUL not warm/orange/dark. Teal, blue, green, silver."
+        "Semi-realistic graphic novel illustration — Whisprs style, clean and muted. "
+        "Muted earthy palette: warm sage green, dusty terracotta, beige, soft grey-blue. "
+        "Every scene immediately clear and readable — no confusion, no darkness. "
+        "Landscapes: misty and airy — morning fog, soft skies, gentle light. "
+        "Characters: detailed visible faces, warm tones, emotionally expressive. "
+        "Like a beautifully drawn illustrated novel — peaceful, melancholic, clearly illustrated. "
+        "Absolutely NOT dark gothic or creepy. Clean, illustrated, emotionally resonant."
     ),
 ]
 

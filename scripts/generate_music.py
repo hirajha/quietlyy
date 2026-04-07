@@ -112,11 +112,13 @@ REJECT_KEYWORDS = [
     "children", "kids", "cartoon",
 ]
 
-# Base Freesound filter — applied to all styles
+# Base Freesound filter — CC0 LICENSE ONLY (prevents Meta/YouTube muting)
+# CC0 = Creative Commons Zero — public domain, no restrictions, safe for commercial use
 FREESOUND_BASE_FILTER = (
-    "duration:[30 TO 180] "
-    "tag:instrumental "
-    "-tag:comedy -tag:dance -tag:funny -tag:party"
+    'duration:[30 TO 180] '
+    'tag:instrumental '
+    'license:"Creative Commons 0" '
+    '-tag:comedy -tag:dance -tag:funny -tag:party'
 )
 
 

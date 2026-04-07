@@ -110,6 +110,7 @@ jobs:
             output/instagram_error.json
             output/youtube_result.json
             output/manual_caption.txt
+            output/copyright_check.json
           retention-days: 30
           if-no-files-found: ignore
 

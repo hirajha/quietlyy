@@ -156,32 +156,33 @@ EXAMPLES:
 {examples_text}"""
 
     elif style == "nostalgic":
-        return f"""Generate a viral 25-second script in "Quietlyy" nostalgic style.{audience_block}{avoid_block}
+        return f"""Generate a viral 25-30 second script in "Quietlyy" nostalgic style.{audience_block}{avoid_block}
 
 Topic: {topic}
-Tone: quiet, melancholic, deeply human
+Audience: Women 55-64, mostly American — they remember when family togetherness, neighborhood warmth, and real conversation were everyday things. Speak directly to that ache.
+Tone: warm, melancholic, deeply human — like a memory that still aches beautifully
 
-Rules:
-- Hook in first 2 lines. Gut-punch ending.
-- NEVER start with "There was a time" — this is strictly banned. Use a different, more personal opener.
-- NEVER start with "In a world", "We live in", "Have you ever", or any generic opener.
-- Use "\u2026" for emotional pauses
-- Exactly 5 lines, each on its own line
-- About PEOPLE and HUMAN CONNECTION, not the object itself
-- NO hashtags, emojis, stage directions
+CRITICAL RULES:
+- The topic is a trigger for a FEELING, not the subject of the poem.
+  WRONG: "Remember when we gathered around the television?" (this is about the object)
+  RIGHT: "Remember when nobody wanted the night to end?" (this is about the connection)
+- NEVER mention the physical object, technology, or thing directly
+- NEVER start with "There was a time", "In a world", "Have you ever", "We live in", "Some people", "Not everyone"
+- Short punchy lines — 8-12 words max per line, feels like a quiet spoken memory
+- Use "…" for emotional pauses
+- 6-9 lines total
 
 Structure:
-Line 1: HOOK — something we lost or used to have (make it feel personal, not generic)
-Line 2: Why it mattered — the warmth or beauty of that time
-Line 3: The emotional turn — when things changed
-Line 4: The cold modern contrast — what we do now instead
-Line 5: Quiet lesson or realization — give them something to carry
-Last line (optional): A natural, soft nudge — e.g. "Share this with someone who needs it." or "Save this for the quiet days."
+Line 1-2: HOOK — paint a picture of people together, warmth, belonging (not the thing)
+Line 3-4: The specific feeling that existed then — why it mattered to the soul
+Line 5-6: The quiet shift — honest but not bitter, just true
+Line 7-8: Gentle ache or realization — something they can feel in their chest
+Last line: Soft share nudge — "Send this to someone you used to be closer to." or "Save this for the people who still matter."
 
-Also provide 4 visual keywords (emotional scenes/people, not objects).
+Also provide 4 visual keywords (warm human scenes: family gatherings, people together, shared moments — NO objects).
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
 
 EXAMPLES:
 {examples_text}"""
