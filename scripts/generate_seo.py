@@ -1,53 +1,118 @@
 """
 Quietlyy — SEO & Metadata Optimizer
-Generates AI-powered, platform-specific SEO metadata for every video.
+2026 algorithm-optimised: DM shares > saves > watch time > likes.
+Hashtags secondary to caption keywords for discovery.
 
-Produces:
-  - Facebook/Instagram: short caption + 25 hashtags (with geo tags), AI disclosure
-  - YouTube Shorts: compelling title, short description, 15 tags, AI disclosure
-  - Posting time recommendations for international audience
-
-Uses same AI providers as generate_script.py (Gemini → OpenAI → Groq → fallback).
+Key insight from research:
+  - DM shares (#1 signal): "send this to someone" CTA drives distribution
+  - Watch time: first 3 seconds decide reach (5-10x difference)
+  - Caption keywords: now more important than hashtags for discovery
+  - Hashtag mix: niche (10K-500K) + mid (1M-5M), NOT just giant tags
+  - Trending audio: +67% views (handled separately)
 """
 
 import os
 import json
+import random
 import requests
 
 BRAND = "Quietlyy"
 YT_HANDLE = "@SayQuietlyy"
 
-# AI disclosure — platform-policy compliant, minimal
-FB_AI_DISCLOSURE  = "AI assistance was used in the making of this video."
-YT_AI_DISCLOSURE  = "AI assistance was used in the making of this video."
+FB_AI_DISCLOSURE = "AI assistance was used in the making of this video."
+YT_AI_DISCLOSURE = "AI assistance was used in the making of this video."
 
-# ── Geo hashtags — always included to capture global audience ─────────────
-GEO_TAGS = ["usa", "uk", "india", "canada", "australia", "uae", "viral"]
-
-# ── Fallback hashtag sets ─────────────────────────────────────────────────
-BASE_FB_TAGS = [
-    "nostalgia", "deepthoughts", "lifequotes", "reflection", "memories",
-    "emotionalquotes", "reels", "viralreels", "quotesoftheday", "relatable",
-    "feelingsdeep", "mindfulness", "poetrylovers", "wordsthatmatter",
+# ── Tiered hashtag pools — niche tags outperform giant ones for new pages ──
+# Tier 1: Niche (10K–500K posts) — easiest to rank, most targeted audience
+TAGS_NICHE_EMOTIONAL = [
+    "emotionalhealing", "deepwordsdeepfeelings", "wordsthatheal",
+    "feelingsquotes", "soulfulwords", "wordsthatmatter", "quietmoments",
+    "innerpeacequotes", "selfreflectionquotes", "silentfeelings",
+    "poetryofinstagram", "wordsthatfit", "emotionalpoetry", "deepemotions",
+    "poetrysoul", "sadpoetry", "poetryrise", "brokenbutbeautiful",
+]
+TAGS_NICHE_NOSTALGIC = [
+    "nostalgiavibes", "childhoodmemories", "throwbackfeeling", "missthosdays",
+    "olddaysmemories", "rememberingthepast", "nostalgiahit", "memorylane",
+    "pastmemories", "throwbackemotion", "nostalgiapoetry", "missingyou",
+]
+TAGS_NICHE_LOVE = [
+    "lovepoetry", "romanticpoetry", "lovewords", "couplesquotes",
+    "loveletters", "soulmatequotes", "tagsomeone", "sendthem",
+    "lovequotes2026", "relationshippoetry", "heartfeltemotions",
+]
+TAGS_NICHE_POETIC = [
+    "poetrycommunity", "poetsofinstagram", "poetrylovers", "writersofinstagram",
+    "instapoets", "poetryisnotdead", "micropoetry", "spilledink",
+    "wordsofwisdom", "deepthoughtsquotes", "soulfulpoetry",
+]
+TAGS_NICHE_MOTIVATIONAL = [
+    "lifelessons", "wisdomquotes", "growthmindsetquotes", "selfgrowthquotes",
+    "lifewisdom", "dailywisdom", "quotestoliveby", "mindsetshift",
+    "lifeadvice", "purposequotes", "selfdiscovery",
 ]
 
-LOVE_FB_TAGS = [
-    "love", "lovequotes", "couplegoals", "relationship", "tagsomeone",
-    "romanticquotes", "lovepoetry", "soulmate", "truelove", "heartfelt",
-    "lovestory", "romanticreels", "lovecaptions", "relationshipgoals",
+# Tier 2: Mid (1M–5M) — good reach, moderate competition
+TAGS_MID = [
+    "quotes", "poetry", "deepthoughts", "lifequotes", "emotionalquotes",
+    "reflection", "selfhealing", "mentalhealth", "relatable", "feelings",
+    "motivation", "inspiration", "mindfulness", "healing", "love",
 ]
 
-BASE_YT_TAGS = [
-    "Shorts", "nostalgia", "deepthoughts", "lifequotes", "reflection",
-    "emotionalquotes", "relatable", "viral", "youtubeshorts",
-    "motivationalquotes", "feelings", "trending", "poetry",
+# Tier 3: Discovery/Reels — algorithm surface tags
+TAGS_REELS = [
+    "reels", "reelsofinstagram", "reelsviral", "explorepage",
+    "foryoupage", "fyp", "viralreels", "trending",
 ]
 
-SEO_PROMPT = """You are an expert social media SEO specialist for short-form emotional content targeting a global audience (India, USA, UK, Canada, Australia, UAE).
+# Geo — low impact but harmless, keep a few
+GEO_TAGS = ["india", "usa", "uk", "uae"]
+
+# ── Style-specific tag pools ──────────────────────────────────────────────
+STYLE_TAGS = {
+    "emotional":    TAGS_NICHE_EMOTIONAL,
+    "nostalgic":    TAGS_NICHE_NOSTALGIC + TAGS_NICHE_EMOTIONAL[:5],
+    "poetic":       TAGS_NICHE_POETIC + TAGS_NICHE_EMOTIONAL[:5],
+    "love":         TAGS_NICHE_LOVE + TAGS_NICHE_EMOTIONAL[:4],
+    "motivational": TAGS_NICHE_MOTIVATIONAL + TAGS_NICHE_EMOTIONAL[:4],
+}
+
+# ── CTAs — DM share is #1 distribution signal, per 2026 algorithm research ─
+CTA_SHARE_BLOCKS = {
+    "emotional": (
+        "📩 Send this to someone who needs to hear it.\n"
+        "💾 Save it for when you forget your worth.\n"
+    ),
+    "nostalgic": (
+        "📩 Send this to someone you grew up with.\n"
+        "💾 Save this — some memories deserve to stay close.\n"
+    ),
+    "poetic": (
+        "📩 Send this to someone who feels things deeply.\n"
+        "💾 Save it for a quiet night.\n"
+    ),
+    "love": (
+        "❤️ Send this to the person you thought of.\n"
+        "📩 Tag them. They need to know.\n"
+    ),
+    "motivational": (
+        "📩 Send this to someone who needs a reminder today.\n"
+        "💾 Save it — you'll need this again.\n"
+    ),
+}
+
+SEO_PROMPT = """You are an Instagram SEO expert for short-form emotional content (2026 algorithm).
+
+Key facts about 2026 Instagram algorithm:
+- DM shares are the #1 distribution signal (more than likes or saves)
+- Caption KEYWORDS drive discovery (more than hashtags now)
+- First 3 seconds of video decide reach — hook must be in caption too
+- Niche hashtags (10K-500K posts) outperform giant hashtags for new pages
 
 Topic: {topic}
+Style: {style}
 Visual keywords: {keywords}
-Script theme: {theme}
+Script opening line: {theme}
 
 Generate optimized metadata. Return ONLY valid JSON:
 {{
@@ -64,14 +129,12 @@ Generate optimized metadata. Return ONLY valid JSON:
 }}
 
 Rules:
-- short_caption: 1-2 punchy sentences max (NOT the full script). Emotionally compelling. No hashtags.
-- instagram_hashtags: exactly 25 tags, NO # symbol, NO spaces, all lowercase.
-  Must include: 5 broad emotional (nostalgia, quotes, viral), 8 topic-specific,
-  5 geo-audience (usa, uk, india, canada, australia), 7 engagement (foryou, reels, trending, explore)
-- youtube_title: under 60 chars, emotionally compelling, NO hashtags
-- youtube_tags: exactly 15 tags, NO AI-related tags
-- youtube_seo_line: 1 sentence under 120 chars for search discovery
-- best_post_times: optimal times in IST for THIS specific content to reach global audience"""
+- short_caption: 2-3 emotionally compelling sentences. Include the topic keyword naturally (for discovery). NO hashtags. Should make someone stop scrolling. Reference the emotional theme directly.
+- instagram_hashtags: exactly 20 tags, NO # symbol, all lowercase. Mix: 8 niche (under 500K posts), 7 mid-size (1M-5M posts), 5 broad discovery. Topic-specific tags preferred over generic ones.
+- youtube_title: under 60 chars, emotionally compelling, includes main keyword
+- youtube_tags: exactly 15 tags, mix of specific and broad
+- youtube_seo_line: 1 sentence, 120 chars max, keyword-rich for search
+- best_post_times: 2 optimal IST times targeting India peak + global overlap"""
 
 
 def _call_openai_compatible(url, key, model, prompt):
@@ -161,10 +224,14 @@ def _template_fallback(topic, script_text):
     first_line = [l.strip() for l in script_text.split("\n") if l.strip()][0]
     caption = first_line[:100]
 
-    ig_tags = BASE_FB_TAGS + GEO_TAGS + [topic_tag, "quotes", "emotional", "poetry"]
+    ig_tags = [topic_tag, "quotes", "emotional", "poetry", "deepthoughts",
+               "emotionalquotes", "reels", "poetrycommunity", "feelings",
+               "relatable"] + GEO_TAGS
     ig_tags = list(dict.fromkeys(ig_tags))[:25]
 
-    yt_tags = BASE_YT_TAGS + [topic_tag, "emotional", "poetry"]
+    yt_tags = ["Shorts", "nostalgia", "deepthoughts", "lifequotes",
+               "emotionalquotes", "relatable", "viral", "youtubeshorts",
+               "poetry", "feelings", topic_tag, "emotional", "trending"]
     yt_tags = list(dict.fromkeys(yt_tags))[:15]
 
     return {
@@ -174,14 +241,42 @@ def _template_fallback(topic, script_text):
         "youtube_tags": yt_tags,
         "youtube_seo_line": f"A quiet reflection on {topic} — words that hit different.",
         "best_post_times": {
-            "facebook_instagram": ["11:00", "20:00"],
+            "facebook_instagram": ["11:00", "22:00"],
             "youtube": ["20:30", "22:00"],
-            "reasoning": "Peak scroll times for India + evening overlap with USA/UK mornings.",
+            "reasoning": "11AM IST morning scroll peak + 10PM late-night emotional scroll.",
         },
     }
 
 
 # ── Public API ──────────────────────────────────────────────────────────────
+
+def _build_hashtag_set(ai_tags, style):
+    """Build a tiered hashtag set: AI suggestions + niche pool + mid + reels + geo.
+    25 total. Niche tags (easier to rank) weighted highest for new page growth."""
+    clean = [t.lstrip("#").lower().replace(" ", "") for t in (ai_tags or [])]
+
+    # Pull from style-specific niche pool
+    niche_pool = STYLE_TAGS.get(style, TAGS_NICHE_EMOTIONAL)
+    niche_sample = random.sample(niche_pool, min(6, len(niche_pool)))
+
+    # Mid-size tags
+    mid_sample = random.sample(TAGS_MID, min(5, len(TAGS_MID)))
+
+    # Reels/discovery
+    reels_sample = random.sample(TAGS_REELS, min(4, len(TAGS_REELS)))
+
+    # Combine: AI first (most topic-specific), then niche, mid, reels, geo
+    combined = clean + niche_sample + mid_sample + reels_sample + GEO_TAGS
+    # Deduplicate preserving order
+    seen = set()
+    result = []
+    for t in combined:
+        if t not in seen and t:
+            seen.add(t)
+            result.append(t)
+
+    return result[:25]
+
 
 def generate_seo(topic, script_text, visual_keywords, style="emotional"):
     """
@@ -193,10 +288,11 @@ def generate_seo(topic, script_text, visual_keywords, style="emotional"):
     }
     """
     lines = [l.strip() for l in script_text.split("\n") if l.strip()]
-    theme = lines[0] if lines else topic  # first line as theme hint for AI
+    theme = lines[0] if lines else topic
 
     prompt = SEO_PROMPT.format(
         topic=topic,
+        style=style,
         keywords=", ".join(visual_keywords),
         theme=theme,
     )
@@ -212,33 +308,14 @@ def generate_seo(topic, script_text, visual_keywords, style="emotional"):
         print("[seo] Using template fallback")
         ai_data = _template_fallback(topic, script_text)
 
-    # ── Hashtags — inject geo tags + love tags for love style ─────────────
-    base_tags = LOVE_FB_TAGS if style == "love" else BASE_FB_TAGS
-    ig_tags = ai_data.get("instagram_hashtags", base_tags)
-    ig_tags_clean = [t.lstrip("#").lower().replace(" ", "") for t in ig_tags]
-    for geo in GEO_TAGS:
-        if geo not in ig_tags_clean:
-            ig_tags_clean.append(geo)
-    if style == "love":
-        for lt in ["love", "tagsomeone", "lovequotes"]:
-            if lt not in ig_tags_clean:
-                ig_tags_clean.append(lt)
-    ig_tags_clean = list(dict.fromkeys(ig_tags_clean))[:25]
+    # ── Hashtags — tiered system: niche > mid > reels > geo ──────────────
+    ig_tags_clean = _build_hashtag_set(ai_data.get("instagram_hashtags", []), style)
     hashtag_str = " ".join(f"#{t}" for t in ig_tags_clean)
 
-    # ── Facebook / Instagram — CTA varies by style ────────────────────────
+    # ── CTA — DM share is #1 distribution signal per 2026 research ───────
     short_caption = ai_data.get("short_caption", theme)
-    if style == "love":
-        cta_block = (
-            "❤️ Tag the person you thought of while reading this.\n"
-            "💾 Send it to them. They need to know.\n"
-        )
-    else:
-        cta_block = (
-            "💾 Save this for when you need it.\n"
-            "❤️ Like if this hit different.\n"
-            "👇 Tag someone who needs to hear this.\n"
-        )
+    cta_block = CTA_SHARE_BLOCKS.get(style, CTA_SHARE_BLOCKS["emotional"])
+
     fb_description = (
         f"{short_caption}\n\n"
         f"{cta_block}\n"
