@@ -75,28 +75,9 @@ def _add_to_gallery(image_path, topic, panel_num, source):
 
 
 def _pick_reuse_panels(num_panels):
-    """Decide which panels get reused gallery images.
-    Rules: never panel 0, max MAX_REUSE_PER_VIDEO panels, random selection."""
-    index = _load_gallery_index()
-    if len(index) < REUSE_THRESHOLD:
-        return {}  # Not enough images yet
-
-    # Eligible panels: 1 through num_panels-1 (never 0 = start of video)
-    eligible = list(range(1, num_panels))
-    num_reuse = min(random.randint(2, MAX_REUSE_PER_VIDEO), len(eligible))
-    reuse_panels = random.sample(eligible, num_reuse)
-
-    # Pick random gallery images (different ones)
-    chosen = random.sample(index, min(num_reuse, len(index)))
-    result = {}
-    for i, panel_idx in enumerate(reuse_panels):
-        entry = chosen[i]
-        gallery_path = os.path.join(GALLERY_DIR, entry["file"])
-        if os.path.exists(gallery_path):
-            result[panel_idx] = gallery_path
-            print(f"[images] Panel {panel_idx+1}: reusing gallery image {entry['file']} (topic: {entry['topic']})")
-
-    return result
+    """Gallery reuse disabled — every panel is freshly generated with DALL-E.
+    Reusing random gallery images caused wrong-topic frames to appear mid-video."""
+    return {}
 
 
 # ── Whisprs-style aesthetic reference (1.6M / 1.8M view videos):

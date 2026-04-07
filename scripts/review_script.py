@@ -16,7 +16,7 @@ import re
 import hashlib
 import requests
 
-USED_SCRIPTS_PATH = os.path.join(os.path.dirname(__file__), "..", "output", "used_scripts.json")
+USED_SCRIPTS_PATH = os.path.join(os.path.dirname(__file__), "..", "assets", "used_scripts.json")
 
 # Openers that are overused / banned
 BANNED_OPENERS = [
@@ -162,18 +162,24 @@ def check_duplicate(script_text):
         if sim >= SIMILARITY_THRESHOLD:
             return False, f"Too similar to '{prev['topic']}' (word overlap: {sim:.0%})"
 
-        # Concept-level: same core themes AND same metaphors = reject
+        # Concept-level duplicate detection
         prev_themes = set(prev.get("themes", []))
         prev_metaphors = set(prev.get("metaphors", []))
         theme_overlap = new_themes & prev_themes
         metaphor_overlap = new_metaphors & prev_metaphors
 
-        # If it covers the same emotional territory with the same imagery — it's a duplicate in spirit
-        if len(theme_overlap) >= 2 and len(metaphor_overlap) >= 2:
+        # Same emotional territory = same story even with different words → reject
+        if len(theme_overlap) >= 2:
+            return False, (
+                f"Same emotional story as '{prev['topic']}' — "
+                f"same themes: {', '.join(list(theme_overlap)[:3])}. Need a completely different angle."
+            )
+        # Same imagery + same theme = reject
+        if len(theme_overlap) >= 1 and len(metaphor_overlap) >= 2:
             return False, (
                 f"Conceptual duplicate of '{prev['topic']}' — "
-                f"same themes ({', '.join(list(theme_overlap)[:3])}) "
-                f"and same metaphors ({', '.join(list(metaphor_overlap)[:3])})"
+                f"same theme ({', '.join(list(theme_overlap))}) "
+                f"with same imagery ({', '.join(list(metaphor_overlap)[:3])})"
             )
 
     return True, "OK"
@@ -242,7 +248,7 @@ def _call_openai(prompt):
         "https://api.openai.com/v1/chat/completions",
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
         json={
-            "model": "gpt-4o-mini",
+            "model": "gpt-4o",
             "messages": [{"role": "user", "content": prompt}],
             "max_tokens": 200,
             "temperature": 0.3,

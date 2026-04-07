@@ -207,8 +207,10 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
     # Use actual per-line audio durations so each panel matches its narration
     TAIL_PAD = 4.0
     AUDIO_GAP = 1.0  # must match LINE_GAP in generate_audio.py
-    # GAP == AUDIO_GAP: eliminates cumulative drift
     GAP = AUDIO_GAP
+    # XFADE defined here (before seg_durations) so non-last clips can be extended
+    # to compensate for the overlap — eliminates cumulative drift in second half
+    XFADE = 0.6
 
     line_durations = []
     for i in range(num_lines):
@@ -226,6 +228,10 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             group_dur = sum(line_durations[li + j] + GAP for j in range(len(group)))
             if is_last:
                 group_dur = group_dur - GAP + TAIL_PAD  # swap final gap → tail pad
+            else:
+                group_dur += XFADE  # extend each non-last clip by XFADE duration
+                # Without this, each xfade steals 0.6s from the timeline causing
+                # cumulative drift: panel 2 is 0.6s early, panel 3 is 1.2s early, etc.
             seg_durations.append(group_dur)
             li += len(group)
         print(f"[video] Using per-group durations ({num_groups} groups): {[f'{d:.1f}s' for d in seg_durations]}")
@@ -305,7 +311,6 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         print(f"[video]   Group {g_i+1}/{num_groups} ({len(group)} lines, {seg_durations[g_i]:.1f}s): {lines_label}")
 
     # Step 2: Concat all clips with crossfade
-    XFADE = 0.6   # slower fade between images — less jarring, more cinematic
     output_no_audio = os.path.join(OUTPUT_DIR, "_video_noaudio.mp4")
 
     if len(panel_videos) == 1:
@@ -368,9 +373,8 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-i", audio_path,
             "-stream_loop", "-1", "-i", music_path,
             "-filter_complex",
-            # Music: volume 0.30 (~-20 LUFS vs voice -16 LUFS) — standard for emotional reels
-            f"[2:a]volume=0.30,"
-            f"equalizer=f=2000:width_type=o:width=2:g=-4,"
+            # Music: volume 0.35 — equalizer removed (was cutting 4dB at 2kHz, muting piano tracks)
+            f"[2:a]volume=0.35,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4[music];"
             # Voice: loudnorm only — aresample=async was trimming the last lines (root cause of cutoff)
             # apad=pad_dur=1 adds 1s of silence buffer so loudnorm never eats the tail
