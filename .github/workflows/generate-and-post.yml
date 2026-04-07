@@ -82,6 +82,9 @@ jobs:
           if [ "${{ github.event.inputs.skip_youtube }}" = "true" ]; then
             ARGS="$ARGS --skip-youtube"
           fi
+          if [ -n "${{ github.event.inputs.custom_topic }}" ]; then
+            ARGS="$ARGS --topic=${{ github.event.inputs.custom_topic }}"
+          fi
           python scripts/pipeline.py $ARGS
 
       - name: Save gallery + research cache to repo

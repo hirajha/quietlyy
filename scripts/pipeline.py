@@ -102,7 +102,7 @@ def _is_quota_error(exc):
                                    "credits"])
 
 
-def run(skip_post=False, skip_youtube=False):
+def run(skip_post=False, skip_youtube=False, custom_topic=None):
     print("=" * 50)
     print("  QUIETLYY — Automated Video Pipeline")
     print("=" * 50)
@@ -139,10 +139,13 @@ def run(skip_post=False, skip_youtube=False):
 
     # ── Step 1: Generate 5 scripts → predict all → post the best ───────────
     print("\n[1/7] Generating 5 candidate scripts (quality gate + engagement scoring)...")
+    if custom_topic:
+        print(f"  Custom topic override: {custom_topic}")
     try:
         script_data = generate_best_script(
             tone_hints=tone_hints, theme_hints=top_themes,
             idea_hints=idea_hints, n_candidates=5,
+            forced_topic=custom_topic or None,
         )
     except Exception as e:
         if _is_quota_error(e):
@@ -302,4 +305,8 @@ def run(skip_post=False, skip_youtube=False):
 if __name__ == "__main__":
     skip = "--skip-post" in sys.argv
     skip_yt = "--skip-youtube" in sys.argv
-    run(skip_post=skip, skip_youtube=skip_yt)
+    topic_override = None
+    for arg in sys.argv:
+        if arg.startswith("--topic="):
+            topic_override = arg.split("=", 1)[1].strip()
+    run(skip_post=skip, skip_youtube=skip_yt, custom_topic=topic_override)
