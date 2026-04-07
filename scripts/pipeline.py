@@ -103,7 +103,7 @@ def _is_quota_error(exc):
                                    "credits"])
 
 
-def run(skip_post=False, skip_youtube=False, custom_topic=None):
+def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=None):
     print("=" * 50)
     print("  QUIETLYY — Automated Video Pipeline")
     print("=" * 50)
@@ -142,11 +142,14 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None):
     print("\n[1/7] Generating 5 candidate scripts (quality gate + engagement scoring)...")
     if custom_topic:
         print(f"  Custom topic override: {custom_topic}")
+    if forced_style:
+        print(f"  Style override: {forced_style}")
     try:
         script_data = generate_best_script(
             tone_hints=tone_hints, theme_hints=top_themes,
             idea_hints=idea_hints, n_candidates=5,
             forced_topic=custom_topic or None,
+            forced_style=forced_style or None,
         )
     except Exception as e:
         if _is_quota_error(e):
@@ -319,10 +322,28 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None):
 
 
 if __name__ == "__main__":
+    import datetime
     skip = "--skip-post" in sys.argv
     skip_yt = "--skip-youtube" in sys.argv
     topic_override = None
+    style_override = None
+
     for arg in sys.argv:
         if arg.startswith("--topic="):
             topic_override = arg.split("=", 1)[1].strip()
-    run(skip_post=skip, skip_youtube=skip_yt, custom_topic=topic_override)
+        if arg.startswith("--style="):
+            style_override = arg.split("=", 1)[1].strip()
+
+    # If no style override, auto-detect by time slot:
+    # Morning (UTC 0-11, = 11 AM IST) → nostalgic/forgotten connections
+    # Evening (UTC 12+, = 10 PM IST) → love/motivational/emotional/poetic rotation
+    if not style_override:
+        utc_hour = datetime.datetime.utcnow().hour
+        if utc_hour < 12:
+            style_override = "nostalgic"
+            print(f"[pipeline] Morning slot detected (UTC {utc_hour}h) → nostalgic/forgotten connections style")
+        else:
+            style_override = None  # Let generate_script rotate through love/emotional/poetic/motivational
+            print(f"[pipeline] Evening slot detected (UTC {utc_hour}h) → rotating love/emotional/poetic/motivational")
+
+    run(skip_post=skip, skip_youtube=skip_yt, custom_topic=topic_override, forced_style=style_override)

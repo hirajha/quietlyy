@@ -31,6 +31,11 @@ on:
         required: false
         default: ''
         type: string
+      style:
+        description: 'Force a style: emotional / nostalgic / love / poetic / motivational (leave empty for auto)'
+        required: false
+        default: ''
+        type: string
 
 jobs:
   generate-video:
@@ -84,6 +89,9 @@ jobs:
           fi
           if [ -n "${{ github.event.inputs.custom_topic }}" ]; then
             ARGS="$ARGS --topic=${{ github.event.inputs.custom_topic }}"
+          fi
+          if [ -n "${{ github.event.inputs.style }}" ]; then
+            ARGS="$ARGS --style=${{ github.event.inputs.style }}"
           fi
           python scripts/pipeline.py $ARGS
 

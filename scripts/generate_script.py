@@ -370,7 +370,7 @@ def generate_script(tone_hints="", theme_hints=None, idea_hints=""):
     raise RuntimeError(f"Script quality gate failed after {MAX_ATTEMPTS} attempts. Cannot proceed.")
 
 
-def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candidates=5, forced_topic=None):
+def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candidates=5, forced_topic=None, forced_style=None):
     """
     Generate up to n_candidates scripts that pass the quality gate,
     score each with the engagement predictor, and return the highest-scoring one.
@@ -395,6 +395,8 @@ def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candi
     while len(candidates) < n_candidates and attempt < MAX_TOTAL_ATTEMPTS:
         attempt += 1
         style, topic = pick_style_and_topic(templates, theme_hints=theme_hints)
+        if forced_style:
+            style = forced_style
         if forced_topic:
             topic = forced_topic
         prompt = build_prompt(topic, examples, style=style, tone_hints=tone_hints, idea_hints=idea_hints)
