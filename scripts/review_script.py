@@ -26,10 +26,15 @@ BANNED_OPENERS = [
     "we live in a world",
     "in today's world",
     "have you ever",
+    "life is",
+    "we all have",
+    "sometimes in life",
+    "not everyone",
+    "some people",
 ]
 
-# Minimum similarity threshold to flag as duplicate (0-1)
-SIMILARITY_THRESHOLD = 0.6
+# Tighter threshold — catch concept-level near-duplicates, not just word overlap
+SIMILARITY_THRESHOLD = 0.45
 
 
 def _normalize(text):
@@ -69,6 +74,43 @@ def load_used_scripts():
     return []
 
 
+# Common metaphors/images to track — if a script uses 2+ of these from recent scripts, reject
+TRACKED_METAPHORS = [
+    "candle", "storm", "umbrella", "roots", "tide", "shore", "ocean", "waves",
+    "shadow", "light", "rain", "fire", "wind", "bridge", "door", "window",
+    "mirror", "path", "road", "wall", "garden", "flower", "seed", "tree",
+    "star", "moon", "sun", "dark", "dawn", "silence", "noise", "echo",
+    "mask", "armor", "sword", "anchor", "compass", "map", "letter",
+]
+
+
+def _extract_metaphors(script_text):
+    """Extract which tracked metaphors appear in this script."""
+    normalized = _normalize(script_text)
+    return set(m for m in TRACKED_METAPHORS if m in normalized)
+
+
+def _extract_core_theme(script_text):
+    """Extract a rough theme fingerprint: dominant emotional concepts."""
+    normalized = _normalize(script_text)
+    theme_words = {
+        "loneliness": ["alone", "lonely", "solitude", "isolated", "left"],
+        "being_used": ["used", "needed", "convenient", "purpose", "utility"],
+        "heartbreak": ["heartbreak", "broke", "broken", "shattered", "hurt", "pain", "wound"],
+        "friendship_loss": ["friend", "friendship", "drifted", "apart", "distance", "grew"],
+        "self_worth": ["worth", "enough", "value", "deserve", "love yourself"],
+        "nostalgia": ["remember", "childhood", "younger", "past", "ago", "used to"],
+        "growth": ["grew", "grow", "stronger", "healed", "learned", "became"],
+        "love": ["love", "loved", "loving", "lover", "heart", "together"],
+        "grief_loss": ["lost", "gone", "miss", "grief", "death", "left behind"],
+        "silence": ["quiet", "silence", "silent", "still", "unspoken"],
+        "moving_on": ["moved on", "letting go", "release", "free", "forward"],
+    }
+    found = [theme for theme, words in theme_words.items()
+             if any(w in normalized for w in words)]
+    return set(found)
+
+
 def save_used_script(script_text, topic, style):
     scripts = load_used_scripts()
     scripts.append({
@@ -76,12 +118,26 @@ def save_used_script(script_text, topic, style):
         "style": style,
         "script": script_text,
         "hash": hashlib.md5(_normalize(script_text).encode()).hexdigest(),
+        "metaphors": list(_extract_metaphors(script_text)),
+        "themes": list(_extract_core_theme(script_text)),
     })
     # Keep last 60 scripts in memory
     scripts = scripts[-60:]
     os.makedirs(os.path.dirname(USED_SCRIPTS_PATH), exist_ok=True)
     with open(USED_SCRIPTS_PATH, "w") as f:
         json.dump(scripts, f, indent=2)
+
+
+def get_recently_used_context(n=8):
+    """Return recently used metaphors and themes for the generation prompt.
+    Used to tell the AI what to AVOID so it doesn't repeat itself."""
+    scripts = load_used_scripts()[-n:]
+    all_metaphors = set()
+    all_themes = set()
+    for s in scripts:
+        all_metaphors.update(s.get("metaphors", []))
+        all_themes.update(s.get("themes", []))
+    return list(all_metaphors), list(all_themes)
 
 
 def check_banned_opener(script_text):
@@ -94,13 +150,32 @@ def check_banned_opener(script_text):
 
 def check_duplicate(script_text):
     used = load_used_scripts()
-    for prev in used:
+    new_metaphors = _extract_metaphors(script_text)
+    new_themes = _extract_core_theme(script_text)
+
+    for prev in used[-20:]:  # check last 20
+        # Word/line level similarity
         sim = max(
             _similarity(script_text, prev["script"]),
             _word_overlap(script_text, prev["script"]) * 0.8,
         )
         if sim >= SIMILARITY_THRESHOLD:
-            return False, f"Too similar to previous script '{prev['topic']}' (similarity: {sim:.0%})"
+            return False, f"Too similar to '{prev['topic']}' (word overlap: {sim:.0%})"
+
+        # Concept-level: same core themes AND same metaphors = reject
+        prev_themes = set(prev.get("themes", []))
+        prev_metaphors = set(prev.get("metaphors", []))
+        theme_overlap = new_themes & prev_themes
+        metaphor_overlap = new_metaphors & prev_metaphors
+
+        # If it covers the same emotional territory with the same imagery — it's a duplicate in spirit
+        if len(theme_overlap) >= 2 and len(metaphor_overlap) >= 2:
+            return False, (
+                f"Conceptual duplicate of '{prev['topic']}' — "
+                f"same themes ({', '.join(list(theme_overlap)[:3])}) "
+                f"and same metaphors ({', '.join(list(metaphor_overlap)[:3])})"
+            )
+
     return True, "OK"
 
 
@@ -123,21 +198,26 @@ QUIETLYY QUALITY STANDARDS (study these examples):
 Score this script on these criteria (each 0-10):
 1. HOOK: Does the first line immediately grab? Would someone stop scrolling?
 2. EMOTION: Does it feel genuine? Would people feel it in their chest?
-3. ORIGINALITY: Is it fresh? NOT generic quotes you've seen 1000 times?
+3. ORIGINALITY: Is it a TRULY UNIQUE perspective — not a repackaged common idea?
 4. CONNECTION: Does it speak about real human pain — heartbreak, friendship, loss, growth?
 5. LESSON: Does it end with something the viewer can carry with them?
 
 Rules for REJECTION (score the whole script 0 if any apply):
-- First line is generic ("There was a time", "In a world", "We all have", "Life is")
-- Script sounds like a generic motivational poster — not personal
+- First line is generic ("There was a time", "In a world", "We all have", "Life is", "Some people", "Not everyone")
+- Script is a variation of a common idea — the MESSAGE is not new, even if the words are slightly different
+  Example of rejection: "You were used" = "They only needed you" = "You were their backup" — ALL THE SAME IDEA
+- Script uses only overused metaphors: candle, storm, tide, roots, umbrella, shore — with no fresh angle
 - Lines are all the same length / monotonous rhythm
 - No emotional turn or lesson at the end
-- Sounds like it was written by a robot trying to be deep
+- Sounds like a motivational poster or something you've read 100 times on Instagram already
+- The core insight could be summarized as a cliché: "people leave", "be yourself", "you deserve better"
+
+ORIGINALITY TEST: Ask yourself — has this specific combination of idea + angle + imagery been said before in this exact way? If the answer is "kind of yes" — reject it.
 
 Return ONLY valid JSON:
 {{"score": <overall 0-10>, "hook": <0-10>, "emotion": <0-10>, "originality": <0-10>, "approved": <true/false>, "reason": "<one sentence why>"}}
 
-A score of 6+ means approved. Be fair but not overly harsh — only truly moving scripts should pass."""
+A score of 7+ means approved. Be strict on originality — generic emotional content is everywhere. Only truly fresh scripts should pass."""
 
     # Try ChatGPT first, then Gemini
     for gen_fn, name in [(_call_openai, "ChatGPT"), (_call_gemini, "Gemini"), (_call_groq, "Groq")]:
@@ -236,7 +316,7 @@ def review_script(script_text, topic, style, examples):
     approved = ai_result.get("approved", score >= 6)
     reason = ai_result.get("reason", "")
 
-    if not approved or score < 6:
+    if not approved or score < 7:
         print(f"[quality] REJECTED (score {score}/10) — {reason}")
         return False, f"Score {score}/10: {reason}", score
 

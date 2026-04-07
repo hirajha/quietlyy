@@ -9,7 +9,7 @@ import json
 import random
 import requests
 
-from review_script import review_script, save_used_script
+from review_script import review_script, save_used_script, get_recently_used_context
 
 TEMPLATES_PATH = os.path.join(os.path.dirname(__file__), "..", "templates", "scripts.json")
 
@@ -88,10 +88,19 @@ def build_prompt(topic, examples, style="emotional", tone_hints="", idea_hints="
     if idea_hints:
         audience_block += f"\n{idea_hints}\n"
 
+    # Inject recently used metaphors/themes so AI explicitly avoids repeating them
+    used_metaphors, used_themes = get_recently_used_context(n=8)
+    avoid_block = ""
+    if used_metaphors:
+        avoid_block += f"\nDO NOT use these metaphors/images (already used recently): {', '.join(used_metaphors)}\n"
+    if used_themes:
+        avoid_block += f"DO NOT write about these emotional concepts (already covered recently): {', '.join(t.replace('_', ' ') for t in used_themes)}\n"
+    avoid_block += "Write something COMPLETELY DIFFERENT — a fresh angle, fresh imagery, fresh emotional territory.\n"
+
     if style == "poetic":
         style_examples = [e for e in examples if e.get("style") == "poetic"][:2]
         examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
-        return f"""Generate a viral 25-35 second spoken-word poem in "Quietlyy" poetic metaphor style.{audience_block}
+        return f"""Generate a viral 25-35 second spoken-word poem in "Quietlyy" poetic metaphor style.{audience_block}{avoid_block}
 
 Topic: {topic}
 Tone: lyrical, deeply felt, metaphor-driven — like spoken-word poetry meets emotional insight
@@ -123,7 +132,7 @@ EXAMPLES (study the structure — metaphor, paradox, quiet ending):
     elif style == "love":
         style_examples = [e for e in examples if e.get("style") == "love"][:2]
         examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
-        return f"""Generate a viral 20-30 second short love script in "Quietlyy" style.{audience_block}
+        return f"""Generate a viral 20-30 second short love script in "Quietlyy" style.{audience_block}{avoid_block}
 
 Topic: {topic}
 Tone: soft, intimate, romantic — makes people think of someone they love and want to share it with them
@@ -147,7 +156,7 @@ EXAMPLES:
 {examples_text}"""
 
     elif style == "nostalgic":
-        return f"""Generate a viral 25-second script in "Quietlyy" nostalgic style.{audience_block}
+        return f"""Generate a viral 25-second script in "Quietlyy" nostalgic style.{audience_block}{avoid_block}
 
 Topic: {topic}
 Tone: quiet, melancholic, deeply human
@@ -178,7 +187,7 @@ EXAMPLES:
 {examples_text}"""
 
     else:
-        return f"""Generate a viral 25-second emotional script in "Quietlyy" spoken-word style.{audience_block}
+        return f"""Generate a viral 25-second emotional script in "Quietlyy" spoken-word style.{audience_block}{avoid_block}
 
 Topic: {topic}
 Tone: raw, deeply human — heartbreak, friendship, missing someone, growing apart
@@ -217,7 +226,7 @@ def _call_openai_compatible(url, key, model, prompt):
             "model": model,
             "messages": [{"role": "user", "content": prompt}],
             "max_tokens": 350,
-            "temperature": 0.7,
+            "temperature": 0.92,
             "response_format": {"type": "json_object"},
         },
         timeout=30,
@@ -277,7 +286,7 @@ def generate_with_gemini(prompt):
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
                 "maxOutputTokens": 2000,
-                "temperature": 0.7,
+                "temperature": 0.92,
             },
         },
         timeout=60,
