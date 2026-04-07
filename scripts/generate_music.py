@@ -49,12 +49,16 @@ REJECT_KEYWORDS = [
     "children", "kids", "cartoon", "comedy",
 ]
 
-# Freesound filter: long ambient tracks only, exclude known happy/upbeat tags
+# Freesound filter: 30-180s tracks, 55-90 BPM (matches Whisprs 65-83 BPM profile),
+# instrumental only, exclude happy/upbeat tags
 FREESOUND_FILTER = (
     "duration:[30 TO 180] "
     "tag:instrumental "
     "-tag:happy -tag:cheerful -tag:upbeat -tag:comedy -tag:dance -tag:funny"
 )
+
+# BPM range filter — added separately as Freesound supports bpm field filter
+FREESOUND_BPM_FILTER = FREESOUND_FILTER + " bpm:[55 TO 90]"
 
 
 def _is_wrong_vibe(track):
@@ -66,43 +70,45 @@ def _is_wrong_vibe(track):
 
 
 def _search_freesound(query):
-    """Search Freesound for a meditative track. Returns (preview_url, track_name) or (None, None)."""
+    """Search Freesound for a meditative track matching 55-90 BPM.
+    Returns (preview_url, track_name) or (None, None)."""
     if not FREESOUND_API_KEY:
         return None, None
 
-    try:
-        resp = requests.get(
-            "https://freesound.org/apiv2/search/text/",
-            params={
-                "query": query,
-                "filter": FREESOUND_FILTER,
-                "fields": "id,name,duration,previews,tags",
-                "page_size": 15,
-                "sort": "score",   # relevance-first, not just rating
-                "token": FREESOUND_API_KEY,
-            },
-            timeout=15,
-        )
-        resp.raise_for_status()
-        results = resp.json().get("results", [])
+    # Try BPM-filtered search first, then fall back to no BPM filter
+    for filt in [FREESOUND_BPM_FILTER, FREESOUND_FILTER]:
+        try:
+            resp = requests.get(
+                "https://freesound.org/apiv2/search/text/",
+                params={
+                    "query": query,
+                    "filter": filt,
+                    "fields": "id,name,duration,previews,tags",
+                    "page_size": 15,
+                    "sort": "score",
+                    "token": FREESOUND_API_KEY,
+                },
+                timeout=15,
+            )
+            resp.raise_for_status()
+            results = resp.json().get("results", [])
 
-        # Filter out wrong-vibe tracks
-        good = [t for t in results if not _is_wrong_vibe(t)]
-        if not good:
-            good = results  # fallback: use whatever we got
+            good = [t for t in results if not _is_wrong_vibe(t)]
+            if not good:
+                good = results
+            if not good:
+                continue
 
-        if not good:
-            return None, None
+            pool = good[:8] if len(good) >= 8 else good
+            track = random.choice(pool)
+            preview_url = track.get("previews", {}).get("preview-hq-mp3")
+            if preview_url:
+                bpm_note = "(BPM-filtered)" if filt == FREESOUND_BPM_FILTER else "(no BPM filter)"
+                print(f"[music] Found {bpm_note}: {track['name'][:60]} ({track['duration']:.0f}s)")
+                return preview_url, track["name"]
+        except Exception as e:
+            print(f"[music] Freesound search failed: {e}")
 
-        # Pick from top 8 for variety, not always the same top-rated track
-        pool = good[:8] if len(good) >= 8 else good
-        track = random.choice(pool)
-        preview_url = track.get("previews", {}).get("preview-hq-mp3")
-        if preview_url:
-            print(f"[music] Found: {track['name'][:60]} ({track['duration']:.0f}s)")
-            return preview_url, track["name"]
-    except Exception as e:
-        print(f"[music] Freesound search failed: {e}")
     return None, None
 
 

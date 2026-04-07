@@ -207,36 +207,37 @@ _LOVE_STYLE_VARIANTS = [
 
 _STYLE_VARIANTS = [
     (
-        "Semi-realistic graphic novel illustration style, like Loish or Ilya Kuvshinov. "
-        "Warm earthy color palette: olive green, dusty teal, warm brown, muted burgundy, soft amber. "
-        "Detailed pencil-and-ink linework with soft painterly color wash. "
-        "Emotional character portrait with expressive face as the focal point. "
-        "Soft atmospheric background, warm side-lighting. "
-        "NOT photorealistic. NOT cold grey. Warm, illustrated, deeply human."
+        "Dark cinematic oil painting portrait, old masters style — like Rembrandt or Caravaggio. "
+        "Very dark background (near black), single warm light source illuminating the face from one side. "
+        "Deep shadows, rich shadow detail, painterly brushwork. "
+        "Muted colors: deep teal-black shadows, warm amber skin tones, muted burgundy accents. "
+        "Highly detailed emotional face as the focal point, everything else fades into darkness. "
+        "NOT colorful. NOT bright. Dark, atmospheric, deeply cinematic. Like a painting in a museum."
     ),
     (
-        "Webtoon graphic novel art style, detailed semi-realistic illustration. "
-        "Warm muted palette: earthy olive, dusty rose, warm teal, soft amber and brown tones. "
-        "Close-up emotional portrait — expressive eyes, soft linework, painterly texture. "
-        "Warm window light or golden hour glow on the subject. "
-        "Style similar to Ross Draws or Korean manhwa illustration. "
-        "NOT photorealistic, NOT cold tones. Warm human emotional illustration."
+        "Cinematic dark portrait illustration — like Whisprs or Loish, deeply atmospheric. "
+        "Very dark moody background: deep forest green, near-black teal, or charcoal grey. "
+        "Subject lit by a single soft warm source — candle, window, moonlight — face in partial shadow. "
+        "Semi-realistic detailed painting style — emotional expression, expressive eyes. "
+        "Color palette: almost monochrome with subtle warm amber/golden on skin, deep muted backgrounds. "
+        "NOT vibrant. NOT cartoon. Dark, quiet, and hauntingly beautiful."
     ),
     (
-        "Cinematic illustration, graphic novel realism — like a high-quality manhwa panel. "
-        "Earthy, warm color story: muted olive greens, warm amber, dusty blue-grey, soft burgundy. "
-        "Character-focused composition — face or upper body portrait, deeply emotional. "
-        "Soft detailed linework with subtle watercolor-wash background. "
-        "Warm backlighting or candle-light glow. "
-        "NOT anime cartoon. NOT photorealistic. Illustrated, warm, intimate."
+        "Dark romantic portrait painting, cinematic and atmospheric. "
+        "Deep dark background (forest, night sky, storm) — almost no light except on the subject. "
+        "Subject: close-up emotional face or figure, warm amber rim light, deep rich shadows. "
+        "Style: painterly semi-realism — between a classical oil painting and modern digital art. "
+        "Muted palette: charcoal, deep teal, warm ochre, muted burgundy. "
+        "Mood: melancholic, beautiful, quiet — like a feeling you can't name. "
+        "NOT bright colors. NOT cheerful. Dark, cinematic, soul-stirring."
     ),
     (
-        "Painterly graphic novel illustration, warm emotional portrait style. "
-        "Muted jewel tones: deep teal, warm amber, olive, dusty mauve, earthy brown. "
-        "Semi-realistic face close-up with detailed eyes and soft emotional expression. "
-        "Background is softly painted and atmospheric — blurred warm light or gentle nature. "
-        "Style: between a painted portrait and a graphic novel panel. "
-        "Warm, illustrated, NOT cold, NOT grey. Human and intimate."
+        "Atmospheric dark illustration, painterly and cinematic — inspired by Whisprs aesthetic. "
+        "Very dark scene: figure against deep dark textured background — rain, fog, dusk, candlelight. "
+        "One or two figures, emotion-heavy composition — close-up face or two people together. "
+        "Deep shadow fill with warm isolated light on faces: golden, amber, or soft silver moonlight. "
+        "Color: mostly desaturated dark tones (deep blue-black, dark olive, charcoal), warm accents only. "
+        "Style: painterly semi-realistic with rich shadow detail. NOT anime. NOT bright. Moody and cinematic."
     ),
 ]
 
