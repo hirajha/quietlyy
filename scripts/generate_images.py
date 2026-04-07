@@ -99,11 +99,12 @@ def _pick_reuse_panels(num_panels):
     return result
 
 
-# Scene pool — character-focused, emotional, Whisprs/illustrated aesthetic
-# Priority: close-up faces > two people > small figure in landscape
-# Warm earthy palette: olive, dusty teal, warm brown, soft burgundy — NOT grey/cold
-_SCENE_POOL = [
-    # ── Close-up character portraits (highest engagement on thumbnail) ──────
+# Scene pool — MIXED types for variety across panels
+# Blend of: face closeups, wide landscapes, cityscapes, interior scenes, two-person scenes
+# Dark cinematic graphic-novel illustration style throughout
+
+_SCENE_POOL_CLOSEUP = [
+    # Face closeups — high thumbnail impact
     "Close-up portrait of a young woman, eyes glistening with unshed tears, looking slightly off-frame, "
     "soft warm side-light, olive and dusty teal tones, loose hair, deeply emotional expression",
 
@@ -112,12 +113,6 @@ _SCENE_POOL = [
 
     "A woman seen from the side, profile close-up, one hand near her jaw, "
     "soft golden backlight, eyes closed as if remembering, warm earthy tones",
-
-    "A young woman lying on her back on grass, looking up at a pale sky, "
-    "loose hair spread out, soft dappled light on her face, peaceful but sad, warm olive-green palette",
-
-    "Close-up of two people almost touching foreheads, eyes closed, not quite together, "
-    "warm amber light between them, blurred background, emotional and intimate",
 
     "A woman's face half in shadow, half lit by warm candlelight, "
     "holding something small in her hands just off-frame, deep earthy tones, quiet grief",
@@ -128,55 +123,91 @@ _SCENE_POOL = [
     "Side profile of a woman on a train, head resting on the window, "
     "blurred landscape outside, warm interior light on her face, melancholy stillness",
 
-    # ── Two people — connection, distance, emotion ───────────────────────────
-    "Two people sitting close but facing away from each other on a bench at dusk, "
-    "warm golden-hour light behind them, long shadows, earthy browns and dusty oranges",
+    "Close-up of two people almost touching foreheads, eyes closed, not quite together, "
+    "warm amber light between them, blurred background, emotional and intimate",
+]
 
-    "A couple standing in a doorway, one staying, one leaving, warm light inside, "
-    "cool blue outside, the contrast sharp and emotional, illustrated realism style",
+_SCENE_POOL_WIDE = [
+    # Wide landscapes & cityscapes — atmospheric, dramatic
+    "A lone figure in a red coat standing in a flooded dark city street at night, "
+    "stormy dramatic sky overhead, amber streetlights reflected in the water, "
+    "figure tiny against vast dark buildings, deeply cinematic and atmospheric",
 
-    "Two people under one umbrella in rain, not touching, looking in different directions, "
+    "Misty mountain valley at dawn, ancient pine forests, low fog rolling through, "
+    "a single tiny figure on a narrow path, dramatic scale, cool blue and grey tones, "
+    "painterly and atmospheric like a classical landscape painting",
+
+    "Wide golden wheat field at dusk, a lone figure standing still in the middle, "
+    "blazing orange-red sky, long grass bending in wind, dramatic and solitary",
+
+    "A dark stormy coastline, massive waves crashing against rocks, "
+    "tiny figure at the edge looking out, brooding grey-blue palette, "
+    "cinematic wide shot, immense sense of scale",
+
+    "Rolling dark hills under a vast night sky filled with stars, "
+    "a small warm light from a lone farmhouse in the distance, "
+    "deep midnight blues and warm amber glow, epic and lonely",
+
+    "A winding empty road through dark autumn forest, orange and red leaves, "
+    "one small figure walking away into the distance, dusk light, cinematic depth",
+
+    "Ancient stone bridge over a misty river at twilight, "
+    "bare winter trees reflected in dark water, lone figure crossing, "
+    "deep teal and charcoal palette, hauntingly beautiful",
+]
+
+_SCENE_POOL_INTERIOR = [
+    # Interior scenes — warm intimate atmosphere (highest engagement type)
+    "A person sitting alone at a candlelit wooden desk by a large arched window at night, "
+    "writing in a journal, warm amber lamplight, rain on the glass, "
+    "tall gothic-style windows with moonlight outside, quiet and deeply atmospheric",
+
+    "A woman reading a worn letter by the light of a single lamp in a dark room, "
+    "warm amber pool of light around her, everything else in deep shadow, "
+    "old books and papers on the table, cinematic interior scene",
+
+    "A young man sitting by a fireplace in a dim room, staring into the flames, "
+    "warm flickering orange light on his face, deep shadows behind him, "
+    "lost in thought, cozy yet melancholic atmosphere",
+
+    "A figure standing at a rain-streaked window looking out at a dark wet city, "
+    "interior lit by one soft lamp, warm amber inside vs cold blue outside, "
+    "back turned to us, silhouette, deeply contemplative",
+
+    "A woman sitting on the floor of an empty room, back against the wall, "
+    "one window letting in a single shaft of moonlight, books and photos around her, "
+    "warm and melancholic, graphic novel style",
+
+    "An old library at night, one lamp lit at a reading table, "
+    "a small figure among towering dark bookshelves, sense of vastness and solitude, "
+    "warm amber light in a sea of darkness, atmospheric and cinematic",
+]
+
+_SCENE_POOL_TWO_PEOPLE = [
+    # Two people — connection and distance
+    "Two people under one umbrella in the rain, not touching, looking in different directions, "
     "warm amber streetlight reflecting in puddles, muted teal and brown tones",
-
-    "A woman reaching out a hand toward someone just out of frame, "
-    "warm olive-toned background, soft focus, yearning in her expression",
-
-    # ── Figures in evocative settings ────────────────────────────────────────
-    "A lone woman in a rust-red coat walking through golden autumn leaves, "
-    "figure small against vast warm-toned trees, earthy amber and deep brown palette",
-
-    "A person standing at the edge of a pier at dusk, back to us, "
-    "warm orange-gold horizon, dark water below, one small figure against the vast sky",
-
-    "A figure sitting beneath a large tree in a golden field, knees drawn up, "
-    "warm summer light, olive greens and amber yellows, a sense of quiet solitude",
 
     "Two small silhouettes on a hilltop at sunset, close but silent, "
     "blazing orange and burgundy sky behind them, long grass in the foreground",
 
-    "A woman in a cream dress standing in a corridor of tall golden-lit windows, "
-    "light flooding in warm amber, her figure a soft silhouette, elegant and lonely",
+    "A couple standing in a doorway, one staying, one leaving, warm light inside, "
+    "cool blue outside, the contrast sharp and emotional, illustrated realism style",
 
-    "A young man sitting on stone steps outside an old building at night, "
-    "a warm streetlamp overhead, muted teal shadows, earthy olive tones, quiet streets",
+    "Two people sitting on a rooftop at night, city lights below, "
+    "one looking up at stars, one looking down, warm amber tones, cinematic",
 
-    # ── Symbolic / atmospheric ────────────────────────────────────────────────
-    "Cherry blossom petals falling around a lone figure on an empty path, "
-    "warm dusty pink and olive green, soft golden light, illustrated watercolor feel",
-
-    "An empty park bench in autumn with scattered red and orange leaves, "
-    "warm golden hour light, suggestion of recent company now gone, earthy palette",
-
-    "A lit window in a dark building on a rainy night, one figure visible inside, "
-    "warm amber glow against deep teal-blue darkness, rain streaks on glass",
-
-    "A woman's silhouette against a large window at dawn, city waking behind her, "
-    "warm peachy morning light, her form dark and still, contemplative",
-
-    "A lone small boat on still water at golden hour, "
-    "blazing amber and dusty rose sky reflected perfectly in the surface, "
-    "one figure sitting motionless, deeply peaceful and solitary",
+    "Two figures walking apart on a rainy cobblestone street at night, "
+    "streetlamps glowing amber, dark puddles, distance between them feels immense",
 ]
+
+# Combined pool — weighted: more wide + interior (they get highest engagement)
+_SCENE_POOL = (
+    _SCENE_POOL_CLOSEUP * 2 +   # 14 entries
+    _SCENE_POOL_WIDE * 2 +       # 14 entries
+    _SCENE_POOL_INTERIOR * 3 +   # 18 entries (highest weight — 156 views)
+    _SCENE_POOL_TWO_PEOPLE * 1   # 5 entries
+)
 
 # Art style — matches Whisprs: graphic novel illustration with warm earthy palette
 # Key: illustrated style NOT photorealistic, character-focused, warm muted tones
@@ -207,37 +238,32 @@ _LOVE_STYLE_VARIANTS = [
 
 _STYLE_VARIANTS = [
     (
-        "Dark cinematic oil painting portrait, old masters style — like Rembrandt or Caravaggio. "
-        "Very dark background (near black), single warm light source illuminating the face from one side. "
-        "Deep shadows, rich shadow detail, painterly brushwork. "
-        "Muted colors: deep teal-black shadows, warm amber skin tones, muted burgundy accents. "
-        "Highly detailed emotional face as the focal point, everything else fades into darkness. "
-        "NOT colorful. NOT bright. Dark, atmospheric, deeply cinematic. Like a painting in a museum."
+        "Dark cinematic graphic novel illustration — Whisprs / Quietlyy aesthetic. "
+        "Rich detailed linework with painterly shading. Deep dark backgrounds, warm isolated light sources. "
+        "Muted palette: deep teal-black shadows, warm amber, dusty olive, muted burgundy accents. "
+        "Semi-realistic characters with emotional expressions. "
+        "NOT oil painting. NOT anime. NOT photorealistic. Dark, cinematic, illustrated graphic novel style."
     ),
     (
-        "Cinematic dark portrait illustration — like Whisprs or Loish, deeply atmospheric. "
-        "Very dark moody background: deep forest green, near-black teal, or charcoal grey. "
-        "Subject lit by a single soft warm source — candle, window, moonlight — face in partial shadow. "
-        "Semi-realistic detailed painting style — emotional expression, expressive eyes. "
-        "Color palette: almost monochrome with subtle warm amber/golden on skin, deep muted backgrounds. "
-        "NOT vibrant. NOT cartoon. Dark, quiet, and hauntingly beautiful."
+        "Atmospheric illustrated art — dark and cinematic, like an emotional graphic novel panel. "
+        "Deep moody backgrounds: near-black forest, stormy sky, dark interior with candlelight. "
+        "Warm amber or soft moonlight as the only light source. Rich shadow detail. "
+        "Color: mostly dark desaturated tones with warm amber or golden highlights. "
+        "Semi-realistic illustration style — detailed, painterly, emotional. NOT bright. NOT cheerful."
     ),
     (
-        "Dark romantic portrait painting, cinematic and atmospheric. "
-        "Deep dark background (forest, night sky, storm) — almost no light except on the subject. "
-        "Subject: close-up emotional face or figure, warm amber rim light, deep rich shadows. "
-        "Style: painterly semi-realism — between a classical oil painting and modern digital art. "
-        "Muted palette: charcoal, deep teal, warm ochre, muted burgundy. "
-        "Mood: melancholic, beautiful, quiet — like a feeling you can't name. "
-        "NOT bright colors. NOT cheerful. Dark, cinematic, soul-stirring."
+        "Dark cinematic illustration — emotional and atmospheric like Whisprs page aesthetic. "
+        "Highly detailed dark scene: figures, landscapes, or interiors rendered in moody graphic novel style. "
+        "Single warm light source (candle, lamp, moon, streetlight) cutting through deep darkness. "
+        "Palette: charcoal, deep teal, warm ochre, muted burgundy, soft amber — no bright colors. "
+        "Painterly semi-realism, rich textures, cinematic composition. Melancholic and soul-stirring."
     ),
     (
-        "Atmospheric dark illustration, painterly and cinematic — inspired by Whisprs aesthetic. "
-        "Very dark scene: figure against deep dark textured background — rain, fog, dusk, candlelight. "
-        "One or two figures, emotion-heavy composition — close-up face or two people together. "
-        "Deep shadow fill with warm isolated light on faces: golden, amber, or soft silver moonlight. "
-        "Color: mostly desaturated dark tones (deep blue-black, dark olive, charcoal), warm accents only. "
-        "Style: painterly semi-realistic with rich shadow detail. NOT anime. NOT bright. Moody and cinematic."
+        "Illustrated dark fantasy / graphic novel art — cinematic and deeply atmospheric. "
+        "Strong contrast between deep dark backgrounds and warm isolated lighting. "
+        "Detailed characters or epic wide scenes rendered in rich illustrated style. "
+        "Color palette: deep blacks and teals, warm amber glow, dusty warm tones only. "
+        "NOT flat. NOT minimal. Richly detailed, dark, beautifully cinematic illustrated art."
     ),
 ]
 
