@@ -205,8 +205,8 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
     num_groups = len(line_groups)
 
     # Use actual per-line audio durations so each panel matches its narration
-    TAIL_PAD = 5.0
-    AUDIO_GAP = 1.4  # must match LINE_GAP in generate_audio.py
+    TAIL_PAD = 4.0
+    AUDIO_GAP = 1.0  # must match LINE_GAP in generate_audio.py
     # GAP == AUDIO_GAP: eliminates cumulative drift
     GAP = AUDIO_GAP
 
@@ -372,8 +372,9 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             f"[2:a]volume=0.30,"
             f"equalizer=f=2000:width_type=o:width=2:g=-4,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4[music];"
-            # Voice: loudnorm for consistent loudness across all lines
-            f"[1:a]aresample=async=1,loudnorm=I=-16:LRA=7:TP=-1.5[voice];"
+            # Voice: loudnorm only — aresample=async was trimming the last lines (root cause of cutoff)
+            # apad=pad_dur=1 adds 1s of silence buffer so loudnorm never eats the tail
+            f"[1:a]loudnorm=I=-16:LRA=7:TP=-1.5,apad=pad_dur=1[voice];"
             f"[voice][music]amix=inputs=2:duration=first:normalize=0[aout]",
             "-map", "0:v", "-map", "[aout]",
             "-c:v", "copy",
