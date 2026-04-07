@@ -200,7 +200,7 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None):
     # ── Step 4: Music ───────────────────────────────────────────────────────
     print("\n[4/7] Fetching background music...")
     try:
-        music_path = generate_music(topic, script_text=script_text)
+        music_path = generate_music(topic, script_text=script_text, style=script_style)
     except Exception as e:
         print(f"\nSkipping today — music failed: {e}. Will retry tomorrow.")
         sys.exit(0)

@@ -1,14 +1,15 @@
 """
-Quietlyy — Background Music Generator
-Always meditative, sad-beautiful, contemplative — the Quietlyy brand tone.
-Like a fancy restaurant: music fills silence between narrator paragraphs,
-keeps listeners emotionally connected even when no one is speaking.
+Quietlyy — Emotion-Based Background Music Generator
 
-Target profile (from reference tracks):
-  Key: B minor | BPM: 60-85 | Sadness: 90%+ | Relaxed: 90%+ | Happiness: <10%
-  Never cheerful, upbeat, comedy, or happy — regardless of script content.
+Music matches the emotional tone of the script:
+  emotional  → contemplative piano/strings, 65-90 BPM
+  nostalgic  → warm piano + subtle nature sounds (birds/wind), 85-110 BPM
+  poetic     → melancholic piano/cello + rain/wind ambience, 60-80 BPM
+  love       → tender piano + soft violin, 70-90 BPM (heartbeat tempo)
+  motivational → building piano/strings, morning nature sounds, 90-120 BPM
 
-Each video gets a different track from this palette for variety.
+Key principle: Emotional congruence between music and script creates the
+strongest viewer connection — makes them stop scrolling and feel something.
 """
 
 import os
@@ -20,63 +21,133 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
 FREESOUND_API_KEY = os.environ.get("FREESOUND_API_KEY", "")
 
-# Fixed Quietlyy music palette — all meditative/sad-beautiful.
-# Emotion in the script DOES NOT change this — brand tone is always contemplative.
-# Randomized per video for variety while staying in the right emotional register.
-QUIETLYY_QUERIES = [
-    "sad piano meditation slow ambient",
-    "melancholic piano ambient contemplative",
-    "lonely piano strings slow cinematic",
-    "bittersweet piano ambient film score",
-    "slow sad piano instrumental reflection",
-    "meditative piano strings emotional",
-    "contemplative ambient piano slow",
-    "cinematic sadness piano ambient",
-    "gentle sad piano strings underscore",
-    "quiet melancholic piano ambient night",
-    "slow piano longing ambient meditation",
-    "wistful piano cinematic slow",
-    "emotional piano ambient strings slow",
-    "peaceful sad piano meditation",
-    "soft melancholic strings piano cinematic",
-]
+# ── Per-style music palettes ─────────────────────────────────────────────────
+# Each style has: queries, BPM range, reject keywords
 
-# Words in a track name/tags that indicate it's the WRONG vibe — skip these
+STYLE_PROFILES = {
+    "emotional": {
+        "bpm": "bpm:[60 TO 90]",
+        "queries": [
+            "contemplative ambient piano slow",
+            "melancholic piano ambient cinematic",
+            "cinematic sadness piano strings ambient",
+            "bittersweet piano film score slow",
+            "meditative piano strings emotional",
+            "gentle sad piano strings underscore",
+            "quiet melancholic piano night",
+            "slow piano longing ambient",
+            "wistful piano cinematic",
+            "emotional piano strings slow",
+        ],
+    },
+    "nostalgic": {
+        "bpm": "bpm:[80 TO 115]",
+        "queries": [
+            "nostalgic piano soft ambient",
+            "childhood memories piano instrumental",
+            "wistful acoustic piano melody",
+            "sentimental piano strings memory",
+            "tender piano nature birds ambient",
+            "soft piano birds wind nature ambient",
+            "gentle piano morning nature sounds",
+            "nostalgic acoustic guitar piano",
+            "piano music box childhood gentle",
+            "reflective piano ambient nature",
+        ],
+    },
+    "poetic": {
+        "bpm": "bpm:[55 TO 80]",
+        "queries": [
+            "sad piano rain ambient meditation",
+            "melancholic piano rain contemplative",
+            "poetic cello piano rain ambience",
+            "slow sad piano minor instrumental",
+            "cinematic melancholy rain piano",
+            "lonely piano rain night ambient",
+            "dark ambient rain piano slow",
+            "emotional cello piano wind rain",
+            "introspective piano rain forest",
+            "soft rain piano melancholic slow",
+        ],
+    },
+    "love": {
+        "bpm": "bpm:[65 TO 90]",
+        "queries": [
+            "romantic piano tender slow",
+            "love cinematic piano strings",
+            "tender piano violin intimate",
+            "sentimental piano slow romantic",
+            "soft violin piano romantic ambient",
+            "intimate love piano instrumental",
+            "romantic piano cello gentle",
+            "love story piano slow beautiful",
+            "tender romantic strings piano",
+            "emotional piano love soft",
+        ],
+    },
+    "motivational": {
+        "bpm": "bpm:[85 TO 120]",
+        "queries": [
+            "inspirational piano birds morning nature",
+            "uplifting gentle piano strings building",
+            "hopeful piano ambient morning",
+            "cinematic hope piano strings",
+            "peaceful piano nature birds wind",
+            "motivational soft piano orchestral",
+            "life lesson piano strings gentle",
+            "positive cinematic piano ambient",
+            "piano morning birds wind nature calm",
+            "calm uplifting piano strings wisdom",
+        ],
+    },
+}
+
+# Fallback — used if style not recognized
+STYLE_PROFILES["default"] = STYLE_PROFILES["emotional"]
+
+# Words that indicate wrong vibe — always reject these
 REJECT_KEYWORDS = [
     "happy", "cheerful", "upbeat", "comedy", "funny", "fun",
-    "energetic", "dance", "party", "bright", "positive", "joyful",
-    "uplifting", "inspiring", "motivational", "epic", "action",
-    "children", "kids", "cartoon", "comedy",
+    "energetic", "dance", "party", "bright", "joyful",
+    "children", "kids", "cartoon",
 ]
 
-# Freesound filter: 30-180s tracks, 55-90 BPM (matches Whisprs 65-83 BPM profile),
-# instrumental only, exclude happy/upbeat tags
-FREESOUND_FILTER = (
+# Base Freesound filter — applied to all styles
+FREESOUND_BASE_FILTER = (
     "duration:[30 TO 180] "
     "tag:instrumental "
-    "-tag:happy -tag:cheerful -tag:upbeat -tag:comedy -tag:dance -tag:funny"
+    "-tag:comedy -tag:dance -tag:funny -tag:party"
 )
 
-# BPM range filter — added separately as Freesound supports bpm field filter
-FREESOUND_BPM_FILTER = FREESOUND_FILTER + " bpm:[55 TO 90]"
 
-
-def _is_wrong_vibe(track):
-    """Return True if track name or tags suggest it's cheerful/upbeat."""
+def _is_wrong_vibe(track, style):
+    """Return True if track doesn't fit the intended style."""
     name = track.get("name", "").lower()
     tags = " ".join(track.get("tags", [])).lower() if "tags" in track else ""
     combined = name + " " + tags
-    return any(kw in combined for kw in REJECT_KEYWORDS)
+
+    # Always reject certain keywords
+    if any(kw in combined for kw in REJECT_KEYWORDS):
+        return True
+
+    # For non-motivational styles, also reject uplifting/inspiring
+    if style not in ("motivational",):
+        if any(kw in combined for kw in ["uplifting", "inspiring", "motivational", "epic"]):
+            return True
+
+    return False
 
 
-def _search_freesound(query):
-    """Search Freesound for a meditative track matching 55-90 BPM.
-    Returns (preview_url, track_name) or (None, None)."""
+def _search_freesound(query, style):
+    """Search Freesound for a track matching the style's BPM range.
+    Tries BPM-filtered search first, falls back to no BPM filter."""
     if not FREESOUND_API_KEY:
         return None, None
 
-    # Try BPM-filtered search first, then fall back to no BPM filter
-    for filt in [FREESOUND_BPM_FILTER, FREESOUND_FILTER]:
+    profile = STYLE_PROFILES.get(style, STYLE_PROFILES["default"])
+    bpm_filter = FREESOUND_BASE_FILTER + " " + profile["bpm"]
+
+    for filt, label in [(bpm_filter, "BPM-filtered"), (FREESOUND_BASE_FILTER, "no BPM filter")]:
         try:
             resp = requests.get(
                 "https://freesound.org/apiv2/search/text/",
@@ -93,7 +164,7 @@ def _search_freesound(query):
             resp.raise_for_status()
             results = resp.json().get("results", [])
 
-            good = [t for t in results if not _is_wrong_vibe(t)]
+            good = [t for t in results if not _is_wrong_vibe(t, style)]
             if not good:
                 good = results
             if not good:
@@ -103,8 +174,7 @@ def _search_freesound(query):
             track = random.choice(pool)
             preview_url = track.get("previews", {}).get("preview-hq-mp3")
             if preview_url:
-                bpm_note = "(BPM-filtered)" if filt == FREESOUND_BPM_FILTER else "(no BPM filter)"
-                print(f"[music] Found {bpm_note}: {track['name'][:60]} ({track['duration']:.0f}s)")
+                print(f"[music] Found ({label}): {track['name'][:60]} ({track['duration']:.0f}s)")
                 return preview_url, track["name"]
         except Exception as e:
             print(f"[music] Freesound search failed: {e}")
@@ -138,25 +208,53 @@ def _get_bundled_music():
     return None
 
 
-def generate_music(topic, script_text=""):
-    """Fetch meditative background music for Quietlyy.
-    Always sad-beautiful / contemplative — never cheerful or upbeat.
-    Different track each video (randomized from fixed palette).
-    Volume is mixed at 0.10 (low presence, fills silence without overpowering narrator)."""
+def generate_music(topic, script_text="", style="emotional"):
+    """Fetch background music that emotionally matches the script style.
+
+    Styles:
+      emotional    → contemplative piano/strings (default)
+      nostalgic    → warm piano + subtle nature/birds/wind
+      poetic       → melancholic piano/cello + rain/wind
+      love         → tender piano + violin, heartbeat tempo
+      motivational → building piano/strings + morning nature sounds
+    """
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     music_path = os.path.join(OUTPUT_DIR, "background_music.mp3")
 
+    # Map script styles to music profile
+    style_map = {
+        "emotional": "emotional",
+        "nostalgic": "nostalgic",
+        "poetic": "poetic",
+        "love": "love",
+        "motivational": "motivational",
+    }
+    music_style = style_map.get(style, "emotional")
+    profile = STYLE_PROFILES[music_style]
+
+    print(f"[music] Style: {style} → music profile: {music_style} ({profile['bpm']})")
+
     if FREESOUND_API_KEY:
-        # Shuffle the palette so each video gets a different starting point
-        queries = list(QUIETLYY_QUERIES)
+        queries = list(profile["queries"])
         random.shuffle(queries)
 
-        for query in queries[:6]:  # try up to 6 queries before falling back
+        for query in queries[:6]:  # try up to 6 queries
             print(f"[music] Searching: {query}")
-            preview_url, track_name = _search_freesound(query)
+            preview_url, track_name = _search_freesound(query, music_style)
             if preview_url and _download_preview(preview_url, music_path):
                 print(f"[music] Track selected: {track_name}")
                 return music_path
+
+        # If style-specific search failed, fall back to emotional (safe default)
+        if music_style != "emotional":
+            print(f"[music] Style search exhausted — falling back to emotional profile")
+            fallback_queries = list(STYLE_PROFILES["emotional"]["queries"])
+            random.shuffle(fallback_queries)
+            for query in fallback_queries[:4]:
+                preview_url, track_name = _search_freesound(query, "emotional")
+                if preview_url and _download_preview(preview_url, music_path):
+                    print(f"[music] Fallback track: {track_name}")
+                    return music_path
 
         print("[music] All Freesound queries failed — using bundled fallback")
     else:
@@ -172,5 +270,7 @@ def generate_music(topic, script_text=""):
 
 
 if __name__ == "__main__":
-    path = generate_music("The Friend Who Disappeared")
-    print(f"Music: {path}")
+    for s in ["emotional", "nostalgic", "poetic", "love", "motivational"]:
+        print(f"\n=== Testing style: {s} ===")
+        path = generate_music("test", style=s)
+        print(f"Music: {path}")
