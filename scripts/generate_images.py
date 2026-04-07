@@ -104,83 +104,97 @@ def _pick_reuse_panels(num_panels):
 # Dark cinematic graphic-novel illustration style throughout
 
 _SCENE_POOL_CLOSEUP = [
-    # Face closeups — high thumbnail impact
-    "Close-up portrait of a young woman, eyes glistening with unshed tears, looking slightly off-frame, "
-    "soft warm side-light, olive and dusty teal tones, loose hair, deeply emotional expression",
+    # Face closeups — cool-toned, emotional, rich color
+    "Close-up portrait of a young woman, eyes glistening with unshed tears, "
+    "soft cool moonlight on one side, teal-blue shadows, loose hair, deeply emotional expression, "
+    "cool blue and teal color palette, detailed illustrated style",
 
-    "Close-up of a young man with tired, longing eyes staring into the distance, warm amber light on one side, "
-    "deep shadow on the other, contemplative and melancholy, muted brown and teal palette",
+    "Close-up of a young man with tired longing eyes staring into distance, "
+    "soft blue-silver light on his face, cool teal shadows, "
+    "contemplative and melancholy, deep cerulean and teal palette",
 
-    "A woman seen from the side, profile close-up, one hand near her jaw, "
-    "soft golden backlight, eyes closed as if remembering, warm earthy tones",
+    "A woman seen from the side, profile close-up, eyes closed as if remembering, "
+    "cool silver moonlight as backlight, teal-blue atmospheric haze, "
+    "emotionally detailed face, cool color tones",
 
-    "A woman's face half in shadow, half lit by warm candlelight, "
-    "holding something small in her hands just off-frame, deep earthy tones, quiet grief",
-
-    "A young man with his head down, one hand over his face, soft warm light from a window, "
-    "muted browns and dusty blues, emotional weight in the posture",
+    "A woman's face lit by the cool blue glow of a window at night, "
+    "one hand near her jaw, deep teal shadows, soft silver light, "
+    "quiet sadness, detailed illustration, cool blue palette",
 
     "Side profile of a woman on a train, head resting on the window, "
-    "blurred landscape outside, warm interior light on her face, melancholy stillness",
+    "blurred teal-blue landscape outside, cool blue interior light on her face, "
+    "melancholy stillness, cool color palette",
 
     "Close-up of two people almost touching foreheads, eyes closed, not quite together, "
-    "warm amber light between them, blurred background, emotional and intimate",
+    "soft cool moonlight between them, teal-blue background, emotional and intimate, "
+    "cool silver-blue tones, deeply beautiful",
+
+    "A young man standing in the rain, face tilted slightly up, eyes closed, "
+    "teal-blue rainy light all around him, cool wet reflections, "
+    "emotional and atmospheric, rich cool blue-teal palette",
 ]
 
 _SCENE_POOL_WIDE = [
-    # Wide landscapes & cityscapes — atmospheric, dramatic
-    "A lone figure in a red coat standing in a flooded dark city street at night, "
-    "stormy dramatic sky overhead, amber streetlights reflected in the water, "
-    "figure tiny against vast dark buildings, deeply cinematic and atmospheric",
+    # Wide landscapes & cityscapes — colorful, cool-toned, atmospheric
+    "Sweeping misty mountain valley at dawn, ancient pine forests bathed in blue-grey mist, "
+    "a single small figure on a winding path below, dramatic scale, "
+    "rich cerulean blue sky, lush green forests, silver fog — breathtaking and vast",
 
-    "Misty mountain valley at dawn, ancient pine forests, low fog rolling through, "
-    "a single tiny figure on a narrow path, dramatic scale, cool blue and grey tones, "
-    "painterly and atmospheric like a classical landscape painting",
+    "A moonlit coastline with silver waves crashing on rocks, "
+    "deep midnight blue sky full of stars, silver light on the water, "
+    "tiny figure standing at the edge looking out, cool blue-silver palette, cinematic and epic",
 
-    "Wide golden wheat field at dusk, a lone figure standing still in the middle, "
-    "blazing orange-red sky, long grass bending in wind, dramatic and solitary",
+    "Rolling green hills under a dramatic blue sky with building storm clouds, "
+    "shafts of golden light breaking through, small figure walking a country path, "
+    "lush green grass, deep teal-blue sky — beautiful and emotional",
 
-    "A dark stormy coastline, massive waves crashing against rocks, "
-    "tiny figure at the edge looking out, brooding grey-blue palette, "
-    "cinematic wide shot, immense sense of scale",
+    "A glowing city at night seen from a hilltop, teal and blue city lights "
+    "reflecting off wet streets below, cool blue-purple sky, "
+    "one small figure watching from above, cinematic and atmospheric",
 
-    "Rolling dark hills under a vast night sky filled with stars, "
-    "a small warm light from a lone farmhouse in the distance, "
-    "deep midnight blues and warm amber glow, epic and lonely",
+    "Ancient stone bridge over a misty teal-green river at twilight, "
+    "silver birch trees reflected in the water, lone figure crossing, "
+    "deep cerulean sky, cool blue-green palette, hauntingly beautiful",
 
-    "A winding empty road through dark autumn forest, orange and red leaves, "
-    "one small figure walking away into the distance, dusk light, cinematic depth",
+    "Vast autumn forest in full color — deep amber, burgundy, emerald green — "
+    "seen from above, a tiny figure on a path far below, "
+    "dramatic overhead perspective, rich colorful palette, epic scale",
 
-    "Ancient stone bridge over a misty river at twilight, "
-    "bare winter trees reflected in dark water, lone figure crossing, "
-    "deep teal and charcoal palette, hauntingly beautiful",
+    "A lone figure in a red coat on a misty mountain road, "
+    "tall pine trees either side, cool blue-grey mist ahead, "
+    "deep forest greens and cool teal tones, atmospheric and cinematic",
 ]
 
 _SCENE_POOL_INTERIOR = [
-    # Interior scenes — warm intimate atmosphere (highest engagement type)
-    "A person sitting alone at a candlelit wooden desk by a large arched window at night, "
-    "writing in a journal, warm amber lamplight, rain on the glass, "
-    "tall gothic-style windows with moonlight outside, quiet and deeply atmospheric",
+    # Interior scenes — warm amber lamp vs cool blue outside (highest engagement: 156 views)
+    "A person sitting alone at a wooden desk by tall arched windows at night, "
+    "writing in a journal by warm amber lamplight, "
+    "deep cool blue moonlight flooding through the windows, rain on the glass outside, "
+    "warm amber inside vs cool midnight blue outside — beautiful contrast, atmospheric",
 
-    "A woman reading a worn letter by the light of a single lamp in a dark room, "
-    "warm amber pool of light around her, everything else in deep shadow, "
-    "old books and papers on the table, cinematic interior scene",
+    "A woman reading a letter by a single warm lamp near a large window at night, "
+    "cool blue moonlight and city glow outside the window, "
+    "warm amber pool around her, teal-blue shadows in the room, "
+    "emotional and cinematic interior — warm vs cool color contrast",
 
-    "A young man sitting by a fireplace in a dim room, staring into the flames, "
-    "warm flickering orange light on his face, deep shadows behind him, "
-    "lost in thought, cozy yet melancholic atmosphere",
+    "A figure standing at a rain-streaked window, back to us, "
+    "looking out at a glowing teal-blue rainy city at night, "
+    "warm soft lamp behind them, cool blue street reflections outside, "
+    "beautiful color contrast — the outside world glowing cool blue-teal",
 
-    "A figure standing at a rain-streaked window looking out at a dark wet city, "
-    "interior lit by one soft lamp, warm amber inside vs cold blue outside, "
-    "back turned to us, silhouette, deeply contemplative",
+    "An old library with towering bookshelves, moonlight streaming in through tall windows, "
+    "cool silver-blue light mixing with warm amber lamp on a reading table, "
+    "a small figure at the table below, sense of vast solitude, "
+    "rich colors: deep wood browns, cool blue light, warm gold lamp",
 
-    "A woman sitting on the floor of an empty room, back against the wall, "
-    "one window letting in a single shaft of moonlight, books and photos around her, "
-    "warm and melancholic, graphic novel style",
+    "A woman sitting by a window watching rain fall on a teal-lit street below, "
+    "her face in warm amber lamp light, outside is cool blue and glowing, "
+    "books and tea on the windowsill, deeply atmospheric and emotional",
 
-    "An old library at night, one lamp lit at a reading table, "
-    "a small figure among towering dark bookshelves, sense of vastness and solitude, "
-    "warm amber light in a sea of darkness, atmospheric and cinematic",
+    "A young man at a wooden desk by a floor-to-ceiling window at dusk, "
+    "the sky outside is deep cerulean blue fading to teal, "
+    "his desk lamp casting warm amber, papers around him, "
+    "cinematic and atmospheric — warm amber meets cool blue dusk",
 ]
 
 _SCENE_POOL_TWO_PEOPLE = [
@@ -238,32 +252,39 @@ _LOVE_STYLE_VARIANTS = [
 
 _STYLE_VARIANTS = [
     (
-        "Dark cinematic graphic novel illustration — Whisprs / Quietlyy aesthetic. "
-        "Rich detailed linework with painterly shading. Deep dark backgrounds, warm isolated light sources. "
-        "Muted palette: deep teal-black shadows, warm amber, dusty olive, muted burgundy accents. "
-        "Semi-realistic characters with emotional expressions. "
-        "NOT oil painting. NOT anime. NOT photorealistic. Dark, cinematic, illustrated graphic novel style."
+        "Cinematic graphic novel illustration — rich, colorful, and emotionally atmospheric. "
+        "Color palette: deep cerulean blue, teal, forest green, soft purple, moonlit silver — cool-toned but vibrant. "
+        "Scenes feel alive with color: lush night skies, glowing city lights, moonlit water, misty forests. "
+        "Characters have detailed emotional expressions. Semi-realistic illustration, painterly style. "
+        "Think: Studio Ghibli meets graphic novel — beautiful, colorful, atmospheric. NOT dark grey. NOT near-black. "
+        "Has real color throughout. Cinematic but visually stunning and cool-toned."
     ),
     (
-        "Atmospheric illustrated art — dark and cinematic, like an emotional graphic novel panel. "
-        "Deep moody backgrounds: near-black forest, stormy sky, dark interior with candlelight. "
-        "Warm amber or soft moonlight as the only light source. Rich shadow detail. "
-        "Color: mostly dark desaturated tones with warm amber or golden highlights. "
-        "Semi-realistic illustration style — detailed, painterly, emotional. NOT bright. NOT cheerful."
+        "Illustrated emotional art — cool-toned cinematic palette, rich and colorful. "
+        "Dominant colors: deep teal, midnight blue, moonlit silver, forest green, soft lavender. "
+        "Scenes: moonlit landscapes, glowing city at night, misty mountains, interior with warm lamp vs cool blue outside. "
+        "Graphic novel illustration style — detailed linework, rich color fills, dramatic lighting. "
+        "Mountains and fields: lush green or misty blue-green, NOT grey. "
+        "Night scenes: deep blue sky with bright moon and stars, NOT black. "
+        "Colorful, beautiful, atmospheric. Cool tones. Emotionally stirring."
     ),
     (
-        "Dark cinematic illustration — emotional and atmospheric like Whisprs page aesthetic. "
-        "Highly detailed dark scene: figures, landscapes, or interiors rendered in moody graphic novel style. "
-        "Single warm light source (candle, lamp, moon, streetlight) cutting through deep darkness. "
-        "Palette: charcoal, deep teal, warm ochre, muted burgundy, soft amber — no bright colors. "
-        "Painterly semi-realism, rich textures, cinematic composition. Melancholic and soul-stirring."
+        "Painterly cinematic illustration — atmospheric and colorful. "
+        "Cool color palette: cerulean blue, teal-green, misty grey-blue, soft gold moonlight, silver fog. "
+        "Landscapes feel ALIVE: verdant rolling hills under dramatic blue sky, "
+        "misty blue mountains with golden sunset, moonlit valleys with silver mist. "
+        "Interior scenes: warm amber lamp glow against cool blue window light. "
+        "Characters detailed and emotional. Semi-realistic illustrated style. "
+        "NOT dark and creepy. Rich colors. Breathtaking. Like a beautiful animated film frame."
     ),
     (
-        "Illustrated dark fantasy / graphic novel art — cinematic and deeply atmospheric. "
-        "Strong contrast between deep dark backgrounds and warm isolated lighting. "
-        "Detailed characters or epic wide scenes rendered in rich illustrated style. "
-        "Color palette: deep blacks and teals, warm amber glow, dusty warm tones only. "
-        "NOT flat. NOT minimal. Richly detailed, dark, beautifully cinematic illustrated art."
+        "Emotional illustrated art, cinematic color grading — cool blue-teal dominant. "
+        "Think: moonlit nights with rich deep blue, glowing amber street lamps, "
+        "teal-lit rain-soaked streets, misty green forests with filtered light. "
+        "Wide scenes: dramatic mountain valleys in misty blue-grey, golden-hour fields with deep sky. "
+        "Interior scenes: arched windows with moonlight, warm lamp against cool dark. "
+        "Graphic novel art style — detailed, colorful, emotionally immersive. "
+        "Colors should feel COOL and BEAUTIFUL not warm/orange/dark. Teal, blue, green, silver."
     ),
 ]
 

@@ -368,8 +368,8 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-i", audio_path,
             "-stream_loop", "-1", "-i", music_path,
             "-filter_complex",
-            # Music: volume 0.30 (~-20 LUFS vs voice -16 LUFS) — standard for emotional reels
-            f"[2:a]volume=0.30,"
+            # Music: volume 0.28 (~-21 LUFS vs voice -16 LUFS) — slightly restrained for meditative style
+            f"[2:a]volume=0.28,"
             f"equalizer=f=2000:width_type=o:width=2:g=-4,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4[music];"
             # Voice: loudnorm for consistent loudness across all lines
