@@ -191,7 +191,7 @@ def check_quality_with_ai(script_text, topic, style, examples):
         f"EXAMPLE ({e['style']}):\n{e['script']}" for e in examples[:4]
     )
 
-    prompt = f"""You are a script quality reviewer for "Quietlyy" — an emotional quote video channel.
+    prompt = f"""You are a script quality reviewer for "Quietlyy" — an emotional quote video channel targeting adults 35-65 who share content about life, love, and human connection.
 
 Your job: Review this script and score it on emotional quality.
 
@@ -201,29 +201,27 @@ SCRIPT TO REVIEW (topic: {topic}, style: {style}):
 QUIETLYY QUALITY STANDARDS (study these examples):
 {examples_text}
 
-Score this script on these criteria (each 0-10):
-1. HOOK: Does the first line immediately grab? Would someone stop scrolling?
-2. EMOTION: Does it feel genuine? Would people feel it in their chest?
-3. ORIGINALITY: Is it a TRULY UNIQUE perspective — not a repackaged common idea?
-4. CONNECTION: Does it speak about real human pain — heartbreak, friendship, loss, growth?
-5. LESSON: Does it end with something the viewer can carry with them?
+Score this script on these criteria:
+1. HOOK (0-10): Does the first line stop a scrolling finger? Is it specific and unexpected — not a generic opener?
+2. EMOTION (0-10): Does it feel genuinely human? Would someone feel it in their chest and want to share it?
+3. FRESHNESS (0-10): Is the ANGLE or EXECUTION fresh — even if the topic (love, loss, nostalgia) is familiar?
+4. FLOW (0-10): Do the lines build toward something — a turn, a realisation, or a moment of truth?
 
-Rules for REJECTION (score the whole script 0 if any apply):
-- First line is generic ("There was a time", "In a world", "We all have", "Life is", "Some people", "Not everyone")
-- Script is a variation of a common idea — the MESSAGE is not new, even if the words are slightly different
-  Example of rejection: "You were used" = "They only needed you" = "You were their backup" — ALL THE SAME IDEA
-- Script uses only overused metaphors: candle, storm, tide, roots, umbrella, shore — with no fresh angle
-- Lines are all the same length / monotonous rhythm
-- No emotional turn or lesson at the end
-- Sounds like a motivational poster or something you've read 100 times on Instagram already
-- The core insight could be summarized as a cliché: "people leave", "be yourself", "you deserve better"
+IMPORTANT CONTEXT: Emotional content about love, loneliness, nostalgia, and heartbreak IS the genre.
+A script about missing someone or letting go is NOT automatically rejected just because those topics are common.
+What matters is whether THIS script has a specific, honest line or angle that feels earned — not whether the topic is universal.
 
-ORIGINALITY TEST: Ask yourself — has this specific combination of idea + angle + imagery been said before in this exact way? If the answer is "kind of yes" — reject it.
+Only reject outright if:
+- First line is a cliché opener: "There was a time", "In a world", "We all have", "Life is", "Some people", "Not everyone"
+- The script says absolutely nothing — no specific detail, no real moment, just vague platitudes end to end
+- Lines are copy-paste of each other with no variation or build
+- No ending — the script just stops without a resonant final line
 
 Return ONLY valid JSON:
-{{"score": <overall 0-10>, "hook": <0-10>, "emotion": <0-10>, "originality": <0-10>, "approved": <true/false>, "reason": "<one sentence why>"}}
+{{"score": <overall 0-10>, "hook": <0-10>, "emotion": <0-10>, "freshness": <0-10>, "approved": <true/false>, "reason": "<one sentence why>"}}
 
-A score of 7+ means approved. Be strict on originality — generic emotional content is everywhere. Only truly fresh scripts should pass."""
+Scoring guide: 8-10 = exceptional and shareable. 6-7 = solid, emotionally effective, approved. 4-5 = generic or flat, needs rework. 0-3 = cliché opener or empty content only.
+A score of 6+ means approved."""
 
     # Try ChatGPT first, then Gemini
     for gen_fn, name in [(_call_openai, "ChatGPT"), (_call_gemini, "Gemini"), (_call_groq, "Groq")]:
@@ -248,7 +246,7 @@ def _call_openai(prompt):
         "https://api.openai.com/v1/chat/completions",
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
         json={
-            "model": "gpt-4o",
+            "model": "gpt-4o-mini",
             "messages": [{"role": "user", "content": prompt}],
             "max_tokens": 200,
             "temperature": 0.3,
@@ -322,7 +320,7 @@ def review_script(script_text, topic, style, examples):
     approved = ai_result.get("approved", score >= 6)
     reason = ai_result.get("reason", "")
 
-    if not approved or score < 7:
+    if not approved or score < 6:
         print(f"[quality] REJECTED (score {score}/10) — {reason}")
         return False, f"Score {score}/10: {reason}", score
 
