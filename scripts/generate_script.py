@@ -19,14 +19,14 @@ def load_templates():
         return json.load(f)
 
 
-STYLES = ["emotional", "love", "nostalgic", "poetic"]
+STYLES = ["emotional", "love", "nostalgic", "poetic", "wisdom"]
 
 def pick_style_and_topic(templates, theme_hints=None):
-    """Rotate between 'emotional', 'nostalgic', and 'poetic' styles each run."""
+    """Rotate between styles each run."""
     state_path = os.path.join(os.path.dirname(__file__), "..", "output", "used_topics.json")
     os.makedirs(os.path.dirname(state_path), exist_ok=True)
 
-    state = {"used_nostalgic": [], "used_emotional": [], "used_poetic": [], "used_love": [], "last_style": "nostalgic"}
+    state = {"used_nostalgic": [], "used_emotional": [], "used_poetic": [], "used_love": [], "used_wisdom": [], "last_style": "nostalgic"}
     if os.path.exists(state_path):
         with open(state_path) as f:
             try:
@@ -186,6 +186,42 @@ Return ONLY valid JSON:
 
 EXAMPLES:
 {examples_text}"""
+
+    elif style == "wisdom":
+        return f"""Generate a viral 30-40 second wisdom quote script for "Quietlyy" — a short video that opens with a famous quote from a real philosopher, poet, or ancient tradition, then reflects on it emotionally.{audience_block}{avoid_block}
+
+Topic: {topic}
+
+FORMAT (follow exactly):
+Line 1: Attribution opener — e.g. "Rumi once wrote..." / "Marcus Aurelius wrote in his journal..." / "An old Japanese proverb says..." / "Kahlil Gibran once said..." / "The Stoics believed..." / "Buddha taught..."
+Line 2-3: The actual quote — split across 2 short lines, in plain language (not archaic)
+Line 4: One blank breath — then "And quietly... that became everything."  (or similar soft bridge)
+Lines 5-7: Your brief reflection — 3 lines that unpack what this quote means to a real person's daily life. Specific, emotional, honest. NOT generic motivation.
+Last line: Soft share nudge — "Save this for the days you forget." / "Send this to someone who needs it right now." / "Tag someone carrying something heavy today."
+
+WISDOM SOURCES TO CHOOSE FROM (pick whichever fits the topic best):
+- Rumi (13th century Persian poet — love, longing, soul, transformation)
+- Marcus Aurelius (Roman Emperor, Stoic — inner strength, acceptance, self-discipline)
+- Kahlil Gibran (Lebanese poet — love, grief, joy, children, freedom)
+- Buddha / Buddhist teaching (attachment, peace, suffering, compassion)
+- Lao Tzu / Taoism (flow, simplicity, nature, balance)
+- A Japanese proverb (resilience, patience, simplicity, impermanence)
+- A Native American proverb (nature, community, belonging, wisdom)
+- Epictetus (freedom, what we control, inner peace)
+- Maya Angelou (courage, resilience, love, self-worth)
+- Hafiz (Persian Sufi poet — joy, love, divine, celebration)
+
+RULES:
+- The quote MUST feel authentic — it can be a real quote OR written in the authentic spirit/style of that tradition
+- Keep lines short — 6-12 words each
+- The reflection (lines 5-7) must feel personal and specific, NOT like a motivational poster
+- Use "..." for natural breath pauses
+- End with warmth, not drama
+
+Also provide 4 visual keywords: peaceful contemplative scenes — a person in solitude, nature, quiet interiors.
+
+Return ONLY valid JSON:
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
     else:
         return f"""Generate a viral 25-second emotional script in "Quietlyy" spoken-word style.{audience_block}{avoid_block}

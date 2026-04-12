@@ -205,63 +205,65 @@ _SCENE_POOL = (
 # Key: muted earthy illustrated, NOT dark gothic, NOT photorealistic, NOT creepy
 _LOVE_STYLE_VARIANTS = [
     (
-        "Semi-realistic manga illustration style — warm and intimate. "
-        "Muted earthy palette: warm terracotta, soft beige, dusty rose, sage green. "
-        "Two people in a tender close moment — foreheads touching, gentle embrace, holding hands. "
-        "Soft natural lighting, clear visible faces with warm skin tones. "
-        "Like a beautiful romance manga panel — NOT dark, NOT gothic. Warm, clear, emotionally tender."
+        "Vibrant romantic anime illustration — rich warm colors, intimate and beautiful. "
+        "Rich palette: deep rose pink, warm amber golden light, soft lavender sky, glowing coral sunset. "
+        "Two people in a tender close moment — foreheads touching, gentle embrace. "
+        "Colorful, vivid, emotionally warm backgrounds — garden, golden field, sunset light. "
+        "Like a beautiful Ghibli love scene — NOT dark, NOT muted. Vibrant, warm, romantic."
     ),
     (
-        "Illustrated anime-style romantic art — soft warm tones, clearly readable. "
-        "Palette: warm dusty rose, soft cream, muted terracotta, sage. "
-        "Intimate couple scene — close faces, gentle expressions, clear emotions visible. "
-        "Soft diffuse light, no harsh shadows, backgrounds soft and muted. "
-        "Style: beautiful illustrated romance — like a Studio Ghibli love scene. Warm and tender."
+        "Beautiful illustrated romance — vivid warm saturated colors. "
+        "Palette: glowing amber lamp light, rich rose, soft golden sunset, deep teal evening sky. "
+        "Intimate couple scene — close faces, tender gentle expressions, clear warm skin tones. "
+        "Rich colorful backgrounds: blooming garden, golden-lit room, soft glowing sunset. "
+        "Style: high-quality romantic anime art — vibrant, warm, emotionally alive."
     ),
     (
-        "Romantic graphic novel illustration — muted warm palette, clear characters. "
-        "Warm earthy tones: dusty rose, terracotta, warm olive, soft cream. "
-        "Two people close together, faces clearly visible, tender emotional expressions. "
-        "Soft natural lighting from a window or lamp, backgrounds warm and simple. "
-        "Like a beautifully drawn romance webtoon — NOT dark or moody. Clear, warm, loving."
+        "Romantic illustrated art — colorful, warm, radiant. "
+        "Colors: warm gold, deep rose, soft amber, emerald green, glowing sunset orange and pink. "
+        "Two people close together, soft expressions, warm faces clearly visible. "
+        "Beautiful rich backgrounds: glowing sunset, colorful garden, warm lit interior. "
+        "Like a stunning romance illustration — NOT dark or grey. Vibrant, loving, colorful."
     ),
 ]
 
 _STYLE_VARIANTS = [
     (
-        "Semi-realistic illustrated art in the style of Whisprs — muted earthy palette, airy and clear. "
-        "Colors: warm olive green, dusty sage, terracotta, warm beige, soft teal-grey. "
-        "Scenes feel open and breathable — NOT dark, NOT gothic, NOT creepy. "
-        "Characters have clearly visible faces and warm skin tones. "
-        "Backgrounds: misty fields, soft skies, cosy interiors — all readable and immediately clear. "
-        "Style: Studio Ghibli meets manga illustration — beautiful, muted, emotionally resonant. "
-        "NOT photorealistic. NOT dark. NOT saturated neon. Muted, warm, illustrated."
+        "Vibrant Studio Ghibli illustration style — rich, saturated, beautiful colors. "
+        "Palette: deep cerulean blue sky, lush emerald green fields, warm golden sunset orange, "
+        "bright coral, soft lavender clouds, glowing amber lamplight. "
+        "Scenes feel alive with color — like a Ghibli film frame. "
+        "Characters have clearly visible warm faces, natural poses. "
+        "NOT dark. NOT muted. NOT washed out. Colorful, warm, emotionally radiant. "
+        "Like Spirited Away or Howl's Moving Castle — vivid illustrated art, full of life and feeling."
     ),
     (
-        "Manga-inspired semi-realistic illustration — Whisprs aesthetic, muted and earthy. "
-        "Palette: warm dusty sage, olive green, terracotta rose, warm beige, soft grey-blue sky. "
-        "Scenes are clear and instantly readable — you know immediately what you're seeing. "
-        "Characters: visible faces, warm natural skin tones, natural relaxed poses. "
-        "Lighting: soft diffuse daylight or warm lamp — NOT dramatic, NOT dark. "
-        "Style: like a beautifully illustrated graphic novel or anime film concept art. "
-        "Relaxed, warm, melancholic but NOT threatening or dark."
+        "Beautiful anime illustration art — vibrant and emotionally warm. "
+        "Rich color palette: sapphire blue skies, golden wheat fields, bright teal water, "
+        "warm sunset gradient of orange and pink, deep green forests, glowing interior lamp light. "
+        "Scenes are painterly and alive — color is the mood. "
+        "Characters: clear expressive faces, natural warm skin tones, emotionally present. "
+        "Style: high-quality anime film concept art — NOT realistic, NOT dark, NOT washed out. "
+        "Vivid, lush, illustrated, radiant with color and feeling."
     ),
     (
-        "Illustrated art style — vintage travel poster meets Studio Ghibli, muted earthy tones. "
-        "Colors: dusty teal, muted olive, warm terracotta, pale beige, soft sage — "
-        "all desaturated and gentle, like faded beautiful memories. "
-        "Wide scenes: misty mountains, airy fields, foggy forests — all light and breathable. "
-        "Portrait scenes: clear faces, warm light, simple readable backgrounds. "
-        "NOT dark, NOT gothic, NOT neon. Gentle, muted, illustrated, emotionally warm."
+        "Illustrated art — colorful digital painting style, emotionally resonant. "
+        "Rich saturated palette: deep indigo night skies with warm glowing stars, "
+        "lush green countryside, golden morning light flooding a scene, "
+        "rich teal oceans, warm amber autumn colors, bright soft morning mist. "
+        "Every scene vibrant and beautiful — colors tell the emotion. "
+        "Characters clearly visible with warm expressive faces. "
+        "NOT dark gothic. NOT muted grey. NOT boring. Full of beautiful rich color. "
+        "Like a stunning illustrated book cover or high-quality animated film still."
     ),
     (
-        "Semi-realistic graphic novel illustration — Whisprs style, clean and muted. "
-        "Muted earthy palette: warm sage green, dusty terracotta, beige, soft grey-blue. "
-        "Every scene immediately clear and readable — no confusion, no darkness. "
-        "Landscapes: misty and airy — morning fog, soft skies, gentle light. "
-        "Characters: detailed visible faces, warm tones, emotionally expressive. "
-        "Like a beautifully drawn illustrated novel — peaceful, melancholic, clearly illustrated. "
-        "Absolutely NOT dark gothic or creepy. Clean, illustrated, emotionally resonant."
+        "Semi-realistic illustrated art — vivid warm colors, painterly and emotional. "
+        "Dominant colors: warm golden light, rich blue-green landscape, bright coral sunrise, "
+        "glowing amber interior light, lush emerald greens, soft rose and peach tones. "
+        "Scenes feel lush, alive, and emotionally rich. "
+        "Every element contributes to a beautiful, colorful, readable image. "
+        "Characters: visible, warm, expressive. Style: illustrated graphic novel with Ghibli soul. "
+        "NOT muted, NOT dark, NOT creepy. Beautiful, colorful, human, warm."
     ),
 ]
 
@@ -326,9 +328,10 @@ def _crop_to_portrait(image_path):
 
 
 def generate_with_dalle(prompt, output_path):
-    """Generate image using OpenAI DALL-E 3 API.
-    Uses 1024x1024 (square) to avoid sideways composition bug,
-    then crops to portrait in PIL."""
+    """Generate image using OpenAI gpt-image-1 API.
+    Migrated from dall-e-3 which is deprecated May 12 2026.
+    Uses 1024x1536 native portrait — no cropping needed."""
+    import base64
     key = os.environ.get("OPENAI_API_KEY")
     if not key:
         return False
@@ -342,32 +345,41 @@ def generate_with_dalle(prompt, output_path):
                     "Content-Type": "application/json",
                 },
                 json={
-                    "model": "dall-e-3",
+                    "model": "gpt-image-1",
                     "prompt": prompt,
                     "n": 1,
-                    "size": "1024x1024",
-                    "quality": "standard",  # hd costs 2x quota — standard is fine for shorts
-                    "response_format": "url",
+                    "size": "1024x1536",   # native portrait — no crop needed
+                    "quality": "medium",   # low/medium/high (was standard/hd)
                 },
                 timeout=120,
             )
             resp.raise_for_status()
             data = resp.json()
-            img_url = data["data"][0]["url"]
+            item = data["data"][0]
 
-            # Download the image
-            img_resp = requests.get(img_url, timeout=30)
-            img_resp.raise_for_status()
-            if len(img_resp.content) < 5000:
+            # gpt-image-1 returns b64_json; fall back to url if present
+            if "b64_json" in item:
+                img_data = base64.b64decode(item["b64_json"])
+            elif "url" in item:
+                img_resp = requests.get(item["url"], timeout=30)
+                img_resp.raise_for_status()
+                img_data = img_resp.content
+            else:
+                continue
+
+            if len(img_data) < 5000:
                 continue
             with open(output_path, "wb") as f:
-                f.write(img_resp.content)
+                f.write(img_data)
 
-            # Crop square to portrait (9:16)
-            _crop_to_portrait(output_path)
+            # Resize to exactly 1080x1920 (aspect is already 9:16)
+            from PIL import Image as PILImage
+            img = PILImage.open(output_path).convert("RGB")
+            img = img.resize((1080, 1920), PILImage.LANCZOS)
+            img.save(output_path)
             return True
         except Exception as e:
-            print(f"[images] DALL-E attempt {attempt+1} failed: {e}")
+            print(f"[images] gpt-image-1 attempt {attempt+1} failed: {e}")
             if attempt < 2:
                 time.sleep(3)
     return False

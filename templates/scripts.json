@@ -3,62 +3,103 @@
     {
       "topic": "The Giver Who Was Never Thanked",
       "style": "poetic",
-      "visual_keywords": ["umbrella in storm", "person standing in rain alone", "sky releasing colors at sunset", "shelter no one returns to"],
-      "script": "You weren't loved for who you are…\nyou were loved for how gently you held others together.\n\nLike an umbrella in the storm,\nyou felt essential when the skies broke—\nbut no one thanks the shelter\nonce the sun learns how to stay.\n\nYou called it patience,\nthey called it convenience.\n\nAnd somewhere between giving and waiting,\nyou forgot—\neven the sky lets go of its colors\nevery single evening.\n\nNot because it lost them…\nbut because it knows\nthey were never meant to stay."
+      "visual_keywords": [
+        "umbrella in storm",
+        "person standing in rain alone",
+        "sky releasing colors at sunset",
+        "shelter no one returns to"
+      ],
+      "script": "You weren't loved for who you are\u2026\nyou were loved for how gently you held others together.\n\nLike an umbrella in the storm,\nyou felt essential when the skies broke\u2014\nbut no one thanks the shelter\nonce the sun learns how to stay.\n\nYou called it patience,\nthey called it convenience.\n\nAnd somewhere between giving and waiting,\nyou forgot\u2014\neven the sky lets go of its colors\nevery single evening.\n\nNot because it lost them\u2026\nbut because it knows\nthey were never meant to stay."
     },
     {
       "topic": "The Friend Who Disappeared",
       "style": "emotional",
-      "visual_keywords": ["two people walking away", "empty bench", "fading silhouette in fog"],
-      "script": "You didn't lose them in a fight.\nYou lost them in a silence that grew too long.\nOne day they were your whole world.\nThe next, just someone you used to know.\nAnd the worst part?\nYou never got to say goodbye.\nSome people leave without leaving — and that's the wound that never closes."
+      "visual_keywords": [
+        "two people walking away",
+        "empty bench",
+        "fading silhouette in fog"
+      ],
+      "script": "You didn't lose them in a fight.\nYou lost them in a silence that grew too long.\nOne day they were your whole world.\nThe next, just someone you used to know.\nAnd the worst part?\nYou never got to say goodbye.\nSome people leave without leaving \u2014 and that's the wound that never closes."
     },
     {
       "topic": "Missing Someone Alive",
       "style": "emotional",
-      "visual_keywords": ["person staring at phone", "unanswered message", "empty chair at table"],
-      "script": "Missing someone who's still alive is the loneliest kind of pain.\nBecause you can't grieve them properly.\nThey're out there — living, laughing, breathing.\nJust not with you anymore.\nAnd every time you see their name, your chest still tightens.\nSome distances aren't measured in miles.\nThey're measured in what was never said."
+      "visual_keywords": [
+        "person staring at phone",
+        "unanswered message",
+        "empty chair at table"
+      ],
+      "script": "Missing someone who's still alive is the loneliest kind of pain.\nBecause you can't grieve them properly.\nThey're out there \u2014 living, laughing, breathing.\nJust not with you anymore.\nAnd every time you see their name, your chest still tightens.\nSome distances aren't measured in miles.\nThey're measured in what was never said."
     },
     {
       "topic": "Heartbreak Lesson",
       "style": "emotional",
-      "visual_keywords": ["person sitting alone at window", "rain on glass", "soft light at dawn"],
-      "script": "They broke your heart.\nBut here's what they didn't break — your ability to love.\nYou didn't become cold.\nYou became careful.\nAnd there's a difference.\nCold people stop feeling. Careful people feel everything — they just choose better.\nYour next love won't get a broken version of you.\nThey'll get a wiser one."
+      "visual_keywords": [
+        "person sitting alone at window",
+        "rain on glass",
+        "soft light at dawn"
+      ],
+      "script": "They broke your heart.\nBut here's what they didn't break \u2014 your ability to love.\nYou didn't become cold.\nYou became careful.\nAnd there's a difference.\nCold people stop feeling. Careful people feel everything \u2014 they just choose better.\nYour next love won't get a broken version of you.\nThey'll get a wiser one."
     },
     {
       "topic": "Friendship That Faded",
       "style": "emotional",
-      "visual_keywords": ["two silhouettes growing apart", "old photographs", "empty hallway"],
-      "script": "We didn't have a falling out.\nWe just... stopped showing up for each other.\nLittle by little.\nUntil one day I realized — I couldn't remember the last time we laughed together.\nFriendships don't always end in arguments.\nSometimes they end in unanswered texts and forgotten plans.\nAnd somehow that's even harder to accept."
+      "visual_keywords": [
+        "two silhouettes growing apart",
+        "old photographs",
+        "empty hallway"
+      ],
+      "script": "We didn't have a falling out.\nWe just... stopped showing up for each other.\nLittle by little.\nUntil one day I realized \u2014 I couldn't remember the last time we laughed together.\nFriendships don't always end in arguments.\nSometimes they end in unanswered texts and forgotten plans.\nAnd somehow that's even harder to accept."
     },
     {
       "topic": "People Who Use You",
       "style": "emotional",
-      "visual_keywords": ["umbrella in storm", "person walking alone after rain", "empty street"],
-      "script": "You were never too much.\nJust too real for people who only needed you in their storms.\nThey held you close when the rain came.\nAnd forgot you the moment the sky cleared.\nBut here's your lesson — you are not a crisis hotline.\nStart saving your warmth for people who stay when it's sunny."
+      "visual_keywords": [
+        "umbrella in storm",
+        "person walking alone after rain",
+        "empty street"
+      ],
+      "script": "You were never too much.\nJust too real for people who only needed you in their storms.\nThey held you close when the rain came.\nAnd forgot you the moment the sky cleared.\nBut here's your lesson \u2014 you are not a crisis hotline.\nStart saving your warmth for people who stay when it's sunny."
     },
     {
       "topic": "Borrowed Love",
       "style": "emotional",
-      "visual_keywords": ["temporary connection", "empty doorway", "fading light"],
-      "script": "Not everyone who says I love you means I'll stay.\nSome people just mean — I like how you make me feel right now.\nYou were giving forever to people who were only visiting.\nAnd that's why it hurt.\nNot because they left.\nBut because you thought they'd live there.\nLesson: the right person won't need you to convince them to stay."
+      "visual_keywords": [
+        "temporary connection",
+        "empty doorway",
+        "fading light"
+      ],
+      "script": "Not everyone who says I love you means I'll stay.\nSome people just mean \u2014 I like how you make me feel right now.\nYou were giving forever to people who were only visiting.\nAnd that's why it hurt.\nNot because they left.\nBut because you thought they'd live there.\nLesson: the right person won't need you to convince them to stay."
     },
     {
       "topic": "Telephone",
       "style": "nostalgic",
-      "visual_keywords": ["person waiting by phone", "empty hallway", "late night silence"],
-      "script": "There was a time… when hearing someone's voice… meant everything.\nBack then… people waited hours… sometimes days… just for a call.\nNot because it was easy… but because it mattered.\nAnd now… They silence calls… from the people who care the most.\nMaybe… They didn't lose connection… They just stopped valuing it."
+      "visual_keywords": [
+        "person waiting by phone",
+        "empty hallway",
+        "late night silence"
+      ],
+      "script": "There was a time\u2026 when hearing someone's voice\u2026 meant everything.\nBack then\u2026 people waited hours\u2026 sometimes days\u2026 just for a call.\nNot because it was easy\u2026 but because it mattered.\nAnd now\u2026 They silence calls\u2026 from the people who care the most.\nMaybe\u2026 They didn't lose connection\u2026 They just stopped valuing it."
     },
     {
       "topic": "Sunday Mornings",
       "style": "nostalgic",
-      "visual_keywords": ["slow morning light", "family sitting together", "quiet kitchen"],
-      "script": "Sunday used to feel like the world agreed to pause.\nEveryone gathered… not because they were summoned… but because they wanted to be there.\nThe table wasn't fancy… but every seat was filled.\nNow Sundays come and go… and most people spend them alone with a screen.\nWe have more freedom than ever… and nowhere we truly want to be."
+      "visual_keywords": [
+        "slow morning light",
+        "family sitting together",
+        "quiet kitchen"
+      ],
+      "script": "Sunday used to feel like the world agreed to pause.\nEveryone gathered\u2026 not because they were summoned\u2026 but because they wanted to be there.\nThe table wasn't fancy\u2026 but every seat was filled.\nNow Sundays come and go\u2026 and most people spend them alone with a screen.\nWe have more freedom than ever\u2026 and nowhere we truly want to be."
     },
     {
       "topic": "Eye Contact",
       "style": "nostalgic",
-      "visual_keywords": ["two people facing each other", "crowded room isolation", "unspoken understanding"],
-      "script": "Remember when you could tell someone everything… without saying a word?\nA glance across a room used to carry the weight of a whole conversation.\nPeople knew how to look at each other… really look.\nNow we stare at glass… and call it connection.\nThe saddest part… is we don't even notice what we've stopped seeing."
+      "visual_keywords": [
+        "two people facing each other",
+        "crowded room isolation",
+        "unspoken understanding"
+      ],
+      "script": "Remember when you could tell someone everything\u2026 without saying a word?\nA glance across a room used to carry the weight of a whole conversation.\nPeople knew how to look at each other\u2026 really look.\nNow we stare at glass\u2026 and call it connection.\nThe saddest part\u2026 is we don't even notice what we've stopped seeing."
     }
   ],
   "topics_pool": {
@@ -176,20 +217,56 @@
       "I Didn't Know Love Could Feel This Soft",
       "The Kind of Love That Doesn't Shout",
       "What I Mean When I Say I Love You"
+    ],
+    "wisdom": [
+      "The Art of Letting Go",
+      "Finding Peace Within Yourself",
+      "The Courage to Begin Again",
+      "What Silence Teaches Us",
+      "The Gift of Impermanence",
+      "Loving Without Losing Yourself",
+      "The Strength in Stillness",
+      "Why Suffering Transforms Us",
+      "The Freedom of Acceptance",
+      "What Truly Matters in the End",
+      "The Power of Small Moments",
+      "Learning to Trust the Journey",
+      "The Wisdom of Not Forcing",
+      "When Grief Becomes a Teacher",
+      "The Beauty of an Unfinished Life",
+      "What Real Love Requires",
+      "The Difference Between Living and Existing",
+      "Why the Wound Is the Gift",
+      "How to Carry Loss Without Being Crushed",
+      "The Quiet Revolution of Self-Respect",
+      "What You Cannot Change and What You Can",
+      "The Ancient Truth About Happiness",
+      "Why Peace Is Not the Absence of Storm",
+      "The Meaning We Choose to Find",
+      "Learning to Belong to Yourself"
     ]
   },
   "love_example_scripts": [
     {
       "topic": "More Than My Favorite Person",
       "style": "love",
-      "visual_keywords": ["two people close together", "soft warm light", "quiet moment", "gentle hands"],
-      "script": "To be honest…\nyou're more than just my favorite person.\n\nYou're the thought I reach for\nwhen the day gets too heavy.\nThe voice I want to hear\nbefore I fall asleep.\n\nI don't know how to explain it to anyone else.\nI just know that everything feels quieter\nwhen you're near.\n\nTag the person who makes the world feel smaller — in the best way. ❤️"
+      "visual_keywords": [
+        "two people close together",
+        "soft warm light",
+        "quiet moment",
+        "gentle hands"
+      ],
+      "script": "To be honest\u2026\nyou're more than just my favorite person.\n\nYou're the thought I reach for\nwhen the day gets too heavy.\nThe voice I want to hear\nbefore I fall asleep.\n\nI don't know how to explain it to anyone else.\nI just know that everything feels quieter\nwhen you're near.\n\nTag the person who makes the world feel smaller \u2014 in the best way. \u2764\ufe0f"
     },
     {
       "topic": "You Are My Calm",
       "style": "love",
-      "visual_keywords": ["two people in soft light", "leaning on each other", "peaceful moment"],
-      "script": "You don't even know what you do.\n\nYou walk in\nand my whole chest just… exhales.\nLike something that was held tight\nfinally remembers how to let go.\n\nI've been looking for that feeling my whole life.\nTurns out it had your name.\n\nSend this to the person who is your calm. ❤️"
+      "visual_keywords": [
+        "two people in soft light",
+        "leaning on each other",
+        "peaceful moment"
+      ],
+      "script": "You don't even know what you do.\n\nYou walk in\nand my whole chest just\u2026 exhales.\nLike something that was held tight\nfinally remembers how to let go.\n\nI've been looking for that feeling my whole life.\nTurns out it had your name.\n\nSend this to the person who is your calm. \u2764\ufe0f"
     }
   ]
 }

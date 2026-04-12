@@ -111,7 +111,8 @@ def generate_quote(theme=None):
 # ── Image generation ──────────────────────────────────────────────────────────
 
 def _generate_dalle_background(scene_prompt, output_path):
-    """Generate atmospheric background with DALL-E 3."""
+    """Generate atmospheric background with gpt-image-1 (migrated from dall-e-3)."""
+    import base64
     key = os.environ.get("OPENAI_API_KEY")
     if not key:
         return False
@@ -130,27 +131,32 @@ def _generate_dalle_background(scene_prompt, output_path):
                 "https://api.openai.com/v1/images/generations",
                 headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
                 json={
-                    "model": "dall-e-3",
+                    "model": "gpt-image-1",
                     "prompt": full_prompt,
                     "n": 1,
-                    "size": "1024x1792",  # Portrait for quote images
-                    "quality": "standard",
-                    "response_format": "url",
+                    "size": "1024x1536",  # Portrait (replaces 1024x1792 — not supported by gpt-image-1)
+                    "quality": "medium",
                 },
                 timeout=120,
             )
             resp.raise_for_status()
-            img_url = resp.json()["data"][0]["url"]
-            img_resp = requests.get(img_url, timeout=30)
-            img_resp.raise_for_status()
-            if len(img_resp.content) < 5000:
+            item = resp.json()["data"][0]
+            if "b64_json" in item:
+                img_data = base64.b64decode(item["b64_json"])
+            elif "url" in item:
+                img_resp = requests.get(item["url"], timeout=30)
+                img_resp.raise_for_status()
+                img_data = img_resp.content
+            else:
+                continue
+            if len(img_data) < 5000:
                 continue
             with open(output_path, "wb") as f:
-                f.write(img_resp.content)
+                f.write(img_data)
             print(f"[quote_image] Background saved: {output_path}")
             return True
         except Exception as e:
-            print(f"[quote_image] DALL-E attempt {attempt+1} failed: {e}")
+            print(f"[quote_image] gpt-image-1 attempt {attempt+1} failed: {e}")
             time.sleep(3)
     return False
 
