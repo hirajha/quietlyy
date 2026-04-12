@@ -31,6 +31,11 @@ on:
         required: false
         default: ''
         type: string
+      style:
+        description: 'Force a style: emotional / nostalgic / love / poetic / wisdom (leave empty for auto)'
+        required: false
+        default: ''
+        type: string
 
 jobs:
   generate-video:
@@ -82,6 +87,12 @@ jobs:
           if [ "${{ github.event.inputs.skip_youtube }}" = "true" ]; then
             ARGS="$ARGS --skip-youtube"
           fi
+          if [ -n "${{ github.event.inputs.custom_topic }}" ]; then
+            ARGS="$ARGS --topic=${{ github.event.inputs.custom_topic }}"
+          fi
+          if [ -n "${{ github.event.inputs.style }}" ]; then
+            ARGS="$ARGS --style=${{ github.event.inputs.style }}"
+          fi
           python scripts/pipeline.py $ARGS
 
       - name: Save gallery + research cache to repo
@@ -89,7 +100,7 @@ jobs:
         run: |
           git config user.name "Quietlyy Bot"
           git config user.email "bot@quietlyy.com"
-          git add -f assets/gallery/ assets/market_research.json || true
+          git add -f assets/gallery/ assets/market_research.json assets/used_scripts.json || true
           git diff --cached --quiet || git commit -m "Bot: gallery + research cache [run #${{ github.run_number }}]"
           git push || true
 
@@ -103,8 +114,11 @@ jobs:
             output/script.json
             output/seo_metadata.json
             output/post_result.json
+            output/instagram_result.json
+            output/instagram_error.json
             output/youtube_result.json
             output/manual_caption.txt
+            output/copyright_check.json
           retention-days: 30
           if-no-files-found: ignore
 
