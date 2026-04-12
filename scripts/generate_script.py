@@ -9,7 +9,7 @@ import json
 import random
 import requests
 
-from review_script import review_script, save_used_script
+from review_script import review_script, save_used_script, get_recently_used_context
 
 TEMPLATES_PATH = os.path.join(os.path.dirname(__file__), "..", "templates", "scripts.json")
 
@@ -19,14 +19,14 @@ def load_templates():
         return json.load(f)
 
 
-STYLES = ["emotional", "nostalgic", "poetic"]
+STYLES = ["emotional", "love", "nostalgic", "poetic", "wisdom"]
 
 def pick_style_and_topic(templates, theme_hints=None):
-    """Rotate between 'emotional', 'nostalgic', and 'poetic' styles each run."""
+    """Rotate between styles each run."""
     state_path = os.path.join(os.path.dirname(__file__), "..", "output", "used_topics.json")
     os.makedirs(os.path.dirname(state_path), exist_ok=True)
 
-    state = {"used_nostalgic": [], "used_emotional": [], "used_poetic": [], "last_style": "nostalgic"}
+    state = {"used_nostalgic": [], "used_emotional": [], "used_poetic": [], "used_love": [], "used_wisdom": [], "last_style": "nostalgic"}
     if os.path.exists(state_path):
         with open(state_path) as f:
             try:
@@ -88,17 +88,27 @@ def build_prompt(topic, examples, style="emotional", tone_hints="", idea_hints="
     if idea_hints:
         audience_block += f"\n{idea_hints}\n"
 
+    # Inject recently used metaphors/themes so AI explicitly avoids repeating them
+    used_metaphors, used_themes = get_recently_used_context(n=8)
+    avoid_block = ""
+    if used_metaphors:
+        avoid_block += f"\nDO NOT use these metaphors/images (already used recently): {', '.join(used_metaphors)}\n"
+    if used_themes:
+        avoid_block += f"DO NOT write about these emotional concepts (already covered recently): {', '.join(t.replace('_', ' ') for t in used_themes)}\n"
+    avoid_block += "Write something COMPLETELY DIFFERENT — a fresh angle, fresh imagery, fresh emotional territory.\n"
+
     if style == "poetic":
         style_examples = [e for e in examples if e.get("style") == "poetic"][:2]
         examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
-        return f"""Generate a viral 25-35 second spoken-word poem in "Quietlyy" poetic metaphor style.{audience_block}
+        return f"""Generate a viral 25-35 second spoken-word poem in "Quietlyy" poetic metaphor style.{audience_block}{avoid_block}
 
 Topic: {topic}
 Tone: lyrical, deeply felt, metaphor-driven — like spoken-word poetry meets emotional insight
 
 Rules:
-- Open with a direct "you" address — hit the viewer in the chest in line 1 ("You weren't loved for who you are…")
-- Build ONE central metaphor that runs through the poem (umbrella/storm, sky/colors, roots/tree, tide/shore)
+- NEVER open with "You were...", "You weren't...", "You were never...", "You weren't cherished", "You weren't loved" — these are banned openers
+- Open with an unexpected image, observation, or truth — a place, an action, a paradox in nature. Pull the viewer in with something they've never heard phrased that way.
+- Build ONE central metaphor that runs through the poem (river/stone, window/light, roots/soil, tide/shore, fire/ash)
 - Use short fragmented lines — 3-8 words per line, lots of breathing room
 - Use "…" for pauses, em-dashes for emotional breaks
 - Paradox or twist in the middle that reframes everything
@@ -107,7 +117,7 @@ Rules:
 - NO hashtags, NO emojis, NO stage directions
 
 Structure:
-Stanza 1 (2-3 lines): Hook — address the viewer, name their wound
+Stanza 1 (2-3 lines): Hook — an image or observation that immediately draws you in
 Stanza 2 (3-4 lines): The metaphor — build the central image
 Stanza 3 (2 lines): The turn/paradox — "you called it X, they called it Y"
 Stanza 4 (3-5 lines): The quiet truth — the reframe that lands like a revelation
@@ -120,45 +130,110 @@ Return ONLY valid JSON:
 EXAMPLES (study the structure — metaphor, paradox, quiet ending):
 {examples_text}"""
 
-    elif style == "nostalgic":
-        return f"""Generate a viral 25-second script in "Quietlyy" nostalgic style.{audience_block}
+    elif style == "love":
+        style_examples = [e for e in examples if e.get("style") == "love"][:2]
+        examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
+        return f"""Generate a viral 20-30 second short love script in "Quietlyy" style.{audience_block}{avoid_block}
 
 Topic: {topic}
-Tone: quiet, melancholic, deeply human
+Tone: soft, intimate, romantic — makes people think of someone they love and want to share it with them
 
 Rules:
-- Hook in first 2 lines. Gut-punch ending.
-- NEVER start with "There was a time" — this is strictly banned. Use a different, more personal opener.
-- NEVER start with "In a world", "We live in", "Have you ever", or any generic opener.
-- Use "\u2026" for emotional pauses
-- Exactly 5 lines, each on its own line
-- About PEOPLE and HUMAN CONNECTION, not the object itself
-- NO hashtags, emojis, stage directions
+- Write in second person ("you") — speak directly to the person being loved
+- Short fragmented lines — 4-8 words, feels like a whisper
+- Must feel universally relatable — ANY couple or person in love will recognize it
+- Use "…" for pauses
+- End with a gentle CTA that makes people tag or send to someone: e.g. "Tag the person who is your calm ❤️" or "Send this to them. They need to know. ❤️" or "Tag the one who makes you feel this way ❤️"
+- DO NOT be dramatic or painful — this is warm, safe, loving. Not heartbreak.
+- 8-12 lines total including CTA
+- NO hashtags anywhere except the CTA line which may have ❤️
 
-Structure:
-Line 1: HOOK — something we lost or used to have (make it feel personal, not generic)
-Line 2: Why it mattered — the warmth or beauty of that time
-Line 3: The emotional turn — when things changed
-Line 4: The cold modern contrast — what we do now instead
-Line 5: Quiet lesson or realization — give them something to carry
-Last line (optional): A natural, soft nudge — e.g. "Share this with someone who needs it." or "Save this for the quiet days."
-
-Also provide 4 visual keywords (emotional scenes/people, not objects).
+Also provide 4 visual keywords: romantic couple scenes, soft light, intimate moments — dark moody illustrated style.
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
+{{"script": "line1\\nline2\\n\\nline3\\nline4\\n\\nline5", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
 
 EXAMPLES:
 {examples_text}"""
 
+    elif style == "nostalgic":
+        return f"""Generate a viral 25-30 second script in "Quietlyy" nostalgic style.{audience_block}{avoid_block}
+
+Topic: {topic}
+Audience: Women 55-64, mostly American — they remember when family togetherness, neighborhood warmth, and real conversation were everyday things. Speak directly to that ache.
+Tone: warm, melancholic, deeply human — like a memory that still aches beautifully
+
+CRITICAL RULES:
+- The topic is a trigger for a FEELING, not the subject of the poem.
+  WRONG: "Remember when we gathered around the television?" (this is about the object)
+  RIGHT: "Remember when nobody wanted the night to end?" (this is about the connection)
+- NEVER mention the physical object, technology, or thing directly
+- NEVER start with "There was a time", "In a world", "Have you ever", "We live in", "Some people", "Not everyone"
+- Short punchy lines — 8-12 words max per line, feels like a quiet spoken memory
+- Use "…" for emotional pauses
+- 6-9 lines total
+
+Structure:
+Line 1-2: HOOK — paint a picture of people together, warmth, belonging (not the thing)
+Line 3-4: The specific feeling that existed then — why it mattered to the soul
+Line 5-6: The quiet shift — honest but not bitter, just true
+Line 7-8: Gentle ache or realization — something they can feel in their chest
+Last line: Soft share nudge — "Send this to someone you used to be closer to." or "Save this for the people who still matter."
+
+Also provide 4 visual keywords (warm human scenes: family gatherings, people together, shared moments — NO objects).
+
+Return ONLY valid JSON:
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
+
+EXAMPLES:
+{examples_text}"""
+
+    elif style == "wisdom":
+        return f"""Generate a viral 30-40 second wisdom quote script for "Quietlyy" — a short video that opens with a famous quote from a real philosopher, poet, or ancient tradition, then reflects on it emotionally.{audience_block}{avoid_block}
+
+Topic: {topic}
+
+FORMAT (follow exactly):
+Line 1: Attribution opener — e.g. "Rumi once wrote..." / "Marcus Aurelius wrote in his journal..." / "An old Japanese proverb says..." / "Kahlil Gibran once said..." / "The Stoics believed..." / "Buddha taught..."
+Line 2-3: The actual quote — split across 2 short lines, in plain language (not archaic)
+Line 4: One blank breath — then "And quietly... that became everything."  (or similar soft bridge)
+Lines 5-7: Your brief reflection — 3 lines that unpack what this quote means to a real person's daily life. Specific, emotional, honest. NOT generic motivation.
+Last line: Soft share nudge — "Save this for the days you forget." / "Send this to someone who needs it right now." / "Tag someone carrying something heavy today."
+
+WISDOM SOURCES TO CHOOSE FROM (pick whichever fits the topic best):
+- Rumi (13th century Persian poet — love, longing, soul, transformation)
+- Marcus Aurelius (Roman Emperor, Stoic — inner strength, acceptance, self-discipline)
+- Kahlil Gibran (Lebanese poet — love, grief, joy, children, freedom)
+- Buddha / Buddhist teaching (attachment, peace, suffering, compassion)
+- Lao Tzu / Taoism (flow, simplicity, nature, balance)
+- A Japanese proverb (resilience, patience, simplicity, impermanence)
+- A Native American proverb (nature, community, belonging, wisdom)
+- Epictetus (freedom, what we control, inner peace)
+- Maya Angelou (courage, resilience, love, self-worth)
+- Hafiz (Persian Sufi poet — joy, love, divine, celebration)
+
+RULES:
+- The quote MUST feel authentic — it can be a real quote OR written in the authentic spirit/style of that tradition
+- Keep lines short — 6-12 words each
+- The reflection (lines 5-7) must feel personal and specific, NOT like a motivational poster
+- Use "..." for natural breath pauses
+- End with warmth, not drama
+
+Also provide 4 visual keywords: peaceful contemplative scenes — a person in solitude, nature, quiet interiors.
+
+Return ONLY valid JSON:
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
+
     else:
-        return f"""Generate a viral 25-second emotional script in "Quietlyy" spoken-word style.{audience_block}
+        return f"""Generate a viral 25-second emotional script in "Quietlyy" spoken-word style.{audience_block}{avoid_block}
 
 Topic: {topic}
 Tone: raw, deeply human — heartbreak, friendship, missing someone, growing apart
 
 Rules:
 - Line 1 MUST be a scroll-stopping hook — something people feel in their chest instantly
+- NEVER open with "You were...", "You weren't...", "You were never...", "You weren't cherished", "You weren't loved", "You were too much" — these are banned and overused
+- Open with an action, a moment, a realization, a specific scene — something fresh and unexpected
 - Write about real human pain: heartbreak, lost friendships, missing someone, being used, moving on
 - Short punchy lines — NOT long sentences
 - Use a single powerful image or metaphor in the middle
@@ -191,7 +266,7 @@ def _call_openai_compatible(url, key, model, prompt):
             "model": model,
             "messages": [{"role": "user", "content": prompt}],
             "max_tokens": 350,
-            "temperature": 0.7,
+            "temperature": 0.92,
             "response_format": {"type": "json_object"},
         },
         timeout=30,
@@ -251,7 +326,7 @@ def generate_with_gemini(prompt):
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
                 "maxOutputTokens": 2000,
-                "temperature": 0.7,
+                "temperature": 0.92,
             },
         },
         timeout=60,
@@ -334,7 +409,7 @@ def generate_script(tone_hints="", theme_hints=None, idea_hints=""):
     raise RuntimeError(f"Script quality gate failed after {MAX_ATTEMPTS} attempts. Cannot proceed.")
 
 
-def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candidates=5):
+def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candidates=5, forced_topic=None, forced_style=None):
     """
     Generate up to n_candidates scripts that pass the quality gate,
     score each with the engagement predictor, and return the highest-scoring one.
@@ -359,6 +434,10 @@ def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candi
     while len(candidates) < n_candidates and attempt < MAX_TOTAL_ATTEMPTS:
         attempt += 1
         style, topic = pick_style_and_topic(templates, theme_hints=theme_hints)
+        if forced_style:
+            style = forced_style
+        if forced_topic:
+            topic = forced_topic
         prompt = build_prompt(topic, examples, style=style, tone_hints=tone_hints, idea_hints=idea_hints)
         print(f"[script] Candidate {len(candidates)+1}/{n_candidates} (try {attempt}) — Style: {style} | Topic: {topic}")
 

@@ -1,64 +1,125 @@
 {
   "example_scripts": [
     {
-      "topic": "The Giver Who Was Never Thanked",
+      "topic": "The River and the Stone",
       "style": "poetic",
-      "visual_keywords": ["umbrella in storm", "person standing in rain alone", "sky releasing colors at sunset", "shelter no one returns to"],
-      "script": "You weren't loved for who you are…\nyou were loved for how gently you held others together.\n\nLike an umbrella in the storm,\nyou felt essential when the skies broke—\nbut no one thanks the shelter\nonce the sun learns how to stay.\n\nYou called it patience,\nthey called it convenience.\n\nAnd somewhere between giving and waiting,\nyou forgot—\neven the sky lets go of its colors\nevery single evening.\n\nNot because it lost them…\nbut because it knows\nthey were never meant to stay."
+      "visual_keywords": [
+        "river flowing over smooth stones",
+        "quiet water at dusk",
+        "solitary figure by a riverbank",
+        "light through moving water"
+      ],
+      "script": "The river doesn't ask the stone\nif it's ready to be moved.\n\nIt just\u2026 keeps going.\nPatient. Persistent. Unbothered.\n\nAnd the stone\u2014\nworn smooth over years of resistance\u2014\ndoesn't call that loss.\n\nIt calls it shape.\n\nThe things that weathered you\nweren't trying to destroy you.\nThey were finding\nwhat was underneath."
     },
     {
-      "topic": "The Friend Who Disappeared",
+      "topic": "What the Window Saw",
+      "style": "poetic",
+      "visual_keywords": [
+        "lit window at night",
+        "silhouette behind curtain",
+        "empty chair by lamplight",
+        "person looking out from inside"
+      ],
+      "script": "From the outside, the house looked warm.\nLights on. Curtains drawn.\n\nBut windows don't lie\nthe way faces do.\n\nThey show you what someone can't say\u2014\nthe empty chair at dinner,\nthe mug sitting cold on the counter,\nthe long exhale before someone smiles.\n\nA person can fill their life with everything\nand still live in it alone.\n\nShare this with someone\nwho would never tell you they're struggling."
+    },
+    {
+      "topic": "The Night She Stopped Explaining",
       "style": "emotional",
-      "visual_keywords": ["two people walking away", "empty bench", "fading silhouette in fog"],
-      "script": "You didn't lose them in a fight.\nYou lost them in a silence that grew too long.\nOne day they were your whole world.\nThe next, just someone you used to know.\nAnd the worst part?\nYou never got to say goodbye.\nSome people leave without leaving — and that's the wound that never closes."
+      "visual_keywords": [
+        "woman standing alone in quiet room",
+        "soft light through window",
+        "stillness at dusk",
+        "person looking at the horizon"
+      ],
+      "script": "She stopped explaining herself.\nNot because she stopped caring.\nBut because she finally understood\u2014\nthe right people don't need the explanation.\n\nThe ones who love you\nwill believe your silence\nbefore they question your reasons.\n\nShe wasn't difficult.\nShe was just done translating herself\nfor people who never wanted to understand.\n\nSave this for anyone\nwho calls your standards too high."
     },
     {
-      "topic": "Missing Someone Alive",
+      "topic": "What They Never Say at Funerals",
       "style": "emotional",
-      "visual_keywords": ["person staring at phone", "unanswered message", "empty chair at table"],
-      "script": "Missing someone who's still alive is the loneliest kind of pain.\nBecause you can't grieve them properly.\nThey're out there — living, laughing, breathing.\nJust not with you anymore.\nAnd every time you see their name, your chest still tightens.\nSome distances aren't measured in miles.\nThey're measured in what was never said."
+      "visual_keywords": [
+        "empty chairs after a gathering",
+        "fading evening light",
+        "old family photographs",
+        "quiet table after a meal"
+      ],
+      "script": "At funerals, nobody talks about how busy they were.\n\nNobody says:\n'I'm glad I missed that birthday.'\n'I'm glad I sent a text instead of showing up.'\n\nThey talk about the last time they really laughed with someone.\nThe last time they really listened.\n\nThe time they had\u2026 that they thought they'd always have.\n\nDon't wait for a funeral to remember what matters.\nSend this to someone you keep meaning to call."
     },
     {
-      "topic": "Heartbreak Lesson",
+      "topic": "The Morning After You Stop Trying",
       "style": "emotional",
-      "visual_keywords": ["person sitting alone at window", "rain on glass", "soft light at dawn"],
-      "script": "They broke your heart.\nBut here's what they didn't break — your ability to love.\nYou didn't become cold.\nYou became careful.\nAnd there's a difference.\nCold people stop feeling. Careful people feel everything — they just choose better.\nYour next love won't get a broken version of you.\nThey'll get a wiser one."
-    },
-    {
-      "topic": "Friendship That Faded",
-      "style": "emotional",
-      "visual_keywords": ["two silhouettes growing apart", "old photographs", "empty hallway"],
-      "script": "We didn't have a falling out.\nWe just... stopped showing up for each other.\nLittle by little.\nUntil one day I realized — I couldn't remember the last time we laughed together.\nFriendships don't always end in arguments.\nSometimes they end in unanswered texts and forgotten plans.\nAnd somehow that's even harder to accept."
-    },
-    {
-      "topic": "People Who Use You",
-      "style": "emotional",
-      "visual_keywords": ["umbrella in storm", "person walking alone after rain", "empty street"],
-      "script": "You were never too much.\nJust too real for people who only needed you in their storms.\nThey held you close when the rain came.\nAnd forgot you the moment the sky cleared.\nBut here's your lesson — you are not a crisis hotline.\nStart saving your warmth for people who stay when it's sunny."
-    },
-    {
-      "topic": "Borrowed Love",
-      "style": "emotional",
-      "visual_keywords": ["temporary connection", "empty doorway", "fading light"],
-      "script": "Not everyone who says I love you means I'll stay.\nSome people just mean — I like how you make me feel right now.\nYou were giving forever to people who were only visiting.\nAnd that's why it hurt.\nNot because they left.\nBut because you thought they'd live there.\nLesson: the right person won't need you to convince them to stay."
-    },
-    {
-      "topic": "Telephone",
-      "style": "nostalgic",
-      "visual_keywords": ["person waiting by phone", "empty hallway", "late night silence"],
-      "script": "There was a time… when hearing someone's voice… meant everything.\nBack then… people waited hours… sometimes days… just for a call.\nNot because it was easy… but because it mattered.\nAnd now… They silence calls… from the people who care the most.\nMaybe… They didn't lose connection… They just stopped valuing it."
+      "visual_keywords": [
+        "morning light through bedroom curtains",
+        "person sitting quietly at sunrise",
+        "calm after a storm",
+        "soft golden morning"
+      ],
+      "script": "The morning after you stop trying\nfeels like failure.\n\nUntil it doesn't.\n\nUntil you realize\u2014\npeace isn't something they withheld from you.\nIt was always yours.\nYou just kept leaving the room to go find them.\n\nStop leaving your own peace\nfor people who already left.\n\nSave this for the days you forget that."
     },
     {
       "topic": "Sunday Mornings",
       "style": "nostalgic",
-      "visual_keywords": ["slow morning light", "family sitting together", "quiet kitchen"],
-      "script": "Sunday used to feel like the world agreed to pause.\nEveryone gathered… not because they were summoned… but because they wanted to be there.\nThe table wasn't fancy… but every seat was filled.\nNow Sundays come and go… and most people spend them alone with a screen.\nWe have more freedom than ever… and nowhere we truly want to be."
+      "visual_keywords": [
+        "slow morning light",
+        "family sitting together",
+        "quiet kitchen",
+        "full table at breakfast"
+      ],
+      "script": "Sunday used to feel like the world agreed to pause.\nEveryone gathered\u2026 not because they were summoned\u2026 but because they wanted to be there.\nThe table wasn't fancy\u2026 but every seat was filled.\nNow Sundays come and go\u2026 and most people spend them alone with a screen.\nWe have more freedom than ever\u2026 and nowhere we truly want to be.\nSend this to someone you used to spend Sundays with."
     },
     {
       "topic": "Eye Contact",
       "style": "nostalgic",
-      "visual_keywords": ["two people facing each other", "crowded room isolation", "unspoken understanding"],
-      "script": "Remember when you could tell someone everything… without saying a word?\nA glance across a room used to carry the weight of a whole conversation.\nPeople knew how to look at each other… really look.\nNow we stare at glass… and call it connection.\nThe saddest part… is we don't even notice what we've stopped seeing."
+      "visual_keywords": [
+        "two people facing each other",
+        "crowded room",
+        "quiet understanding between people",
+        "old friends at a table"
+      ],
+      "script": "Remember when you could tell someone everything\u2026 without saying a word?\nA glance across a room used to carry the weight of a whole conversation.\nPeople knew how to look at each other\u2026 really look.\nNow we stare at glass\u2026 and call it connection.\nThe saddest part\u2026 is we don't even notice what we've stopped seeing.\nTag someone who still knows how to really listen."
+    },
+    {
+      "topic": "More Than My Favorite Person",
+      "style": "love",
+      "visual_keywords": [
+        "two people close together",
+        "soft warm light",
+        "quiet moment",
+        "gentle hands"
+      ],
+      "script": "To be honest\u2026\nyou're more than just my favorite person.\n\nYou're the thought I reach for\nwhen the day gets too heavy.\nThe voice I want to hear\nbefore I fall asleep.\n\nI don't know how to explain it to anyone else.\nI just know that everything feels quieter\nwhen you're near.\n\nTag the person who makes the world feel smaller \u2014 in the best way. \u2764\ufe0f"
+    },
+    {
+      "topic": "You Are My Calm",
+      "style": "love",
+      "visual_keywords": [
+        "two people in soft light",
+        "leaning on each other",
+        "peaceful moment",
+        "quiet evening together"
+      ],
+      "script": "You don't even know what you do.\n\nYou walk in\nand my whole chest just\u2026 exhales.\nLike something that was held tight\nfinally remembers how to let go.\n\nI've been looking for that feeling my whole life.\nTurns out it had your name.\n\nSend this to the person who is your calm. \u2764\ufe0f"
+    },
+    {
+      "topic": "The Wound That Becomes the Gift",
+      "style": "wisdom",
+      "visual_keywords": [
+        "person standing in golden light",
+        "dawn over still water",
+        "solitary figure on a hilltop",
+        "light breaking through clouds"
+      ],
+      "script": "Rumi once wrote\u2026\n'The wound is the place\nwhere the Light enters you.'\n\nAnd quietly\u2026 that became everything.\n\nBecause we've been taught to hide the broken parts.\nTo patch them quickly. Apologize for the cracks.\n\nBut what if that's exactly where you let the light in?\nWhat if the places that hurt you most\nare the places that grew you deepest?\n\nSave this for the days the wound feels like weakness."
+    },
+    {
+      "topic": "You Have Power Over Your Mind",
+      "style": "wisdom",
+      "visual_keywords": [
+        "person sitting quietly in nature",
+        "morning stillness",
+        "lone figure in peaceful landscape",
+        "calm water at sunrise"
+      ],
+      "script": "Marcus Aurelius wrote in his journal\u2026\n'You have power over your mind.\nNot outside events.'\n\nAnd quietly\u2026 that changed how I face everything.\n\nYou cannot control what people say about you.\nWhat they choose. What they walk away from.\n\nBut the story you tell yourself about all of it?\nThat\u2026 is entirely yours.\n\nSave this for the next time\nthe world feels like it's against you."
     }
   ],
   "topics_pool": {
@@ -101,42 +162,36 @@
       "Finding Yourself After Them"
     ],
     "nostalgic": [
-      "Vinyl Records",
-      "Grandfather Clock",
-      "Library Card",
-      "Handshake",
-      "Dinner Table",
-      "Front Porch",
-      "Neighborhood",
-      "Sunday Mornings",
-      "Walking Together",
-      "Eye Contact",
-      "Patience",
-      "Silence Between Friends",
-      "Old Bookshop",
-      "Cassette Tape",
-      "Landline Phone",
-      "Paper Map",
-      "Window Seat",
-      "Childhood Games",
-      "Street Lamps",
-      "Wooden Bench",
-      "Old Radio",
-      "Pen Pal",
-      "Bicycle Rides",
-      "Love Letters",
-      "Family Album",
-      "Handmade Gifts",
-      "Waiting at the Door",
-      "Cooking From Memory",
-      "Sitting in Silence Together",
-      "Coming Home",
-      "Saying Goodbye Properly",
-      "Knowing Your Neighbor",
-      "Unplanned Visits",
-      "Childhood Best Friend",
-      "The House You Grew Up In",
-      "Old Friendships That Faded"
+      "When Everyone Used to Gather",
+      "When We Showed Up Without Texting First",
+      "When the Whole Family Sat Together",
+      "When You Could Hear the Neighborhood",
+      "When Sunday Meant Something",
+      "When We Used to Look at Each Other",
+      "When the Table Was Always Full",
+      "When You Didn't Have to Explain Your Absence",
+      "When People Stayed After Dinner",
+      "When Friends Dropped By Without Warning",
+      "When We Used to Walk Together",
+      "When Children Played Outside Until Dark",
+      "When You Knew All Your Neighbors' Names",
+      "When Silence Between Friends Meant Comfort",
+      "When a Letter Arrived and Nothing Else Mattered",
+      "When We Used to Make Time",
+      "When Evenings Were Spent Together",
+      "When You Could Tell How Someone Felt Without Asking",
+      "When Home Felt Like Everyone Was In It",
+      "When We Talked All Night About Nothing",
+      "When You Waited at the Door for Someone",
+      "When Family Meals Were Non-Negotiable",
+      "When the Phone Call Was the Whole Conversation",
+      "When Summer Felt Endless Because We Were Together",
+      "When Growing Up Meant Growing Closer",
+      "When You Shared One Room and Were Never Lonely",
+      "When a Hug Was How You Ended an Argument",
+      "When Grandparents Were the Center of Everything",
+      "When the Neighborhood Had a Heartbeat",
+      "When We Used to Celebrate Every Small Thing"
     ],
     "poetic": [
       "The Giver Who Was Never Thanked",
@@ -155,6 +210,83 @@
       "The Sky and Its Colors",
       "Roots That Never Got Seen",
       "What the Storm Takes With It"
+    ],
+    "love": [
+      "More Than My Favorite Person",
+      "The One I Think About First",
+      "When You Found Me",
+      "The Safest Place I Know",
+      "What Home Actually Feels Like",
+      "The Person Who Stayed",
+      "How You Changed Everything",
+      "The Way You Look at Me",
+      "What I Never Said Out Loud",
+      "Loving You Quietly",
+      "You Didn't Fix Me, You Stayed",
+      "The First Time I Knew",
+      "What Real Love Feels Like",
+      "When Someone Chooses You Every Day",
+      "The Little Things You Do",
+      "You Are My Calm",
+      "What I'd Tell You If I Could",
+      "Loving You in Silence",
+      "The Person Behind My Smile",
+      "Someone Worth Staying For",
+      "When Love Feels Like Coming Home",
+      "You Make the Hard Days Easier",
+      "I Didn't Know Love Could Feel This Soft",
+      "The Kind of Love That Doesn't Shout",
+      "What I Mean When I Say I Love You"
+    ],
+    "wisdom": [
+      "The Art of Letting Go",
+      "Finding Peace Within Yourself",
+      "The Courage to Begin Again",
+      "What Silence Teaches Us",
+      "The Gift of Impermanence",
+      "Loving Without Losing Yourself",
+      "The Strength in Stillness",
+      "Why Suffering Transforms Us",
+      "The Freedom of Acceptance",
+      "What Truly Matters in the End",
+      "The Power of Small Moments",
+      "Learning to Trust the Journey",
+      "The Wisdom of Not Forcing",
+      "When Grief Becomes a Teacher",
+      "The Beauty of an Unfinished Life",
+      "What Real Love Requires",
+      "The Difference Between Living and Existing",
+      "Why the Wound Is the Gift",
+      "How to Carry Loss Without Being Crushed",
+      "The Quiet Revolution of Self-Respect",
+      "What You Cannot Change and What You Can",
+      "The Ancient Truth About Happiness",
+      "Why Peace Is Not the Absence of Storm",
+      "The Meaning We Choose to Find",
+      "Learning to Belong to Yourself"
     ]
-  }
+  },
+  "love_example_scripts": [
+    {
+      "topic": "More Than My Favorite Person",
+      "style": "love",
+      "visual_keywords": [
+        "two people close together",
+        "soft warm light",
+        "quiet moment",
+        "gentle hands"
+      ],
+      "script": "To be honest\u2026\nyou're more than just my favorite person.\n\nYou're the thought I reach for\nwhen the day gets too heavy.\nThe voice I want to hear\nbefore I fall asleep.\n\nI don't know how to explain it to anyone else.\nI just know that everything feels quieter\nwhen you're near.\n\nTag the person who makes the world feel smaller \u2014 in the best way. \u2764\ufe0f"
+    },
+    {
+      "topic": "You Are My Calm",
+      "style": "love",
+      "visual_keywords": [
+        "two people in soft light",
+        "leaning on each other",
+        "peaceful moment"
+      ],
+      "script": "You don't even know what you do.\n\nYou walk in\nand my whole chest just\u2026 exhales.\nLike something that was held tight\nfinally remembers how to let go.\n\nI've been looking for that feeling my whole life.\nTurns out it had your name.\n\nSend this to the person who is your calm. \u2764\ufe0f"
+    }
+  ]
 }

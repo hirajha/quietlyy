@@ -16,7 +16,7 @@ import re
 import hashlib
 import requests
 
-USED_SCRIPTS_PATH = os.path.join(os.path.dirname(__file__), "..", "output", "used_scripts.json")
+USED_SCRIPTS_PATH = os.path.join(os.path.dirname(__file__), "..", "assets", "used_scripts.json")
 
 # Openers that are overused / banned
 BANNED_OPENERS = [
@@ -26,10 +26,24 @@ BANNED_OPENERS = [
     "we live in a world",
     "in today's world",
     "have you ever",
+    "life is",
+    "we all have",
+    "sometimes in life",
+    "not everyone",
+    "some people",
+    # "you were X" pattern — massively overused, banned across all styles
+    "you were not",
+    "you were never",
+    "you weren't",
+    "you were just",
+    "you were always",
+    "you were cherished",
+    "you were loved for",
+    "you were too",
 ]
 
-# Minimum similarity threshold to flag as duplicate (0-1)
-SIMILARITY_THRESHOLD = 0.6
+# Tighter threshold — catch concept-level near-duplicates, not just word overlap
+SIMILARITY_THRESHOLD = 0.45
 
 
 def _normalize(text):
@@ -69,6 +83,43 @@ def load_used_scripts():
     return []
 
 
+# Common metaphors/images to track — if a script uses 2+ of these from recent scripts, reject
+TRACKED_METAPHORS = [
+    "candle", "storm", "umbrella", "roots", "tide", "shore", "ocean", "waves",
+    "shadow", "light", "rain", "fire", "wind", "bridge", "door", "window",
+    "mirror", "path", "road", "wall", "garden", "flower", "seed", "tree",
+    "star", "moon", "sun", "dark", "dawn", "silence", "noise", "echo",
+    "mask", "armor", "sword", "anchor", "compass", "map", "letter",
+]
+
+
+def _extract_metaphors(script_text):
+    """Extract which tracked metaphors appear in this script."""
+    normalized = _normalize(script_text)
+    return set(m for m in TRACKED_METAPHORS if m in normalized)
+
+
+def _extract_core_theme(script_text):
+    """Extract a rough theme fingerprint: dominant emotional concepts."""
+    normalized = _normalize(script_text)
+    theme_words = {
+        "loneliness": ["alone", "lonely", "solitude", "isolated", "left"],
+        "being_used": ["used", "needed", "convenient", "purpose", "utility"],
+        "heartbreak": ["heartbreak", "broke", "broken", "shattered", "hurt", "pain", "wound"],
+        "friendship_loss": ["friend", "friendship", "drifted", "apart", "distance", "grew"],
+        "self_worth": ["worth", "enough", "value", "deserve", "love yourself"],
+        "nostalgia": ["remember", "childhood", "younger", "past", "ago", "used to"],
+        "growth": ["grew", "grow", "stronger", "healed", "learned", "became"],
+        "love": ["love", "loved", "loving", "lover", "heart", "together"],
+        "grief_loss": ["lost", "gone", "miss", "grief", "death", "left behind"],
+        "silence": ["quiet", "silence", "silent", "still", "unspoken"],
+        "moving_on": ["moved on", "letting go", "release", "free", "forward"],
+    }
+    found = [theme for theme, words in theme_words.items()
+             if any(w in normalized for w in words)]
+    return set(found)
+
+
 def save_used_script(script_text, topic, style):
     scripts = load_used_scripts()
     scripts.append({
@@ -76,12 +127,26 @@ def save_used_script(script_text, topic, style):
         "style": style,
         "script": script_text,
         "hash": hashlib.md5(_normalize(script_text).encode()).hexdigest(),
+        "metaphors": list(_extract_metaphors(script_text)),
+        "themes": list(_extract_core_theme(script_text)),
     })
     # Keep last 60 scripts in memory
     scripts = scripts[-60:]
     os.makedirs(os.path.dirname(USED_SCRIPTS_PATH), exist_ok=True)
     with open(USED_SCRIPTS_PATH, "w") as f:
         json.dump(scripts, f, indent=2)
+
+
+def get_recently_used_context(n=8):
+    """Return recently used metaphors and themes for the generation prompt.
+    Used to tell the AI what to AVOID so it doesn't repeat itself."""
+    scripts = load_used_scripts()[-n:]
+    all_metaphors = set()
+    all_themes = set()
+    for s in scripts:
+        all_metaphors.update(s.get("metaphors", []))
+        all_themes.update(s.get("themes", []))
+    return list(all_metaphors), list(all_themes)
 
 
 def check_banned_opener(script_text):
@@ -94,13 +159,38 @@ def check_banned_opener(script_text):
 
 def check_duplicate(script_text):
     used = load_used_scripts()
-    for prev in used:
+    new_metaphors = _extract_metaphors(script_text)
+    new_themes = _extract_core_theme(script_text)
+
+    for prev in used[-20:]:  # check last 20
+        # Word/line level similarity
         sim = max(
             _similarity(script_text, prev["script"]),
             _word_overlap(script_text, prev["script"]) * 0.8,
         )
         if sim >= SIMILARITY_THRESHOLD:
-            return False, f"Too similar to previous script '{prev['topic']}' (similarity: {sim:.0%})"
+            return False, f"Too similar to '{prev['topic']}' (word overlap: {sim:.0%})"
+
+        # Concept-level duplicate detection
+        prev_themes = set(prev.get("themes", []))
+        prev_metaphors = set(prev.get("metaphors", []))
+        theme_overlap = new_themes & prev_themes
+        metaphor_overlap = new_metaphors & prev_metaphors
+
+        # Same emotional territory = same story even with different words → reject
+        if len(theme_overlap) >= 2:
+            return False, (
+                f"Same emotional story as '{prev['topic']}' — "
+                f"same themes: {', '.join(list(theme_overlap)[:3])}. Need a completely different angle."
+            )
+        # Same imagery + same theme = reject
+        if len(theme_overlap) >= 1 and len(metaphor_overlap) >= 2:
+            return False, (
+                f"Conceptual duplicate of '{prev['topic']}' — "
+                f"same theme ({', '.join(list(theme_overlap))}) "
+                f"with same imagery ({', '.join(list(metaphor_overlap)[:3])})"
+            )
+
     return True, "OK"
 
 
@@ -110,7 +200,7 @@ def check_quality_with_ai(script_text, topic, style, examples):
         f"EXAMPLE ({e['style']}):\n{e['script']}" for e in examples[:4]
     )
 
-    prompt = f"""You are a script quality reviewer for "Quietlyy" — an emotional quote video channel.
+    prompt = f"""You are a script quality reviewer for "Quietlyy" — an emotional quote video channel targeting adults 35-65 who share content about life, love, and human connection.
 
 Your job: Review this script and score it on emotional quality.
 
@@ -120,24 +210,27 @@ SCRIPT TO REVIEW (topic: {topic}, style: {style}):
 QUIETLYY QUALITY STANDARDS (study these examples):
 {examples_text}
 
-Score this script on these criteria (each 0-10):
-1. HOOK: Does the first line immediately grab? Would someone stop scrolling?
-2. EMOTION: Does it feel genuine? Would people feel it in their chest?
-3. ORIGINALITY: Is it fresh? NOT generic quotes you've seen 1000 times?
-4. CONNECTION: Does it speak about real human pain — heartbreak, friendship, loss, growth?
-5. LESSON: Does it end with something the viewer can carry with them?
+Score this script on these criteria:
+1. HOOK (0-10): Does the first line stop a scrolling finger? Is it specific and unexpected — not a generic opener?
+2. EMOTION (0-10): Does it feel genuinely human? Would someone feel it in their chest and want to share it?
+3. FRESHNESS (0-10): Is the ANGLE or EXECUTION fresh — even if the topic (love, loss, nostalgia) is familiar?
+4. FLOW (0-10): Do the lines build toward something — a turn, a realisation, or a moment of truth?
 
-Rules for REJECTION (score the whole script 0 if any apply):
-- First line is generic ("There was a time", "In a world", "We all have", "Life is")
-- Script sounds like a generic motivational poster — not personal
-- Lines are all the same length / monotonous rhythm
-- No emotional turn or lesson at the end
-- Sounds like it was written by a robot trying to be deep
+IMPORTANT CONTEXT: Emotional content about love, loneliness, nostalgia, and heartbreak IS the genre.
+A script about missing someone or letting go is NOT automatically rejected just because those topics are common.
+What matters is whether THIS script has a specific, honest line or angle that feels earned — not whether the topic is universal.
+
+Only reject outright if:
+- First line is a cliché opener: "There was a time", "In a world", "We all have", "Life is", "Some people", "Not everyone"
+- The script says absolutely nothing — no specific detail, no real moment, just vague platitudes end to end
+- Lines are copy-paste of each other with no variation or build
+- No ending — the script just stops without a resonant final line
 
 Return ONLY valid JSON:
-{{"score": <overall 0-10>, "hook": <0-10>, "emotion": <0-10>, "originality": <0-10>, "approved": <true/false>, "reason": "<one sentence why>"}}
+{{"score": <overall 0-10>, "hook": <0-10>, "emotion": <0-10>, "freshness": <0-10>, "approved": <true/false>, "reason": "<one sentence why>"}}
 
-A score of 6+ means approved. Be fair but not overly harsh — only truly moving scripts should pass."""
+Scoring guide: 8-10 = exceptional and shareable. 6-7 = solid, emotionally effective, approved. 4-5 = generic or flat, needs rework. 0-3 = cliché opener or empty content only.
+A score of 6+ means approved."""
 
     # Try ChatGPT first, then Gemini
     for gen_fn, name in [(_call_openai, "ChatGPT"), (_call_gemini, "Gemini"), (_call_groq, "Groq")]:
