@@ -10,22 +10,22 @@ on:
   # Manual trigger (testing / emergency post)
   workflow_dispatch:
     inputs:
-      skip_post:
-        description: 'Skip all social posting (generate video only)'
+      post_to_social:
+        description: 'Post to Facebook + Instagram? (true = post, false = generate only)'
         required: false
-        default: 'false'
+        default: 'true'
         type: choice
         options:
-          - 'false'
           - 'true'
-      skip_youtube:
-        description: 'Skip YouTube posting'
+          - 'false'
+      post_to_youtube:
+        description: 'Post to YouTube Shorts? (true = post, false = skip)'
         required: false
-        default: 'false'
+        default: 'true'
         type: choice
         options:
-          - 'false'
           - 'true'
+          - 'false'
       custom_topic:
         description: 'Override topic (leave empty for AI-selected)'
         required: false
@@ -81,10 +81,10 @@ jobs:
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         run: |
           ARGS=""
-          if [ "${{ github.event.inputs.skip_post }}" = "true" ]; then
+          if [ "${{ github.event.inputs.post_to_social }}" = "false" ]; then
             ARGS="$ARGS --skip-post"
           fi
-          if [ "${{ github.event.inputs.skip_youtube }}" = "true" ]; then
+          if [ "${{ github.event.inputs.post_to_youtube }}" = "false" ]; then
             ARGS="$ARGS --skip-youtube"
           fi
           if [ -n "${{ github.event.inputs.custom_topic }}" ]; then
