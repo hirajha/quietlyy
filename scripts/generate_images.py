@@ -385,6 +385,42 @@ def generate_with_dalle(prompt, output_path):
     return False
 
 
+def generate_with_dalle3_fallback(prompt, output_path):
+    """Fallback: DALL-E 3 (still available, wider tier access than gpt-image-1)."""
+    key = os.environ.get("OPENAI_API_KEY")
+    if not key:
+        return False
+    try:
+        resp = requests.post(
+            "https://api.openai.com/v1/images/generations",
+            headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+            json={
+                "model": "dall-e-3",
+                "prompt": prompt[:4000],
+                "n": 1,
+                "size": "1024x1792",  # closest 9:16 portrait
+                "quality": "standard",
+                "response_format": "url",
+            },
+            timeout=90,
+        )
+        resp.raise_for_status()
+        url = resp.json()["data"][0]["url"]
+        img_resp = requests.get(url, timeout=30)
+        img_resp.raise_for_status()
+        with open(output_path, "wb") as f:
+            f.write(img_resp.content)
+        from PIL import Image as PILImage
+        img = PILImage.open(output_path).convert("RGB")
+        img = img.resize((1080, 1920), PILImage.LANCZOS)
+        img.save(output_path)
+        print(f"[images]   DALL-E 3 fallback succeeded")
+        return True
+    except Exception as e:
+        print(f"[images]   DALL-E 3 fallback failed: {e}")
+        return False
+
+
 def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
     """Generate panel images using DALL-E ONLY.
     - Max 5 panels per video
@@ -415,21 +451,21 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
         print(f"[images] Panel {i+1}/{num_panels}: generating with DALL-E...")
 
         success = generate_with_dalle(prompt, output_path)
+        if not success:
+            print(f"[images]   gpt-image-1 failed — trying DALL-E 3 fallback...")
+            success = generate_with_dalle3_fallback(prompt, output_path)
 
         if success:
-            print(f"[images] Panel {i+1}: DALL-E")
+            print(f"[images] Panel {i+1}: generated")
             successful_paths.append(output_path)
-
-            # Save to gallery for future reuse (disabled until test approval)
-            # _add_to_gallery(output_path, topic, i, "DALL-E")
         else:
-            # DALL-E failed — reuse an earlier panel from THIS video
+            # Both models failed — reuse an earlier panel from THIS video
             if successful_paths:
                 reuse_src = random.choice(successful_paths)
                 shutil.copy2(reuse_src, output_path)
-                print(f"[images] Panel {i+1}: reusing earlier panel (DALL-E failed)")
+                print(f"[images] Panel {i+1}: reusing earlier panel (both models failed)")
             else:
-                raise RuntimeError(f"DALL-E failed for panel {i+1} and no earlier panels to reuse. Cannot proceed.")
+                raise RuntimeError(f"Image generation failed for panel {i+1} (tried gpt-image-1 and dall-e-3). No earlier panels to reuse.")
 
         paths.append(output_path)
 
