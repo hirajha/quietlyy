@@ -13,7 +13,6 @@ Key insight from research:
 
 import os
 import json
-import random
 import requests
 
 BRAND = "Quietlyy"
@@ -22,59 +21,15 @@ YT_HANDLE = "@SayQuietlyy"
 FB_AI_DISCLOSURE = "AI assistance was used in the making of this video."
 YT_AI_DISCLOSURE = "AI assistance was used in the making of this video."
 
-# ── Tiered hashtag pools — niche tags outperform giant ones for new pages ──
-# Tier 1: Niche (10K–500K posts) — easiest to rank, most targeted audience
-TAGS_NICHE_EMOTIONAL = [
-    "emotionalhealing", "deepwordsdeepfeelings", "wordsthatheal",
-    "feelingsquotes", "soulfulwords", "wordsthatmatter", "quietmoments",
-    "innerpeacequotes", "selfreflectionquotes", "silentfeelings",
-    "poetryofinstagram", "wordsthatfit", "emotionalpoetry", "deepemotions",
-    "poetrysoul", "sadpoetry", "poetryrise", "brokenbutbeautiful",
-]
-TAGS_NICHE_NOSTALGIC = [
-    "nostalgiavibes", "childhoodmemories", "throwbackfeeling", "missthosdays",
-    "olddaysmemories", "rememberingthepast", "nostalgiahit", "memorylane",
-    "pastmemories", "throwbackemotion", "nostalgiapoetry", "missingyou",
-]
-TAGS_NICHE_LOVE = [
-    "lovepoetry", "romanticpoetry", "lovewords", "couplesquotes",
-    "loveletters", "soulmatequotes", "tagsomeone", "sendthem",
-    "lovequotes2026", "relationshippoetry", "heartfeltemotions",
-]
-TAGS_NICHE_POETIC = [
-    "poetrycommunity", "poetsofinstagram", "poetrylovers", "writersofinstagram",
-    "instapoets", "poetryisnotdead", "micropoetry", "spilledink",
-    "wordsofwisdom", "deepthoughtsquotes", "soulfulpoetry",
-]
-TAGS_NICHE_MOTIVATIONAL = [
-    "lifelessons", "wisdomquotes", "growthmindsetquotes", "selfgrowthquotes",
-    "lifewisdom", "dailywisdom", "quotestoliveby", "mindsetshift",
-    "lifeadvice", "purposequotes", "selfdiscovery",
-]
-
-# Tier 2: Mid (1M–5M) — good reach, moderate competition
-TAGS_MID = [
-    "quotes", "poetry", "deepthoughts", "lifequotes", "emotionalquotes",
-    "reflection", "selfhealing", "mentalhealth", "relatable", "feelings",
-    "motivation", "inspiration", "mindfulness", "healing", "love",
-]
-
-# Tier 3: Discovery/Reels — algorithm surface tags
-TAGS_REELS = [
-    "reels", "reelsofinstagram", "reelsviral", "explorepage",
-    "foryoupage", "fyp", "viralreels", "trending",
-]
-
-# Geo — low impact but harmless, keep a few
-GEO_TAGS = ["india", "usa", "uk", "uae"]
-
-# ── Style-specific tag pools ──────────────────────────────────────────────
-STYLE_TAGS = {
-    "emotional":    TAGS_NICHE_EMOTIONAL,
-    "nostalgic":    TAGS_NICHE_NOSTALGIC + TAGS_NICHE_EMOTIONAL[:5],
-    "poetic":       TAGS_NICHE_POETIC + TAGS_NICHE_EMOTIONAL[:5],
-    "love":         TAGS_NICHE_LOVE + TAGS_NICHE_EMOTIONAL[:4],
-    "motivational": TAGS_NICHE_MOTIVATIONAL + TAGS_NICHE_EMOTIONAL[:4],
+# ── Compact hashtag sets per style — readable, not spammy ────────────────
+# ~7 tags: style-specific + universal + brand. Human-readable, not keyword-stuffed.
+STYLE_HASHTAGS = {
+    "emotional":    ["love", "healing", "feelings", "poetry", "USA", "memories", "quietlyy"],
+    "nostalgic":    ["memories", "nostalgia", "friendship", "family", "USA", "love", "quietlyy"],
+    "poetic":       ["poetry", "love", "deepthoughts", "soul", "healing", "USA", "quietlyy"],
+    "love":         ["love", "romance", "couple", "soulmate", "tagsomeone", "USA", "quietlyy"],
+    "wisdom":       ["wisdom", "lifelessons", "healing", "mindset", "growth", "USA", "quietlyy"],
+    "motivational": ["motivation", "mindset", "healing", "growth", "lifelessons", "USA", "quietlyy"],
 }
 
 # ── CTAs — DM share is #1 distribution signal, per 2026 algorithm research ─
@@ -101,26 +56,16 @@ CTA_SHARE_BLOCKS = {
     ),
 }
 
-SEO_PROMPT = """You are an Instagram SEO expert for short-form emotional content (2026 algorithm).
-
-Key facts about 2026 Instagram algorithm:
-- DM shares are the #1 distribution signal (more than likes or saves)
-- Caption KEYWORDS drive discovery (more than hashtags now)
-- First 3 seconds of video decide reach — hook must be in caption too
-- Niche hashtags (10K-500K posts) outperform giant hashtags for new pages
+SEO_PROMPT = """You are a YouTube SEO expert for short emotional video content.
 
 Topic: {topic}
 Style: {style}
-Visual keywords: {keywords}
 Script opening line: {theme}
 
-Generate optimized metadata. Return ONLY valid JSON:
+Return ONLY valid JSON:
 {{
-  "short_caption": "...",
-  "instagram_hashtags": ["tag1", "tag2"],
   "youtube_title": "...",
   "youtube_tags": ["tag1", "tag2"],
-  "youtube_seo_line": "...",
   "best_post_times": {{
     "facebook_instagram": ["HH:MM IST", "HH:MM IST"],
     "youtube": ["HH:MM IST", "HH:MM IST"],
@@ -129,11 +74,8 @@ Generate optimized metadata. Return ONLY valid JSON:
 }}
 
 Rules:
-- short_caption: 2-3 emotionally compelling sentences. Include the topic keyword naturally (for discovery). NO hashtags. Should make someone stop scrolling. Reference the emotional theme directly.
-- instagram_hashtags: exactly 20 tags, NO # symbol, all lowercase. Mix: 8 niche (under 500K posts), 7 mid-size (1M-5M posts), 5 broad discovery. Topic-specific tags preferred over generic ones.
 - youtube_title: under 60 chars, emotionally compelling, includes main keyword
-- youtube_tags: exactly 15 tags, mix of specific and broad
-- youtube_seo_line: 1 sentence, 120 chars max, keyword-rich for search
+- youtube_tags: exactly 10 tags, mix of specific and broad, no # symbol
 - best_post_times: 2 optimal IST times targeting India peak + global overlap"""
 
 
@@ -220,26 +162,13 @@ def _generate_with_groq(prompt):
 
 
 def _template_fallback(topic, script_text):
-    topic_tag = topic.replace(" ", "").lower()
     first_line = [l.strip() for l in script_text.split("\n") if l.strip()][0]
-    caption = first_line[:100]
-
-    ig_tags = [topic_tag, "quotes", "emotional", "poetry", "deepthoughts",
-               "emotionalquotes", "reels", "poetrycommunity", "feelings",
-               "relatable"] + GEO_TAGS
-    ig_tags = list(dict.fromkeys(ig_tags))[:25]
-
-    yt_tags = ["Shorts", "nostalgia", "deepthoughts", "lifequotes",
-               "emotionalquotes", "relatable", "viral", "youtubeshorts",
-               "poetry", "feelings", topic_tag, "emotional", "trending"]
-    yt_tags = list(dict.fromkeys(yt_tags))[:15]
-
+    topic_tag = topic.replace(" ", "").lower()
+    yt_tags = ["shorts", "poetry", "love", "memories", "healing",
+               "lifequotes", "relatable", topic_tag, "emotional", "quietlyy"]
     return {
-        "short_caption": caption,
-        "instagram_hashtags": ig_tags,
         "youtube_title": first_line[:57] + ("..." if len(first_line) > 57 else ""),
         "youtube_tags": yt_tags,
-        "youtube_seo_line": f"A quiet reflection on {topic} — words that hit different.",
         "best_post_times": {
             "facebook_instagram": ["11:00", "22:00"],
             "youtube": ["20:30", "22:00"],
@@ -249,34 +178,6 @@ def _template_fallback(topic, script_text):
 
 
 # ── Public API ──────────────────────────────────────────────────────────────
-
-def _build_hashtag_set(ai_tags, style):
-    """Build a tiered hashtag set: AI suggestions + niche pool + mid + reels + geo.
-    25 total. Niche tags (easier to rank) weighted highest for new page growth."""
-    clean = [t.lstrip("#").lower().replace(" ", "") for t in (ai_tags or [])]
-
-    # Pull from style-specific niche pool
-    niche_pool = STYLE_TAGS.get(style, TAGS_NICHE_EMOTIONAL)
-    niche_sample = random.sample(niche_pool, min(6, len(niche_pool)))
-
-    # Mid-size tags
-    mid_sample = random.sample(TAGS_MID, min(5, len(TAGS_MID)))
-
-    # Reels/discovery
-    reels_sample = random.sample(TAGS_REELS, min(4, len(TAGS_REELS)))
-
-    # Combine: AI first (most topic-specific), then niche, mid, reels, geo
-    combined = clean + niche_sample + mid_sample + reels_sample + GEO_TAGS
-    # Deduplicate preserving order
-    seen = set()
-    result = []
-    for t in combined:
-        if t not in seen and t:
-            seen.add(t)
-            result.append(t)
-
-    return result[:25]
-
 
 def generate_seo(topic, script_text, visual_keywords, style="emotional"):
     """
@@ -293,14 +194,13 @@ def generate_seo(topic, script_text, visual_keywords, style="emotional"):
     prompt = SEO_PROMPT.format(
         topic=topic,
         style=style,
-        keywords=", ".join(visual_keywords),
         theme=theme,
     )
 
     ai_data = None
     for fn, name in [(_generate_with_gemini, "Gemini"), (_generate_with_openai, "OpenAI"), (_generate_with_groq, "Groq")]:
         ai_data = fn(prompt)
-        if ai_data and "instagram_hashtags" in ai_data:
+        if ai_data and "youtube_title" in ai_data:
             print(f"[seo] Generated via {name}")
             break
 
@@ -308,40 +208,33 @@ def generate_seo(topic, script_text, visual_keywords, style="emotional"):
         print("[seo] Using template fallback")
         ai_data = _template_fallback(topic, script_text)
 
-    # ── Hashtags — tiered system: niche > mid > reels > geo ──────────────
-    ig_tags_clean = _build_hashtag_set(ai_data.get("instagram_hashtags", []), style)
-    hashtag_str = " ".join(f"#{t}" for t in ig_tags_clean)
+    # ── Caption: first 1-2 script lines — the actual hook, not a summary ─
+    caption_lines = lines[:2]
+    caption_text = "\n".join(caption_lines)
 
-    # ── CTA — DM share is #1 distribution signal per 2026 research ───────
-    short_caption = ai_data.get("short_caption", theme)
+    # ── Hashtags: compact, readable set per style (~7 tags) ───────────────
+    hashtag_list = STYLE_HASHTAGS.get(style, STYLE_HASHTAGS["emotional"])
+    hashtag_str = " ".join(f"#{t}" for t in hashtag_list)
+
+    # ── CTA — one short line, DM share drives distribution ───────────────
     cta_block = CTA_SHARE_BLOCKS.get(style, CTA_SHARE_BLOCKS["emotional"])
 
+    # ── Facebook / Instagram description ─────────────────────────────────
     fb_description = (
-        f"{short_caption}\n\n"
+        f"{caption_text}\n\n"
         f"{cta_block}\n"
-        f"— {BRAND}\n\n"
-        f"{hashtag_str}\n\n"
-        f"{FB_AI_DISCLOSURE}"
+        f"{hashtag_str}"
     )
 
-    # ── YouTube — hashtags first, short description, no script ────────────
-    yt_tags = ai_data.get("youtube_tags", BASE_YT_TAGS)
-    yt_tags_clean = [t.lstrip("#").lower().replace(" ", "") for t in yt_tags][:15]
-    yt_tag_str = " ".join(f"#{t}" for t in yt_tags_clean)
+    # ── YouTube description ───────────────────────────────────────────────
+    yt_tags = ai_data.get("youtube_tags", [])
+    yt_tags_clean = [t.lstrip("#").lower().replace(" ", "") for t in yt_tags][:10]
 
-    seo_line = ai_data.get("youtube_seo_line", f"A quiet reflection on {topic}.")
-
-    # Hashtags at TOP so YouTube shows first 3 above the title as clickable links
     yt_description = (
-        f"{yt_tag_str}\n\n"
-        f"{short_caption}\n\n"
+        f"{caption_text}\n\n"
         f"💾 Save this for when you need it.\n"
-        f"❤️ Like if this hit different.\n"
-        f"🔔 Subscribe for a new one every day → {YT_HANDLE}\n\n"
-        f"— {BRAND}\n\n"
-        f"━━━━━━━━━━━━━━━━━━━━\n"
-        f"{seo_line}\n"
-        f"━━━━━━━━━━━━━━━━━━━━\n\n"
+        f"🔔 Subscribe → {YT_HANDLE}\n\n"
+        f"{hashtag_str}\n\n"
         f"{YT_AI_DISCLOSURE}"
     )
 
@@ -361,7 +254,7 @@ def generate_seo(topic, script_text, visual_keywords, style="emotional"):
     return {
         "facebook": {
             "description": fb_description,
-            "hashtags": ig_tags_clean,
+            "hashtags": hashtag_list,
         },
         "youtube": {
             "title": yt_title[:100],
