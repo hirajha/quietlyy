@@ -48,10 +48,17 @@ def get_audio_duration(path):
 
 def _generate_ass_subtitles(subtitles, lines, output_path):
     """
-    Generate an ASS subtitle file with word-by-word reveal animation.
-    Each word appears as it is spoken; accumulated words clear at line boundaries.
-    Positioned at top-center of frame so text grows downward cleanly.
+    Generate an ASS subtitle file with word-by-word fade-in reveal.
+
+    The FULL LINE text is present in every dialogue event so layout never shifts.
+    - Past words (already spoken): no tag — fully visible.
+    - Current word: \\alpha&HFF& (all layers transparent) → fades to \\alpha&H00& (opaque)
+      over FADE_MS ms. Using \\alpha kills fill + outline + shadow simultaneously,
+      so there is no ghost outline visible before the word reveals.
+    - Future words: \\alpha&HFF& — completely invisible including all outline/shadow layers.
     """
+    FADE_MS = 200  # ms for each word to fade from invisible to fully visible
+
     def ms_to_ass(ms):
         ms = max(0, int(ms))
         h = ms // 3600000
@@ -83,12 +90,16 @@ def _generate_ass_subtitles(subtitles, lines, output_path):
         if group:
             line_word_groups.append(group)
 
-    # Generate one Dialogue event per word-step: show accumulated words N at a time
-    # Example: "The" → "The river" → "The river doesn't" → ...
     events = []
     for g_i, group in enumerate(line_word_groups):
         if not group:
             continue
+
+        words = [g["text"] for g in group]
+
+        # Compute the stable wrap layout once per line (full text, no tags)
+        full_text = " ".join(words)
+        wrapped = textwrap.wrap(full_text, width=22) or [full_text]
 
         # Line ends: 50ms before next line starts, or 800ms linger after last word
         if g_i + 1 < len(line_word_groups) and line_word_groups[g_i + 1]:
@@ -98,28 +109,43 @@ def _generate_ass_subtitles(subtitles, lines, output_path):
 
         for w_i in range(len(group)):
             word_start_ms = group[w_i]["offset_ms"]
-            # Event ends when the next word starts (or the line clears for the last word)
             if w_i + 1 < len(group):
                 event_end_ms = group[w_i + 1]["offset_ms"]
             else:
                 event_end_ms = line_end_ms
 
             if event_end_ms <= word_start_ms:
-                event_end_ms = word_start_ms + 100  # safety minimum
+                event_end_ms = word_start_ms + 100
 
-            # Text = all words spoken so far in this line
-            accumulated = " ".join(g["text"] for g in group[: w_i + 1])
-            # Wrap at 22 chars — matches original width
-            wrapped_lines = textwrap.wrap(accumulated, width=22) or [accumulated]
-            display_text = r"\N".join(wrapped_lines)
+            # Build display_text: full line with per-word alpha override tags.
+            # Walk through wrapped word groups to preserve line breaks (\N).
+            tagged_lines = []
+            global_wi = 0
+            for wl in wrapped:
+                wl_words = wl.split()
+                line_parts = []
+                for k, w in enumerate(wl_words):
+                    if global_wi < w_i:
+                        # Already spoken — no tag, fully visible
+                        line_parts.append(w)
+                    elif global_wi == w_i:
+                        # Currently being spoken — fade from fully transparent to opaque
+                        line_parts.append(
+                            f"{{\\alpha&HFF&\\t(0,{FADE_MS},\\alpha&H00&)}}{w}"
+                        )
+                    else:
+                        # Not yet spoken — fully transparent (kills outline+shadow too)
+                        line_parts.append(f"{{\\alpha&HFF&}}{w}")
+                    if k < len(wl_words) - 1:
+                        line_parts.append(" ")
+                    global_wi += 1
+                tagged_lines.append("".join(line_parts))
+            display_text = r"\N".join(tagged_lines)
 
-            # \an8 = top-center anchor
-            # \move(520,680,540,680,0,200) = slide in from left (x=520) to center (x=540)
-            #   over the first 200ms — gives a smooth left-to-right entrance
-            # \fad(200,0) = fade in over 200ms, no fade-out
+            # \an8\pos(540,680): top-center anchor at fixed position — never moves
             events.append(
                 f"Dialogue: 0,{ms_to_ass(word_start_ms)},{ms_to_ass(event_end_ms)},"
-                f"Default,,0,0,0,,{{\\an8\\move(520,680,540,680,0,200)\\fad(200,0)}}{display_text}"
+                f"Default,,0,0,0,,{{\\an8\\pos(540,680)}}{display_text}"
             )
 
     # ASS file — warm cream text, 4px black outline, 2px shadow, italic serif
