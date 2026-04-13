@@ -31,6 +31,15 @@ BANNED_OPENERS = [
     "sometimes in life",
     "not everyone",
     "some people",
+    # "you were X" pattern — massively overused, banned across all styles
+    "you were not",
+    "you were never",
+    "you weren't",
+    "you were just",
+    "you were always",
+    "you were cherished",
+    "you were loved for",
+    "you were too",
 ]
 
 # Tighter threshold — catch concept-level near-duplicates, not just word overlap

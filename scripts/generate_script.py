@@ -106,8 +106,9 @@ Topic: {topic}
 Tone: lyrical, deeply felt, metaphor-driven — like spoken-word poetry meets emotional insight
 
 Rules:
-- Open with a direct "you" address — hit the viewer in the chest in line 1 ("You weren't loved for who you are…")
-- Build ONE central metaphor that runs through the poem (umbrella/storm, sky/colors, roots/tree, tide/shore)
+- NEVER open with "You were...", "You weren't...", "You were never...", "You weren't cherished", "You weren't loved" — these are banned openers
+- Open with an unexpected image, observation, or truth — a place, an action, a paradox in nature. Pull the viewer in with something they've never heard phrased that way.
+- Build ONE central metaphor that runs through the poem (river/stone, window/light, roots/soil, tide/shore, fire/ash)
 - Use short fragmented lines — 3-8 words per line, lots of breathing room
 - Use "…" for pauses, em-dashes for emotional breaks
 - Paradox or twist in the middle that reframes everything
@@ -116,7 +117,7 @@ Rules:
 - NO hashtags, NO emojis, NO stage directions
 
 Structure:
-Stanza 1 (2-3 lines): Hook — address the viewer, name their wound
+Stanza 1 (2-3 lines): Hook — an image or observation that immediately draws you in
 Stanza 2 (3-4 lines): The metaphor — build the central image
 Stanza 3 (2 lines): The turn/paradox — "you called it X, they called it Y"
 Stanza 4 (3-5 lines): The quiet truth — the reframe that lands like a revelation
@@ -231,6 +232,8 @@ Tone: raw, deeply human — heartbreak, friendship, missing someone, growing apa
 
 Rules:
 - Line 1 MUST be a scroll-stopping hook — something people feel in their chest instantly
+- NEVER open with "You were...", "You weren't...", "You were never...", "You weren't cherished", "You weren't loved", "You were too much" — these are banned and overused
+- Open with an action, a moment, a realization, a specific scene — something fresh and unexpected
 - Write about real human pain: heartbreak, lost friendships, missing someone, being used, moving on
 - Short punchy lines — NOT long sentences
 - Use a single powerful image or metaphor in the middle

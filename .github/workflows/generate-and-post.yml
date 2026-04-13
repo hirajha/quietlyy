@@ -32,7 +32,7 @@ on:
         default: ''
         type: string
       style:
-        description: 'Force a style: emotional / nostalgic / love / poetic / motivational (leave empty for auto)'
+        description: 'Force a style: emotional / nostalgic / love / poetic / wisdom (leave empty for auto)'
         required: false
         default: ''
         type: string

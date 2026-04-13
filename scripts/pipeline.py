@@ -288,7 +288,6 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
         except Exception as e:
             print(f"  Instagram posting failed: {e}")
             print("  Video saved — post manually to Instagram.")
-            # Save error to output so it shows up in GitHub Actions artifacts
             import traceback
             with open(os.path.join(OUTPUT_DIR, "instagram_error.json"), "w") as f:
                 json.dump({"error": str(e), "traceback": traceback.format_exc()}, f, indent=2)
@@ -341,9 +340,9 @@ if __name__ == "__main__":
         utc_hour = datetime.datetime.utcnow().hour
         if utc_hour < 12:
             style_override = "nostalgic"
-            print(f"[pipeline] Morning slot detected (UTC {utc_hour}h) → nostalgic/forgotten connections style")
+            print(f"[pipeline] Morning slot detected (UTC {utc_hour}h) → nostalgic style")
         else:
-            style_override = None  # Let generate_script rotate through love/emotional/poetic/motivational
-            print(f"[pipeline] Evening slot detected (UTC {utc_hour}h) → rotating love/emotional/poetic/motivational")
+            style_override = None  # Let generate_script rotate through love/emotional/poetic/wisdom
+            print(f"[pipeline] Evening slot detected (UTC {utc_hour}h) → rotating styles")
 
     run(skip_post=skip, skip_youtube=skip_yt, custom_topic=topic_override, forced_style=style_override)
