@@ -19,6 +19,27 @@ ELEVENLABS_MODEL = "eleven_turbo_v2_5"  # April 1 model — clearer, more expres
 # Silence between lines (seconds) — 1.0s is natural breathing room without feeling slow
 LINE_GAP = 1.0
 
+# CTA patterns to skip from voice narration — shown as baked text overlay, not spoken
+_CTA_PATTERNS = [
+    "send this to",
+    "share this with",
+    "tag the",
+    "tag someone",
+    "save this for",
+    "save this if",
+    "send this",
+    "comment below",
+    "drop a ",
+    "follow for",
+    "like if",
+]
+
+
+def _is_cta_line(text):
+    """Return True if this line is a social CTA that should not be narrated."""
+    t = text.lower().strip()
+    return any(t.startswith(p) for p in _CTA_PATTERNS)
+
 
 def _clean_text(text):
     """Clean text for TTS — preserve ellipsis as natural pauses."""
@@ -102,7 +123,13 @@ def generate_audio(script_text):
     audio_path = os.path.join(OUTPUT_DIR, "voiceover.mp3")
     subtitle_path = os.path.join(OUTPUT_DIR, "subtitles.json")
 
-    lines = [line.strip() for line in script_text.split("\n") if line.strip()]
+    all_lines = [line.strip() for line in script_text.split("\n") if line.strip()]
+
+    # Filter out CTA lines — they appear as baked text overlay, not narrated by voice
+    lines = [l for l in all_lines if not _is_cta_line(l)]
+    skipped = len(all_lines) - len(lines)
+    if skipped:
+        print(f"[audio] Skipping {skipped} CTA line(s) from narration")
 
     if not ELEVENLABS_API_KEY:
         raise RuntimeError("ELEVENLABS_API_KEY is not set. Cannot generate audio.")

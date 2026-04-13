@@ -113,10 +113,13 @@ def _generate_ass_subtitles(subtitles, lines, output_path):
             wrapped_lines = textwrap.wrap(accumulated, width=22) or [accumulated]
             display_text = r"\N".join(wrapped_lines)
 
-            # \an8 = top-center anchor, \pos(540,680) = text starts at y=680
+            # \an8 = top-center anchor
+            # \move(520,680,540,680,0,200) = slide in from left (x=520) to center (x=540)
+            #   over the first 200ms — gives a smooth left-to-right entrance
+            # \fad(200,0) = fade in over 200ms, no fade-out
             events.append(
                 f"Dialogue: 0,{ms_to_ass(word_start_ms)},{ms_to_ass(event_end_ms)},"
-                f"Default,,0,0,0,,{{\\an8\\pos(540,680)}}{display_text}"
+                f"Default,,0,0,0,,{{\\an8\\move(520,680,540,680,0,200)\\fad(200,0)}}{display_text}"
             )
 
     # ASS file — warm cream text, 4px black outline, 2px shadow, italic serif
