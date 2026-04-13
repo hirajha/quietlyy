@@ -42,6 +42,14 @@ BANNED_OPENERS = [
     "you were too",
 ]
 
+# Phrases banned anywhere in the script (not just openers)
+BANNED_PHRASES = [
+    "you call it",
+    "they call it",
+    "you called it",
+    "they called it",
+]
+
 # Tighter threshold — catch concept-level near-duplicates, not just word overlap
 SIMILARITY_THRESHOLD = 0.45
 
@@ -154,6 +162,11 @@ def check_banned_opener(script_text):
     for banned in BANNED_OPENERS:
         if first_line.startswith(banned) or banned in first_line[:40]:
             return False, f"Banned opener detected: '{banned}'"
+    # Check banned phrases anywhere in the script
+    normalized_full = _normalize(script_text)
+    for phrase in BANNED_PHRASES:
+        if phrase in normalized_full:
+            return False, f"Banned phrase detected anywhere in script: '{phrase}'"
     return True, "OK"
 
 
