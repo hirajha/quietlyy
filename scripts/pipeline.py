@@ -293,10 +293,14 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
                 json.dump({"error": str(e), "traceback": traceback.format_exc()}, f, indent=2)
 
     # ── Step 7b: YouTube Shorts ─────────────────────────────────────────────
+    yt_secrets_missing = [
+        v for v in ["YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "YOUTUBE_REFRESH_TOKEN"]
+        if not os.environ.get(v)
+    ]
     if skip_youtube:
         print("\n[7b/7] Skipping YouTube post (--skip-youtube)")
-    elif not os.environ.get("YOUTUBE_CLIENT_ID"):
-        print("\n[7b/7] Skipping YouTube post (YOUTUBE_CLIENT_ID not set)")
+    elif yt_secrets_missing:
+        print(f"\n[7b/7] Skipping YouTube post — missing secrets: {', '.join(yt_secrets_missing)}")
     else:
         print("\n[7b/7] Posting to YouTube Shorts...")
         try:
@@ -305,11 +309,16 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
             with open(os.path.join(OUTPUT_DIR, "youtube_result.json"), "w") as f:
                 json.dump(yt_result, f, indent=2)
         except Exception as e:
+            import traceback
+            err_detail = str(e)
             if _is_quota_error(e):
                 print(f"  YouTube quota exceeded — will retry tomorrow.")
             else:
-                print(f"  YouTube posting failed: {e}")
-            print("  Video saved — upload manually if needed.")
+                print(f"  YouTube posting failed: {err_detail}")
+            # Save full error to artifact so it's visible in GitHub Actions
+            with open(os.path.join(OUTPUT_DIR, "youtube_error.json"), "w") as f:
+                json.dump({"error": err_detail, "traceback": traceback.format_exc()}, f, indent=2)
+            print("  Error saved to output/youtube_error.json — check the artifact for details.")
 
     print("\n" + "=" * 50)
     print("  PIPELINE COMPLETE")

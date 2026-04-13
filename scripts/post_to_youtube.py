@@ -37,8 +37,16 @@ def get_access_token(client_id, client_secret, refresh_token):
         "refresh_token": refresh_token,
         "grant_type": "refresh_token",
     })
-    resp.raise_for_status()
-    return resp.json()["access_token"]
+    if not resp.ok:
+        raise ValueError(
+            f"YouTube token refresh failed ({resp.status_code}): {resp.text[:400]}\n"
+            "Check that YOUTUBE_REFRESH_TOKEN is valid and the app is Published "
+            "(not in Testing mode). Regenerate at https://developers.google.com/oauthplayground"
+        )
+    data = resp.json()
+    if "access_token" not in data:
+        raise ValueError(f"No access_token in response: {data}")
+    return data["access_token"]
 
 
 def build_fallback_snippet(topic, script_text):
@@ -89,8 +97,13 @@ def upload_video(video_path, access_token, title, description, tags):
         },
         json=metadata,
     )
-    init_resp.raise_for_status()
-    upload_uri = init_resp.headers["Location"]
+    if not init_resp.ok:
+        raise ValueError(
+            f"YouTube upload init failed ({init_resp.status_code}): {init_resp.text[:400]}"
+        )
+    upload_uri = init_resp.headers.get("Location")
+    if not upload_uri:
+        raise ValueError(f"YouTube upload init returned no Location header. Response: {init_resp.text[:200]}")
 
     # Step 2: upload file bytes
     print(f"[youtube] Uploading {file_size // 1024 // 1024} MB...")
@@ -104,8 +117,14 @@ def upload_video(video_path, access_token, title, description, tags):
             data=f,
             timeout=300,
         )
-    upload_resp.raise_for_status()
-    return upload_resp.json()["id"]
+    if not upload_resp.ok:
+        raise ValueError(
+            f"YouTube upload failed ({upload_resp.status_code}): {upload_resp.text[:400]}"
+        )
+    data = upload_resp.json()
+    if "id" not in data:
+        raise ValueError(f"Upload response has no video id: {data}")
+    return data["id"]
 
 
 def pin_comment(video_id, access_token, topic):

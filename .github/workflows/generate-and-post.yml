@@ -117,6 +117,7 @@ jobs:
             output/instagram_result.json
             output/instagram_error.json
             output/youtube_result.json
+            output/youtube_error.json
             output/manual_caption.txt
             output/copyright_check.json
           retention-days: 30
