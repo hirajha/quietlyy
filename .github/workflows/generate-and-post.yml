@@ -40,7 +40,7 @@ on:
 jobs:
   generate-video:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 60
 
     steps:
       - name: Checkout repo
@@ -52,10 +52,18 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
+      - name: Cache apt packages
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: apt-ffmpeg-${{ runner.os }}-v1
+          restore-keys: apt-ffmpeg-${{ runner.os }}-
+
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          sudo apt-get update && sudo apt-get install -y ffmpeg fonts-dejavu fonts-liberation
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu fonts-liberation
 
       - name: Run pipeline
         env:
