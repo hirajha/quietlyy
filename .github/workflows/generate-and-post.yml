@@ -87,6 +87,10 @@ jobs:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          # Optional but recommended: set to your Quietlyy channel ID (UCxxxxxxxx)
+          # to block uploads if the wrong Google account is authorized.
+          # Find it at: youtube.com → your channel → About → Share → Copy channel ID
+          YOUTUBE_CHANNEL_ID: ${{ secrets.YOUTUBE_CHANNEL_ID }}
         run: |
           ARGS=""
           if [ "${{ github.event.inputs.post_to_social }}" = "false" ]; then

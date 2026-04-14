@@ -226,14 +226,59 @@ def pin_comment(video_id, access_token, topic):
         print(f"[youtube] Comment failed (non-critical): {e}")
 
 
+def get_channel_info(access_token):
+    """Return (channel_id, channel_title) for the token's authorized channel."""
+    try:
+        resp = requests.get(
+            "https://www.googleapis.com/youtube/v3/channels",
+            params={"part": "snippet", "mine": "true"},
+            headers={"Authorization": f"Bearer {access_token}"},
+            timeout=15,
+        )
+        if resp.ok:
+            items = resp.json().get("items", [])
+            if items:
+                return items[0]["id"], items[0]["snippet"]["title"]
+    except Exception:
+        pass
+    return None, None
+
+
 def post(video_path, topic, script_text, seo_metadata=None):
     """Main entry: upload video as a YouTube Short.
     seo_metadata: dict from generate_seo.generate_seo() — uses youtube fields if provided.
+    Set YOUTUBE_CHANNEL_ID secret to enforce the correct channel (recommended).
     """
     print("[youtube] Authenticating...")
     client_id, client_secret, refresh_token = get_credentials()
     access_token = get_access_token(client_id, client_secret, refresh_token)
     print("[youtube] Auth OK")
+
+    # Always show which channel this token is authorized for
+    channel_id, channel_title = get_channel_info(access_token)
+    if channel_id:
+        print(f"[youtube] Authorized channel: {channel_title} (ID: {channel_id})")
+    else:
+        print("[youtube] Warning: could not fetch channel info")
+
+    # If YOUTUBE_CHANNEL_ID is set, verify the token matches that channel
+    expected_channel_id = os.environ.get("YOUTUBE_CHANNEL_ID", "").strip()
+    if expected_channel_id and channel_id and channel_id != expected_channel_id:
+        raise ValueError(
+            f"WRONG YOUTUBE CHANNEL!\n"
+            f"  Token is authorized for: {channel_title} ({channel_id})\n"
+            f"  Expected channel:        {expected_channel_id}\n"
+            "  FIX: Regenerate your refresh token, but this time sign in to Google\n"
+            "  with the account that OWNS your Quietlyy channel, then select that\n"
+            "  channel on the consent screen.\n"
+            "  Steps:\n"
+            "    1. Open https://developers.google.com/oauthplayground in incognito\n"
+            "    2. Click gear icon → enter Client ID + Secret\n"
+            "    3. In Step 1 enter: https://www.googleapis.com/auth/youtube.upload\n"
+            "    4. Click Authorize APIs → sign in with the Quietlyy channel's Google account\n"
+            "       (or when Google asks to choose a channel, pick the right one)\n"
+            "    5. Exchange code → copy new Refresh Token → update YOUTUBE_REFRESH_TOKEN in GitHub"
+        )
 
     if seo_metadata and "youtube" in seo_metadata:
         yt = seo_metadata["youtube"]
