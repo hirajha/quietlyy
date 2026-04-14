@@ -373,7 +373,7 @@ if __name__ == "__main__":
             style_override = "nostalgic"
             print(f"[pipeline] Morning slot detected (UTC {utc_hour}h) → nostalgic style")
         else:
-            style_override = None  # Let generate_script rotate through love/emotional/poetic/wisdom
-            print(f"[pipeline] Evening slot detected (UTC {utc_hour}h) → rotating styles")
+            style_override = None  # generate_script rotates love → emotional → love → … (2-day cycle)
+            print(f"[pipeline] Evening slot detected (UTC {utc_hour}h) → rotating styles (love/emotional)")
 
     run(skip_post=skip, skip_youtube=skip_yt, custom_topic=topic_override, forced_style=style_override)

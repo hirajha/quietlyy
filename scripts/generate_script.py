@@ -19,7 +19,10 @@ def load_templates():
         return json.load(f)
 
 
-STYLES = ["emotional", "love", "nostalgic", "poetic", "wisdom"]
+# Evening rotation styles — 2-day cycle (1 evening post/day = repeats every 2 days)
+# Morning slot is always "nostalgic" (set in pipeline.py)
+# Use --style= flag or workflow input to force any style (poetic, wisdom, etc.)
+STYLES = ["love", "emotional"]
 
 def pick_style_and_topic(templates, theme_hints=None):
     """Rotate between styles each run."""

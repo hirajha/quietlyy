@@ -32,7 +32,7 @@ on:
         default: ''
         type: string
       style:
-        description: 'Force a style: emotional / nostalgic / love / poetic / wisdom (leave empty for auto)'
+        description: 'Force a style: love / emotional / nostalgic / poetic / wisdom (auto rotates love↔emotional every 2 days)'
         required: false
         default: ''
         type: string
