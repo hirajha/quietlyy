@@ -19,26 +19,61 @@ ELEVENLABS_MODEL = "eleven_turbo_v2_5"  # April 1 model — clearer, more expres
 # Silence between lines (seconds) — 1.0s is natural breathing room without feeling slow
 LINE_GAP = 1.0
 
-# CTA patterns to skip from voice narration — shown as baked text overlay, not spoken
-_CTA_PATTERNS = [
+# CTA patterns — lines matching these are NOT narrated; shown as baked text overlay instead.
+# Check both startswith (for clean CTA lines) and contains (for embedded CTAs).
+_CTA_STARTS = [
     "send this to",
+    "send this",
+    "send it to",
     "share this with",
+    "share this",
     "tag the",
     "tag someone",
+    "tag them",
+    "tag a",
     "save this for",
     "save this if",
-    "send this",
+    "save this.",
+    "save this —",
+    "save this -",
     "comment below",
     "drop a ",
     "follow for",
     "like if",
+    "forward this",
+    "pass this on",
+]
+_CTA_CONTAINS = [
+    "who needs to hear this",
+    "who needs this",
+    "who needs it",
+    "send it to them",
+    "needs to see this",
+    "share with someone",
+    "tag someone who",
+    "save for the days",
+    "save for when",
 ]
 
 
 def _is_cta_line(text):
     """Return True if this line is a social CTA that should not be narrated."""
     t = text.lower().strip()
-    return any(t.startswith(p) for p in _CTA_PATTERNS)
+    if any(t.startswith(p) for p in _CTA_STARTS):
+        return True
+    # Also catch CTAs embedded mid-line (short lines only — avoids false positives)
+    if len(t) < 120 and any(k in t for k in _CTA_CONTAINS):
+        return True
+    return False
+
+
+def extract_cta(script_text):
+    """Return the first CTA line from a script, or None."""
+    for line in script_text.split("\n"):
+        line = line.strip()
+        if line and _is_cta_line(line):
+            return line
+    return None
 
 
 def _clean_text(text):

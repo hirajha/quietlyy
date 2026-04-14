@@ -186,32 +186,73 @@ def _generate_ass_subtitles(subtitles, lines, output_path):
     return output_path
 
 
-def _draw_cta_overlay(img):
-    """Draw a subtle Follow + Save CTA at the bottom of the last panel."""
+def _draw_cta_overlay(img, cta_line=None):
+    """
+    Draw the script CTA as a prominent highlighted card on the last panel.
+    cta_line: the CTA text from the script (e.g. "Send this to someone who needs it.")
+    Below the card, show the brand Follow line.
+    """
+    import textwrap as _textwrap
     draw_img = img.copy().convert("RGBA") if img.mode != "RGBA" else img.copy()
     overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
 
-    bar_h = 130
-    BOTTOM_CLEARANCE = 160
-    bar_y = HEIGHT - bar_h - BOTTOM_CLEARANCE
-    bar = Image.new("RGBA", (WIDTH, bar_h), (0, 0, 0, 140))
-    overlay.paste(bar, (0, bar_y), bar)
+    # ── CTA card — amber/gold highlighted pill ──────────────────────────────
+    if cta_line:
+        # Strip emoji from CTA for cleaner baked text rendering
+        import re
+        clean_cta = re.sub(r'[^\x00-\x7F❤️💾📩🤍]', '', cta_line).strip()
+        if not clean_cta:
+            clean_cta = cta_line
 
-    cta_font = get_font(36)
-    sub_font = get_font(26)
+        cta_font = get_font(40)
+        # Wrap to fit within card width
+        wrapped = _textwrap.wrap(clean_cta, width=26) or [clean_cta]
 
-    cta = "💾 Save this  •  Follow @Quietlyy"
-    bbox = draw.textbbox((0, 0), cta, font=cta_font)
-    cta_w = bbox[2] - bbox[0]
-    draw.text(((WIDTH - cta_w) // 2, bar_y + 18), cta,
-              font=cta_font, fill=(255, 245, 210, 230))
+        line_h = 52
+        PAD_X, PAD_Y = 48, 28
+        card_w = WIDTH - 120
+        card_h = len(wrapped) * line_h + PAD_Y * 2
+        card_x = 60
+        # Position: lower-center of panel, above follow button
+        card_y = HEIGHT - card_h - 320
 
-    sub = "New video every day  •  @Quietlyy"
-    bbox2 = draw.textbbox((0, 0), sub, font=sub_font)
-    sub_w = bbox2[2] - bbox2[0]
-    draw.text(((WIDTH - sub_w) // 2, bar_y + 68), sub,
-              font=sub_font, fill=(255, 245, 210, 160))
+        # Draw card: deep warm amber with semi-transparent black shadow
+        shadow = Image.new("RGBA", (card_w + 8, card_h + 8), (0, 0, 0, 80))
+        overlay.paste(shadow, (card_x + 4, card_y + 4), shadow)
+
+        card = Image.new("RGBA", (card_w, card_h), (0, 0, 0, 0))
+        card_draw = ImageDraw.Draw(card)
+        # Warm amber gradient effect: solid amber background
+        card_draw.rounded_rectangle([0, 0, card_w - 1, card_h - 1], radius=20,
+                                    fill=(220, 150, 30, 235))
+        # Subtle inner highlight at top
+        card_draw.rounded_rectangle([0, 0, card_w - 1, card_h // 2], radius=20,
+                                    fill=(240, 175, 50, 40))
+        overlay.paste(card, (card_x, card_y), card)
+
+        # Draw wrapped CTA text (white, bold appearance via outline)
+        for li, wline in enumerate(wrapped):
+            bbox = draw.textbbox((0, 0), wline, font=cta_font)
+            tw = bbox[2] - bbox[0]
+            tx = card_x + (card_w - tw) // 2
+            ty = card_y + PAD_Y + li * line_h - bbox[1]
+            # Soft shadow
+            draw.text((tx + 2, ty + 2), wline, font=cta_font, fill=(0, 0, 0, 100))
+            # Main white text
+            draw.text((tx, ty), wline, font=cta_font, fill=(255, 255, 255, 255))
+
+    # ── Brand follow line at very bottom ────────────────────────────────────
+    follow_font = get_font(28)
+    brand_text = "Follow @Quietlyy for more"
+    bbox = draw.textbbox((0, 0), brand_text, font=follow_font)
+    bw = bbox[2] - bbox[0]
+    by = HEIGHT - 180
+    # Soft dark pill behind brand text
+    pill = Image.new("RGBA", (bw + 40, 44), (0, 0, 0, 140))
+    overlay.paste(pill, ((WIDTH - bw - 40) // 2, by - 8), pill)
+    draw.text(((WIDTH - bw) // 2, by - bbox[1]), brand_text,
+              font=follow_font, fill=(255, 245, 210, 210))
 
     result = Image.alpha_composite(draw_img, overlay)
     return result.convert("RGB")
@@ -267,7 +308,7 @@ def _draw_follow_button(img):
     return result.convert("RGB")
 
 
-def compose_video(script_data, image_paths, audio_path, subtitle_path, music_path):
+def compose_video(script_data, image_paths, audio_path, subtitle_path, music_path, cta_line=None):
     """
     Compositor: clean background panels + ASS word-by-word subtitle animation.
     Text appears word-by-word in sync with narration via ffmpeg subtitles filter.
@@ -350,7 +391,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
 
         # Bake only fixed UI elements (not script text)
         if g_i == num_groups - 1:
-            frame = _draw_cta_overlay(frame)
+            frame = _draw_cta_overlay(frame, cta_line=cta_line)
         elif g_i > 0:
             frame = _draw_follow_button(frame)
 

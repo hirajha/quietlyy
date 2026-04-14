@@ -22,7 +22,7 @@ import shutil
 sys.path.insert(0, os.path.dirname(__file__))
 
 from generate_script import generate_best_script
-from generate_audio import generate_audio
+from generate_audio import generate_audio, extract_cta
 from generate_images import generate_images
 from generate_music import generate_music
 from compose_video import compose_video
@@ -226,8 +226,11 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
 
     # ── Step 5: Compose video ──────────────────────────────────────────────
     print("\n[5/7] Compositing video...")
+    cta_line = extract_cta(script_text)
+    if cta_line:
+        print(f"  CTA (overlay only, not narrated): {cta_line}")
     try:
-        video_path = compose_video(script_data, image_paths, audio_path, subtitle_path, music_path)
+        video_path = compose_video(script_data, image_paths, audio_path, subtitle_path, music_path, cta_line=cta_line)
         _status("video", "ok", video_path)
     except Exception as e:
         _status("video", "fail", str(e))
