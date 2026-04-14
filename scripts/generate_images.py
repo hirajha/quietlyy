@@ -80,120 +80,122 @@ def _pick_reuse_panels(num_panels):
     return {}
 
 
-# ── Whisprs-style aesthetic reference (1.6M / 1.8M view videos):
-# - Semi-realistic illustrated / manga-anime art style (NOT photorealistic, NOT dark gothic)
-# - Muted earthy palette: warm olive green, dusty sage, terracotta, warm beige, soft teal
-# - Backgrounds: airy, misty, light — morning mist, foggy fields, soft skies — NOT dark/creepy
-# - Characters: clear visible faces, warm skin tones, natural poses, readable emotions
-# - Like a beautiful illustrated book cover or Studio Ghibli concept art
+# ── High-performing aesthetic (based on 778-view top video "Rediscovering the Beauty of Boredom"):
+# - Dark, moody, cinematic anime/illustration style
+# - Deep navy blues, dark purples, soft teal, midnight indigo backgrounds
+# - A single light source: lamp, moon, window glow — creates drama and depth
+# - Silhouettes or semi-visible figures against atmospheric backgrounds
+# - Lo-fi emotional anime vibe — NOT bright, NOT colorful, NOT Ghibli-cheerful
+# - High visual contrast: dark scene + warm glowing light source
+# - Feels introspective, premium, cinematic — makes viewers stop scrolling
 
 _SCENE_POOL_CLOSEUP = [
-    # Face closeups — warm skin tones, soft natural light, clear readable faces
-    "Close-up portrait of a young woman, chin resting on her hand, looking pensively to the side, "
-    "soft warm natural window light, warm olive-beige tones, loose hair, "
-    "semi-realistic manga illustration style — like Whisprs aesthetic",
+    # Face closeups — soft glow against dark background
+    "Close-up portrait of a young woman, chin resting on her hand, gazing into the distance, "
+    "single warm lamp glow on her face, deep navy blue background fading to black, "
+    "dark cinematic anime illustration style — moody, intimate, emotionally resonant",
 
-    "Side profile of a young woman on a train, head gently resting against the window, "
-    "soft afternoon light on her face, muted sage-green and warm beige interior, "
-    "rolling countryside visible outside, peaceful and melancholy, illustrated manga style",
+    "Side profile of a young woman on a dark train at night, head gently leaning against the window, "
+    "city lights blurring softly outside, reflection of her face in the glass, "
+    "deep blue-black interior, single warm light source, dark atmospheric anime style",
 
-    "Close-up of a young woman's face, eyes cast slightly downward, gentle sad expression, "
-    "soft diffuse daylight, warm terracotta and beige tones, hair falling loosely, "
-    "semi-realistic illustrated art — clear detailed face, emotionally resonant",
+    "Close-up of a young woman's face, eyes looking downward with a gentle melancholy, "
+    "soft teal moonlight from a nearby window, dark blue-grey background, "
+    "dark cinematic illustration — emotionally heavy, beautifully lit, anime aesthetic",
 
-    "A man with tired eyes staring into the distance, soft side light on his face, "
-    "muted earthy tones — warm olive, dusty brown, sage — contemplative expression, "
-    "illustrated graphic novel style — clear face, visible emotions, warm palette",
+    "A man with tired eyes staring into the distance, single desk lamp glow on his face, "
+    "deep dark navy background, shadows framing his expression, "
+    "cinematic manga illustration style — contemplative, moody, visually striking",
 
-    "Close-up of two people's hands almost touching on a wooden table, "
-    "warm afternoon light, soft muted earthy tones, "
-    "illustrated style — tender, clear, emotionally meaningful",
+    "Close-up of two people's hands almost touching across a dark table, "
+    "one soft amber candle glow between them, deep dark background, "
+    "dark illustrated style — tender, intimate, cinematic",
 
-    "A woman reading an old letter, soft daylight from a nearby window, "
-    "warm beige and terracotta tones, books and tea nearby, "
-    "semi-realistic illustration — clear face, warm and nostalgic mood",
+    "A woman reading an old letter by candlelight, flame casting warm amber on her face, "
+    "surrounding darkness, deep blue shadows, "
+    "dark anime illustration — emotional, cinematic, beautiful",
 ]
 
 _SCENE_POOL_WIDE = [
-    # Wide landscapes — Whisprs aesthetic: misty, airy, muted earthy tones
-    "Misty mountain valley at dawn, layered blue-green pine forests fading into pale morning mist, "
-    "a tiny lone figure on a winding path, soft pale sky above, "
-    "muted teal and olive greens, warm beige mist — airy, breathtaking, illustrated style",
+    # Wide scenes — dark atmospheric with single light source
+    "A lone figure standing on a dark hilltop, full moon behind clouds, "
+    "deep indigo-blue sky, soft moonlight spilling across the landscape, "
+    "dark cinematic anime style — vast, atmospheric, emotionally powerful",
 
-    "A calm mountain lake reflecting snow-capped peaks, a small wooden boat with one person, "
-    "misty grey-blue sky, pine forest shoreline, muted teal-grey-beige palette, "
-    "vintage travel poster illustration style — peaceful and emotionally vast",
+    "A person sitting alone on a park bench at night, one distant street lamp, "
+    "deep navy sky, soft golden pool of light around them, dark trees silhouetted, "
+    "dark anime illustration — lonely, cinematic, beautiful",
 
-    "Wide open green field at dusk, golden-green grass, soft amber horizon, "
-    "two small silhouettes in the middle distance walking together, "
-    "warm muted palette: dusty gold, sage green, soft terracotta sky, "
-    "illustrated Ghibli-style — airy and beautiful",
+    "Wide view of a dark city at night seen from a rooftop, "
+    "scattered warm window lights below, deep blue-black sky above, "
+    "a lone figure at the edge looking out, "
+    "cinematic dark anime style — vast, moody, introspective",
 
-    "Misty morning countryside, rolling hills, old farmhouses in the distance, "
-    "soft pale green and beige tones, light fog across the valley, birds in the pale sky, "
-    "one figure walking a country lane, warm illustrated style — peaceful and nostalgic",
+    "A quiet dark street at night after rain, wet pavement reflecting street lamp light, "
+    "deep blue-black shadows, one figure walking away in the distance, "
+    "dark cinematic anime illustration — melancholy, beautiful, atmospheric",
 
-    "Foggy forest path at dawn, tall trees either side, soft green-grey mist, "
-    "warm diffuse morning light filtering through, a small figure walking away into the mist, "
-    "muted olive and sage palette, illustrated Ghibli aesthetic — serene and emotional",
+    "A person standing at the edge of a dark lake at midnight, "
+    "full moon reflected perfectly in still water, deep indigo and black tones, "
+    "soft silver moonlight on their silhouette, "
+    "dark anime illustration — vast, emotional, visually striking",
 
-    "A moonlit lake, silver reflection stretching to the horizon, "
-    "two tiny silhouettes standing at the shore, deep blue-grey sky with soft moon, "
-    "illustrated style — muted blues and silver, not dark/gothic, peaceful and vast",
+    "A moonlit coastal cliff, dark ocean stretching to the horizon, "
+    "silver moon path on the water, lone figure at the edge, deep blue-black sky, "
+    "dark cinematic illustrated style — breathtaking, moody, emotional",
 ]
 
 _SCENE_POOL_INTERIOR = [
-    # Interior scenes — warm cosy light, clear readable setting
-    "A person sitting cross-legged by a large window at dusk, "
-    "warm lamp beside them, soft golden light on their face, "
-    "muted teal-blue evening sky outside the window, books and papers around them, "
-    "semi-realistic illustration — warm amber inside, cool blue outside, peaceful",
+    # Interior — cosy light islands in dark rooms
+    "A person sitting alone at a window at 2am, small lamp beside them, "
+    "dark room behind, soft blue moonlight outside the glass, "
+    "deep navy and warm amber contrast, dark cinematic anime style — insomniac mood, beautiful",
 
-    "A woman at a wooden table in a cosy kitchen, holding a cup of tea, "
-    "looking out at rain through a window, warm amber and beige interior, "
-    "illustrated manga style — clear face, warm muted palette, nostalgic mood",
+    "A woman at a dark kitchen table, single candle glowing, "
+    "surrounding deep shadow, warm amber flame on her face, "
+    "dark anime illustration — intimate, quiet, emotionally resonant",
 
-    "An elderly couple sitting together at a dining table, soft warm light, "
-    "simple home interior, muted earthy tones — warm cream, terracotta, olive, "
-    "illustrated realistic style — warm, tender, immediately readable",
+    "Someone lying on their bedroom floor looking up at a dark ceiling, "
+    "single shaft of moonlight from a window across them, deep dark blue room, "
+    "dark cinematic illustration — introspective, beautiful, emotionally heavy",
 
-    "A young person sitting on the floor of their bedroom, back against the bed, "
-    "knees drawn up, looking at an old photo, warm lamp in background, "
-    "muted beige and dusty sage tones, illustrated style — clear and emotionally resonant",
+    "A person at a desk at night, monitor glow softly lighting their face, "
+    "deep dark room around them, blue-white screen light, "
+    "dark anime illustration — modern loneliness, cinematic, moody",
 
-    "A small family gathered around an old television set in a living room, "
-    "warm amber lamp light, muted earthy 1970s tones — olive, terracotta, warm brown, "
-    "illustrated vintage style — nostalgic, warm, instantly recognizable",
+    "An old living room at night, one lamp in the corner, deep shadows everywhere, "
+    "a person sitting still on a dark sofa, warm amber pool of light, "
+    "dark cinematic illustrated style — nostalgic, quiet, emotionally rich",
 
-    "Someone writing in a journal by a window, morning light on the page, "
-    "warm beige and sage tones, tea steaming beside them, "
-    "illustrated semi-realistic style — peaceful, clear, inviting",
+    "Someone sitting on the floor against a bed, knees drawn up, "
+    "single lamp glowing in the background, deep dark bedroom around them, "
+    "dark anime illustration — vulnerable, intimate, beautiful",
 ]
 
 _SCENE_POOL_TWO_PEOPLE = [
-    # Two people — connection, warmth, distance
-    "Two people sitting on a train facing each other through the window, "
-    "soft afternoon light, warm sage-green and beige tones, "
-    "illustrated manga style — clear faces, warm muted palette, tender mood",
+    # Two people — dark atmospheric, emotional distance or closeness
+    "Two silhouettes standing apart on a dark bridge at night, "
+    "city lights reflected in water below, deep blue-black sky, "
+    "dark cinematic anime style — emotional distance, atmospheric, beautiful",
 
-    "Two silhouettes standing in a misty green field at dawn, "
-    "pale morning light, soft fog around their feet, "
-    "warm olive and beige tones, illustrated Ghibli style — peaceful and emotional",
+    "Two people sitting on opposite ends of a dark room, "
+    "one lamp between them, deep shadows, warm amber pool in the middle, "
+    "dark illustrated style — unspoken tension, cinematic, emotionally heavy",
 
-    "Two people walking side by side down a leafy autumn path, "
-    "dappled golden afternoon light, muted amber and olive tones, "
-    "illustrated style — warm, nostalgic, clear and beautiful",
+    "Two silhouettes walking in opposite directions on a dark street at night, "
+    "one distant street lamp between them, deep blue-black tones, "
+    "dark anime illustration — separation, melancholy, visually striking",
 
-    "A couple sitting on a park bench in soft autumn light, "
-    "not talking, both looking into the distance, fallen leaves around them, "
-    "muted earthy palette — dusty gold, sage, warm beige, illustrated graphic novel style",
+    "Two people sitting close together in a dark car at night, "
+    "city lights glowing through rain-streaked windows, warm dashboard light, "
+    "dark cinematic manga style — intimate, atmospheric, deeply emotional",
 
-    "Two people at a cafe window, one looking out, one looking at the other, "
-    "warm interior light, rain visible outside, muted warm palette, "
-    "illustrated semi-realistic style — intimate, clear, emotionally rich",
+    "Two figures standing under one umbrella in the dark rain, "
+    "street lamp above them, dark wet street reflecting their light, "
+    "deep navy and warm amber contrast, dark anime illustration",
 ]
 
-# Combined pool — weighted for variety
+# Combined pool — weighted
 _SCENE_POOL = (
     _SCENE_POOL_CLOSEUP * 2 +
     _SCENE_POOL_WIDE * 2 +
@@ -201,69 +203,61 @@ _SCENE_POOL = (
     _SCENE_POOL_TWO_PEOPLE * 2
 )
 
-# ── Art style variants — ALL based on Whisprs aesthetic ──────────────────────
-# Key: muted earthy illustrated, NOT dark gothic, NOT photorealistic, NOT creepy
+# ── Art style variants — ALL dark cinematic anime (matching the 778-view top performer)
 _LOVE_STYLE_VARIANTS = [
     (
-        "Vibrant romantic anime illustration — rich warm colors, intimate and beautiful. "
-        "Rich palette: deep rose pink, warm amber golden light, soft lavender sky, glowing coral sunset. "
-        "Two people in a tender close moment — foreheads touching, gentle embrace. "
-        "Colorful, vivid, emotionally warm backgrounds — garden, golden field, sunset light. "
-        "Like a beautiful Ghibli love scene — NOT dark, NOT muted. Vibrant, warm, romantic."
+        "Dark romantic anime illustration — deep navy blues, soft warm amber glow, cinematic. "
+        "Two people in an intimate tender moment, soft single light source on their faces, "
+        "surrounding darkness creating depth and drama. "
+        "Palette: deep midnight blue, soft warm amber, gentle teal, muted rose. "
+        "Style: dark cinematic anime — like 'A Silent Voice' or 'Your Name' — moody, beautiful, emotional."
     ),
     (
-        "Beautiful illustrated romance — vivid warm saturated colors. "
-        "Palette: glowing amber lamp light, rich rose, soft golden sunset, deep teal evening sky. "
-        "Intimate couple scene — close faces, tender gentle expressions, clear warm skin tones. "
-        "Rich colorful backgrounds: blooming garden, golden-lit room, soft glowing sunset. "
-        "Style: high-quality romantic anime art — vibrant, warm, emotionally alive."
+        "Cinematic dark romance illustration — moody, deep, intimate. "
+        "Palette: deep indigo, soft amber candle glow, dark teal, midnight blue. "
+        "Two people close together, warm light on their faces, dark atmospheric background. "
+        "Style: dark anime film aesthetic — high contrast, emotionally resonant, visually striking."
     ),
     (
-        "Romantic illustrated art — colorful, warm, radiant. "
-        "Colors: warm gold, deep rose, soft amber, emerald green, glowing sunset orange and pink. "
-        "Two people close together, soft expressions, warm faces clearly visible. "
-        "Beautiful rich backgrounds: glowing sunset, colorful garden, warm lit interior. "
-        "Like a stunning romance illustration — NOT dark or grey. Vibrant, loving, colorful."
+        "Dark romantic illustrated art — atmospheric and intimate. "
+        "Deep blue-black backgrounds, one warm light source (candle, lamp, moon) illuminating the scene. "
+        "Two people in a quiet tender moment, faces softly lit against darkness. "
+        "Style: dark cinematic manga — like Makoto Shinkai films, moody and beautiful."
     ),
 ]
 
 _STYLE_VARIANTS = [
     (
-        "Vibrant Studio Ghibli illustration style — rich, saturated, beautiful colors. "
-        "Palette: deep cerulean blue sky, lush emerald green fields, warm golden sunset orange, "
-        "bright coral, soft lavender clouds, glowing amber lamplight. "
-        "Scenes feel alive with color — like a Ghibli film frame. "
-        "Characters have clearly visible warm faces, natural poses. "
-        "NOT dark. NOT muted. NOT washed out. Colorful, warm, emotionally radiant. "
-        "Like Spirited Away or Howl's Moving Castle — vivid illustrated art, full of life and feeling."
+        "Dark cinematic anime illustration style — moody, atmospheric, emotionally powerful. "
+        "Palette: deep midnight navy, dark indigo, soft teal, warm amber glow from single light source. "
+        "High contrast: rich darkness surrounding a single warm or cool light. "
+        "Characters semi-visible or silhouetted, faces softly lit. "
+        "Style: like 'A Silent Voice', 'Your Name', 'Violet Evergarden' — "
+        "dark, cinematic, deeply emotional. NOT bright. NOT colorful. NOT cheerful."
     ),
     (
-        "Beautiful anime illustration art — vibrant and emotionally warm. "
-        "Rich color palette: sapphire blue skies, golden wheat fields, bright teal water, "
-        "warm sunset gradient of orange and pink, deep green forests, glowing interior lamp light. "
-        "Scenes are painterly and alive — color is the mood. "
-        "Characters: clear expressive faces, natural warm skin tones, emotionally present. "
-        "Style: high-quality anime film concept art — NOT realistic, NOT dark, NOT washed out. "
-        "Vivid, lush, illustrated, radiant with color and feeling."
+        "Atmospheric dark anime illustration — cinematic and introspective. "
+        "Dominant tones: deep navy blue, dark purple-indigo, muted teal, "
+        "with warm amber or soft moonlight as the only light source. "
+        "Scenes feel like a quiet 3am moment — beautiful, heavy, still. "
+        "Style: dark lo-fi anime aesthetic — introspective, premium, visually striking. "
+        "High visual contrast creates depth. Feels like a cinematic short film frame."
     ),
     (
-        "Illustrated art — colorful digital painting style, emotionally resonant. "
-        "Rich saturated palette: deep indigo night skies with warm glowing stars, "
-        "lush green countryside, golden morning light flooding a scene, "
-        "rich teal oceans, warm amber autumn colors, bright soft morning mist. "
-        "Every scene vibrant and beautiful — colors tell the emotion. "
-        "Characters clearly visible with warm expressive faces. "
-        "NOT dark gothic. NOT muted grey. NOT boring. Full of beautiful rich color. "
-        "Like a stunning illustrated book cover or high-quality animated film still."
+        "Cinematic dark illustrated art — deep, moody, emotionally resonant. "
+        "Dark rich backgrounds: midnight indigo, deep navy, soft dark teal. "
+        "Single warm light source: window glow, candle, street lamp, moon. "
+        "Figures partially in shadow — dramatic, intimate, real. "
+        "Style: premium dark anime illustration — like Makoto Shinkai at night, "
+        "beautiful in darkness. Makes viewers stop scrolling."
     ),
     (
-        "Semi-realistic illustrated art — vivid warm colors, painterly and emotional. "
-        "Dominant colors: warm golden light, rich blue-green landscape, bright coral sunrise, "
-        "glowing amber interior light, lush emerald greens, soft rose and peach tones. "
-        "Scenes feel lush, alive, and emotionally rich. "
-        "Every element contributes to a beautiful, colorful, readable image. "
-        "Characters: visible, warm, expressive. Style: illustrated graphic novel with Ghibli soul. "
-        "NOT muted, NOT dark, NOT creepy. Beautiful, colorful, human, warm."
+        "Lo-fi dark anime aesthetic — atmospheric, quiet, emotionally heavy. "
+        "Palette: deep blue-black backgrounds, soft ambient teal, "
+        "warm amber island of light in darkness, muted indigo shadows. "
+        "Lone figure or intimate scene bathed in a single light source. "
+        "Style: dark cinematic anime illustration — introspective, premium, "
+        "visually dramatic. The kind of image that looks beautiful on a phone screen at night."
     ),
 ]
 
