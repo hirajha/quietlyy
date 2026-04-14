@@ -364,16 +364,12 @@ if __name__ == "__main__":
         if arg.startswith("--style="):
             style_override = arg.split("=", 1)[1].strip()
 
-    # If no style override, auto-detect by time slot:
-    # Morning (UTC 0-11, = 11 AM IST) → nostalgic/forgotten connections
-    # Evening (UTC 12+, = 10 PM IST) → love/motivational/emotional/poetic rotation
+    # Both morning and evening use the same love → emotional rotation (2-day cycle).
+    # Use --style= flag or workflow dispatch input to force a specific style.
     if not style_override:
         utc_hour = datetime.datetime.utcnow().hour
-        if utc_hour < 12:
-            style_override = "nostalgic"
-            print(f"[pipeline] Morning slot detected (UTC {utc_hour}h) → nostalgic style")
-        else:
-            style_override = None  # generate_script rotates love → emotional → love → … (2-day cycle)
-            print(f"[pipeline] Evening slot detected (UTC {utc_hour}h) → rotating styles (love/emotional)")
+        style_override = None  # generate_script rotates love → emotional → love → … (2-day cycle)
+        slot = "Morning" if utc_hour < 12 else "Evening"
+        print(f"[pipeline] {slot} slot detected (UTC {utc_hour}h) → rotating styles (love/emotional)")
 
     run(skip_post=skip, skip_youtube=skip_yt, custom_topic=topic_override, forced_style=style_override)
