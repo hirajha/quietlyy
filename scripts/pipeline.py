@@ -313,16 +313,18 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
                 json.dump({"error": str(e), "traceback": traceback.format_exc()}, f, indent=2)
 
     # ── Step 7b: YouTube Shorts ────────────────────────────────────────────
-    yt_secrets_missing = [v for v in ["YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "YOUTUBE_REFRESH_TOKEN"]
-                          if not os.environ.get(v)]
+    yt_secrets_set = {v: bool(os.environ.get(v))
+                      for v in ["YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "YOUTUBE_REFRESH_TOKEN"]}
+    yt_secrets_missing = [k for k, v in yt_secrets_set.items() if not v]
     if skip_youtube:
         print("\n[7b/7] Skipping YouTube post (--skip-youtube)")
         _status("youtube", "skipped")
     elif yt_secrets_missing:
         print(f"\n[7b/7] Skipping YouTube — missing secrets: {', '.join(yt_secrets_missing)}")
+        print(f"  Secret status: { {k: ('SET' if v else 'MISSING') for k, v in yt_secrets_set.items()} }")
         _status("youtube", "skipped", f"missing: {', '.join(yt_secrets_missing)}")
     else:
-        print("\n[7b/7] Posting to YouTube Shorts...")
+        print(f"\n[7b/7] Posting to YouTube Shorts... (all 3 secrets present)")
         try:
             yt_result = post_youtube(video_path, topic, script_text, seo_metadata=seo_metadata)
             print(f"  Short posted: {yt_result['url']}")
@@ -333,9 +335,12 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
             import traceback
             err_detail = str(e)
             _status("youtube", "fail", err_detail)
-            print(f"  YouTube posting failed: {err_detail}")
+            # GitHub Actions annotation — makes error bold red in Actions log
+            print(f"::error::YouTube posting failed: {err_detail.splitlines()[0]}")
+            print(f"\n  YOUTUBE ERROR:\n{err_detail}")
             with open(os.path.join(OUTPUT_DIR, "youtube_error.json"), "w") as f:
                 json.dump({"error": err_detail, "traceback": traceback.format_exc()}, f, indent=2)
+            print(f"\n  Full error saved to: output/youtube_error.json (download from Actions artifact)")
 
     print("\n" + "=" * 50)
     print("  PIPELINE COMPLETE")

@@ -112,6 +112,21 @@ jobs:
           git diff --cached --quiet || git commit -m "Bot: gallery + research cache [run #${{ github.run_number }}]"
           git push || true
 
+      - name: Show YouTube error in log
+        if: always()
+        run: |
+          if [ -f output/youtube_error.json ]; then
+            echo "::error::YouTube posting failed — see details below"
+            echo "===== YOUTUBE ERROR ====="
+            cat output/youtube_error.json
+            echo "========================="
+          fi
+          if [ -f output/pipeline_status.json ]; then
+            echo "===== PIPELINE STATUS ====="
+            cat output/pipeline_status.json
+            echo "==========================="
+          fi
+
       - name: Upload video artifact
         uses: actions/upload-artifact@v4
         if: always()
