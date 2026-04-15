@@ -32,7 +32,7 @@ on:
         default: ''
         type: string
       style:
-        description: 'Force a style: love / emotional / nostalgic / poetic / wisdom (auto rotates love↔emotional every 2 days)'
+        description: 'Force a style: love / emotional / nostalgic / poetic / wisdom (auto: love→emotional→love→WISDOM every 3 videos)'
         required: false
         default: ''
         type: string
@@ -112,7 +112,7 @@ jobs:
         run: |
           git config user.name "Quietlyy Bot"
           git config user.email "bot@quietlyy.com"
-          git add -f assets/gallery/ assets/market_research.json assets/used_scripts.json || true
+          git add -f assets/gallery/ assets/market_research.json assets/used_scripts.json assets/used_topics.json || true
           git diff --cached --quiet || git commit -m "Bot: gallery + research cache [run #${{ github.run_number }}]"
           git push || true
 

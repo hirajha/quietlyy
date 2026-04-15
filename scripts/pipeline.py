@@ -59,8 +59,6 @@ def clean_output():
     if os.path.exists(OUTPUT_DIR):
         for f in os.listdir(OUTPUT_DIR):
             path = os.path.join(OUTPUT_DIR, f)
-            if f == "used_topics.json":
-                continue
             if os.path.isfile(path):
                 os.remove(path)
             elif os.path.isdir(path):

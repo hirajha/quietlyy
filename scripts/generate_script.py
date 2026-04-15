@@ -33,7 +33,7 @@ def pick_style_and_topic(templates, theme_hints=None):
 
     Sequence: love → emotional → love → WISDOM → emotional → love → emotional → WISDOM → …
     """
-    state_path = os.path.join(os.path.dirname(__file__), "..", "output", "used_topics.json")
+    state_path = os.path.join(os.path.dirname(__file__), "..", "assets", "used_topics.json")
     os.makedirs(os.path.dirname(state_path), exist_ok=True)
 
     state = {
