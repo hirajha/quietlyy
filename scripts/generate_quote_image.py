@@ -23,40 +23,76 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 # ── Quote generation ──────────────────────────────────────────────────────────
 
 QUOTE_THEMES = [
-    "letting go of people who no longer choose you",
-    "healing quietly while life keeps moving",
-    "the exhaustion of pretending to be okay",
-    "finding peace in the ordinary moments",
-    "missing someone you never really had",
-    "choosing yourself without guilt",
-    "growing through seasons of silence and solitude",
-    "the courage of starting over",
-    "loving deeply in a world that moves too fast",
-    "the quiet strength of those who never complain",
-    "grief that visits long after the loss",
-    "the beauty of an ordinary Sunday morning",
-    "learning to trust life's unexpected turns",
-    "people who stay without being asked",
-    "the version of you that survived everything",
+    # Specific emotional moments — the kind that make people say "who told them about me?"
+    "the person you used to call at 3am who stopped picking up",
+    "typing a message to someone and deleting it before sending",
+    "realizing you were always the one who cared more",
+    "missing someone who chose to leave",
+    "crying in the car because you can't cry anywhere else",
+    "the person who made you feel like too much and not enough at the same time",
+    "loving someone who was never fully there",
+    "the silence after a relationship ends and life just keeps going",
+    "people who were there only when it was convenient for them",
+    "the version of yourself you lost while trying to keep someone else",
+    "waiting for an apology that never comes",
+    "the moment you stop explaining yourself to people who don't want to understand",
+    "growing apart from someone you thought you'd always have",
+    "the relief of finally letting someone go after holding on too long",
+    "being strong for everyone else while falling apart inside",
+    "the friendships that ended without a single fight",
+    "loving someone from a distance because it's safer that way",
+    "the hollow feeling after someone who promised to stay finally leaves",
+    "the person you still look for in every crowd",
+    "realizing home was a person, not a place",
 ]
 
-QUOTE_PROMPT_TEMPLATE = """Write ONE single powerful life-lesson quote on this theme: "{theme}"
+QUOTE_PROMPT_TEMPLATE = """You are writing for "Quietlyy" — an emotional quote brand on Instagram and Facebook. Your quote must make people stop scrolling, feel deeply understood, and want to send it to someone specific.
+
+Theme: "{theme}"
+
+THE RULE: Write a FEELING, not a lesson. The best quotes describe a private emotional experience so precisely that readers feel seen — like you reached into their chest and named something they couldn't say out loud.
+
+WRONG (lesson/advice — will be ignored):
+- "Healing takes time and that is okay."
+- "Rest is not a reward. It is something you deserve."
+- "Choose yourself without apology."
+
+RIGHT (feeling — will be shared):
+- "Some people leave and you're still holding the door open two years later."
+- "It's strange grieving someone who is still alive but just... not yours anymore."
+- "You were never too much. You were just too real for people who only needed you in storms."
+- "I keep waiting for the version of you I fell in love with to come back."
+- "You didn't lose them. You lost who you thought they were."
 
 Rules:
-- Maximum 12 words total
-- No rhyming — should feel like a real thought, not a poem
-- No clichés like "believe in yourself" or "follow your dreams"
-- Should feel deeply personal, like pulled from someone's private journal
-- Emotional and specific — makes the reader stop scrolling
-- Do NOT use em dashes or fancy punctuation — keep it plain
-- Return ONLY the quote text, nothing else, no quotation marks
+- 10 to 18 words — enough room for the feeling to land
+- Write a MOMENT or a FEELING, not advice
+- Be specific — not "someone" but "the one who promised" or "the 3am person"
+- One unexpected twist or observation that makes it feel fresh
+- No rhyming. No exclamation marks. No motivational-poster language.
+- Returns ONLY the quote text. No quotation marks. Nothing else.
 
-Examples of the style:
-- The people who stay quiet about their pain are carrying the most.
-- You didn't lose them. You lost who you thought they were.
-- Rest is not a reward. It's something you've always deserved.
-- Some goodbyes were never said out loud. They just happened.
-"""
+Generate 3 different quotes on this theme, each on a new line. I will pick the best one."""
+
+
+def _pick_best_quote(candidates):
+    """Pick the most emotionally specific quote from a list.
+    Scores on: length (sweet spot 10-18 words), specificity markers, no clichés."""
+    CLICHE_WORDS = ["believe", "deserve", "journey", "universe", "destiny",
+                    "warrior", "blessed", "hustle", "grind", "manifest",
+                    "okay", "healing takes", "you got this"]
+    SPECIFIC_MARKERS = ["who", "when", "while", "still", "never", "always",
+                        "anymore", "used to", "without", "but", "just"]
+
+    def score(q):
+        words = q.lower().split()
+        n = len(words)
+        length_score = 10 if 10 <= n <= 18 else max(0, 10 - abs(n - 14))
+        cliche_penalty = sum(3 for c in CLICHE_WORDS if c in q.lower())
+        specificity = sum(1 for m in SPECIFIC_MARKERS if m in q.lower())
+        return length_score + specificity * 2 - cliche_penalty
+
+    return max(candidates, key=score)
 
 SCENE_PROMPTS = [
     "A lone figure with a red umbrella standing in golden wheat fields under a storm-lit sky, cinematic illustrated art, warm amber and teal tones, dark atmospheric, moody",
@@ -73,14 +109,15 @@ SCENE_PROMPTS = [
 
 
 def generate_quote(theme=None):
-    """Use OpenAI to generate a short powerful quote."""
+    """Generate 3 candidate quotes and pick the most emotionally specific one."""
     key = os.environ.get("OPENAI_API_KEY")
     if not key:
-        return "The people who stay without being asked are the ones worth keeping."
+        return "Some people leave and you're still holding the door open two years later."
 
     if not theme:
         theme = random.choice(QUOTE_THEMES)
 
+    print(f"[quote_image] Theme: {theme}")
     prompt = QUOTE_PROMPT_TEMPLATE.format(theme=theme)
 
     for attempt in range(3):
@@ -91,21 +128,35 @@ def generate_quote(theme=None):
                 json={
                     "model": "gpt-4o",
                     "messages": [{"role": "user", "content": prompt}],
-                    "temperature": 0.9,
-                    "max_tokens": 60,
+                    "temperature": 0.95,
+                    "max_tokens": 200,
                 },
                 timeout=30,
             )
             resp.raise_for_status()
-            quote = resp.json()["choices"][0]["message"]["content"].strip().strip('"').strip("'")
-            if quote and len(quote) > 10:
-                print(f"[quote_image] Quote: {quote}")
-                return quote
+            raw = resp.json()["choices"][0]["message"]["content"].strip()
+
+            # Parse the 3 candidates (one per line, strip numbering/bullets)
+            candidates = []
+            for line in raw.split("\n"):
+                line = line.strip().lstrip("123456789.-) ").strip().strip('"').strip("'")
+                if len(line) > 15:
+                    candidates.append(line)
+
+            if candidates:
+                best = _pick_best_quote(candidates)
+                print(f"[quote_image] Candidates ({len(candidates)}):")
+                for i, c in enumerate(candidates):
+                    marker = "★" if c == best else " "
+                    print(f"  {marker} {c}")
+                print(f"[quote_image] Selected: {best}")
+                return best
+
         except Exception as e:
             print(f"[quote_image] Quote generation attempt {attempt+1} failed: {e}")
             time.sleep(2)
 
-    return "The people who stay without being asked are the ones worth keeping."
+    return "Some people leave and you're still holding the door open two years later."
 
 
 # ── Image generation ──────────────────────────────────────────────────────────
@@ -208,7 +259,7 @@ def _overlay_quote(bg_path, quote_text, output_path):
         "/usr/share/fonts/dejavu/DejaVuSerif.ttf",
     ]
     font = None
-    font_size = 68
+    font_size = 76  # larger — more readable on mobile feed
     for fp in font_paths:
         if os.path.exists(fp):
             try:
@@ -221,7 +272,7 @@ def _overlay_quote(bg_path, quote_text, output_path):
         from PIL import ImageFont
         font = ImageFont.load_default()
 
-    # Wrap quote text — max 20 chars per line for large font
+    # Wrap quote text — max 22 chars per line
     lines = textwrap.wrap(quote_text, width=22)
     line_height = font_size + 18
     total_text_h = len(lines) * line_height
