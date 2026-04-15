@@ -364,12 +364,13 @@ if __name__ == "__main__":
         if arg.startswith("--style="):
             style_override = arg.split("=", 1)[1].strip()
 
-    # Both morning and evening use the same love → emotional rotation (2-day cycle).
+    # Rotation: love → emotional → love → WISDOM → emotional → love → emotional → WISDOM → …
+    # Every 3rd regular video is automatically a wisdom/famous-poetry video.
     # Use --style= flag or workflow dispatch input to force a specific style.
     if not style_override:
         utc_hour = datetime.datetime.utcnow().hour
-        style_override = None  # generate_script rotates love → emotional → love → … (2-day cycle)
+        style_override = None  # generate_script handles rotation + wisdom interval automatically
         slot = "Morning" if utc_hour < 12 else "Evening"
-        print(f"[pipeline] {slot} slot detected (UTC {utc_hour}h) → rotating styles (love/emotional)")
+        print(f"[pipeline] {slot} slot detected (UTC {utc_hour}h) → auto-rotating styles")
 
     run(skip_post=skip, skip_youtube=skip_yt, custom_topic=topic_override, forced_style=style_override)
