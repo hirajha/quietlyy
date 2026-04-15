@@ -59,8 +59,6 @@ def clean_output():
     if os.path.exists(OUTPUT_DIR):
         for f in os.listdir(OUTPUT_DIR):
             path = os.path.join(OUTPUT_DIR, f)
-            if f == "used_topics.json":
-                continue
             if os.path.isfile(path):
                 os.remove(path)
             elif os.path.isdir(path):
@@ -212,7 +210,7 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
     # ── Step 4: Music ──────────────────────────────────────────────────────
     print("\n[4/7] Fetching background music...")
     try:
-        music_path = generate_music(topic, script_text=script_text, style=script_style)
+        music_path, music_source = generate_music(topic, script_text=script_text, style=script_style)
     except Exception as e:
         _status("music", "fail", str(e))
         print(f"\nSkipping today — music failed: {e}.")
@@ -221,8 +219,8 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
         _status("music", "fail", "no music returned")
         print(f"\nSkipping today — no background music available.")
         sys.exit(0)
-    _status("music", "ok", music_path)
-    print(f"  Music: {music_path}")
+    _status("music", "ok", f"{music_path} [{music_source}]")
+    print(f"  Music: {music_path} (source: {music_source})")
 
     # ── Step 5: Compose video ──────────────────────────────────────────────
     print("\n[5/7] Compositing video...")
@@ -252,7 +250,7 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
     cr_ok, cr_report = run_compliance_check(
         music_path=music_path, image_paths=image_paths,
         voice_path=audio_path, script_text=script_text,
-        topic=topic, music_source="freesound_cc0",
+        topic=topic, music_source=music_source,
     )
     if not cr_ok:
         _status("copyright", "fail", str(cr_report))
@@ -364,12 +362,13 @@ if __name__ == "__main__":
         if arg.startswith("--style="):
             style_override = arg.split("=", 1)[1].strip()
 
-    # Both morning and evening use the same love → emotional rotation (2-day cycle).
+    # Rotation: love → emotional → love → WISDOM → emotional → love → emotional → WISDOM → …
+    # Every 3rd regular video is automatically a wisdom/famous-poetry video.
     # Use --style= flag or workflow dispatch input to force a specific style.
     if not style_override:
         utc_hour = datetime.datetime.utcnow().hour
-        style_override = None  # generate_script rotates love → emotional → love → … (2-day cycle)
+        style_override = None  # generate_script handles rotation + wisdom interval automatically
         slot = "Morning" if utc_hour < 12 else "Evening"
-        print(f"[pipeline] {slot} slot detected (UTC {utc_hour}h) → rotating styles (love/emotional)")
+        print(f"[pipeline] {slot} slot detected (UTC {utc_hour}h) → auto-rotating styles")
 
     run(skip_post=skip, skip_youtube=skip_yt, custom_topic=topic_override, forced_style=style_override)

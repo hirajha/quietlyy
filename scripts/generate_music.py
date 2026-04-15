@@ -310,11 +310,11 @@ def _search_pixabay_music(mood):
             print(f"[music] Pixabay hit fields: {list(hits[0].keys())}")
             track = random.choice(hits[:20])
             # Try every possible audio URL field — API field name varies by version
-            url = (track.get("audio_download")
+            url = (track.get("download_url")   # most likely — matches Pixabay convention
+                   or track.get("audio_download")
                    or track.get("audio")
                    or track.get("previewURL")
-                   or track.get("preview_url")
-                   or track.get("url"))
+                   or track.get("preview_url"))
             name = track.get("title") or track.get("name") or "Pixabay track"
             if url:
                 print(f"[music] Pixabay found ({mood}): {name[:60]}")
@@ -339,32 +339,47 @@ def _download_pixabay(url, output_path):
 
 
 # ── CC0 ambient piano tracks — pre-vetted, no API key needed ─────────────────
-# Source: Free Music Archive (CC0 / public domain). These rotate when all APIs fail.
-# mood → list of (url, label) tuples
+# Sources:
+#   - Archive.org (primary — stable long-term hosting of CC0 music)
+#   - Free Music Archive CDN (secondary — occasional CDN instability)
+# All tracks are Kai Engel piano pieces released as Creative Commons Zero (CC0).
+# mood → list of (url, label) tuples — tried in order until one downloads
 _CC0_TRACKS = {
     "heartbreak": [
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_09_-_Sentiment.mp3", "Kai Engel - Sentiment"),
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_07_-_Interlude.mp3", "Kai Engel - Interlude"),
+        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_09_-_Sentiment.mp3", "Kai Engel - Sentiment (archive)"),
+        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_07_-_Interlude.mp3", "Kai Engel - Interlude (archive)"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_09_-_Sentiment.mp3", "Kai Engel - Sentiment (FMA)"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_07_-_Interlude.mp3", "Kai Engel - Interlude (FMA)"),
     ],
     "longing": [
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_01_-_Once_Upon_A_Time.mp3", "Kai Engel - Once Upon A Time"),
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_05_-_Reminiscence.mp3", "Kai Engel - Reminiscence"),
+        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_01_-_Once_Upon_A_Time.mp3", "Kai Engel - Once Upon A Time (archive)"),
+        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_05_-_Reminiscence.mp3", "Kai Engel - Reminiscence (archive)"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_01_-_Once_Upon_A_Time.mp3", "Kai Engel - Once Upon A Time (FMA)"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_05_-_Reminiscence.mp3", "Kai Engel - Reminiscence (FMA)"),
     ],
     "love": [
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_01_-_Satin.mp3", "Kai Engel - Satin"),
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_03_-_Tenderness.mp3", "Kai Engel - Tenderness"),
+        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_01_-_Satin.mp3", "Kai Engel - Satin (archive)"),
+        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_03_-_Tenderness.mp3", "Kai Engel - Tenderness (archive)"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_01_-_Satin.mp3", "Kai Engel - Satin (FMA)"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_03_-_Tenderness.mp3", "Kai Engel - Tenderness (FMA)"),
     ],
     "nostalgia": [
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_02_-_My_Own_Childhood.mp3", "Kai Engel - My Own Childhood"),
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_04_-_Those_Days.mp3", "Kai Engel - Those Days"),
+        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_02_-_My_Own_Childhood.mp3", "Kai Engel - My Own Childhood (archive)"),
+        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_04_-_Those_Days.mp3", "Kai Engel - Those Days (archive)"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_02_-_My_Own_Childhood.mp3", "Kai Engel - My Own Childhood (FMA)"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_04_-_Those_Days.mp3", "Kai Engel - Those Days (FMA)"),
     ],
     "melancholy": [
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_05_-_Soliloquy.mp3", "Kai Engel - Soliloquy"),
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_06_-_Void.mp3", "Kai Engel - Void"),
+        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_05_-_Soliloquy.mp3", "Kai Engel - Soliloquy (archive)"),
+        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_06_-_Void.mp3", "Kai Engel - Void (archive)"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_05_-_Soliloquy.mp3", "Kai Engel - Soliloquy (FMA)"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_06_-_Void.mp3", "Kai Engel - Void (FMA)"),
     ],
     "hope": [
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_08_-_Endeavour.mp3", "Kai Engel - Endeavour"),
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_10_-_New_Day.mp3", "Kai Engel - New Day"),
+        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_08_-_Endeavour.mp3", "Kai Engel - Endeavour (archive)"),
+        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_10_-_New_Day.mp3", "Kai Engel - New Day (archive)"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_08_-_Endeavour.mp3", "Kai Engel - Endeavour (FMA)"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_10_-_New_Day.mp3", "Kai Engel - New Day (FMA)"),
     ],
 }
 
@@ -409,7 +424,10 @@ def generate_music(topic, script_text="", style="emotional"):
 
     Detects mood directly from the script text (heartbreak / longing / love /
     nostalgia / melancholy / hope) and uses that for every search, not just the
-    broad style category. Falls back through: Freesound → Pixabay → bundled track.
+    broad style category. Falls back through: Freesound → Pixabay → CC0 library → bundled.
+
+    Returns: (music_path, source) where source is one of:
+      "freesound_cc0" / "pixabay_cc0" / "cc0_library" / "bundled" / None
     """
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     music_path = os.path.join(OUTPUT_DIR, "background_music.mp3")
@@ -438,7 +456,7 @@ def generate_music(topic, script_text="", style="emotional"):
             preview_url, track_name = _search_freesound(query, music_style)
             if preview_url and _download_preview(preview_url, music_path):
                 print(f"[music] Track selected: {track_name}")
-                return music_path
+                return music_path, "freesound_cc0"
 
         print("[music] All Freesound queries failed — trying Pixabay music")
     else:
@@ -449,27 +467,27 @@ def generate_music(topic, script_text="", style="emotional"):
         pix_url, pix_name = _search_pixabay_music(script_mood)
         if pix_url and _download_pixabay(pix_url, music_path):
             print(f"[music] Pixabay track selected: {pix_name}")
-            return music_path
+            return music_path, "pixabay_cc0"
         print("[music] Pixabay music failed — trying CC0 library")
     else:
         print("[music] No PIXABAY_API_KEY — trying CC0 library")
 
     # CC0 track library — mood-matched, no API key needed, always different per mood
     if _download_cc0_track(script_mood, music_path):
-        return music_path
+        return music_path, "cc0_library"
     print("[music] CC0 download failed — using bundled fallback")
 
     bundled = _get_bundled_music()
     if bundled:
         print(f"[music] Using bundled: {os.path.basename(bundled)}")
-        return bundled
+        return bundled, "bundled"
 
     print("[music] WARNING: No background music available")
-    return None
+    return None, None
 
 
 if __name__ == "__main__":
     for s in ["emotional", "nostalgic", "poetic", "love", "motivational"]:
         print(f"\n=== Testing style: {s} ===")
-        path = generate_music("test", style=s)
-        print(f"Music: {path}")
+        path, source = generate_music("test", style=s)
+        print(f"Music: {path} (source: {source})")

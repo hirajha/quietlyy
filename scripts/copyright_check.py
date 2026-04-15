@@ -31,9 +31,11 @@ def check_music(music_path, music_source="freesound_cc0"):
         return False, f"Music file too small ({size} bytes) — likely corrupt"
 
     # Freesound CC0 is enforced at query time via license filter.
+    # Pixabay music is licensed for commercial use under Pixabay Content License.
+    # CC0 library = Kai Engel piano tracks released as Creative Commons Zero.
     # Bundled fallback uses our own instrumental (no copyright).
-    if music_source in ("freesound_cc0", "bundled"):
-        return True, f"Music OK — source: {music_source} (CC0 / public domain)"
+    if music_source in ("freesound_cc0", "pixabay_cc0", "cc0_library", "bundled"):
+        return True, f"Music OK — source: {music_source} (CC0 / public domain / commercial-safe)"
 
     return False, f"Unknown music source '{music_source}' — cannot confirm copyright-free"
 

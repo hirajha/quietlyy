@@ -19,28 +19,52 @@ def load_templates():
         return json.load(f)
 
 
-# Evening rotation styles — 2-day cycle (1 evening post/day = repeats every 2 days)
-# Morning slot is always "nostalgic" (set in pipeline.py)
+# Regular rotation styles (love/emotional 2-day cycle).
+# Every 3rd regular video is automatically replaced by a wisdom/famous-poetry video.
 # Use --style= flag or workflow input to force any style (poetic, wisdom, etc.)
 STYLES = ["love", "emotional"]
 
+# After this many regular videos, insert one wisdom/famous-poetry video
+WISDOM_INTERVAL = 3
+
+
 def pick_style_and_topic(templates, theme_hints=None):
-    """Rotate between styles each run."""
-    state_path = os.path.join(os.path.dirname(__file__), "..", "output", "used_topics.json")
+    """Rotate between love/emotional, inserting a wisdom video every 3rd run.
+
+    Sequence: love → emotional → love → WISDOM → emotional → love → emotional → WISDOM → …
+    """
+    state_path = os.path.join(os.path.dirname(__file__), "..", "assets", "used_topics.json")
     os.makedirs(os.path.dirname(state_path), exist_ok=True)
 
-    state = {"used_nostalgic": [], "used_emotional": [], "used_poetic": [], "used_love": [], "used_wisdom": [], "last_style": "nostalgic"}
+    state = {
+        "used_nostalgic": [], "used_emotional": [], "used_poetic": [],
+        "used_love": [], "used_wisdom": [],
+        "last_style": "love",
+        "last_regular_style": "love",
+        "videos_since_wisdom": 0,
+    }
     if os.path.exists(state_path):
         with open(state_path) as f:
             try:
-                state = json.load(f)
+                loaded = json.load(f)
+                state.update(loaded)
             except Exception:
                 pass
 
-    # Rotate through styles: emotional → poetic → nostalgic → emotional…
-    last = state.get("last_style", "nostalgic")
-    idx = STYLES.index(last) if last in STYLES else 0
-    style = STYLES[(idx + 1) % len(STYLES)]
+    # After WISDOM_INTERVAL regular videos, insert a wisdom/famous-poetry video
+    videos_since_wisdom = state.get("videos_since_wisdom", 0)
+
+    if videos_since_wisdom >= WISDOM_INTERVAL:
+        style = "wisdom"
+        state["videos_since_wisdom"] = 0
+        print(f"[script] Wisdom video slot (after {WISDOM_INTERVAL} regular videos)")
+    else:
+        # Regular love → emotional → love → emotional rotation
+        last_regular = state.get("last_regular_style", STYLES[0])
+        idx = STYLES.index(last_regular) if last_regular in STYLES else 0
+        style = STYLES[(idx + 1) % len(STYLES)]
+        state["videos_since_wisdom"] = videos_since_wisdom + 1
+        state["last_regular_style"] = style
 
     pool = templates["topics_pool"].get(style, templates["topics_pool"]["emotional"])
     used_key = f"used_{style}"
