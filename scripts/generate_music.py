@@ -295,21 +295,31 @@ def _search_pixabay_music(mood):
         return None, None
     profile = _MOOD_TO_PIXABAY.get(mood, {"mood": "sad", "genre": "cinematic"})
     try:
-        # Try mood + genre first, then mood only if no results
         for params in [
             {"key": PIXABAY_API_KEY, "mood": profile["mood"], "genre": profile["genre"], "per_page": 50},
             {"key": PIXABAY_API_KEY, "mood": profile["mood"], "per_page": 50},
+            {"key": PIXABAY_API_KEY, "per_page": 50},
         ]:
             resp = requests.get("https://pixabay.com/api/music/", params=params, timeout=15)
             resp.raise_for_status()
-            hits = resp.json().get("hits", [])
-            if hits:
-                track = random.choice(hits[:20])
-                url = track.get("audio_download") or track.get("previewURL")
-                name = track.get("title", "Pixabay track")
-                if url:
-                    print(f"[music] Pixabay found ({mood}): {name[:60]}")
-                    return url, name
+            data = resp.json()
+            hits = data.get("hits", [])
+            if not hits:
+                continue
+            # Log first hit's keys once so we can see the real field names
+            print(f"[music] Pixabay hit fields: {list(hits[0].keys())}")
+            track = random.choice(hits[:20])
+            # Try every possible audio URL field — API field name varies by version
+            url = (track.get("audio_download")
+                   or track.get("audio")
+                   or track.get("previewURL")
+                   or track.get("preview_url")
+                   or track.get("url"))
+            name = track.get("title") or track.get("name") or "Pixabay track"
+            if url:
+                print(f"[music] Pixabay found ({mood}): {name[:60]}")
+                return url, name
+            print(f"[music] Pixabay hit had no playable URL. Keys: {list(track.keys())}")
     except Exception as e:
         print(f"[music] Pixabay music search failed: {e}")
     return None, None
@@ -328,9 +338,57 @@ def _download_pixabay(url, output_path):
     return False
 
 
+# ── CC0 ambient piano tracks — pre-vetted, no API key needed ─────────────────
+# Source: Free Music Archive (CC0 / public domain). These rotate when all APIs fail.
+# mood → list of (url, label) tuples
+_CC0_TRACKS = {
+    "heartbreak": [
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_09_-_Sentiment.mp3", "Kai Engel - Sentiment"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_07_-_Interlude.mp3", "Kai Engel - Interlude"),
+    ],
+    "longing": [
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_01_-_Once_Upon_A_Time.mp3", "Kai Engel - Once Upon A Time"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_05_-_Reminiscence.mp3", "Kai Engel - Reminiscence"),
+    ],
+    "love": [
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_01_-_Satin.mp3", "Kai Engel - Satin"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_03_-_Tenderness.mp3", "Kai Engel - Tenderness"),
+    ],
+    "nostalgia": [
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_02_-_My_Own_Childhood.mp3", "Kai Engel - My Own Childhood"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_04_-_Those_Days.mp3", "Kai Engel - Those Days"),
+    ],
+    "melancholy": [
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_05_-_Soliloquy.mp3", "Kai Engel - Soliloquy"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_06_-_Void.mp3", "Kai Engel - Void"),
+    ],
+    "hope": [
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_08_-_Endeavour.mp3", "Kai Engel - Endeavour"),
+        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_10_-_New_Day.mp3", "Kai Engel - New Day"),
+    ],
+}
+
+
+def _download_cc0_track(mood, output_path):
+    """Download a mood-matched CC0 piano track. No API key needed."""
+    tracks = _CC0_TRACKS.get(mood, _CC0_TRACKS["melancholy"])
+    random.shuffle(tracks)
+    for url, name in tracks:
+        try:
+            print(f"[music] Trying CC0 track: {name}")
+            resp = requests.get(url, timeout=45)
+            if resp.status_code == 200 and len(resp.content) > 50_000:
+                with open(output_path, "wb") as f:
+                    f.write(resp.content)
+                print(f"[music] CC0 track downloaded: {name}")
+                return True
+        except Exception as e:
+            print(f"[music] CC0 download failed ({name}): {e}")
+    return False
+
+
 def _get_bundled_music():
-    """Pick a random track from assets/music/ for variety.
-    If multiple tracks exist, they rotate so no two videos in a row use the same one."""
+    """Pick a random track from assets/music/ for variety."""
     music_dir = os.path.join(ASSETS_DIR, "music")
     if not os.path.exists(music_dir):
         return None
@@ -392,7 +450,14 @@ def generate_music(topic, script_text="", style="emotional"):
         if pix_url and _download_pixabay(pix_url, music_path):
             print(f"[music] Pixabay track selected: {pix_name}")
             return music_path
-        print("[music] Pixabay music failed — using bundled fallback")
+        print("[music] Pixabay music failed — trying CC0 library")
+    else:
+        print("[music] No PIXABAY_API_KEY — trying CC0 library")
+
+    # CC0 track library — mood-matched, no API key needed, always different per mood
+    if _download_cc0_track(script_mood, music_path):
+        return music_path
+    print("[music] CC0 download failed — using bundled fallback")
 
     bundled = _get_bundled_music()
     if bundled:
