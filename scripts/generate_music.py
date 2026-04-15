@@ -310,11 +310,11 @@ def _search_pixabay_music(mood):
             print(f"[music] Pixabay hit fields: {list(hits[0].keys())}")
             track = random.choice(hits[:20])
             # Try every possible audio URL field — API field name varies by version
-            url = (track.get("audio_download")
+            url = (track.get("download_url")   # most likely — matches Pixabay convention
+                   or track.get("audio_download")
                    or track.get("audio")
                    or track.get("previewURL")
-                   or track.get("preview_url")
-                   or track.get("url"))
+                   or track.get("preview_url"))
             name = track.get("title") or track.get("name") or "Pixabay track"
             if url:
                 print(f"[music] Pixabay found ({mood}): {name[:60]}")
