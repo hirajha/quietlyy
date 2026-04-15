@@ -381,40 +381,49 @@ def generate_with_dalle(prompt, output_path):
     return False
 
 
-def generate_with_dalle3_fallback(prompt, output_path):
-    """Fallback: DALL-E 3 (still available, wider tier access than gpt-image-1)."""
-    key = os.environ.get("OPENAI_API_KEY")
+def generate_with_gemini_imagen(prompt, output_path):
+    """Fallback: Google Imagen 3 via Gemini API (uses GEMINI_API_KEY).
+    Replaces DALL-E 3 which was deprecated May 2026."""
+    import base64
+    key = os.environ.get("GEMINI_API_KEY")
     if not key:
         return False
     try:
         resp = requests.post(
-            "https://api.openai.com/v1/images/generations",
-            headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+            f"https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:predict?key={key}",
+            headers={"Content-Type": "application/json"},
             json={
-                "model": "dall-e-3",
-                "prompt": prompt[:4000],
-                "n": 1,
-                "size": "1024x1792",  # closest 9:16 portrait
-                "quality": "standard",
-                "response_format": "url",
+                "instances": [{"prompt": prompt[:2000]}],
+                "parameters": {
+                    "sampleCount": 1,
+                    "aspectRatio": "9:16",
+                    "safetyFilterLevel": "block_only_high",
+                },
             },
             timeout=90,
         )
         resp.raise_for_status()
-        url = resp.json()["data"][0]["url"]
-        img_resp = requests.get(url, timeout=30)
-        img_resp.raise_for_status()
+        predictions = resp.json().get("predictions", [])
+        if not predictions:
+            print("[images]   Gemini Imagen: no predictions returned")
+            return False
+        b64 = predictions[0].get("bytesBase64Encoded")
+        if not b64:
+            return False
+        img_data = base64.b64decode(b64)
+        if len(img_data) < 5000:
+            return False
         with open(output_path, "wb") as f:
-            f.write(img_resp.content)
+            f.write(img_data)
         from PIL import Image as PILImage, ImageEnhance
         img = PILImage.open(output_path).convert("RGB")
         img = ImageEnhance.Brightness(img).enhance(1.3)
         img = img.resize((1080, 1920), PILImage.LANCZOS)
         img.save(output_path)
-        print(f"[images]   DALL-E 3 fallback succeeded")
+        print("[images]   Gemini Imagen 3 fallback succeeded")
         return True
     except Exception as e:
-        print(f"[images]   DALL-E 3 fallback failed: {e}")
+        print(f"[images]   Gemini Imagen fallback failed: {e}")
         return False
 
 
@@ -449,8 +458,8 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
 
         success = generate_with_dalle(prompt, output_path)
         if not success:
-            print(f"[images]   gpt-image-1 failed — trying DALL-E 3 fallback...")
-            success = generate_with_dalle3_fallback(prompt, output_path)
+            print(f"[images]   gpt-image-1 failed — trying Gemini Imagen 3 fallback...")
+            success = generate_with_gemini_imagen(prompt, output_path)
 
         if success:
             print(f"[images] Panel {i+1}: generated")

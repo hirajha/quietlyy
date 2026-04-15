@@ -204,52 +204,112 @@ def _download_preview(url, output_path):
 
 PIXABAY_API_KEY = os.environ.get("PIXABAY_API_KEY", "")
 
-# Pixabay mood/genre mapping per style
-_PIXABAY_PROFILES = {
-    "emotional":    {"mood": "sad",      "genre": "cinematic"},
-    "nostalgic":    {"mood": "calm",     "genre": "ambient"},
-    "poetic":       {"mood": "dark",     "genre": "ambient"},
-    "love":         {"mood": "romantic", "genre": "cinematic"},
-    "motivational": {"mood": "inspiring","genre": "cinematic"},
+# Script-level mood detection: read the actual text to pick the right music feel.
+# This goes deeper than just "style" — a love script can be heartbreak or warm romance.
+_MOOD_KEYWORDS = {
+    "heartbreak": [
+        "heartbreak", "broke", "broken", "shattered", "hurt", "pain",
+        "lost you", "goodbye", "leave", "left", "tears", "cry", "cried",
+        "walked away", "never came back", "ending", "over",
+    ],
+    "longing": [
+        "miss", "missing", "remember", "used to", "once", "long ago",
+        "distance", "far away", "gone", "wish you were", "still think",
+        "somewhere", "fading", "drift",
+    ],
+    "love": [
+        "love", "loved", "loving", "hold", "arms", "safe", "warm",
+        "together", "close", "home in you", "gentle", "stays",
+    ],
+    "nostalgia": [
+        "childhood", "young", "remember when", "back then", "used to",
+        "grandmother", "grandfather", "school", "old house", "simpler time",
+        "growing up", "those days", "years ago",
+    ],
+    "melancholy": [
+        "alone", "lonely", "empty", "silence", "dark", "heavy", "weight",
+        "no one", "invisible", "quiet pain", "numb",
+    ],
+    "hope": [
+        "hope", "someday", "will be", "better", "rise", "strength",
+        "begin again", "worth it", "keep going", "brighter", "survive",
+    ],
+}
+
+# Pixabay mood/genre per detected mood
+_MOOD_TO_PIXABAY = {
+    "heartbreak": {"mood": "sad",      "genre": "cinematic"},
+    "longing":    {"mood": "sad",      "genre": "ambient"},
+    "love":       {"mood": "romantic", "genre": "cinematic"},
+    "nostalgia":  {"mood": "calm",     "genre": "ambient"},
+    "melancholy": {"mood": "dark",     "genre": "ambient"},
+    "hope":       {"mood": "inspiring","genre": "cinematic"},
+}
+
+# Freesound queries per detected mood
+_MOOD_TO_FREESOUND = {
+    "heartbreak": [
+        "heartbreak piano slow cinematic", "sad piano longing ambient",
+        "piano grief melancholic slow", "bittersweet piano strings",
+    ],
+    "longing": [
+        "longing piano ambient slow", "wistful piano missing someone",
+        "distant piano melancholic", "nostalgic piano strings slow",
+    ],
+    "love": [
+        "romantic piano tender slow", "love story piano strings",
+        "intimate piano violin gentle", "tender romantic piano ambient",
+    ],
+    "nostalgia": [
+        "nostalgic piano soft ambient", "childhood memories piano",
+        "sentimental piano strings memory", "wistful acoustic piano melody",
+    ],
+    "melancholy": [
+        "melancholic piano ambient cinematic", "sad piano minor slow",
+        "lonely piano rain night", "dark ambient piano introspective",
+    ],
+    "hope": [
+        "hopeful piano strings cinematic", "uplifting gentle piano ambient",
+        "piano morning hope building", "inspiring piano strings soft",
+    ],
 }
 
 
-def _search_pixabay_music(style):
-    """Search Pixabay Music API for a CC0 track matching the style.
+def detect_script_mood(script_text):
+    """Analyse script text and return the dominant emotional mood.
+    Returns one of: heartbreak / longing / love / nostalgia / melancholy / hope."""
+    text = script_text.lower()
+    scores = {mood: sum(1 for kw in kws if kw in text)
+              for mood, kws in _MOOD_KEYWORDS.items()}
+    best = max(scores, key=scores.get)
+    if scores[best] == 0:
+        return "melancholy"  # default when nothing matches
+    print(f"[music] Script mood detected: {best} (scores: {scores})")
+    return best
+
+
+def _search_pixabay_music(mood):
+    """Search Pixabay Music API for a track matching the script's emotional mood.
     Returns (download_url, track_name) or (None, None)."""
     if not PIXABAY_API_KEY:
         return None, None
-    profile = _PIXABAY_PROFILES.get(style, _PIXABAY_PROFILES["emotional"])
+    profile = _MOOD_TO_PIXABAY.get(mood, {"mood": "sad", "genre": "cinematic"})
     try:
-        resp = requests.get(
-            "https://pixabay.com/api/music/",
-            params={
-                "key":       PIXABAY_API_KEY,
-                "mood":      profile["mood"],
-                "genre":     profile["genre"],
-                "per_page":  50,
-            },
-            timeout=15,
-        )
-        resp.raise_for_status()
-        hits = resp.json().get("hits", [])
-        if not hits:
-            # Retry with just mood — genre filter might be too narrow
-            resp2 = requests.get(
-                "https://pixabay.com/api/music/",
-                params={"key": PIXABAY_API_KEY, "mood": profile["mood"], "per_page": 50},
-                timeout=15,
-            )
-            resp2.raise_for_status()
-            hits = resp2.json().get("hits", [])
-        if not hits:
-            return None, None
-        track = random.choice(hits[:20])
-        url = track.get("audio_download") or track.get("previewURL")
-        name = track.get("title", "Pixabay track")
-        if url:
-            print(f"[music] Pixabay found: {name[:60]}")
-            return url, name
+        # Try mood + genre first, then mood only if no results
+        for params in [
+            {"key": PIXABAY_API_KEY, "mood": profile["mood"], "genre": profile["genre"], "per_page": 50},
+            {"key": PIXABAY_API_KEY, "mood": profile["mood"], "per_page": 50},
+        ]:
+            resp = requests.get("https://pixabay.com/api/music/", params=params, timeout=15)
+            resp.raise_for_status()
+            hits = resp.json().get("hits", [])
+            if hits:
+                track = random.choice(hits[:20])
+                url = track.get("audio_download") or track.get("previewURL")
+                name = track.get("title", "Pixabay track")
+                if url:
+                    print(f"[music] Pixabay found ({mood}): {name[:60]}")
+                    return url, name
     except Exception as e:
         print(f"[music] Pixabay music search failed: {e}")
     return None, None
@@ -287,60 +347,48 @@ def _get_bundled_music():
 
 
 def generate_music(topic, script_text="", style="emotional"):
-    """Fetch background music that emotionally matches the script style.
+    """Fetch background music matched to the script's actual emotional content.
 
-    Styles:
-      emotional    → contemplative piano/strings (default)
-      nostalgic    → warm piano + subtle nature/birds/wind
-      poetic       → melancholic piano/cello + rain/wind
-      love         → tender piano + violin, heartbeat tempo
-      motivational → building piano/strings + morning nature sounds
+    Detects mood directly from the script text (heartbreak / longing / love /
+    nostalgia / melancholy / hope) and uses that for every search, not just the
+    broad style category. Falls back through: Freesound → Pixabay → bundled track.
     """
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     music_path = os.path.join(OUTPUT_DIR, "background_music.mp3")
 
-    # Map script styles to music profile
-    style_map = {
-        "emotional": "emotional",
-        "nostalgic": "nostalgic",
-        "poetic": "poetic",
-        "love": "love",
-        "motivational": "motivational",
-    }
-    music_style = style_map.get(style, "emotional")
-    profile = STYLE_PROFILES[music_style]
+    # Detect mood from actual script content — more precise than just style label
+    script_mood = detect_script_mood(script_text) if script_text else "melancholy"
 
-    print(f"[music] Style: {style} → music profile: {music_style} ({profile['bpm']})")
+    # Also keep style-level Freesound profile as additional query pool
+    style_map = {"emotional": "emotional", "nostalgic": "nostalgic",
+                 "poetic": "poetic", "love": "love", "motivational": "motivational"}
+    music_style = style_map.get(style, "emotional")
+    bpm_profile = STYLE_PROFILES[music_style]
+
+    print(f"[music] Style: {style} | Script mood: {script_mood} | BPM: {bpm_profile['bpm']}")
 
     if FREESOUND_API_KEY:
-        queries = list(profile["queries"])
-        random.shuffle(queries)
+        # Primary: mood-specific Freesound queries from script analysis
+        mood_queries = list(_MOOD_TO_FREESOUND.get(script_mood, []))
+        # Secondary: style-level queries for variety
+        style_queries = list(bpm_profile["queries"])
+        random.shuffle(mood_queries)
+        random.shuffle(style_queries)
 
-        for query in queries[:6]:  # try up to 6 queries
-            print(f"[music] Searching: {query}")
+        for query in (mood_queries + style_queries)[:8]:
+            print(f"[music] Searching Freesound: {query}")
             preview_url, track_name = _search_freesound(query, music_style)
             if preview_url and _download_preview(preview_url, music_path):
                 print(f"[music] Track selected: {track_name}")
                 return music_path
 
-        # If style-specific search failed, fall back to emotional profile
-        if music_style != "emotional":
-            print(f"[music] Style search exhausted — falling back to emotional profile")
-            fallback_queries = list(STYLE_PROFILES["emotional"]["queries"])
-            random.shuffle(fallback_queries)
-            for query in fallback_queries[:4]:
-                preview_url, track_name = _search_freesound(query, "emotional")
-                if preview_url and _download_preview(preview_url, music_path):
-                    print(f"[music] Fallback track: {track_name}")
-                    return music_path
-
         print("[music] All Freesound queries failed — trying Pixabay music")
     else:
         print("[music] No FREESOUND_API_KEY — trying Pixabay music")
 
-    # Try Pixabay music API as second source
+    # Try Pixabay music API — also mood-matched
     if PIXABAY_API_KEY:
-        pix_url, pix_name = _search_pixabay_music(music_style)
+        pix_url, pix_name = _search_pixabay_music(script_mood)
         if pix_url and _download_pixabay(pix_url, music_path):
             print(f"[music] Pixabay track selected: {pix_name}")
             return music_path
