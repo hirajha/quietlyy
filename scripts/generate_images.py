@@ -367,8 +367,10 @@ def generate_with_dalle(prompt, output_path):
                 f.write(img_data)
 
             # Resize to exactly 1080x1920 (aspect is already 9:16)
-            from PIL import Image as PILImage
+            # Brighten by 30% — keeps dark cinematic mood but objects visible in daylight
+            from PIL import Image as PILImage, ImageEnhance
             img = PILImage.open(output_path).convert("RGB")
+            img = ImageEnhance.Brightness(img).enhance(1.3)
             img = img.resize((1080, 1920), PILImage.LANCZOS)
             img.save(output_path)
             return True
@@ -404,8 +406,9 @@ def generate_with_dalle3_fallback(prompt, output_path):
         img_resp.raise_for_status()
         with open(output_path, "wb") as f:
             f.write(img_resp.content)
-        from PIL import Image as PILImage
+        from PIL import Image as PILImage, ImageEnhance
         img = PILImage.open(output_path).convert("RGB")
+        img = ImageEnhance.Brightness(img).enhance(1.3)
         img = img.resize((1080, 1920), PILImage.LANCZOS)
         img.save(output_path)
         print(f"[images]   DALL-E 3 fallback succeeded")

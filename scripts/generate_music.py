@@ -202,12 +202,88 @@ def _download_preview(url, output_path):
     return False
 
 
+PIXABAY_API_KEY = os.environ.get("PIXABAY_API_KEY", "")
+
+# Pixabay mood/genre mapping per style
+_PIXABAY_PROFILES = {
+    "emotional":    {"mood": "sad",      "genre": "cinematic"},
+    "nostalgic":    {"mood": "calm",     "genre": "ambient"},
+    "poetic":       {"mood": "dark",     "genre": "ambient"},
+    "love":         {"mood": "romantic", "genre": "cinematic"},
+    "motivational": {"mood": "inspiring","genre": "cinematic"},
+}
+
+
+def _search_pixabay_music(style):
+    """Search Pixabay Music API for a CC0 track matching the style.
+    Returns (download_url, track_name) or (None, None)."""
+    if not PIXABAY_API_KEY:
+        return None, None
+    profile = _PIXABAY_PROFILES.get(style, _PIXABAY_PROFILES["emotional"])
+    try:
+        resp = requests.get(
+            "https://pixabay.com/api/music/",
+            params={
+                "key":       PIXABAY_API_KEY,
+                "mood":      profile["mood"],
+                "genre":     profile["genre"],
+                "per_page":  50,
+            },
+            timeout=15,
+        )
+        resp.raise_for_status()
+        hits = resp.json().get("hits", [])
+        if not hits:
+            # Retry with just mood — genre filter might be too narrow
+            resp2 = requests.get(
+                "https://pixabay.com/api/music/",
+                params={"key": PIXABAY_API_KEY, "mood": profile["mood"], "per_page": 50},
+                timeout=15,
+            )
+            resp2.raise_for_status()
+            hits = resp2.json().get("hits", [])
+        if not hits:
+            return None, None
+        track = random.choice(hits[:20])
+        url = track.get("audio_download") or track.get("previewURL")
+        name = track.get("title", "Pixabay track")
+        if url:
+            print(f"[music] Pixabay found: {name[:60]}")
+            return url, name
+    except Exception as e:
+        print(f"[music] Pixabay music search failed: {e}")
+    return None, None
+
+
+def _download_pixabay(url, output_path):
+    """Download a Pixabay music track."""
+    try:
+        resp = requests.get(url, timeout=60)
+        if resp.status_code == 200 and len(resp.content) > 10_000:
+            with open(output_path, "wb") as f:
+                f.write(resp.content)
+            return True
+    except Exception as e:
+        print(f"[music] Pixabay download failed: {e}")
+    return False
+
+
 def _get_bundled_music():
-    """Get bundled instrumental.mp3 as fallback."""
-    path = os.path.join(ASSETS_DIR, "music", "instrumental.mp3")
-    if os.path.exists(path):
-        return path
-    return None
+    """Pick a random track from assets/music/ for variety.
+    If multiple tracks exist, they rotate so no two videos in a row use the same one."""
+    music_dir = os.path.join(ASSETS_DIR, "music")
+    if not os.path.exists(music_dir):
+        return None
+    tracks = sorted([
+        os.path.join(music_dir, f)
+        for f in os.listdir(music_dir)
+        if f.lower().endswith((".mp3", ".wav", ".ogg")) and not f.startswith(".")
+    ])
+    if not tracks:
+        return None
+    chosen = random.choice(tracks)
+    print(f"[music] Bundled fallback: {os.path.basename(chosen)} ({len(tracks)} track(s) available)")
+    return chosen
 
 
 def generate_music(topic, script_text="", style="emotional"):
@@ -247,7 +323,7 @@ def generate_music(topic, script_text="", style="emotional"):
                 print(f"[music] Track selected: {track_name}")
                 return music_path
 
-        # If style-specific search failed, fall back to emotional (safe default)
+        # If style-specific search failed, fall back to emotional profile
         if music_style != "emotional":
             print(f"[music] Style search exhausted — falling back to emotional profile")
             fallback_queries = list(STYLE_PROFILES["emotional"]["queries"])
@@ -258,9 +334,17 @@ def generate_music(topic, script_text="", style="emotional"):
                     print(f"[music] Fallback track: {track_name}")
                     return music_path
 
-        print("[music] All Freesound queries failed — using bundled fallback")
+        print("[music] All Freesound queries failed — trying Pixabay music")
     else:
-        print("[music] No FREESOUND_API_KEY — using bundled music")
+        print("[music] No FREESOUND_API_KEY — trying Pixabay music")
+
+    # Try Pixabay music API as second source
+    if PIXABAY_API_KEY:
+        pix_url, pix_name = _search_pixabay_music(music_style)
+        if pix_url and _download_pixabay(pix_url, music_path):
+            print(f"[music] Pixabay track selected: {pix_name}")
+            return music_path
+        print("[music] Pixabay music failed — using bundled fallback")
 
     bundled = _get_bundled_music()
     if bundled:
