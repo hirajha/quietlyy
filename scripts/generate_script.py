@@ -25,7 +25,7 @@ def load_templates():
 STYLES = ["love", "emotional"]
 
 # After this many regular videos, insert one wisdom/famous-poetry video
-WISDOM_INTERVAL = 3
+WISDOM_INTERVAL = 2
 
 
 def pick_style_and_topic(templates, theme_hints=None):

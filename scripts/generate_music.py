@@ -26,78 +26,118 @@ FREESOUND_API_KEY = os.environ.get("FREESOUND_API_KEY", "")
 
 STYLE_PROFILES = {
     "emotional": {
-        "bpm": "bpm:[60 TO 90]",
+        "bpm": "bpm:[55 TO 90]",
         "queries": [
-            "contemplative ambient piano slow",
-            "melancholic piano ambient cinematic",
-            "cinematic sadness piano strings ambient",
+            # Piano
+            "melancholic piano ambient cinematic slow",
             "bittersweet piano film score slow",
-            "meditative piano strings emotional",
-            "gentle sad piano strings underscore",
             "quiet melancholic piano night",
-            "slow piano longing ambient",
-            "wistful piano cinematic",
-            "emotional piano strings slow",
+            # Strings / orchestral
+            "sad cello strings cinematic ambient",
+            "melancholic violin strings slow emotional",
+            "cinematic strings underscore sadness",
+            # Ambient / atmospheric
+            "dark ambient atmospheric emotional",
+            "slow ambient drone melancholic meditation",
+            # Humming / vocal ambient
+            "humming vocal ambient sad slow",
+            "wordless vocal hum meditation ambient",
+            "soft female vocal hum ambient",
+            # Guitar
+            "fingerpicking acoustic guitar sad slow",
+            "melancholic acoustic guitar ambient",
         ],
     },
     "nostalgic": {
-        "bpm": "bpm:[80 TO 115]",
+        "bpm": "bpm:[75 TO 115]",
         "queries": [
+            # Piano
             "nostalgic piano soft ambient",
-            "childhood memories piano instrumental",
-            "wistful acoustic piano melody",
-            "sentimental piano strings memory",
-            "tender piano nature birds ambient",
+            "childhood memories piano gentle",
+            # Guitar
+            "nostalgic acoustic guitar warm melody",
+            "fingerstyle guitar nostalgic memory",
+            # Strings / orchestral
+            "sentimental strings orchestra memory",
+            "warm violin melody nostalgic",
+            # Nature + music
             "soft piano birds wind nature ambient",
-            "gentle piano morning nature sounds",
-            "nostalgic acoustic guitar piano",
-            "piano music box childhood gentle",
-            "reflective piano ambient nature",
+            "gentle acoustic guitar birdsong morning",
+            # Humming
+            "humming nostalgic warm ambient",
+            "lullaby hum gentle ambient",
         ],
     },
     "poetic": {
-        "bpm": "bpm:[55 TO 80]",
+        "bpm": "bpm:[50 TO 80]",
         "queries": [
-            "sad piano rain ambient meditation",
-            "melancholic piano rain contemplative",
-            "poetic cello piano rain ambience",
-            "slow sad piano minor instrumental",
-            "cinematic melancholy rain piano",
-            "lonely piano rain night ambient",
-            "dark ambient rain piano slow",
-            "emotional cello piano wind rain",
-            "introspective piano rain forest",
-            "soft rain piano melancholic slow",
+            # Piano + rain
+            "slow sad piano rain contemplative",
+            "dark ambient rain atmospheric",
+            # Cello / strings
+            "cello solo melancholic slow",
+            "poetic cello strings rain ambience",
+            # Ambient
+            "dark ambient cinematic melancholy",
+            "introspective ambient drone slow",
+            # Humming / vocal
+            "haunting vocal hum ambient",
+            "eerie soft vocal ambient slow",
+            # Guitar
+            "melancholic fingerpicking guitar rain",
         ],
     },
     "love": {
-        "bpm": "bpm:[65 TO 90]",
+        "bpm": "bpm:[60 TO 90]",
         "queries": [
+            # Piano
             "romantic piano tender slow",
-            "love cinematic piano strings",
-            "tender piano violin intimate",
-            "sentimental piano slow romantic",
-            "soft violin piano romantic ambient",
-            "intimate love piano instrumental",
-            "romantic piano cello gentle",
-            "love story piano slow beautiful",
-            "tender romantic strings piano",
-            "emotional piano love soft",
+            "love cinematic piano gentle",
+            # Violin / strings
+            "tender violin romantic slow",
+            "soft violin cello romantic intimate",
+            "love strings orchestra gentle",
+            # Acoustic guitar
+            "romantic acoustic guitar gentle slow",
+            "love song acoustic guitar fingerpicking",
+            # Humming / vocal
+            "romantic vocal hum soft ambient",
+            "tender humming love song gentle",
+            # Ambient
+            "romantic ambient soft warm",
         ],
     },
     "motivational": {
-        "bpm": "bpm:[85 TO 120]",
+        "bpm": "bpm:[80 TO 120]",
         "queries": [
-            "inspirational piano birds morning nature",
-            "uplifting gentle piano strings building",
-            "hopeful piano ambient morning",
-            "cinematic hope piano strings",
-            "peaceful piano nature birds wind",
-            "motivational soft piano orchestral",
-            "life lesson piano strings gentle",
-            "positive cinematic piano ambient",
-            "piano morning birds wind nature calm",
-            "calm uplifting piano strings wisdom",
+            # Piano + orchestral
+            "hopeful piano strings cinematic building",
+            "uplifting orchestral cinematic gentle",
+            # Acoustic + nature
+            "inspiring acoustic guitar morning birds",
+            "peaceful guitar nature ambient morning",
+            # Strings
+            "uplifting strings orchestra cinematic",
+            "hopeful violin strings slow build",
+            # Ambient
+            "cinematic hope ambient atmospheric",
+            "inspiring ambient soundscape calm",
+            # Humming
+            "uplifting vocal hum hopeful ambient",
+        ],
+    },
+    "wisdom": {
+        "bpm": "bpm:[55 TO 85]",
+        "queries": [
+            # Deep meditative feel for famous poetry
+            "meditative ambient drone slow deep",
+            "contemplative piano strings wisdom",
+            "ancient ambient atmospheric meditation",
+            "slow orchestral cinematic reflective",
+            "spiritual ambient slow meditative",
+            "deep cello ambient contemplative",
+            "zen ambient slow meditation",
+            "philosophical ambient strings slow",
         ],
     },
 }
