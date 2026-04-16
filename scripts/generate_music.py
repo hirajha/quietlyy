@@ -114,11 +114,11 @@ REJECT_KEYWORDS = [
 
 # Base Freesound filter — CC0 LICENSE ONLY (prevents Meta/YouTube muting)
 # CC0 = Creative Commons Zero — public domain, no restrictions, safe for commercial use
+# NOTE: No tag filters here — they're too restrictive and cause zero results.
+# The search query itself describes the content (piano, ambient, etc.)
 FREESOUND_BASE_FILTER = (
     'duration:[30 TO 180] '
-    'tag:instrumental '
-    'license:"Creative Commons 0" '
-    '-tag:comedy -tag:dance -tag:funny -tag:party'
+    'license:"Creative Commons 0"'
 )
 
 
@@ -185,20 +185,26 @@ def _search_freesound(query, style):
 
 
 def _download_preview(url, output_path):
-    """Download a Freesound preview MP3."""
-    try:
-        resp = requests.get(
-            url,
-            headers={"Authorization": f"Token {FREESOUND_API_KEY}"},
-            timeout=30,
-        )
-        if resp.status_code != 200 or len(resp.content) < 5000:
-            return False
-        with open(output_path, "wb") as f:
-            f.write(resp.content)
-        return True
-    except Exception as e:
-        print(f"[music] Download failed: {e}")
+    """Download a Freesound preview MP3.
+    Tries token-in-URL first (more reliable for CDN), falls back to header."""
+    for attempt_url, method in [
+        (f"{url}?token={FREESOUND_API_KEY}" if "?" not in url else url, "token-in-URL"),
+        (url, "auth-header"),
+    ]:
+        try:
+            resp = requests.get(
+                attempt_url,
+                headers={"Authorization": f"Token {FREESOUND_API_KEY}"},
+                timeout=30,
+            )
+            if resp.status_code == 200 and len(resp.content) >= 5000:
+                with open(output_path, "wb") as f:
+                    f.write(resp.content)
+                print(f"[music] Downloaded {len(resp.content)//1024}KB via {method}")
+                return True
+            print(f"[music] Download attempt ({method}): status={resp.status_code} size={len(resp.content)}")
+        except Exception as e:
+            print(f"[music] Download failed ({method}): {e}")
     return False
 
 

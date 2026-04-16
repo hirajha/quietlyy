@@ -575,7 +575,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-filter_complex",
             f"[0:v]{video_filter}[vout];"
             f"[1:a]loudnorm=I=-16:LRA=7:TP=-1.5,apad=pad_dur=1[voice];"
-            f"[2:a]volume=0.35,"
+            f"[2:a]volume=0.50,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4[music];"
             f"[voice][music]amix=inputs=2:duration=first:normalize=0[aout]",
             "-map", "[vout]", "-map", "[aout]",
