@@ -385,7 +385,7 @@ def _save_thumbnail(panel_img, first_line, output_dir):
         return None
 
 
-
+def compose_video(script_data, image_paths, audio_path, subtitle_path, music_path, cta_line=None):
     """
     Compositor: clean background panels + ASS word-by-word subtitle animation.
     Text appears word-by-word in sync with narration via ffmpeg subtitles filter.
