@@ -90,7 +90,6 @@ def _pick_reuse_panels(num_panels):
 # - Feels introspective, premium, cinematic — makes viewers stop scrolling
 
 _SCENE_POOL_CLOSEUP = [
-    # Face closeups — soft glow against dark background
     "Close-up portrait of a young woman, chin resting on her hand, gazing into the distance, "
     "single warm lamp glow on her face, deep navy blue background fading to black, "
     "dark cinematic anime illustration style — moody, intimate, emotionally resonant",
@@ -112,12 +111,34 @@ _SCENE_POOL_CLOSEUP = [
     "dark illustrated style — tender, intimate, cinematic",
 
     "A woman reading an old letter by candlelight, flame casting warm amber on her face, "
-    "surrounding darkness, deep blue shadows, "
-    "dark anime illustration — emotional, cinematic, beautiful",
+    "surrounding darkness, deep blue shadows, dark anime illustration — emotional, cinematic, beautiful",
+
+    "A young man leaning his forehead against a dark window at night, eyes closed, "
+    "soft rain on the glass, dim interior light, deep blue-grey tones, "
+    "dark cinematic illustration — heavy-hearted, still, emotionally resonant",
+
+    "A woman with her back to us, standing in a dimly lit hallway, "
+    "one ceiling light above casting a soft pool, deep dark walls, "
+    "dark anime illustration — solitary, cinematic, beautifully composed",
+
+    "Close-up of a person's eyes reflecting a candle flame, tears barely held back, "
+    "surrounding darkness, warm amber light on wet lashes, "
+    "dark cinematic anime art — deeply emotional, intimate, visually striking",
+
+    "A young woman sitting cross-legged on a dark floor, phone screen lighting her face blue-white, "
+    "deep dark room behind her, modern loneliness, "
+    "dark anime illustration — relatable, quiet, emotionally heavy",
+
+    "Side profile of a person listening to music on headphones, eyes closed, "
+    "soft street lamp light through curtains, dark bedroom, "
+    "dark cinematic anime style — introspective, peaceful, beautifully lit",
+
+    "Close-up of a hand holding a worn photograph in soft lamp light, "
+    "dark wooden table surface, blurred warm background, "
+    "dark illustrated art — nostalgic, tender, emotionally resonant",
 ]
 
 _SCENE_POOL_WIDE = [
-    # Wide scenes — dark atmospheric with single light source
     "A lone figure standing on a dark hilltop, full moon behind clouds, "
     "deep indigo-blue sky, soft moonlight spilling across the landscape, "
     "dark cinematic anime style — vast, atmospheric, emotionally powerful",
@@ -128,8 +149,7 @@ _SCENE_POOL_WIDE = [
 
     "Wide view of a dark city at night seen from a rooftop, "
     "scattered warm window lights below, deep blue-black sky above, "
-    "a lone figure at the edge looking out, "
-    "cinematic dark anime style — vast, moody, introspective",
+    "a lone figure at the edge looking out, cinematic dark anime style — vast, moody, introspective",
 
     "A quiet dark street at night after rain, wet pavement reflecting street lamp light, "
     "deep blue-black shadows, one figure walking away in the distance, "
@@ -137,16 +157,38 @@ _SCENE_POOL_WIDE = [
 
     "A person standing at the edge of a dark lake at midnight, "
     "full moon reflected perfectly in still water, deep indigo and black tones, "
-    "soft silver moonlight on their silhouette, "
-    "dark anime illustration — vast, emotional, visually striking",
+    "soft silver moonlight on their silhouette, dark anime illustration — vast, emotional",
 
     "A moonlit coastal cliff, dark ocean stretching to the horizon, "
     "silver moon path on the water, lone figure at the edge, deep blue-black sky, "
     "dark cinematic illustrated style — breathtaking, moody, emotional",
+
+    "A lone figure walking across a dark empty field under a vast night sky, "
+    "Milky Way above, soft silver starlight, deep blue-black, "
+    "dark cinematic anime illustration — vast solitude, beautiful, emotionally powerful",
+
+    "A person standing in a dark forest clearing, moonlight filtering through tall trees, "
+    "silver beams through dark branches, mist at ground level, "
+    "dark atmospheric anime art — mysterious, beautiful, introspective",
+
+    "A quiet rural road at night, one street lamp at the curve, "
+    "warm amber light on the wet asphalt, dark fields stretching into black, "
+    "dark cinematic illustration — isolated, quietly beautiful, melancholic",
+
+    "A figure standing on a dark train platform, single overhead light, "
+    "train pulling away in the distance, steam and motion blur, "
+    "dark anime illustration — departure, loneliness, cinematic",
+
+    "A person sitting on stone steps of an old building at dusk, "
+    "last golden light fading behind dark rooftops, deep purple-blue sky, "
+    "dark atmospheric illustrated art — reflective, beautiful, emotionally rich",
+
+    "A lone silhouette on a dark bridge at dawn, fog below, soft purple-grey light, "
+    "the city silent and sleeping, "
+    "dark cinematic anime style — solitary, peaceful, emotionally heavy",
 ]
 
 _SCENE_POOL_INTERIOR = [
-    # Interior — cosy light islands in dark rooms
     "A person sitting alone at a window at 2am, small lamp beside them, "
     "dark room behind, soft blue moonlight outside the glass, "
     "deep navy and warm amber contrast, dark cinematic anime style — insomniac mood, beautiful",
@@ -170,10 +212,33 @@ _SCENE_POOL_INTERIOR = [
     "Someone sitting on the floor against a bed, knees drawn up, "
     "single lamp glowing in the background, deep dark bedroom around them, "
     "dark anime illustration — vulnerable, intimate, beautiful",
+
+    "A person standing in a dark kitchen doorway, one light on inside, "
+    "surrounding darkness, warm amber rectangle of light, watching from the threshold, "
+    "dark cinematic anime — liminal, quiet, emotionally loaded",
+
+    "An empty dark hallway with one door ajar, soft warm light spilling through the crack, "
+    "deep shadows in the corridor, "
+    "dark illustrated art — mysterious, lonely, visually striking",
+
+    "A person in a dark library, one reading lamp illuminating a small circle of books, "
+    "towering dark shelves disappearing into shadow, "
+    "dark cinematic anime illustration — intellectual solitude, warm and moody",
+
+    "A dark staircase lit only by one window at the top, "
+    "a figure mid-step, face in soft light and shadow, "
+    "dark cinematic manga art — cinematic composition, emotionally resonant",
+
+    "Someone asleep on a dark sofa, one blanket, lamp left on, "
+    "warm amber glow, deep shadows, a quiet empty room, "
+    "dark anime illustration — peaceful solitude, tender, cinematic",
+
+    "A person in a dark bathroom, sink running, face in the mirror, "
+    "single light above, deep shadow framing their reflection, "
+    "dark cinematic anime illustration — self-confrontation, raw, emotionally powerful",
 ]
 
 _SCENE_POOL_TWO_PEOPLE = [
-    # Two people — dark atmospheric, emotional distance or closeness
     "Two silhouettes standing apart on a dark bridge at night, "
     "city lights reflected in water below, deep blue-black sky, "
     "dark cinematic anime style — emotional distance, atmospheric, beautiful",
@@ -193,14 +258,34 @@ _SCENE_POOL_TWO_PEOPLE = [
     "Two figures standing under one umbrella in the dark rain, "
     "street lamp above them, dark wet street reflecting their light, "
     "deep navy and warm amber contrast, dark anime illustration",
+
+    "A person watching another sleep in a dark room, "
+    "soft moonlight on the sleeping figure, deep shadows, "
+    "dark cinematic anime — tender watching, quiet love, emotionally resonant",
+
+    "Two people on a dark rooftop looking up at stars, lying side by side, "
+    "vast dark sky above, soft ambient light, "
+    "dark anime illustration — closeness, wonder, beautifully intimate",
+
+    "Two figures in silhouette hugging on a dark empty platform, "
+    "one train light in the far distance, deep blue-black tones, "
+    "dark cinematic illustration — goodbye or reunion, emotionally powerful",
+
+    "Two people at a dark cafe window, faces lit by cold rain-light outside, "
+    "dim warm interior behind them, leaning toward each other, "
+    "dark anime art — connection, intimacy, cinematic atmosphere",
+
+    "A person sitting alone at a table set for two, one empty chair opposite, "
+    "single candle, surrounding dark, "
+    "dark cinematic illustration — absence, waiting, quietly devastating",
 ]
 
-# Combined pool — weighted
+# Combined pool — ALL unique, no duplication
 _SCENE_POOL = (
-    _SCENE_POOL_CLOSEUP * 2 +
-    _SCENE_POOL_WIDE * 2 +
-    _SCENE_POOL_INTERIOR * 3 +
-    _SCENE_POOL_TWO_PEOPLE * 2
+    _SCENE_POOL_CLOSEUP +
+    _SCENE_POOL_WIDE +
+    _SCENE_POOL_INTERIOR +
+    _SCENE_POOL_TWO_PEOPLE
 )
 
 # ── Art style variants — ALL dark cinematic anime (matching the 778-view top performer)
@@ -261,10 +346,57 @@ _STYLE_VARIANTS = [
     ),
 ]
 
-# Module-level: pick a style once per import (once per pipeline run)
+_STATE_PATH = os.path.join(os.path.dirname(__file__), "..", "assets", "used_topics.json")
+
+def _pick_scenes_for_video(num_panels, style):
+    """Pick `num_panels` scenes that were NOT used in recent videos.
+
+    Tracks used scenes in assets/used_topics.json (same file as script rotation).
+    Scene key = first 30 chars of the scene text (unique enough to identify each scene).
+    Resets the exclusion list when < num_panels fresh scenes remain.
+    """
+    # Load state
+    state = {}
+    if os.path.exists(_STATE_PATH):
+        try:
+            with open(_STATE_PATH) as f:
+                state = json.load(f)
+        except Exception:
+            pass
+
+    used_keys = set(state.get("used_scene_keys", []))
+    pool = _LOVE_SCENE_POOL if style == "love" else _SCENE_POOL
+
+    def key(s):
+        return s[:30]
+
+    available = [s for s in pool if key(s) not in used_keys]
+    if len(available) < num_panels:
+        # All scenes exhausted — start fresh
+        print(f"[images] All scenes used — resetting scene history")
+        used_keys = set()
+        available = list(pool)
+
+    # Pick num_panels scenes without replacement
+    chosen = random.sample(available, min(num_panels, len(available)))
+    # If pool smaller than num_panels (love pool has 10 scenes), allow some repeat
+    while len(chosen) < num_panels:
+        chosen.append(random.choice(pool))
+
+    # Save updated used keys
+    new_keys = [key(s) for s in chosen]
+    updated = list(used_keys) + new_keys
+    state["used_scene_keys"] = updated[-80:]  # keep last 80 (covers ~10 videos of 8 panels)
+    os.makedirs(os.path.dirname(_STATE_PATH), exist_ok=True)
+    with open(_STATE_PATH, "w") as f:
+        json.dump(state, f, indent=2)
+
+    print(f"[images] Scenes picked: {len(chosen)} fresh ({len(available)} were available from {len(pool)} total)")
+    return chosen
+
+
+# Art style: pick once per run (module-level is fine — random per import)
 _CHOSEN_STYLE = random.choice(_STYLE_VARIANTS)
-# Shuffle scenes once per run for fresh panel order every video
-_SHUFFLED_SCENES = random.sample(_SCENE_POOL, len(_SCENE_POOL))
 
 # Love-specific scene pool — dark romantic couple art (Whispers of Heart style)
 _LOVE_SCENE_POOL = [
@@ -281,19 +413,10 @@ _LOVE_SCENE_POOL = [
 ]
 
 
-def generate_image_prompt(topic, visual_keywords, panel_num, style="emotional"):
-    """Create varied scene prompts — each run gets a different scene sequence and art style.
-    Love style uses dark romantic B&W aesthetic; others use warm illustrated style."""
+def generate_image_prompt(topic, visual_keywords, scene, style="emotional"):
+    """Build the full DALL-E prompt for one panel given a pre-selected scene."""
     keywords_str = ", ".join(visual_keywords)
-
-    if style == "love":
-        chosen_style = random.choice(_LOVE_STYLE_VARIANTS)
-        shuffled_love = random.sample(_LOVE_SCENE_POOL, len(_LOVE_SCENE_POOL))
-        scene = shuffled_love[panel_num % len(_LOVE_SCENE_POOL)]
-    else:
-        chosen_style = _CHOSEN_STYLE
-        scene = _SHUFFLED_SCENES[panel_num % len(_SHUFFLED_SCENES)]
-
+    chosen_style = random.choice(_LOVE_STYLE_VARIANTS) if style == "love" else _CHOSEN_STYLE
     return (
         f"{chosen_style} "
         f"Scene: {scene}. "
@@ -443,6 +566,9 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
     # Check if we should reuse some panels from gallery
     reuse_map = _pick_reuse_panels(num_panels)
 
+    # Pick unique scenes for this video — never reuses scenes from recent videos
+    scenes = _pick_scenes_for_video(num_panels, style)
+
     for i in range(num_panels):
         output_path = os.path.join(OUTPUT_DIR, f"panel_{i}.png")
 
@@ -453,7 +579,7 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
             continue
 
         # Generate fresh image with DALL-E
-        prompt = generate_image_prompt(topic, visual_keywords, i, style=style)
+        prompt = generate_image_prompt(topic, visual_keywords, scenes[i], style=style)
         print(f"[images] Panel {i+1}/{num_panels}: generating with DALL-E...")
 
         success = generate_with_dalle(prompt, output_path)
