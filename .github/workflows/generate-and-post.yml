@@ -139,6 +139,7 @@ jobs:
           path: |
             output/pipeline_status.json
             output/quietlyy_video.mp4
+            output/thumbnail.jpg
             output/script.json
             output/seo_metadata.json
             output/post_result.json

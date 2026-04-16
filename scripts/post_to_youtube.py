@@ -22,6 +22,7 @@ import requests
 
 TOKEN_URL = "https://oauth2.googleapis.com/token"
 UPLOAD_URL = "https://www.googleapis.com/upload/youtube/v3/videos"
+THUMBNAIL_URL = "https://www.googleapis.com/upload/youtube/v3/thumbnails/set"
 
 # Required OAuth scope for uploading
 REQUIRED_SCOPE = "https://www.googleapis.com/auth/youtube.upload"
@@ -190,6 +191,38 @@ def upload_video(video_path, access_token, title, description, tags):
     raise ValueError("YouTube upload failed after all retries")
 
 
+def upload_thumbnail(video_id, thumbnail_path, access_token):
+    """Upload a custom thumbnail for the video.
+    Requires 'youtube' or 'youtube.force-ssl' OAuth scope.
+    Non-blocking — logs a hint if scope is insufficient, does not fail the pipeline."""
+    if not thumbnail_path or not os.path.exists(thumbnail_path):
+        print("[youtube] No thumbnail found — YouTube will auto-generate one")
+        return
+
+    try:
+        with open(thumbnail_path, "rb") as f:
+            resp = requests.post(
+                THUMBNAIL_URL,
+                params={"videoId": video_id, "uploadType": "media"},
+                headers={
+                    "Authorization": f"Bearer {access_token}",
+                    "Content-Type": "image/jpeg",
+                },
+                data=f,
+                timeout=60,
+            )
+        if resp.status_code == 200:
+            print("[youtube] Custom thumbnail uploaded — each video will have a unique thumbnail")
+        elif resp.status_code in (401, 403):
+            print("[youtube] Thumbnail upload needs broader OAuth scope.")
+            print("[youtube] To fix: regenerate refresh token with scope: https://www.googleapis.com/auth/youtube")
+            print("[youtube]   (Add it alongside youtube.upload in OAuth Playground Step 1)")
+        else:
+            print(f"[youtube] Thumbnail upload failed ({resp.status_code}) — YouTube will use auto-thumbnail")
+    except Exception as e:
+        print(f"[youtube] Thumbnail upload error (non-critical): {e}")
+
+
 def pin_comment(video_id, access_token, topic):
     """Post an engaging question comment to drive replies."""
     import random
@@ -294,6 +327,10 @@ def post(video_path, topic, script_text, seo_metadata=None):
 
     url = f"https://www.youtube.com/shorts/{video_id}"
     print(f"[youtube] Short posted! {url}")
+
+    # Upload custom thumbnail (each video gets a unique hook-text thumbnail)
+    thumbnail_path = os.path.join(os.path.dirname(video_path), "thumbnail.jpg")
+    upload_thumbnail(video_id, thumbnail_path, access_token)
 
     # Pin an engaging question comment to drive replies
     pin_comment(video_id, access_token, topic)
