@@ -1,11 +1,13 @@
 """
-Quietlyy — Midday Quote Image Pipeline
+Quietlyy — Midday Quote Carousel Pipeline
 
 Runs at 2:30 PM IST (09:00 UTC) daily:
-  1. Generate short powerful life-lesson quote (OpenAI)
-  2. Generate dark atmospheric illustrated background (DALL-E 3)
-  3. Overlay quote text with PIL → 1080x1350 JPG
-  4. Post to Facebook (photo) + Instagram (static image)
+  1. Generate 2 powerful emotionally-resonant quotes (OpenAI)
+  2. Generate dark atmospheric background (DALL-E / gpt-image-1)
+  3. Build 3-slide carousel: main quote / second quote / brand CTA
+  4. Post to Facebook (multi-photo album post) + Instagram (carousel)
+
+Carousel format: 3.1x more engagement than single static images.
 
 Usage:
   python scripts/pipeline_quote.py
@@ -26,38 +28,45 @@ import post_quote_photo
 
 def run(skip_post=False, theme=None):
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    print("[pipeline_quote] Starting midday quote image pipeline...")
+    print("[pipeline_quote] Starting midday quote carousel pipeline...")
 
-    # Step 1 & 2 & 3: Generate quote + image
+    # Step 1-3: Generate quotes + carousel slides
     result = generate_quote_image.generate(theme=theme)
     if not result:
         print("[pipeline_quote] Image generation failed — aborting")
         sys.exit(1)
 
-    quote = result["quote"]
-    image_path = result["image_path"]
-    print(f"[pipeline_quote] Quote: {quote}")
-    print(f"[pipeline_quote] Image: {image_path}")
+    quotes = result.get("quotes", [result.get("quote", "")])
+    image_paths = result.get("image_paths", [result.get("image_path")])
+    image_paths = [p for p in image_paths if p and os.path.exists(p)]
 
-    # Step 4: Post to Facebook + Instagram
-    post_results = post_quote_photo.post(image_path, quote, skip_post=skip_post)
+    print(f"[pipeline_quote] Quotes: {quotes}")
+    print(f"[pipeline_quote] Slides: {image_paths}")
 
-    # Save full result
+    if not image_paths:
+        print("[pipeline_quote] No slide images found — aborting")
+        sys.exit(1)
+
+    # Step 4: Post carousel to Facebook + Instagram
+    post_results = post_quote_photo.post(image_paths, quotes[0], skip_post=skip_post)
+
     final = {
-        "quote": quote,
+        "quotes": quotes,
         "theme": result.get("theme"),
-        "image_path": image_path,
+        "image_paths": image_paths,
         "post_results": post_results,
     }
     result_path = os.path.join(OUTPUT_DIR, "quote_post_result.json")
     with open(result_path, "w") as f:
         json.dump(final, f, indent=2)
 
-    print(f"[pipeline_quote] Done. Results saved to {result_path}")
+    print(f"[pipeline_quote] Done. Results: {result_path}")
 
     fb_status = post_results.get("facebook", {}).get("status", "unknown")
     ig_status = post_results.get("instagram", {}).get("status", "unknown")
-    print(f"[pipeline_quote] Facebook: {fb_status} | Instagram: {ig_status}")
+    fb_slides = post_results.get("facebook", {}).get("slides", "-")
+    ig_slides = post_results.get("instagram", {}).get("slides", "-")
+    print(f"[pipeline_quote] Facebook: {fb_status} ({fb_slides} slides) | Instagram: {ig_status} ({ig_slides} slides)")
 
     return final
 

@@ -58,12 +58,15 @@ jobs:
           fi
           python scripts/pipeline_quote.py $ARGS
 
-      - name: Upload quote image artifact
+      - name: Upload quote carousel artifacts
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: quote-image-${{ github.run_number }}
+          name: quote-carousel-${{ github.run_number }}
           path: |
+            output/quote_slide_1.jpg
+            output/quote_slide_2.jpg
+            output/quote_slide_3.jpg
             output/quote_image.jpg
             output/quote_image.json
             output/quote_post_result.json
