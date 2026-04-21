@@ -20,7 +20,11 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
 # ── Quote generation ──────────────────────────────────────────────────────────
 
-QUOTE_THEMES = [
+# ── Quote themes ─────────────────────────────────────────────────────────────
+# Two categories — alternated daily for variety and broader audience reach.
+
+# Category 1: Emotional / relationship (the original Quietlyy voice)
+EMOTIONAL_THEMES = [
     "the person you used to call at 3am who stopped picking up",
     "typing a message to someone and deleting it before sending",
     "realizing you were always the one who cared more",
@@ -48,51 +52,128 @@ QUOTE_THEMES = [
     "the moment you chose yourself and it still hurt",
 ]
 
-QUOTE_PROMPT_TEMPLATE = """You are writing for "Quietlyy" — an emotional quote brand on Instagram and Facebook. Your quotes must make people stop scrolling, feel deeply understood, and want to DM them to someone specific.
+# Category 2: Life truth / real-world observations
+# The kind of quote that hits because it's TRUE — about money, struggle, human nature, society.
+# Example target voice: "The heaviest thing in this world is an empty pocket.
+#                        You cannot walk with dignity when you cannot walk at all."
+LIFE_TRUTH_THEMES = [
+    "how differently the world treats you when your pockets are empty",
+    "people who only remember you exist when they need something from you",
+    "the invisible weight of financial struggle nobody talks about",
+    "how being broke affects your confidence, your relationships, your whole identity",
+    "how quickly 'friends' disappear when you can no longer afford to be generous",
+    "hard work that goes unseen while others succeed with half the effort",
+    "how success changes the way everyone around you suddenly behaves",
+    "people who mistake your silence for acceptance and your patience for weakness",
+    "how the same person is judged completely differently based on how much money they have",
+    "being the one everyone calls for help but nobody checks on",
+    "how money reveals who people truly are — it doesn't change them, it shows them",
+    "the loneliness of carrying everything alone while still showing up for others",
+    "how the world rewards confidence more than competence",
+    "being educated, capable, and still struggling — and what that does to your self-worth",
+    "the exhaustion of being strong because no one else will be",
+    "how some people only value you when they've already lost you",
+    "the cruelty of a world that calls struggle a character flaw",
+    "pretending everything is fine while quietly falling apart inside",
+    "how poverty is judged as laziness and wealth as wisdom, regardless of the story",
+    "the people who were loyal to your good times but strangers to your hard ones",
+    "how respect changes the moment your bank account does",
+    "the difference between being alone and being lonely — one is a choice",
+    "how life is harder when you have no one to call at 3am",
+    "the quiet dignity of people who keep going when they have every reason to stop",
+    "how the people who struggled the most often complain the least",
+]
+
+# Keep legacy alias for any callers still referencing QUOTE_THEMES
+QUOTE_THEMES = EMOTIONAL_THEMES + LIFE_TRUTH_THEMES
+
+
+EMOTIONAL_PROMPT_TEMPLATE = """You are writing for "Quietlyy" — an emotional quote brand on Instagram and Facebook. Your quotes must make people stop scrolling, feel deeply understood, and want to DM them to someone specific.
 
 Theme: "{theme}"
 
 THE MISSION: Write a FEELING, not a lesson. The best quotes describe a private emotional experience so precisely that readers feel seen — like you reached into their chest and named something they couldn't say out loud.
 
-HIGH-ENGAGEMENT FORMULA (what goes viral):
+HIGH-ENGAGEMENT FORMULA:
 - Name a private experience that feels embarrassing to admit
-- Use one unexpected, specific observation ("still holding the door open two years later")
+- One unexpected, specific observation ("still holding the door open two years later")
 - Trigger AWE: a truth so real it gives goosebumps
 - 12 to 20 words — enough for the feeling to fully land
 
-WRONG (generic/advice — gets scrolled past):
+WRONG (generic — gets scrolled past):
 - "Healing takes time and that is okay."
 - "Choose yourself without apology."
-- "Rest is not a reward."
 
-RIGHT (specific/feeling — gets shared):
+RIGHT (specific feeling — gets shared):
 - "Some people leave and you're still holding the door open two years later."
 - "It's strange grieving someone who is still alive but just... not yours anymore."
-- "You were never too much. You were just too real for people who only needed you in storms."
 - "You didn't lose them. You lost who you thought they were."
 - "She was the kind of person who made you feel at home, until she wasn't."
 
 Rules:
-- 12 to 20 words per quote — no shorter, no longer
+- 12 to 20 words per quote
 - Name a MOMENT or FEELING, never advice
-- Be specific and intimate — the kind of thing someone thinks but never says
+- Specific and intimate — the thing someone thinks but never says out loud
 - No rhyming. No exclamation marks. No motivational-poster language.
-- Return ONLY 5 quotes, one per line. No numbering. No quotes marks. Nothing else."""
+- Return ONLY 5 quotes, one per line. No numbering. No quote marks. Nothing else."""
+
+
+LIFE_TRUTH_PROMPT_TEMPLATE = """You are writing for "Quietlyy" — a quote brand on Instagram and Facebook. Your quotes must be sharp, real observations about life that make people stop and say "damn, that is so true."
+
+Theme: "{theme}"
+
+THE MISSION: Write a TRUTH that hits hard because it's undeniable. The best life-truth quotes feel like someone said out loud what everyone has quietly lived but never dared to put into words.
+
+HIGH-ENGAGEMENT FORMULA:
+- One sharp observation about how the real world actually works
+- Specific detail that makes it feel lived-in, not theoretical
+- A small twist or irony that makes it memorable
+- 12 to 22 words — punchy and quotable
+
+EXAMPLES OF THE RIGHT VOICE (observe the specificity and the bite):
+- "The heaviest thing in this world is an empty pocket. You cannot walk with dignity when you cannot walk at all."
+- "Money doesn't change people. It just removes the mask they were wearing for you."
+- "Funny how the same people who ignored you struggling are first in line when you succeed."
+- "The world will call you lazy for resting and call you obsessed for working. Pick your critics."
+- "Some friendships are only alive because you keep giving them CPR. Stop and see what happens."
+- "They will respect your boundaries the moment they realize you actually have them."
+- "Nobody talks about the version of loneliness that happens in a room full of people."
+
+WRONG (vague/preachy — gets scrolled past):
+- "Work hard and you will succeed."
+- "Be yourself always."
+- "Life is what you make it."
+
+Rules:
+- 12 to 22 words per quote
+- Sharp real-world observation — not advice, not a moral lesson
+- The irony or twist must feel discovered, not stated
+- Write like someone who has actually lived this, not read it in a book
+- No rhyming. No exclamation marks.
+- Return ONLY 5 quotes, one per line. No numbering. No quote marks. Nothing else."""
 
 
 def _pick_top_two(candidates):
-    """Rank by emotional specificity. Return top 2."""
+    """Rank quotes by specificity and impact. Return top 2."""
     CLICHE_WORDS = ["believe", "deserve", "journey", "universe", "destiny",
                     "warrior", "blessed", "hustle", "grind", "manifest",
-                    "okay", "healing takes", "you got this", "never give up"]
-    SPECIFIC_MARKERS = ["who", "when", "while", "still", "never", "always",
-                        "anymore", "used to", "without", "but", "just", "until",
-                        "strange", "kind of", "still", "two years", "3am", "door"]
+                    "okay", "healing takes", "you got this", "never give up",
+                    "be yourself", "work hard", "stay positive"]
+    SPECIFIC_MARKERS = [
+        # Emotional specificity
+        "who", "when", "while", "still", "never", "always", "anymore",
+        "used to", "without", "but", "just", "until", "strange", "kind of",
+        "two years", "3am", "door", "mask", "pocket", "room full",
+        # Life-truth specificity
+        "funny how", "funny that", "the same people", "nobody", "everybody",
+        "moment", "suddenly", "quietly", "first in line", "the moment",
+        "cannot", "heavy", "dignity", "empty",
+    ]
 
     def score(q):
         words = q.lower().split()
         n = len(words)
-        length_score = 12 if 12 <= n <= 20 else max(0, 12 - abs(n - 16))
+        length_score = 12 if 12 <= n <= 22 else max(0, 12 - abs(n - 17))
         cliche_penalty = sum(4 for c in CLICHE_WORDS if c in q.lower())
         specificity = sum(2 for m in SPECIFIC_MARKERS if m in q.lower())
         return length_score + specificity - cliche_penalty
@@ -101,21 +182,35 @@ def _pick_top_two(candidates):
     return ranked[:2] if len(ranked) >= 2 else ranked + ranked[:1]
 
 
+def _get_quote_type_and_theme(theme=None):
+    """Alternate between emotional and life-truth quote types daily.
+    Uses the day of year so it changes every day automatically."""
+    import datetime
+    day_of_year = datetime.datetime.utcnow().timetuple().tm_yday
+    # Odd days → emotional, even days → life truth
+    quote_type = "emotional" if day_of_year % 2 == 1 else "life_truth"
+
+    if not theme:
+        pool = EMOTIONAL_THEMES if quote_type == "emotional" else LIFE_TRUTH_THEMES
+        theme = random.choice(pool)
+
+    print(f"[quote_image] Quote type: {quote_type} | Theme: {theme}")
+    return quote_type, theme
+
+
 def generate_quotes(theme=None):
-    """Generate 5 candidates, return top 2 most emotionally specific."""
+    """Generate 5 candidates, return top 2. Alternates emotional vs life-truth daily."""
     key = os.environ.get("OPENAI_API_KEY")
     fallbacks = [
+        "The heaviest thing in this world is an empty pocket. You cannot walk with dignity when you cannot walk at all.",
         "Some people leave and you're still holding the door open two years later.",
-        "It's strange grieving someone who is still alive but just... not yours anymore.",
     ]
     if not key:
         return fallbacks
 
-    if not theme:
-        theme = random.choice(QUOTE_THEMES)
-
-    print(f"[quote_image] Theme: {theme}")
-    prompt = QUOTE_PROMPT_TEMPLATE.format(theme=theme)
+    quote_type, theme = _get_quote_type_and_theme(theme)
+    prompt_template = LIFE_TRUTH_PROMPT_TEMPLATE if quote_type == "life_truth" else EMOTIONAL_PROMPT_TEMPLATE
+    prompt = prompt_template.format(theme=theme)
 
     for attempt in range(3):
         try:
