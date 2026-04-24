@@ -584,6 +584,8 @@ _LOVE_SCENE_POOL = [
 ]
 
 
+_DAYTIME_STYLE_KEYWORDS = ("golden hour", "morning", "overcast", "sunset", "day")
+
 def generate_image_prompt(topic, visual_keywords, scene, style="emotional"):
     """Build the full DALL-E prompt for one panel given a pre-selected scene."""
     keywords_str = ", ".join(visual_keywords)
@@ -593,7 +595,28 @@ def generate_image_prompt(topic, visual_keywords, scene, style="emotional"):
         chosen_style = random.choice(_WISDOM_STYLE_VARIANTS)
     else:
         chosen_style = random.choice(_STYLE_VARIANTS)
+
+    # For daytime/golden-hour style variants, strip "dark" language from the
+    # scene description so the model doesn't force everything pitch-black.
+    is_daytime = any(kw in chosen_style.lower() for kw in _DAYTIME_STYLE_KEYWORDS)
+    if is_daytime:
+        for phrase in [
+            "dark cinematic anime illustration style — moody, atmospheric, emotionally powerful",
+            "dark cinematic anime", "dark anime illustration", "dark cinematic illustration",
+            "dark illustrated art", "dark illustrated style", "dark atmospheric anime",
+            "dark anime", "dark cinematic", "dark illustrated", "deep dark",
+        ]:
+            scene = scene.replace(phrase, "cinematic illustration")
+        scene = scene.replace("deep navy blue background fading to black", "soft warm background")
+        scene = scene.replace("deep blue-black", "atmospheric")
+
+    quality = (
+        "QUALITY: ultra-detailed illustration, sharp crisp lines, faces clearly visible "
+        "and expressive, high resolution, clean artwork, no blur, no grain. "
+    )
+
     return (
+        f"{quality}"
         f"{chosen_style} "
         f"Scene: {scene}. "
         f"Emotional theme: {topic}. Mood keywords: {keywords_str}. "
@@ -669,7 +692,7 @@ def generate_with_dalle(prompt, output_path):
             # Brighten by 30% — keeps dark cinematic mood but objects visible in daylight
             from PIL import Image as PILImage, ImageEnhance
             img = PILImage.open(output_path).convert("RGB")
-            img = ImageEnhance.Brightness(img).enhance(1.3)
+            img = ImageEnhance.Brightness(img).enhance(1.5)
             img = img.resize((1080, 1920), PILImage.LANCZOS)
             img.save(output_path)
             return True

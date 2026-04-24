@@ -128,6 +128,13 @@ REJECT_KEYWORDS = [
     # Electronic / wrong genre
     "disco", "techno", "house", "electronic", "edm", "beat", "drum",
     "trap", "hip hop", "hip-hop", "pop", "synth pop",
+    # Ethnic / belly dance / world music that sounds wrong
+    "belly", "arabic", "tribal", "ethnic", "folk dance",
+    "wedding", "celebration", "festival", "carnival", "bollywood",
+    "flute dance", "tabla", "sitar", "oud", "middle east",
+    "world music", "oriental", "latin",
+    # Other wrong vibes
+    "bouncy", "quirky", "playful", "whimsical", "fun",
     # Nature SFX (not music — sounds bad mixed with voice)
     "rain sounds", "thunder", "storm sounds", "nature sounds",
     "rainfall", "rainstorm", "thunderstorm",
@@ -263,17 +270,27 @@ _MOOD_KEYWORDS = {
     ],
 }
 
-# Pixabay mood/genre per detected mood
-_MOOD_TO_PIXABAY = {
-    "heartbreak": {"mood": "sad",      "genre": "cinematic"},
-    "longing":    {"mood": "sad",      "genre": "ambient"},
-    "love":       {"mood": "romantic", "genre": "cinematic"},
-    "nostalgia":  {"mood": "calm",     "genre": "ambient"},
-    "melancholy": {"mood": "dark",     "genre": "ambient"},
-    "hope":       {"mood": "inspiring","genre": "cinematic"},
+# Safe mood map — ALL moods are remapped to dark/sad equivalents for background music.
+# "hope" → "inspiring" on Pixabay was causing upbeat/dance tracks to appear.
+# The Quietlyy brand is ALWAYS contemplative/melancholic — even hopeful scripts
+# use sad ambient music underneath. This is non-negotiable.
+_SAFE_MOOD_MAP = {
+    "heartbreak": "heartbreak",
+    "longing":    "longing",
+    "melancholy": "melancholy",
+    "nostalgia":  "longing",    # nostalgia → tender longing (dark)
+    "love":       "longing",    # love → longing (never cheerful)
+    "hope":       "melancholy", # hope → melancholy (NEVER inspiring/upbeat)
 }
 
-# Freesound queries per detected mood
+# Pixabay mood/genre — ALL mapped to sad/dark only
+_MOOD_TO_PIXABAY = {
+    "heartbreak": {"mood": "sad",  "genre": "cinematic"},
+    "longing":    {"mood": "sad",  "genre": "ambient"},
+    "melancholy": {"mood": "dark", "genre": "ambient"},
+}
+
+# Freesound queries per safe mood — strictly sad/melancholic only
 _MOOD_TO_FREESOUND = {
     "heartbreak": [
         "heartbreak piano slow cinematic", "sad piano longing ambient",
@@ -283,21 +300,9 @@ _MOOD_TO_FREESOUND = {
         "longing piano ambient slow", "wistful piano missing someone",
         "distant piano melancholic", "nostalgic piano strings slow",
     ],
-    "love": [
-        "romantic piano tender slow", "love story piano strings",
-        "intimate piano violin gentle", "tender romantic piano ambient",
-    ],
-    "nostalgia": [
-        "nostalgic piano soft ambient", "childhood memories piano",
-        "sentimental piano strings memory", "wistful acoustic piano melody",
-    ],
     "melancholy": [
         "melancholic piano ambient cinematic", "sad piano minor slow",
-        "lonely piano rain night", "dark ambient piano introspective",
-    ],
-    "hope": [
-        "hopeful piano strings cinematic", "uplifting gentle piano ambient",
-        "piano morning hope building", "inspiring piano strings soft",
+        "dark ambient piano introspective", "lonely piano slow ambient",
     ],
 }
 
@@ -447,11 +452,13 @@ def _get_bundled_music():
 
 
 def generate_music(topic, script_text="", style="emotional"):
-    """Fetch background music matched to the script's actual emotional content.
+    """Fetch background music matched to the Quietlyy brand voice.
 
-    Detects mood directly from the script text (heartbreak / longing / love /
-    nostalgia / melancholy / hope) and uses that for every search, not just the
-    broad style category. Falls back through: Freesound → Pixabay → CC0 library → bundled.
+    ALWAYS uses sad/melancholic/contemplative music regardless of script content.
+    "hope" and "love" moods are remapped to dark equivalents via _SAFE_MOOD_MAP
+    to prevent upbeat/dance/inspiring tracks from slipping through.
+
+    Fallback order: CC0 library (guaranteed safe) → Freesound → Pixabay → bundled.
 
     Returns: (music_path, source) where source is one of:
       "freesound_cc0" / "pixabay_cc0" / "cc0_library" / "bundled" / None
@@ -459,21 +466,27 @@ def generate_music(topic, script_text="", style="emotional"):
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     music_path = os.path.join(OUTPUT_DIR, "background_music.mp3")
 
-    # Detect mood from actual script content — more precise than just style label
-    script_mood = detect_script_mood(script_text) if script_text else "melancholy"
+    # Detect raw mood then HARD-LOCK to a safe dark equivalent.
+    # "hope" → inspiring was the cause of upbeat/belly-dance tracks appearing.
+    raw_mood = detect_script_mood(script_text) if script_text else "melancholy"
+    script_mood = _SAFE_MOOD_MAP.get(raw_mood, "melancholy")
 
-    # Also keep style-level Freesound profile as additional query pool
     style_map = {"emotional": "emotional", "nostalgic": "nostalgic",
                  "poetic": "poetic", "love": "love", "motivational": "motivational"}
     music_style = style_map.get(style, "emotional")
-    bpm_profile = STYLE_PROFILES[music_style]
+    bpm_profile = STYLE_PROFILES.get(music_style, STYLE_PROFILES["emotional"])
 
-    print(f"[music] Style: {style} | Script mood: {script_mood} | BPM: {bpm_profile['bpm']}")
+    print(f"[music] Style: {style} | Raw mood: {raw_mood} → Safe mood: {script_mood}")
 
+    # ── Primary: CC0 library — pre-vetted, ALWAYS sad/melancholic, no API needed ──
+    if _download_cc0_track(script_mood, music_path):
+        print(f"[music] CC0 library track used (guaranteed safe mood)")
+        return music_path, "cc0_library"
+    print("[music] CC0 download failed — trying Freesound")
+
+    # ── Secondary: Freesound — mood-locked queries only ──
     if FREESOUND_API_KEY:
-        # Primary: mood-specific Freesound queries from script analysis
-        mood_queries = list(_MOOD_TO_FREESOUND.get(script_mood, []))
-        # Secondary: style-level queries for variety
+        mood_queries = list(_MOOD_TO_FREESOUND.get(script_mood, _MOOD_TO_FREESOUND["melancholy"]))
         style_queries = list(bpm_profile["queries"])
         random.shuffle(mood_queries)
         random.shuffle(style_queries)
@@ -482,27 +495,22 @@ def generate_music(topic, script_text="", style="emotional"):
             print(f"[music] Searching Freesound: {query}")
             preview_url, track_name = _search_freesound(query, music_style)
             if preview_url and _download_preview(preview_url, music_path):
-                print(f"[music] Track selected: {track_name}")
+                print(f"[music] Freesound track: {track_name}")
                 return music_path, "freesound_cc0"
 
-        print("[music] All Freesound queries failed — trying Pixabay music")
+        print("[music] All Freesound queries failed — trying Pixabay")
     else:
-        print("[music] No FREESOUND_API_KEY — trying Pixabay music")
+        print("[music] No FREESOUND_API_KEY — trying Pixabay")
 
-    # Try Pixabay music API — also mood-matched
+    # ── Tertiary: Pixabay — safe moods only (sad/dark) ──
     if PIXABAY_API_KEY:
         pix_url, pix_name = _search_pixabay_music(script_mood)
         if pix_url and _download_pixabay(pix_url, music_path):
-            print(f"[music] Pixabay track selected: {pix_name}")
+            print(f"[music] Pixabay track: {pix_name}")
             return music_path, "pixabay_cc0"
-        print("[music] Pixabay music failed — trying CC0 library")
+        print("[music] Pixabay failed — trying bundled")
     else:
-        print("[music] No PIXABAY_API_KEY — trying CC0 library")
-
-    # CC0 track library — mood-matched, no API key needed, always different per mood
-    if _download_cc0_track(script_mood, music_path):
-        return music_path, "cc0_library"
-    print("[music] CC0 download failed — using bundled fallback")
+        print("[music] No PIXABAY_API_KEY — trying bundled")
 
     bundled = _get_bundled_music()
     if bundled:

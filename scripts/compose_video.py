@@ -575,7 +575,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-filter_complex",
             f"[0:v]{video_filter}[vout];"
             f"[1:a]loudnorm=I=-16:LRA=7:TP=-1.5,apad=pad_dur=1,asplit=2[voice_out][voice_sc];"
-            f"[2:a]volume=0.22,"
+            f"[2:a]volume=0.27,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4[music_raw];"
             f"[music_raw][voice_sc]sidechaincompress=threshold=0.02:ratio=6:attack=5:release=400[music_duck];"
             f"[voice_out][music_duck]amix=inputs=2:duration=first:normalize=0[aout]",
