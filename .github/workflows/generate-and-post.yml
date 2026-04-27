@@ -74,7 +74,8 @@ jobs:
           # Voice — ElevenLabs only (no fallback: incomplete audio = skip day)
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
-          # Image generation
+          # Image generation — HuggingFace is free primary, gpt-image-1 paid fallback
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           # Background music

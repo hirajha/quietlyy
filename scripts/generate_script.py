@@ -383,12 +383,43 @@ def generate_with_groq(prompt):
     )
 
 
+def generate_with_huggingface(prompt):
+    """Free fallback via HF Serverless Inference — Mistral-7B-Instruct.
+    Quality lower than GPT-4/Gemini but free. Used only when all other free
+    options fail. Requires HF_TOKEN env var."""
+    token = os.environ.get("HF_TOKEN", "")
+    if not token:
+        return None
+    model = "mistralai/Mistral-7B-Instruct-v0.3"
+    try:
+        resp = requests.post(
+            f"https://api-inference.huggingface.co/models/{model}/v1/chat/completions",
+            headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+            json={
+                "model": model,
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": 500,
+                "temperature": 0.9,
+            },
+            timeout=90,
+        )
+        resp.raise_for_status()
+        content = resp.json()["choices"][0]["message"]["content"]
+        return _repair_json(content)
+    except Exception as e:
+        print(f"[script] HuggingFace failed: {e}")
+    return None
+
+
 def _generate_raw(prompt, style):
-    """Try all providers until one returns a valid script."""
+    """Try all providers — free first, paid last.
+    Order: Gemini (free) → Groq (free) → HuggingFace (free) → ChatGPT (paid fallback).
+    ChatGPT only runs when all 3 free options fail."""
     providers = [
-        (generate_with_chatgpt, "ChatGPT"),
-        (generate_with_gemini, "Gemini"),
-        (generate_with_groq, "Groq"),
+        (generate_with_gemini,       "Gemini"),
+        (generate_with_groq,         "Groq"),
+        (generate_with_huggingface,  "HuggingFace"),
+        (generate_with_chatgpt,      "ChatGPT"),
     ]
     for gen_fn, name in providers:
         try:

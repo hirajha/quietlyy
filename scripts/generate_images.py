@@ -427,13 +427,78 @@ def generate_with_gemini_imagen(prompt, output_path):
         return False
 
 
+def generate_with_huggingface(prompt, output_path):
+    """Generate image using Hugging Face Inference API (free tier).
+    Primary generator — FLUX.1-schnell is production-quality and free.
+    Falls back to SDXL if FLUX quota is exceeded."""
+    token = os.environ.get("HF_TOKEN", "")
+    if not token:
+        return False
+
+    models = [
+        (
+            "black-forest-labs/FLUX.1-schnell",
+            {"num_inference_steps": 4, "guidance_scale": 0.0},
+        ),
+        (
+            "stabilityai/stable-diffusion-xl-base-1.0",
+            {"num_inference_steps": 25, "guidance_scale": 7.5},
+        ),
+    ]
+
+    for model_id, params in models:
+        try:
+            resp = requests.post(
+                f"https://api-inference.huggingface.co/models/{model_id}",
+                headers={
+                    "Authorization": f"Bearer {token}",
+                    "Content-Type": "application/json",
+                },
+                json={"inputs": prompt[:500], "parameters": params},
+                timeout=120,
+            )
+            if resp.status_code == 503:
+                print(f"[images] HF {model_id} loading (503) — skipping")
+                continue
+            resp.raise_for_status()
+
+            content_type = resp.headers.get("content-type", "")
+            if "image" not in content_type and len(resp.content) < 5000:
+                print(f"[images] HF {model_id} returned non-image: {resp.text[:200]}")
+                continue
+
+            with open(output_path, "wb") as f:
+                f.write(resp.content)
+
+            from PIL import Image as PILImage, ImageEnhance
+            img = PILImage.open(output_path).convert("RGB")
+            # Crop to 9:16 portrait if needed
+            w, h = img.size
+            target_h = int(w * 16 / 9)
+            if target_h <= h:
+                top = (h - target_h) // 2
+                img = img.crop((0, top, w, top + target_h))
+            else:
+                target_w = int(h * 9 / 16)
+                left = (w - target_w) // 2
+                img = img.crop((left, 0, left + target_w, h))
+            img = ImageEnhance.Brightness(img).enhance(1.5)
+            img = img.resize((1080, 1920), PILImage.LANCZOS)
+            img.save(output_path)
+            print(f"[images] HF {model_id} succeeded")
+            return True
+        except Exception as e:
+            print(f"[images] HF {model_id} failed: {e}")
+            continue
+    return False
+
+
 def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
-    """Generate panel images using DALL-E ONLY.
-    - Max 5 panels per video
-    - DALL-E is the only generator — no stock photos or gradients
-    - If DALL-E fails for a panel, reuse an earlier successful panel from same video
+    """Generate panel images — free-first provider chain.
+    Order: HuggingFace (free FLUX) → gpt-image-1 → Gemini Imagen 3.
+    - Max 8 panels per video
+    - If all providers fail for a panel, reuse an earlier successful panel
     - After 25 gallery images: reuse 2-3 panels (never panel 0)
-    - Saves new images to gallery (capped at 500)
     At least 1 image must succeed or pipeline fails."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     num_panels = min(num_panels, 8)  # Hard cap at 8 — enough for poetic scripts
@@ -452,33 +517,36 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
             paths.append(output_path)
             continue
 
-        # Generate fresh image with DALL-E
         prompt = generate_image_prompt(topic, visual_keywords, i, style=style)
-        print(f"[images] Panel {i+1}/{num_panels}: generating with DALL-E...")
 
-        success = generate_with_dalle(prompt, output_path)
+        # Free-first provider chain
+        print(f"[images] Panel {i+1}/{num_panels}: trying HuggingFace (free)...")
+        success = generate_with_huggingface(prompt, output_path)
         if not success:
-            print(f"[images]   gpt-image-1 failed — trying Gemini Imagen 3 fallback...")
+            print(f"[images]   HF failed — trying gpt-image-1...")
+            success = generate_with_dalle(prompt, output_path)
+        if not success:
+            print(f"[images]   gpt-image-1 failed — trying Gemini Imagen 3...")
             success = generate_with_gemini_imagen(prompt, output_path)
 
         if success:
             print(f"[images] Panel {i+1}: generated")
             successful_paths.append(output_path)
         else:
-            # Both models failed — reuse an earlier panel from THIS video
+            # All providers failed — reuse an earlier panel from THIS video
             if successful_paths:
                 reuse_src = random.choice(successful_paths)
                 shutil.copy2(reuse_src, output_path)
-                print(f"[images] Panel {i+1}: reusing earlier panel (both models failed)")
+                print(f"[images] Panel {i+1}: reusing earlier panel (all providers failed)")
             else:
-                raise RuntimeError(f"Image generation failed for panel {i+1} (tried gpt-image-1 and dall-e-3). No earlier panels to reuse.")
+                raise RuntimeError(f"Image generation failed for panel {i+1} (tried HF, gpt-image-1, Gemini). No earlier panels to reuse.")
 
         paths.append(output_path)
 
         if i < num_panels - 1:
-            time.sleep(2)  # Respect rate limits between DALL-E calls
+            time.sleep(2)
 
-    print(f"[images] Generated {len(paths)} panels ({len(reuse_map)} from gallery, {len(successful_paths)} fresh DALL-E)")
+    print(f"[images] Generated {len(paths)} panels ({len(reuse_map)} from gallery, {len(successful_paths)} fresh)")
     return paths
 
 
