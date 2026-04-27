@@ -27,12 +27,38 @@ STYLES = ["love", "emotional"]
 # After this many regular videos, insert one wisdom/famous-poetry video
 WISDOM_INTERVAL = 2
 
+# All wisdom sources in rotation order — the AI picks from whatever's not recently used.
+# Keeping it explicit forces variety rather than letting the AI default to Gibran every time.
+WISDOM_SOURCES = [
+    "Rumi",
+    "Marcus Aurelius",
+    "Kahlil Gibran",
+    "Buddha",
+    "Lao Tzu",
+    "Japanese proverb",
+    "Maya Angelou",
+    "Hafiz",
+    "Epictetus",
+    "Seneca",
+    "Confucius",
+    "Rainer Maria Rilke",
+    "Victor Frankl",
+    "Thich Nhat Hanh",
+    "Ibn Arabi",
+]
+
+
+def _detect_wisdom_source(script_text):
+    """Extract which wisdom source was used in the generated script."""
+    text = script_text.lower()
+    for source in WISDOM_SOURCES:
+        if source.lower() in text:
+            return source
+    return None
+
 
 def pick_style_and_topic(templates, theme_hints=None):
-    """Rotate between love/emotional, inserting a wisdom video every 3rd run.
-
-    Sequence: love → emotional → love → WISDOM → emotional → love → emotional → WISDOM → …
-    """
+    """Rotate between love/emotional, inserting a wisdom video every 2nd run."""
     state_path = os.path.join(os.path.dirname(__file__), "..", "assets", "used_topics.json")
     os.makedirs(os.path.dirname(state_path), exist_ok=True)
 
@@ -42,6 +68,7 @@ def pick_style_and_topic(templates, theme_hints=None):
         "last_style": "love",
         "last_regular_style": "love",
         "videos_since_wisdom": 0,
+        "recent_wisdom_sources": [],   # tracks last 5 poets used — forces rotation
     }
     if os.path.exists(state_path):
         with open(state_path) as f:
@@ -95,16 +122,38 @@ def pick_style_and_topic(templates, theme_hints=None):
     with open(state_path, "w") as f:
         json.dump(state, f)
 
-    return style, topic
+    recent_wisdom_sources = state.get("recent_wisdom_sources", [])
+    return style, topic, recent_wisdom_sources
+
+
+def save_wisdom_source(source):
+    """After a wisdom script is generated, record which poet/source was used."""
+    if not source:
+        return
+    state_path = os.path.join(os.path.dirname(__file__), "..", "assets", "used_topics.json")
+    state = {}
+    if os.path.exists(state_path):
+        try:
+            with open(state_path) as f:
+                state = json.load(f)
+        except Exception:
+            pass
+    recent = state.get("recent_wisdom_sources", [])
+    recent.append(source)
+    state["recent_wisdom_sources"] = recent[-6:]   # remember last 6 poets used
+    with open(state_path, "w") as f:
+        json.dump(state, f, indent=2)
+    print(f"[script] Wisdom source saved: {source} (recent: {state['recent_wisdom_sources']})")
 
 
 # Keep old name as alias for compatibility
 def pick_topic(templates, theme_hints=None):
-    _, topic = pick_style_and_topic(templates, theme_hints)
+    style, topic, _ = pick_style_and_topic(templates, theme_hints)
     return topic
 
 
-def build_prompt(topic, examples, style="emotional", tone_hints="", idea_hints=""):
+def build_prompt(topic, examples, style="emotional", tone_hints="", idea_hints="",
+                 recent_wisdom_sources=None):
     """Build prompt for the given style: 'nostalgic' or 'emotional'."""
     style_examples = [e for e in examples if e.get("style") == style][:3]
     examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
@@ -218,28 +267,42 @@ EXAMPLES:
 {examples_text}"""
 
     elif style == "wisdom":
-        return f"""Generate a viral 30-40 second life-lesson script for "Quietlyy" — opens with a famous quote (or a quote written in the authentic spirit of a great thinker), then unpacks it as a personal life lesson.{audience_block}{avoid_block}
+        # Build source-avoidance block — critical to prevent repeating Gibran every time
+        avoid_sources_block = ""
+        if recent_wisdom_sources:
+            avoid_sources_block = (
+                f"\n⚠️ BANNED SOURCES (used recently — DO NOT use these):\n"
+                + "\n".join(f"- {s}" for s in recent_wisdom_sources)
+                + "\nYou MUST choose a completely different voice from the list below.\n"
+            )
+
+        return f"""Generate a viral 30-40 second life-lesson script for "Quietlyy" — opens with a famous quote (or a quote written in the authentic spirit of a great thinker), then unpacks it as a personal life lesson.{audience_block}{avoid_block}{avoid_sources_block}
 
 Topic: {topic}
 
 FORMAT (follow exactly):
-Line 1: Attribution — e.g. "Rumi once wrote…" / "Marcus Aurelius kept this in his journal…" / "An old Japanese proverb says…" / "Kahlil Gibran once said…" / "Buddha taught…" / "Maya Angelou wrote…"
+Line 1: Attribution — e.g. "Rumi once wrote…" / "Marcus Aurelius kept this in his journal…" / "An old Japanese proverb says…" / "Buddha taught…" / "Maya Angelou wrote…" / "Seneca once said…"
 Lines 2-3: The quote itself — short, powerful, plain language (not archaic or stiff), split across 2 lines
 Line 4: A soft bridge — e.g. "And quietly… that changed everything." / "I didn't understand it then." / "Most people never realize this."
 Lines 5-7: The personal reflection — 3 short lines that unpack what this means for a real human life. Specific, felt, honest. NOT a motivational poster. NOT generic advice.
 Last line: Soft share nudge — "Save this for the days you forget." / "Send this to someone carrying something heavy." / "Tag someone who needs to hear this today."
 
-WISDOM SOURCES (pick what fits the topic):
+WISDOM SOURCES — pick ONE that is NOT in the banned list above:
 - Rumi — love, longing, transformation, the soul
-- Marcus Aurelius — inner discipline, what we control, resilience
+- Marcus Aurelius — inner discipline, stoicism, what we control, resilience
 - Kahlil Gibran — love, grief, joy, parenting, freedom
-- Buddha / Buddhist tradition — attachment, peace, impermanence
-- Lao Tzu / Taoism — flow, nature, simplicity, non-resistance
-- Japanese proverb — patience, resilience, impermanence, acceptance
-- Maya Angelou — courage, self-worth, resilience, love
-- Hafiz — joy, love, the divine, celebration of life
-- Epictetus — freedom, what we control, inner peace
-- Seneca — time, how we live, what matters
+- Buddha / Buddhist teaching — attachment, peace, impermanence, suffering
+- Lao Tzu / Taoism — flow, nature, simplicity, non-resistance, water
+- Japanese proverb — patience, resilience, impermanence, acceptance, wabi-sabi
+- Maya Angelou — courage, self-worth, resilience, identity, love
+- Hafiz — joy, love, the divine, wine, celebration of being alive
+- Epictetus — Stoic freedom, what we control vs. what we don't, inner peace
+- Seneca — time, mortality, how we live, what truly matters
+- Confucius — virtue, learning, self-improvement, relationships, society
+- Rainer Maria Rilke — solitude, patience, living the questions, becoming
+- Viktor Frankl — meaning, suffering, choice, love found in darkness
+- Thich Nhat Hanh — mindfulness, breath, being present, compassion, interbeing
+- Ibn Arabi — the self, divine love, the mirror of the heart, spiritual longing
 
 RULES:
 - Quote can be real OR written in the authentic spirit of that tradition — must feel genuine
@@ -247,6 +310,7 @@ RULES:
 - Keep every line short — 6-12 words
 - Use "…" for breath pauses throughout
 - End warm, not dramatic
+- The source you choose MUST NOT be in the banned list above
 
 Also provide 4 visual keywords: peaceful contemplative scenes — solitude, nature, quiet interiors.
 
@@ -411,8 +475,9 @@ def generate_script(tone_hints="", theme_hints=None, idea_hints=""):
     MAX_ATTEMPTS = 5
 
     for attempt in range(1, MAX_ATTEMPTS + 1):
-        style, topic = pick_style_and_topic(templates, theme_hints=theme_hints)
-        prompt = build_prompt(topic, examples, style=style, tone_hints=tone_hints, idea_hints=idea_hints)
+        style, topic, recent_wisdom_sources = pick_style_and_topic(templates, theme_hints=theme_hints)
+        prompt = build_prompt(topic, examples, style=style, tone_hints=tone_hints,
+                              idea_hints=idea_hints, recent_wisdom_sources=recent_wisdom_sources)
         print(f"[script] Attempt {attempt}/{MAX_ATTEMPTS} — Style: {style} | Topic: {topic}")
 
         result = _generate_raw(prompt, style)
@@ -428,8 +493,10 @@ def generate_script(tone_hints="", theme_hints=None, idea_hints=""):
             print(f"[script] Quality gate failed (attempt {attempt}): {reason} — retrying with new topic...")
             continue
 
-        # Approved — save to used scripts history and return
+        # Approved — save history and record wisdom source for rotation
         save_used_script(script_text, topic, style)
+        if style == "wisdom":
+            save_wisdom_source(_detect_wisdom_source(script_text))
         result["topic"] = topic
         result["style"] = style
         result["quality_score"] = score
@@ -462,12 +529,13 @@ def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candi
     attempt = 0
     while len(candidates) < n_candidates and attempt < MAX_TOTAL_ATTEMPTS:
         attempt += 1
-        style, topic = pick_style_and_topic(templates, theme_hints=theme_hints)
+        style, topic, recent_wisdom_sources = pick_style_and_topic(templates, theme_hints=theme_hints)
         if forced_style:
             style = forced_style
         if forced_topic:
             topic = forced_topic
-        prompt = build_prompt(topic, examples, style=style, tone_hints=tone_hints, idea_hints=idea_hints)
+        prompt = build_prompt(topic, examples, style=style, tone_hints=tone_hints,
+                              idea_hints=idea_hints, recent_wisdom_sources=recent_wisdom_sources)
         print(f"[script] Candidate {len(candidates)+1}/{n_candidates} (try {attempt}) — Style: {style} | Topic: {topic}")
 
         result = _generate_raw(prompt, style)
@@ -512,6 +580,8 @@ def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candi
     print(f"  Prediction: {best.get('engagement_prediction', 'n/a')}")
 
     save_used_script(best["script"], best["topic"], best["style"])
+    if best.get("style") == "wisdom":
+        save_wisdom_source(_detect_wisdom_source(best["script"]))
     return best
 
 
