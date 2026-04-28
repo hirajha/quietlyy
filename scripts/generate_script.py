@@ -224,10 +224,14 @@ Topic: {topic}
 
 FORMAT (follow exactly):
 Line 1: Attribution — e.g. "Rumi once wrote…" / "Marcus Aurelius kept this in his journal…" / "An old Japanese proverb says…" / "Kahlil Gibran once said…" / "Buddha taught…" / "Maya Angelou wrote…"
-Lines 2-3: The quote itself — short, powerful, plain language (not archaic or stiff), split across 2 lines
-Line 4: A soft bridge — e.g. "And quietly… that changed everything." / "I didn't understand it then." / "Most people never realize this."
-Lines 5-7: The personal reflection — 3 short lines that unpack what this means for a real human life. Specific, felt, honest. NOT a motivational poster. NOT generic advice.
+Lines 2-3: The quote itself — word-for-word as that thinker actually said it, or written so faithfully in their spirit it is indistinguishable. DO NOT add brand phrases, do not alter the words, split naturally across 2 lines.
+Lines 4-6: The personal reflection — 3 short lines that unpack what this means for a real human life. Specific, felt, honest. NOT a motivational poster. NOT generic advice.
 Last line: Soft share nudge — "Save this for the days you forget." / "Send this to someone carrying something heavy." / "Tag someone who needs to hear this today."
+
+CRITICAL RULES FOR THE QUOTE:
+- NEVER insert phrases like "And quietly… that changed everything" or any branded filler INSIDE or after the quote
+- The quote ends cleanly — no bridge, no commentary between the quote and the reflection
+- The reflection (lines 4-6) starts with the unpacking, not a transition phrase
 
 WISDOM SOURCES (pick what fits the topic):
 - Rumi — love, longing, transformation, the soul
@@ -243,7 +247,7 @@ WISDOM SOURCES (pick what fits the topic):
 
 RULES:
 - Quote can be real OR written in the authentic spirit of that tradition — must feel genuine
-- Lines 5-7 reflection must feel personal, not like a TED talk or a self-help book
+- Lines 4-6 reflection must feel personal, not like a TED talk or a self-help book
 - Keep every line short — 6-12 words
 - Use "…" for breath pauses throughout
 - End warm, not dramatic
@@ -251,7 +255,7 @@ RULES:
 Also provide 4 visual keywords: peaceful contemplative scenes — solitude, nature, quiet interiors.
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
     else:  # emotional — life lessons, human truths, motivation
         return f"""Generate a viral 25-30 second emotional life-lesson script for "Quietlyy" — the kind that makes people stop, feel something true, and immediately want to share it.{audience_block}{avoid_block}
