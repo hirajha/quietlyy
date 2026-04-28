@@ -308,83 +308,6 @@ def _draw_follow_button(img):
     return result.convert("RGB")
 
 
-def _save_thumbnail(panel_img, first_line, output_dir):
-    """Generate a 1280x720 JPG thumbnail: first panel + hook text overlay.
-    Saved to output/thumbnail.jpg for YouTube upload."""
-    try:
-        TW, TH = 1280, 720
-        img = panel_img.copy().convert("RGB")
-
-        # Resize/crop to 16:9
-        orig_w, orig_h = img.size
-        scale = max(TW / orig_w, TH / orig_h)
-        new_w, new_h = int(orig_w * scale), int(orig_h * scale)
-        img = img.resize((new_w, new_h), Image.LANCZOS)
-        left = (new_w - TW) // 2
-        top = (new_h - TH) // 2
-        img = img.crop((left, top, left + TW, top + TH))
-
-        # Dark gradient over bottom half for text readability
-        from PIL import Image as PILImage
-        overlay = PILImage.new("RGBA", (TW, TH), (0, 0, 0, 0))
-        ov_draw = ImageDraw.Draw(overlay)
-        grad_top = TH // 2
-        for y in range(grad_top, TH):
-            alpha = int(190 * (y - grad_top) / (TH - grad_top))
-            ov_draw.line([(0, y), (TW, y)], fill=(0, 0, 0, alpha))
-        img = PILImage.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
-        draw = ImageDraw.Draw(img)
-
-        # Font
-        font = None
-        for fp in [
-            "/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf",
-            "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
-        ]:
-            if os.path.exists(fp):
-                try:
-                    font = ImageFont.truetype(fp, 68)
-                    break
-                except Exception:
-                    pass
-        if font is None:
-            font = ImageFont.load_default()
-
-        # Draw hook text centered in bottom third
-        wrapped = textwrap.wrap(first_line, width=30)
-        line_h = 80
-        total_h = len(wrapped) * line_h
-        text_y = TH - total_h - 90
-        for i, wline in enumerate(wrapped):
-            bbox = draw.textbbox((0, 0), wline, font=font)
-            tx = (TW - (bbox[2] - bbox[0])) // 2
-            ty = text_y + i * line_h
-            draw.text((tx + 3, ty + 3), wline, font=font, fill=(0, 0, 0, 200))
-            draw.text((tx, ty), wline, font=font, fill=(255, 248, 235))
-
-        # Brand tag
-        for fp in ["/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf",
-                   "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf"]:
-            if os.path.exists(fp):
-                try:
-                    sf = ImageFont.truetype(fp, 34)
-                    brand = "— Quietlyy"
-                    bb = draw.textbbox((0, 0), brand, font=sf)
-                    draw.text(((TW - (bb[2] - bb[0])) // 2, TH - 52), brand,
-                              font=sf, fill=(200, 180, 150))
-                    break
-                except Exception:
-                    pass
-
-        thumb_path = os.path.join(output_dir, "thumbnail.jpg")
-        img.save(thumb_path, "JPEG", quality=92)
-        print(f"[video] Thumbnail saved: {thumb_path}")
-        return thumb_path
-    except Exception as e:
-        print(f"[video] Thumbnail generation failed (non-critical): {e}")
-        return None
-
-
 def compose_video(script_data, image_paths, audio_path, subtitle_path, music_path, cta_line=None):
     """
     Compositor: clean background panels + ASS word-by-word subtitle animation.
@@ -465,10 +388,6 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         # Subtitle text uses its own 4px outline + shadow for readability.
 
         frame = img.convert("RGB")
-
-        # Save thumbnail from first panel (before UI overlays — clean background)
-        if g_i == 0:
-            _save_thumbnail(frame, lines[0] if lines else script_data.get("topic", ""), OUTPUT_DIR)
 
         # Bake only fixed UI elements (not script text)
         if g_i == num_groups - 1:
@@ -575,7 +494,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-filter_complex",
             f"[0:v]{video_filter}[vout];"
             f"[1:a]loudnorm=I=-16:LRA=7:TP=-1.5,apad=pad_dur=1,asplit=2[voice_out][voice_sc];"
-            f"[2:a]volume=0.27,"
+            f"[2:a]volume=0.30,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4[music_raw];"
             f"[music_raw][voice_sc]sidechaincompress=threshold=0.02:ratio=6:attack=5:release=400[music_duck];"
             f"[voice_out][music_duck]amix=inputs=2:duration=first:normalize=0[aout]",

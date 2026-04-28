@@ -80,11 +80,17 @@ def _pick_reuse_panels(num_panels):
     return {}
 
 
-# ── Scene pools — varied time of day, setting, and mood ───────────────────────
-# Mix of: dark night, golden hour, morning, overcast day, nature, interior day
-# Rule: no more than 2-3 consecutive dark night scenes per video — variety keeps viewers engaged
+# ── High-performing aesthetic (based on 778-view top video "Rediscovering the Beauty of Boredom"):
+# - Dark, moody, cinematic anime/illustration style
+# - Deep navy blues, dark purples, soft teal, midnight indigo backgrounds
+# - A single light source: lamp, moon, window glow — creates drama and depth
+# - Silhouettes or semi-visible figures against atmospheric backgrounds
+# - Lo-fi emotional anime vibe — NOT bright, NOT colorful, NOT Ghibli-cheerful
+# - High visual contrast: dark scene + warm glowing light source
+# - Feels introspective, premium, cinematic — makes viewers stop scrolling
 
 _SCENE_POOL_CLOSEUP = [
+    # Face closeups — soft glow against dark background
     "Close-up portrait of a young woman, chin resting on her hand, gazing into the distance, "
     "single warm lamp glow on her face, deep navy blue background fading to black, "
     "dark cinematic anime illustration style — moody, intimate, emotionally resonant",
@@ -106,55 +112,12 @@ _SCENE_POOL_CLOSEUP = [
     "dark illustrated style — tender, intimate, cinematic",
 
     "A woman reading an old letter by candlelight, flame casting warm amber on her face, "
-    "surrounding darkness, deep blue shadows, dark anime illustration — emotional, cinematic, beautiful",
-
-    "A young man leaning his forehead against a dark window at night, eyes closed, "
-    "soft rain on the glass, dim interior light, deep blue-grey tones, "
-    "dark cinematic illustration — heavy-hearted, still, emotionally resonant",
-
-    "A woman with her back to us, standing in a dimly lit hallway, "
-    "one ceiling light above casting a soft pool, deep dark walls, "
-    "dark anime illustration — solitary, cinematic, beautifully composed",
-
-    "Close-up of a person's eyes reflecting a candle flame, tears barely held back, "
-    "surrounding darkness, warm amber light on wet lashes, "
-    "dark cinematic anime art — deeply emotional, intimate, visually striking",
-
-    "A young woman sitting cross-legged on a dark floor, phone screen lighting her face blue-white, "
-    "deep dark room behind her, modern loneliness, "
-    "dark anime illustration — relatable, quiet, emotionally heavy",
-
-    "Side profile of a person listening to music on headphones, eyes closed, "
-    "soft street lamp light through curtains, dark bedroom, "
-    "dark cinematic anime style — introspective, peaceful, beautifully lit",
-
-    "Close-up of a hand holding a worn photograph in soft lamp light, "
-    "dark wooden table surface, blurred warm background, "
-    "dark illustrated art — nostalgic, tender, emotionally resonant",
-
-    # ── Day / golden hour close-ups ──
-    "Close-up portrait of a young woman in warm golden afternoon light, "
-    "half her face in soft shadow, eyes distant and pensive, "
-    "cinematic anime illustration — warm amber tones, beautifully lit, emotionally resonant",
-
-    "A person's face gently tilted toward a sunlit window, soft morning light on their skin, "
-    "warm honey and ivory tones, blurred soft bokeh background, "
-    "cinematic illustrated style — peaceful, intimate, high value",
-
-    "Close-up of hands wrapped around a warm cup of tea, steam rising, "
-    "soft golden morning light, wooden table with soft bokeh, "
-    "cinematic illustration — quiet comfort, gentle melancholy, warm tones",
-
-    "Side profile of a man with wind in his hair on a bright breezy day, "
-    "soft afternoon light, pale sky, emotionally distant expression, "
-    "cinematic anime illustration — airy, cinematic, introspective",
-
-    "A young woman leaning against a sun-drenched wall, eyes closed, "
-    "warm golden light on her face, soft shadow pattern, pale colours, "
-    "illustrated cinematic art — peaceful, high value, emotionally still",
+    "surrounding darkness, deep blue shadows, "
+    "dark anime illustration — emotional, cinematic, beautiful",
 ]
 
 _SCENE_POOL_WIDE = [
+    # Wide scenes — dark atmospheric with single light source
     "A lone figure standing on a dark hilltop, full moon behind clouds, "
     "deep indigo-blue sky, soft moonlight spilling across the landscape, "
     "dark cinematic anime style — vast, atmospheric, emotionally powerful",
@@ -165,7 +128,8 @@ _SCENE_POOL_WIDE = [
 
     "Wide view of a dark city at night seen from a rooftop, "
     "scattered warm window lights below, deep blue-black sky above, "
-    "a lone figure at the edge looking out, cinematic dark anime style — vast, moody, introspective",
+    "a lone figure at the edge looking out, "
+    "cinematic dark anime style — vast, moody, introspective",
 
     "A quiet dark street at night after rain, wet pavement reflecting street lamp light, "
     "deep blue-black shadows, one figure walking away in the distance, "
@@ -173,67 +137,16 @@ _SCENE_POOL_WIDE = [
 
     "A person standing at the edge of a dark lake at midnight, "
     "full moon reflected perfectly in still water, deep indigo and black tones, "
-    "soft silver moonlight on their silhouette, dark anime illustration — vast, emotional",
+    "soft silver moonlight on their silhouette, "
+    "dark anime illustration — vast, emotional, visually striking",
 
     "A moonlit coastal cliff, dark ocean stretching to the horizon, "
     "silver moon path on the water, lone figure at the edge, deep blue-black sky, "
     "dark cinematic illustrated style — breathtaking, moody, emotional",
-
-    "A lone figure walking across a dark empty field under a vast night sky, "
-    "Milky Way above, soft silver starlight, deep blue-black, "
-    "dark cinematic anime illustration — vast solitude, beautiful, emotionally powerful",
-
-    "A person standing in a dark forest clearing, moonlight filtering through tall trees, "
-    "silver beams through dark branches, mist at ground level, "
-    "dark atmospheric anime art — mysterious, beautiful, introspective",
-
-    "A quiet rural road at night, one street lamp at the curve, "
-    "warm amber light on the wet asphalt, dark fields stretching into black, "
-    "dark cinematic illustration — isolated, quietly beautiful, melancholic",
-
-    "A figure standing on a dark train platform, single overhead light, "
-    "train pulling away in the distance, steam and motion blur, "
-    "dark anime illustration — departure, loneliness, cinematic",
-
-    "A person sitting on stone steps of an old building at dusk, "
-    "last golden light fading behind dark rooftops, deep purple-blue sky, "
-    "dark atmospheric illustrated art — reflective, beautiful, emotionally rich",
-
-    "A lone silhouette on a dark bridge at dawn, fog below, soft purple-grey light, "
-    "the city silent and sleeping, "
-    "dark cinematic anime style — solitary, peaceful, emotionally heavy",
-
-    # ── Golden hour / sunset wide scenes ──
-    "A lone silhouette standing in a golden wheat field at sunset, "
-    "vast warm amber sky, sun low on the horizon, long shadow stretching behind them, "
-    "cinematic anime illustration — breathtaking, emotional, warm and beautiful",
-
-    "A person walking on a coastal cliff at golden hour, "
-    "orange and pink sky above the ocean, warm amber light on the path, "
-    "cinematic illustrated art — vast, beautiful, quietly hopeful",
-
-    "A lone figure on a hilltop at dusk, purple-pink sky behind them, "
-    "last light fading over rolling hills, soft warm tones, "
-    "atmospheric cinematic anime — peaceful solitude, golden hour beauty",
-
-    "Wide view of autumn forest path in golden afternoon light, "
-    "orange and amber leaves falling, a lone figure walking away, "
-    "cinematic illustrated style — warm, melancholic, stunningly beautiful",
-
-    "A person sitting on a wooden dock over a calm lake, "
-    "golden sunset reflected perfectly in still water, soft warm light, "
-    "cinematic anime illustration — serene, emotionally resonant, high value",
-
-    "Early morning mist over a quiet valley, a lone figure on a stone wall, "
-    "pale silver-grey light, soft colours, pastoral and cinematic, "
-    "illustrated art — peaceful, beautiful, contemplative",
-
-    "A person standing in an open sunlit field, arms open, "
-    "bright blue sky with soft clouds, tall grass moving in the wind, "
-    "cinematic anime illustration — freedom, release, beautifully hopeful",
 ]
 
 _SCENE_POOL_INTERIOR = [
+    # Interior — cosy light islands in dark rooms
     "A person sitting alone at a window at 2am, small lamp beside them, "
     "dark room behind, soft blue moonlight outside the glass, "
     "deep navy and warm amber contrast, dark cinematic anime style — insomniac mood, beautiful",
@@ -257,46 +170,10 @@ _SCENE_POOL_INTERIOR = [
     "Someone sitting on the floor against a bed, knees drawn up, "
     "single lamp glowing in the background, deep dark bedroom around them, "
     "dark anime illustration — vulnerable, intimate, beautiful",
-
-    "A person standing in a dark kitchen doorway, one light on inside, "
-    "surrounding darkness, warm amber rectangle of light, watching from the threshold, "
-    "dark cinematic anime — liminal, quiet, emotionally loaded",
-
-    "An empty dark hallway with one door ajar, soft warm light spilling through the crack, "
-    "deep shadows in the corridor, "
-    "dark illustrated art — mysterious, lonely, visually striking",
-
-    "A person in a dark library, one reading lamp illuminating a small circle of books, "
-    "towering dark shelves disappearing into shadow, "
-    "dark cinematic anime illustration — intellectual solitude, warm and moody",
-
-    "A dark staircase lit only by one window at the top, "
-    "a figure mid-step, face in soft light and shadow, "
-    "dark cinematic manga art — cinematic composition, emotionally resonant",
-
-    "Someone asleep on a dark sofa, one blanket, lamp left on, "
-    "warm amber glow, deep shadows, a quiet empty room, "
-    "dark anime illustration — peaceful solitude, tender, cinematic",
-
-    "A person in a dark bathroom, sink running, face in the mirror, "
-    "single light above, deep shadow framing their reflection, "
-    "dark cinematic anime illustration — self-confrontation, raw, emotionally powerful",
-
-    # ── Day interior scenes ──
-    "A woman sitting by a large bright window, morning light flooding in, "
-    "coffee cup in hand, soft white and cream interior, looking outside thoughtfully, "
-    "cinematic illustration — peaceful, high value, quietly emotional",
-
-    "A person writing in a journal at a sunlit desk, "
-    "warm golden morning light, books and plants around them, "
-    "soft illustrated style — intimate, warm, beautifully composed",
-
-    "An airy white bedroom in morning light, soft curtains billowing gently, "
-    "a person still in bed looking up at the ceiling, pale soft tones, "
-    "cinematic anime illustration — gentle melancholy, morning stillness, beautiful",
 ]
 
 _SCENE_POOL_TWO_PEOPLE = [
+    # Two people — dark atmospheric, emotional distance or closeness
     "Two silhouettes standing apart on a dark bridge at night, "
     "city lights reflected in water below, deep blue-black sky, "
     "dark cinematic anime style — emotional distance, atmospheric, beautiful",
@@ -316,98 +193,17 @@ _SCENE_POOL_TWO_PEOPLE = [
     "Two figures standing under one umbrella in the dark rain, "
     "street lamp above them, dark wet street reflecting their light, "
     "deep navy and warm amber contrast, dark anime illustration",
-
-    "A person watching another sleep in a dark room, "
-    "soft moonlight on the sleeping figure, deep shadows, "
-    "dark cinematic anime — tender watching, quiet love, emotionally resonant",
-
-    "Two people on a dark rooftop looking up at stars, lying side by side, "
-    "vast dark sky above, soft ambient light, "
-    "dark anime illustration — closeness, wonder, beautifully intimate",
-
-    "Two figures in silhouette hugging on a dark empty platform, "
-    "one train light in the far distance, deep blue-black tones, "
-    "dark cinematic illustration — goodbye or reunion, emotionally powerful",
-
-    "Two people at a dark cafe window, faces lit by cold rain-light outside, "
-    "dim warm interior behind them, leaning toward each other, "
-    "dark anime art — connection, intimacy, cinematic atmosphere",
-
-    "A person sitting alone at a table set for two, one empty chair opposite, "
-    "single candle, surrounding dark, "
-    "dark cinematic illustration — absence, waiting, quietly devastating",
-
-    # ── Two people in daytime / golden hour ──
-    "Two people sitting on a grassy hill at golden hour, "
-    "warm amber light on their backs, looking out over a wide valley together, "
-    "cinematic anime illustration — closeness, quiet companionship, beautiful",
-
-    "Two people walking on a sunlit coastal path, "
-    "blue sky, warm afternoon light, the ocean visible below, "
-    "cinematic illustrated art — belonging, peaceful, high value",
 ]
 
-# Combined pool — ALL unique, no duplication
+# Combined pool — weighted
 _SCENE_POOL = (
-    _SCENE_POOL_CLOSEUP +
-    _SCENE_POOL_WIDE +
-    _SCENE_POOL_INTERIOR +
-    _SCENE_POOL_TWO_PEOPLE
+    _SCENE_POOL_CLOSEUP * 2 +
+    _SCENE_POOL_WIDE * 2 +
+    _SCENE_POOL_INTERIOR * 3 +
+    _SCENE_POOL_TWO_PEOPLE * 2
 )
 
-# ── Wisdom-specific scene pool — contemplative, timeless, philosophical ────────
-_WISDOM_SCENE_POOL = [
-    "An ancient stone library interior, warm candlelight on rows of leather books, "
-    "a lone scholar reading at a wooden desk, dust motes in golden light, "
-    "cinematic illustrated art — timeless, contemplative, high value",
-
-    "A misty mountain peak at dawn, lone figure seated in meditation, "
-    "soft golden light breaking through low clouds, vast quiet landscape, "
-    "cinematic anime illustration — transcendent, peaceful, breathtaking",
-
-    "An old moss-covered stone bridge in a Japanese forest, "
-    "soft morning mist, ancient trees, dappled light through bamboo, "
-    "cinematic illustrated art — serene, wise, deeply beautiful",
-
-    "A wooden temple porch at golden hour, an elder seated in stillness, "
-    "warm amber light on ancient wood, mountain view in background, "
-    "cinematic anime illustration — timeless wisdom, peaceful, high value",
-
-    "A narrow cobblestone courtyard in golden afternoon light, "
-    "old stone walls, a single figure seated reading under a tree, "
-    "warm illustrated art — contemplative, beautiful, quietly wise",
-
-    "A lone figure on an ancient stone pathway leading into soft morning fog, "
-    "tall old trees on either side, pale gold light filtering through, "
-    "cinematic illustrated style — journey, wisdom, beautifully atmospheric",
-
-    "An open-air library at sunset, warm amber light on books and pages, "
-    "a peaceful figure turning the last page, golden hour sky behind, "
-    "cinematic anime art — knowledge, beauty, deeply resonant",
-
-    "An ancient lighthouse at golden dusk, sea calm and luminous, "
-    "a person standing at the top looking out at a vast horizon, "
-    "illustrated cinematic art — perspective, wisdom, breathtaking",
-
-    "A quiet garden at dawn, stone lanterns lit softly, cherry blossoms falling, "
-    "a lone figure in still contemplation on a wooden bench, "
-    "cinematic anime illustration — peace, transience, beautifully composed",
-
-    "Wide view of rolling golden hills at sunrise, ancient ruins on a hilltop, "
-    "soft long shadows, a single figure walking toward the light, "
-    "cinematic illustrated art — timeless, hopeful, deeply beautiful",
-
-    "An old wooden writing desk by a tall window, afternoon light on an open journal, "
-    "a quill pen, soft bokeh garden outside, warm golden tones, "
-    "illustrated art — wisdom, introspection, beautifully quiet",
-
-    "A meditation hall with shafts of golden light from high windows, "
-    "a lone seated figure in stillness, dust motes in light, ancient stone floor, "
-    "cinematic anime illustration — peace, transcendence, high value",
-]
-
-# ── Art style variants — mix of dark night, golden hour, dusk, morning ─────────
-# Variety keeps viewers engaged — not every frame should look identical.
+# ── Art style variants — ALL dark cinematic anime (matching the 778-view top performer)
 _LOVE_STYLE_VARIANTS = [
     (
         "Dark romantic anime illustration — deep navy blues, soft warm amber glow, cinematic. "
@@ -431,143 +227,44 @@ _LOVE_STYLE_VARIANTS = [
 ]
 
 _STYLE_VARIANTS = [
-    # ── Dark night / moody (classic Quietlyy aesthetic) ──
     (
         "Dark cinematic anime illustration style — moody, atmospheric, emotionally powerful. "
         "Palette: deep midnight navy, dark indigo, soft teal, warm amber glow from single light source. "
         "High contrast: rich darkness surrounding a single warm or cool light. "
         "Characters semi-visible or silhouetted, faces softly lit. "
         "Style: like 'A Silent Voice', 'Your Name', 'Violet Evergarden' — "
-        "dark, cinematic, deeply emotional."
+        "dark, cinematic, deeply emotional. NOT bright. NOT colorful. NOT cheerful."
     ),
     (
         "Atmospheric dark anime illustration — cinematic and introspective. "
         "Dominant tones: deep navy blue, dark purple-indigo, muted teal, "
-        "warm amber or soft moonlight as the only light source. "
+        "with warm amber or soft moonlight as the only light source. "
         "Scenes feel like a quiet 3am moment — beautiful, heavy, still. "
-        "Style: dark lo-fi anime aesthetic — introspective, premium, visually striking."
+        "Style: dark lo-fi anime aesthetic — introspective, premium, visually striking. "
+        "High visual contrast creates depth. Feels like a cinematic short film frame."
     ),
     (
         "Cinematic dark illustrated art — deep, moody, emotionally resonant. "
         "Dark rich backgrounds: midnight indigo, deep navy, soft dark teal. "
         "Single warm light source: window glow, candle, street lamp, moon. "
         "Figures partially in shadow — dramatic, intimate, real. "
-        "Style: premium dark anime illustration — like Makoto Shinkai at night."
-    ),
-    # ── Golden hour / sunset (warm, cinematic, high value) ──
-    (
-        "Cinematic golden hour anime illustration — warm, atmospheric, emotionally resonant. "
-        "Palette: warm amber, soft orange, golden light, long shadows, pale blue sky. "
-        "Figures bathed in the last warm light of day — faces glowing, colours rich and deep. "
-        "Style: Makoto Shinkai golden hour aesthetic — 'Your Name', 'Weathering With You' — "
-        "warm cinematic beauty, stunningly composed, visually arresting."
+        "Style: premium dark anime illustration — like Makoto Shinkai at night, "
+        "beautiful in darkness. Makes viewers stop scrolling."
     ),
     (
-        "Sunset cinematic illustrated art — warm amber and rose, deeply emotional. "
-        "Rich warm tones: burnt orange, soft gold, deep amber, pale lavender sky. "
-        "Silhouettes and half-lit figures against a luminous sunset backdrop. "
-        "Style: premium anime illustration — warm, beautiful, cinematic. "
-        "The kind of frame that stops someone mid-scroll."
-    ),
-    # ── Soft morning / overcast (quiet, pale, melancholic) ──
-    (
-        "Soft morning cinematic anime illustration — quiet, pale, emotionally still. "
-        "Palette: pale ivory, soft grey-blue, silver morning light, muted sage and cream. "
-        "Gentle diffuse light — no harsh shadows, everything soft and hazy. "
-        "Style: quiet illustrated art — like a painting, peaceful and beautifully sad."
-    ),
-    (
-        "Overcast day cinematic illustration — muted, gentle, melancholic. "
-        "Soft grey-blue tones, pale diffuse light, no harsh shadows. "
-        "Figures in soft focus against quiet scenery — fields, streets, windows. "
-        "Style: premium illustrated art — painterly, quiet, emotionally resonant. "
-        "Beautiful in its stillness."
-    ),
-    # ── Dusk / blue hour ──
-    (
-        "Blue hour cinematic anime illustration — twilight, moody, deeply beautiful. "
-        "Palette: deep blue-purple sky, soft teal, pale rose, first stars appearing. "
-        "The world between day and night — uncertain, still, emotionally rich. "
-        "Style: premium cinematic anime — atmospheric, introspective, visually striking."
+        "Lo-fi dark anime aesthetic — atmospheric, quiet, emotionally heavy. "
+        "Palette: deep blue-black backgrounds, soft ambient teal, "
+        "warm amber island of light in darkness, muted indigo shadows. "
+        "Lone figure or intimate scene bathed in a single light source. "
+        "Style: dark cinematic anime illustration — introspective, premium, "
+        "visually dramatic. The kind of image that looks beautiful on a phone screen at night."
     ),
 ]
 
-# Wisdom-specific style — contemplative, timeless, warm and beautiful
-_WISDOM_STYLE_VARIANTS = [
-    (
-        "Cinematic illustrated art with a timeless, contemplative quality. "
-        "Warm golden light — morning sun, candlelight, lanterns — on ancient stone and wood. "
-        "Palette: warm amber, deep walnut, soft ivory, aged gold. "
-        "Style: beautifully composed, high value, like a film still from a Miyazaki masterwork — "
-        "peaceful, wise, deeply beautiful."
-    ),
-    (
-        "Golden hour cinematic illustration — ancient, contemplative, peaceful. "
-        "Rich warm tones: amber, honey, deep gold, pale blue sky. "
-        "Old stone, ancient paths, quiet gardens, mountain light. "
-        "Style: premium illustrated art — timeless beauty, deeply resonant, visually stunning."
-    ),
-    (
-        "Soft morning light cinematic illustration — serene, philosophical, beautiful. "
-        "Pale gold dawn light on ancient architecture or nature. "
-        "Misty, quiet, the world waking — peaceful and profound. "
-        "Style: Ghibli-meets-cinematic-anime — warm, wise, stunningly composed."
-    ),
-]
-
-_STATE_PATH = os.path.join(os.path.dirname(__file__), "..", "assets", "used_topics.json")
-
-def _pick_scenes_for_video(num_panels, style):
-    """Pick `num_panels` scenes that were NOT used in recent videos.
-
-    Tracks used scenes in assets/used_topics.json (same file as script rotation).
-    Scene key = first 30 chars of the scene text (unique enough to identify each scene).
-    Resets the exclusion list when < num_panels fresh scenes remain.
-    """
-    # Load state
-    state = {}
-    if os.path.exists(_STATE_PATH):
-        try:
-            with open(_STATE_PATH) as f:
-                state = json.load(f)
-        except Exception:
-            pass
-
-    used_keys = set(state.get("used_scene_keys", []))
-    if style == "love":
-        pool = _LOVE_SCENE_POOL
-    elif style == "wisdom":
-        pool = _WISDOM_SCENE_POOL
-    else:
-        pool = _SCENE_POOL
-
-    def key(s):
-        return s[:30]
-
-    available = [s for s in pool if key(s) not in used_keys]
-    if len(available) < num_panels:
-        # All scenes exhausted — start fresh
-        print(f"[images] All scenes used — resetting scene history")
-        used_keys = set()
-        available = list(pool)
-
-    # Pick num_panels scenes without replacement
-    chosen = random.sample(available, min(num_panels, len(available)))
-    # If pool smaller than num_panels (love pool has 10 scenes), allow some repeat
-    while len(chosen) < num_panels:
-        chosen.append(random.choice(pool))
-
-    # Save updated used keys
-    new_keys = [key(s) for s in chosen]
-    updated = list(used_keys) + new_keys
-    state["used_scene_keys"] = updated[-80:]  # keep last 80 (covers ~10 videos of 8 panels)
-    os.makedirs(os.path.dirname(_STATE_PATH), exist_ok=True)
-    with open(_STATE_PATH, "w") as f:
-        json.dump(state, f, indent=2)
-
-    print(f"[images] Scenes picked: {len(chosen)} fresh ({len(available)} were available from {len(pool)} total)")
-    return chosen
-
+# Module-level: pick a style once per import (once per pipeline run)
+_CHOSEN_STYLE = random.choice(_STYLE_VARIANTS)
+# Shuffle scenes once per run for fresh panel order every video
+_SHUFFLED_SCENES = random.sample(_SCENE_POOL, len(_SCENE_POOL))
 
 # Love-specific scene pool — dark romantic couple art (Whispers of Heart style)
 _LOVE_SCENE_POOL = [
@@ -584,39 +281,20 @@ _LOVE_SCENE_POOL = [
 ]
 
 
-_DAYTIME_STYLE_KEYWORDS = ("golden hour", "morning", "overcast", "sunset", "day")
-
-def generate_image_prompt(topic, visual_keywords, scene, style="emotional"):
-    """Build the full DALL-E prompt for one panel given a pre-selected scene."""
+def generate_image_prompt(topic, visual_keywords, panel_num, style="emotional"):
+    """Create varied scene prompts — each run gets a different scene sequence and art style.
+    Love style uses dark romantic B&W aesthetic; others use warm illustrated style."""
     keywords_str = ", ".join(visual_keywords)
+
     if style == "love":
         chosen_style = random.choice(_LOVE_STYLE_VARIANTS)
-    elif style == "wisdom":
-        chosen_style = random.choice(_WISDOM_STYLE_VARIANTS)
+        shuffled_love = random.sample(_LOVE_SCENE_POOL, len(_LOVE_SCENE_POOL))
+        scene = shuffled_love[panel_num % len(_LOVE_SCENE_POOL)]
     else:
-        chosen_style = random.choice(_STYLE_VARIANTS)
-
-    # For daytime/golden-hour style variants, strip "dark" language from the
-    # scene description so the model doesn't force everything pitch-black.
-    is_daytime = any(kw in chosen_style.lower() for kw in _DAYTIME_STYLE_KEYWORDS)
-    if is_daytime:
-        for phrase in [
-            "dark cinematic anime illustration style — moody, atmospheric, emotionally powerful",
-            "dark cinematic anime", "dark anime illustration", "dark cinematic illustration",
-            "dark illustrated art", "dark illustrated style", "dark atmospheric anime",
-            "dark anime", "dark cinematic", "dark illustrated", "deep dark",
-        ]:
-            scene = scene.replace(phrase, "cinematic illustration")
-        scene = scene.replace("deep navy blue background fading to black", "soft warm background")
-        scene = scene.replace("deep blue-black", "atmospheric")
-
-    quality = (
-        "QUALITY: ultra-detailed illustration, sharp crisp lines, faces clearly visible "
-        "and expressive, high resolution, clean artwork, no blur, no grain. "
-    )
+        chosen_style = _CHOSEN_STYLE
+        scene = _SHUFFLED_SCENES[panel_num % len(_SHUFFLED_SCENES)]
 
     return (
-        f"{quality}"
         f"{chosen_style} "
         f"Scene: {scene}. "
         f"Emotional theme: {topic}. Mood keywords: {keywords_str}. "
@@ -692,7 +370,7 @@ def generate_with_dalle(prompt, output_path):
             # Brighten by 30% — keeps dark cinematic mood but objects visible in daylight
             from PIL import Image as PILImage, ImageEnhance
             img = PILImage.open(output_path).convert("RGB")
-            img = ImageEnhance.Brightness(img).enhance(1.5)
+            img = ImageEnhance.Brightness(img).enhance(1.3)
             img = img.resize((1080, 1920), PILImage.LANCZOS)
             img.save(output_path)
             return True
@@ -749,13 +427,78 @@ def generate_with_gemini_imagen(prompt, output_path):
         return False
 
 
+def generate_with_huggingface(prompt, output_path):
+    """Generate image using Hugging Face Inference API (free tier).
+    Primary generator — FLUX.1-schnell is production-quality and free.
+    Falls back to SDXL if FLUX quota is exceeded."""
+    token = os.environ.get("HF_TOKEN", "")
+    if not token:
+        return False
+
+    models = [
+        (
+            "black-forest-labs/FLUX.1-schnell",
+            {"num_inference_steps": 4, "guidance_scale": 0.0},
+        ),
+        (
+            "stabilityai/stable-diffusion-xl-base-1.0",
+            {"num_inference_steps": 25, "guidance_scale": 7.5},
+        ),
+    ]
+
+    for model_id, params in models:
+        try:
+            resp = requests.post(
+                f"https://api-inference.huggingface.co/models/{model_id}",
+                headers={
+                    "Authorization": f"Bearer {token}",
+                    "Content-Type": "application/json",
+                },
+                json={"inputs": prompt[:500], "parameters": params},
+                timeout=120,
+            )
+            if resp.status_code == 503:
+                print(f"[images] HF {model_id} loading (503) — skipping")
+                continue
+            resp.raise_for_status()
+
+            content_type = resp.headers.get("content-type", "")
+            if "image" not in content_type and len(resp.content) < 5000:
+                print(f"[images] HF {model_id} returned non-image: {resp.text[:200]}")
+                continue
+
+            with open(output_path, "wb") as f:
+                f.write(resp.content)
+
+            from PIL import Image as PILImage, ImageEnhance
+            img = PILImage.open(output_path).convert("RGB")
+            # Crop to 9:16 portrait if needed
+            w, h = img.size
+            target_h = int(w * 16 / 9)
+            if target_h <= h:
+                top = (h - target_h) // 2
+                img = img.crop((0, top, w, top + target_h))
+            else:
+                target_w = int(h * 9 / 16)
+                left = (w - target_w) // 2
+                img = img.crop((left, 0, left + target_w, h))
+            img = ImageEnhance.Brightness(img).enhance(1.5)
+            img = img.resize((1080, 1920), PILImage.LANCZOS)
+            img.save(output_path)
+            print(f"[images] HF {model_id} succeeded")
+            return True
+        except Exception as e:
+            print(f"[images] HF {model_id} failed: {e}")
+            continue
+    return False
+
+
 def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
-    """Generate panel images using DALL-E ONLY.
-    - Max 5 panels per video
-    - DALL-E is the only generator — no stock photos or gradients
-    - If DALL-E fails for a panel, reuse an earlier successful panel from same video
+    """Generate panel images — free-first provider chain.
+    Order: HuggingFace (free FLUX) → gpt-image-1 → Gemini Imagen 3.
+    - Max 8 panels per video
+    - If all providers fail for a panel, reuse an earlier successful panel
     - After 25 gallery images: reuse 2-3 panels (never panel 0)
-    - Saves new images to gallery (capped at 500)
     At least 1 image must succeed or pipeline fails."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     num_panels = min(num_panels, 8)  # Hard cap at 8 — enough for poetic scripts
@@ -764,9 +507,6 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
 
     # Check if we should reuse some panels from gallery
     reuse_map = _pick_reuse_panels(num_panels)
-
-    # Pick unique scenes for this video — never reuses scenes from recent videos
-    scenes = _pick_scenes_for_video(num_panels, style)
 
     for i in range(num_panels):
         output_path = os.path.join(OUTPUT_DIR, f"panel_{i}.png")
@@ -777,33 +517,36 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
             paths.append(output_path)
             continue
 
-        # Generate fresh image with DALL-E
-        prompt = generate_image_prompt(topic, visual_keywords, scenes[i], style=style)
-        print(f"[images] Panel {i+1}/{num_panels}: generating with DALL-E...")
+        prompt = generate_image_prompt(topic, visual_keywords, i, style=style)
 
-        success = generate_with_dalle(prompt, output_path)
+        # Free-first provider chain
+        print(f"[images] Panel {i+1}/{num_panels}: trying HuggingFace (free)...")
+        success = generate_with_huggingface(prompt, output_path)
         if not success:
-            print(f"[images]   gpt-image-1 failed — trying Gemini Imagen 3 fallback...")
+            print(f"[images]   HF failed — trying gpt-image-1...")
+            success = generate_with_dalle(prompt, output_path)
+        if not success:
+            print(f"[images]   gpt-image-1 failed — trying Gemini Imagen 3...")
             success = generate_with_gemini_imagen(prompt, output_path)
 
         if success:
             print(f"[images] Panel {i+1}: generated")
             successful_paths.append(output_path)
         else:
-            # Both models failed — reuse an earlier panel from THIS video
+            # All providers failed — reuse an earlier panel from THIS video
             if successful_paths:
                 reuse_src = random.choice(successful_paths)
                 shutil.copy2(reuse_src, output_path)
-                print(f"[images] Panel {i+1}: reusing earlier panel (both models failed)")
+                print(f"[images] Panel {i+1}: reusing earlier panel (all providers failed)")
             else:
-                raise RuntimeError(f"Image generation failed for panel {i+1} (tried gpt-image-1 and dall-e-3). No earlier panels to reuse.")
+                raise RuntimeError(f"Image generation failed for panel {i+1} (tried HF, gpt-image-1, Gemini). No earlier panels to reuse.")
 
         paths.append(output_path)
 
         if i < num_panels - 1:
-            time.sleep(2)  # Respect rate limits between DALL-E calls
+            time.sleep(2)
 
-    print(f"[images] Generated {len(paths)} panels ({len(reuse_map)} from gallery, {len(successful_paths)} fresh DALL-E)")
+    print(f"[images] Generated {len(paths)} panels ({len(reuse_map)} from gallery, {len(successful_paths)} fresh)")
     return paths
 
 
