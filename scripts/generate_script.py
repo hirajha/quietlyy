@@ -27,6 +27,45 @@ STYLES = ["love", "emotional"]
 # After this many regular videos, insert one wisdom/famous-poetry video
 WISDOM_INTERVAL = 3
 
+_STATE_PATH = os.path.join(os.path.dirname(__file__), "..", "assets", "used_topics.json")
+
+
+def _load_state():
+    if os.path.exists(_STATE_PATH):
+        with open(_STATE_PATH) as f:
+            try:
+                return json.load(f)
+            except Exception:
+                pass
+    return {}
+
+
+def _save_state(state):
+    os.makedirs(os.path.dirname(_STATE_PATH), exist_ok=True)
+    with open(_STATE_PATH, "w") as f:
+        json.dump(state, f, indent=2)
+
+
+def _extract_wisdom_quote(script_text):
+    """Return lines 2-3 of a wisdom script joined as the quote fingerprint."""
+    lines = [l.strip() for l in script_text.strip().splitlines() if l.strip()]
+    if len(lines) >= 3:
+        return " ".join(lines[1:3])
+    return ""
+
+
+def save_wisdom_quote(script_text):
+    """Persist the quote from a wisdom script so it is never repeated."""
+    quote = _extract_wisdom_quote(script_text)
+    if not quote:
+        return
+    state = _load_state()
+    used = state.get("used_wisdom_quotes", [])
+    used.append(quote)
+    state["used_wisdom_quotes"] = used[-50:]  # keep last 50
+    _save_state(state)
+    print(f"[script] Saved wisdom quote fingerprint ({len(used)} total)")
+
 
 def pick_style_and_topic(templates, theme_hints=None):
     """Rotate between love/emotional, inserting a wisdom video every 3rd run.
@@ -218,7 +257,17 @@ EXAMPLES:
 {examples_text}"""
 
     elif style == "wisdom":
-        return f"""Generate a viral 30-40 second life-lesson script for "Quietlyy" — opens with a famous quote (or a quote written in the authentic spirit of a great thinker), then unpacks it as a personal life lesson.{audience_block}{avoid_block}
+        # Build banned-quotes block from previously used wisdom quotes
+        used_wisdom_quotes = _load_state().get("used_wisdom_quotes", [])
+        banned_quotes_block = ""
+        if used_wisdom_quotes:
+            banned_quotes_block = (
+                "\n⚠️ BANNED QUOTES (already used — you MUST use a completely different quote):\n"
+                + "\n".join(f"- {q}" for q in used_wisdom_quotes[-20:])
+                + "\nDo NOT reuse any of the above quotes or close paraphrases of them.\n"
+            )
+
+        return f"""Generate a viral 30-40 second life-lesson script for "Quietlyy" — opens with a famous quote (or a quote written in the authentic spirit of a great thinker), then unpacks it as a personal life lesson.{audience_block}{avoid_block}{banned_quotes_block}
 
 Topic: {topic}
 
@@ -465,6 +514,8 @@ def generate_script(tone_hints="", theme_hints=None, idea_hints=""):
 
         # Approved — save to used scripts history and return
         save_used_script(script_text, topic, style)
+        if style == "wisdom":
+            save_wisdom_quote(script_text)
         result["topic"] = topic
         result["style"] = style
         result["quality_score"] = score
@@ -547,6 +598,8 @@ def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candi
     print(f"  Prediction: {best.get('engagement_prediction', 'n/a')}")
 
     save_used_script(best["script"], best["topic"], best["style"])
+    if best.get("style") == "wisdom":
+        save_wisdom_quote(best["script"])
     return best
 
 
