@@ -129,12 +129,16 @@ REJECT_KEYWORDS = [
     "disco", "techno", "house", "electronic", "edm", "beat", "drum",
     "trap", "hip hop", "hip-hop", "pop", "synth pop",
     # Ethnic / belly dance / world music that sounds wrong
-    "belly", "arabic", "tribal", "ethnic", "folk dance",
-    "wedding", "celebration", "festival", "carnival", "bollywood",
-    "flute dance", "tabla", "sitar", "oud", "middle east",
-    "world music", "oriental", "latin",
+    "belly", "belly dance", "bellydance",
+    "arabic", "arabian", "arab", "middle east", "middle eastern",
+    "oriental", "oud", "darbuka", "doumbek", "tabla", "sitar",
+    "tribal", "ethnic", "folk dance",
+    "bollywood", "indian dance", "bhangra", "dhol",
+    "wedding", "celebration", "festival", "carnival",
+    "flute dance", "world music", "latin",
+    "turkish", "greek dance", "balkan dance",
     # Other wrong vibes
-    "bouncy", "quirky", "playful", "whimsical", "fun",
+    "bouncy", "quirky", "playful", "whimsical",
     # Nature SFX (not music — sounds bad mixed with voice)
     "rain sounds", "thunder", "storm sounds", "nature sounds",
     "rainfall", "rainstorm", "thunderstorm",
@@ -196,8 +200,7 @@ def _search_freesound(query, style):
 
             good = [t for t in results if not _is_wrong_vibe(t, style)]
             if not good:
-                good = results
-            if not good:
+                print(f"[music] All {len(results)} results rejected by vibe filter — trying next query")
                 continue
 
             pool = good[:8] if len(good) >= 8 else good
