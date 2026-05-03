@@ -21,38 +21,45 @@ YT_HANDLE = "@SayQuietlyy"
 FB_AI_DISCLOSURE = "AI assistance was used in the making of this video."
 YT_AI_DISCLOSURE = "AI assistance was used in the making of this video."
 
-# ── Compact hashtag sets per style — readable, not spammy ────────────────
-# ~7 tags: style-specific + universal + brand. Human-readable, not keyword-stuffed.
+# ── Niche hashtags per style — research-backed: niche tags outperform broad ones ──
+# Broad tags (#love #motivation) = buried in millions of posts.
+# Niche tags (#grief #unspokenwords) = seen by exact audience that shares emotional content.
 STYLE_HASHTAGS = {
-    "emotional":    ["love", "healing", "feelings", "poetry", "USA", "memories", "quietlyy"],
-    "nostalgic":    ["memories", "nostalgia", "friendship", "family", "USA", "love", "quietlyy"],
-    "poetic":       ["poetry", "love", "deepthoughts", "soul", "healing", "USA", "quietlyy"],
-    "love":         ["love", "romance", "couple", "soulmate", "tagsomeone", "USA", "quietlyy"],
-    "wisdom":       ["wisdom", "lifelessons", "healing", "mindset", "growth", "USA", "quietlyy"],
-    "motivational": ["motivation", "mindset", "healing", "growth", "lifelessons", "USA", "quietlyy"],
+    "emotional":    ["grief", "emotionalhealing", "unspokenwords", "heartbreak", "longing", "innerhealing", "quietlyy"],
+    "nostalgic":    ["nostalgia", "childhoodmemories", "missthosedays", "simplelife", "familylove", "thenandnow", "quietlyy"],
+    "poetic":       ["poetrylovers", "spokenword", "soulquotes", "deepfeelings", "wordsthatmatter", "unspokenwords", "quietlyy"],
+    "love":         ["missingyou", "lovestory", "heartache", "unspokenlove", "lovequotes", "deepfeelings", "quietlyy"],
+    "wisdom":       ["lifewisdom", "soulquotes", "innerpeace", "lifetruth", "deepthoughts", "mentalpeace", "quietlyy"],
+    "motivational": ["keepgoing", "innerstrength", "healingjourney", "selfworth", "mentalhealth", "quietstrength", "quietlyy"],
 }
 
-# ── CTAs — DM share is #1 distribution signal, per 2026 algorithm research ─
+# ── CTAs — research-backed: "Save this" and "Share with" outperform tag-baiting ──
+# Facebook algorithm PENALIZES "tag 3 friends" / "comment YES" — suppresses reach.
+# "Save this" and "Share with someone who needs this" are safe and drive DM shares.
 CTA_SHARE_BLOCKS = {
     "emotional": (
-        "📩 Send this to someone who needs to hear it.\n"
-        "💾 Save it for when you forget your worth.\n"
+        "Save this if it found you at the right time.\n"
+        "Share it with someone who needs to feel less alone today."
     ),
     "nostalgic": (
-        "📩 Send this to someone you grew up with.\n"
-        "💾 Save this — some memories deserve to stay close.\n"
+        "Save this for the people you still miss.\n"
+        "Share it with someone who grew up with you."
     ),
     "poetic": (
-        "📩 Send this to someone who feels things deeply.\n"
-        "💾 Save it for a quiet night.\n"
+        "Save this for a quiet night when you need it.\n"
+        "Share it with someone who feels things deeply."
     ),
     "love": (
-        "❤️ Send this to the person you thought of.\n"
-        "📩 Tag them. They need to know.\n"
+        "Save this. Some feelings deserve to be kept.\n"
+        "Send this to the person you thought of while reading."
+    ),
+    "wisdom": (
+        "Save this for the days you forget.\n"
+        "Share it with someone carrying something heavy right now."
     ),
     "motivational": (
-        "📩 Send this to someone who needs a reminder today.\n"
-        "💾 Save it — you'll need this again.\n"
+        "Save this for when you need a reminder.\n"
+        "Share it with someone who is quietly struggling."
     ),
 }
 
@@ -208,23 +215,30 @@ def generate_seo(topic, script_text, visual_keywords, style="emotional"):
         print("[seo] Using template fallback")
         ai_data = _template_fallback(topic, script_text)
 
-    # ── Caption: first 1-2 script lines — the actual hook, not a summary ─
-    caption_lines = lines[:2]
-    caption_text = "\n".join(caption_lines)
+    # ── 3-part caption formula (research-backed for viral emotional pages) ──
+    # Part 1: Hook — first script line (emotionally charged, appears before "See more")
+    hook_line = lines[0] if lines else topic
 
-    # ── Hashtags: compact, readable set per style (~7 tags) ───────────────
+    # Part 2: Quote reprint — next 2-3 lines (full quote for accessibility + discovery)
+    quote_lines = lines[1:4]
+    quote_text = "\n".join(quote_lines) if quote_lines else ""
+
+    # Part 3: CTA — "Save this" / "Share with" (no tag-baiting — Facebook penalizes it)
+    cta_block = CTA_SHARE_BLOCKS.get(style, CTA_SHARE_BLOCKS["emotional"])
+
+    # ── Hashtags: niche-specific (~7 tags) ───────────────────────────────
     hashtag_list = STYLE_HASHTAGS.get(style, STYLE_HASHTAGS["emotional"])
     hashtag_str = " ".join(f"#{t}" for t in hashtag_list)
 
-    # ── CTA — one short line, DM share drives distribution ───────────────
-    cta_block = CTA_SHARE_BLOCKS.get(style, CTA_SHARE_BLOCKS["emotional"])
+    caption_text = hook_line  # used in YouTube desc too
 
-    # ── Facebook / Instagram description ─────────────────────────────────
+    # ── Facebook / Instagram description — 3-part formula ────────────────
     fb_description = (
-        f"{caption_text}\n\n"
-        f"{cta_block}\n"
+        f"{hook_line}\n\n"
+        f"{quote_text}\n\n"
+        f"{cta_block}\n\n"
         f"{hashtag_str}"
-    )
+    ).strip()
 
     # ── YouTube description ───────────────────────────────────────────────
     yt_tags = ai_data.get("youtube_tags", [])

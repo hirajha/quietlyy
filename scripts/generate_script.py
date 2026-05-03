@@ -306,37 +306,45 @@ Also provide 4 visual keywords: peaceful contemplative scenes — solitude, natu
 Return ONLY valid JSON:
 {{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
-    else:  # emotional — life lessons, human truths, motivation
-        return f"""Generate a viral 25-30 second emotional life-lesson script for "Quietlyy" — the kind that makes people stop, feel something true, and immediately want to share it.{audience_block}{avoid_block}
+    else:  # emotional — grief, longing, unspoken pain, human truths
+        return f"""Generate a viral 25-30 second emotional script for "Quietlyy".
 
-Topic: {topic}
-Tone: raw, deeply human — draws from the emotional truth of the topic and turns it into a lesson people feel in their chest
+TARGET FEELING: The viewer should think "who told them about my life?" — like the script is reading their private pain out loud. This is the #1 signal that drives shares. Not generic motivation. Not advice. A specific, unspoken human truth they have never heard said so simply.
+
+Topic: {topic}{audience_block}{avoid_block}
+Tone: intimate whisper — grief, longing, silent suffering, love, or loss expressed with surgical precision
+
+WHAT MAKES PEOPLE SHARE:
+- Grief nobody validates (losing someone still alive, crying alone, being the strong one)
+- Longing for something they can't name
+- The exhaustion of pretending to be okay
+- Being loved the wrong way, or loving someone who can't love back
+- The specific small moments that carry enormous pain ("the unanswered text", "the empty chair at dinner")
 
 Rules:
-- Line 1 MUST be a scroll-stopping hook — a specific moment, action, or truth that hits instantly
-- NEVER start with "You were...", "You weren't...", "You were never...", "You were cherished", "You were too much" — banned
-- NEVER start with "There was a time", "In a world", "Some people", "Not everyone" — banned
-- Draw from the emotional truth behind famous ideas — but express it through a specific human moment, not an abstract statement
+- Line 1: A scroll-stopping specific moment — not abstract. "You still check their profile." "You said fine. You were not fine."
+- NEVER start with "You were...", "You weren't...", "Some people", "There was a time", "In a world" — banned
 - Short punchy lines — 5-10 words each, reads fast, lands hard
-- One central image or metaphor that makes the pain/lesson concrete
-- MUST contain a turn — a realization, shift, or unexpected truth that reframes the opening
-- MUST end with something empowering or honest — not just sadness, something they can hold onto
-- 7-10 short lines total
+- One central image or metaphor that makes the pain concrete and specific
+- MUST contain a turn — a quiet realization, not a lecture
+- End with something honest and warm — something they'll screenshot and save
+- Last line: soft share nudge — "Save this for the days you forget." / "Send this to someone carrying something heavy."
+- 7-9 lines total — no padding
 - NO hashtags, NO emojis, NO stage directions
 
 Structure:
 Line 1-2: HOOK — a specific painful or universal human moment, phrased in a way they've never heard
-Line 3-4: Deepen it — the WHY, the metaphor, the emotional truth underneath
-Line 5-6: The turn — a realization, a shift in perspective, an unexpected truth
-Line 7-8: The LESSON — quiet, honest, empowering — something they'll screenshot
-Last line (optional): A natural share nudge — "Send this to someone who needs to hear it." / "Save this for the heavy days."
+Line 3-4: Deepen it — the emotional truth underneath, the metaphor
+Line 5-6: The turn — a quiet realization or unexpected truth
+Line 7-8: The LESSON — honest, empowering, screenshot-worthy
+Last line: "Save this for the heavy days." or "Send this to someone who needs it."
 
-Also provide 4 visual keywords (emotional human scenes, symbolic moments — no objects).
+Also provide 4 visual keywords (emotional human scenes — faces, hands, solitary figures, symbolic moments).
 
 Return ONLY valid JSON:
 {{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
 
-EXAMPLES (study how the hook + turn + lesson work together):
+EXAMPLES (study the hook + turn + lesson):
 {examples_text}"""
 
 
