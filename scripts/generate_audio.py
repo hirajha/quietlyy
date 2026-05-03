@@ -14,10 +14,11 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 # ElevenLabs config
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
 ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "")
-ELEVENLABS_MODEL = "eleven_turbo_v2_5"  # April 1 model — clearer, more expressive
+ELEVENLABS_MODEL = "eleven_turbo_v2_5"
 
-# Silence between lines (seconds) — 1.0s is natural breathing room without feeling slow
-LINE_GAP = 1.0
+# Silence between lines — 1.3s gives breathing room that matches 60-75 BPM music
+# Whispers-style pages: the space between lines IS part of the emotional impact
+LINE_GAP = 1.3
 
 # CTA patterns — lines matching these are NOT narrated; shown as baked text overlay instead.
 # Check both startswith (for clean CTA lines) and contains (for embedded CTAs).
@@ -96,11 +97,13 @@ def _record_line_elevenlabs(text, output_path):
         "text": clean,
         "model_id": ELEVENLABS_MODEL,
         "voice_settings": {
-            "stability": 0.55,        # lower = more human variation (ElevenLabs guide: 0.55 for emotional)
-            "similarity_boost": 0.80, # higher = stays true to the voice
-            "style": 0.25,            # slight bump from 0.20 = more warmth
-            "use_speaker_boost": True,
-            "speed": 0.92,            # natural emotional pace — not slow, not rushed
+            # Target feel: intimate whisper, not a broadcast or podcast narrator.
+            # Research on Whispers-style pages: "voice feels like it's sitting next to you."
+            "stability": 0.45,         # more human variation = less robotic, more emotionally alive
+            "similarity_boost": 0.80,  # stays true to the voice
+            "style": 0.40,             # higher expressiveness = warmth, emotional nuance
+            "use_speaker_boost": False, # speaker boost adds "broadcast" presence — fights intimacy
+            "speed": 0.85,             # slower = matches 60-75 BPM music, more space for emotion
         },
     }
 
