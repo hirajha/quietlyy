@@ -85,37 +85,93 @@ def _clean_text(text):
 
 
 def _record_line_elevenlabs(text, output_path):
-    """Record one line using ElevenLabs API."""
+    """Record one line via ElevenLabs with-timestamps endpoint.
+
+    Returns word-level timing data extracted from ElevenLabs' character alignment.
+    Falls back to plain TTS (no timestamps) if the endpoint fails.
+    """
+    import base64
     clean = _clean_text(text)
-    url = f"https://api.elevenlabs.io/v1/text-to-speech/{ELEVENLABS_VOICE_ID}"
-    headers = {
-        "xi-api-key": ELEVENLABS_API_KEY,
-        "Content-Type": "application/json",
-        "Accept": "audio/mpeg",
+    voice_settings = {
+        "stability": 0.45,
+        "similarity_boost": 0.80,
+        "style": 0.40,
+        "use_speaker_boost": False,
+        "speed": 0.85,
     }
     body = {
         "text": clean,
         "model_id": ELEVENLABS_MODEL,
-        "voice_settings": {
-            # Target feel: intimate whisper, not a broadcast or podcast narrator.
-            # Research on Whispers-style pages: "voice feels like it's sitting next to you."
-            "stability": 0.45,         # more human variation = less robotic, more emotionally alive
-            "similarity_boost": 0.80,  # stays true to the voice
-            "style": 0.40,             # higher expressiveness = warmth, emotional nuance
-            "use_speaker_boost": False, # speaker boost adds "broadcast" presence — fights intimacy
-            "speed": 0.85,             # slower = matches 60-75 BPM music, more space for emotion
-        },
+        "voice_settings": voice_settings,
     }
 
-    resp = requests.post(url, json=body, headers=headers, timeout=30)
-    if resp.status_code != 200:
-        raise ValueError(f"ElevenLabs error {resp.status_code}: {resp.text[:200]}")
+    # Try with-timestamps endpoint first — gives real per-character timing
+    ts_url = f"https://api.elevenlabs.io/v1/text-to-speech/{ELEVENLABS_VOICE_ID}/with-timestamps"
+    headers_json = {
+        "xi-api-key": ELEVENLABS_API_KEY,
+        "Content-Type": "application/json",
+    }
+    word_timings = None
+    try:
+        resp = requests.post(ts_url, json=body, headers=headers_json, timeout=40)
+        if resp.status_code == 200:
+            data = resp.json()
+            audio_bytes = base64.b64decode(data["audio_base64"])
+            with open(output_path, "wb") as f:
+                f.write(audio_bytes)
 
-    with open(output_path, "wb") as f:
-        f.write(resp.content)
+            # Build word-level timings from character alignment
+            alignment = data.get("alignment", {})
+            chars = alignment.get("characters", [])
+            starts = alignment.get("character_start_times_seconds", [])
+            ends = alignment.get("character_end_times_seconds", [])
+
+            if chars and starts and ends:
+                word_timings = _chars_to_word_timings(chars, starts, ends)
+    except Exception as e:
+        print(f"[audio] with-timestamps failed ({e}), falling back to plain TTS")
+
+    # Fallback: plain TTS endpoint
+    if not os.path.exists(output_path) or os.path.getsize(output_path) < 500:
+        plain_url = f"https://api.elevenlabs.io/v1/text-to-speech/{ELEVENLABS_VOICE_ID}"
+        headers_mp3 = {
+            "xi-api-key": ELEVENLABS_API_KEY,
+            "Content-Type": "application/json",
+            "Accept": "audio/mpeg",
+        }
+        resp = requests.post(plain_url, json=body, headers=headers_mp3, timeout=30)
+        if resp.status_code != 200:
+            raise ValueError(f"ElevenLabs error {resp.status_code}: {resp.text[:200]}")
+        with open(output_path, "wb") as f:
+            f.write(resp.content)
 
     if os.path.getsize(output_path) < 500:
         raise ValueError("Audio too small")
+
+    return word_timings  # None if timestamps unavailable
+
+
+def _chars_to_word_timings(chars, starts, ends):
+    """Convert ElevenLabs character-level alignment into word-level timing dicts."""
+    words = []
+    current_word = []
+    current_starts = []
+    current_ends = []
+
+    for ch, s, e in zip(chars, starts, ends):
+        if ch == " ":
+            if current_word:
+                words.append(("".join(current_word), current_starts[0], current_ends[-1]))
+                current_word, current_starts, current_ends = [], [], []
+        else:
+            current_word.append(ch)
+            current_starts.append(s)
+            current_ends.append(e)
+
+    if current_word:
+        words.append(("".join(current_word), current_starts[0], current_ends[-1]))
+
+    return [{"word": w, "start_s": s, "end_s": e} for w, s, e in words]
 
 
 def _get_duration_ms(filepath):
@@ -177,10 +233,13 @@ def generate_audio(script_text):
     cumulative_ms = 0
     timing_data = []
 
+    all_word_timings = []  # per-line word timing lists (None if unavailable)
+
     for i, line in enumerate(lines):
         line_path = os.path.join(OUTPUT_DIR, f"_line_{i}.mp3")
-        _record_line_elevenlabs(line, line_path)
+        word_timings = _record_line_elevenlabs(line, line_path)
         line_files.append(line_path)
+        all_word_timings.append(word_timings)
 
         line_dur = _get_duration_ms(line_path)
         timing_data.append({
@@ -189,19 +248,31 @@ def generate_audio(script_text):
             "duration_ms": line_dur,
         })
         cumulative_ms += line_dur + (LINE_GAP * 1000)
-        print(f"[audio]   Line {i+1}/{len(lines)}: {line_dur/1000:.1f}s")
+        src = "ElevenLabs timestamps" if word_timings else "estimated"
+        print(f"[audio]   Line {i+1}/{len(lines)}: {line_dur/1000:.1f}s ({src})")
 
-    # Convert timing data to subtitle-compatible format
+    # Build subtitle data — use real timestamps when available, fall back to estimate
     sub_data = []
-    for td in timing_data:
-        words = lines[td["line"]].split()
-        word_dur = td["duration_ms"] / max(len(words), 1)
-        for wi, word in enumerate(words):
-            sub_data.append({
-                "text": word,
-                "offset_ms": td["start_ms"] + wi * word_dur,
-                "duration_ms": word_dur,
-            })
+    for td, word_timings in zip(timing_data, all_word_timings):
+        line_start_ms = td["start_ms"]
+        if word_timings:
+            # Real per-word timing from ElevenLabs character alignment
+            for wt in word_timings:
+                sub_data.append({
+                    "text": wt["word"],
+                    "offset_ms": line_start_ms + wt["start_s"] * 1000,
+                    "duration_ms": (wt["end_s"] - wt["start_s"]) * 1000,
+                })
+        else:
+            # Fallback: divide line duration evenly across words
+            words = lines[td["line"]].split()
+            word_dur = td["duration_ms"] / max(len(words), 1)
+            for wi, word in enumerate(words):
+                sub_data.append({
+                    "text": word,
+                    "offset_ms": line_start_ms + wi * word_dur,
+                    "duration_ms": word_dur,
+                })
 
     print("[audio] ElevenLabs: success")
 

@@ -330,7 +330,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
 
     XFADE = 0.6    # crossfade between panels — defined early for drift compensation
     TAIL_PAD = 4.0 # tail silence after last word
-    AUDIO_GAP = 1.0  # must match LINE_GAP in generate_audio.py
+    AUDIO_GAP = 1.3  # MUST match LINE_GAP in generate_audio.py exactly
     GAP = AUDIO_GAP
 
     # Build per-group durations from per-line audio files
