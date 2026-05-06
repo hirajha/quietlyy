@@ -1,9 +1,9 @@
 name: Quietlyy — Midday Quote Image
 
 on:
-  # 2:30 PM IST = 09:00 UTC daily
-  schedule:
-    - cron: '0 9 * * *'
+  # Schedule paused — re-enable by uncommenting the lines below
+  # schedule:
+  #   - cron: '0 9 * * *'
 
   # Manual trigger
   workflow_dispatch:
