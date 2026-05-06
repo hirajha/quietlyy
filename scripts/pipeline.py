@@ -232,7 +232,8 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
         _status("video", "ok", video_path)
     except Exception as e:
         _status("video", "fail", str(e))
-        raise
+        print(f"\nSkipping today — video composition failed: {e}.")
+        sys.exit(0)
 
     print(f"  Video: {video_path}")
 

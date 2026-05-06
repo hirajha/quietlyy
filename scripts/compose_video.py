@@ -493,17 +493,14 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-stream_loop", "-1", "-i", music_path,
             "-filter_complex",
             f"[0:v]{video_filter}[vout];"
-            f"[1:a]loudnorm=I=-16:LRA=7:TP=-1.5,apad=pad_dur=1,asplit=2[voice_out][voice_sc];"
-            f"[2:a]volume=0.30,"
+            f"[1:a]loudnorm=I=-16:LRA=7:TP=-1.5,apad=pad_dur=1[voice_out];"
+            f"[2:a]volume=0.25,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4,"
             # Whisper effect: low-pass at 8kHz = "heard through a wall" intimacy
             # Light plate reverb (aecho) = notes breathe and bleed together, not staccato
-            # This creates the subconscious "breathing with the voice" quality
             f"lowpass=f=8000,"
-            f"aecho=0.8:0.88:60:0.25"
-            f"[music_raw];"
-            f"[music_raw][voice_sc]sidechaincompress=threshold=0.02:ratio=6:attack=5:release=400[music_duck];"
-            f"[voice_out][music_duck]amix=inputs=2:duration=first:normalize=0[aout]",
+            f"aecho=0.8:0.88:60:0.25[music_fx];"
+            f"[voice_out][music_fx]amix=inputs=2:duration=first:normalize=0[aout]",
             "-map", "[vout]", "-map", "[aout]",
             "-c:v", "libx264", "-preset", "medium", "-crf", "23",
             "-c:a", "aac", "-b:a", "192k",
