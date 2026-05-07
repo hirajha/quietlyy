@@ -160,8 +160,8 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
             print(f"\nSkipping today — quota exceeded.")
             sys.exit(0)
         elif "quality gate failed" in str(e).lower():
-            print(f"\nERROR — Script quality gate exhausted: {e}")
-            sys.exit(1)
+            print(f"\nSkipping today — script quality gate exhausted (all attempts failed): {e}")
+            sys.exit(0)
         else:
             print(f"\nSkipping today — script failed: {e}.")
             sys.exit(0)

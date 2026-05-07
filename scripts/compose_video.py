@@ -494,12 +494,8 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-filter_complex",
             f"[0:v]{video_filter}[vout];"
             f"[1:a]loudnorm=I=-16:LRA=7:TP=-1.5,apad=pad_dur=1[voice_out];"
-            f"[2:a]volume=0.25,"
-            f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4,"
-            # Whisper effect: low-pass at 8kHz = "heard through a wall" intimacy
-            # Light plate reverb (aecho) = notes breathe and bleed together, not staccato
-            f"lowpass=f=8000,"
-            f"aecho=0.8:0.88:60:0.25[music_fx];"
+            f"[2:a]volume=0.22,"
+            f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4[music_fx];"
             f"[voice_out][music_fx]amix=inputs=2:duration=first:normalize=0[aout]",
             "-map", "[vout]", "-map", "[aout]",
             "-c:v", "libx264", "-preset", "medium", "-crf", "23",
