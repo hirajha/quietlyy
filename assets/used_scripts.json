@@ -10,5 +10,16 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "Missing Someone Alive",
+    "style": "emotional",
+    "script": "The last photo of you stays on my screen.\nA fragment of a moment we shared.\nIn the emptiness that follows,\nI'm searching for a ghost of our laughter.\nBut it's not the memories that hurt,\nit's the moments that could've been.\nIt's the realization that I'm still holding on,\nSave this for the days you forget to let go.",
+    "hash": "660f411bab38cb8627f417fd7baac13f",
+    "metaphors": [],
+    "themes": [
+      "heartbreak",
+      "silence"
+    ]
   }
 ]
