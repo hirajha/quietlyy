@@ -1,0 +1,83 @@
+{
+  "target_demographics": {
+    "primary_age": "18-34",
+    "secondary_age": "35-49",
+    "gender_split": "55% female, 45% male",
+    "top_geos": [
+      "United States",
+      "United Kingdom",
+      "Canada",
+      "Australia",
+      "India"
+    ]
+  },
+  "peak_posting_times_IST": {
+    "facebook_reels": [
+      "18:00",
+      "21:00"
+    ],
+    "instagram_reels": [
+      "19:00",
+      "22:00"
+    ],
+    "youtube_shorts": [
+      "20:00",
+      "23:00"
+    ]
+  },
+  "high_performing_themes": [
+    "Childhood Memories",
+    "Lost Love",
+    "Family Bonds",
+    "Self-Discovery",
+    "Overcoming Adversity",
+    "Friendship",
+    "Heartbreak",
+    "Mental Health",
+    "Inspirational Quotes",
+    "Motivation"
+  ],
+  "script_tone_hints": [
+    "Emotional and introspective",
+    "Soft and calming",
+    "Inspirational and uplifting"
+  ],
+  "hook_strategies": [
+    "Start with a relatable question",
+    "Use a surprising statistic or fact",
+    "Begin with a thought-provoking quote"
+  ],
+  "hashtag_strategy": {
+    "facebook": [
+      "#MotivationMonday",
+      "#WednesdayWisdom",
+      "#FridayFeeling",
+      "#Nostalgia",
+      "#InspirationalQuotes"
+    ],
+    "instagram": [
+      "#QuoteOfTheDay",
+      "#MentalHealthMatters",
+      "#SelfCare",
+      "#LoveQuotes",
+      "#Inspirational"
+    ],
+    "youtube": [
+      "#Shorts",
+      "#MotivationalVideos",
+      "#InspirationalVideos",
+      "#NostalgicQuotes",
+      "#RelaxingMusic"
+    ]
+  },
+  "growth_tactics": [
+    "Collaborate with influencers and content creators",
+    "Utilize paid social media advertising",
+    "Optimize video titles, descriptions, and tags for search"
+  ],
+  "content_warnings": [
+    "Avoid sensitive or triggering topics, such as graphic violence or explicit language"
+  ],
+  "_generated_at": "2026-05-08T10:53:39.481813+00:00",
+  "_source": "Groq"
+}
