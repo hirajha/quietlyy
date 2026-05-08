@@ -12,6 +12,16 @@ import subprocess
 import textwrap
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
+
+def _ffmpeg(*args, **kwargs):
+    """Run ffmpeg, printing stderr to stdout on failure for GitHub Actions visibility."""
+    result = subprocess.run(list(args), capture_output=True, **kwargs)
+    if result.returncode != 0:
+        print(f"[ffmpeg ERROR] exit={result.returncode}")
+        print(result.stderr.decode(errors="replace")[-3000:])
+        result.check_returncode()
+    return result
+
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 ASSETS_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
 
@@ -399,7 +409,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         frame.save(frame_path, "PNG")
 
         clip_path = os.path.join(OUTPUT_DIR, f"_clip_{g_i}.mp4")
-        subprocess.run([
+        _ffmpeg(
             "ffmpeg", "-y",
             "-loop", "1", "-i", frame_path,
             "-t", f"{seg_durations[g_i]:.3f}",
@@ -407,7 +417,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-c:v", "libx264", "-preset", "ultrafast", "-crf", "18",
             "-pix_fmt", "yuv420p",
             clip_path,
-        ], capture_output=True, check=True)
+        )
 
         panel_videos.append(clip_path)
         lines_label = " | ".join(f'"{l[:18]}…"' if len(l) > 18 else f'"{l}"' for l in group)
@@ -449,14 +459,13 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
                 f"[xf{last-1}][{last+1}:v]xfade=transition=fade:duration={XFADE}:offset={offsets[last]:.3f}[vout]"
             )
 
-        subprocess.run(
-            ["ffmpeg", "-y"] + inputs + [
-                "-filter_complex", ";".join(filters),
-                "-map", "[vout]",
-                "-c:v", "libx264", "-preset", "medium", "-crf", "23",
-                "-pix_fmt", "yuv420p",
-                output_no_audio,
-            ], capture_output=True, check=True,
+        _ffmpeg(
+            "ffmpeg", "-y", *inputs,
+            "-filter_complex", ";".join(filters),
+            "-map", "[vout]",
+            "-c:v", "libx264", "-preset", "medium", "-crf", "23",
+            "-pix_fmt", "yuv420p",
+            output_no_audio,
         )
 
     # ── Step 3: Generate ASS word-by-word subtitle file ────────────────────────
@@ -486,7 +495,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
 
     if music_path:
         print(f"[video] Mixing voice + {os.path.basename(music_path)}")
-        subprocess.run([
+        _ffmpeg(
             "ffmpeg", "-y",
             "-i", output_no_audio,
             "-i", audio_path,
@@ -502,9 +511,9 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-c:a", "aac", "-b:a", "192k",
             "-movflags", "+faststart",
             output_path,
-        ], capture_output=True, check=True)
+        )
     else:
-        subprocess.run([
+        _ffmpeg(
             "ffmpeg", "-y",
             "-i", output_no_audio,
             "-i", audio_path,
@@ -516,7 +525,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-c:a", "aac", "-b:a", "192k",
             "-movflags", "+faststart",
             output_path,
-        ], capture_output=True, check=True)
+        )
 
     # Cleanup temp files
     for f in panel_videos:
