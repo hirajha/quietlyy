@@ -43,6 +43,8 @@ jobs:
   generate-video:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    permissions:
+      contents: write  # Required for git push in "Save gallery" step
 
     steps:
       - name: Checkout repo

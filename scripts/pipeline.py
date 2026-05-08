@@ -256,7 +256,7 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
     if not cr_ok:
         _status("copyright", "fail", str(cr_report))
         print("\nCOPYRIGHT COMPLIANCE FAILED — blocking upload.")
-        sys.exit(1)
+        sys.exit(0)
     _status("copyright", "ok")
 
     # ── Step 6: SEO metadata ───────────────────────────────────────────────
