@@ -54,9 +54,13 @@ def verify_credentials():
         params={"access_token": token, "fields": "name,id"},
         timeout=10,
     )
-    if me_resp.status_code != 200:
-        raise ValueError(f"Token invalid — /me returned {me_resp.status_code}: {me_resp.text[:300]}")
     me = me_resp.json()
+    if me_resp.status_code != 200 or "error" in me:
+        err = me.get("error", {}) if isinstance(me, dict) else {}
+        code = err.get("code", me_resp.status_code)
+        msg = err.get("message", me_resp.text[:300])
+        hint = " — token expired, regenerate FB_PAGE_ACCESS_TOKEN in Meta Business Manager" if code == 190 else ""
+        raise ValueError(f"Token invalid (code {code}): {msg}{hint}")
     print(f"[facebook] Token valid for: {me.get('name')} (id={me.get('id')})")
 
     # 2. Check the page is accessible
@@ -190,8 +194,11 @@ def post(video_path, topic, script_text, seo_metadata=None):
         verify_credentials()
     except Exception as e:
         print(f"[facebook] Pre-flight FAILED: {e}")
-        print("[facebook] Skipping upload — credentials invalid.")
-        return save_for_manual(video_path, build_description(topic, script_text))
+        print("[facebook] Credentials invalid — saving for manual upload. Check/regenerate FB_PAGE_ACCESS_TOKEN.")
+        desc = build_description(topic, script_text)
+        result = save_for_manual(video_path, desc)
+        result["error"] = str(e)
+        return result
 
     if seo_metadata and "facebook" in seo_metadata:
         description = seo_metadata["facebook"]["description"]
