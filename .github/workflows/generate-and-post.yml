@@ -117,23 +117,38 @@ jobs:
         run: |
           git config user.name "Quietlyy Bot"
           git config user.email "bot@quietlyy.com"
-          git add -f assets/gallery/ assets/market_research.json assets/used_scripts.json assets/used_topics.json || true
+          # Copy pipeline status to assets so it's visible in the repo (no artifact download needed)
+          if [ -f output/pipeline_status.json ]; then
+            cp output/pipeline_status.json assets/last_run_status.json
+          fi
+          git add -f assets/gallery/ assets/market_research.json assets/used_scripts.json assets/used_topics.json assets/last_run_status.json || true
           git diff --cached --quiet || git commit -m "Bot: gallery + research cache [run #${{ github.run_number }}]"
           git push || true
 
-      - name: Show YouTube error in log
+      - name: Show pipeline status in log
         if: always()
         run: |
+          if [ -f output/pipeline_status.json ]; then
+            echo "===== PIPELINE STATUS ====="
+            cat output/pipeline_status.json
+            echo "==========================="
+          fi
           if [ -f output/youtube_error.json ]; then
             echo "::error::YouTube posting failed — see details below"
             echo "===== YOUTUBE ERROR ====="
             cat output/youtube_error.json
             echo "========================="
           fi
-          if [ -f output/pipeline_status.json ]; then
-            echo "===== PIPELINE STATUS ====="
-            cat output/pipeline_status.json
+          if [ -f output/instagram_error.json ]; then
+            echo "::error::Instagram posting failed — see details below"
+            echo "===== INSTAGRAM ERROR ====="
+            cat output/instagram_error.json
             echo "==========================="
+          fi
+          if [ -f output/post_result.json ]; then
+            echo "===== FACEBOOK RESULT ====="
+            cat output/post_result.json
+            echo "=========================="
           fi
 
       - name: Upload video artifact
