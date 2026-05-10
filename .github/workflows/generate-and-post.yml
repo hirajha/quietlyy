@@ -1,15 +1,12 @@
-name: Quietlyy — Generate & Post Video
+name: Quietlyy -- Generate & Post Video
 
 on:
-  # 4x daily — modeled on top viral emotional pages (Whispers-style growth strategy)
-  # Research: 3-5 posts/day = 5-7x more follower growth vs 1-2x/day
   schedule:
-    - cron: '30 1 * * *'   # 07:00 AM IST — morning scroll peak (commute/breakfast)
-    - cron: '30 5 * * *'   # 11:00 AM IST — mid-morning scroll peak
-    - cron: '30 9 * * *'   # 02:30 PM IST — afternoon lull scroll
-    - cron: '30 16 * * *'  # 10:00 PM IST — late-night scroll peak (best for emotional content)
+    - cron: '30 1 * * *'   # 07:00 AM IST
+    - cron: '30 5 * * *'   # 11:00 AM IST
+    - cron: '30 9 * * *'   # 02:30 PM IST
+    - cron: '30 16 * * *'  # 10:00 PM IST
 
-  # Manual trigger (testing / emergency post)
   workflow_dispatch:
     inputs:
       post_to_social:
@@ -34,7 +31,7 @@ on:
         default: ''
         type: string
       style:
-        description: 'Force a style: love / emotional / nostalgic / poetic / wisdom (auto: love→emotional→love→WISDOM every 3 videos)'
+        description: 'Force a style: love / emotional / nostalgic / poetic / wisdom'
         required: false
         default: ''
         type: string
@@ -44,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
-      contents: write  # Required for git push in "Save gallery" step
+      contents: write
 
     steps:
       - name: Checkout repo
@@ -71,30 +68,21 @@ jobs:
 
       - name: Run pipeline
         env:
-          # Script generation (ChatGPT → Gemini → Groq fallback)
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          # Voice — ElevenLabs only (no fallback: incomplete audio = skip day)
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
-          # Image generation — HuggingFace is free primary, gpt-image-1 paid fallback
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-          # Background music
           FREESOUND_API_KEY: ${{ secrets.FREESOUND_API_KEY }}
-          # Facebook + Instagram
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
-          # YouTube Shorts
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-          # Optional but recommended: set to your Quietlyy channel ID (UCxxxxxxxx)
-          # to block uploads if the wrong Google account is authorized.
-          # Find it at: youtube.com → your channel → About → Share → Copy channel ID
           YOUTUBE_CHANNEL_ID: ${{ secrets.YOUTUBE_CHANNEL_ID }}
         run: |
           ARGS=""
@@ -113,11 +101,10 @@ jobs:
           python scripts/pipeline.py $ARGS
 
       - name: Save gallery + research cache to repo
-        if: success()
+        if: always()
         run: |
           git config user.name "Quietlyy Bot"
           git config user.email "bot@quietlyy.com"
-          # Copy pipeline status to assets so it's visible in the repo (no artifact download needed)
           if [ -f output/pipeline_status.json ]; then
             cp output/pipeline_status.json assets/last_run_status.json
           fi
@@ -134,21 +121,17 @@ jobs:
             echo "==========================="
           fi
           if [ -f output/youtube_error.json ]; then
-            echo "::error::YouTube posting failed — see details below"
-            echo "===== YOUTUBE ERROR ====="
+            echo "::error::YouTube posting failed"
             cat output/youtube_error.json
-            echo "========================="
           fi
           if [ -f output/instagram_error.json ]; then
-            echo "::error::Instagram posting failed — see details below"
-            echo "===== INSTAGRAM ERROR ====="
+            echo "::error::Instagram posting failed"
             cat output/instagram_error.json
-            echo "==========================="
           fi
           if [ -f output/post_result.json ]; then
             echo "===== FACEBOOK RESULT ====="
             cat output/post_result.json
-            echo "=========================="
+            echo "==========================="
           fi
 
       - name: Upload video artifact
