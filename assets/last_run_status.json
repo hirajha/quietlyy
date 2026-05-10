@@ -1,0 +1,26 @@
+{
+  "start": {
+    "result": "ok",
+    "detail": "pipeline started"
+  },
+  "research": {
+    "result": "ok",
+    "detail": ""
+  },
+  "ideas": {
+    "result": "ok",
+    "detail": "6 ideas"
+  },
+  "script": {
+    "result": "ok",
+    "detail": "The Exhaustion of Pretending to Be Okay"
+  },
+  "audio": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3"
+  },
+  "images": {
+    "result": "fail",
+    "detail": "Image generation failed for panel 1 (tried HF, gpt-image-1, Gemini). No earlier panels to reuse."
+  }
+}
