@@ -104,5 +104,20 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "When You Have to Pretend You Are Fine at Work",
+    "style": "emotional",
+    "script": "You said fine. You were not fine.\nBefore the meeting, you rehearsed a smile.\nIn the mirror, a stranger's face stared back.\nA mask you wear, a weight you carry.\nYou're not alone in this silent struggle.\nThe burden of pretending is a heavy one.\nMay you find the strength to lay it down.",
+    "hash": "e7e66b6bd7fecd10c54a103e7035f43b",
+    "metaphors": [
+      "star",
+      "mirror",
+      "mask"
+    ],
+    "themes": [
+      "loneliness",
+      "silence"
+    ]
   }
 ]
