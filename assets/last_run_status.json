@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "You Make the Hard Days Easier"
+    "detail": "The Way You Look at Me"
   },
   "audio": {
     "result": "ok",
@@ -44,15 +44,15 @@
     "detail": ""
   },
   "facebook": {
-    "result": "ok",
-    "detail": "954931317334741"
+    "result": "skipped",
+    "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18002286188748270"
+    "result": "skipped",
+    "detail": ""
   },
   "youtube": {
-    "result": "ok",
-    "detail": "https://www.youtube.com/shorts/1TES6gnnQdo"
+    "result": "skipped",
+    "detail": ""
   }
 }
