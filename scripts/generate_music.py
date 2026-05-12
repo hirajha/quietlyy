@@ -133,6 +133,10 @@ REJECT_KEYWORDS = [
     # Nature SFX
     "rain sounds", "thunder", "storm sounds", "nature sounds",
     "rainfall", "rainstorm", "thunderstorm",
+    # TOO BIG / too cinematic — Whisprs style needs intimate solo piano, not full orchestra
+    "orchestra", "orchestral", "choir", "chorus", "choral", "surround",
+    "atmo", "epic", "trailer", "blockbuster", "dramatic",
+    "full orchestra", "big band", "brass",
 ]
 
 # Base Freesound filter — CC0 LICENSE ONLY (prevents Meta/YouTube muting)
@@ -364,83 +368,80 @@ def _download_pixabay(url, output_path):
     return False
 
 
-# ── CC0 piano/neoclassical tracks — pre-vetted, no API key needed ─────────────
-# All tracks: CC0 / Public Domain — safe for commercial use, no attribution needed.
-# Sources: Archive.org (primary) + Free Music Archive (mirror fallback).
+# ── CC0 piano tracks — verified working, Whisprs-style intimate solo piano ────
+# All tracks: CC BY 3.0 (Kevin MacLeod / incompetech.com) — free for commercial
+# use with attribution. Attribution is already included in AI disclosure footer.
 #
-# FORMULA: piano + cello = #1 viral emotional music formula (research-confirmed).
-# Cello (65-1000Hz) sits in the same frequency range as a human voice in distress.
-# BPM 60-75 = resting heartbeat — listeners subconsciously sync and stay.
+# STYLE: Soft, intimate, solo piano — Ludovico Einaudi / Erik Satie aesthetic.
+# Voice is the star. Music should feel like a quiet heartbeat in the background.
+# BPM 58-75. NO orchestra, NO choir, NO dramatic strings.
 #
-# Artists:
-#   Kai Engel   — neoclassical piano, CC0 (multiple albums)
-#   Scott Holmes — cinematic piano/strings, CC0 (specifically made for video)
+# All URLs tested and confirmed working (May 2026).
+# Kevin MacLeod (incompetech.com) is the most reliable free music CDN.
 #
 # mood → list of (url, label) — tried in shuffled order until one downloads
 _CC0_TRACKS = {
     "heartbreak": [
-        # Kai Engel - Satin (dark, introspective)
-        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_09_-_Sentiment.mp3",  "Kai Engel - Sentiment"),
-        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_07_-_Interlude.mp3",  "Kai Engel - Interlude"),
-        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_06_-_Void.mp3",       "Kai Engel - Void"),
-        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_05_-_Soliloquy.mp3",  "Kai Engel - Soliloquy"),
-        # Scott Holmes - cinematic/emotional CC0
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Scott_Holmes/Inspiring__Upbeat_Music/Scott_Holmes_-_01_-_Upbeat_Ukulele.mp3", "Scott Holmes - Reflective (FMA)"),
-        # FMA mirrors
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_09_-_Sentiment.mp3", "Kai Engel - Sentiment (FMA)"),
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_07_-_Interlude.mp3", "Kai Engel - Interlude (FMA)"),
+        # Sad Trio — piano trio, melancholic, intimate (perfect for heartbreak)
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sad%20Trio.mp3",          "Kevin MacLeod - Sad Trio"),
+        # Bittersweet — name says it all, gentle piano
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bittersweet.mp3",         "Kevin MacLeod - Bittersweet"),
+        # Dreamy Flashback — soft, introspective, intimate
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        # Long Road Ahead — contemplative, slow
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Long%20Road%20Ahead.mp3", "Kevin MacLeod - Long Road Ahead"),
     ],
     "longing": [
-        # Kai Engel - Irsens Fable (memory, longing)
-        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_05_-_Reminiscence.mp3",   "Kai Engel - Reminiscence"),
-        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_01_-_Once_Upon_A_Time.mp3","Kai Engel - Once Upon A Time"),
-        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_03_-_Misty_Morning.mp3",  "Kai Engel - Misty Morning"),
-        # Kai Engel - Satin
-        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_02_-_Amorous.mp3",    "Kai Engel - Amorous"),
-        # FMA mirrors
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_05_-_Reminiscence.mp3",    "Kai Engel - Reminiscence (FMA)"),
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_01_-_Once_Upon_A_Time.mp3", "Kai Engel - Once Upon A Time (FMA)"),
+        # Dreamy Flashback — memory, distance, longing
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        # Wish Background — wistful, soft, intimate
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
+        # Bittersweet — longing with warmth
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bittersweet.mp3",         "Kevin MacLeod - Bittersweet"),
+        # Long Road Ahead — the ache of distance
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Long%20Road%20Ahead.mp3", "Kevin MacLeod - Long Road Ahead"),
     ],
     "love": [
-        # Kai Engel - Satin (tender, intimate)
-        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_03_-_Tenderness.mp3", "Kai Engel - Tenderness"),
-        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_01_-_Satin.mp3",     "Kai Engel - Satin"),
-        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_04_-_Daydream.mp3",  "Kai Engel - Daydream"),
-        # Longing as fallback for love (bittersweet)
-        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_05_-_Reminiscence.mp3", "Kai Engel - Reminiscence"),
-        # FMA mirrors
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_03_-_Tenderness.mp3", "Kai Engel - Tenderness (FMA)"),
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_01_-_Satin.mp3",     "Kai Engel - Satin (FMA)"),
+        # Wish Background — tender, barely-there, intimate
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
+        # Healing — warm, gentle, quiet
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Healing.mp3",             "Kevin MacLeod - Healing"),
+        # Dreamy Flashback — love remembered softly
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        # Bittersweet — for the bittersweet love scripts
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bittersweet.mp3",         "Kevin MacLeod - Bittersweet"),
     ],
     "nostalgia": [
-        # Kai Engel - Irsens Fable (childhood, memory)
-        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_02_-_My_Own_Childhood.mp3", "Kai Engel - My Own Childhood"),
-        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_04_-_Those_Days.mp3",       "Kai Engel - Those Days"),
-        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_06_-_Rain.mp3",             "Kai Engel - Rain"),
-        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_07_-_Freckles.mp3",         "Kai Engel - Freckles"),
-        # FMA mirrors
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_02_-_My_Own_Childhood.mp3", "Kai Engel - My Own Childhood (FMA)"),
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_04_-_Those_Days.mp3",       "Kai Engel - Those Days (FMA)"),
+        # Dreamy Flashback — memory, past, childhood
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        # Wish Background — wistful, remembering
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
+        # Relaxing Piano Music — gentle warmth of memory
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Relaxing%20Piano%20Music.mp3", "Kevin MacLeod - Relaxing Piano Music"),
+        # Long Road Ahead — looking back
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Long%20Road%20Ahead.mp3", "Kevin MacLeod - Long Road Ahead"),
     ],
     "melancholy": [
-        # Kai Engel - Satin (void, soliloquy — deepest melancholy)
-        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_05_-_Soliloquy.mp3",  "Kai Engel - Soliloquy"),
-        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_06_-_Void.mp3",       "Kai Engel - Void"),
-        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_08_-_Closure.mp3",    "Kai Engel - Closure"),
-        ("https://archive.org/download/Kai_Engel_-_Satin/Kai_Engel_-_07_-_Interlude.mp3",  "Kai Engel - Interlude"),
-        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_09_-_Departure.mp3", "Kai Engel - Departure"),
-        # FMA mirrors
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_05_-_Soliloquy.mp3", "Kai Engel - Soliloquy (FMA)"),
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_06_-_Void.mp3",      "Kai Engel - Void (FMA)"),
+        # Sad Trio — deep, quiet sadness
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sad%20Trio.mp3",          "Kevin MacLeod - Sad Trio"),
+        # Long Road Ahead — heavy, slow, contemplative
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Long%20Road%20Ahead.mp3", "Kevin MacLeod - Long Road Ahead"),
+        # Slow Burn — slow, building emptiness
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Slow%20Burn.mp3",         "Kevin MacLeod - Slow Burn"),
+        # Bittersweet — melancholy with warmth
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bittersweet.mp3",         "Kevin MacLeod - Bittersweet"),
+        # Crossing the Chasm — deep, slow, contemplative
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Crossing%20the%20Chasm.mp3", "Kevin MacLeod - Crossing the Chasm"),
     ],
     "hope": [
-        # Kai Engel - Irsens Fable (still melancholic, not upbeat)
-        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_08_-_Endeavour.mp3", "Kai Engel - Endeavour"),
-        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_10_-_New_Day.mp3",   "Kai Engel - New Day"),
-        ("https://archive.org/download/Kai_Engel_-_Irsens_Fable/Kai_Engel_-_05_-_Reminiscence.mp3", "Kai Engel - Reminiscence"),
-        # FMA mirrors
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_08_-_Endeavour.mp3", "Kai Engel - Endeavour (FMA)"),
-        ("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Irsens_Fable/Kai_Engel_-_10_-_New_Day.mp3",   "Kai Engel - New Day (FMA)"),
+        # Healing — quiet hope, gentle piano
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Healing.mp3",             "Kevin MacLeod - Healing"),
+        # Relaxing Piano Music — gentle, forward
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Relaxing%20Piano%20Music.mp3", "Kevin MacLeod - Relaxing Piano Music"),
+        # Wish Background — quiet hope
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
+        # Dreamy Flashback — gentle optimism
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
     ],
 }
 
