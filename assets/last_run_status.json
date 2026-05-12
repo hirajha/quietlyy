@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When Just Being Near You Is Enough"
+    "detail": "The Voice in Your Head That Says You Are Not Enough"
   },
   "audio": {
     "result": "ok",
@@ -25,7 +25,7 @@
   },
   "music": {
     "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [freesound_cc0]"
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [cc0_library]"
   },
   "video": {
     "result": "ok",
@@ -44,15 +44,15 @@
     "detail": ""
   },
   "facebook": {
-    "result": "ok",
+    "result": "skipped",
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18102380716972084"
+    "result": "skipped",
+    "detail": ""
   },
   "youtube": {
-    "result": "ok",
-    "detail": "https://www.youtube.com/shorts/NIpqQ3V_c2o"
+    "result": "skipped",
+    "detail": ""
   }
 }
