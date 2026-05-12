@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When You Have to Pretend You Are Fine at Work"
+    "detail": "The Freedom of Acceptance"
   },
   "audio": {
     "result": "ok",
@@ -21,7 +21,7 @@
   },
   "images": {
     "result": "ok",
-    "detail": "8 panels"
+    "detail": "5 panels"
   },
   "music": {
     "result": "ok",
@@ -44,15 +44,15 @@
     "detail": ""
   },
   "facebook": {
-    "result": "ok",
+    "result": "skipped",
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17923469913127591"
+    "result": "skipped",
+    "detail": ""
   },
   "youtube": {
-    "result": "ok",
-    "detail": "https://www.youtube.com/shorts/8YBzWvdkrCU"
+    "result": "skipped",
+    "detail": ""
   }
 }
