@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Way You Look at Me"
+    "detail": "When You Have to Pretend You Are Fine at Work"
   },
   "audio": {
     "result": "ok",
@@ -44,15 +44,15 @@
     "detail": ""
   },
   "facebook": {
-    "result": "skipped",
+    "result": "ok",
     "detail": ""
   },
   "instagram": {
-    "result": "skipped",
-    "detail": ""
+    "result": "ok",
+    "detail": "17923469913127591"
   },
   "youtube": {
-    "result": "skipped",
-    "detail": ""
+    "result": "ok",
+    "detail": "https://www.youtube.com/shorts/8YBzWvdkrCU"
   }
 }
