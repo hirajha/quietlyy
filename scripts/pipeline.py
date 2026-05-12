@@ -41,7 +41,7 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 MIN_AUDIO_BYTES   = 100_000   # 100 KB
 MIN_IMAGE_BYTES   =  50_000   # 50 KB
 MIN_VIDEO_BYTES   = 800_000   # 800 KB
-NUM_PANELS        = 8
+NUM_PANELS        = 5
 
 _pipeline_status = {}
 

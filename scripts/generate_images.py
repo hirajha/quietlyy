@@ -114,6 +114,19 @@ _SCENE_POOL_CLOSEUP = [
     "A woman reading an old letter by candlelight, flame casting warm amber on her face, "
     "surrounding darkness, deep blue shadows, "
     "dark anime illustration — emotional, cinematic, beautiful",
+
+    # Whisprs-style — the feeling before you say it
+    "Close-up of a person's eyes, slightly wet, looking upward as if trying not to cry, "
+    "soft lamp glow catching the edge of their face, deep dark background, "
+    "dark cinematic anime — raw emotion, intimate, quietly devastating",
+
+    "Side profile of a young man, jaw tight, staring at nothing, late at night, "
+    "single warm light source from the side, deep dark background, "
+    "dark anime illustration — the feeling of holding something in, cinematic, emotional",
+
+    "Close-up of a person's hands holding a phone face-down on a dark surface, "
+    "soft amber glow from a lamp, deep shadows, "
+    "dark cinematic illustration — the message they didn't send, intimate, heavy",
 ]
 
 _SCENE_POOL_WIDE = [
@@ -170,6 +183,23 @@ _SCENE_POOL_INTERIOR = [
     "Someone sitting on the floor against a bed, knees drawn up, "
     "single lamp glowing in the background, deep dark bedroom around them, "
     "dark anime illustration — vulnerable, intimate, beautiful",
+
+    # Whisprs-style — feelings whispered to yourself
+    "A person holding their phone in the dark, screen glow on their face, "
+    "thumb hovering over a contact name, not sending, deep dark bedroom, "
+    "dark cinematic anime style — unspoken words, emotional, intimate",
+
+    "A young woman sitting alone in a car at night, hands still on the wheel, "
+    "staring at a lit doorway she hasn't walked into, soft dashboard glow, "
+    "dark anime illustration — the pause before a choice, deeply emotional",
+
+    "Close-up of hands wrapped around a warm cup, soft lamp light, "
+    "person sitting alone in a dark kitchen at 3am, "
+    "dark cinematic illustration — quiet grief, intimate, beautiful",
+
+    "A person standing at a dark window, forehead gently resting on the glass, "
+    "breath fogging slightly, city lights blurred outside, deep navy interior, "
+    "dark anime style — the weight of missing someone, cinematic, emotional",
 ]
 
 _SCENE_POOL_TWO_PEOPLE = [
@@ -195,12 +225,13 @@ _SCENE_POOL_TWO_PEOPLE = [
     "deep navy and warm amber contrast, dark anime illustration",
 ]
 
-# Combined pool — weighted
+# Combined pool — weighted for Whisprs-style intimate feel
+# Interior and close-up are weighted highest — they match the "feelings whispered to yourself" aesthetic
 _SCENE_POOL = (
-    _SCENE_POOL_CLOSEUP * 2 +
-    _SCENE_POOL_WIDE * 2 +
-    _SCENE_POOL_INTERIOR * 3 +
-    _SCENE_POOL_TWO_PEOPLE * 2
+    _SCENE_POOL_CLOSEUP * 3 +   # intimate, personal — stop the scroll
+    _SCENE_POOL_INTERIOR * 4 +  # 3am moments, unspoken feelings
+    _SCENE_POOL_WIDE * 1 +      # occasional breathing room
+    _SCENE_POOL_TWO_PEOPLE * 2  # for love/relationship scripts
 )
 
 # ── Art style variants — ALL dark cinematic anime (matching the 778-view top performer)

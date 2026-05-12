@@ -70,13 +70,25 @@ def verify_credentials():
 
 
 def build_description(topic, script_text):
+    """Build a Whisprs-style viral caption — the script IS the hook, then hashtags."""
     lines = [line.strip() for line in script_text.split("\n") if line.strip()]
     caption = "\n".join(lines)
+
+    # Emotional hashtag sets — rotate by topic hash so different videos get different tags
+    _TAG_SETS = [
+        "#emotional #feelings #deepthoughts #mentalhealth #selfcare #quotes #relateable #mindset",
+        "#feelings #innerpeace #healing #emotionalhealth #lifequotes #mindfulness #selflove #quotes",
+        "#unspoken #heartfelt #deepthoughts #emotions #healing #relateable #mentalhealthmatters #quotes",
+        "#honesty #rawest #innermonologue #feelings #emotional #realquotes #selfawareness #mindset",
+        "#healing #emotionalquotes #deepfeeling #vulnerability #feelings #mentalhealth #selflove #quotes",
+    ]
+    tag_idx = hash(topic) % len(_TAG_SETS)
+    tags = _TAG_SETS[tag_idx]
+
     return (
         f"{caption}\n\n"
-        f"-- Quietlyy\n\n"
-        f"#Quietlyy #{topic.replace(' ', '')} #nostalgia #memories "
-        f"#deepthoughts #lifequotes #reflection #lostmoments\n\n"
+        f"— Quietlyy\n\n"
+        f"#Quietlyy {tags}\n\n"
         f"AI assistance was used in the making of this video."
     )
 
