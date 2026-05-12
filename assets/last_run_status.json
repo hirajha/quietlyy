@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Freedom of Acceptance"
+    "detail": "When Just Being Near You Is Enough"
   },
   "audio": {
     "result": "ok",
@@ -44,15 +44,15 @@
     "detail": ""
   },
   "facebook": {
-    "result": "skipped",
+    "result": "ok",
     "detail": ""
   },
   "instagram": {
-    "result": "skipped",
-    "detail": ""
+    "result": "ok",
+    "detail": "18102380716972084"
   },
   "youtube": {
-    "result": "skipped",
-    "detail": ""
+    "result": "ok",
+    "detail": "https://www.youtube.com/shorts/NIpqQ3V_c2o"
   }
 }
