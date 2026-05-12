@@ -13,14 +13,46 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The First Time I Knew"
+    "detail": "You Make the Hard Days Easier"
   },
   "audio": {
     "result": "ok",
     "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3"
   },
   "images": {
-    "result": "fail",
-    "detail": "Image generation failed for panel 1 (tried HF, DALL-E 3, gpt-image-1, Gemini Imagen). No earlier panels to reuse."
+    "result": "ok",
+    "detail": "8 panels"
+  },
+  "music": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [freesound_cc0]"
+  },
+  "video": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/quietlyy_video.mp4"
+  },
+  "quality_gate": {
+    "result": "ok",
+    "detail": ""
+  },
+  "copyright": {
+    "result": "ok",
+    "detail": ""
+  },
+  "seo": {
+    "result": "ok",
+    "detail": ""
+  },
+  "facebook": {
+    "result": "ok",
+    "detail": "954931317334741"
+  },
+  "instagram": {
+    "result": "ok",
+    "detail": "18002286188748270"
+  },
+  "youtube": {
+    "result": "ok",
+    "detail": "https://www.youtube.com/shorts/1TES6gnnQdo"
   }
 }
