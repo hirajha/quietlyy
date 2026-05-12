@@ -201,28 +201,28 @@ EXAMPLES (notice: short, tight, paradox lives inside the image):
     elif style == "love":
         style_examples = [e for e in examples if e.get("style") == "love"][:2]
         examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
-        return f"""Generate a viral 15-20 second love poem for "Quietlyy" — soft, intimate, the kind that makes someone put their phone down and think of one specific person.{audience_block}{avoid_block}
+        return f"""Generate a viral 30-35 second love poem for "Quietlyy" — soft, intimate, the kind that makes someone put their phone down and immediately think of one specific person.{audience_block}{avoid_block}
 
 Topic: {topic}
 Tone: tender whisper — the feeling you have about someone but rarely say out loud. Inspired by Rupi Kaur and Atticus but completely original.
 
 Rules:
-- Write in second person ("you") — speak directly to the person being loved, like a text you almost sent
-- Short fragmented lines — 4-7 words, reads like a quiet breath
-- Use ONE sensory or specific detail that makes it feel real — not a list of nice things, ONE moment
+- Write in second person ("you") — speak directly to the person being loved, like a letter never sent
+- Short fragmented lines — 5-9 words, reads like a quiet breath
+- Use ONE sensory or specific detail that makes it feel real — not a list, ONE moment that carries everything
 - The love should feel QUIET, SAFE, and UNSPOKEN — not dramatic or desperate
-- Build a feeling through images, not declarations — they should feel it before they name it
+- Build the feeling slowly through images — they should feel it before they name it
 - Use "…" for pauses
 - End with a natural CTA that feels like a nudge, not a marketing line: "Send this to them. They deserve to know." / "Tag the one who feels like home." / "Tag the person who makes ordinary days feel different."
-- 5-7 lines TOTAL including CTA — tight, no filler
+- 8-9 lines TOTAL including CTA — enough for 30 seconds, no filler
 - NO clichés: no "my heart", no "soul mate", no "forever and always" — fresh language only
 
 Also provide 4 visual keywords: quiet intimate moments, dark warm light, tender closeness.
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\ncta_line", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\ncta_line", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
 
-EXAMPLES (notice: short, specific, quiet — not loud):
+EXAMPLES (notice: specific, quiet, builds slowly — not a list of compliments):
 {examples_text}"""
 
     elif style == "nostalgic":
@@ -239,18 +239,19 @@ CRITICAL RULES:
 - NEVER start with "There was a time", "In a world", "Have you ever", "We live in", "Some people"
 - Short punchy lines — 6-10 words max, reads like a quiet spoken memory
 - Use "…" for emotional pauses
-- 5-6 lines TOTAL — tight, every line counts
+- 8-9 lines TOTAL — enough for 30 seconds, every line counts
 
 Structure:
 Line 1: HOOK — paint the warmth/belonging (not the object). Make them feel it immediately.
-Lines 2-3: The specific feeling that made that time irreplaceable
-Line 4-5: The quiet honest shift — what changed, without bitterness
+Lines 2-4: The specific feeling that made that time irreplaceable — expand it slowly
+Lines 5-6: What quietly changed — honest but not bitter, just true
+Lines 7-8: The ache — what's missing now, what they carry
 Last line: Gentle share nudge — "Send this to someone you used to be closer to." / "Save this for the people who still matter."
 
 Also provide 4 visual keywords (warm human scenes: family, togetherness, shared moments — NO objects).
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\nline9", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
 
 EXAMPLES:
 {examples_text}"""
@@ -270,17 +271,17 @@ EXAMPLES:
 
 Topic: {topic}
 
-FORMAT (follow exactly — 6 lines total):
+FORMAT (follow exactly — 8 lines total):
 Line 1: Attribution — e.g. "Rumi once wrote…" / "Marcus Aurelius kept this in his journal…" / "An old Japanese proverb says…" / "Kahlil Gibran once said…" / "Buddha taught…" / "Maya Angelou wrote…"
-Lines 2-3: The quote itself — word-for-word as that thinker said it, or written so faithfully in their spirit it is indistinguishable. Split naturally across 2 lines. No filler added.
-Lines 4-5: The reflection — 2 short lines that unpack what this means for real life. Specific, felt, honest. NOT a TED talk. NOT generic advice.
-Line 6: Soft share nudge — "Save this for the days you forget." / "Send this to someone carrying something heavy." / "Tag someone who needs to hear this today."
+Lines 2-4: The quote itself — word-for-word as that thinker said it, or written so faithfully in their spirit it is indistinguishable. Split naturally across 3 lines. No filler added.
+Lines 5-7: The reflection — 3 short lines that unpack what this means for real life. Specific, felt, honest. NOT a TED talk. NOT generic advice. Let it breathe.
+Line 8: Soft share nudge — "Save this for the days you forget." / "Send this to someone carrying something heavy." / "Tag someone who needs to hear this today."
 
 CRITICAL RULES:
 - NEVER insert branded filler INSIDE or after the quote
 - The quote ends cleanly — no bridge, no "And quietly…" commentary
 - The reflection starts with the unpacking, not a transition phrase
-- 6 lines TOTAL — no more
+- 8 lines TOTAL — enough for 30 seconds
 
 WISDOM SOURCES (pick what fits the topic):
 - Rumi — love, longing, transformation, the soul
@@ -306,7 +307,7 @@ Return ONLY valid JSON:
 {{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
     else:  # emotional — grief, longing, unspoken pain, human truths
-        return f"""Generate a viral 15-20 second emotional script for "Quietlyy" — inspired by Whisprs, the page with 2M followers in 2 months. Their secret: they name feelings people whisper to themselves but never say out loud.
+        return f"""Generate a viral 30-35 second emotional script for "Quietlyy" — inspired by Whisprs, the page with 2M followers in 2 months. Their secret: they name feelings people whisper to themselves but never say out loud.
 
 TARGET FEELING: The viewer thinks "who told them about my life?" — like the script read their private inner monologue. NOT generic motivation. NOT advice. A specific, unspoken human truth they have NEVER heard said so simply.
 
@@ -324,24 +325,27 @@ FEELINGS THAT GO VIRAL (pick the sharpest angle for this topic):
 Rules:
 - Line 1: A scroll-stopping specific MOMENT — concrete, not abstract. "You still check their profile." / "You said fine. You were not fine." / "You're tired. Not sleepy. Just… tired."
 - NEVER start with "You were...", "You weren't...", "Some people", "There was a time", "In a world" — banned
-- Short punchy lines — 4-8 words each, fast rhythm, each line is a quiet gut punch
+- Short punchy lines — 5-10 words each, fast rhythm, each line is a quiet gut punch
 - ONE central image that makes the feeling concrete and specific — not a list of metaphors
 - MUST have a turn — one line that quietly reframes everything before it
+- Build slowly — let the emotion breathe and deepen across lines
 - End with something so honest they'll screenshot it
 - Last line: organic share nudge — "Save this for the days you forget." / "Send this to someone carrying something heavy." / "Tag someone who needs to hear this."
-- 5-6 lines TOTAL — no padding, no filler. Every line earns its place.
+- 8-9 lines TOTAL including CTA — enough to fill 30 seconds, every line earns its place
 - NO hashtags, NO emojis, NO stage directions
 
 Structure:
 Line 1: HOOK — one specific moment, phrased in a way they've never heard (stop the scroll)
 Lines 2-3: Deepen — the quiet truth underneath, make it feel personal and unspoken
-Lines 4-5: The turn + honest exhale — the realization that makes them feel seen, not lectured
-Line 6: CTA — "Save this for the heavy days." or "Send this to someone who needs it."
+Lines 4-5: Expand — the second layer, the thing underneath the thing
+Lines 6-7: The turn + honest exhale — the realization that makes them feel seen, not lectured
+Line 8: Landing — something quietly powerful, screenshot-worthy
+Line 9: CTA — "Save this for the heavy days." or "Send this to someone who needs it."
 
 Also provide 4 visual keywords (solitary, intimate scenes — 3am moments, dark rooms, quiet figures).
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\nline9", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
 
 EXAMPLES (study the hook — how specific and quiet the first line is):
 {examples_text}"""
@@ -354,7 +358,7 @@ def _call_openai_compatible(url, key, model, prompt):
         json={
             "model": model,
             "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": 350,
+            "max_tokens": 500,
             "temperature": 0.92,
             "response_format": {"type": "json_object"},
         },
