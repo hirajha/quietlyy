@@ -322,15 +322,61 @@ def _crop_to_portrait(image_path):
 
 
 def generate_with_dalle(prompt, output_path):
-    """Generate image using OpenAI gpt-image-1 API.
-    Migrated from dall-e-3 which is deprecated May 12 2026.
-    Uses 1024x1536 native portrait — no cropping needed."""
+    """Generate image using OpenAI DALL-E 3 (primary) or gpt-image-1 (fallback).
+    DALL-E 3 was the last working model — gpt-image-1 returns 400."""
     import base64
     key = os.environ.get("OPENAI_API_KEY")
     if not key:
         return False
 
-    for attempt in range(3):
+    # Try DALL-E 3 first (was working until Apr 28)
+    for attempt in range(2):
+        try:
+            resp = requests.post(
+                "https://api.openai.com/v1/images/generations",
+                headers={
+                    "Authorization": f"Bearer {key}",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "model": "dall-e-3",
+                    "prompt": prompt,
+                    "n": 1,
+                    "size": "1024x1024",  # Square — avoids sideways composition
+                    "quality": "standard",
+                    "response_format": "url",
+                },
+                timeout=120,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            img_url = data["data"][0]["url"]
+            img_resp = requests.get(img_url, timeout=30)
+            img_resp.raise_for_status()
+            if len(img_resp.content) < 5000:
+                continue
+            with open(output_path, "wb") as f:
+                f.write(img_resp.content)
+
+            # Crop square to portrait and resize to 1080x1920
+            from PIL import Image as PILImage, ImageEnhance
+            img = PILImage.open(output_path).convert("RGB")
+            w, h = img.size
+            target_w = int(h * 9 / 16)
+            left = (w - target_w) // 2
+            img = img.crop((left, 0, left + target_w, h))
+            img = ImageEnhance.Brightness(img).enhance(1.15)
+            img = img.resize((1080, 1920), PILImage.LANCZOS)
+            img.save(output_path)
+            print(f"[images] DALL-E 3 succeeded (attempt {attempt+1})")
+            return True
+        except Exception as e:
+            print(f"[images] DALL-E 3 attempt {attempt+1} failed: {e}")
+            if attempt < 1:
+                time.sleep(3)
+
+    # Fallback: gpt-image-1 with correct params
+    for attempt in range(2):
         try:
             resp = requests.post(
                 "https://api.openai.com/v1/images/generations",
@@ -342,72 +388,72 @@ def generate_with_dalle(prompt, output_path):
                     "model": "gpt-image-1",
                     "prompt": prompt,
                     "n": 1,
-                    "size": "1024x1536",   # native portrait — no crop needed
-                    "quality": "medium",   # low/medium/high (was standard/hd)
+                    "size": "1024x1024",
+                    "quality": "low",
                 },
                 timeout=120,
             )
             resp.raise_for_status()
             data = resp.json()
             item = data["data"][0]
-
-            # gpt-image-1 returns b64_json; fall back to url if present
             if "b64_json" in item:
                 img_data = base64.b64decode(item["b64_json"])
             elif "url" in item:
-                img_resp = requests.get(item["url"], timeout=30)
-                img_resp.raise_for_status()
-                img_data = img_resp.content
+                ir = requests.get(item["url"], timeout=30)
+                ir.raise_for_status()
+                img_data = ir.content
             else:
                 continue
-
             if len(img_data) < 5000:
                 continue
             with open(output_path, "wb") as f:
                 f.write(img_data)
 
-            # Resize to exactly 1080x1920 (aspect is already 9:16)
-            # Brighten by 30% — keeps dark cinematic mood but objects visible in daylight
             from PIL import Image as PILImage, ImageEnhance
             img = PILImage.open(output_path).convert("RGB")
-            img = ImageEnhance.Brightness(img).enhance(1.3)
+            w, h = img.size
+            target_w = int(h * 9 / 16)
+            left = (w - target_w) // 2
+            img = img.crop((left, 0, left + target_w, h))
+            img = ImageEnhance.Brightness(img).enhance(1.15)
             img = img.resize((1080, 1920), PILImage.LANCZOS)
             img.save(output_path)
+            print(f"[images] gpt-image-1 succeeded (attempt {attempt+1})")
             return True
         except Exception as e:
             print(f"[images] gpt-image-1 attempt {attempt+1} failed: {e}")
-            if attempt < 2:
+            if attempt < 1:
                 time.sleep(3)
     return False
 
 
 def generate_with_gemini_imagen(prompt, output_path):
-    """Fallback: Google Imagen 3 via Gemini API (uses GEMINI_API_KEY).
-    Replaces DALL-E 3 which was deprecated May 2026."""
+    """Fallback: Google Imagen 3 via Gemini API (uses GEMINI_API_KEY)."""
     import base64
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         return False
     try:
+        # Use the correct generateImages endpoint
         resp = requests.post(
-            f"https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:predict?key={key}",
+            f"https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:generateImages?key={key}",
             headers={"Content-Type": "application/json"},
             json={
-                "instances": [{"prompt": prompt[:2000]}],
-                "parameters": {
-                    "sampleCount": 1,
+                "prompt": prompt[:2000],
+                "config": {
+                    "numberOfImages": 1,
                     "aspectRatio": "9:16",
-                    "safetyFilterLevel": "block_only_high",
+                    "safetyFilterLevel": "BLOCK_ONLY_HIGH",
                 },
             },
             timeout=90,
         )
         resp.raise_for_status()
-        predictions = resp.json().get("predictions", [])
-        if not predictions:
-            print("[images]   Gemini Imagen: no predictions returned")
+        images = resp.json().get("generatedImages", [])
+        if not images:
+            print("[images]   Gemini Imagen: no images returned")
             return False
-        b64 = predictions[0].get("bytesBase64Encoded")
+        b64 = images[0].get("image", {}).get("imageBytes")
         if not b64:
             return False
         img_data = base64.b64decode(b64)
@@ -417,7 +463,7 @@ def generate_with_gemini_imagen(prompt, output_path):
             f.write(img_data)
         from PIL import Image as PILImage, ImageEnhance
         img = PILImage.open(output_path).convert("RGB")
-        img = ImageEnhance.Brightness(img).enhance(1.3)
+        img = ImageEnhance.Brightness(img).enhance(1.15)
         img = img.resize((1080, 1920), PILImage.LANCZOS)
         img.save(output_path)
         print("[images]   Gemini Imagen 3 fallback succeeded")
@@ -519,14 +565,14 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
 
         prompt = generate_image_prompt(topic, visual_keywords, i, style=style)
 
-        # Free-first provider chain
+        # Provider chain: HF (free) → DALL-E 3 / gpt-image-1 → Gemini Imagen 3
         print(f"[images] Panel {i+1}/{num_panels}: trying HuggingFace (free)...")
         success = generate_with_huggingface(prompt, output_path)
         if not success:
-            print(f"[images]   HF failed — trying gpt-image-1...")
+            print(f"[images]   HF failed — trying DALL-E 3 / gpt-image-1...")
             success = generate_with_dalle(prompt, output_path)
         if not success:
-            print(f"[images]   gpt-image-1 failed — trying Gemini Imagen 3...")
+            print(f"[images]   OpenAI failed — trying Gemini Imagen 3...")
             success = generate_with_gemini_imagen(prompt, output_path)
 
         if success:
@@ -539,7 +585,7 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
                 shutil.copy2(reuse_src, output_path)
                 print(f"[images] Panel {i+1}: reusing earlier panel (all providers failed)")
             else:
-                raise RuntimeError(f"Image generation failed for panel {i+1} (tried HF, gpt-image-1, Gemini). No earlier panels to reuse.")
+                raise RuntimeError(f"Image generation failed for panel {i+1} (tried HF, DALL-E 3, gpt-image-1, Gemini Imagen). No earlier panels to reuse.")
 
         paths.append(output_path)
 
