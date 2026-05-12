@@ -80,215 +80,175 @@ def _pick_reuse_panels(num_panels):
     return {}
 
 
-# ── High-performing aesthetic (based on 778-view top video "Rediscovering the Beauty of Boredom"):
-# - Dark, moody, cinematic anime/illustration style
-# - Deep navy blues, dark purples, soft teal, midnight indigo backgrounds
-# - A single light source: lamp, moon, window glow — creates drama and depth
-# - Silhouettes or semi-visible figures against atmospheric backgrounds
-# - Lo-fi emotional anime vibe — NOT bright, NOT colorful, NOT Ghibli-cheerful
-# - High visual contrast: dark scene + warm glowing light source
-# - Feels introspective, premium, cinematic — makes viewers stop scrolling
-
-_SCENE_POOL_CLOSEUP = [
-    # Face closeups — soft glow against dark background
-    "Close-up portrait of a young woman, chin resting on her hand, gazing into the distance, "
-    "single warm lamp glow on her face, deep navy blue background fading to black, "
-    "dark cinematic anime illustration style — moody, intimate, emotionally resonant",
-
-    "Side profile of a young woman on a dark train at night, head gently leaning against the window, "
-    "city lights blurring softly outside, reflection of her face in the glass, "
-    "deep blue-black interior, single warm light source, dark atmospheric anime style",
-
-    "Close-up of a young woman's face, eyes looking downward with a gentle melancholy, "
-    "soft teal moonlight from a nearby window, dark blue-grey background, "
-    "dark cinematic illustration — emotionally heavy, beautifully lit, anime aesthetic",
-
-    "A man with tired eyes staring into the distance, single desk lamp glow on his face, "
-    "deep dark navy background, shadows framing his expression, "
-    "cinematic manga illustration style — contemplative, moody, visually striking",
-
-    "Close-up of two people's hands almost touching across a dark table, "
-    "one soft amber candle glow between them, deep dark background, "
-    "dark illustrated style — tender, intimate, cinematic",
-
-    "A woman reading an old letter by candlelight, flame casting warm amber on her face, "
-    "surrounding darkness, deep blue shadows, "
-    "dark anime illustration — emotional, cinematic, beautiful",
-
-    # Whisprs-style — the feeling before you say it
-    "Close-up of a person's eyes, slightly wet, looking upward as if trying not to cry, "
-    "soft lamp glow catching the edge of their face, deep dark background, "
-    "dark cinematic anime — raw emotion, intimate, quietly devastating",
-
-    "Side profile of a young man, jaw tight, staring at nothing, late at night, "
-    "single warm light source from the side, deep dark background, "
-    "dark anime illustration — the feeling of holding something in, cinematic, emotional",
-
-    "Close-up of a person's hands holding a phone face-down on a dark surface, "
-    "soft amber glow from a lamp, deep shadows, "
-    "dark cinematic illustration — the message they didn't send, intimate, heavy",
-]
+# ── Whisprs-matched aesthetic (2M followers in 2 months):
+# - Cinematic GRAPHIC NOVEL / comic illustration style — NOT anime
+# - Wide atmospheric shots: lone figure TINY against vast landscape/sky
+# - Muted cinematic palettes: teal-green, dusty rose/terracotta, warm amber, deep navy
+# - Visible ink lines, watercolor wash, editorial illustration feel
+# - Dramatic skies fill upper 2/3 of frame; tiny figure at bottom 1/3
+# - Mix of wide environmental shots + occasional close portrait illustrations
+# - Lonely, contemplative, wandering — cinematic graphic novel feel
 
 _SCENE_POOL_WIDE = [
-    # Wide scenes — dark atmospheric with single light source
-    "A lone figure standing on a dark hilltop, full moon behind clouds, "
-    "deep indigo-blue sky, soft moonlight spilling across the landscape, "
-    "dark cinematic anime style — vast, atmospheric, emotionally powerful",
+    # ── Wide atmospheric — tiny lone figure vs vast environment (signature Whisprs look)
+    "A lone figure standing in a vast field of tall wild grass, viewed from the side, "
+    "figure small and isolated against a wide muted teal-grey sky with drifting clouds, "
+    "cinematic graphic novel illustration, bold ink outlines with atmospheric wash, "
+    "muted palette: teal sky, olive-green grass, dusty grey — contemplative, emotional",
 
-    "A person sitting alone on a park bench at night, one distant street lamp, "
-    "deep navy sky, soft golden pool of light around them, dark trees silhouetted, "
-    "dark anime illustration — lonely, cinematic, beautiful",
+    "A small lone figure in a dark coat walking away down a winding amber-lit forest path, "
+    "viewed from high above and behind, warm orange-amber light pooling on the muddy ground, "
+    "tall dark bare trees framing both sides, soft glow in the misty distance, "
+    "cinematic editorial illustration, graphic novel comic art style, "
+    "palette: deep forest green, warm amber, dark brown — moody and lonely",
 
-    "Wide view of a dark city at night seen from a rooftop, "
-    "scattered warm window lights below, deep blue-black sky above, "
-    "a lone figure at the edge looking out, "
-    "cinematic dark anime style — vast, moody, introspective",
+    "A tiny lone figure in a red coat walking away along a narrow winding path "
+    "beside a vast dark navy lake, the still water stretching to a distant misty horizon, "
+    "tall wild grass on both sides, viewed from high behind, "
+    "cinematic graphic novel illustration, ink and wash, "
+    "palette: deep navy blue, teal, amber-gold grass — quiet and melancholy",
 
-    "A quiet dark street at night after rain, wet pavement reflecting street lamp light, "
-    "deep blue-black shadows, one figure walking away in the distance, "
-    "dark cinematic anime illustration — melancholy, beautiful, atmospheric",
+    "A person sitting alone on a park bench, figure small at the bottom of the frame, "
+    "vast dusty rose and terracotta sky filling the upper three-quarters of the image, "
+    "a few dark birds scattered in the atmospheric sky, "
+    "cinematic graphic novel editorial illustration style, "
+    "palette: muted dusty rose, terracotta, warm grey — lonely and still",
 
-    "A person standing at the edge of a dark lake at midnight, "
-    "full moon reflected perfectly in still water, deep indigo and black tones, "
-    "soft silver moonlight on their silhouette, "
-    "dark anime illustration — vast, emotional, visually striking",
+    "A woman viewed from behind standing on a wooden bridge walkway at dusk, "
+    "a dramatic suspension bridge structure on the left side, "
+    "vast cloudy amber-orange and teal sky above, misty city skyline in the distance, "
+    "cinematic graphic novel illustration, ink and wash style, "
+    "palette: warm amber, burnt orange, muted teal-grey — atmospheric",
 
-    "A moonlit coastal cliff, dark ocean stretching to the horizon, "
-    "silver moon path on the water, lone figure at the edge, deep blue-black sky, "
-    "dark cinematic illustrated style — breathtaking, moody, emotional",
+    "A lone person sitting on a wooden chair placed in the middle of a vast open field, "
+    "dramatic swirling sky with large cream and white expressive clouds above, "
+    "figure tiny at the very bottom, sky painted in painterly swirling brushstrokes, "
+    "cinematic illustration with oil painting style, "
+    "palette: muted teal sky, cream clouds, warm green field — introspective",
+
+    "Overhead bird's-eye view looking straight down at a lone figure "
+    "standing alone and still in the center of a large moving crowd of people, "
+    "all other figures blurred with motion, one person isolated and stationary, "
+    "cinematic editorial illustration, graphic novel comic art style, "
+    "palette: dark warm brown, terracotta, muted orange — alone in a crowd",
+
+    "A small figure standing at the edge of a misty coastal cliff path, "
+    "facing a vast grey-teal ocean horizon under a heavy overcast sky, "
+    "dark wild cliff grass in the foreground, soft diffuse atmospheric light, "
+    "cinematic graphic novel illustration, ink and wash, "
+    "palette: deep teal-grey ocean, dusty blue-grey sky, olive-green — vast and lonely",
+
+    "A lone figure walking away on a quiet autumn street after rain, "
+    "wet pavement reflecting amber street lamp light, colorful fallen leaves, "
+    "bare trees lining the street, figure small and walking into the distance, "
+    "cinematic editorial illustration, graphic novel style, "
+    "palette: warm amber, muted orange-red, dark grey — melancholy and beautiful",
 ]
 
-_SCENE_POOL_INTERIOR = [
-    # Interior — cosy light islands in dark rooms
-    "A person sitting alone at a window at 2am, small lamp beside them, "
-    "dark room behind, soft blue moonlight outside the glass, "
-    "deep navy and warm amber contrast, dark cinematic anime style — insomniac mood, beautiful",
+_SCENE_POOL_PORTRAIT = [
+    # ── Close portrait illustrations — the other Whisprs look
+    "Close portrait illustration of a young woman on a train or subway, "
+    "eyes gently closed, face tilted slightly upward as if breathing deep, "
+    "rain streaking softly down a large window behind her, blurred warm city lights outside, "
+    "teal and warm beige-cream tones, soft diffuse light on face, teal jacket, "
+    "cinematic graphic novel illustration, bold ink outlines, intimate portrait",
 
-    "A woman at a dark kitchen table, single candle glowing, "
-    "surrounding deep shadow, warm amber flame on her face, "
-    "dark anime illustration — intimate, quiet, emotionally resonant",
+    "Close artistic illustration of a wise weathered face in profile, "
+    "rich fine detail in the face — etched lines like a woodcut engraving, "
+    "dark teal-green background with copper and warm bronze skin tones, "
+    "contemplative and sage-like, deeply textured, "
+    "cinematic portrait illustration, woodcut engraving graphic novel style",
 
-    "Someone lying on their bedroom floor looking up at a dark ceiling, "
-    "single shaft of moonlight from a window across them, deep dark blue room, "
-    "dark cinematic illustration — introspective, beautiful, emotionally heavy",
+    "Close portrait illustration of a young woman in three-quarter profile, "
+    "eyes closed or gently downcast, lost in private thought, "
+    "soft atmospheric background — muted teal or dusty rose wash, "
+    "cinematic graphic novel illustration, bold ink lines, "
+    "intimate and emotionally weighted, beautiful face fully rendered",
 
-    "A person at a desk at night, monitor glow softly lighting their face, "
-    "deep dark room around them, blue-white screen light, "
-    "dark anime illustration — modern loneliness, cinematic, moody",
-
-    "An old living room at night, one lamp in the corner, deep shadows everywhere, "
-    "a person sitting still on a dark sofa, warm amber pool of light, "
-    "dark cinematic illustrated style — nostalgic, quiet, emotionally rich",
-
-    "Someone sitting on the floor against a bed, knees drawn up, "
-    "single lamp glowing in the background, deep dark bedroom around them, "
-    "dark anime illustration — vulnerable, intimate, beautiful",
-
-    # Whisprs-style — feelings whispered to yourself
-    "A person holding their phone in the dark, screen glow on their face, "
-    "thumb hovering over a contact name, not sending, deep dark bedroom, "
-    "dark cinematic anime style — unspoken words, emotional, intimate",
-
-    "A young woman sitting alone in a car at night, hands still on the wheel, "
-    "staring at a lit doorway she hasn't walked into, soft dashboard glow, "
-    "dark anime illustration — the pause before a choice, deeply emotional",
-
-    "Close-up of hands wrapped around a warm cup, soft lamp light, "
-    "person sitting alone in a dark kitchen at 3am, "
-    "dark cinematic illustration — quiet grief, intimate, beautiful",
-
-    "A person standing at a dark window, forehead gently resting on the glass, "
-    "breath fogging slightly, city lights blurred outside, deep navy interior, "
-    "dark anime style — the weight of missing someone, cinematic, emotional",
+    "Close-up illustration of a young man gazing out a rain-streaked window, "
+    "his reflection softly visible in the glass, rain blurred beyond, "
+    "soft muted teal and warm amber tones, face in three-quarter view, "
+    "cinematic editorial illustration, graphic novel style, quietly contemplative",
 ]
 
-_SCENE_POOL_TWO_PEOPLE = [
-    # Two people — dark atmospheric, emotional distance or closeness
-    "Two silhouettes standing apart on a dark bridge at night, "
-    "city lights reflected in water below, deep blue-black sky, "
-    "dark cinematic anime style — emotional distance, atmospheric, beautiful",
+_SCENE_POOL_ENVIRONMENT = [
+    # ── Pure environment / atmospheric establishing shots
+    "An empty winding forest path at golden hour or dusk, "
+    "warm orange-amber light filtering through bare trees, "
+    "puddles on the path reflecting the light, misty and atmospheric, "
+    "cinematic graphic novel illustration, ink and wash style, "
+    "palette: deep forest green, warm amber, dark earthy shadows",
 
-    "Two people sitting on opposite ends of a dark room, "
-    "one lamp between them, deep shadows, warm amber pool in the middle, "
-    "dark illustrated style — unspoken tension, cinematic, emotionally heavy",
-
-    "Two silhouettes walking in opposite directions on a dark street at night, "
-    "one distant street lamp between them, deep blue-black tones, "
-    "dark anime illustration — separation, melancholy, visually striking",
-
-    "Two people sitting close together in a dark car at night, "
-    "city lights glowing through rain-streaked windows, warm dashboard light, "
-    "dark cinematic manga style — intimate, atmospheric, deeply emotional",
-
-    "Two figures standing under one umbrella in the dark rain, "
-    "street lamp above them, dark wet street reflecting their light, "
-    "deep navy and warm amber contrast, dark anime illustration",
+    "An empty moonlit coastal path at the edge of a vast dark sea, "
+    "pale moonlight on the water, dark wild grass and cliffs, "
+    "heavy overcast sky, atmospheric and lonely, "
+    "cinematic illustration, graphic novel style, "
+    "palette: deep navy, soft silver moonlight, dark teal — vast and still",
 ]
 
-# Combined pool — weighted for Whisprs-style intimate feel
-# Interior and close-up are weighted highest — they match the "feelings whispered to yourself" aesthetic
+# Combined pool — weighted for Whisprs aesthetic
+# Wide shots dominate (signature look), with close portraits as counterpoint
 _SCENE_POOL = (
-    _SCENE_POOL_CLOSEUP * 3 +   # intimate, personal — stop the scroll
-    _SCENE_POOL_INTERIOR * 4 +  # 3am moments, unspoken feelings
-    _SCENE_POOL_WIDE * 1 +      # occasional breathing room
-    _SCENE_POOL_TWO_PEOPLE * 2  # for love/relationship scripts
+    _SCENE_POOL_WIDE * 5 +         # Dominant — signature wide atmospheric shots
+    _SCENE_POOL_PORTRAIT * 2 +     # Intimate close portrait illustrations
+    _SCENE_POOL_ENVIRONMENT * 1    # Pure atmospheric establishing shots
 )
 
-# ── Art style variants — ALL dark cinematic anime (matching the 778-view top performer)
+# ── Art style for love scripts — same graphic novel style, warmer palette
 _LOVE_STYLE_VARIANTS = [
     (
-        "Dark romantic anime illustration — deep navy blues, soft warm amber glow, cinematic. "
-        "Two people in an intimate tender moment, soft single light source on their faces, "
-        "surrounding darkness creating depth and drama. "
-        "Palette: deep midnight blue, soft warm amber, gentle teal, muted rose. "
-        "Style: dark cinematic anime — like 'A Silent Voice' or 'Your Name' — moody, beautiful, emotional."
+        "Cinematic graphic novel illustration — editorial comic art style, ink and watercolor wash. "
+        "Two people in an intimate moment, warm amber and teal palette, soft diffuse light. "
+        "Wide or medium shot showing environment context — not just faces. "
+        "Palette: warm amber, muted rose, soft teal, earthy tones. "
+        "Style: cinematic editorial illustration — like a graphic novel or animated film concept art. "
+        "NOT anime. Visible ink lines and painterly atmosphere."
     ),
     (
-        "Cinematic dark romance illustration — moody, deep, intimate. "
-        "Palette: deep indigo, soft amber candle glow, dark teal, midnight blue. "
-        "Two people close together, warm light on their faces, dark atmospheric background. "
-        "Style: dark anime film aesthetic — high contrast, emotionally resonant, visually striking."
+        "Editorial illustration — cinematic graphic novel style, bold ink lines, atmospheric wash. "
+        "Two figures close together in a meaningful space — lakeside, park, rainy street. "
+        "Muted romantic palette: dusty rose, warm amber, deep teal. "
+        "Style: moody western illustration aesthetic — graphic novel meets editorial art. "
+        "Emotionally resonant, cinematic, beautiful. NOT anime or manga."
     ),
     (
-        "Dark romantic illustrated art — atmospheric and intimate. "
-        "Deep blue-black backgrounds, one warm light source (candle, lamp, moon) illuminating the scene. "
-        "Two people in a quiet tender moment, faces softly lit against darkness. "
-        "Style: dark cinematic manga — like Makoto Shinkai films, moody and beautiful."
+        "Cinematic illustrated art — graphic novel aesthetic, visible brushwork and ink detail. "
+        "Two people in a quiet tender moment in a vast or atmospheric setting. "
+        "Palette: muted warm tones — amber, rose, teal, olive. "
+        "Style: editorial comic illustration — emotionally deep, cinematic, visually striking. "
+        "Wide composition showing environment as much as people."
     ),
 ]
 
 _STYLE_VARIANTS = [
     (
-        "Dark cinematic anime illustration style — moody, atmospheric, emotionally powerful. "
-        "Palette: deep midnight navy, dark indigo, soft teal, warm amber glow from single light source. "
-        "High contrast: rich darkness surrounding a single warm or cool light. "
-        "Characters semi-visible or silhouetted, faces softly lit. "
-        "Style: like 'A Silent Voice', 'Your Name', 'Violet Evergarden' — "
-        "dark, cinematic, deeply emotional. NOT bright. NOT colorful. NOT cheerful."
+        "Cinematic graphic novel illustration style — bold ink outlines with atmospheric wash. "
+        "Editorial comic art aesthetic with rich muted cinematic palette. "
+        "Wide atmospheric composition: lone figure small against vast environment (landscape, sky, city). "
+        "Palette: muted teal-green, dusty rose, warm amber, deep navy — desaturated and cinematic. "
+        "Style: western editorial illustration meets animated film concept art. "
+        "NOT anime. NOT manga. Visible ink lines, painterly atmosphere, moody and emotional."
     ),
     (
-        "Atmospheric dark anime illustration — cinematic and introspective. "
-        "Dominant tones: deep navy blue, dark purple-indigo, muted teal, "
-        "with warm amber or soft moonlight as the only light source. "
-        "Scenes feel like a quiet 3am moment — beautiful, heavy, still. "
-        "Style: dark lo-fi anime aesthetic — introspective, premium, visually striking. "
-        "High visual contrast creates depth. Feels like a cinematic short film frame."
+        "Editorial illustration — cinematic graphic novel aesthetic, ink and watercolor wash. "
+        "Dramatic wide composition: tiny lone figure against enormous atmospheric sky or landscape. "
+        "Muted cinematic color palette: dusty rose, amber, deep navy, olive teal. "
+        "Visible ink details, brushwork, editorial comic art style. "
+        "Emotionally resonant, contemplative, deeply cinematic. NOT anime."
     ),
     (
-        "Cinematic dark illustrated art — deep, moody, emotionally resonant. "
-        "Dark rich backgrounds: midnight indigo, deep navy, soft dark teal. "
-        "Single warm light source: window glow, candle, street lamp, moon. "
-        "Figures partially in shadow — dramatic, intimate, real. "
-        "Style: premium dark anime illustration — like Makoto Shinkai at night, "
-        "beautiful in darkness. Makes viewers stop scrolling."
+        "Cinematic illustrated art — graphic novel style, bold outlines, atmospheric color. "
+        "Lone isolated figure in a vast meaningful environment: field, lakeside, city, cliff. "
+        "Palette: muted teal-green, terracotta, warm amber, deep navy — never saturated. "
+        "Style: editorial comic illustration — like a graphic novel or animated film still. "
+        "Beautiful muted colors, heavy atmosphere, emotionally powerful. NOT anime."
     ),
     (
-        "Lo-fi dark anime aesthetic — atmospheric, quiet, emotionally heavy. "
-        "Palette: deep blue-black backgrounds, soft ambient teal, "
-        "warm amber island of light in darkness, muted indigo shadows. "
-        "Lone figure or intimate scene bathed in a single light source. "
-        "Style: dark cinematic anime illustration — introspective, premium, "
-        "visually dramatic. The kind of image that looks beautiful on a phone screen at night."
+        "Graphic novel editorial illustration — cinematic, atmospheric, emotionally weighted. "
+        "Wide shot showing lone figure small against dramatic sky or vast landscape. "
+        "Muted atmospheric palette: teal, dusty rose, warm amber, deep navy. "
+        "Visible ink outlines and painterly washes, rich texture, cinematic composition. "
+        "Style: western illustrated art — moody, premium, makes viewers stop scrolling. NOT anime."
     ),
 ]
 
@@ -297,24 +257,54 @@ _CHOSEN_STYLE = random.choice(_STYLE_VARIANTS)
 # Shuffle scenes once per run for fresh panel order every video
 _SHUFFLED_SCENES = random.sample(_SCENE_POOL, len(_SCENE_POOL))
 
-# Love-specific scene pool — dark romantic couple art (Whispers of Heart style)
+# Love-specific scene pool — wide cinematic graphic novel scenes for love/relationship topics
 _LOVE_SCENE_POOL = [
-    "A couple close together in the dark, one resting head on the other's shoulder, soft moonlight",
-    "Two people facing each other, eyes closed, foreheads almost touching, intimate and quiet",
-    "A person holding another from behind, both looking out at a dark night sky with stars",
-    "Close-up of two hands intertwined, soft diffuse light, dark background",
-    "A couple sitting together in silence, one lamp casting warm light, dark room around them",
-    "Side profile of two people about to kiss, soft light on faces, everything else in shadow",
-    "A person leaning into another's neck, eyes closed, peaceful and safe, dark background",
-    "Two silhouettes standing close in rain at night, street lamp behind them, reflections below",
-    "Close-up of a face being cradled gently by two hands, eyes closed, tender moment",
-    "Two people lying close, one watching the other sleep, soft window light, night outside",
+    "Two small figures walking side by side on a vast empty beach at dusk, "
+    "huge amber and teal sky above, gentle waves, viewed from far behind, "
+    "cinematic graphic novel illustration, palette: warm amber, dusty teal, golden hour",
+
+    "Two silhouettes standing close together on a quiet bridge at twilight, "
+    "city lights reflected in the water below, atmospheric muted sky, "
+    "cinematic editorial illustration, palette: deep navy, soft amber reflections, muted teal",
+
+    "Two people sitting together on a park bench, one resting head on the other's shoulder, "
+    "vast autumn sky behind them, colorful fallen leaves, viewed from the side, "
+    "cinematic graphic novel illustration, palette: warm amber, dusty rose, muted green",
+
+    "A close portrait of two faces almost touching, foreheads gently resting together, "
+    "soft warm light, muted atmospheric background, tender and still, "
+    "cinematic editorial illustration, palette: warm amber, dusty rose, soft cream",
+
+    "Two small figures lying in a vast field of grass looking up at enormous clouds, "
+    "dramatic expressive sky, tiny against the landscape, "
+    "cinematic illustration, palette: teal sky, cream clouds, green field",
+
+    "Two people standing apart on a wide empty street in rain, "
+    "one reaching toward the other, wet amber reflections, moody atmosphere, "
+    "cinematic graphic novel illustration, palette: deep navy, amber, muted grey",
+
+    "A close illustration of two hands intertwined, soft warm light, "
+    "blurred atmospheric background suggesting outdoors or soft interior, "
+    "cinematic portrait illustration, ink and wash style, warm palette",
+
+    "Two silhouettes close together under a streetlamp in falling snow or rain, "
+    "the light making a warm halo around them, dark street background, "
+    "cinematic editorial illustration, palette: deep navy, warm amber lamp, soft white",
+
+    "A couple viewed from behind standing at the edge of a vast misty lake, "
+    "the water stretching to the horizon, atmospheric and quiet, "
+    "cinematic graphic novel style, palette: deep teal, soft mist, warm gold",
+
+    "Two people at a cafe or by a window, one looking at the other who looks away, "
+    "rain outside the window blurred, warm interior light, intimate quiet moment, "
+    "cinematic editorial illustration, graphic novel style, warm muted palette",
 ]
 
 
 def generate_image_prompt(topic, visual_keywords, panel_num, style="emotional"):
-    """Create varied scene prompts — each run gets a different scene sequence and art style.
-    Love style uses dark romantic B&W aesthetic; others use warm illustrated style."""
+    """Create Whisprs-matched scene prompts — cinematic graphic novel illustration style.
+    Wide atmospheric shots with tiny lone figure against vast environment.
+    Love style uses wide romantic couple scenes; others use solo atmospheric scenes."""
     keywords_str = ", ".join(visual_keywords)
 
     if style == "love":
@@ -330,7 +320,8 @@ def generate_image_prompt(topic, visual_keywords, panel_num, style="emotional"):
         f"Scene: {scene}. "
         f"Emotional theme: {topic}. Mood keywords: {keywords_str}. "
         f"Portrait orientation (tall, 9:16). "
-        f"No text, no watermarks, no words, no UI elements."
+        f"Cinematic graphic novel illustration, NOT anime, NOT photorealistic. "
+        f"No text, no watermarks, no words, no letters, no UI elements in the image."
     )
 
 

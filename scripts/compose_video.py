@@ -10,6 +10,7 @@ import json
 import os
 import subprocess
 import textwrap
+import requests
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 
@@ -29,8 +30,41 @@ WIDTH = 1080
 HEIGHT = 1920
 FPS = 30
 
+# ── Whisprs-style cursive font (downloaded on first run) ──────────────────────
+_CURSIVE_FONT_PATH = os.path.join(ASSETS_DIR, "fonts", "Kalam-Regular.ttf")
+_CURSIVE_FONT_NAME = "Kalam"
+
+def _ensure_cursive_font():
+    """Download Kalam handwriting font from Google Fonts for Whisprs-style subtitles."""
+    if os.path.exists(_CURSIVE_FONT_PATH) and os.path.getsize(_CURSIVE_FONT_PATH) > 10_000:
+        return _CURSIVE_FONT_PATH
+    os.makedirs(os.path.dirname(_CURSIVE_FONT_PATH), exist_ok=True)
+    urls = [
+        "https://raw.githubusercontent.com/google/fonts/main/ofl/kalam/Kalam-Regular.ttf",
+        "https://github.com/google/fonts/raw/main/ofl/kalam/Kalam-Regular.ttf",
+    ]
+    for url in urls:
+        try:
+            r = requests.get(url, timeout=20)
+            if r.status_code == 200 and len(r.content) > 10_000:
+                with open(_CURSIVE_FONT_PATH, "wb") as f:
+                    f.write(r.content)
+                print(f"[video] Downloaded Kalam font ({len(r.content)//1024}KB) for Whisprs-style text")
+                return _CURSIVE_FONT_PATH
+        except Exception as e:
+            print(f"[video] Font download failed ({url}): {e}")
+    print("[video] Cursive font unavailable — falling back to serif")
+    return None
+
 
 def get_font(size):
+    # Try cursive/handwriting font first (Whisprs style)
+    cursive_path = _ensure_cursive_font()
+    if cursive_path:
+        try:
+            return ImageFont.truetype(cursive_path, size)
+        except Exception:
+            pass
     for path in [
         "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Italic.ttf",
         "/usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf",
@@ -77,15 +111,19 @@ def _generate_ass_subtitles(subtitles, lines, output_path):
         cs = (ms % 1000) // 10
         return f"{h}:{m:02d}:{s:02d}.{cs:02d}"
 
-    # Find available font for ASS style name
-    font_name = "DejaVu Serif"
-    for path, name in [
-        ("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Italic.ttf", "DejaVu Serif"),
-        ("/usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf", "Liberation Serif"),
-    ]:
-        if os.path.exists(path):
-            font_name = name
-            break
+    # Use Kalam cursive font (Whisprs-style) if available, else serif italic fallback
+    cursive_ok = os.path.exists(_CURSIVE_FONT_PATH) and os.path.getsize(_CURSIVE_FONT_PATH) > 10_000
+    if cursive_ok:
+        font_name = _CURSIVE_FONT_NAME
+    else:
+        font_name = "DejaVu Serif"
+        for path, name in [
+            ("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Italic.ttf", "DejaVu Serif"),
+            ("/usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf", "Liberation Serif"),
+        ]:
+            if os.path.exists(path):
+                font_name = name
+                break
 
     # Group subtitle words into their original script lines (words are in order)
     line_word_groups = []
@@ -152,13 +190,13 @@ def _generate_ass_subtitles(subtitles, lines, output_path):
                 tagged_lines.append("".join(line_parts))
             display_text = r"\N".join(tagged_lines)
 
-            # \an8\pos(540,680): top-center anchor at fixed position — never moves
+            # \an8\pos(540,750): top-center anchor — Whisprs-style upper-center position
             events.append(
                 f"Dialogue: 0,{ms_to_ass(word_start_ms)},{ms_to_ass(event_end_ms)},"
-                f"Default,,0,0,0,,{{\\an8\\pos(540,680)}}{display_text}"
+                f"Default,,0,0,0,,{{\\an8\\pos(540,750)}}{display_text}"
             )
 
-    # ASS file — warm cream text, 4px black outline, 2px shadow, italic serif
+    # ASS file — Whisprs style: pure white cursive text, thin 2px outline, subtle shadow
     # Colours in ASS ABGR hex: &HAABBGGRR
     ass = (
         "[Script Info]\n"
@@ -172,14 +210,14 @@ def _generate_ass_subtitles(subtitles, lines, output_path):
         "OutlineColour, BackColour, Bold, Italic, Underline, Strikeout, "
         "ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, "
         "Alignment, MarginL, MarginR, MarginV, Encoding\n"
-        f"Style: Default,{font_name},68,"
-        "&H00DCF8FF,"   # Primary: warm cream (ABGR of #FFF8DC)
+        f"Style: Default,{font_name},62,"
+        "&H00FFFFFF,"   # Primary: pure white (Whisprs style)
         "&H00FFFFFF,"   # Secondary: white
         "&H00000000,"   # Outline: black
-        "&H80000000,"   # Back: semi-transparent black
-        "0,1,0,0,"      # Bold=no, Italic=yes
-        "100,100,2,0,"  # ScaleX/Y, Spacing, Angle
-        "1,4,2,"        # BorderStyle=1, Outline=4px, Shadow=2px
+        "&H60000000,"   # Back: subtle semi-transparent black
+        "0,0,0,0,"      # Bold=no, Italic=no (Kalam has its own natural style)
+        "100,100,1,0,"  # ScaleX/Y, Spacing=1, Angle
+        "1,2,1,"        # BorderStyle=1, Outline=2px (thin, Whisprs-like), Shadow=1px
         "8,"            # Alignment=8 (top center, overridden per-event by \an8\pos)
         "60,60,200,1\n" # MarginL/R/V, Encoding
         "\n"
@@ -194,6 +232,32 @@ def _generate_ass_subtitles(subtitles, lines, output_path):
 
     print(f"[video] ASS subtitles written: {output_path} ({len(events)} events)")
     return output_path
+
+
+def _draw_watermark(img):
+    """
+    Draw '@Quietlyy' watermark — Whisprs-style: small cursive white text,
+    semi-transparent, bottom-center of frame. Matches @Whisprs brand placement.
+    """
+    draw_img = img.copy().convert("RGBA")
+    overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+
+    watermark_font = get_font(30)
+    text = "@Quietlyy"
+    bbox = draw.textbbox((0, 0), text, font=watermark_font)
+    tw = bbox[2] - bbox[0]
+    th = bbox[3] - bbox[1]
+    x = (WIDTH - tw) // 2
+    y = HEIGHT - 870  # ~1050px from top = ~55% — matches @Whisprs handle position
+
+    # Subtle shadow for readability on any background
+    draw.text((x + 1, y + 1 - bbox[1]), text, font=watermark_font, fill=(0, 0, 0, 100))
+    # Main watermark — white, slightly transparent (like @Whisprs)
+    draw.text((x, y - bbox[1]), text, font=watermark_font, fill=(255, 255, 255, 190))
+
+    result = Image.alpha_composite(draw_img, overlay)
+    return result.convert("RGB")
 
 
 def _draw_cta_overlay(img, cta_line=None):
@@ -394,16 +458,18 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         canvas.paste(img, (0, 0))
         img = canvas
 
-        # NO dark overlay — keep images bright and colorful.
-        # Subtitle text uses its own 4px outline + shadow for readability.
+        # NO dark overlay — keep images clean. Subtitle text uses outline for readability.
 
         frame = img.convert("RGB")
 
-        # Bake only fixed UI elements (not script text)
+        # Bake fixed UI elements
         if g_i == num_groups - 1:
             frame = _draw_cta_overlay(frame, cta_line=cta_line)
         elif g_i > 0:
             frame = _draw_follow_button(frame)
+
+        # Always bake @Quietlyy watermark — Whisprs-style bottom-center branding
+        frame = _draw_watermark(frame)
 
         frame_path = os.path.join(OUTPUT_DIR, f"_panel_{g_i}.png")
         frame.save(frame_path, "PNG")
@@ -489,7 +555,10 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         return p.replace("\\", "/").replace(":", r"\:").replace("'", r"\'")
 
     if ass_path:
-        video_filter = f"subtitles='{_escape_filter_path(ass_path)}'"
+        # Include fontsdir so ffmpeg/libass can find the Kalam cursive font
+        fonts_dir = os.path.join(ASSETS_DIR, "fonts")
+        fonts_dir_esc = _escape_filter_path(fonts_dir)
+        video_filter = f"subtitles='{_escape_filter_path(ass_path)}':fontsdir='{fonts_dir_esc}'"
     else:
         video_filter = "null"  # pass-through filter when no subtitles
 
