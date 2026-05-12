@@ -584,18 +584,18 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
 
         prompt = generate_image_prompt(topic, visual_keywords, i, style=style)
 
-        # Provider chain: HF (free) → OpenAI → Gemini Imagen → Pollinations (free)
+        # Free-first chain: HF → Gemini Imagen → Pollinations → OpenAI (paid, last resort)
         print(f"[images] Panel {i+1}/{num_panels}: trying HuggingFace (free)...")
         success = generate_with_huggingface(prompt, output_path)
         if not success:
-            print(f"[images]   HF failed — trying OpenAI (DALL-E 3 / gpt-image-1)...")
-            success = generate_with_dalle(prompt, output_path)
-        if not success:
-            print(f"[images]   OpenAI failed — trying Gemini Imagen 3...")
+            print(f"[images]   HF failed — trying Gemini Imagen 3 (free)...")
             success = generate_with_gemini_imagen(prompt, output_path)
         if not success:
             print(f"[images]   Gemini failed — trying Pollinations (free)...")
             success = generate_with_pollinations(prompt, output_path)
+        if not success:
+            print(f"[images]   Pollinations failed — trying OpenAI as last resort (paid)...")
+            success = generate_with_dalle(prompt, output_path)
 
         if success:
             print(f"[images] Panel {i+1}: generated")
@@ -607,7 +607,7 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
                 shutil.copy2(reuse_src, output_path)
                 print(f"[images] Panel {i+1}: reusing earlier panel (all providers failed)")
             else:
-                raise RuntimeError(f"Image generation failed for panel {i+1} (tried HF, DALL-E 3, gpt-image-1, Gemini Imagen, Pollinations). No earlier panels to reuse.")
+                raise RuntimeError(f"Image generation failed for panel {i+1} (tried HF, Gemini, Pollinations, OpenAI). No earlier panels to reuse.")
 
         paths.append(output_path)
 
