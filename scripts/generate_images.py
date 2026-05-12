@@ -432,50 +432,63 @@ def generate_with_dalle(prompt, output_path):
 
 
 def generate_with_gemini_imagen(prompt, output_path):
-    """Fallback: Google Imagen 3 via Gemini API (uses GEMINI_API_KEY)."""
-    import base64
+    """Fallback: Google Imagen 3 via google-genai SDK."""
+    import base64, io
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         return False
     try:
-        # Use the correct generateImages endpoint
-        resp = requests.post(
-            f"https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:generateImages?key={key}",
-            headers={"Content-Type": "application/json"},
-            json={
-                "prompt": prompt[:2000],
-                "config": {
-                    "numberOfImages": 1,
-                    "aspectRatio": "9:16",
-                    "safetyFilterLevel": "BLOCK_ONLY_HIGH",
-                },
-            },
-            timeout=90,
+        from google import genai
+        from google.genai import types
+        client = genai.Client(api_key=key)
+        response = client.models.generate_images(
+            model="imagen-3.0-generate-002",
+            prompt=prompt[:2000],
+            config=types.GenerateImagesConfig(
+                number_of_images=1,
+                aspect_ratio="9:16",
+                safety_filter_level="BLOCK_ONLY_HIGH",
+            ),
         )
-        if resp.status_code != 200:
-            print(f"[images] Gemini Imagen HTTP {resp.status_code}: {resp.text[:500]}")
-            resp.raise_for_status()
-        images = resp.json().get("generatedImages", [])
-        if not images:
+        if not response.generated_images:
             print("[images]   Gemini Imagen: no images returned")
             return False
-        b64 = images[0].get("image", {}).get("imageBytes")
-        if not b64:
-            return False
-        img_data = base64.b64decode(b64)
-        if len(img_data) < 5000:
+        img_bytes = response.generated_images[0].image.image_bytes
+        if not img_bytes or len(img_bytes) < 5000:
             return False
         with open(output_path, "wb") as f:
-            f.write(img_data)
+            f.write(img_bytes)
         from PIL import Image as PILImage, ImageEnhance
         img = PILImage.open(output_path).convert("RGB")
         img = ImageEnhance.Brightness(img).enhance(1.15)
         img = img.resize((1080, 1920), PILImage.LANCZOS)
         img.save(output_path)
-        print("[images]   Gemini Imagen 3 fallback succeeded")
+        print("[images]   Gemini Imagen 3 succeeded")
         return True
     except Exception as e:
         print(f"[images]   Gemini Imagen fallback failed: {e}")
+        return False
+
+
+def generate_with_pollinations(prompt, output_path):
+    """Free fallback: Pollinations.ai FLUX — no API key needed."""
+    try:
+        from urllib.parse import quote
+        url = (f"https://image.pollinations.ai/prompt/{quote(prompt[:500])}"
+               f"?width=576&height=1024&model=flux&nologo=true&seed={random.randint(1,99999)}")
+        resp = requests.get(url, timeout=90)
+        if resp.status_code != 200 or len(resp.content) < 5000:
+            return False
+        with open(output_path, "wb") as f:
+            f.write(resp.content)
+        from PIL import Image as PILImage
+        img = PILImage.open(output_path).convert("RGB")
+        img = img.resize((1080, 1920), PILImage.LANCZOS)
+        img.save(output_path)
+        print("[images]   Pollinations succeeded")
+        return True
+    except Exception as e:
+        print(f"[images]   Pollinations failed: {e}")
         return False
 
 
@@ -571,15 +584,18 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
 
         prompt = generate_image_prompt(topic, visual_keywords, i, style=style)
 
-        # Provider chain: HF (free) → DALL-E 3 / gpt-image-1 → Gemini Imagen 3
+        # Provider chain: HF (free) → OpenAI → Gemini Imagen → Pollinations (free)
         print(f"[images] Panel {i+1}/{num_panels}: trying HuggingFace (free)...")
         success = generate_with_huggingface(prompt, output_path)
         if not success:
-            print(f"[images]   HF failed — trying DALL-E 3 / gpt-image-1...")
+            print(f"[images]   HF failed — trying OpenAI (DALL-E 3 / gpt-image-1)...")
             success = generate_with_dalle(prompt, output_path)
         if not success:
             print(f"[images]   OpenAI failed — trying Gemini Imagen 3...")
             success = generate_with_gemini_imagen(prompt, output_path)
+        if not success:
+            print(f"[images]   Gemini failed — trying Pollinations (free)...")
+            success = generate_with_pollinations(prompt, output_path)
 
         if success:
             print(f"[images] Panel {i+1}: generated")
@@ -591,7 +607,7 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
                 shutil.copy2(reuse_src, output_path)
                 print(f"[images] Panel {i+1}: reusing earlier panel (all providers failed)")
             else:
-                raise RuntimeError(f"Image generation failed for panel {i+1} (tried HF, DALL-E 3, gpt-image-1, Gemini Imagen). No earlier panels to reuse.")
+                raise RuntimeError(f"Image generation failed for panel {i+1} (tried HF, DALL-E 3, gpt-image-1, Gemini Imagen, Pollinations). No earlier panels to reuse.")
 
         paths.append(output_path)
 
