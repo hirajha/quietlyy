@@ -348,7 +348,9 @@ def generate_with_dalle(prompt, output_path):
                 },
                 timeout=120,
             )
-            resp.raise_for_status()
+            if resp.status_code != 200:
+                print(f"[images] DALL-E 3 HTTP {resp.status_code}: {resp.text[:500]}")
+                resp.raise_for_status()
             data = resp.json()
             img_url = data["data"][0]["url"]
             img_resp = requests.get(img_url, timeout=30)
@@ -393,7 +395,9 @@ def generate_with_dalle(prompt, output_path):
                 },
                 timeout=120,
             )
-            resp.raise_for_status()
+            if resp.status_code != 200:
+                print(f"[images] gpt-image-1 HTTP {resp.status_code}: {resp.text[:500]}")
+                resp.raise_for_status()
             data = resp.json()
             item = data["data"][0]
             if "b64_json" in item:
@@ -448,7 +452,9 @@ def generate_with_gemini_imagen(prompt, output_path):
             },
             timeout=90,
         )
-        resp.raise_for_status()
+        if resp.status_code != 200:
+            print(f"[images] Gemini Imagen HTTP {resp.status_code}: {resp.text[:500]}")
+            resp.raise_for_status()
         images = resp.json().get("generatedImages", [])
         if not images:
             print("[images]   Gemini Imagen: no images returned")
