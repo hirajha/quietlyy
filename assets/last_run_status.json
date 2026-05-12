@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "You Didn't Fix Me, You Stayed"
+    "detail": "Being Strong for Everyone While Breaking Inside"
   },
   "audio": {
     "result": "ok",
@@ -21,6 +21,6 @@
   },
   "images": {
     "result": "fail",
-    "detail": "Image generation failed for panel 1 (tried HF, gpt-image-1, Gemini). No earlier panels to reuse."
+    "detail": "Image generation failed for panel 1 (tried HF, DALL-E 3, gpt-image-1, Gemini Imagen). No earlier panels to reuse."
   }
 }
