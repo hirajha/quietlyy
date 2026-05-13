@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Voice in Your Head That Says You Are Not Enough"
+    "detail": "You Make the Hard Days Easier"
   },
   "audio": {
     "result": "ok",
@@ -21,7 +21,7 @@
   },
   "images": {
     "result": "ok",
-    "detail": "5 panels"
+    "detail": "7 panels"
   },
   "music": {
     "result": "ok",
@@ -44,15 +44,15 @@
     "detail": ""
   },
   "facebook": {
-    "result": "skipped",
+    "result": "ok",
     "detail": ""
   },
   "instagram": {
-    "result": "skipped",
-    "detail": ""
+    "result": "ok",
+    "detail": "18124490290722425"
   },
   "youtube": {
-    "result": "skipped",
-    "detail": ""
+    "result": "ok",
+    "detail": "https://www.youtube.com/shorts/SXjfNcPJ4zw"
   }
 }
