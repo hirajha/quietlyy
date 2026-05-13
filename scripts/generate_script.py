@@ -143,6 +143,76 @@ def pick_topic(templates, theme_hints=None):
     return topic
 
 
+# ── Opening pattern rotation — ensures every video starts completely differently ──
+# Injected randomly into each prompt so the AI can't default to "You still..." every time.
+_OPENING_PATTERNS = [
+    {
+        "name": "first_person_confession",
+        "instruction": (
+            'Line 1 MUST be first-person: "I stopped..." / "I still..." / "I never told you..." '
+            '/ "I carry it everywhere." — the narrator IS the viewer, confessing something private.'
+        ),
+    },
+    {
+        "name": "named_feeling",
+        "instruction": (
+            'Line 1 MUST name an unnamed feeling: "There\'s a kind of tired..." '
+            '/ "There\'s a loneliness that..." / "There\'s a grief that has no name..." '
+            '— give language to something they\'ve felt but never heard described.'
+        ),
+    },
+    {
+        "name": "time_and_scene",
+        "instruction": (
+            'Line 1 MUST open with a specific time + quiet scene: "3am. The house is quiet." '
+            '/ "Sunday evening. The week hasn\'t started." / "It\'s raining. You\'re still awake." '
+            '— drop the viewer into a moment, no explanation needed.'
+        ),
+    },
+    {
+        "name": "unanswerable_question",
+        "instruction": (
+            'Line 1 MUST be a question with no clean answer: "What do you call it when..." '
+            '/ "When did it become easier to..." / "How do you explain to someone..." '
+            '— not rhetorical, genuinely the question they\'ve been sitting with.'
+        ),
+    },
+    {
+        "name": "quiet_contradiction",
+        "instruction": (
+            'Line 1 MUST be a quiet contradiction or paradox: "You\'re not sad. Not exactly." '
+            '/ "It doesn\'t hurt anymore. It just stays." / "You don\'t miss them. You miss who you were." '
+            '— the kind of thing that\'s true but impossible to explain.'
+        ),
+    },
+    {
+        "name": "direct_observation",
+        "instruction": (
+            'Line 1 MUST be a direct honest observation — no "you", no "I" — just a truth stated simply: '
+            '"Nobody talks about the grief of growing apart." / "People don\'t fall out of love all at once." '
+            '/ "Healing is not a straight line." — factual, not poetic, but deeply felt.'
+        ),
+    },
+    {
+        "name": "small_specific_detail",
+        "instruction": (
+            'Line 1 MUST be one hyper-specific tiny detail that carries enormous emotional weight: '
+            '"The coffee was already made for two." / "The ringtone was still theirs." '
+            '/ "You still laugh at their jokes. Even now." — concrete, unexpected, immediately relatable.'
+        ),
+    },
+    {
+        "name": "second_person_present_moment",
+        "instruction": (
+            'Line 1 MUST be second-person present tense — catching them mid-moment: '
+            '"You\'re reading this at 2am." / "You\'re fine. You keep saying you\'re fine." '
+            '/ "You pick up your phone. Put it down. Pick it up again." '
+            '— meets them exactly where they are right now.'
+        ),
+    },
+]
+
+
 def build_prompt(topic, examples, style="emotional", tone_hints="", idea_hints=""):
     """Build prompt for the given style: 'nostalgic' or 'emotional'."""
     style_examples = [e for e in examples if e.get("style") == style][:3]
@@ -201,19 +271,27 @@ EXAMPLES (notice: short, tight, paradox lives inside the image):
     elif style == "love":
         style_examples = [e for e in examples if e.get("style") == "love"][:2]
         examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
+        # Pick a love-appropriate opening (exclude time/scene and observation openers)
+        love_openings = [p for p in _OPENING_PATTERNS if p["name"] in (
+            "first_person_confession", "quiet_contradiction",
+            "small_specific_detail", "second_person_present_moment", "named_feeling"
+        )]
+        opening = random.choice(love_openings)
         return f"""Generate a viral 30-35 second love poem for "Quietlyy" — soft, intimate, the kind that makes someone put their phone down and immediately think of one specific person.{audience_block}{avoid_block}
 
 Topic: {topic}
 Tone: tender whisper — the feeling you have about someone but rarely say out loud. Inspired by Rupi Kaur and Atticus but completely original.
 
+⚠️ OPENING REQUIREMENT (this video MUST open this way — give it a fresh start):
+{opening["instruction"]}
+
 Rules:
-- Write in second person ("you") — speak directly to the person being loved, like a letter never sent
 - Short fragmented lines — 5-9 words, reads like a quiet breath
 - Use ONE sensory or specific detail that makes it feel real — not a list, ONE moment that carries everything
 - The love should feel QUIET, SAFE, and UNSPOKEN — not dramatic or desperate
 - Build the feeling slowly through images — they should feel it before they name it
 - Use "…" for pauses
-- End with a natural CTA that feels like a nudge, not a marketing line: "Send this to them. They deserve to know." / "Tag the one who feels like home." / "Tag the person who makes ordinary days feel different."
+- End with a natural CTA: "Send this to them. They deserve to know." / "Tag the one who feels like home."
 - 8-9 lines TOTAL including CTA — enough for 30 seconds, no filler
 - NO clichés: no "my heart", no "soul mate", no "forever and always" — fresh language only
 
@@ -307,6 +385,7 @@ Return ONLY valid JSON:
 {{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
     else:  # emotional — grief, longing, unspoken pain, human truths
+        opening = random.choice(_OPENING_PATTERNS)
         return f"""Generate a viral 30-35 second emotional script for "Quietlyy" — inspired by Whisprs, the page with 2M followers in 2 months. Their secret: they name feelings people whisper to themselves but never say out loud.
 
 TARGET FEELING: The viewer thinks "who told them about my life?" — like the script read their private inner monologue. NOT generic motivation. NOT advice. A specific, unspoken human truth they have NEVER heard said so simply.
@@ -314,16 +393,18 @@ TARGET FEELING: The viewer thinks "who told them about my life?" — like the sc
 Topic: {topic}{audience_block}{avoid_block}
 Tone: intimate whisper — grief, longing, the exhaustion of pretending, silent suffering, or the quiet weight of love — with surgical precision
 
+⚠️ OPENING REQUIREMENT (this video MUST open this way — do not default to "You still..."):
+{opening["instruction"]}
+
 FEELINGS THAT GO VIRAL (pick the sharpest angle for this topic):
 - Grief nobody validates (losing someone still alive, being the strong one who can't cry)
 - The exhaustion of pretending to be okay when asked
 - Loving someone who can't love back the right way
-- The specific small moments that carry enormous silent weight ("still check their profile", "saved their number under a different name", "set the table for two by habit")
+- The specific small moments that carry enormous silent weight
 - Missing a version of yourself you used to be
 - Being everyone's anchor while quietly drowning
 
 Rules:
-- Line 1: A scroll-stopping specific MOMENT — concrete, not abstract. "You still check their profile." / "You said fine. You were not fine." / "You're tired. Not sleepy. Just… tired."
 - NEVER start with "You were...", "You weren't...", "Some people", "There was a time", "In a world" — banned
 - Short punchy lines — 5-10 words each, fast rhythm, each line is a quiet gut punch
 - ONE central image that makes the feeling concrete and specific — not a list of metaphors
@@ -335,7 +416,7 @@ Rules:
 - NO hashtags, NO emojis, NO stage directions
 
 Structure:
-Line 1: HOOK — one specific moment, phrased in a way they've never heard (stop the scroll)
+Line 1: HOOK using the opening requirement above — stop the scroll with something they've never heard phrased this way
 Lines 2-3: Deepen — the quiet truth underneath, make it feel personal and unspoken
 Lines 4-5: Expand — the second layer, the thing underneath the thing
 Lines 6-7: The turn + honest exhale — the realization that makes them feel seen, not lectured

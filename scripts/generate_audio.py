@@ -93,11 +93,11 @@ def _record_line_elevenlabs(text, output_path):
     import base64
     clean = _clean_text(text)
     voice_settings = {
-        "stability": 0.45,
+        "stability": 0.22,          # Low = more natural variation, less robotic (was 0.45)
         "similarity_boost": 0.80,
-        "style": 0.40,
-        "use_speaker_boost": False,
-        "speed": 0.85,
+        "style": 0.65,              # Higher = more emotional expression (was 0.40)
+        "use_speaker_boost": True,  # More presence / speaker character (was False)
+        "speed": 0.80,              # Slightly slower for emotional breathing room (was 0.85)
     }
     body = {
         "text": clean,

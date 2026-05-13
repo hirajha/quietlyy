@@ -368,79 +368,65 @@ def _download_pixabay(url, output_path):
     return False
 
 
-# ── CC0 piano tracks — verified working, Whisprs-style intimate solo piano ────
-# All tracks: CC BY 3.0 (Kevin MacLeod / incompetech.com) — free for commercial
-# use with attribution. Attribution is already included in AI disclosure footer.
+# ── CC0 piano tracks — Whisprs-matched ambient sparse piano ──────────────────
+# All tracks: CC BY 3.0 (Kevin MacLeod / incompetech.com)
 #
-# STYLE: Soft, intimate, solo piano — Ludovico Einaudi / Erik Satie aesthetic.
-# Voice is the star. Music should feel like a quiet heartbeat in the background.
-# BPM 58-75. NO orchestra, NO choir, NO dramatic strings.
+# WHISPRS MUSIC STYLE: Very sparse, barely-there ambient piano.
+# Think: a few slow piano notes with space between them. NOT a melody.
+# Like hearing someone play softly in another room — formless, ambient, emotional.
+# Nils Frahm / Erik Satie / lofi ambient aesthetic.
+# Voice is the star — music is just breathing underneath.
 #
-# All URLs tested and confirmed working (May 2026).
-# Kevin MacLeod (incompetech.com) is the most reliable free music CDN.
+# Track selection priority (most Whisprs-like first):
+# 1. "Wish Background" — barely-there single notes, most sparse/ambient
+# 2. "A Quiet Thought" — simple gentle piano, minimal structure
+# 3. "Heartbreaking" — delicate minor piano, intimate
+# 4. "Piano Moment" — soft, slow, minimal
+# 5. "Dreamy Flashback" — still melodic but soft (fallback)
+# 6. Others — more melodic, only used as last resort
 #
 # mood → list of (url, label) — tried in shuffled order until one downloads
 _CC0_TRACKS = {
     "heartbreak": [
-        # Sad Trio — piano trio, melancholic, intimate (perfect for heartbreak)
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sad%20Trio.mp3",          "Kevin MacLeod - Sad Trio"),
-        # Bittersweet — name says it all, gentle piano
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bittersweet.mp3",         "Kevin MacLeod - Bittersweet"),
-        # Dreamy Flashback — soft, introspective, intimate
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heartbreaking.mp3",       "Kevin MacLeod - Heartbreaking"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
-        # Long Road Ahead — contemplative, slow
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Long%20Road%20Ahead.mp3", "Kevin MacLeod - Long Road Ahead"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sad%20Trio.mp3",          "Kevin MacLeod - Sad Trio"),
     ],
     "longing": [
-        # Dreamy Flashback — memory, distance, longing
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
-        # Wish Background — wistful, soft, intimate
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
-        # Bittersweet — longing with warmth
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bittersweet.mp3",         "Kevin MacLeod - Bittersweet"),
-        # Long Road Ahead — the ache of distance
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Long%20Road%20Ahead.mp3", "Kevin MacLeod - Long Road Ahead"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heartbreaking.mp3",       "Kevin MacLeod - Heartbreaking"),
     ],
     "love": [
-        # Wish Background — tender, barely-there, intimate
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
-        # Healing — warm, gentle, quiet
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Touching%20Moments.mp3",  "Kevin MacLeod - Touching Moments"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Healing.mp3",             "Kevin MacLeod - Healing"),
-        # Dreamy Flashback — love remembered softly
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
-        # Bittersweet — for the bittersweet love scripts
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bittersweet.mp3",         "Kevin MacLeod - Bittersweet"),
     ],
     "nostalgia": [
-        # Dreamy Flashback — memory, past, childhood
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
-        # Wish Background — wistful, remembering
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
-        # Relaxing Piano Music — gentle warmth of memory
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Relaxing%20Piano%20Music.mp3", "Kevin MacLeod - Relaxing Piano Music"),
-        # Long Road Ahead — looking back
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Long%20Road%20Ahead.mp3", "Kevin MacLeod - Long Road Ahead"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bittersweet.mp3",         "Kevin MacLeod - Bittersweet"),
     ],
     "melancholy": [
-        # Sad Trio — deep, quiet sadness
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heartbreaking.mp3",       "Kevin MacLeod - Heartbreaking"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sad%20Trio.mp3",          "Kevin MacLeod - Sad Trio"),
-        # Long Road Ahead — heavy, slow, contemplative
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Long%20Road%20Ahead.mp3", "Kevin MacLeod - Long Road Ahead"),
-        # Slow Burn — slow, building emptiness
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Slow%20Burn.mp3",         "Kevin MacLeod - Slow Burn"),
-        # Bittersweet — melancholy with warmth
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bittersweet.mp3",         "Kevin MacLeod - Bittersweet"),
-        # Crossing the Chasm — deep, slow, contemplative
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Crossing%20the%20Chasm.mp3", "Kevin MacLeod - Crossing the Chasm"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
     ],
     "hope": [
-        # Healing — quiet hope, gentle piano
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Healing.mp3",             "Kevin MacLeod - Healing"),
-        # Relaxing Piano Music — gentle, forward
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Relaxing%20Piano%20Music.mp3", "Kevin MacLeod - Relaxing Piano Music"),
-        # Wish Background — quiet hope
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
-        # Dreamy Flashback — gentle optimism
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Healing.mp3",             "Kevin MacLeod - Healing"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
     ],
 }
