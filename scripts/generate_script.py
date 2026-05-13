@@ -236,200 +236,226 @@ def build_prompt(topic, examples, style="emotional", tone_hints="", idea_hints="
     if style == "poetic":
         style_examples = [e for e in examples if e.get("style") == "poetic"][:2]
         examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
-        return f"""Generate a viral 20-25 second spoken-word poem for "Quietlyy" — lyrical, intimate, the kind that makes people feel seen in a feeling they've never heard named.{audience_block}{avoid_block}
+        return f"""Write a 25-30 second spoken-word poem for "Quietlyy" in the exact Whisprs style.{audience_block}{avoid_block}
 
 Topic: {topic}
-Tone: lyrical whisper — like a private thought made beautiful, spoken-word poetry that fits in a pocket
+
+THE WHISPRS FORMAT — study this carefully:
+Each line is a BREATH FRAGMENT: 2-6 words only.
+Lines are grammatically enjambed — they flow into each other, not standalone sentences.
+The poem is ONE continuous piece broken into 12-14 short breaths.
+
+Real Whisprs example (topic: leaving but never letting go):
+I'm a leaver who never really left
+I walked away
+but kept looking back
+not chasing
+just watching from a distance
+but holding onto hope
+I won't make you stay
+quiet and steady
+not out of weakness
+but out of love
 
 Rules:
-- NEVER start with "You were...", "You weren't...", "You were never...", "You were cherished" — banned
-- NEVER use the phrase "you call it / they call it" — banned cliché
-- Open with one vivid, unexpected image that arrests attention immediately
-- Build ONE central metaphor — not a list, ONE thread that the whole poem follows
-- Short fragmented lines — 4-7 words, breathing room, reads like music
-- Use "…" for pauses
-- The turn must feel DISCOVERED through the image — not stated as a lesson
-- End with one line that lands like an exhale — quiet, not a slogan
-- 7-9 lines TOTAL — tight, no padding
-- NO hashtags, NO emojis, NO stage directions
+- 2-6 words per line — STRICTLY. Never more than 6 words on a line.
+- 12-14 lines total — enough for 25-30 seconds at one breath per fragment
+- Continuation lines start lowercase: "but...", "and...", "just...", "slowly..."
+- New thoughts capitalize: "Some people...", "The hands that..."
+- ONE central image/metaphor carried through the whole piece
+- No "Save this" / "Tag someone" CTA — the poem is the CTA
+- No punctuation except a period on the final line
+- NEVER start with "You were..." — banned
 
-Structure:
-Lines 1-2: Arresting image — pull them in before they know why
-Lines 3-4: Deepen — the emotional weight underneath
-Lines 5-6: The turn — a reframing discovered in the image itself
-Lines 7-8: The quiet exhale — the truth that makes everything else land
-Line 9 (optional): soft share nudge — "Save this for the quiet nights." or "Send this to someone you think about."
-
-Also provide 4 visual keywords (symbolic, intimate scenes — not literal objects).
+Also provide 4 visual keywords (atmospheric, solitary scenes).
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
-
-EXAMPLES (notice: short, tight, paradox lives inside the image):
-{examples_text}"""
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\nline9\\nline10\\nline11\\nline12", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
     elif style == "love":
         style_examples = [e for e in examples if e.get("style") == "love"][:2]
         examples_text = "".join(f'\nTopic: {e["topic"]}\n{e["script"]}\n' for e in style_examples)
-        # Pick a love-appropriate opening (exclude time/scene and observation openers)
         love_openings = [p for p in _OPENING_PATTERNS if p["name"] in (
             "first_person_confession", "quiet_contradiction",
             "small_specific_detail", "second_person_present_moment", "named_feeling"
         )]
         opening = random.choice(love_openings)
-        return f"""Generate a viral 30-35 second love poem for "Quietlyy" — soft, intimate, the kind that makes someone put their phone down and immediately think of one specific person.{audience_block}{avoid_block}
+        return f"""Write a 30-second love poem for "Quietlyy" in the exact Whisprs style.{audience_block}{avoid_block}
 
 Topic: {topic}
-Tone: tender whisper — the feeling you have about someone but rarely say out loud. Inspired by Rupi Kaur and Atticus but completely original.
 
-⚠️ OPENING REQUIREMENT (this video MUST open this way — give it a fresh start):
+THE WHISPRS FORMAT:
+Each line is a BREATH FRAGMENT: 2-6 words only.
+Lines are enjambed — each flows grammatically into the next.
+ONE continuous poem broken into 12-14 short breaths.
+
+Real Whisprs example (topic: shelter and warmth):
+the umbrella feels too heavy to hold
+The same hands that reached for you in storms
+slowly forget the warmth you gave
+but sunshine makes your presence fade
+Some people don't love you
+they love the comfort you create.
+
+⚠️ OPENING (this video must open this way):
 {opening["instruction"]}
 
 Rules:
-- Short fragmented lines — 5-9 words, reads like a quiet breath
-- Use ONE sensory or specific detail that makes it feel real — not a list, ONE moment that carries everything
-- The love should feel QUIET, SAFE, and UNSPOKEN — not dramatic or desperate
-- Build the feeling slowly through images — they should feel it before they name it
-- Use "…" for pauses
-- End with a natural CTA: "Send this to them. They deserve to know." / "Tag the one who feels like home."
-- 8-9 lines TOTAL including CTA — enough for 30 seconds, no filler
-- NO clichés: no "my heart", no "soul mate", no "forever and always" — fresh language only
+- 2-6 words per line — STRICTLY. Never more than 6 words on a line.
+- 12-14 lines total for 30 seconds
+- Continuation lines start lowercase: "but...", "and...", "slowly..."
+- New thoughts capitalize
+- ONE central tender image/metaphor through the whole piece
+- End with a quiet close, optionally: "send this to them." or "let them know." (lowercase, one line)
+- NO clichés: no "my heart", "soulmate", "forever and always"
+- NEVER start with "You were..." — banned
 
-Also provide 4 visual keywords: quiet intimate moments, dark warm light, tender closeness.
+Also provide 4 visual keywords: quiet intimate atmosphere.
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\ncta_line", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
-
-EXAMPLES (notice: specific, quiet, builds slowly — not a list of compliments):
-{examples_text}"""
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\nline9\\nline10\\nline11\\nline12", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
     elif style == "nostalgic":
-        return f"""Generate a viral 15-20 second script in "Quietlyy" nostalgic style — the kind that makes people stop scrolling because it names a feeling they've been carrying silently.{audience_block}{avoid_block}
+        return f"""Write a 30-second nostalgic poem for "Quietlyy" in the exact Whisprs style.{audience_block}{avoid_block}
 
 Topic: {topic}
-Tone: warm, aching, deeply human — a memory that still hurts in a beautiful way
 
-CRITICAL RULES:
-- The topic triggers a FEELING, not a description of an object
-  WRONG: "Remember when we gathered around the television?" (about the object)
-  RIGHT: "Remember when nobody wanted the night to end?" (about the connection)
-- NEVER mention the physical object or technology directly
-- NEVER start with "There was a time", "In a world", "Have you ever", "We live in", "Some people"
-- Short punchy lines — 6-10 words max, reads like a quiet spoken memory
-- Use "…" for emotional pauses
-- 8-9 lines TOTAL — enough for 30 seconds, every line counts
+THE WHISPRS FORMAT:
+Each line is a BREATH FRAGMENT: 2-6 words only.
+Lines enjamb — each flows into the next grammatically.
+ONE continuous poem in 12-14 short breaths.
 
-Structure:
-Line 1: HOOK — paint the warmth/belonging (not the object). Make them feel it immediately.
-Lines 2-4: The specific feeling that made that time irreplaceable — expand it slowly
-Lines 5-6: What quietly changed — honest but not bitter, just true
-Lines 7-8: The ache — what's missing now, what they carry
-Last line: Gentle share nudge — "Send this to someone you used to be closer to." / "Save this for the people who still matter."
+Example (topic: the people we used to be close to):
+We never said goodbye
+we just
+stopped calling
+stopped showing up
+stopped saving each other seats
+and somewhere between then and now
+we became strangers
+who still smile
+when we pass.
 
-Also provide 4 visual keywords (warm human scenes: family, togetherness, shared moments — NO objects).
+Rules:
+- 2-6 words per line — STRICTLY
+- 12-14 lines total for 30 seconds
+- The topic triggers a FEELING not a description of an object
+- Continuation lines lowercase: "we just...", "still..."
+- New thoughts capitalize
+- End with a quiet ache — no forced "send this" CTA unless it feels completely natural
+- NEVER start with "There was a time", "In a world", "Have you ever"
+
+Also provide 4 visual keywords (warm, human, atmospheric scenes).
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\nline9", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
-
-EXAMPLES:
-{examples_text}"""
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\nline9\\nline10\\nline11\\nline12", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
     elif style == "wisdom":
-        # Build banned-quotes block from previously used wisdom quotes
         used_wisdom_quotes = _load_state().get("used_wisdom_quotes", [])
         banned_quotes_block = ""
         if used_wisdom_quotes:
             banned_quotes_block = (
-                "\n⚠️ BANNED QUOTES (already used — you MUST use a completely different quote):\n"
+                "\n⚠️ BANNED QUOTES (already used):\n"
                 + "\n".join(f"- {q}" for q in used_wisdom_quotes[-20:])
-                + "\nDo NOT reuse any of the above quotes or close paraphrases of them.\n"
+                + "\nUse a completely different quote.\n"
             )
 
-        return f"""Generate a viral 20-25 second life-lesson script for "Quietlyy" — a famous quote (or one written faithfully in the spirit of a great thinker) unpacked in 2-3 personal, honest lines.{audience_block}{avoid_block}{banned_quotes_block}
+        return f"""Write a 30-second wisdom poem for "Quietlyy" in the exact Whisprs style.{audience_block}{avoid_block}{banned_quotes_block}
 
 Topic: {topic}
 
-FORMAT (follow exactly — 8 lines total):
-Line 1: Attribution — e.g. "Rumi once wrote…" / "Marcus Aurelius kept this in his journal…" / "An old Japanese proverb says…" / "Kahlil Gibran once said…" / "Buddha taught…" / "Maya Angelou wrote…"
-Lines 2-4: The quote itself — word-for-word as that thinker said it, or written so faithfully in their spirit it is indistinguishable. Split naturally across 3 lines. No filler added.
-Lines 5-7: The reflection — 3 short lines that unpack what this means for real life. Specific, felt, honest. NOT a TED talk. NOT generic advice. Let it breathe.
-Line 8: Soft share nudge — "Save this for the days you forget." / "Send this to someone carrying something heavy." / "Tag someone who needs to hear this today."
+THE WHISPRS FORMAT — each line is a BREATH FRAGMENT (2-6 words).
+Lines enjamb into each other. 12-14 lines total.
 
-CRITICAL RULES:
-- NEVER insert branded filler INSIDE or after the quote
-- The quote ends cleanly — no bridge, no "And quietly…" commentary
-- The reflection starts with the unpacking, not a transition phrase
-- 8 lines TOTAL — enough for 30 seconds
+Real Whisprs wisdom example (Rumi, 24 seconds):
+Rumi said
+you're with everyone
+you're with no one.
 
-WISDOM SOURCES (pick what fits the topic):
-- Rumi — love, longing, transformation, the soul
-- Marcus Aurelius — inner discipline, what we control, resilience
-- Kahlil Gibran — love, grief, joy, parenting, freedom
-- Buddha / Buddhist tradition — attachment, peace, impermanence
-- Lao Tzu / Taoism — flow, nature, simplicity, non-resistance
-- Japanese proverb — patience, resilience, impermanence, acceptance
-- Maya Angelou — courage, self-worth, resilience, love
-- Hafiz — joy, love, the divine, celebration of life
-- Epictetus — freedom, what we control, inner peace
-- Seneca — time, how we live, what matters
+Structure for wisdom:
+Line 1: Attribution (3-5 words): "Rumi once said…" / "Marcus Aurelius wrote…" / "An old proverb…"
+Lines 2-5: The quote in breath fragments (2-6 words each, NO extra commentary)
+Lines 6-10: Reflection — unpack it in short, honest fragments — what it means in real life
+Lines 11-12: Quiet close — a landing fragment, not a lesson
 
-RULES:
-- Quote can be real OR written in the authentic spirit of that tradition — must feel genuine
-- Keep every line short — 6-12 words
-- Use "…" for breath pauses
-- End warm, not dramatic
-
-Also provide 4 visual keywords: peaceful contemplative scenes — solitude, nature, quiet interiors.
-
-Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
-
-    else:  # emotional — grief, longing, unspoken pain, human truths
-        opening = random.choice(_OPENING_PATTERNS)
-        return f"""Generate a viral 30-35 second emotional script for "Quietlyy" — inspired by Whisprs, the page with 2M followers in 2 months. Their secret: they name feelings people whisper to themselves but never say out loud.
-
-TARGET FEELING: The viewer thinks "who told them about my life?" — like the script read their private inner monologue. NOT generic motivation. NOT advice. A specific, unspoken human truth they have NEVER heard said so simply.
-
-Topic: {topic}{audience_block}{avoid_block}
-Tone: intimate whisper — grief, longing, the exhaustion of pretending, silent suffering, or the quiet weight of love — with surgical precision
-
-⚠️ OPENING REQUIREMENT (this video MUST open this way — do not default to "You still..."):
-{opening["instruction"]}
-
-FEELINGS THAT GO VIRAL (pick the sharpest angle for this topic):
-- Grief nobody validates (losing someone still alive, being the strong one who can't cry)
-- The exhaustion of pretending to be okay when asked
-- Loving someone who can't love back the right way
-- The specific small moments that carry enormous silent weight
-- Missing a version of yourself you used to be
-- Being everyone's anchor while quietly drowning
+WISDOM SOURCES:
+- Rumi — love, longing, the soul's search
+- Marcus Aurelius — inner discipline, control, resilience
+- Kahlil Gibran — grief, love, freedom, parenting
+- Buddha — attachment, peace, impermanence
+- Lao Tzu — flow, simplicity, nature
+- Japanese proverb — patience, resilience
+- Maya Angelou — courage, self-worth, love
+- Hafiz — joy, the divine, life's abundance
 
 Rules:
-- NEVER start with "You were...", "You weren't...", "Some people", "There was a time", "In a world" — banned
-- Short punchy lines — 5-10 words each, fast rhythm, each line is a quiet gut punch
-- ONE central image that makes the feeling concrete and specific — not a list of metaphors
-- MUST have a turn — one line that quietly reframes everything before it
-- Build slowly — let the emotion breathe and deepen across lines
-- End with something so honest they'll screenshot it
-- Last line: organic share nudge — "Save this for the days you forget." / "Send this to someone carrying something heavy." / "Tag someone who needs to hear this."
-- 8-9 lines TOTAL including CTA — enough to fill 30 seconds, every line earns its place
-- NO hashtags, NO emojis, NO stage directions
+- 2-6 words per line — STRICTLY
+- 12-14 lines for 30 seconds
+- Attribution on its own line: "Rumi said" or "Rumi once wrote…"
+- Quote lines are lowercase fragments continuing naturally
+- Reflection lowercase, personal, honest — NOT generic advice
+- End with quiet open landing — no forced "Save this"
 
-Structure:
-Line 1: HOOK using the opening requirement above — stop the scroll with something they've never heard phrased this way
-Lines 2-3: Deepen — the quiet truth underneath, make it feel personal and unspoken
-Lines 4-5: Expand — the second layer, the thing underneath the thing
-Lines 6-7: The turn + honest exhale — the realization that makes them feel seen, not lectured
-Line 8: Landing — something quietly powerful, screenshot-worthy
-Line 9: CTA — "Save this for the heavy days." or "Send this to someone who needs it."
-
-Also provide 4 visual keywords (solitary, intimate scenes — 3am moments, dark rooms, quiet figures).
+Also provide 4 visual keywords: contemplative solitary scenes, nature, quiet.
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\nline9", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\nline9\\nline10\\nline11\\nline12", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
-EXAMPLES (study the hook — how specific and quiet the first line is):
-{examples_text}"""
+    else:  # emotional — the core Quietlyy format, matched exactly to Whisprs
+        opening = random.choice(_OPENING_PATTERNS)
+        return f"""Write a 30-second emotional poem for "Quietlyy" in the EXACT Whisprs style.
+Whisprs reached 2M followers in 2 months with this exact format. Match it precisely.{audience_block}{avoid_block}
+
+Topic: {topic}
+
+━━ THE WHISPRS FORMAT ━━
+Each line = one breath fragment. 2-6 words ONLY. Never more.
+Lines are enjambed — they flow grammatically into each other.
+The poem is ONE emotional statement broken into 12-14 short breaths.
+Each breath lands, then silence, then the next breath arrives.
+
+Real Whisprs examples:
+
+Video 1 (topic: leaving but never truly going):
+I'm a leaver who never really left
+I walked away
+but kept looking back
+not chasing
+just watching from a distance
+but holding onto hope
+I won't make you stay
+quiet and steady
+not out of weakness
+but out of love
+
+Video 2 (topic: people who use your warmth):
+the umbrella feels too heavy to hold
+The same hands that reached for you in storms
+slowly forget the warmth you gave
+but sunshine makes your presence fade
+Some people don't love you
+they love the comfort you create.
+
+━━ YOUR POEM ━━
+Topic: {topic}
+⚠️ Opening style required: {opening["instruction"]}
+
+Rules — follow exactly:
+- 2-6 words per line. Hard limit. Never more than 6 words on a line.
+- 12-14 lines total (30 seconds at one breath + pause per fragment)
+- Continuation lines start LOWERCASE: "but...", "and...", "just...", "slowly...", "not..."
+- New emotional beats CAPITALIZE: "Some people...", "The hands that...", "I won't..."
+- ONE central image or metaphor carried the whole way through
+- The poem makes the viewer think: "who told them about my life?"
+- End with a quiet, powerful close — 2-5 words. Period.
+- Optionally: final line "send this to them." or "let them know." (if it fits naturally)
+- NO "Save this", NO "Tag someone" — feel, don't sell
+- NEVER start with "You were..." — banned
+
+Also provide 4 visual keywords (solitary, atmospheric scenes).
+
+Return ONLY valid JSON:
+{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\nline9\\nline10\\nline11\\nline12", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
 
 def _call_openai_compatible(url, key, model, prompt):
@@ -571,7 +597,7 @@ def _generate_raw(prompt, style):
             result = gen_fn(prompt)
             if result and "script" in result:
                 lines = [l.strip() for l in result["script"].split("\n") if l.strip()]
-                min_lines = 4 if style == "nostalgic" else 5
+                min_lines = 8  # Whisprs format is 12-14 lines; reject anything shorter than 8
                 if len(lines) >= min_lines:
                     print(f"[script] Generated via {name}")
                     return result

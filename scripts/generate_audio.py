@@ -16,9 +16,10 @@ ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
 ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "")
 ELEVENLABS_MODEL = "eleven_turbo_v2_5"
 
-# Silence between lines — 1.3s gives breathing room that matches 60-75 BPM music
-# Whispers-style pages: the space between lines IS part of the emotional impact
-LINE_GAP = 1.3
+# Silence between lines — 1.5s for short Whisprs-style fragments.
+# Short 2-5 word fragments + 1.5s of silence = natural breathing rhythm.
+# The pause IS the emotion — it lets each fragment land before the next arrives.
+LINE_GAP = 1.5
 
 # CTA patterns — lines matching these are NOT narrated; shown as baked text overlay instead.
 # Check both startswith (for clean CTA lines) and contains (for embedded CTAs).
