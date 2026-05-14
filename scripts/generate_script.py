@@ -554,6 +554,51 @@ def generate_with_groq(prompt):
     )
 
 
+def generate_with_cerebras(prompt):
+    """Cerebras Cloud — 1M tokens/day FREE on Llama 3.3 70B. OpenAI-compatible."""
+    key = os.environ.get("CEREBRAS_API_KEY")
+    if not key:
+        return None
+    try:
+        return _call_openai_compatible(
+            "https://api.cerebras.ai/v1/chat/completions",
+            key, "llama-3.3-70b", prompt,
+        )
+    except Exception as e:
+        print(f"[script] Cerebras failed: {e}")
+    return None
+
+
+def generate_with_sambanova(prompt):
+    """SambaNova — 200K tokens/day FREE on Llama 3.1 405B (largest free model)."""
+    key = os.environ.get("SAMBANOVA_API_KEY")
+    if not key:
+        return None
+    try:
+        return _call_openai_compatible(
+            "https://api.sambanova.ai/v1/chat/completions",
+            key, "Meta-Llama-3.3-70B-Instruct", prompt,
+        )
+    except Exception as e:
+        print(f"[script] SambaNova failed: {e}")
+    return None
+
+
+def generate_with_mistral(prompt):
+    """Mistral La Plateforme — 1B tokens/month FREE on Mistral Large."""
+    key = os.environ.get("MISTRAL_API_KEY")
+    if not key:
+        return None
+    try:
+        return _call_openai_compatible(
+            "https://api.mistral.ai/v1/chat/completions",
+            key, "mistral-large-latest", prompt,
+        )
+    except Exception as e:
+        print(f"[script] Mistral failed: {e}")
+    return None
+
+
 def generate_with_huggingface(prompt):
     """Free fallback via HF Serverless Inference — Mistral-7B-Instruct.
     Quality lower than GPT-4/Gemini but free. Used only when all other free
@@ -583,31 +628,59 @@ def generate_with_huggingface(prompt):
 
 
 def _generate_raw(prompt, style):
-    """Try all providers — free first, paid last.
-    Order: Gemini (free) → Groq (free) → HuggingFace (free) → ChatGPT (paid fallback).
-    ChatGPT only runs when all 3 free options fail."""
+    """Try all providers in order — free-first by daily quota, paid last.
+
+    Order rationale:
+      1. Gemini       — 250 req/day free, fast, strong creative
+      2. Cerebras     — 1M tokens/day free, fastest inference (Llama 3.3 70B)
+      3. Groq         — 500K tokens/day free, also Llama 3.3 70B
+      4. SambaNova    — 200K tokens/day free, Llama 3.1 405B (largest free model)
+      5. Mistral      — 1B tokens/month free, Mistral Large
+      6. HuggingFace  — free fallback, quality lower
+      7. ChatGPT      — PAID — only when all 6 free providers are exhausted
+
+    Returns ('result_dict', None) on success, (None, 'all_rate_limited') if every
+    provider returned 429, (None, 'all_failed') for other failures.
+    """
     providers = [
         (generate_with_gemini,       "Gemini"),
+        (generate_with_cerebras,     "Cerebras"),
         (generate_with_groq,         "Groq"),
+        (generate_with_sambanova,    "SambaNova"),
+        (generate_with_mistral,      "Mistral"),
         (generate_with_huggingface,  "HuggingFace"),
         (generate_with_chatgpt,      "ChatGPT"),
     ]
+    all_rate_limited = True  # flip to False if any provider returns non-429 error
+    any_attempted = False    # track whether any provider was even configured
     for gen_fn, name in providers:
         try:
             result = gen_fn(prompt)
-            if result and "script" in result:
+            if result is None:
+                continue  # not configured (no API key) — silent skip
+            any_attempted = True
+            if "script" in result:
                 lines = [l.strip() for l in result["script"].split("\n") if l.strip()]
                 min_lines = 8  # Whisprs format is 12-14 lines; reject anything shorter than 8
                 if len(lines) >= min_lines:
                     print(f"[script] Generated via {name}")
-                    return result
+                    return result, None
                 print(f"[script] {name} output wrong format, trying next...")
+                all_rate_limited = False
         except Exception as e:
-            print(f"[script] {name} failed: {e}")
-    return None
+            any_attempted = True
+            err_str = str(e)
+            # Detect 429 / rate-limit; anything else is a real failure
+            if "429" not in err_str and "rate limit" not in err_str.lower() and "Too Many Requests" not in err_str:
+                all_rate_limited = False
+            print(f"[script] {name} failed: {err_str[:200]}")
+    if not any_attempted:
+        return None, "no_providers_configured"
+    return None, ("all_rate_limited" if all_rate_limited else "all_failed")
 
 
 def generate_script(tone_hints="", theme_hints=None, idea_hints=""):
+    import time
     templates = load_templates()
     examples = templates["example_scripts"]
     MAX_ATTEMPTS = 5
@@ -617,9 +690,15 @@ def generate_script(tone_hints="", theme_hints=None, idea_hints=""):
         prompt = build_prompt(topic, examples, style=style, tone_hints=tone_hints, idea_hints=idea_hints)
         print(f"[script] Attempt {attempt}/{MAX_ATTEMPTS} — Style: {style} | Topic: {topic}")
 
-        result = _generate_raw(prompt, style)
+        result, reason = _generate_raw(prompt, style)
         if not result:
-            print(f"[script] All providers failed on attempt {attempt}, retrying...")
+            # When every provider returned 429, sleep before hammering them again
+            if reason == "all_rate_limited":
+                backoff = min(60, 15 * attempt)
+                print(f"[script] All providers rate-limited (429) — sleeping {backoff}s before retry...")
+                time.sleep(backoff)
+            else:
+                print(f"[script] All providers failed ({reason}) on attempt {attempt}, retrying...")
             continue
 
         script_text = result["script"]
@@ -656,6 +735,7 @@ def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candi
     except ImportError:
         predictor_available = False
 
+    import time
     templates = load_templates()
     examples = templates["example_scripts"]
     candidates = []
@@ -674,8 +754,13 @@ def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candi
         prompt = build_prompt(topic, examples, style=style, tone_hints=tone_hints, idea_hints=idea_hints)
         print(f"[script] Candidate {len(candidates)+1}/{n_candidates} (try {attempt}) — Style: {style} | Topic: {topic}")
 
-        result = _generate_raw(prompt, style)
+        result, reason = _generate_raw(prompt, style)
         if not result:
+            # On rate-limit storm, sleep before re-hammering all providers
+            if reason == "all_rate_limited":
+                backoff = min(60, 15 * attempt)
+                print(f"[script]   All providers rate-limited — sleeping {backoff}s before next candidate")
+                time.sleep(backoff)
             continue
 
         approved, reason, score = review_script(result["script"], topic, style, examples)
