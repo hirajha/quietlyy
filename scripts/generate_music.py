@@ -21,6 +21,13 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
 FREESOUND_API_KEY = os.environ.get("FREESOUND_API_KEY", "")
 
+# Jamendo — free CC-BY instrumental music, sounds like real song productions.
+# Register free at https://developer.jamendo.com/ → get a client_id.
+# Set JAMENDO_CLIENT_ID in GitHub secrets. Skipped gracefully if not set.
+# The `vocalinstrumental=instrumental` filter is the KEY param —
+# it returns tracks with vocals stripped, exactly like Whisprs uses.
+JAMENDO_CLIENT_ID = os.environ.get("JAMENDO_CLIENT_ID", "")
+
 # ── Per-style music palettes ─────────────────────────────────────────────────
 # Each style has: queries, BPM range, reject keywords
 
@@ -368,22 +375,10 @@ def _download_pixabay(url, output_path):
     return False
 
 
-# ── CC0 piano tracks — Whisprs-matched ambient sparse piano ──────────────────
-# All tracks: CC BY 3.0 (Kevin MacLeod / incompetech.com)
-#
-# WHISPRS MUSIC STYLE: Very sparse, barely-there ambient piano.
-# Think: a few slow piano notes with space between them. NOT a melody.
-# Like hearing someone play softly in another room — formless, ambient, emotional.
-# Nils Frahm / Erik Satie / lofi ambient aesthetic.
-# Voice is the star — music is just breathing underneath.
-#
-# Track selection priority (most Whisprs-like first):
-# 1. "Wish Background" — barely-there single notes, most sparse/ambient
-# 2. "A Quiet Thought" — simple gentle piano, minimal structure
-# 3. "Heartbreaking" — delicate minor piano, intimate
-# 4. "Piano Moment" — soft, slow, minimal
-# 5. "Dreamy Flashback" — still melodic but soft (fallback)
-# 6. Others — more melodic, only used as last resort
+# ── CC0/CC-BY fallback tracks ─────────────────────────────────────────────────
+# Used when Jamendo is unavailable. Kevin MacLeod (incompetech.com) CC-BY 3.0.
+# These are piano-only and sound more generic than Jamendo instrumentals.
+# Kept as reliable fallback — they always download and are always mood-safe.
 #
 # mood → list of (url, label) — tried in shuffled order until one downloads
 _CC0_TRACKS = {
@@ -391,28 +386,28 @@ _CC0_TRACKS = {
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heartbreaking.mp3",       "Kevin MacLeod - Heartbreaking"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sad%20Trio.mp3",          "Kevin MacLeod - Sad Trio"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
     ],
     "longing": [
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heartbreaking.mp3",       "Kevin MacLeod - Heartbreaking"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
     ],
     "love": [
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Touching%20Moments.mp3",  "Kevin MacLeod - Touching Moments"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Healing.mp3",             "Kevin MacLeod - Healing"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
     ],
     "nostalgia": [
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
+        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bittersweet.mp3",         "Kevin MacLeod - Bittersweet"),
     ],
     "melancholy": [
@@ -430,6 +425,82 @@ _CC0_TRACKS = {
         ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
     ],
 }
+
+
+def _search_jamendo(mood):
+    """Search Jamendo for CC-BY instrumental tracks — no vocals, sounds like real songs.
+
+    The `vocalinstrumental=instrumental` param filters to tracks where the
+    artist has removed the vocal layer. These sound exactly like what Whisprs
+    uses: full song production (piano + strings + soft beat) but no singer.
+    Returns (stream_url, track_name) or (None, None).
+    """
+    if not JAMENDO_CLIENT_ID:
+        return None, None
+
+    # Jamendo free-text tags per mood — maps to their community tag system
+    _JAMENDO_TAGS = {
+        "heartbreak": ["sad+heartbreak", "sad+emotional", "sad"],
+        "longing":    ["longing+melancholic", "nostalgic+emotional", "melancholic"],
+        "melancholy": ["dark+melancholic", "sad+melancholic", "dark"],
+        "love":       ["romantic+emotional", "tender+emotional", "romantic"],
+        "hope":       ["hopeful+emotional", "emotional+cinematic", "emotional"],
+    }
+    tag_options = _JAMENDO_TAGS.get(mood, _JAMENDO_TAGS["melancholy"])
+
+    for tags in tag_options:
+        try:
+            resp = requests.get(
+                "https://api.jamendo.com/v3.0/tracks/",
+                params={
+                    "client_id":            JAMENDO_CLIENT_ID,
+                    "format":               "json",
+                    "limit":                20,
+                    "tags":                 tags,
+                    "audioformat":          "mp32",   # MP3 high quality
+                    "include":              "musicinfo",
+                    "order":                "popularity_week",
+                    "duration_between":     "60_180",
+                    "vocalinstrumental":    "instrumental",  # NO vocals — key param
+                    "license":              "ccby",         # Commercial-safe CC-BY only
+                },
+                timeout=15,
+            )
+            resp.raise_for_status()
+            results = resp.json().get("results", [])
+            if not results:
+                continue
+            # Filter out wrong vibes by track name
+            good = [t for t in results if not any(
+                kw in t.get("name", "").lower() for kw in REJECT_KEYWORDS
+            )]
+            if not good:
+                good = results  # Use unfiltered if all rejected
+            track = random.choice(good[:10])
+            url = track.get("audio")  # Direct MP3 stream
+            name = track.get("name", "Jamendo track")
+            artist = track.get("artist_name", "")
+            if url:
+                print(f"[music] Jamendo found ({mood}/{tags}): {artist} — {name[:50]}")
+                return url, f"{artist} - {name}"
+        except Exception as e:
+            print(f"[music] Jamendo search failed (tags={tags}): {e}")
+    return None, None
+
+
+def _download_jamendo(url, output_path):
+    """Download a Jamendo MP3 stream to output_path."""
+    try:
+        resp = requests.get(url, timeout=90)
+        if resp.status_code == 200 and len(resp.content) > 50_000:
+            with open(output_path, "wb") as f:
+                f.write(resp.content)
+            print(f"[music] Jamendo downloaded {len(resp.content) // 1024}KB")
+            return True
+        print(f"[music] Jamendo download: status={resp.status_code} size={len(resp.content)}")
+    except Exception as e:
+        print(f"[music] Jamendo download failed: {e}")
+    return False
 
 
 def _download_cc0_track(mood, output_path):
@@ -494,13 +565,24 @@ def generate_music(topic, script_text="", style="emotional"):
 
     print(f"[music] Style: {style} | Raw mood: {raw_mood} → Safe mood: {script_mood}")
 
-    # ── Primary: CC0 library — pre-vetted, ALWAYS sad/melancholic, no API needed ──
+    # ── Primary: Jamendo — CC-BY instrumental tracks, sounds like real song productions ──
+    # This is the Whisprs-style: a full song with vocals stripped, not just piano.
+    if JAMENDO_CLIENT_ID:
+        jamendo_url, jamendo_name = _search_jamendo(script_mood)
+        if jamendo_url and _download_jamendo(jamendo_url, music_path):
+            print(f"[music] Jamendo track used: {jamendo_name}")
+            return music_path, "jamendo_cc"
+        print("[music] Jamendo failed — falling back to CC0 library")
+    else:
+        print("[music] No JAMENDO_CLIENT_ID set — skipping Jamendo (add to GitHub secrets for song-style music)")
+
+    # ── Secondary: CC0 library — pre-vetted, ALWAYS sad/melancholic, no API needed ──
     if _download_cc0_track(script_mood, music_path):
         print(f"[music] CC0 library track used (guaranteed safe mood)")
         return music_path, "cc0_library"
     print("[music] CC0 download failed — trying Freesound")
 
-    # ── Secondary: Freesound — mood-locked queries only ──
+    # ── Tertiary: Freesound — mood-locked queries only ──
     if FREESOUND_API_KEY:
         mood_queries = list(_MOOD_TO_FREESOUND.get(script_mood, _MOOD_TO_FREESOUND["melancholy"]))
         style_queries = list(bpm_profile["queries"])
@@ -518,7 +600,7 @@ def generate_music(topic, script_text="", style="emotional"):
     else:
         print("[music] No FREESOUND_API_KEY — trying Pixabay")
 
-    # ── Tertiary: Pixabay — safe moods only (sad/dark) ──
+    # ── Quaternary: Pixabay — safe moods only (sad/dark) ──
     if PIXABAY_API_KEY:
         pix_url, pix_name = _search_pixabay_music(script_mood)
         if pix_url and _download_pixabay(pix_url, music_path):
