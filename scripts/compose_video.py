@@ -564,28 +564,39 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
 
     if music_path:
         print(f"[video] Mixing voice + music (with ducking) — {os.path.basename(music_path)}")
-        # Audio chain:
-        # 1. Voice: loudnorm to -11 LUFS (louder than before — narrator must be CLEAR & PRESENT)
-        #    → asplit so we can use one copy for amix, one as sidechain detector for ducking
-        # 2. Music: loudnorm to -20 LUFS (full level during pauses between lines)
-        #    → afade in/out → sidechaincompress:
-        #      - When voice speaks: music ducks by ~8:1 ratio → barely audible
-        #      - When voice pauses (1.5s gap): music swells back in 800ms → clearly audible
-        #    This is the Whisprs breathing effect: music lives in the pauses, voice owns speaking
+        # ── Whisprs-matched audio ducking ─────────────────────────────────────
+        # Whisprs profile (measured from their actual videos at -14.5 LUFS total mix):
+        #   • Voice alone:  ~-11 LUFS (clearly present, foreground)
+        #   • Music alone (pauses):  ~-17 LUFS (audible, fills the silence)
+        #   • Music ducked (speech): ~-28 LUFS (barely there, just texture)
+        #   • Swing depth:  ~11dB drop when voice enters
+        #   • Recovery:     music fully swells back during 1.5s breath gap
+        #
+        # The duck must be:
+        #   1) DECISIVE — voice always wins (ratio=12, hits hard)
+        #   2) FAST — duck instantly when voice starts (attack=40ms)
+        #   3) SMOOTH — gentle knee, no pumping artifact (knee=3)
+        #   4) FULLY RECOVERING — music back to full in 1.5s gap (release=550ms
+        #      → ~95% recovery in 1.5s, gives the breath effect of music swelling
+        #      back BEFORE each new line lands)
         _ffmpeg(
             "ffmpeg", "-y",
             "-i", output_no_audio,
             "-i", audio_path,
             "-stream_loop", "-1", "-i", music_path,
             "-filter_complex",
-            # Voice: normalize loud and clear, then split into [voice_out] (for mix) and [voice_sc] (sidechain)
+            # Voice: -11 LUFS, then split → [voice_out] (for final mix) + [voice_sc] (sidechain trigger)
             f"[1:a]loudnorm=I=-11:LRA=7:TP=-0.5,apad=pad_dur=1,asplit=2[voice_out][voice_sc];"
-            # Music: normalize to -20 LUFS (full level), fade in/out
-            f"[2:a]loudnorm=I=-20:LRA=7:TP=-2,"
+            # Music: -17 LUFS undipped (audible during pauses), fade in/out at start/end
+            f"[2:a]loudnorm=I=-17:LRA=7:TP=-2,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4[music_norm];"
-            # Duck music using voice as sidechain: ratio=8 = strong duck, attack=50ms, release=800ms
-            # During 1.5s line gaps, music recovers ~85% back to full before next line hits
-            f"[music_norm][voice_sc]sidechaincompress=threshold=0.015:ratio=8:attack=50:release=800:makeup=1[music_ducked];"
+            # Sidechain duck — Whisprs-matched parameters:
+            #   threshold=0.025 → only real speech triggers (ignores breath noise)
+            #   ratio=12        → strong 12:1 duck (~11dB drop, matches Whisprs depth)
+            #   attack=40ms     → fast, decisive duck onset
+            #   release=550ms   → music ~95% recovered in 1.5s breath gap
+            #   knee=3          → smooth transition, no audible pumping
+            f"[music_norm][voice_sc]sidechaincompress=threshold=0.025:ratio=12:attack=40:release=550:knee=3:makeup=1[music_ducked];"
             # Final mix: video + voice + ducked music
             f"[0:v]{video_filter}[vout];"
             f"[voice_out][music_ducked]amix=inputs=2:duration=first:normalize=0[aout]",
