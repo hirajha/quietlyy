@@ -21,13 +21,6 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
 FREESOUND_API_KEY = os.environ.get("FREESOUND_API_KEY", "")
 
-# Jamendo — free CC-BY instrumental music, sounds like real song productions.
-# Register free at https://developer.jamendo.com/ → get a client_id.
-# Set JAMENDO_CLIENT_ID in GitHub secrets. Skipped gracefully if not set.
-# The `vocalinstrumental=instrumental` filter is the KEY param —
-# it returns tracks with vocals stripped, exactly like Whisprs uses.
-JAMENDO_CLIENT_ID = os.environ.get("JAMENDO_CLIENT_ID", "")
-
 # ── Per-style music palettes ─────────────────────────────────────────────────
 # Each style has: queries, BPM range, reject keywords
 
@@ -376,8 +369,8 @@ def _download_pixabay(url, output_path):
 
 
 # ── CC0/CC-BY fallback tracks ─────────────────────────────────────────────────
-# Used when Jamendo is unavailable. Kevin MacLeod (incompetech.com) CC-BY 3.0.
-# These are piano-only and sound more generic than Jamendo instrumentals.
+# Used when Pixabay is unavailable. Kevin MacLeod (incompetech.com) CC-BY 3.0.
+# Piano-only and more generic-sounding than Pixabay song-style tracks.
 # Kept as reliable fallback — they always download and are always mood-safe.
 #
 # mood → list of (url, label) — tried in shuffled order until one downloads
@@ -427,79 +420,104 @@ _CC0_TRACKS = {
 }
 
 
-def _search_jamendo(mood):
-    """Search Jamendo for CC-BY instrumental tracks — no vocals, sounds like real songs.
+# ── Pixabay query-based search — mood-targeted text queries for SONG-style instrumentals ──
+# These queries are tuned to return full-production tracks (piano + strings + bass +
+# soft drums) rather than generic ambient piano. The terms "instrumental", "cinematic",
+# and "song" push Pixabay's algorithm toward Whisprs-style tracks: real song
+# arrangements with vocals removed, not stripped-down ambient piano.
+_MOOD_TO_PIXABAY_QUERIES = {
+    "heartbreak": [
+        "emotional heartbreak cinematic instrumental",
+        "sad piano strings song instrumental",
+        "melancholic emotional song background",
+        "heartbreak emotional cinematic music",
+        "sad emotional ballad instrumental",
+    ],
+    "longing": [
+        "longing emotional cinematic instrumental",
+        "nostalgic piano strings song",
+        "wistful emotional instrumental music",
+        "missing someone cinematic instrumental",
+        "longing romantic emotional background",
+    ],
+    "melancholy": [
+        "melancholy cinematic emotional instrumental",
+        "sad emotional song background music",
+        "dark emotional piano cinematic",
+        "melancholic ambient cinematic instrumental",
+        "sad piano strings emotional song",
+    ],
+    "love": [
+        "romantic emotional instrumental cinematic",
+        "tender love song instrumental",
+        "emotional love ballad instrumental",
+        "romantic piano strings cinematic",
+        "love emotional song background music",
+    ],
+    "hope": [
+        "emotional cinematic uplifting instrumental",
+        "hopeful cinematic emotional music",
+        "inspiring emotional piano cinematic",
+        "emotional cinematic song instrumental",
+        "hopeful piano strings cinematic",
+    ],
+}
 
-    The `vocalinstrumental=instrumental` param filters to tracks where the
-    artist has removed the vocal layer. These sound exactly like what Whisprs
-    uses: full song production (piano + strings + soft beat) but no singer.
-    Returns (stream_url, track_name) or (None, None).
+
+def _search_pixabay_by_query(mood, output_path):
+    """Search Pixabay Music by mood-targeted text query for song-like instrumentals.
+
+    This bypasses Pixabay's mood/genre params (unreliable) and uses direct text
+    search. Queries include 'instrumental', 'cinematic', 'song' to push toward
+    full-production tracks rather than ambient piano. Returns True if a track
+    was downloaded successfully.
     """
-    if not JAMENDO_CLIENT_ID:
-        return None, None
+    if not PIXABAY_API_KEY:
+        return False
 
-    # Jamendo free-text tags per mood — maps to their community tag system
-    _JAMENDO_TAGS = {
-        "heartbreak": ["sad+heartbreak", "sad+emotional", "sad"],
-        "longing":    ["longing+melancholic", "nostalgic+emotional", "melancholic"],
-        "melancholy": ["dark+melancholic", "sad+melancholic", "dark"],
-        "love":       ["romantic+emotional", "tender+emotional", "romantic"],
-        "hope":       ["hopeful+emotional", "emotional+cinematic", "emotional"],
-    }
-    tag_options = _JAMENDO_TAGS.get(mood, _JAMENDO_TAGS["melancholy"])
+    queries = list(_MOOD_TO_PIXABAY_QUERIES.get(mood, _MOOD_TO_PIXABAY_QUERIES["melancholy"]))
+    random.shuffle(queries)
 
-    for tags in tag_options:
+    for q in queries[:4]:
         try:
             resp = requests.get(
-                "https://api.jamendo.com/v3.0/tracks/",
-                params={
-                    "client_id":            JAMENDO_CLIENT_ID,
-                    "format":               "json",
-                    "limit":                20,
-                    "tags":                 tags,
-                    "audioformat":          "mp32",   # MP3 high quality
-                    "include":              "musicinfo",
-                    "order":                "popularity_week",
-                    "duration_between":     "60_180",
-                    "vocalinstrumental":    "instrumental",  # NO vocals — key param
-                    "license":              "ccby",         # Commercial-safe CC-BY only
-                },
+                "https://pixabay.com/api/music/",
+                params={"key": PIXABAY_API_KEY, "q": q, "per_page": 50},
                 timeout=15,
             )
             resp.raise_for_status()
-            results = resp.json().get("results", [])
-            if not results:
+            hits = resp.json().get("hits", [])
+            if not hits:
                 continue
-            # Filter out wrong vibes by track name
-            good = [t for t in results if not any(
-                kw in t.get("name", "").lower() for kw in REJECT_KEYWORDS
-            )]
+
+            # Filter by combined name + tags against REJECT_KEYWORDS
+            def _good(t):
+                tags_raw = t.get("tags", "")
+                tags_str = " ".join(tags_raw.split(",")) if isinstance(tags_raw, str) else " ".join(tags_raw)
+                combined = (
+                    (t.get("title", "") or "").lower() + " " +
+                    (t.get("name", "") or "").lower() + " " +
+                    tags_str.lower()
+                )
+                return not any(kw in combined for kw in REJECT_KEYWORDS)
+
+            good = [h for h in hits if _good(h)]
             if not good:
-                good = results  # Use unfiltered if all rejected
-            track = random.choice(good[:10])
-            url = track.get("audio")  # Direct MP3 stream
-            name = track.get("name", "Jamendo track")
-            artist = track.get("artist_name", "")
-            if url:
-                print(f"[music] Jamendo found ({mood}/{tags}): {artist} — {name[:50]}")
-                return url, f"{artist} - {name}"
+                continue
+
+            track = random.choice(good[:15])
+            url = (
+                track.get("audio")
+                or track.get("download_url")
+                or track.get("previewURL")
+                or track.get("audio_download")
+            )
+            name = track.get("title") or track.get("name") or "Pixabay track"
+            if url and _download_pixabay(url, output_path):
+                print(f"[music] Pixabay query '{q}' → {name[:60]}")
+                return True
         except Exception as e:
-            print(f"[music] Jamendo search failed (tags={tags}): {e}")
-    return None, None
-
-
-def _download_jamendo(url, output_path):
-    """Download a Jamendo MP3 stream to output_path."""
-    try:
-        resp = requests.get(url, timeout=90)
-        if resp.status_code == 200 and len(resp.content) > 50_000:
-            with open(output_path, "wb") as f:
-                f.write(resp.content)
-            print(f"[music] Jamendo downloaded {len(resp.content) // 1024}KB")
-            return True
-        print(f"[music] Jamendo download: status={resp.status_code} size={len(resp.content)}")
-    except Exception as e:
-        print(f"[music] Jamendo download failed: {e}")
+            print(f"[music] Pixabay query '{q}' failed: {e}")
     return False
 
 
@@ -565,16 +583,18 @@ def generate_music(topic, script_text="", style="emotional"):
 
     print(f"[music] Style: {style} | Raw mood: {raw_mood} → Safe mood: {script_mood}")
 
-    # ── Primary: Jamendo — CC-BY instrumental tracks, sounds like real song productions ──
-    # This is the Whisprs-style: a full song with vocals stripped, not just piano.
-    if JAMENDO_CLIENT_ID:
-        jamendo_url, jamendo_name = _search_jamendo(script_mood)
-        if jamendo_url and _download_jamendo(jamendo_url, music_path):
-            print(f"[music] Jamendo track used: {jamendo_name}")
-            return music_path, "jamendo_cc"
-        print("[music] Jamendo failed — falling back to CC0 library")
+    # ── Primary: Pixabay text-query — targets song-style instrumentals ──
+    # Pixabay's library includes many full-production tracks (piano + strings +
+    # soft beat) with no vocals. Text-query search ('emotional cinematic song
+    # instrumental') is more reliable than their mood/genre params for finding
+    # Whisprs-style music.
+    if PIXABAY_API_KEY:
+        if _search_pixabay_by_query(script_mood, music_path):
+            print(f"[music] Pixabay query-search succeeded — Whisprs-style track")
+            return music_path, "pixabay_query"
+        print("[music] Pixabay query-search exhausted — trying mood/genre search")
     else:
-        print("[music] No JAMENDO_CLIENT_ID set — skipping Jamendo (add to GitHub secrets for song-style music)")
+        print("[music] No PIXABAY_API_KEY set — skipping Pixabay (add to GitHub secrets)")
 
     # ── Secondary: CC0 library — pre-vetted, ALWAYS sad/melancholic, no API needed ──
     if _download_cc0_track(script_mood, music_path):
@@ -600,7 +620,7 @@ def generate_music(topic, script_text="", style="emotional"):
     else:
         print("[music] No FREESOUND_API_KEY — trying Pixabay")
 
-    # ── Quaternary: Pixabay — safe moods only (sad/dark) ──
+    # ── Quaternary: Pixabay legacy mood/genre search (different endpoint than primary) ──
     if PIXABAY_API_KEY:
         pix_url, pix_name = _search_pixabay_music(script_mood)
         if pix_url and _download_pixabay(pix_url, music_path):
