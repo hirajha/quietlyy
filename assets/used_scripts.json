@@ -312,5 +312,17 @@
       "grief_loss",
       "love"
     ]
+  },
+  {
+    "topic": "When Love Feels Like Coming Home",
+    "style": "love",
+    "script": "Home feels incomplete\nand somehow full\nSlowly I realize\nGently I remember\nPlaces we've been\nand streets we've walked\nEvery house a memory\nFills the empty spaces\nNew rooms to discover\nSlowly becoming ours\nIn every corner\nI find my way\nback to you\nlet them know",
+    "hash": "d4344fc875fa57c629d743dac8aaa6c7",
+    "metaphors": [
+      "tree"
+    ],
+    "themes": [
+      "nostalgia"
+    ]
   }
 ]
