@@ -36,37 +36,123 @@ _MUSICGEN_PROMPTS = {
 }
 
 
+def _extract_audio_path(result):
+    """Pull an audio file path out of a gradio Client result (varies per Space)."""
+    if isinstance(result, str):
+        return result if os.path.exists(result) else None
+    if isinstance(result, (list, tuple)):
+        for item in result:
+            if isinstance(item, str) and item.lower().endswith((".wav", ".mp3", ".flac", ".ogg", ".m4a")):
+                if os.path.exists(item):
+                    return item
+            if isinstance(item, dict):
+                p = item.get("path") or item.get("audio")
+                if p and os.path.exists(p):
+                    return p
+    if isinstance(result, dict):
+        p = result.get("path") or result.get("audio")
+        if p and os.path.exists(p):
+            return p
+    return None
+
+
+def _try_hf_space(space_id, api_name, build_args, prompt, duration, output_path):
+    """Try a single HF Space. Returns ('ok'|'down'|'config'|'queued'|'empty', detail).
+
+    Categorizes failures so we can distinguish:
+      - 'down'   : Space unreachable / 5xx / timeout (server-side, transient)
+      - 'config' : Our api_name or arg shape is wrong (our code bug)
+      - 'queued' : Space is busy / rate-limited (transient, try later)
+      - 'empty'  : Call succeeded but didn't return a usable audio file
+      - 'ok'     : Generated and saved successfully
+    """
+    try:
+        from gradio_client import Client
+    except ImportError:
+        return "config", "gradio_client not installed"
+
+    # ── Step 1: Connect to the Space ──────────────────────────────────────────
+    try:
+        client = Client(space_id, hf_token=HF_TOKEN or None)
+    except Exception as e:
+        msg = str(e).lower()
+        if any(s in msg for s in ("connection", "unreachable", "name or service", "timed out", "timeout", "503", "502", "504")):
+            return "down", f"{type(e).__name__}: {str(e)[:200]}"
+        if "404" in msg or "not found" in msg:
+            return "config", f"Space ID '{space_id}' not found: {str(e)[:200]}"
+        return "down", f"{type(e).__name__}: {str(e)[:200]}"
+
+    # ── Step 2: Introspect available API endpoints (catches wrong api_name) ──
+    detected_apis = []
+    try:
+        api_info = client.view_api(return_format="dict")
+        detected_apis = list(api_info.get("named_endpoints", {}).keys())
+        if api_name not in detected_apis:
+            # Auto-recover: pick the first available endpoint
+            if detected_apis:
+                print(f"[music]   ⚙️  api_name '{api_name}' not on Space — falling back to detected '{detected_apis[0]}'")
+                api_name = detected_apis[0]
+            else:
+                return "config", f"Space has NO named endpoints. Our api_name '{api_name}' won't work."
+    except Exception as e:
+        # Introspection failed but we can still try the call blind
+        print(f"[music]   ⚠️  view_api failed ({type(e).__name__}: {str(e)[:80]}) — calling blind")
+
+    # ── Step 3: Make the prediction call ──────────────────────────────────────
+    try:
+        args = build_args(prompt, duration)
+        print(f"[music]   📞 calling {api_name} with {len(args)} args (apis seen: {detected_apis[:3]})")
+        result = client.predict(*args, api_name=api_name)
+    except Exception as e:
+        msg = str(e).lower()
+        if any(s in msg for s in ("queue", "queued", "rate limit", "too many requests", "429")):
+            return "queued", f"{type(e).__name__}: {str(e)[:200]}"
+        if any(s in msg for s in ("405", "method not allowed", "400", "validation error", "argument", "type error", "missing", "expected")):
+            return "config", f"{type(e).__name__}: {str(e)[:300]}"
+        if any(s in msg for s in ("timeout", "timed out", "503", "502", "504", "connection")):
+            return "down", f"{type(e).__name__}: {str(e)[:200]}"
+        if "500" in msg or "internal" in msg:
+            return "down", f"Space internal error: {str(e)[:200]}"
+        # Unknown — assume our config is wrong since most Space errors are network/queue ones
+        return "config", f"{type(e).__name__}: {str(e)[:300]}"
+
+    # ── Step 4: Extract audio file from result ───────────────────────────────
+    audio_src = _extract_audio_path(result)
+    if not audio_src:
+        return "empty", f"No audio file in result: {str(result)[:200]}"
+
+    # ── Step 5: Convert WAV/FLAC → MP3 ───────────────────────────────────────
+    import subprocess
+    conv = subprocess.run(
+        ["ffmpeg", "-y", "-i", audio_src, "-b:a", "192k", output_path],
+        capture_output=True,
+    )
+    if conv.returncode == 0 and os.path.exists(output_path) and os.path.getsize(output_path) > 10_000:
+        return "ok", f"{os.path.getsize(output_path) // 1024}KB"
+    return "empty", f"ffmpeg convert failed: {conv.stderr.decode(errors='replace')[-200:]}"
+
+
 def _generate_musicgen(mood, output_path, duration=30):
     """Generate Whisprs-style instrumental music via Hugging Face SPACES (free).
 
-    Uses gradio_client to call public HF Spaces that run MusicGen / Stable Audio
-    on free ZeroGPU. This is the REAL free path:
-      - No per-call cost (vs Replicate $0.10 each)
-      - No rate-limit credit cap (vs HF Inference API)
-      - Same models the paid services use
-      - Queue waits in busy hours (acceptable for batched pipelines)
+    Uses gradio_client to call public HF Spaces running on free ZeroGPU.
+    No per-call cost, no credit cap. Queue waits in busy hours.
 
-    Tries each Space in priority order. Falls through to caller (Pixabay) on
-    failure of all Spaces. Returns True on success.
+    Tries each Space and CLASSIFIES its failure mode so we can debug:
+      ✅ ok      → generated audio
+      🌐 down    → Space offline / 5xx / timeout (their problem, retry later)
+      ⚙️  config → our api_name / args don't match this Space (our bug)
+      ⏳ queued  → Space busy / rate-limited (transient)
+      ❓ empty   → call succeeded but result had no audio
     """
     prompt = _MUSICGEN_PROMPTS.get(mood, _MUSICGEN_PROMPTS["melancholy"])
     duration = min(max(duration, 5), 30)
 
-    # Import lazily so the rest of the pipeline works even if gradio_client
-    # isn't installed yet (it's in requirements.txt but might be missing locally)
-    try:
-        from gradio_client import Client
-    except ImportError:
-        print("[music] gradio_client not installed — skip Spaces (pip install gradio_client)")
-        return False
-
-    # Public HF Spaces — tried in order until one works
-    # Each entry: (space_id, api_name, build_args(prompt, duration) -> list)
     spaces = [
-        # Stable Audio Open — best quality for music, Stability AI's open model
+        # Stable Audio Open — Stability AI, music-focused, best quality
         ("multimodalart/stable-audio-open", "/predict",
          lambda p, d: [p, "", d, 0.8, 100, 50]),
-        # Facebook MusicGen Continuation — official, ZeroGPU enabled
+        # Facebook MusicGen Continuation — official, stereo-medium model
         ("facebook/MusicGen-Continuation", "/predict_full",
          lambda p, d: [p, None, "facebook/musicgen-stereo-medium", d]),
         # Facebook MusicGen — original, most reliable
@@ -74,50 +160,25 @@ def _generate_musicgen(mood, output_path, duration=30):
          lambda p, d: [p, None, "facebook/musicgen-stereo-medium", d]),
     ]
 
+    summary = []  # collect outcomes for final diagnostic line
     for space_id, api_name, build_args in spaces:
-        try:
-            print(f"[music] Trying HF Space '{space_id}' (free, ZeroGPU) — prompt: '{prompt[:60]}...'")
-            client = Client(space_id, hf_token=HF_TOKEN or None)
-            args = build_args(prompt, duration)
-            result = client.predict(*args, api_name=api_name)
+        print(f"[music] ▶ Trying HF Space: {space_id}")
+        status, detail = _try_hf_space(space_id, api_name, build_args, prompt, duration, output_path)
+        icons = {"ok": "✅", "down": "🌐", "config": "⚙️ ", "queued": "⏳", "empty": "❓"}
+        icon = icons.get(status, "❌")
+        print(f"[music]   {icon} {status.upper()}: {detail}")
+        summary.append(f"{space_id}={status}")
+        if status == "ok":
+            return True
 
-            # Result format varies per Space:
-            #   - String: path to audio file
-            #   - Tuple: (video_path, audio_path) or (audio_path,)
-            #   - Dict: {"path": "..."} or similar
-            audio_src = None
-            if isinstance(result, str):
-                audio_src = result
-            elif isinstance(result, (list, tuple)):
-                # Find the first audio file path
-                for item in result:
-                    if isinstance(item, str) and item.lower().endswith((".wav", ".mp3", ".flac", ".ogg", ".m4a")):
-                        audio_src = item
-                        break
-                    if isinstance(item, dict) and "path" in item:
-                        audio_src = item["path"]
-                        break
-            elif isinstance(result, dict):
-                audio_src = result.get("path") or result.get("audio")
-
-            if not audio_src or not os.path.exists(audio_src):
-                print(f"[music] Space '{space_id}' returned no usable audio file: {result}")
-                continue
-
-            # Convert to MP3
-            import subprocess
-            conv = subprocess.run(
-                ["ffmpeg", "-y", "-i", audio_src, "-b:a", "192k", output_path],
-                capture_output=True,
-            )
-            if conv.returncode == 0 and os.path.exists(output_path) and os.path.getsize(output_path) > 10_000:
-                size_kb = os.path.getsize(output_path) // 1024
-                print(f"[music] HF Space '{space_id}' generated {duration}s ({size_kb}KB) — FREE")
-                return True
-            print(f"[music] ffmpeg convert failed for '{space_id}'")
-        except Exception as e:
-            print(f"[music] HF Space '{space_id}' failed: {e}")
-
+    # All Spaces failed — print a single-line summary that tells us EXACTLY
+    # which failure modes hit, so the next debug session is obvious.
+    print(f"[music] ❌ All HF Spaces failed → {' | '.join(summary)}")
+    print(f"[music]    Interpretation:")
+    print(f"[music]      • If most are 'down' → HF infra issue, will recover on its own")
+    print(f"[music]      • If most are 'config' → our api_name/args are wrong, code fix needed")
+    print(f"[music]      • If most are 'queued' → free ZeroGPU is saturated, try off-peak")
+    print(f"[music]      • If most are 'empty' → Space returned unexpected result shape")
     return False
 
 # ── Per-style music palettes ─────────────────────────────────────────────────
