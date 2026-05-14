@@ -298,5 +298,19 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "Losing a Parent",
+    "style": "emotional",
+    "script": "There's a grief that has no name\nbut echoes in empty rooms\nand haunts my every step\nslowly becoming my shadow\nnot just a memory\nbut a living ache\nSome days it's hard to breathe\nThe weight of their absence\nis a physical thing\nit presses upon my chest\nand makes my heart heavy\nI won't forget their touch\nsend this to them",
+    "hash": "acbe6da8e37a710fe25fe5c0e0037f38",
+    "metaphors": [
+      "echo",
+      "shadow"
+    ],
+    "themes": [
+      "grief_loss",
+      "love"
+    ]
   }
 ]
