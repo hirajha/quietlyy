@@ -12,7 +12,47 @@
     "detail": "6 ideas"
   },
   "script": {
-    "result": "fail",
-    "detail": "Script quality gate failed after 15 attempts. Cannot proceed."
+    "result": "ok",
+    "detail": "What Silence Teaches Us"
+  },
+  "audio": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3"
+  },
+  "images": {
+    "result": "ok",
+    "detail": "7 panels"
+  },
+  "music": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [cc0_library]"
+  },
+  "video": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/quietlyy_video.mp4"
+  },
+  "quality_gate": {
+    "result": "ok",
+    "detail": ""
+  },
+  "copyright": {
+    "result": "ok",
+    "detail": ""
+  },
+  "seo": {
+    "result": "ok",
+    "detail": ""
+  },
+  "facebook": {
+    "result": "ok",
+    "detail": ""
+  },
+  "instagram": {
+    "result": "ok",
+    "detail": "18086002622612022"
+  },
+  "youtube": {
+    "result": "ok",
+    "detail": "https://www.youtube.com/shorts/vbATMWQ_wOY"
   }
 }
