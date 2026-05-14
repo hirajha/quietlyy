@@ -37,76 +37,86 @@ _MUSICGEN_PROMPTS = {
 
 
 def _generate_musicgen(mood, output_path, duration=30):
-    """Generate Whisprs-style instrumental music via Hugging Face MusicGen.
+    """Generate Whisprs-style instrumental music via Hugging Face SPACES (free).
 
-    Free via HF Inference API. Uses facebook/musicgen-small (300M params,
-    fastest model on free tier). Generation time: ~20-60s depending on cold
-    start. Returns True on success, False on any failure (caller falls back).
+    Uses gradio_client to call public HF Spaces that run MusicGen / Stable Audio
+    on free ZeroGPU. This is the REAL free path:
+      - No per-call cost (vs Replicate $0.10 each)
+      - No rate-limit credit cap (vs HF Inference API)
+      - Same models the paid services use
+      - Queue waits in busy hours (acceptable for batched pipelines)
 
-    Output is WAV/FLAC → converted to MP3 via ffmpeg.
+    Tries each Space in priority order. Falls through to caller (Pixabay) on
+    failure of all Spaces. Returns True on success.
     """
-    if not HF_TOKEN:
+    prompt = _MUSICGEN_PROMPTS.get(mood, _MUSICGEN_PROMPTS["melancholy"])
+    duration = min(max(duration, 5), 30)
+
+    # Import lazily so the rest of the pipeline works even if gradio_client
+    # isn't installed yet (it's in requirements.txt but might be missing locally)
+    try:
+        from gradio_client import Client
+    except ImportError:
+        print("[music] gradio_client not installed — skip Spaces (pip install gradio_client)")
         return False
 
-    prompt = _MUSICGEN_PROMPTS.get(mood, _MUSICGEN_PROMPTS["melancholy"])
-    duration = min(max(duration, 5), 30)  # MusicGen max = 30s
+    # Public HF Spaces — tried in order until one works
+    # Each entry: (space_id, api_name, build_args(prompt, duration) -> list)
+    spaces = [
+        # Stable Audio Open — best quality for music, Stability AI's open model
+        ("multimodalart/stable-audio-open", "/predict",
+         lambda p, d: [p, "", d, 0.8, 100, 50]),
+        # Facebook MusicGen Continuation — official, ZeroGPU enabled
+        ("facebook/MusicGen-Continuation", "/predict_full",
+         lambda p, d: [p, None, "facebook/musicgen-stereo-medium", d]),
+        # Facebook MusicGen — original, most reliable
+        ("facebook/MusicGen", "/predict_full",
+         lambda p, d: [p, None, "facebook/musicgen-stereo-medium", d]),
+    ]
 
-    # Models in priority order: small (fastest, free) → medium (better, may need pro)
-    models = ["facebook/musicgen-small"]
+    for space_id, api_name, build_args in spaces:
+        try:
+            print(f"[music] Trying HF Space '{space_id}' (free, ZeroGPU) — prompt: '{prompt[:60]}...'")
+            client = Client(space_id, hf_token=HF_TOKEN or None)
+            args = build_args(prompt, duration)
+            result = client.predict(*args, api_name=api_name)
 
-    for model in models:
-        api_url = f"https://api-inference.huggingface.co/models/{model}"
-        headers = {"Authorization": f"Bearer {HF_TOKEN}"}
-        payload = {
-            "inputs": prompt,
-            "parameters": {"duration": duration},
-        }
+            # Result format varies per Space:
+            #   - String: path to audio file
+            #   - Tuple: (video_path, audio_path) or (audio_path,)
+            #   - Dict: {"path": "..."} or similar
+            audio_src = None
+            if isinstance(result, str):
+                audio_src = result
+            elif isinstance(result, (list, tuple)):
+                # Find the first audio file path
+                for item in result:
+                    if isinstance(item, str) and item.lower().endswith((".wav", ".mp3", ".flac", ".ogg", ".m4a")):
+                        audio_src = item
+                        break
+                    if isinstance(item, dict) and "path" in item:
+                        audio_src = item["path"]
+                        break
+            elif isinstance(result, dict):
+                audio_src = result.get("path") or result.get("audio")
 
-        for attempt in range(2):
-            try:
-                print(f"[music] MusicGen {model} (try {attempt+1}/2) — '{prompt[:70]}...'")
-                resp = requests.post(api_url, headers=headers, json=payload, timeout=240)
+            if not audio_src or not os.path.exists(audio_src):
+                print(f"[music] Space '{space_id}' returned no usable audio file: {result}")
+                continue
 
-                # 503 = model cold-starting — wait then retry
-                if resp.status_code == 503:
-                    wait_s = 30
-                    try:
-                        wait_s = int(resp.json().get("estimated_time", 30))
-                    except Exception:
-                        pass
-                    print(f"[music] MusicGen cold start — waiting {wait_s}s")
-                    import time
-                    time.sleep(min(wait_s + 5, 60))
-                    continue
-
-                if resp.status_code == 200 and len(resp.content) > 50_000:
-                    # Save raw audio (FLAC/WAV) then convert to MP3 via ffmpeg
-                    tmp_path = output_path + ".musicgen.raw"
-                    with open(tmp_path, "wb") as f:
-                        f.write(resp.content)
-
-                    import subprocess
-                    result = subprocess.run(
-                        ["ffmpeg", "-y", "-i", tmp_path, "-b:a", "192k", output_path],
-                        capture_output=True,
-                    )
-                    try:
-                        os.remove(tmp_path)
-                    except OSError:
-                        pass
-
-                    if result.returncode == 0 and os.path.exists(output_path) and os.path.getsize(output_path) > 10_000:
-                        print(f"[music] MusicGen generated {duration}s ({os.path.getsize(output_path)//1024}KB)")
-                        return True
-                    print(f"[music] MusicGen ffmpeg convert failed: {result.stderr.decode(errors='replace')[-200:]}")
-                    break  # don't retry on convert failure
-
-                # Any other status — log and abort this model
-                print(f"[music] MusicGen {model} failed: status={resp.status_code}, body={resp.text[:200]}")
-                break
-            except Exception as e:
-                print(f"[music] MusicGen {model} error: {e}")
-                break
+            # Convert to MP3
+            import subprocess
+            conv = subprocess.run(
+                ["ffmpeg", "-y", "-i", audio_src, "-b:a", "192k", output_path],
+                capture_output=True,
+            )
+            if conv.returncode == 0 and os.path.exists(output_path) and os.path.getsize(output_path) > 10_000:
+                size_kb = os.path.getsize(output_path) // 1024
+                print(f"[music] HF Space '{space_id}' generated {duration}s ({size_kb}KB) — FREE")
+                return True
+            print(f"[music] ffmpeg convert failed for '{space_id}'")
+        except Exception as e:
+            print(f"[music] HF Space '{space_id}' failed: {e}")
 
     return False
 
@@ -672,18 +682,15 @@ def generate_music(topic, script_text="", style="emotional"):
 
     print(f"[music] Style: {style} | Raw mood: {raw_mood} → Safe mood: {script_mood}")
 
-    # ── Primary: Hugging Face MusicGen — AI-generated Whisprs-style instrumentals ──
-    # Unique per-video instrumental track from a mood-targeted text prompt.
-    # Free via HF Inference API. ~20-60s generation time. Quality varies but at
-    # its best produces piano + strings + soft texture indistinguishable from
-    # commercial library music. Falls through to Pixabay if generation fails.
-    if HF_TOKEN:
-        if _generate_musicgen(script_mood, music_path, duration=30):
-            print(f"[music] MusicGen succeeded — unique AI-generated instrumental")
-            return music_path, "musicgen_hf"
-        print("[music] MusicGen failed — falling back to Pixabay")
-    else:
-        print("[music] No HF_TOKEN set — skipping MusicGen")
+    # ── Primary: HF Spaces (Stable Audio Open / MusicGen) — FREE AI music gen ──
+    # Calls public HF Spaces via gradio_client. These spaces run on free ZeroGPU
+    # so there's no per-call cost (unlike Replicate $0.10) and no credit cap
+    # (unlike paid HF Inference). May queue during peak hours but always free.
+    # Generates a unique instrumental track tailored to each script's mood.
+    if _generate_musicgen(script_mood, music_path, duration=30):
+        print(f"[music] HF Space generated unique AI track — FREE")
+        return music_path, "musicgen_hf_space"
+    print("[music] All HF Spaces failed — falling back to Pixabay")
 
     # ── Secondary: Pixabay text-query — targets song-style instrumentals ──
     # Pixabay's library includes many full-production tracks (piano + strings +
