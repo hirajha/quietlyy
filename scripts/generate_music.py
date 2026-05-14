@@ -73,7 +73,9 @@ def _try_hf_space(space_id, api_name, build_args, prompt, duration, output_path)
 
     # ── Step 1: Connect to the Space ──────────────────────────────────────────
     try:
-        client = Client(space_id, hf_token=HF_TOKEN or None)
+        # Public Spaces — no auth needed. Earlier versions of gradio_client
+        # don't accept hf_token kwarg, so omit it.
+        client = Client(space_id)
     except Exception as e:
         msg = str(e).lower()
         if any(s in msg for s in ("connection", "unreachable", "name or service", "timed out", "timeout", "503", "502", "504")):
@@ -723,10 +725,16 @@ def generate_music(topic, script_text="", style="emotional"):
     "hope" and "love" moods are remapped to dark equivalents via _SAFE_MOOD_MAP
     to prevent upbeat/dance/inspiring tracks from slipping through.
 
-    Fallback order: CC0 library (guaranteed safe) → Freesound → Pixabay → bundled.
+    Fallback order:
+      1. HF Spaces (MusicGen / Stable Audio) — free AI gen
+      2. CC0 Kevin MacLeod — reliable, no API needed
+      3. Freesound CC0 — if FREESOUND_API_KEY is set
+      4. Bundled assets/music/*.mp3 — last resort
+
+    (Pixabay Music API was deprecated by Pixabay and removed from chain.)
 
     Returns: (music_path, source) where source is one of:
-      "freesound_cc0" / "pixabay_cc0" / "cc0_library" / "bundled" / None
+      "musicgen_hf_space" / "cc0_library" / "freesound_cc0" / "bundled" / None
     """
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     music_path = os.path.join(OUTPUT_DIR, "background_music.mp3")
@@ -753,25 +761,18 @@ def generate_music(topic, script_text="", style="emotional"):
         return music_path, "musicgen_hf_space"
     print("[music] All HF Spaces failed — falling back to Pixabay")
 
-    # ── Secondary: Pixabay text-query — targets song-style instrumentals ──
-    # Pixabay's library includes many full-production tracks (piano + strings +
-    # soft beat) with no vocals. Text-query search ('emotional cinematic song
-    # instrumental') is more reliable than their mood/genre params.
-    if PIXABAY_API_KEY:
-        if _search_pixabay_by_query(script_mood, music_path):
-            print(f"[music] Pixabay query-search succeeded")
-            return music_path, "pixabay_query"
-        print("[music] Pixabay query-search exhausted — trying CC0 library")
-    else:
-        print("[music] No PIXABAY_API_KEY set — skipping Pixabay")
+    # NOTE: Pixabay Music API was removed by Pixabay — /api/music/ returns 404.
+    # Both query-based AND mood/genre searches will fail. We keep the code below
+    # only to log a clear deprecation message, but skip the actual call.
+    # (Pixabay still has images/videos APIs; only music was deprecated.)
 
-    # ── Tertiary: CC0 library — pre-vetted, ALWAYS sad/melancholic, no API needed ──
+    # ── Secondary: CC0 library — Kevin MacLeod, no API needed, reliable ──
     if _download_cc0_track(script_mood, music_path):
-        print(f"[music] CC0 library track used (guaranteed safe mood)")
+        print(f"[music] CC0 library track used (Kevin MacLeod, mood: {script_mood})")
         return music_path, "cc0_library"
     print("[music] CC0 download failed — trying Freesound")
 
-    # ── Quaternary: Freesound — mood-locked queries only ──
+    # ── Tertiary: Freesound — mood-locked CC0 queries ──
     if FREESOUND_API_KEY:
         mood_queries = list(_MOOD_TO_FREESOUND.get(script_mood, _MOOD_TO_FREESOUND["melancholy"]))
         style_queries = list(bpm_profile["queries"])
@@ -785,19 +786,11 @@ def generate_music(topic, script_text="", style="emotional"):
                 print(f"[music] Freesound track: {track_name}")
                 return music_path, "freesound_cc0"
 
-        print("[music] All Freesound queries failed — trying Pixabay")
+        print("[music] All Freesound queries failed — trying bundled")
     else:
-        print("[music] No FREESOUND_API_KEY — trying Pixabay")
+        print("[music] No FREESOUND_API_KEY — trying bundled")
 
-    # ── Quinary: Pixabay legacy mood/genre search (different endpoint than primary) ──
-    if PIXABAY_API_KEY:
-        pix_url, pix_name = _search_pixabay_music(script_mood)
-        if pix_url and _download_pixabay(pix_url, music_path):
-            print(f"[music] Pixabay track: {pix_name}")
-            return music_path, "pixabay_cc0"
-        print("[music] Pixabay failed — trying bundled")
-    else:
-        print("[music] No PIXABAY_API_KEY — trying bundled")
+    # ── Pixabay Music API: DEPRECATED by Pixabay (returns 404). Removed from chain. ──
 
     bundled = _get_bundled_music()
     if bundled:
