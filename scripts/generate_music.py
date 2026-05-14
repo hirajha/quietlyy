@@ -20,6 +20,95 @@ ASSETS_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
 FREESOUND_API_KEY = os.environ.get("FREESOUND_API_KEY", "")
+HF_TOKEN = os.environ.get("HF_TOKEN", "")
+
+# ── MusicGen prompts per mood ─────────────────────────────────────────────────
+# Engineered for Whisprs-style emotional instrumentals: piano + strings + soft
+# texture, slow tempo, no vocals. These prompts are specific enough that
+# MusicGen reliably produces the right vibe (vs vague terms like "sad music").
+# Tested patterns: name instruments + tempo BPM + "instrumental" + "no vocals"
+_MUSICGEN_PROMPTS = {
+    "heartbreak": "Soft sad piano with deep cello, melancholic heartbreak ballad, slow tempo 60 BPM, cinematic instrumental, gentle strings, no drums, no vocals",
+    "longing":    "Wistful piano with cello and violin, nostalgic longing melody, slow tempo 65 BPM, sparse emotional cinematic instrumental, no vocals",
+    "melancholy": "Dark melancholy piano and cello, sad emotional atmosphere, slow tempo 60 BPM, cinematic instrumental, ambient strings, no vocals",
+    "love":       "Tender romantic piano with soft violin, gentle love ballad, slow tempo 70 BPM, intimate emotional instrumental, no vocals",
+    "hope":       "Hopeful piano with rising strings, emotional cinematic build, slow tempo 72 BPM, uplifting instrumental, no vocals",
+}
+
+
+def _generate_musicgen(mood, output_path, duration=30):
+    """Generate Whisprs-style instrumental music via Hugging Face MusicGen.
+
+    Free via HF Inference API. Uses facebook/musicgen-small (300M params,
+    fastest model on free tier). Generation time: ~20-60s depending on cold
+    start. Returns True on success, False on any failure (caller falls back).
+
+    Output is WAV/FLAC → converted to MP3 via ffmpeg.
+    """
+    if not HF_TOKEN:
+        return False
+
+    prompt = _MUSICGEN_PROMPTS.get(mood, _MUSICGEN_PROMPTS["melancholy"])
+    duration = min(max(duration, 5), 30)  # MusicGen max = 30s
+
+    # Models in priority order: small (fastest, free) → medium (better, may need pro)
+    models = ["facebook/musicgen-small"]
+
+    for model in models:
+        api_url = f"https://api-inference.huggingface.co/models/{model}"
+        headers = {"Authorization": f"Bearer {HF_TOKEN}"}
+        payload = {
+            "inputs": prompt,
+            "parameters": {"duration": duration},
+        }
+
+        for attempt in range(2):
+            try:
+                print(f"[music] MusicGen {model} (try {attempt+1}/2) — '{prompt[:70]}...'")
+                resp = requests.post(api_url, headers=headers, json=payload, timeout=240)
+
+                # 503 = model cold-starting — wait then retry
+                if resp.status_code == 503:
+                    wait_s = 30
+                    try:
+                        wait_s = int(resp.json().get("estimated_time", 30))
+                    except Exception:
+                        pass
+                    print(f"[music] MusicGen cold start — waiting {wait_s}s")
+                    import time
+                    time.sleep(min(wait_s + 5, 60))
+                    continue
+
+                if resp.status_code == 200 and len(resp.content) > 50_000:
+                    # Save raw audio (FLAC/WAV) then convert to MP3 via ffmpeg
+                    tmp_path = output_path + ".musicgen.raw"
+                    with open(tmp_path, "wb") as f:
+                        f.write(resp.content)
+
+                    import subprocess
+                    result = subprocess.run(
+                        ["ffmpeg", "-y", "-i", tmp_path, "-b:a", "192k", output_path],
+                        capture_output=True,
+                    )
+                    try:
+                        os.remove(tmp_path)
+                    except OSError:
+                        pass
+
+                    if result.returncode == 0 and os.path.exists(output_path) and os.path.getsize(output_path) > 10_000:
+                        print(f"[music] MusicGen generated {duration}s ({os.path.getsize(output_path)//1024}KB)")
+                        return True
+                    print(f"[music] MusicGen ffmpeg convert failed: {result.stderr.decode(errors='replace')[-200:]}")
+                    break  # don't retry on convert failure
+
+                # Any other status — log and abort this model
+                print(f"[music] MusicGen {model} failed: status={resp.status_code}, body={resp.text[:200]}")
+                break
+            except Exception as e:
+                print(f"[music] MusicGen {model} error: {e}")
+                break
+
+    return False
 
 # ── Per-style music palettes ─────────────────────────────────────────────────
 # Each style has: queries, BPM range, reject keywords
@@ -583,26 +672,38 @@ def generate_music(topic, script_text="", style="emotional"):
 
     print(f"[music] Style: {style} | Raw mood: {raw_mood} → Safe mood: {script_mood}")
 
-    # ── Primary: Pixabay text-query — targets song-style instrumentals ──
+    # ── Primary: Hugging Face MusicGen — AI-generated Whisprs-style instrumentals ──
+    # Unique per-video instrumental track from a mood-targeted text prompt.
+    # Free via HF Inference API. ~20-60s generation time. Quality varies but at
+    # its best produces piano + strings + soft texture indistinguishable from
+    # commercial library music. Falls through to Pixabay if generation fails.
+    if HF_TOKEN:
+        if _generate_musicgen(script_mood, music_path, duration=30):
+            print(f"[music] MusicGen succeeded — unique AI-generated instrumental")
+            return music_path, "musicgen_hf"
+        print("[music] MusicGen failed — falling back to Pixabay")
+    else:
+        print("[music] No HF_TOKEN set — skipping MusicGen")
+
+    # ── Secondary: Pixabay text-query — targets song-style instrumentals ──
     # Pixabay's library includes many full-production tracks (piano + strings +
     # soft beat) with no vocals. Text-query search ('emotional cinematic song
-    # instrumental') is more reliable than their mood/genre params for finding
-    # Whisprs-style music.
+    # instrumental') is more reliable than their mood/genre params.
     if PIXABAY_API_KEY:
         if _search_pixabay_by_query(script_mood, music_path):
-            print(f"[music] Pixabay query-search succeeded — Whisprs-style track")
+            print(f"[music] Pixabay query-search succeeded")
             return music_path, "pixabay_query"
-        print("[music] Pixabay query-search exhausted — trying mood/genre search")
+        print("[music] Pixabay query-search exhausted — trying CC0 library")
     else:
-        print("[music] No PIXABAY_API_KEY set — skipping Pixabay (add to GitHub secrets)")
+        print("[music] No PIXABAY_API_KEY set — skipping Pixabay")
 
-    # ── Secondary: CC0 library — pre-vetted, ALWAYS sad/melancholic, no API needed ──
+    # ── Tertiary: CC0 library — pre-vetted, ALWAYS sad/melancholic, no API needed ──
     if _download_cc0_track(script_mood, music_path):
         print(f"[music] CC0 library track used (guaranteed safe mood)")
         return music_path, "cc0_library"
     print("[music] CC0 download failed — trying Freesound")
 
-    # ── Tertiary: Freesound — mood-locked queries only ──
+    # ── Quaternary: Freesound — mood-locked queries only ──
     if FREESOUND_API_KEY:
         mood_queries = list(_MOOD_TO_FREESOUND.get(script_mood, _MOOD_TO_FREESOUND["melancholy"]))
         style_queries = list(bpm_profile["queries"])
@@ -620,7 +721,7 @@ def generate_music(topic, script_text="", style="emotional"):
     else:
         print("[music] No FREESOUND_API_KEY — trying Pixabay")
 
-    # ── Quaternary: Pixabay legacy mood/genre search (different endpoint than primary) ──
+    # ── Quinary: Pixabay legacy mood/genre search (different endpoint than primary) ──
     if PIXABAY_API_KEY:
         pix_url, pix_name = _search_pixabay_music(script_mood)
         if pix_url and _download_pixabay(pix_url, music_path):
