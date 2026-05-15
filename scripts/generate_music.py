@@ -45,6 +45,106 @@ _MUSICGEN_PROMPTS = {
 }
 
 
+def _generate_lyria_music(mood, output_path, duration_sec=30):
+    """Generate music via Google Lyria 3 (DeepMind) through the Gemini API.
+
+    Launched 2026-04-18 alongside Google Flow Music. Available via
+    generativelanguage.googleapis.com using the existing GEMINI_API_KEY —
+    same key as our script generator. Free tier through Gemini API.
+
+    Models:
+      - lyria-3-clip-preview : 30-second clips (what we want)
+      - lyria-3-pro-preview  : full-length songs (not needed)
+
+    Response is base64-encoded audio inside the standard Gemini response
+    structure: candidates[0].content.parts[i].inline_data.data
+    """
+    api_key = os.environ.get("GEMINI_API_KEY", "")
+    if not api_key:
+        return False
+
+    prompt = _MUSICGEN_PROMPTS.get(mood, _MUSICGEN_PROMPTS["melancholy"])
+    # Lyria understands natural language — be explicit about duration + no vocals
+    full_prompt = (
+        f"{prompt}. "
+        f"Generate a {duration_sec}-second instrumental piece. "
+        f"Instrumental only, no vocals, no singing, no lyrics."
+    )
+
+    try:
+        print(f"[music] ▶ Trying Google Lyria 3 (Gemini): '{prompt[:60]}...' ({duration_sec}s)")
+        resp = requests.post(
+            "https://generativelanguage.googleapis.com/v1beta/models/lyria-3-clip-preview:generateContent",
+            headers={
+                "x-goog-api-key": api_key,
+                "Content-Type": "application/json",
+            },
+            json={
+                "contents": [{"parts": [{"text": full_prompt}]}],
+                "generationConfig": {"responseModalities": ["AUDIO"]},
+            },
+            timeout=180,  # Music gen can take 30-90s
+        )
+
+        if resp.status_code == 200:
+            data = resp.json()
+            # Walk response → find audio inline_data part
+            for cand in data.get("candidates", []):
+                for part in cand.get("content", {}).get("parts", []):
+                    inline = part.get("inline_data") or part.get("inlineData")
+                    if not inline or "data" not in inline:
+                        continue
+                    import base64
+                    audio_bytes = base64.b64decode(inline["data"])
+                    mime = inline.get("mime_type") or inline.get("mimeType", "audio/mpeg")
+
+                    # If WAV/FLAC, convert via ffmpeg; otherwise write directly (MP3)
+                    if "wav" in mime.lower() or "flac" in mime.lower() or "pcm" in mime.lower():
+                        tmp = output_path + ".lyria.raw"
+                        with open(tmp, "wb") as f:
+                            f.write(audio_bytes)
+                        import subprocess
+                        result = subprocess.run(
+                            ["ffmpeg", "-y", "-i", tmp, "-b:a", "192k", output_path],
+                            capture_output=True,
+                        )
+                        try: os.remove(tmp)
+                        except OSError: pass
+                        if result.returncode != 0:
+                            print(f"[music]   ❌ Lyria ffmpeg convert failed: {result.stderr.decode(errors='replace')[-200:]}")
+                            continue
+                    else:
+                        with open(output_path, "wb") as f:
+                            f.write(audio_bytes)
+
+                    if os.path.getsize(output_path) > 10_000:
+                        size_kb = os.path.getsize(output_path) // 1024
+                        print(f"[music]   ✅ Lyria 3 generated {duration_sec}s ({size_kb}KB) — FREE via Gemini API")
+                        return True
+
+            print(f"[music]   ❌ Lyria response had no usable audio part: {str(data)[:300]}")
+            return False
+
+        # Categorized error reporting
+        body = resp.text[:300]
+        if resp.status_code == 401:
+            print(f"[music]   ⚙️  Lyria 401: GEMINI_API_KEY invalid: {body}")
+        elif resp.status_code == 403:
+            print(f"[music]   ⚙️  Lyria 403: model not enabled on this project — check AI Studio access: {body}")
+        elif resp.status_code == 404:
+            print(f"[music]   ⚙️  Lyria 404: 'lyria-3-clip-preview' not found — preview may be over or renamed: {body}")
+        elif resp.status_code == 429:
+            print(f"[music]   ⏳ Lyria 429: free-tier daily quota exhausted: {body}")
+        elif resp.status_code == 400:
+            print(f"[music]   ⚙️  Lyria 400: bad request body schema: {body}")
+        else:
+            print(f"[music]   ❌ Lyria status={resp.status_code}: {body}")
+    except Exception as e:
+        print(f"[music]   ❌ Lyria error: {type(e).__name__}: {str(e)[:200]}")
+
+    return False
+
+
 def _generate_elevenlabs_music(mood, output_path, duration_sec=30):
     """Generate music via ElevenLabs Music API — uses the existing ELEVENLABS_API_KEY.
 
@@ -980,22 +1080,24 @@ def generate_music(topic, script_text="", style="emotional"):
     to prevent upbeat/dance/inspiring tracks from slipping through.
 
     Fallback order:
-      1. ElevenLabs Music    → save to gallery on success
-      2. Gallery reuse       ← saved ElevenLabs tracks from past runs
-      3. HF Spaces           ← currently 401 (HF Pro required)
-      4. CC0 Kevin MacLeod   ← reliable, rotating sad track pool, no API
-      5. Freesound CC0       ← if FREESOUND_API_KEY is set
-      6. Bundled assets/music/*.mp3 — last resort
+      1. Google Lyria 3 (Gemini API)  ← FREE, uses existing GEMINI_API_KEY
+      2. ElevenLabs Music             ← currently 401 (plan limit)
+      3. Gallery reuse                ← saved Lyria/ElevenLabs tracks
+      4. HF Spaces                    ← currently 401 (HF Pro required)
+      5. CC0 Kevin MacLeod            ← rotating sad track pool, no API
+      6. Freesound CC0                ← if FREESOUND_API_KEY is set
+      7. Bundled assets/music/*.mp3   — last resort
 
-    The gallery accumulates ElevenLabs tracks over time at
-    assets/music_gallery/<mood>/. After ~20 unique tracks per mood, the
-    pipeline can run for days without calling ElevenLabs (quota-saving).
-    Repetition: never replay the last GALLERY_RECENT_LIMIT (=20) tracks
-    until the gallery wraps around.
+    Gallery accumulates AI-generated tracks over time at
+    assets/music_gallery/<mood>/. Every Lyria/ElevenLabs success saves a
+    copy. After ~20 unique tracks per mood, the pipeline can rotate
+    purely from the gallery (saves Lyria quota). Repetition: never replay
+    the last GALLERY_RECENT_LIMIT (=20) tracks until wrap-around.
 
     Returns: (music_path, source) where source is one of:
-      "elevenlabs_music" / "gallery_reuse" / "musicgen_hf_space" /
-      "cc0_library" / "freesound_cc0" / "bundled" / None
+      "lyria_gemini" / "elevenlabs_music" / "gallery_reuse" /
+      "musicgen_hf_space" / "cc0_library" / "freesound_cc0" /
+      "bundled" / None
     """
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     music_path = os.path.join(OUTPUT_DIR, "background_music.mp3")
@@ -1012,31 +1114,36 @@ def generate_music(topic, script_text="", style="emotional"):
 
     print(f"[music] Style: {style} | Raw mood: {raw_mood} → Safe mood: {script_mood}")
 
-    # ── Primary: ElevenLabs Music — best quality, full song-like instrumentals ──
-    # Uses the existing ELEVENLABS_API_KEY. On success: track is saved to the
-    # music gallery (assets/music_gallery/<mood>/) for future reuse and
-    # offline fallback.
+    prompt_used = _MUSICGEN_PROMPTS.get(script_mood, "")
+
+    # ── Primary: Google Lyria 3 via Gemini API — FREE, uses existing key ──
+    # Launched 2026-04-18 as part of Google Flow Music. Same DeepMind model
+    # powering the Flow studio. Uses our existing GEMINI_API_KEY (the same
+    # key script generation uses) so no new auth/secret needed. On success:
+    # track saved to gallery for future reuse.
+    if _generate_lyria_music(script_mood, music_path, duration_sec=30):
+        _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
+        return music_path, "lyria_gemini"
+
+    # ── Secondary: ElevenLabs Music ──
+    # Currently 401 (plan doesn't include Music API scope). Kept in case
+    # plan is upgraded or Music scope is enabled on the API key. On success:
+    # track also saved to gallery.
     if _generate_elevenlabs_music(script_mood, music_path, duration_sec=30):
-        prompt_used = _MUSICGEN_PROMPTS.get(script_mood, "")
         _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
         return music_path, "elevenlabs_music"
 
-    # ── Secondary: Reuse from music gallery — ElevenLabs tracks from past runs ──
-    # If ElevenLabs failed (quota, plan, transient), reuse a previously
-    # generated track. Anti-repetition: skips the last 20 used; wraps around
-    # after that. Builds up over time — first ~20 days will be light, then
-    # the gallery becomes a robust offline library.
+    # ── Tertiary: Reuse from music gallery ──
+    # Plays back a previously generated Lyria/ElevenLabs track. Anti-repetition:
+    # skips last 20 used; wraps around after that.
     if _pick_from_music_gallery(script_mood, music_path):
         return music_path, "gallery_reuse"
 
-    # ── Tertiary: HF Spaces (Stable Audio Open / MusicGen) — currently 401 ──
-    # Most attempts return 401 because ZeroGPU requires HF Pro. Kept here in
-    # case HF restores free access. Diagnostic categorization logs the reason
-    # cleanly so we know if/when it starts working again.
+    # ── Quaternary: HF Spaces — currently 401 (ZeroGPU requires HF Pro) ──
     if _generate_musicgen(script_mood, music_path, duration=30):
         print(f"[music] HF Space generated unique AI track")
         return music_path, "musicgen_hf_space"
-    print("[music] All HF Spaces failed — falling back to CC0 library")
+    print("[music] All AI generators failed — falling back to CC0 library")
 
     # NOTE: Pixabay Music API was removed by Pixabay — /api/music/ returns 404.
     # Both query-based AND mood/genre searches will fail. We keep the code below
