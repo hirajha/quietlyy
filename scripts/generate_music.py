@@ -214,33 +214,71 @@ def _generate_sonauto_music(mood, output_path, duration_sec=30):
         print(f"[music]   ⏳ Sonauto job submitted (task_id={task_id[:12]}...), polling for completion")
 
         # Step 2: Poll for completion (max ~3 minutes)
+        # Sonauto's polling endpoint can return:
+        #   - JSON string like '"PENDING"' (just the status as a quoted string)
+        #   - JSON object like {"status": "SUCCESS", "song_paths": [...]}
+        # We handle both shapes. On SUCCESS, if song_paths missing from status
+        # response, fetch the full generation record from /generations/{task_id}.
         import time
         status_url = f"https://api.sonauto.ai/v1/generations/status/{task_id}"
+        full_url = f"https://api.sonauto.ai/v1/generations/{task_id}"
+
         for attempt in range(36):  # 36 * 5s = 180s max
             time.sleep(5)
-            poll = requests.get(status_url, headers=headers, timeout=15)
+            try:
+                poll = requests.get(status_url, headers=headers, timeout=15)
+            except Exception:
+                continue
             if poll.status_code != 200:
                 continue
-            data = poll.json()
-            state = data.get("status", "")
+            try:
+                data = poll.json()
+            except Exception:
+                continue
+
+            # Defensive parse — Sonauto returns string OR dict
+            if isinstance(data, str):
+                state = data
+                song_paths = []
+            elif isinstance(data, dict):
+                state = data.get("status", "")
+                song_paths = data.get("song_paths", []) or []
+            else:
+                continue
+
             if state == "SUCCESS":
-                song_paths = data.get("song_paths", [])
+                # If status endpoint only returned the string, fetch full record
                 if not song_paths:
-                    print(f"[music]   ❌ Sonauto SUCCESS but no song_paths")
+                    try:
+                        full = requests.get(full_url, headers=headers, timeout=15)
+                        if full.status_code == 200:
+                            full_data = full.json()
+                            if isinstance(full_data, dict):
+                                song_paths = full_data.get("song_paths", []) or []
+                    except Exception:
+                        pass
+
+                if not song_paths:
+                    print(f"[music]   ❌ Sonauto SUCCESS but no song_paths in either endpoint")
                     return False
+
                 # Step 3: Download the audio
-                audio_resp = requests.get(song_paths[0], timeout=60)
-                if audio_resp.status_code == 200 and len(audio_resp.content) > 50_000:
-                    with open(output_path, "wb") as f:
-                        f.write(audio_resp.content)
-                    print(f"[music]   ✅ Sonauto generated {len(audio_resp.content)//1024}KB — FREE (1500 credits/signup)")
-                    return True
-                print(f"[music]   ❌ Sonauto audio download failed: status={audio_resp.status_code}")
+                try:
+                    audio_resp = requests.get(song_paths[0], timeout=60)
+                    if audio_resp.status_code == 200 and len(audio_resp.content) > 50_000:
+                        with open(output_path, "wb") as f:
+                            f.write(audio_resp.content)
+                        print(f"[music]   ✅ Sonauto generated {len(audio_resp.content)//1024}KB — FREE (1500 credits/signup)")
+                        return True
+                    print(f"[music]   ❌ Sonauto audio download failed: status={audio_resp.status_code}, len={len(audio_resp.content)}")
+                except Exception as e:
+                    print(f"[music]   ❌ Sonauto audio download error: {e}")
                 return False
+
             if state in ("FAILED", "ERROR", "CANCELLED"):
-                print(f"[music]   ❌ Sonauto generation failed: {data}")
+                print(f"[music]   ❌ Sonauto generation failed: state={state}")
                 return False
-            # Otherwise PENDING/PROCESSING — keep polling
+            # else PENDING/PROCESSING/QUEUED — keep polling
 
         print(f"[music]   ⏱  Sonauto timed out after 3min waiting for SUCCESS")
     except Exception as e:
