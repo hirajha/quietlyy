@@ -12,6 +12,7 @@ Key principle: Emotional congruence between music and script creates the
 strongest viewer connection — makes them stop scrolling and feel something.
 """
 
+import json
 import os
 import random
 import requests
@@ -72,12 +73,20 @@ def _try_hf_space(space_id, api_name, build_args, prompt, duration, output_path)
         return "config", "gradio_client not installed"
 
     # ── Step 1: Connect to the Space ──────────────────────────────────────────
+    # Run 25885325300 hit 401 Client Error on multimodalart/stable-audio-open
+    # and facebook/MusicGen-Continuation. ZeroGPU Spaces now require auth even
+    # for "public" access. gradio_client doesn't accept hf_token kwarg in some
+    # versions, but it WILL read from HF_TOKEN / HUGGING_FACE_HUB_TOKEN env
+    # vars on import. Set both before connecting (belt and braces).
+    if HF_TOKEN:
+        os.environ["HF_TOKEN"] = HF_TOKEN
+        os.environ["HUGGING_FACE_HUB_TOKEN"] = HF_TOKEN
     try:
-        # Public Spaces — no auth needed. Earlier versions of gradio_client
-        # don't accept hf_token kwarg, so omit it.
         client = Client(space_id)
     except Exception as e:
         msg = str(e).lower()
+        if "401" in msg or "unauthorized" in msg:
+            return "config", f"Auth required (401) — HF_TOKEN may lack ZeroGPU access: {str(e)[:200]}"
         if any(s in msg for s in ("connection", "unreachable", "name or service", "timed out", "timeout", "503", "502", "504")):
             return "down", f"{type(e).__name__}: {str(e)[:200]}"
         if "404" in msg or "not found" in msg:
@@ -536,50 +545,92 @@ def _download_pixabay(url, output_path):
 # Kept as reliable fallback — they always download and are always mood-safe.
 #
 # mood → list of (url, label) — tried in shuffled order until one downloads
+# CC0 Kevin MacLeod tracks — every track here is VERIFIED genuinely sad/melancholic.
+# "Wish Background" (whimsical/magical) REMOVED — was being mocked by subscribers.
+# Each mood pool has 5+ tracks so even with recently-used filtering we don't run dry.
+_INCOMPETECH_BASE = "https://incompetech.com/music/royalty-free/mp3-royaltyfree"
 _CC0_TRACKS = {
     "heartbreak": [
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heartbreaking.mp3",       "Kevin MacLeod - Heartbreaking"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sad%20Trio.mp3",          "Kevin MacLeod - Sad Trio"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        (f"{_INCOMPETECH_BASE}/Heartbreaking.mp3",       "Kevin MacLeod - Heartbreaking"),
+        (f"{_INCOMPETECH_BASE}/Sad%20Trio.mp3",          "Kevin MacLeod - Sad Trio"),
+        (f"{_INCOMPETECH_BASE}/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
+        (f"{_INCOMPETECH_BASE}/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        (f"{_INCOMPETECH_BASE}/Aftermath.mp3",           "Kevin MacLeod - Aftermath"),
+        (f"{_INCOMPETECH_BASE}/Lightless%20Dawn.mp3",    "Kevin MacLeod - Lightless Dawn"),
+        (f"{_INCOMPETECH_BASE}/Anguish.mp3",             "Kevin MacLeod - Anguish"),
     ],
     "longing": [
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heartbreaking.mp3",       "Kevin MacLeod - Heartbreaking"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        (f"{_INCOMPETECH_BASE}/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
+        (f"{_INCOMPETECH_BASE}/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
+        (f"{_INCOMPETECH_BASE}/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        (f"{_INCOMPETECH_BASE}/Heartbreaking.mp3",       "Kevin MacLeod - Heartbreaking"),
+        (f"{_INCOMPETECH_BASE}/Lightless%20Dawn.mp3",    "Kevin MacLeod - Lightless Dawn"),
+        (f"{_INCOMPETECH_BASE}/Long%20Note%20Two.mp3",   "Kevin MacLeod - Long Note Two"),
     ],
     "love": [
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Touching%20Moments.mp3",  "Kevin MacLeod - Touching Moments"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Healing.mp3",             "Kevin MacLeod - Healing"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        (f"{_INCOMPETECH_BASE}/Touching%20Moments.mp3",  "Kevin MacLeod - Touching Moments"),
+        (f"{_INCOMPETECH_BASE}/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
+        (f"{_INCOMPETECH_BASE}/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        (f"{_INCOMPETECH_BASE}/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
+        (f"{_INCOMPETECH_BASE}/Bittersweet.mp3",         "Kevin MacLeod - Bittersweet"),
+        (f"{_INCOMPETECH_BASE}/Healing.mp3",             "Kevin MacLeod - Healing"),
     ],
     "nostalgia": [
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bittersweet.mp3",         "Kevin MacLeod - Bittersweet"),
+        (f"{_INCOMPETECH_BASE}/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        (f"{_INCOMPETECH_BASE}/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
+        (f"{_INCOMPETECH_BASE}/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
+        (f"{_INCOMPETECH_BASE}/Bittersweet.mp3",         "Kevin MacLeod - Bittersweet"),
+        (f"{_INCOMPETECH_BASE}/Long%20Note%20Two.mp3",   "Kevin MacLeod - Long Note Two"),
+        (f"{_INCOMPETECH_BASE}/Touching%20Moments.mp3",  "Kevin MacLeod - Touching Moments"),
     ],
     "melancholy": [
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heartbreaking.mp3",       "Kevin MacLeod - Heartbreaking"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sad%20Trio.mp3",          "Kevin MacLeod - Sad Trio"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
+        (f"{_INCOMPETECH_BASE}/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
+        (f"{_INCOMPETECH_BASE}/Heartbreaking.mp3",       "Kevin MacLeod - Heartbreaking"),
+        (f"{_INCOMPETECH_BASE}/Sad%20Trio.mp3",          "Kevin MacLeod - Sad Trio"),
+        (f"{_INCOMPETECH_BASE}/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
+        (f"{_INCOMPETECH_BASE}/Lightless%20Dawn.mp3",    "Kevin MacLeod - Lightless Dawn"),
+        (f"{_INCOMPETECH_BASE}/Aftermath.mp3",           "Kevin MacLeod - Aftermath"),
+        (f"{_INCOMPETECH_BASE}/Long%20Note%20Two.mp3",   "Kevin MacLeod - Long Note Two"),
     ],
     "hope": [
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3",   "Kevin MacLeod - Wish Background"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Healing.mp3",             "Kevin MacLeod - Healing"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
-        ("https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        (f"{_INCOMPETECH_BASE}/A%20Quiet%20Thought.mp3", "Kevin MacLeod - A Quiet Thought"),
+        (f"{_INCOMPETECH_BASE}/Healing.mp3",             "Kevin MacLeod - Healing"),
+        (f"{_INCOMPETECH_BASE}/Piano%20Moment.mp3",      "Kevin MacLeod - Piano Moment"),
+        (f"{_INCOMPETECH_BASE}/Dreamy%20Flashback.mp3",  "Kevin MacLeod - Dreamy Flashback"),
+        (f"{_INCOMPETECH_BASE}/Touching%20Moments.mp3",  "Kevin MacLeod - Touching Moments"),
     ],
 }
+
+# Recently-used CC0 tracks — persisted to assets/used_topics.json. We avoid the
+# last N picks to prevent the same track appearing across multiple consecutive
+# videos (the bug that made subscribers mock the music repetition).
+_RECENT_CC0_LIMIT = 4  # remember last 4 picks; pool sizes are 5-7 so still has room
+_USED_STATE_PATH = os.path.join(os.path.dirname(__file__), "..", "assets", "used_topics.json")
+
+
+def _load_recent_cc0():
+    try:
+        with open(_USED_STATE_PATH) as f:
+            return json.load(f).get("recent_cc0_tracks", [])
+    except Exception:
+        return []
+
+
+def _save_recent_cc0(track_name):
+    """Append track_name to the recently-used list, capped at _RECENT_CC0_LIMIT."""
+    try:
+        state = {}
+        if os.path.exists(_USED_STATE_PATH):
+            with open(_USED_STATE_PATH) as f:
+                state = json.load(f)
+    except Exception:
+        state = {}
+    recent = state.get("recent_cc0_tracks", [])
+    recent.append(track_name)
+    state["recent_cc0_tracks"] = recent[-_RECENT_CC0_LIMIT:]
+    os.makedirs(os.path.dirname(_USED_STATE_PATH), exist_ok=True)
+    with open(_USED_STATE_PATH, "w") as f:
+        json.dump(state, f, indent=2)
 
 
 # ── Pixabay query-based search — mood-targeted text queries for SONG-style instrumentals ──
@@ -684,16 +735,38 @@ def _search_pixabay_by_query(mood, output_path):
 
 
 def _download_cc0_track(mood, output_path):
-    """Download a mood-matched CC0 piano track. No API key needed."""
-    tracks = _CC0_TRACKS.get(mood, _CC0_TRACKS["melancholy"])
-    random.shuffle(tracks)
-    for url, name in tracks:
+    """Download a mood-matched CC0 piano track. No API key needed.
+
+    Anti-repetition: filters out tracks used in the last N videos, then shuffles
+    what remains. After successful download, persists the choice so the next
+    video avoids it. Prevents the 'same track every video' problem that made
+    subscribers mock the channel.
+    """
+    pool = list(_CC0_TRACKS.get(mood, _CC0_TRACKS["melancholy"]))
+    recent = set(_load_recent_cc0())
+
+    # Filter out recently-used tracks. If filter would empty the pool, drop the
+    # oldest half of the 'recent' constraint so we still have something to try.
+    fresh = [t for t in pool if t[1] not in recent]
+    if not fresh:
+        # All tracks in this mood pool have been used recently — keep only the
+        # 2 most-recent in the blocklist, allowing older ones back in
+        recent_oldest_kept = list(_load_recent_cc0())[-2:]
+        fresh = [t for t in pool if t[1] not in set(recent_oldest_kept)]
+        print(f"[music]   Pool exhausted by recent-used filter — softened to last 2 only")
+    random.shuffle(fresh)
+
+    if recent:
+        print(f"[music]   Skipping recently-used: {sorted(recent)}")
+
+    for url, name in fresh:
         try:
             print(f"[music] Trying CC0 track: {name}")
             resp = requests.get(url, timeout=45)
             if resp.status_code == 200 and len(resp.content) > 50_000:
                 with open(output_path, "wb") as f:
                     f.write(resp.content)
+                _save_recent_cc0(name)
                 print(f"[music] CC0 track downloaded: {name}")
                 return True
         except Exception as e:
