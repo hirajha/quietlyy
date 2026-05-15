@@ -30,6 +30,11 @@ GALLERY_RECENT_LIMIT = 20  # Don't replay any of the last 20 used tracks
 FREESOUND_API_KEY = os.environ.get("FREESOUND_API_KEY", "")
 HF_TOKEN = os.environ.get("HF_TOKEN", "")
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
+SONAUTO_API_KEY = os.environ.get("SONAUTO_API_KEY", "")
+
+# Lyria 3 daily quota is very small (~5-10 calls/day on free tier). After a
+# 429, skip it for this many hours instead of wasting an API call every run.
+LYRIA_COOLDOWN_HOURS = 12
 
 # ── MusicGen prompts per mood ─────────────────────────────────────────────────
 # Engineered for Whisprs-style emotional instrumentals: piano + strings + soft
@@ -61,6 +66,11 @@ def _generate_lyria_music(mood, output_path, duration_sec=30):
     """
     api_key = os.environ.get("GEMINI_API_KEY", "")
     if not api_key:
+        return False
+
+    # Skip if recently 429'd — saves a wasted API call (~1s + log noise)
+    if _is_lyria_in_cooldown():
+        print(f"[music] ⏱  Lyria in cooldown (429'd within last {LYRIA_COOLDOWN_HOURS}h) — skipping to next provider")
         return False
 
     prompt = _MUSICGEN_PROMPTS.get(mood, _MUSICGEN_PROMPTS["melancholy"])
@@ -135,12 +145,104 @@ def _generate_lyria_music(mood, output_path, duration_sec=30):
             print(f"[music]   ⚙️  Lyria 404: 'lyria-3-clip-preview' not found — preview may be over or renamed: {body}")
         elif resp.status_code == 429:
             print(f"[music]   ⏳ Lyria 429: free-tier daily quota exhausted: {body}")
+            _record_lyria_429()
+            print(f"[music]   ⏱  Lyria entered {LYRIA_COOLDOWN_HOURS}h cooldown — will retry after that")
         elif resp.status_code == 400:
             print(f"[music]   ⚙️  Lyria 400: bad request body schema: {body}")
         else:
             print(f"[music]   ❌ Lyria status={resp.status_code}: {body}")
     except Exception as e:
         print(f"[music]   ❌ Lyria error: {type(e).__name__}: {str(e)[:200]}")
+
+    return False
+
+
+def _generate_sonauto_music(mood, output_path, duration_sec=30):
+    """Generate music via Sonauto Melodia v3 — 1,500 free credits on signup.
+
+    Sonauto offers an unlimited free AI music generator (web UI) and an API
+    with 1,500 free credits on signup, no credit card required. Sign up at
+    sonauto.ai/developers and set SONAUTO_API_KEY in GitHub secrets.
+
+    API is ASYNC — submit returns task_id, poll /status/{task_id} until SUCCESS,
+    then download song_paths[0] URL. Generation typically takes 30-90 seconds.
+    """
+    if not SONAUTO_API_KEY:
+        return False
+
+    prompt = _MUSICGEN_PROMPTS.get(mood, _MUSICGEN_PROMPTS["melancholy"])
+    headers = {
+        "Authorization": f"Bearer {SONAUTO_API_KEY}",
+        "Content-Type": "application/json",
+    }
+
+    # Step 1: Submit generation request
+    try:
+        print(f"[music] ▶ Trying Sonauto Melodia v3: '{prompt[:60]}...' ({duration_sec}s)")
+        submit = requests.post(
+            "https://api.sonauto.ai/v1/generations/v3",
+            headers=headers,
+            json={
+                "prompt": prompt,
+                "instrumental": True,         # No vocals/lyrics
+                "output_format": "mp3",
+                "prompt_strength": 1.5,       # Mild guidance — too high makes it weird
+                "style_scale": 3.0,
+            },
+            timeout=30,
+        )
+
+        if submit.status_code == 401:
+            print(f"[music]   ⚙️  Sonauto 401: SONAUTO_API_KEY invalid: {submit.text[:200]}")
+            return False
+        if submit.status_code == 402:
+            print(f"[music]   ⏳ Sonauto 402: credits exhausted (free tier = 1500 credits): {submit.text[:200]}")
+            return False
+        if submit.status_code == 429:
+            print(f"[music]   ⏳ Sonauto 429: rate-limited: {submit.text[:200]}")
+            return False
+        if submit.status_code != 200:
+            print(f"[music]   ❌ Sonauto submit status={submit.status_code}: {submit.text[:200]}")
+            return False
+
+        task_id = submit.json().get("task_id")
+        if not task_id:
+            print(f"[music]   ❌ Sonauto returned no task_id: {submit.text[:200]}")
+            return False
+        print(f"[music]   ⏳ Sonauto job submitted (task_id={task_id[:12]}...), polling for completion")
+
+        # Step 2: Poll for completion (max ~3 minutes)
+        import time
+        status_url = f"https://api.sonauto.ai/v1/generations/status/{task_id}"
+        for attempt in range(36):  # 36 * 5s = 180s max
+            time.sleep(5)
+            poll = requests.get(status_url, headers=headers, timeout=15)
+            if poll.status_code != 200:
+                continue
+            data = poll.json()
+            state = data.get("status", "")
+            if state == "SUCCESS":
+                song_paths = data.get("song_paths", [])
+                if not song_paths:
+                    print(f"[music]   ❌ Sonauto SUCCESS but no song_paths")
+                    return False
+                # Step 3: Download the audio
+                audio_resp = requests.get(song_paths[0], timeout=60)
+                if audio_resp.status_code == 200 and len(audio_resp.content) > 50_000:
+                    with open(output_path, "wb") as f:
+                        f.write(audio_resp.content)
+                    print(f"[music]   ✅ Sonauto generated {len(audio_resp.content)//1024}KB — FREE (1500 credits/signup)")
+                    return True
+                print(f"[music]   ❌ Sonauto audio download failed: status={audio_resp.status_code}")
+                return False
+            if state in ("FAILED", "ERROR", "CANCELLED"):
+                print(f"[music]   ❌ Sonauto generation failed: {data}")
+                return False
+            # Otherwise PENDING/PROCESSING — keep polling
+
+        print(f"[music]   ⏱  Sonauto timed out after 3min waiting for SUCCESS")
+    except Exception as e:
+        print(f"[music]   ❌ Sonauto error: {type(e).__name__}: {str(e)[:200]}")
 
     return False
 
@@ -802,6 +904,29 @@ def _load_recent_cc0():
     return _load_state().get("recent_cc0_tracks", [])
 
 
+def _is_lyria_in_cooldown():
+    """Return True if Lyria 429'd recently and we should skip the call."""
+    from datetime import datetime, timedelta, timezone
+    last_429 = _load_state().get("lyria_last_429")
+    if not last_429:
+        return False
+    try:
+        last = datetime.fromisoformat(last_429)
+        if last.tzinfo is None:
+            last = last.replace(tzinfo=timezone.utc)
+        return (datetime.now(timezone.utc) - last) < timedelta(hours=LYRIA_COOLDOWN_HOURS)
+    except Exception:
+        return False
+
+
+def _record_lyria_429():
+    """Mark Lyria as 429'd now — pipeline will skip Lyria for LYRIA_COOLDOWN_HOURS."""
+    from datetime import datetime, timezone
+    state = _load_state()
+    state["lyria_last_429"] = datetime.now(timezone.utc).isoformat()
+    _save_state(state)
+
+
 def _save_recent_cc0(track_name):
     """Append track_name to the recently-used CC0 list, capped at _RECENT_CC0_LIMIT."""
     state = _load_state()
@@ -1081,12 +1206,13 @@ def generate_music(topic, script_text="", style="emotional"):
 
     Fallback order:
       1. Google Lyria 3 (Gemini API)  ← FREE, uses existing GEMINI_API_KEY
-      2. ElevenLabs Music             ← currently 401 (plan limit)
-      3. Gallery reuse                ← saved Lyria/ElevenLabs tracks
-      4. HF Spaces                    ← currently 401 (HF Pro required)
-      5. CC0 Kevin MacLeod            ← rotating sad track pool, no API
-      6. Freesound CC0                ← if FREESOUND_API_KEY is set
-      7. Bundled assets/music/*.mp3   — last resort
+      2. Sonauto Melodia v3           ← 1500 free credits on signup
+      3. ElevenLabs Music             ← currently 401 (plan limit)
+      4. Gallery reuse                ← saved AI-gen tracks from above
+      5. HF Spaces                    ← currently 401 (HF Pro required)
+      6. CC0 Kevin MacLeod            ← rotating sad track pool, no API
+      7. Freesound CC0                ← if FREESOUND_API_KEY is set
+      8. Bundled assets/music/*.mp3   — last resort
 
     Gallery accumulates AI-generated tracks over time at
     assets/music_gallery/<mood>/. Every Lyria/ElevenLabs success saves a
@@ -1118,28 +1244,33 @@ def generate_music(topic, script_text="", style="emotional"):
 
     # ── Primary: Google Lyria 3 via Gemini API — FREE, uses existing key ──
     # Launched 2026-04-18 as part of Google Flow Music. Same DeepMind model
-    # powering the Flow studio. Uses our existing GEMINI_API_KEY (the same
-    # key script generation uses) so no new auth/secret needed. On success:
-    # track saved to gallery for future reuse.
+    # powering the Flow studio. Uses our existing GEMINI_API_KEY (same key
+    # as script generation). Auto-cooldown (12h) after a 429.
     if _generate_lyria_music(script_mood, music_path, duration_sec=30):
         _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
         return music_path, "lyria_gemini"
 
-    # ── Secondary: ElevenLabs Music ──
+    # ── Secondary: Sonauto Melodia v3 — 1500 free credits, no CC required ──
+    # When Lyria hits daily quota, Sonauto picks up. ~30-90s generation time
+    # (async polling). Sign up at sonauto.ai/developers to get SONAUTO_API_KEY.
+    if _generate_sonauto_music(script_mood, music_path, duration_sec=30):
+        _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
+        return music_path, "sonauto_melodia"
+
+    # ── Tertiary: ElevenLabs Music ──
     # Currently 401 (plan doesn't include Music API scope). Kept in case
-    # plan is upgraded or Music scope is enabled on the API key. On success:
-    # track also saved to gallery.
+    # plan is upgraded or Music scope is enabled on the API key.
     if _generate_elevenlabs_music(script_mood, music_path, duration_sec=30):
         _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
         return music_path, "elevenlabs_music"
 
-    # ── Tertiary: Reuse from music gallery ──
+    # ── Quaternary: Reuse from music gallery ──
     # Plays back a previously generated Lyria/ElevenLabs track. Anti-repetition:
     # skips last 20 used; wraps around after that.
     if _pick_from_music_gallery(script_mood, music_path):
         return music_path, "gallery_reuse"
 
-    # ── Quaternary: HF Spaces — currently 401 (ZeroGPU requires HF Pro) ──
+    # ── Quinary: HF Spaces — currently 401 (ZeroGPU requires HF Pro) ──
     if _generate_musicgen(script_mood, music_path, duration=30):
         print(f"[music] HF Space generated unique AI track")
         return music_path, "musicgen_hf_space"
