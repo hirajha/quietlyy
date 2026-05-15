@@ -186,8 +186,10 @@ def _generate_sonauto_music(mood, output_path, duration_sec=30):
                 "prompt": prompt,
                 "instrumental": True,         # No vocals/lyrics
                 "output_format": "mp3",
-                "prompt_strength": 1.5,       # Mild guidance — too high makes it weird
-                "style_scale": 3.0,
+                # Sonauto constraint: AT MOST ONE of prompt_strength/style_scale > 1.0
+                # We use prompt (not tags), so favor prompt_strength
+                "prompt_strength": 2.5,       # Strong prompt adherence
+                "style_scale": 1.0,           # Min (we're not using tags)
             },
             timeout=30,
         )
