@@ -2,10 +2,19 @@ name: Quietlyy -- Generate & Post Video
 
 on:
   schedule:
-    - cron: '30 1 * * *'   # 07:00 AM IST
-    - cron: '30 5 * * *'   # 11:00 AM IST
-    - cron: '30 9 * * *'   # 02:30 PM IST
-    - cron: '30 16 * * *'  # 10:00 PM IST
+    # ── Primary slots ─────────────────────────────────────────────────────────
+    - cron: '30 1 * * *'   # 07:00 AM IST  (primary)
+    - cron: '30 5 * * *'   # 11:00 AM IST  (primary)
+    - cron: '30 9 * * *'   # 02:30 PM IST  (primary)
+    - cron: '30 16 * * *'  # 10:00 PM IST  (primary)
+    # ── Backup slots — fire 90 min after each primary ─────────────────────────
+    # GitHub Actions free-tier crons can be silently dropped during high load
+    # (e.g. 07:00 IST slot was missed 2026-05-15). Backups auto-skip if the
+    # primary already succeeded (see "Skip if recent success" step below).
+    - cron: '0 3 * * *'    # 08:30 AM IST  (backup for 07:00)
+    - cron: '0 7 * * *'    # 12:30 PM IST  (backup for 11:00)
+    - cron: '0 11 * * *'   # 04:30 PM IST  (backup for 02:30 PM)
+    - cron: '0 18 * * *'   # 11:30 PM IST  (backup for 10:00 PM)
 
   workflow_dispatch:
     inputs:
@@ -47,13 +56,42 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Skip if recent success exists (idempotency for backup crons)
+        # Backup crons fire 90 min after primaries. If the primary already
+        # succeeded, this run is redundant — exit cleanly. Workflow_dispatch
+        # (manual triggers) ALWAYS run regardless.
+        id: dedupe
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Count successful runs of THIS workflow in the last 80 minutes
+          SINCE=$(date -u -d '80 minutes ago' '+%Y-%m-%dT%H:%M:%SZ')
+          COUNT=$(gh run list \
+            --workflow=generate-and-post.yml \
+            --status=success \
+            --created=">=${SINCE}" \
+            --limit=5 \
+            --json databaseId \
+            --jq 'length')
+          echo "Recent successful runs in last 80 min: $COUNT"
+          if [ "$COUNT" -gt 0 ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "✓ Primary run already succeeded — backup will skip"
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "→ No recent run found — proceeding (this slot was missed or is a primary)"
+          fi
+
       - name: Set up Python
+        if: steps.dedupe.outputs.skip != 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
 
       - name: Cache apt packages
+        if: steps.dedupe.outputs.skip != 'true'
         uses: actions/cache@v4
         with:
           path: /var/cache/apt/archives
@@ -61,12 +99,14 @@ jobs:
           restore-keys: apt-ffmpeg-${{ runner.os }}-
 
       - name: Install dependencies
+        if: steps.dedupe.outputs.skip != 'true'
         run: |
           pip install -r requirements.txt
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu fonts-liberation
 
       - name: Run pipeline
+        if: steps.dedupe.outputs.skip != 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -104,7 +144,7 @@ jobs:
           python scripts/pipeline.py $ARGS
 
       - name: Save gallery + research cache to repo
-        if: always()
+        if: always() && steps.dedupe.outputs.skip != 'true'
         run: |
           git config user.name "Quietlyy Bot"
           git config user.email "bot@quietlyy.com"
@@ -116,7 +156,7 @@ jobs:
           git push || true
 
       - name: Show pipeline status in log
-        if: always()
+        if: always() && steps.dedupe.outputs.skip != 'true'
         run: |
           if [ -f output/pipeline_status.json ]; then
             echo "===== PIPELINE STATUS ====="
@@ -139,7 +179,7 @@ jobs:
 
       - name: Upload video artifact
         uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && steps.dedupe.outputs.skip != 'true'
         with:
           name: quietlyy-${{ github.run_number }}-${{ github.run_attempt }}
           path: |
@@ -160,7 +200,7 @@ jobs:
 
       - name: Upload debug info on failure
         uses: actions/upload-artifact@v4
-        if: failure()
+        if: failure() && steps.dedupe.outputs.skip != 'true'
         with:
           name: debug-${{ github.run_number }}
           path: output/
