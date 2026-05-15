@@ -22,6 +22,7 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
 FREESOUND_API_KEY = os.environ.get("FREESOUND_API_KEY", "")
 HF_TOKEN = os.environ.get("HF_TOKEN", "")
+ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
 
 # ── MusicGen prompts per mood ─────────────────────────────────────────────────
 # Engineered for Whisprs-style emotional instrumentals: piano + strings + soft
@@ -35,6 +36,70 @@ _MUSICGEN_PROMPTS = {
     "love":       "Tender romantic piano with soft violin, gentle love ballad, slow tempo 70 BPM, intimate emotional instrumental, no vocals",
     "hope":       "Hopeful piano with rising strings, emotional cinematic build, slow tempo 72 BPM, uplifting instrumental, no vocals",
 }
+
+
+def _generate_elevenlabs_music(mood, output_path, duration_sec=30):
+    """Generate music via ElevenLabs Music API — uses the existing ELEVENLABS_API_KEY.
+
+    ElevenLabs Music produces full song-like instrumentals (piano + strings +
+    soft beat) much closer to commercial library quality than MusicGen-small.
+    Generation takes ~30-90s. Cost: ~1000 chars equivalent per 30s clip
+    (counted against your ElevenLabs plan quota).
+
+    Returns True on success. On failure, logs the categorized error so we know
+    if it's a plan/auth issue vs transient failure.
+
+    Common failure modes:
+      403 → plan doesn't include music generation
+      401 → API key invalid
+      429 → monthly quota exhausted
+      422 → bad request format
+    """
+    if not ELEVENLABS_API_KEY:
+        return False
+
+    prompt = _MUSICGEN_PROMPTS.get(mood, _MUSICGEN_PROMPTS["melancholy"])
+    duration_ms = int(min(max(duration_sec, 10), 60) * 1000)
+
+    try:
+        print(f"[music] ▶ Trying ElevenLabs Music: '{prompt[:60]}...' ({duration_sec}s)")
+        resp = requests.post(
+            "https://api.elevenlabs.io/v1/music",
+            headers={
+                "xi-api-key": ELEVENLABS_API_KEY,
+                "Content-Type": "application/json",
+                "Accept": "audio/mpeg",
+            },
+            json={
+                "prompt": prompt,
+                "music_length_ms": duration_ms,
+            },
+            timeout=180,  # Music gen can take 30-90s
+        )
+
+        if resp.status_code == 200 and len(resp.content) > 50_000:
+            with open(output_path, "wb") as f:
+                f.write(resp.content)
+            print(f"[music]   ✅ ElevenLabs Music generated {duration_sec}s ({len(resp.content)//1024}KB)")
+            return True
+
+        # Categorized error handling — diagnostic clarity for next debug
+        if resp.status_code == 403:
+            print(f"[music]   ⚙️  ElevenLabs 403: plan does not include music generation. Use CC0 fallback or upgrade.")
+        elif resp.status_code == 401:
+            print(f"[music]   ⚙️  ElevenLabs 401: API key invalid or expired")
+        elif resp.status_code == 429:
+            print(f"[music]   ⏳ ElevenLabs 429: monthly quota exhausted")
+        elif resp.status_code == 422:
+            print(f"[music]   ⚙️  ElevenLabs 422: invalid request: {resp.text[:200]}")
+        elif resp.status_code == 404:
+            print(f"[music]   ⚙️  ElevenLabs 404: /v1/music endpoint not found — API URL may have changed")
+        else:
+            print(f"[music]   ❌ ElevenLabs status={resp.status_code}: {resp.text[:200]}")
+    except Exception as e:
+        print(f"[music]   ❌ ElevenLabs Music error: {type(e).__name__}: {str(e)[:200]}")
+
+    return False
 
 
 def _extract_audio_path(result):
@@ -799,15 +864,17 @@ def generate_music(topic, script_text="", style="emotional"):
     to prevent upbeat/dance/inspiring tracks from slipping through.
 
     Fallback order:
-      1. HF Spaces (MusicGen / Stable Audio) — free AI gen
-      2. CC0 Kevin MacLeod — reliable, no API needed
-      3. Freesound CC0 — if FREESOUND_API_KEY is set
-      4. Bundled assets/music/*.mp3 — last resort
+      1. ElevenLabs Music — best quality, uses existing API key, plan-dependent
+      2. HF Spaces (MusicGen / Stable Audio) — currently 401 (HF Pro required)
+      3. CC0 Kevin MacLeod — reliable, rotating sad track pool, no API needed
+      4. Freesound CC0 — if FREESOUND_API_KEY is set
+      5. Bundled assets/music/*.mp3 — last resort
 
     (Pixabay Music API was deprecated by Pixabay and removed from chain.)
 
     Returns: (music_path, source) where source is one of:
-      "musicgen_hf_space" / "cc0_library" / "freesound_cc0" / "bundled" / None
+      "elevenlabs_music" / "musicgen_hf_space" / "cc0_library" /
+      "freesound_cc0" / "bundled" / None
     """
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     music_path = os.path.join(OUTPUT_DIR, "background_music.mp3")
@@ -824,15 +891,22 @@ def generate_music(topic, script_text="", style="emotional"):
 
     print(f"[music] Style: {style} | Raw mood: {raw_mood} → Safe mood: {script_mood}")
 
-    # ── Primary: HF Spaces (Stable Audio Open / MusicGen) — FREE AI music gen ──
-    # Calls public HF Spaces via gradio_client. These spaces run on free ZeroGPU
-    # so there's no per-call cost (unlike Replicate $0.10) and no credit cap
-    # (unlike paid HF Inference). May queue during peak hours but always free.
-    # Generates a unique instrumental track tailored to each script's mood.
+    # ── Primary: ElevenLabs Music — best quality, full song-like instrumentals ──
+    # Uses the existing ELEVENLABS_API_KEY (same one as voiceover). Music gen
+    # costs more credits than TTS — if plan doesn't include it, returns False
+    # silently and falls through. Quality: commercial-library-grade tracks
+    # with proper piano + strings + soft beat arrangement.
+    if _generate_elevenlabs_music(script_mood, music_path, duration_sec=30):
+        return music_path, "elevenlabs_music"
+
+    # ── Secondary: HF Spaces (Stable Audio Open / MusicGen) — currently 401 ──
+    # Most attempts return 401 because ZeroGPU requires HF Pro. Kept here in
+    # case HF restores free access. Diagnostic categorization logs the reason
+    # cleanly so we know if/when it starts working again.
     if _generate_musicgen(script_mood, music_path, duration=30):
-        print(f"[music] HF Space generated unique AI track — FREE")
+        print(f"[music] HF Space generated unique AI track")
         return music_path, "musicgen_hf_space"
-    print("[music] All HF Spaces failed — falling back to Pixabay")
+    print("[music] All HF Spaces failed — falling back to CC0 library")
 
     # NOTE: Pixabay Music API was removed by Pixabay — /api/music/ returns 404.
     # Both query-based AND mood/genre searches will fail. We keep the code below
