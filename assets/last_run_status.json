@@ -13,30 +13,14 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Person Who Stayed"
+    "detail": "Missing Someone Who Is Right There"
   },
   "audio": {
     "result": "ok",
     "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3"
   },
   "images": {
-    "result": "ok",
-    "detail": "7 panels"
-  },
-  "music": {
-    "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [sonauto_melodia]"
-  },
-  "video": {
-    "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/quietlyy_video.mp4"
-  },
-  "quality_gate": {
-    "result": "ok",
-    "detail": ""
-  },
-  "copyright": {
     "result": "fail",
-    "detail": "{'all_passed': False, 'checks': {'music': {'passed': False, 'message': \"Unknown music source 'sonauto_melodia' \u2014 cannot confirm copyright-free\", 'file': '/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3'}, 'images': {'passed': True, 'message': 'Images OK \u2014 DALL-E 3 generated, user owns output (OpenAI ToS \u00a73)', 'count': 7}, 'voice': {'passed': True, 'message': 'Voice OK \u2014 ElevenLabs commercial license (Starter+ plan)', 'file': '/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3'}, 'script': {'passed': True, 'message': 'Script OK \u2014 AI-generated original"
+    "detail": "Image generation failed for panel 1 (tried HF, Gemini, Pollinations, OpenAI). No earlier panels to reuse."
   }
 }

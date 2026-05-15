@@ -1,7 +1,7 @@
 {
   "target_demographics": {
-    "primary_age": "18-34",
-    "secondary_age": "35-49",
+    "primary_age": "18-35",
+    "secondary_age": "13-17, 36-45",
     "gender_split": "55% female, 45% male",
     "top_geos": [
       "United States",
@@ -26,58 +26,59 @@
     ]
   },
   "high_performing_themes": [
-    "Childhood Memories",
-    "Lost Love",
-    "Family Bonds",
-    "Self-Discovery",
-    "Overcoming Adversity",
+    "Childhood memories",
+    "Lost love",
+    "Family bonds",
+    "Self-discovery",
+    "Overcoming struggles",
     "Friendship",
     "Heartbreak",
-    "Mental Health",
-    "Inspirational Quotes",
-    "Motivation"
+    "Mental health",
+    "Personal growth",
+    "Nostalgia"
   ],
   "script_tone_hints": [
-    "Emotional and introspective",
-    "Soft and calming",
-    "Inspirational and uplifting"
+    "Melancholic",
+    "Reflective",
+    "Inspirational",
+    "Empathetic"
   ],
   "hook_strategies": [
-    "Start with a relatable question",
+    "Start with a relatable quote",
     "Use a surprising statistic or fact",
-    "Begin with a thought-provoking quote"
+    "Ask a thought-provoking question"
   ],
   "hashtag_strategy": {
     "facebook": [
-      "#MotivationMonday",
-      "#WednesdayWisdom",
-      "#FridayFeeling",
-      "#Nostalgia",
-      "#InspirationalQuotes"
+      "#MentalHealthMatters",
+      "#SelfLove",
+      "#Motivation",
+      "#Inspiration",
+      "#Nostalgia"
     ],
     "instagram": [
-      "#QuoteOfTheDay",
-      "#MentalHealthMatters",
+      "#MentalHealthAwareness",
       "#SelfCare",
-      "#LoveQuotes",
-      "#Inspirational"
+      "#MotivationalQuotes",
+      "#InspirationalStories",
+      "#NostalgicVibes"
     ],
     "youtube": [
-      "#Shorts",
-      "#MotivationalVideos",
-      "#InspirationalVideos",
-      "#NostalgicQuotes",
-      "#RelaxingMusic"
+      "#MotivationMonday",
+      "#WednesdayWisdom",
+      "#ThrowbackThursday",
+      "#FridayFeeling",
+      "#NostalgicNights"
     ]
   },
   "growth_tactics": [
     "Collaborate with influencers and content creators",
-    "Utilize paid social media advertising",
-    "Optimize video titles, descriptions, and tags for search"
+    "Run social media contests and giveaways",
+    "Utilize paid advertising on Facebook, Instagram, and YouTube"
   ],
   "content_warnings": [
-    "Avoid sensitive or triggering topics, such as graphic violence or explicit language"
+    "Be sensitive to triggering topics such as mental health, trauma, and loss"
   ],
-  "_generated_at": "2026-05-08T10:53:39.481813+00:00",
+  "_generated_at": "2026-05-15T17:59:09.250218+00:00",
   "_source": "Groq"
 }
