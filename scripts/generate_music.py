@@ -20,6 +20,13 @@ import requests
 ASSETS_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
+# Music gallery — every successfully generated ElevenLabs track is saved here
+# so future runs can reuse them. Saves quota and provides offline fallback.
+# Subdirs by mood: assets/music_gallery/heartbreak/, /longing/, etc.
+# After 20 different tracks have been used for a mood, repetition is allowed.
+MUSIC_GALLERY_DIR = os.path.join(ASSETS_DIR, "music_gallery")
+GALLERY_RECENT_LIMIT = 20  # Don't replay any of the last 20 used tracks
+
 FREESOUND_API_KEY = os.environ.get("FREESOUND_API_KEY", "")
 HF_TOKEN = os.environ.get("HF_TOKEN", "")
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
@@ -673,29 +680,138 @@ _RECENT_CC0_LIMIT = 4  # remember last 4 picks; pool sizes are 5-7 so still has 
 _USED_STATE_PATH = os.path.join(os.path.dirname(__file__), "..", "assets", "used_topics.json")
 
 
-def _load_recent_cc0():
-    try:
-        with open(_USED_STATE_PATH) as f:
-            return json.load(f).get("recent_cc0_tracks", [])
-    except Exception:
-        return []
-
-
-def _save_recent_cc0(track_name):
-    """Append track_name to the recently-used list, capped at _RECENT_CC0_LIMIT."""
-    try:
-        state = {}
-        if os.path.exists(_USED_STATE_PATH):
+def _load_state():
+    """Load the persisted state dict (recently-used tracks etc.)."""
+    if os.path.exists(_USED_STATE_PATH):
+        try:
             with open(_USED_STATE_PATH) as f:
-                state = json.load(f)
-    except Exception:
-        state = {}
-    recent = state.get("recent_cc0_tracks", [])
-    recent.append(track_name)
-    state["recent_cc0_tracks"] = recent[-_RECENT_CC0_LIMIT:]
+                return json.load(f)
+        except Exception:
+            return {}
+    return {}
+
+
+def _save_state(state):
+    """Persist the state dict."""
     os.makedirs(os.path.dirname(_USED_STATE_PATH), exist_ok=True)
     with open(_USED_STATE_PATH, "w") as f:
         json.dump(state, f, indent=2)
+
+
+def _load_recent_cc0():
+    return _load_state().get("recent_cc0_tracks", [])
+
+
+def _save_recent_cc0(track_name):
+    """Append track_name to the recently-used CC0 list, capped at _RECENT_CC0_LIMIT."""
+    state = _load_state()
+    recent = state.get("recent_cc0_tracks", [])
+    recent.append(track_name)
+    state["recent_cc0_tracks"] = recent[-_RECENT_CC0_LIMIT:]
+    _save_state(state)
+
+
+# ── Music gallery — persistent library of ElevenLabs-generated tracks ────────
+# Every successful ElevenLabs generation is saved to assets/music_gallery/<mood>/
+# so future runs can reuse them. This both saves ElevenLabs quota and provides
+# an offline fallback if their API fails.
+#
+# Repetition rule: don't reuse any of the last GALLERY_RECENT_LIMIT (=20) tracks.
+# Once 20 different tracks have been used, oldest entries are eligible again.
+
+
+def _gallery_dir_for(mood):
+    """Ensure mood-specific gallery dir exists and return its path."""
+    path = os.path.join(MUSIC_GALLERY_DIR, mood)
+    os.makedirs(path, exist_ok=True)
+    return path
+
+
+def _save_to_music_gallery(mood, mp3_path, prompt_used=""):
+    """Copy a freshly generated MP3 into the persistent music gallery.
+
+    Filename format: YYYY-MM-DD_HHMMSS_<6charhash>.mp3
+    Returns the gallery file path (or None on failure).
+    """
+    import shutil
+    import hashlib
+    from datetime import datetime, timezone
+
+    try:
+        gallery_dir = _gallery_dir_for(mood)
+        ts = datetime.now(timezone.utc).strftime("%Y-%m-%d_%H%M%S")
+        h = hashlib.md5((prompt_used + str(os.path.getsize(mp3_path))).encode()).hexdigest()[:6]
+        dest_filename = f"{ts}_{h}.mp3"
+        dest_path = os.path.join(gallery_dir, dest_filename)
+        shutil.copy(mp3_path, dest_path)
+        # Track count for visibility
+        total = len([f for f in os.listdir(gallery_dir) if f.endswith(".mp3")])
+        print(f"[music] 💾 Saved to gallery: {mood}/{dest_filename} (mood total: {total})")
+        return dest_path
+    except Exception as e:
+        print(f"[music] Gallery save failed: {e}")
+        return None
+
+
+def _load_recent_gallery():
+    """List of the last GALLERY_RECENT_LIMIT gallery filenames used."""
+    return _load_state().get("recent_gallery_tracks", [])
+
+
+def _save_recent_gallery(filename):
+    """Append a gallery filename to the recently-used list."""
+    state = _load_state()
+    recent = state.get("recent_gallery_tracks", [])
+    recent.append(filename)
+    state["recent_gallery_tracks"] = recent[-GALLERY_RECENT_LIMIT:]
+    _save_state(state)
+
+
+def _pick_from_music_gallery(mood, output_path):
+    """Reuse a track from the music gallery (skipping last 20 used).
+
+    Returns True if a track was successfully copied to output_path.
+    Returns False if gallery for this mood is empty.
+
+    Repetition behavior: after 20 different tracks have been used, the oldest
+    third of the "recently used" list is dropped to make room for reuse.
+    """
+    import shutil
+
+    gallery_dir = os.path.join(MUSIC_GALLERY_DIR, mood)
+    if not os.path.isdir(gallery_dir):
+        return False
+    all_tracks = sorted([f for f in os.listdir(gallery_dir) if f.endswith(".mp3")])
+    if not all_tracks:
+        return False
+
+    recent_list = _load_recent_gallery()
+    recent_set = set(recent_list)
+
+    # Step 1: try fresh tracks (never used or used >20 ago)
+    fresh = [t for t in all_tracks if t not in recent_set]
+
+    # Step 2: if gallery is fully saturated by recent-use filter, allow oldest
+    # third of recent tracks back in (least-recently used). This is the "after
+    # 20th track" wrap-around the user asked for.
+    if not fresh:
+        if len(recent_list) > 0:
+            cutoff = max(1, len(recent_list) // 3)
+            allowed_back = set(recent_list[cutoff:])  # drop oldest 1/3
+            fresh = [t for t in all_tracks if t in allowed_back or t not in recent_set]
+        if not fresh:
+            fresh = all_tracks  # full reset — every track eligible
+        print(f"[music] 🔄 Gallery wrap-around (>{GALLERY_RECENT_LIMIT} tracks used) — relaxing filter")
+
+    picked = random.choice(fresh)
+    try:
+        shutil.copy(os.path.join(gallery_dir, picked), output_path)
+        _save_recent_gallery(picked)
+        print(f"[music] 🎵 Reused from gallery: {mood}/{picked} (pool: {len(all_tracks)}, fresh: {len(fresh)})")
+        return True
+    except Exception as e:
+        print(f"[music] Gallery copy failed: {e}")
+        return False
 
 
 # ── Pixabay query-based search — mood-targeted text queries for SONG-style instrumentals ──
@@ -864,17 +980,22 @@ def generate_music(topic, script_text="", style="emotional"):
     to prevent upbeat/dance/inspiring tracks from slipping through.
 
     Fallback order:
-      1. ElevenLabs Music — best quality, uses existing API key, plan-dependent
-      2. HF Spaces (MusicGen / Stable Audio) — currently 401 (HF Pro required)
-      3. CC0 Kevin MacLeod — reliable, rotating sad track pool, no API needed
-      4. Freesound CC0 — if FREESOUND_API_KEY is set
-      5. Bundled assets/music/*.mp3 — last resort
+      1. ElevenLabs Music    → save to gallery on success
+      2. Gallery reuse       ← saved ElevenLabs tracks from past runs
+      3. HF Spaces           ← currently 401 (HF Pro required)
+      4. CC0 Kevin MacLeod   ← reliable, rotating sad track pool, no API
+      5. Freesound CC0       ← if FREESOUND_API_KEY is set
+      6. Bundled assets/music/*.mp3 — last resort
 
-    (Pixabay Music API was deprecated by Pixabay and removed from chain.)
+    The gallery accumulates ElevenLabs tracks over time at
+    assets/music_gallery/<mood>/. After ~20 unique tracks per mood, the
+    pipeline can run for days without calling ElevenLabs (quota-saving).
+    Repetition: never replay the last GALLERY_RECENT_LIMIT (=20) tracks
+    until the gallery wraps around.
 
     Returns: (music_path, source) where source is one of:
-      "elevenlabs_music" / "musicgen_hf_space" / "cc0_library" /
-      "freesound_cc0" / "bundled" / None
+      "elevenlabs_music" / "gallery_reuse" / "musicgen_hf_space" /
+      "cc0_library" / "freesound_cc0" / "bundled" / None
     """
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     music_path = os.path.join(OUTPUT_DIR, "background_music.mp3")
@@ -892,14 +1013,23 @@ def generate_music(topic, script_text="", style="emotional"):
     print(f"[music] Style: {style} | Raw mood: {raw_mood} → Safe mood: {script_mood}")
 
     # ── Primary: ElevenLabs Music — best quality, full song-like instrumentals ──
-    # Uses the existing ELEVENLABS_API_KEY (same one as voiceover). Music gen
-    # costs more credits than TTS — if plan doesn't include it, returns False
-    # silently and falls through. Quality: commercial-library-grade tracks
-    # with proper piano + strings + soft beat arrangement.
+    # Uses the existing ELEVENLABS_API_KEY. On success: track is saved to the
+    # music gallery (assets/music_gallery/<mood>/) for future reuse and
+    # offline fallback.
     if _generate_elevenlabs_music(script_mood, music_path, duration_sec=30):
+        prompt_used = _MUSICGEN_PROMPTS.get(script_mood, "")
+        _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
         return music_path, "elevenlabs_music"
 
-    # ── Secondary: HF Spaces (Stable Audio Open / MusicGen) — currently 401 ──
+    # ── Secondary: Reuse from music gallery — ElevenLabs tracks from past runs ──
+    # If ElevenLabs failed (quota, plan, transient), reuse a previously
+    # generated track. Anti-repetition: skips the last 20 used; wraps around
+    # after that. Builds up over time — first ~20 days will be light, then
+    # the gallery becomes a robust offline library.
+    if _pick_from_music_gallery(script_mood, music_path):
+        return music_path, "gallery_reuse"
+
+    # ── Tertiary: HF Spaces (Stable Audio Open / MusicGen) — currently 401 ──
     # Most attempts return 401 because ZeroGPU requires HF Pro. Kept here in
     # case HF restores free access. Diagnostic categorization logs the reason
     # cleanly so we know if/when it starts working again.
