@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "The Person You Became",
-    "When You Stop Explaining",
-    "When You Are the One Who Always Forgives",
     "When Someone Changes",
     "The Voice in Your Head That Says You Are Not Enough",
     "Growing Up Too Fast",
@@ -20,13 +17,13 @@
     "The Friend Who Disappeared",
     "You Still Check Their Profile",
     "Growing Apart",
-    "The Grief Nobody Talks About"
+    "The Grief Nobody Talks About",
+    "When Friendship Becomes One-Sided",
+    "Friendship That Faded",
+    "When You Miss Who They Used to Be"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Quiet Kind of Love Nobody Talks About",
-    "When You Make Ordinary Moments Feel Different",
-    "I Didn't Know Love Could Feel This Soft",
     "The Text You Read But Did Not Reply To",
     "What Real Love Feels Like",
     "The Person Behind My Smile",
@@ -43,11 +40,12 @@
     "Loving You Quietly",
     "The Little Things You Do",
     "The Safest Place I Know",
-    "Falling For Someone Who Does Not Know"
+    "Falling For Someone Who Does Not Know",
+    "Loving You in Silence",
+    "The One I Think About First",
+    "When Just Being Near You Is Enough"
   ],
   "used_wisdom": [
-    "Loving Without Losing Yourself",
-    "The Power of Small Moments",
     "The Wisdom of Not Forcing",
     "Learning to Trust the Journey",
     "The Meaning We Choose to Find",
@@ -65,7 +63,9 @@
     "The Art of Letting Go",
     "The Gift of Impermanence",
     "Why the Wound Is the Gift",
-    "The Freedom of Acceptance"
+    "The Freedom of Acceptance",
+    "The Beauty of an Unfinished Life",
+    "Loving Without Losing Yourself"
   ],
   "last_style": "love",
   "last_regular_style": "love",
@@ -98,5 +98,8 @@
     "in the stillness you find the",
     "nothing is permanent it is flowing"
   ],
-  "lyria_last_429": "2026-05-15T11:00:54.251539+00:00"
+  "lyria_last_429": "2026-05-16T04:59:41.899618+00:00",
+  "recent_gallery_tracks": [
+    "2026-05-15_195354_c7f4f9.mp3"
+  ]
 }
