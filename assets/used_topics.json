@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When Someone Changes",
-    "The Voice in Your Head That Says You Are Not Enough",
-    "Growing Up Too Fast",
     "When Love Was Not Enough",
     "The First Heartbreak",
     "The Smile That Hides Everything",
@@ -20,13 +17,13 @@
     "The Grief Nobody Talks About",
     "When Friendship Becomes One-Sided",
     "Friendship That Faded",
-    "When You Miss Who They Used to Be"
+    "When You Miss Who They Used to Be",
+    "When You Are the One Who Always Forgives",
+    "When You Realized You Were the Option, Not the Priority",
+    "One-Sided Effort"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Text You Read But Did Not Reply To",
-    "What Real Love Feels Like",
-    "The Person Behind My Smile",
     "The Way You Look at Me",
     "What I'd Tell You If I Could",
     "The First Time I Knew",
@@ -43,11 +40,12 @@
     "Falling For Someone Who Does Not Know",
     "Loving You in Silence",
     "The One I Think About First",
-    "When Just Being Near You Is Enough"
+    "When Just Being Near You Is Enough",
+    "Someone Worth Staying For",
+    "What I Never Said Out Loud",
+    "When You Found Me"
   ],
   "used_wisdom": [
-    "The Wisdom of Not Forcing",
-    "Learning to Trust the Journey",
     "The Meaning We Choose to Find",
     "The Quiet Revolution of Self-Respect",
     "What Truly Matters in the End",
@@ -65,7 +63,9 @@
     "Why the Wound Is the Gift",
     "The Freedom of Acceptance",
     "The Beauty of an Unfinished Life",
-    "Loving Without Losing Yourself"
+    "Loving Without Losing Yourself",
+    "The Strength in Stillness",
+    "Why Suffering Transforms Us"
   ],
   "last_style": "love",
   "last_regular_style": "love",
@@ -100,6 +100,7 @@
   ],
   "lyria_last_429": "2026-05-16T04:59:41.899618+00:00",
   "recent_gallery_tracks": [
+    "2026-05-15_195354_c7f4f9.mp3",
     "2026-05-15_195354_c7f4f9.mp3"
   ]
 }
