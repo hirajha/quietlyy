@@ -416,5 +416,19 @@
       "friendship_loss",
       "moving_on"
     ]
+  },
+  {
+    "topic": "The Goodbye You Didn't Get",
+    "style": "emotional",
+    "script": "I never told you\nbut memories remain\nslowly they haunt me\nnot just the pain\nSome faces forget\nthe hands that held mine\nI carry it everywhere\nand the weight is crushing\njust a faint whisper\nof what we used to be\nThe echoes linger\nnot out of sadness\nsend this to them",
+    "hash": "e25894b2dbe18a20e648301b8a56bb17",
+    "metaphors": [
+      "echo"
+    ],
+    "themes": [
+      "nostalgia",
+      "being_used",
+      "heartbreak"
+    ]
   }
 ]
