@@ -213,17 +213,14 @@ def _generate_sonauto_music(mood, output_path, duration_sec=30):
             return False
         print(f"[music]   ⏳ Sonauto job submitted (task_id={task_id[:12]}...), polling for completion")
 
-        # Step 2: Poll for completion (max ~3 minutes)
-        # Sonauto's polling endpoint can return:
-        #   - JSON string like '"PENDING"' (just the status as a quoted string)
-        #   - JSON object like {"status": "SUCCESS", "song_paths": [...]}
-        # We handle both shapes. On SUCCESS, if song_paths missing from status
-        # response, fetch the full generation record from /generations/{task_id}.
+        # Step 2: Poll for completion (max ~6 minutes — was 3 but kept timing
+        # out under load; Sonauto generation often takes 4-5 min for the v3
+        # model). Real runs caught timing out: 25956206851, 25953138913.
         import time
         status_url = f"https://api.sonauto.ai/v1/generations/status/{task_id}"
         full_url = f"https://api.sonauto.ai/v1/generations/{task_id}"
 
-        for attempt in range(36):  # 36 * 5s = 180s max
+        for attempt in range(72):  # 72 * 5s = 360s = 6 min max
             time.sleep(5)
             try:
                 poll = requests.get(status_url, headers=headers, timeout=15)
@@ -280,7 +277,7 @@ def _generate_sonauto_music(mood, output_path, duration_sec=30):
                 return False
             # else PENDING/PROCESSING/QUEUED — keep polling
 
-        print(f"[music]   ⏱  Sonauto timed out after 3min waiting for SUCCESS")
+        print(f"[music]   ⏱  Sonauto timed out after 6min waiting for SUCCESS")
     except Exception as e:
         print(f"[music]   ❌ Sonauto error: {type(e).__name__}: {str(e)[:200]}")
 
@@ -1032,14 +1029,22 @@ def _save_recent_gallery(filename):
     _save_state(state)
 
 
-def _pick_from_music_gallery(mood, output_path):
+def _pick_from_music_gallery(mood, output_path, min_pool_size=3):
     """Reuse a track from the music gallery (skipping last 20 used).
 
-    Returns True if a track was successfully copied to output_path.
-    Returns False if gallery for this mood is empty.
+    Returns True if a usable track was found and copied. Returns False if:
+      - Gallery dir doesn't exist or is empty
+      - Gallery has FEWER than min_pool_size tracks AND every track is in
+        the recent-used list (prevents the 'same track reused every video'
+        bug seen when gallery is sparse — better to fall through to CC0
+        which rotates between 6+ different sad tracks per mood)
+      - Gallery has >= min_pool_size tracks but anti-repetition wrap-around
+        is needed (relaxed filter kicks in)
 
-    Repetition behavior: after 20 different tracks have been used, the oldest
-    third of the "recently used" list is dropped to make room for reuse.
+    The min_pool_size guard is critical: with only 1-2 tracks per mood,
+    subscribers hear the same Sonauto track in 2+ consecutive videos which
+    they perceive as repetition. Better to fall through to varied CC0 than
+    repeat the same gallery track.
     """
     import shutil
 
@@ -1056,9 +1061,15 @@ def _pick_from_music_gallery(mood, output_path):
     # Step 1: try fresh tracks (never used or used >20 ago)
     fresh = [t for t in all_tracks if t not in recent_set]
 
-    # Step 2: if gallery is fully saturated by recent-use filter, allow oldest
-    # third of recent tracks back in (least-recently used). This is the "after
-    # 20th track" wrap-around the user asked for.
+    # Step 2: ANTI-SPARSE-REPETITION GUARD
+    # If gallery is too small AND all tracks are in recent-used → fall through.
+    # Better to use CC0 rotation than replay same Sonauto track 2nd time in a row.
+    if not fresh and len(all_tracks) < min_pool_size:
+        print(f"[music] 🚫 Gallery too sparse ({len(all_tracks)} tracks for '{mood}', all recently used) — falling through to CC0 for variety")
+        return False
+
+    # Step 3: Gallery is rich enough (>= min_pool_size) but wrap-around needed.
+    # Allow oldest 1/3 of recent list back in (least-recently used reuse).
     if not fresh:
         if len(recent_list) > 0:
             cutoff = max(1, len(recent_list) // 3)
