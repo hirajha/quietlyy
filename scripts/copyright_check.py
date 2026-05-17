@@ -32,10 +32,26 @@ def check_music(music_path, music_source="freesound_cc0"):
 
     # Freesound CC0 is enforced at query time via license filter.
     # Pixabay music is licensed for commercial use under Pixabay Content License.
-    # CC0 library = Kai Engel piano tracks released as Creative Commons Zero.
+    # CC0 library = Kevin MacLeod tracks released as CC-BY 3.0 (commercial OK w/ attribution).
     # Bundled fallback uses our own instrumental (no copyright).
     if music_source in ("freesound_cc0", "pixabay_cc0", "cc0_library", "bundled"):
         return True, f"Music OK — source: {music_source} (CC0 / public domain / commercial-safe)"
+
+    # AI-generated music sources — output ownership per each provider's ToS:
+    #   • Sonauto Melodia (sonauto_melodia): Per Sonauto ToS, user owns generated
+    #     audio for commercial use on all paid AND free tiers.
+    #   • Google Lyria 3 (lyria_gemini): Per Gemini API terms, user owns output.
+    #   • ElevenLabs Music (elevenlabs_music): Commercial use included on
+    #     Starter+ plan (same scope as voice).
+    #   • Gallery reuse (gallery_reuse): Plays back a previously AI-generated
+    #     track. Same license as the original generator (Sonauto/Lyria/ElevenLabs).
+    if music_source in ("sonauto_melodia", "lyria_gemini", "elevenlabs_music", "gallery_reuse"):
+        return True, f"Music OK — AI-generated via {music_source}, user owns output per provider ToS"
+
+    # HF Spaces (MusicGen): Meta MusicGen is CC-BY-NC 4.0 (NON-commercial only).
+    # We block this source for the live pipeline — commercial-content channel.
+    if music_source == "musicgen_hf_space":
+        return False, f"Music BLOCKED — MusicGen output is CC-BY-NC (non-commercial only)"
 
     return False, f"Unknown music source '{music_source}' — cannot confirm copyright-free"
 

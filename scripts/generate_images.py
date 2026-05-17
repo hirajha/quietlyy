@@ -463,15 +463,33 @@ def generate_with_gemini_imagen(prompt, output_path):
         from google import genai
         from google.genai import types
         client = genai.Client(api_key=key)
-        response = client.models.generate_images(
-            model="imagen-3.0-generate-002",
-            prompt=prompt[:2000],
-            config=types.GenerateImagesConfig(
-                number_of_images=1,
-                aspect_ratio="9:16",
-                safety_filter_level="BLOCK_ONLY_HIGH",
-            ),
-        )
+        # Google deprecated imagen-3.0-generate-002 → use imagen-4.0-generate-001
+        # (current GA model as of 2026). Falls back to imagen-3.0-fast-generate-001
+        # if 4.0 isn't available on the user's project.
+        model_ids = ["imagen-4.0-generate-001", "imagen-3.0-fast-generate-001"]
+        response = None
+        last_err = None
+        for model_id in model_ids:
+            try:
+                response = client.models.generate_images(
+                    model=model_id,
+                    prompt=prompt[:2000],
+                    config=types.GenerateImagesConfig(
+                        number_of_images=1,
+                        aspect_ratio="9:16",
+                        safety_filter_level="BLOCK_ONLY_HIGH",
+                    ),
+                )
+                break  # success
+            except Exception as e:
+                last_err = e
+                err_str = str(e)
+                if "404" not in err_str and "NOT_FOUND" not in err_str:
+                    raise  # non-404 error → propagate immediately
+                # Try the next model_id
+                continue
+        if response is None:
+            raise last_err if last_err else RuntimeError("No Imagen model available")
         if not response.generated_images:
             print("[images]   Gemini Imagen: no images returned")
             return False

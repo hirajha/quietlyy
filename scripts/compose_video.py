@@ -573,12 +573,16 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         #   • Recovery:     music fully swells back during 1.5s breath gap
         #
         # The duck must be:
-        #   1) DECISIVE — voice always wins (ratio=12, hits hard)
-        #   2) FAST — duck instantly when voice starts (attack=40ms)
-        #   3) SMOOTH — gentle knee, no pumping artifact (knee=3)
-        #   4) FULLY RECOVERING — music back to full in 1.5s gap (release=550ms
-        #      → ~95% recovery in 1.5s, gives the breath effect of music swelling
-        #      back BEFORE each new line lands)
+        #   1) PRESENT — voice always perceptible above music
+        #   2) GRADUAL — slow attack so duck onset isn't audible
+        #   3) SMOOTH — soft knee, no pumping artifact
+        #   4) STAY DOWN — slow release so music doesn't yo-yo in 1.5s gaps
+        #
+        # USER FEEDBACK 2026-05-17: Previous duck was 'too aggressive — music
+        # suddenly rises high and gets too low quickly, very noticeable'.
+        # Fixed: ratio 12→5 (gentler 5dB duck not 11dB), attack 40→250ms (no
+        # sudden onset), release 550→1500ms (music stays low during gaps,
+        # doesn't yo-yo back to peak between every fragment).
         _ffmpeg(
             "ffmpeg", "-y",
             "-i", output_no_audio,
@@ -587,16 +591,17 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-filter_complex",
             # Voice: -11 LUFS, then split → [voice_out] (for final mix) + [voice_sc] (sidechain trigger)
             f"[1:a]loudnorm=I=-11:LRA=7:TP=-0.5,apad=pad_dur=1,asplit=2[voice_out][voice_sc];"
-            # Music: -17 LUFS undipped (audible during pauses), fade in/out at start/end
-            f"[2:a]loudnorm=I=-17:LRA=7:TP=-2,"
+            # Music: -20 LUFS undipped (slightly lower base than before so the
+            # already-gentler duck still feels meaningful), fade in/out at start/end
+            f"[2:a]loudnorm=I=-20:LRA=7:TP=-2,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4[music_norm];"
-            # Sidechain duck — Whisprs-matched parameters:
-            #   threshold=0.025 → only real speech triggers (ignores breath noise)
-            #   ratio=12        → strong 12:1 duck (~11dB drop, matches Whisprs depth)
-            #   attack=40ms     → fast, decisive duck onset
-            #   release=550ms   → music ~95% recovered in 1.5s breath gap
-            #   knee=3          → smooth transition, no audible pumping
-            f"[music_norm][voice_sc]sidechaincompress=threshold=0.025:ratio=12:attack=40:release=550:knee=3:makeup=1[music_ducked];"
+            # Sidechain duck — GENTLE settings (no audible pumping):
+            #   threshold=0.04 → only sustained speech triggers, ignores breath noise
+            #   ratio=5         → gentle 5:1 duck (~5dB drop, not 11dB)
+            #   attack=250ms    → SLOW onset; the duck fades in instead of slamming
+            #   release=1500ms  → SLOW recovery; music stays low through 1.5s gaps
+            #   knee=4          → softer transition curve, no audible knee
+            f"[music_norm][voice_sc]sidechaincompress=threshold=0.04:ratio=5:attack=250:release=1500:knee=4:makeup=1[music_ducked];"
             # Final mix: video + voice + ducked music
             f"[0:v]{video_filter}[vout];"
             f"[voice_out][music_ducked]amix=inputs=2:duration=first:normalize=0[aout]",
