@@ -1,10 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Crying Without Knowing Why",
-    "Heartbreak Lesson",
-    "Healing Alone",
-    "The Friend Who Disappeared",
     "You Still Check Their Profile",
     "Growing Apart",
     "The Grief Nobody Talks About",
@@ -20,13 +16,14 @@
     "Moving On vs Moving Forward",
     "When No One Asks If You Are Okay",
     "When You Delete the Message Before Sending It",
-    "Being Misunderstood"
+    "Being Misunderstood",
+    "The First Heartbreak",
+    "The Dreams Where They Come Back",
+    "Heartbreak Lesson",
+    "Healing Alone"
   ],
   "used_poetic": [],
   "used_love": [
-    "You Didn't Fix Me, You Stayed",
-    "You Make the Hard Days Easier",
-    "The Way You Look When You Do Not Know I Am Watching",
     "Loving You Quietly",
     "The Little Things You Do",
     "The Safest Place I Know",
@@ -43,12 +40,12 @@
     "What I'd Tell You If I Could",
     "The Person Who Stayed",
     "When Love Feels Like Coming Home",
-    "The Way You Look at Me"
+    "The Way You Look at Me",
+    "The Quiet Kind of Love Nobody Talks About",
+    "Missing Someone Who Is Right There",
+    "What Home Actually Feels Like"
   ],
   "used_wisdom": [
-    "The Courage to Begin Again",
-    "What Silence Teaches Us",
-    "What You Cannot Change and What You Can",
     "Why Peace Is Not the Absence of Storm",
     "How to Carry Loss Without Being Crushed",
     "Learning to Belong to Yourself",
@@ -65,11 +62,14 @@
     "The Meaning We Choose to Find",
     "The Quiet Revolution of Self-Respect",
     "Learning to Trust the Journey",
-    "What Real Love Requires"
+    "What Real Love Requires",
+    "The Ancient Truth About Happiness",
+    "What Truly Matters in the End",
+    "The Courage to Begin Again"
   ],
-  "last_style": "love",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 2,
+  "last_style": "wisdom",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -100,7 +100,7 @@
     "life is a river it flows naturally",
     "life unfolds slowly in its own time"
   ],
-  "lyria_last_429": "2026-05-16T04:59:41.899618+00:00",
+  "lyria_last_429": "2026-05-17T05:17:43.175198+00:00",
   "recent_gallery_tracks": [
     "2026-05-15_195354_c7f4f9.mp3",
     "2026-05-15_195354_c7f4f9.mp3"

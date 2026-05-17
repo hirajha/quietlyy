@@ -438,5 +438,19 @@
     "hash": "c57aa39f3da2ab89aae883df462a2aa1",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "The Dreams Where They Come Back",
+    "style": "emotional",
+    "script": "It doesn't feel gone\nbut still it lingers\nin the darkest corners\nof my subconscious\nSome Memories\nare doors that won't close\nand I'm not trying\nto shut them quietly\nThe Dreams Where\nthey come back to me\nare the hardest\nto let go of\nnot because\nI want them to stay\nlet them know",
+    "hash": "5af03f1733bf9b5becf7420093105f96",
+    "metaphors": [
+      "door",
+      "dark"
+    ],
+    "themes": [
+      "grief_loss",
+      "silence"
+    ]
   }
 ]
