@@ -1,11 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "The Part You Never Talk About",
-    "Staying Too Long",
-    "Carrying Others Too Long",
-    "Outgrowing People",
-    "The Apology That Never Came",
     "When You Miss Who They Used to Be",
     "Losing Yourself",
     "When You Have to Pretend You Are Fine at Work",
@@ -20,15 +15,15 @@
     "The Texts You Never Send",
     "Friendship That Faded",
     "Missing a Person Who Is Still Here",
-    "Falling Out of Love Slowly"
+    "Falling Out of Love Slowly",
+    "When Someone Changes",
+    "When You Loved More Than They Did",
+    "Missing Someone Alive",
+    "Letting Go With Grace",
+    "When You Miss Someone You Should Not"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Way You Look When You Do Not Know I Am Watching",
-    "The One I Think About First",
-    "When Just Being Near You Is Enough",
-    "You Didn't Fix Me, You Stayed",
-    "The First Time I Knew",
     "The Person Who Stayed",
     "You Are My Calm",
     "The Small Things I Notice About You",
@@ -43,12 +38,14 @@
     "Someone Worth Staying For",
     "The Quiet Kind of Love Nobody Talks About",
     "I Didn't Know Love Could Feel This Soft",
-    "The Little Things You Do"
+    "The Little Things You Do",
+    "Loving You Quietly",
+    "The Person Behind My Smile",
+    "You Make the Hard Days Easier",
+    "The Way You Look When You Do Not Know I Am Watching",
+    "When You Love Someone Who Is Leaving"
   ],
   "used_wisdom": [
-    "The Courage to Begin Again",
-    "What You Cannot Change and What You Can",
-    "When Grief Becomes a Teacher",
     "The Power of Small Moments",
     "Learning to Belong to Yourself",
     "What Silence Teaches Us",
@@ -65,11 +62,14 @@
     "The Wisdom of Not Forcing",
     "Learning to Trust the Journey",
     "The Meaning We Choose to Find",
-    "The Freedom of Acceptance"
+    "The Freedom of Acceptance",
+    "The Gift of Impermanence",
+    "The Quiet Revolution of Self-Respect",
+    "The Courage to Begin Again"
   ],
   "last_style": "love",
   "last_regular_style": "love",
-  "videos_since_wisdom": 2,
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -105,6 +105,7 @@
   "recent_gallery_tracks": [
     "2026-05-15_195354_c7f4f9.mp3",
     "2026-05-15_195354_c7f4f9.mp3",
-    "2026-05-17_174627_8224c9.mp3"
+    "2026-05-17_174627_8224c9.mp3",
+    "2026-05-18_091238_111cbf.mp3"
   ]
 }
