@@ -529,5 +529,19 @@
       "nostalgia",
       "silence"
     ]
+  },
+  {
+    "topic": "When You Outgrow Your Best Friend",
+    "style": "emotional",
+    "script": "You're searching for a ghost\nbut finding only echoes\nand empty spaces\nSlowly realizing\nsome bonds expire\nNot from lack of love\nbut from growing apart\nThe hands that once held\nnow barely touch\nI won't force the fit\nNot out of spite\nbut out of respect\nlet them know",
+    "hash": "f628fbc0edcc21192bebb4a85f03d993",
+    "metaphors": [
+      "echo"
+    ],
+    "themes": [
+      "love",
+      "friendship_loss",
+      "growth"
+    ]
   }
 ]
