@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When Grief Becomes a Teacher"
+    "detail": "Being Strong for Everyone While Breaking Inside"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17888416263515045"
+    "result": "fail",
+    "detail": "500 Server Error: Internal Server Error for url: https://rupload.facebook.com/ig-api-upload/v25.0/18081966413305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"{\\\"success\\\":false,\\\"error\\\":{\\\"message\\\":\\\"{\\\\\\\"message\\\\\\\":\\\\\\\"Generic Internal Error: An internal server error occurred. Please try again later.\\\\\\\"}\\\"}}\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/2daLOlkIlH8"
+    "detail": "https://www.youtube.com/shorts/OWtHBrdlr_U"
   }
 }

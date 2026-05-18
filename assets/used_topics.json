@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When Love Was Not Enough",
-    "The Moment You Stopped Hoping",
-    "Silent Suffering Nobody Sees",
     "Reading Old Conversations Alone",
     "Heartbreak Lesson",
     "The First Heartbreak",
@@ -20,13 +17,13 @@
     "When You Miss Someone You Should Not",
     "Crying Without Knowing Why",
     "When Friendship Becomes One-Sided",
-    "Staying Too Long"
+    "Staying Too Long",
+    "Being Strong for Everyone While Breaking Inside",
+    "When You Stop Explaining",
+    "Healing Alone"
   ],
   "used_poetic": [],
   "used_love": [
-    "What I Never Said Out Loud",
-    "The Safest Place I Know",
-    "When Love Feels Like Coming Home",
     "What I Mean When I Say I Love You",
     "What I'd Tell You If I Could",
     "When Someone Chooses You Every Day",
@@ -43,10 +40,12 @@
     "When You Love Someone Who Is Leaving",
     "When You Make Ordinary Moments Feel Different",
     "You Didn't Fix Me, You Stayed",
-    "Loving in Silence"
+    "Loving in Silence",
+    "When You Found Me",
+    "Falling For Someone Who Does Not Know",
+    "The Way You Look at Me"
   ],
   "used_wisdom": [
-    "Finding Peace Within Yourself",
     "The Art of Letting Go",
     "Why the Wound Is the Gift",
     "How to Carry Loss Without Being Crushed",
@@ -65,11 +64,12 @@
     "The Courage to Begin Again",
     "What Truly Matters in the End",
     "When Grief Becomes a Teacher",
-    "The Ancient Truth About Happiness"
+    "The Ancient Truth About Happiness",
+    "The Power of Small Moments"
   ],
-  "last_style": "wisdom",
+  "last_style": "love",
   "last_regular_style": "love",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -108,6 +108,7 @@
     "2026-05-15_195354_c7f4f9.mp3",
     "2026-05-17_174627_8224c9.mp3",
     "2026-05-18_091238_111cbf.mp3",
-    "2026-05-17_192154_1e01f0.mp3"
+    "2026-05-17_192154_1e01f0.mp3",
+    "2026-05-15_110133_b101fc.mp3"
   ]
 }
