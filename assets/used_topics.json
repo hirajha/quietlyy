@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When You Miss Who They Used to Be",
-    "Losing Yourself",
-    "When You Have to Pretend You Are Fine at Work",
     "When Love Was Not Enough",
     "The Moment You Stopped Hoping",
     "Silent Suffering Nobody Sees",
@@ -20,13 +17,13 @@
     "When You Loved More Than They Did",
     "Missing Someone Alive",
     "Letting Go With Grace",
-    "When You Miss Someone You Should Not"
+    "When You Miss Someone You Should Not",
+    "Crying Without Knowing Why",
+    "When Friendship Becomes One-Sided",
+    "Staying Too Long"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Person Who Stayed",
-    "You Are My Calm",
-    "The Small Things I Notice About You",
     "What I Never Said Out Loud",
     "The Safest Place I Know",
     "When Love Feels Like Coming Home",
@@ -43,12 +40,12 @@
     "The Person Behind My Smile",
     "You Make the Hard Days Easier",
     "The Way You Look When You Do Not Know I Am Watching",
-    "When You Love Someone Who Is Leaving"
+    "When You Love Someone Who Is Leaving",
+    "When You Make Ordinary Moments Feel Different",
+    "You Didn't Fix Me, You Stayed",
+    "Loving in Silence"
   ],
   "used_wisdom": [
-    "The Power of Small Moments",
-    "Learning to Belong to Yourself",
-    "What Silence Teaches Us",
     "Finding Peace Within Yourself",
     "The Art of Letting Go",
     "Why the Wound Is the Gift",
@@ -65,11 +62,14 @@
     "The Freedom of Acceptance",
     "The Gift of Impermanence",
     "The Quiet Revolution of Self-Respect",
-    "The Courage to Begin Again"
+    "The Courage to Begin Again",
+    "What Truly Matters in the End",
+    "When Grief Becomes a Teacher",
+    "The Ancient Truth About Happiness"
   ],
-  "last_style": "love",
+  "last_style": "wisdom",
   "last_regular_style": "love",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -99,13 +99,15 @@
     "nothing is permanent it is flowing",
     "life is a river it flows naturally",
     "life unfolds slowly in its own time",
-    "the journey is long and winding"
+    "the journey is long and winding",
+    "in sorrow's depths you'll find strength"
   ],
-  "lyria_last_429": "2026-05-18T05:51:22.064604+00:00",
+  "lyria_last_429": "2026-05-18T18:28:05.829189+00:00",
   "recent_gallery_tracks": [
     "2026-05-15_195354_c7f4f9.mp3",
     "2026-05-15_195354_c7f4f9.mp3",
     "2026-05-17_174627_8224c9.mp3",
-    "2026-05-18_091238_111cbf.mp3"
+    "2026-05-18_091238_111cbf.mp3",
+    "2026-05-17_192154_1e01f0.mp3"
   ]
 }

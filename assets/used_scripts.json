@@ -566,5 +566,16 @@
     "themes": [
       "loneliness"
     ]
+  },
+  {
+    "topic": "When Grief Becomes a Teacher",
+    "style": "wisdom",
+    "script": "Kahlil Gibran wrote\nin sorrow's depths\nyou'll find strength\nhidden from you\nin times of joy\ngrief teaches me\nabout the weight\nof what I hold\nthe fragility of life\nthe importance of touch\nmy heart is learning\nto let go slowly",
+    "hash": "ec51fcfde3eef81663300cf3daceca03",
+    "metaphors": [],
+    "themes": [
+      "grief_loss",
+      "love"
+    ]
   }
 ]
