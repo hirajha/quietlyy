@@ -543,5 +543,18 @@
       "friendship_loss",
       "growth"
     ]
+  },
+  {
+    "topic": "Learning to Trust the Journey",
+    "style": "wisdom",
+    "script": "Lao Tzu said\nthe journey is\nlong and winding\nwith no clear path\nwe must trust\nin the unknown\nit's hard to let go\nof what's familiar\nfear of the future\nholds me back\nwhat if i stumble\nin the stillness",
+    "hash": "dda464367b24df844ebf480c295ab611",
+    "metaphors": [
+      "wind",
+      "path"
+    ],
+    "themes": [
+      "silence"
+    ]
   }
 ]
