@@ -1,8 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Missing a Person Who Is Still Here",
-    "Falling Out of Love Slowly",
     "When Someone Changes",
     "When You Loved More Than They Did",
     "Missing Someone Alive",
@@ -20,12 +18,12 @@
     "Borrowed Love",
     "The Moment You Stopped Hoping",
     "The Night You Stopped Waiting",
-    "Being the One Who Always Checks In"
+    "Being the One Who Always Checks In",
+    "Loving Someone Who Can't Love Back",
+    "When You Delete the Message Before Sending It"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Quiet Kind of Love Nobody Talks About",
-    "I Didn't Know Love Could Feel This Soft",
     "The Little Things You Do",
     "Loving You Quietly",
     "The Person Behind My Smile",
@@ -43,10 +41,11 @@
     "More Than My Favorite Person",
     "The Person Who Stayed",
     "The First Time I Knew",
-    "What I'd Tell You If I Could"
+    "What I'd Tell You If I Could",
+    "What Real Love Feels Like",
+    "The Kind of Love That Doesn't Shout"
   ],
   "used_wisdom": [
-    "The Strength in Stillness",
     "Why Suffering Transforms Us",
     "The Beauty of an Unfinished Life",
     "The Difference Between Living and Existing",
@@ -65,11 +64,12 @@
     "Finding Peace Within Yourself",
     "Learning to Belong to Yourself",
     "What Real Love Requires",
-    "The Art of Letting Go"
+    "The Art of Letting Go",
+    "Loving Without Losing Yourself"
   ],
   "last_style": "emotional",
   "last_regular_style": "emotional",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -101,7 +101,8 @@
     "life unfolds slowly in its own time",
     "the journey is long and winding",
     "in sorrow's depths you'll find strength",
-    "life is precious in every moment"
+    "life is precious in every moment",
+    "you belong to no one but"
   ],
   "lyria_last_429": "2026-05-19T08:54:41.901273+00:00",
   "recent_gallery_tracks": [
@@ -113,6 +114,7 @@
     "2026-05-15_110133_b101fc.mp3",
     "2026-05-17_092356_51873f.mp3",
     "2026-05-16_105720_fecdf0.mp3",
-    "2026-05-18_112254_58d552.mp3"
+    "2026-05-18_112254_58d552.mp3",
+    "2026-05-18_055444_a0bd8f.mp3"
   ]
 }
