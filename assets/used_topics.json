@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Missing Someone Alive",
-    "Letting Go With Grace",
-    "When You Miss Someone You Should Not",
     "Crying Without Knowing Why",
     "When Friendship Becomes One-Sided",
     "Staying Too Long",
@@ -20,13 +17,13 @@
     "Loving Someone Who Can't Love Back",
     "When You Delete the Message Before Sending It",
     "Missing a Person Who Is Still Here",
-    "The First Heartbreak"
+    "The First Heartbreak",
+    "Heartbreak Lesson",
+    "Loving Quietly From a Distance",
+    "When Love Was Not Enough"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Person Behind My Smile",
-    "You Make the Hard Days Easier",
-    "The Way You Look When You Do Not Know I Am Watching",
     "When You Love Someone Who Is Leaving",
     "When You Make Ordinary Moments Feel Different",
     "You Didn't Fix Me, You Stayed",
@@ -43,11 +40,12 @@
     "What Real Love Feels Like",
     "The Kind of Love That Doesn't Shout",
     "Loving You in Silence",
-    "Someone Worth Staying For"
+    "Someone Worth Staying For",
+    "The Quiet Kind of Love Nobody Talks About",
+    "Loving You Quietly",
+    "You Are My Calm"
   ],
   "used_wisdom": [
-    "The Beauty of an Unfinished Life",
-    "The Difference Between Living and Existing",
     "The Wisdom of Not Forcing",
     "Learning to Trust the Journey",
     "The Meaning We Choose to Find",
@@ -65,7 +63,9 @@
     "What Real Love Requires",
     "The Art of Letting Go",
     "Loving Without Losing Yourself",
-    "How to Carry Loss Without Being Crushed"
+    "How to Carry Loss Without Being Crushed",
+    "Why Peace Is Not the Absence of Storm",
+    "The Strength in Stillness"
   ],
   "last_style": "emotional",
   "last_regular_style": "emotional",
@@ -116,6 +116,7 @@
     "2026-05-16_105720_fecdf0.mp3",
     "2026-05-18_112254_58d552.mp3",
     "2026-05-18_055444_a0bd8f.mp3",
-    "2026-05-18_055444_a0bd8f.mp3"
+    "2026-05-18_055444_a0bd8f.mp3",
+    "2026-05-17_052111_75e87f.mp3"
   ]
 }

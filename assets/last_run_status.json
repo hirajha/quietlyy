@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Loving You in Silence"
+    "detail": "Loving You Quietly"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18082073027305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18047445275777521"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/c_TtFznRVV4"
+    "detail": "https://www.youtube.com/shorts/YPCYXRB5X-4"
   }
 }
