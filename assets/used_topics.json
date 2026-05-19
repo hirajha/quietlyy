@@ -1,8 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "The Texts You Never Send",
-    "Friendship That Faded",
     "Missing a Person Who Is Still Here",
     "Falling Out of Love Slowly",
     "When Someone Changes",
@@ -20,12 +18,12 @@
     "People Who Use You",
     "Moving On vs Moving Forward",
     "Borrowed Love",
-    "The Moment You Stopped Hoping"
+    "The Moment You Stopped Hoping",
+    "The Night You Stopped Waiting",
+    "Being the One Who Always Checks In"
   ],
   "used_poetic": [],
   "used_love": [
-    "What Real Love Feels Like",
-    "Someone Worth Staying For",
     "The Quiet Kind of Love Nobody Talks About",
     "I Didn't Know Love Could Feel This Soft",
     "The Little Things You Do",
@@ -43,10 +41,11 @@
     "When Love Feels Like Coming Home",
     "The One I Think About First",
     "More Than My Favorite Person",
-    "The Person Who Stayed"
+    "The Person Who Stayed",
+    "The First Time I Knew",
+    "What I'd Tell You If I Could"
   ],
   "used_wisdom": [
-    "Loving Without Losing Yourself",
     "The Strength in Stillness",
     "Why Suffering Transforms Us",
     "The Beauty of an Unfinished Life",
@@ -65,11 +64,12 @@
     "What You Cannot Change and What You Can",
     "Finding Peace Within Yourself",
     "Learning to Belong to Yourself",
-    "What Real Love Requires"
+    "What Real Love Requires",
+    "The Art of Letting Go"
   ],
-  "last_style": "wisdom",
+  "last_style": "emotional",
   "last_regular_style": "emotional",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -112,6 +112,7 @@
     "2026-05-17_192154_1e01f0.mp3",
     "2026-05-15_110133_b101fc.mp3",
     "2026-05-17_092356_51873f.mp3",
-    "2026-05-16_105720_fecdf0.mp3"
+    "2026-05-16_105720_fecdf0.mp3",
+    "2026-05-18_112254_58d552.mp3"
   ]
 }
