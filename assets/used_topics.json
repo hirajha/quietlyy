@@ -1,8 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When Someone Changes",
-    "When You Loved More Than They Did",
     "Missing Someone Alive",
     "Letting Go With Grace",
     "When You Miss Someone You Should Not",
@@ -20,12 +18,12 @@
     "The Night You Stopped Waiting",
     "Being the One Who Always Checks In",
     "Loving Someone Who Can't Love Back",
-    "When You Delete the Message Before Sending It"
+    "When You Delete the Message Before Sending It",
+    "Missing a Person Who Is Still Here",
+    "The First Heartbreak"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Little Things You Do",
-    "Loving You Quietly",
     "The Person Behind My Smile",
     "You Make the Hard Days Easier",
     "The Way You Look When You Do Not Know I Am Watching",
@@ -43,10 +41,11 @@
     "The First Time I Knew",
     "What I'd Tell You If I Could",
     "What Real Love Feels Like",
-    "The Kind of Love That Doesn't Shout"
+    "The Kind of Love That Doesn't Shout",
+    "Loving You in Silence",
+    "Someone Worth Staying For"
   ],
   "used_wisdom": [
-    "Why Suffering Transforms Us",
     "The Beauty of an Unfinished Life",
     "The Difference Between Living and Existing",
     "The Wisdom of Not Forcing",
@@ -65,11 +64,12 @@
     "Learning to Belong to Yourself",
     "What Real Love Requires",
     "The Art of Letting Go",
-    "Loving Without Losing Yourself"
+    "Loving Without Losing Yourself",
+    "How to Carry Loss Without Being Crushed"
   ],
   "last_style": "emotional",
   "last_regular_style": "emotional",
-  "videos_since_wisdom": 2,
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -115,6 +115,7 @@
     "2026-05-17_092356_51873f.mp3",
     "2026-05-16_105720_fecdf0.mp3",
     "2026-05-18_112254_58d552.mp3",
+    "2026-05-18_055444_a0bd8f.mp3",
     "2026-05-18_055444_a0bd8f.mp3"
   ]
 }
