@@ -1,8 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Reading Old Conversations Alone",
-    "Heartbreak Lesson",
     "The First Heartbreak",
     "When You Outgrow Your Best Friend",
     "Being Misunderstood",
@@ -20,12 +18,12 @@
     "Staying Too Long",
     "Being Strong for Everyone While Breaking Inside",
     "When You Stop Explaining",
-    "Healing Alone"
+    "Healing Alone",
+    "The Apology That Never Came",
+    "People Who Use You"
   ],
   "used_poetic": [],
   "used_love": [
-    "What I Mean When I Say I Love You",
-    "What I'd Tell You If I Could",
     "When Someone Chooses You Every Day",
     "The Text You Read But Did Not Reply To",
     "What Real Love Feels Like",
@@ -43,11 +41,11 @@
     "Loving in Silence",
     "When You Found Me",
     "Falling For Someone Who Does Not Know",
-    "The Way You Look at Me"
+    "The Way You Look at Me",
+    "When Love Feels Like Coming Home",
+    "The One I Think About First"
   ],
   "used_wisdom": [
-    "The Art of Letting Go",
-    "Why the Wound Is the Gift",
     "How to Carry Loss Without Being Crushed",
     "Why Peace Is Not the Absence of Storm",
     "Loving Without Losing Yourself",
@@ -65,11 +63,13 @@
     "What Truly Matters in the End",
     "When Grief Becomes a Teacher",
     "The Ancient Truth About Happiness",
-    "The Power of Small Moments"
+    "The Power of Small Moments",
+    "What You Cannot Change and What You Can",
+    "Finding Peace Within Yourself"
   ],
   "last_style": "love",
   "last_regular_style": "love",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -100,7 +100,8 @@
     "life is a river it flows naturally",
     "life unfolds slowly in its own time",
     "the journey is long and winding",
-    "in sorrow's depths you'll find strength"
+    "in sorrow's depths you'll find strength",
+    "life is precious in every moment"
   ],
   "lyria_last_429": "2026-05-18T18:28:05.829189+00:00",
   "recent_gallery_tracks": [
@@ -109,6 +110,7 @@
     "2026-05-17_174627_8224c9.mp3",
     "2026-05-18_091238_111cbf.mp3",
     "2026-05-17_192154_1e01f0.mp3",
-    "2026-05-15_110133_b101fc.mp3"
+    "2026-05-15_110133_b101fc.mp3",
+    "2026-05-17_092356_51873f.mp3"
   ]
 }

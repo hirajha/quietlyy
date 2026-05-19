@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Being Strong for Everyone While Breaking Inside"
+    "detail": "What You Cannot Change and What You Can"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "500 Server Error: Internal Server Error for url: https://rupload.facebook.com/ig-api-upload/v25.0/18081966413305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"{\\\"success\\\":false,\\\"error\\\":{\\\"message\\\":\\\"{\\\\\\\"message\\\\\\\":\\\\\\\"Generic Internal Error: An internal server error occurred. Please try again later.\\\\\\\"}\\\"}}\"}}"
+    "result": "ok",
+    "detail": "18173096545410382"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/OWtHBrdlr_U"
+    "detail": "https://www.youtube.com/shorts/RQYPVRP1ABg"
   }
 }
