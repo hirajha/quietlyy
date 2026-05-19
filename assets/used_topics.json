@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "The First Heartbreak",
-    "When You Outgrow Your Best Friend",
-    "Being Misunderstood",
     "The Texts You Never Send",
     "Friendship That Faded",
     "Missing a Person Who Is Still Here",
@@ -20,12 +17,13 @@
     "When You Stop Explaining",
     "Healing Alone",
     "The Apology That Never Came",
-    "People Who Use You"
+    "People Who Use You",
+    "Moving On vs Moving Forward",
+    "Borrowed Love",
+    "The Moment You Stopped Hoping"
   ],
   "used_poetic": [],
   "used_love": [
-    "When Someone Chooses You Every Day",
-    "The Text You Read But Did Not Reply To",
     "What Real Love Feels Like",
     "Someone Worth Staying For",
     "The Quiet Kind of Love Nobody Talks About",
@@ -43,11 +41,11 @@
     "Falling For Someone Who Does Not Know",
     "The Way You Look at Me",
     "When Love Feels Like Coming Home",
-    "The One I Think About First"
+    "The One I Think About First",
+    "More Than My Favorite Person",
+    "The Person Who Stayed"
   ],
   "used_wisdom": [
-    "How to Carry Loss Without Being Crushed",
-    "Why Peace Is Not the Absence of Storm",
     "Loving Without Losing Yourself",
     "The Strength in Stillness",
     "Why Suffering Transforms Us",
@@ -65,11 +63,13 @@
     "The Ancient Truth About Happiness",
     "The Power of Small Moments",
     "What You Cannot Change and What You Can",
-    "Finding Peace Within Yourself"
+    "Finding Peace Within Yourself",
+    "Learning to Belong to Yourself",
+    "What Real Love Requires"
   ],
-  "last_style": "love",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 1,
+  "last_style": "wisdom",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -103,7 +103,7 @@
     "in sorrow's depths you'll find strength",
     "life is precious in every moment"
   ],
-  "lyria_last_429": "2026-05-18T18:28:05.829189+00:00",
+  "lyria_last_429": "2026-05-19T08:54:41.901273+00:00",
   "recent_gallery_tracks": [
     "2026-05-15_195354_c7f4f9.mp3",
     "2026-05-15_195354_c7f4f9.mp3",
@@ -111,6 +111,7 @@
     "2026-05-18_091238_111cbf.mp3",
     "2026-05-17_192154_1e01f0.mp3",
     "2026-05-15_110133_b101fc.mp3",
-    "2026-05-17_092356_51873f.mp3"
+    "2026-05-17_092356_51873f.mp3",
+    "2026-05-16_105720_fecdf0.mp3"
   ]
 }
