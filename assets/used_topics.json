@@ -1,7 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Crying Without Knowing Why",
     "When Friendship Becomes One-Sided",
     "Staying Too Long",
     "Being Strong for Everyone While Breaking Inside",
@@ -20,12 +19,11 @@
     "The First Heartbreak",
     "Heartbreak Lesson",
     "Loving Quietly From a Distance",
-    "When Love Was Not Enough"
+    "When Love Was Not Enough",
+    "Growing Up Too Fast"
   ],
   "used_poetic": [],
   "used_love": [
-    "When You Love Someone Who Is Leaving",
-    "When You Make Ordinary Moments Feel Different",
     "You Didn't Fix Me, You Stayed",
     "Loving in Silence",
     "When You Found Me",
@@ -43,11 +41,11 @@
     "Someone Worth Staying For",
     "The Quiet Kind of Love Nobody Talks About",
     "Loving You Quietly",
-    "You Are My Calm"
+    "You Are My Calm",
+    "You Make the Hard Days Easier",
+    "What I Mean When I Say I Love You"
   ],
   "used_wisdom": [
-    "The Wisdom of Not Forcing",
-    "Learning to Trust the Journey",
     "The Meaning We Choose to Find",
     "The Freedom of Acceptance",
     "The Gift of Impermanence",
@@ -65,11 +63,13 @@
     "Loving Without Losing Yourself",
     "How to Carry Loss Without Being Crushed",
     "Why Peace Is Not the Absence of Storm",
-    "The Strength in Stillness"
+    "The Strength in Stillness",
+    "Why Suffering Transforms Us",
+    "The Beauty of an Unfinished Life"
   ],
-  "last_style": "emotional",
-  "last_regular_style": "emotional",
-  "videos_since_wisdom": 3,
+  "last_style": "wisdom",
+  "last_regular_style": "love",
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -102,7 +102,8 @@
     "the journey is long and winding",
     "in sorrow's depths you'll find strength",
     "life is precious in every moment",
-    "you belong to no one but"
+    "you belong to no one but",
+    "pain is inevitable suffering is optional"
   ],
   "lyria_last_429": "2026-05-19T08:54:41.901273+00:00",
   "recent_gallery_tracks": [
@@ -117,6 +118,7 @@
     "2026-05-18_112254_58d552.mp3",
     "2026-05-18_055444_a0bd8f.mp3",
     "2026-05-18_055444_a0bd8f.mp3",
-    "2026-05-17_052111_75e87f.mp3"
+    "2026-05-17_052111_75e87f.mp3",
+    "2026-05-17_081158_796f8e.mp3"
   ]
 }
