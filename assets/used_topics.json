@@ -1,8 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Being Strong for Everyone While Breaking Inside",
-    "When You Stop Explaining",
     "Healing Alone",
     "The Apology That Never Came",
     "People Who Use You",
@@ -20,12 +18,12 @@
     "When Love Was Not Enough",
     "Growing Up Too Fast",
     "Friendship That Faded",
-    "The Voice in Your Head That Says You Are Not Enough"
+    "The Voice in Your Head That Says You Are Not Enough",
+    "When Friendship Becomes One-Sided",
+    "When You Love Someone You Cannot Have"
   ],
   "used_poetic": [],
   "used_love": [
-    "When You Found Me",
-    "Falling For Someone Who Does Not Know",
     "The Way You Look at Me",
     "When Love Feels Like Coming Home",
     "The One I Think About First",
@@ -43,10 +41,11 @@
     "You Make the Hard Days Easier",
     "What I Mean When I Say I Love You",
     "I Didn't Know Love Could Feel This Soft",
-    "You Didn't Fix Me, You Stayed"
+    "You Didn't Fix Me, You Stayed",
+    "The Person Behind My Smile",
+    "Missing Someone Who Is Right There"
   ],
   "used_wisdom": [
-    "The Freedom of Acceptance",
     "The Gift of Impermanence",
     "The Quiet Revolution of Self-Respect",
     "The Courage to Begin Again",
@@ -65,11 +64,12 @@
     "The Strength in Stillness",
     "Why Suffering Transforms Us",
     "The Beauty of an Unfinished Life",
-    "The Wisdom of Not Forcing"
+    "The Wisdom of Not Forcing",
+    "Learning to Trust the Journey"
   ],
   "last_style": "love",
   "last_regular_style": "love",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -120,6 +120,7 @@
     "2026-05-18_055444_a0bd8f.mp3",
     "2026-05-17_052111_75e87f.mp3",
     "2026-05-17_081158_796f8e.mp3",
-    "2026-05-17_092356_51873f.mp3"
+    "2026-05-17_092356_51873f.mp3",
+    "2026-05-17_110218_58d552.mp3"
   ]
 }

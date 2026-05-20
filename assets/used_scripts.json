@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Kind of Love That Doesn't Shout",
-    "style": "love",
-    "script": "in the silence\u2026\nyou find me.\n\nyour fingers brush mine\nand the world slows down.\n\nthe way you listen\u2026\nso fully, so quietly.\n\nit's where I feel most at home.\n\nwith you, life is a gentle hum.\n\nTag the one who is your safe haven \u2764\ufe0f",
-    "hash": "3b1e923a1c2374b5b3edace8d6bd2a20",
-    "metaphors": [
-      "silence"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Missing Someone Alive",
     "style": "emotional",
     "script": "The last photo of you stays on my screen.\nA fragment of a moment we shared.\nIn the emptiness that follows,\nI'm searching for a ghost of our laughter.\nBut it's not the memories that hurt,\nit's the moments that could've been.\nIt's the realization that I'm still holding on,\nSave this for the days you forget to let go.",
@@ -670,5 +658,15 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "When You Love Someone You Cannot Have",
+    "style": "emotional",
+    "script": "I never told you\nabout the maps\ni drew of your face\nin the margins\nof my favorite books\nbut pages turned\nand stories changed\nSome memories\nlinger on fingertips\nand the smell\nof old paper stays\nnot out of sadness\nbut out of longing",
+    "hash": "ed8ea6df7dd76ba0a0a3aa8315d93fbf",
+    "metaphors": [
+      "map"
+    ],
+    "themes": []
   }
 ]
