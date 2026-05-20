@@ -1,10 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Healing Alone",
-    "The Apology That Never Came",
-    "People Who Use You",
-    "Moving On vs Moving Forward",
     "Borrowed Love",
     "The Moment You Stopped Hoping",
     "The Night You Stopped Waiting",
@@ -20,13 +16,14 @@
     "Friendship That Faded",
     "The Voice in Your Head That Says You Are Not Enough",
     "When Friendship Becomes One-Sided",
-    "When You Love Someone You Cannot Have"
+    "When You Love Someone You Cannot Have",
+    "Growing Apart",
+    "Learning to Be Alone",
+    "The Quiet Exit",
+    "When You Are the One Who Always Forgives"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Way You Look at Me",
-    "When Love Feels Like Coming Home",
-    "The One I Think About First",
     "More Than My Favorite Person",
     "The Person Who Stayed",
     "The First Time I Knew",
@@ -43,11 +40,12 @@
     "I Didn't Know Love Could Feel This Soft",
     "You Didn't Fix Me, You Stayed",
     "The Person Behind My Smile",
-    "Missing Someone Who Is Right There"
+    "Missing Someone Who Is Right There",
+    "How You Changed Everything",
+    "The Way You Look at Me",
+    "When Love Feels Like Coming Home"
   ],
   "used_wisdom": [
-    "The Gift of Impermanence",
-    "The Quiet Revolution of Self-Respect",
     "The Courage to Begin Again",
     "What Truly Matters in the End",
     "When Grief Becomes a Teacher",
@@ -65,11 +63,13 @@
     "Why Suffering Transforms Us",
     "The Beauty of an Unfinished Life",
     "The Wisdom of Not Forcing",
-    "Learning to Trust the Journey"
+    "Learning to Trust the Journey",
+    "The Difference Between Living and Existing",
+    "The Gift of Impermanence"
   ],
-  "last_style": "love",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 2,
+  "last_style": "emotional",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -121,6 +121,7 @@
     "2026-05-17_052111_75e87f.mp3",
     "2026-05-17_081158_796f8e.mp3",
     "2026-05-17_092356_51873f.mp3",
-    "2026-05-17_110218_58d552.mp3"
+    "2026-05-17_110218_58d552.mp3",
+    "2026-05-17_052111_75e87f.mp3"
   ]
 }

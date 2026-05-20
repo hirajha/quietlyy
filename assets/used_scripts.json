@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Missing Someone Alive",
-    "style": "emotional",
-    "script": "The last photo of you stays on my screen.\nA fragment of a moment we shared.\nIn the emptiness that follows,\nI'm searching for a ghost of our laughter.\nBut it's not the memories that hurt,\nit's the moments that could've been.\nIt's the realization that I'm still holding on,\nSave this for the days you forget to let go.",
-    "hash": "660f411bab38cb8627f417fd7baac13f",
-    "metaphors": [],
-    "themes": [
-      "heartbreak",
-      "silence"
-    ]
-  },
-  {
     "topic": "How You Changed Everything",
     "style": "love",
     "script": "In the stillness\u2026\nyou appear.\n\nThe way you listen\nto the sound of rain,\nlike it's a secret\nonly we understand.\n\nYour fingers brushing mine,\nlike a promise.\n\nEverything feels\u2026\nlike a warm breeze.\n\nTag the one who is your refuge \u2764\ufe0f",
@@ -668,5 +657,17 @@
       "map"
     ],
     "themes": []
+  },
+  {
+    "topic": "When You Are the One Who Always Forgives",
+    "style": "emotional",
+    "script": "Your old key still fits\nand turns the lock\nslowly creaks open\nnot with a bang\nbut with a whisper\nSome people forgive\nout of habit\nnot out of love\nbut out of fear\nof being alone\nI won't hold onto\nthe weight of your mistakes\njust the memory\nof your presence",
+    "hash": "20e020326d542f5e560da13fb89ba2d0",
+    "metaphors": [],
+    "themes": [
+      "love",
+      "silence",
+      "loneliness"
+    ]
   }
 ]
