@@ -150,7 +150,7 @@ jobs:
           if [ -f output/pipeline_status.json ]; then
             cp output/pipeline_status.json assets/last_run_status.json
           fi
-          git add -f assets/gallery/ assets/music_gallery/ assets/market_research.json assets/used_scripts.json assets/used_topics.json assets/last_run_status.json || true
+          git add -f assets/gallery/ assets/music_gallery/ assets/market_research.json assets/used_scripts.json assets/used_topics.json assets/last_run_status.json assets/script_bank_state.json || true
           git diff --cached --quiet || git commit -m "Bot: gallery + research cache [run #${{ github.run_number }}]"
           git push || true
 

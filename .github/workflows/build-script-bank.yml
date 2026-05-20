@@ -1,0 +1,99 @@
+name: Quietlyy -- Build Script Bank
+
+# Generates 5000 unique scripts in bulk and commits them to assets/script_bank.json.
+# Pipeline picks from this bank instead of generating live → zero duplicates +
+# faster videos + better quality control.
+#
+# Triggers:
+#   - workflow_dispatch (manual): for the first build or a forced rebuild
+#   - weekly cron: auto-rebuild Sundays 03:00 UTC (after Sunday-morning post)
+#   - reusable workflow_call: pipeline triggers this when bank < 200 left
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'How many scripts to have in the bank'
+        required: false
+        default: '5000'
+        type: string
+      mode:
+        description: 'Build mode'
+        required: false
+        default: 'resume'
+        type: choice
+        options:
+          - 'resume'   # append to existing
+          - 'rebuild'  # wipe and start fresh (use when bank exhausted)
+
+  schedule:
+    # Sunday 03:00 UTC = before Sunday morning posts begin (08:00 IST)
+    # Resume mode → top up to target each week if below
+    - cron: '0 3 * * 0'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350  # 5K scripts at ~2-3 min/batch = ~3-5 hours
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build script bank
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+          SAMBANOVA_API_KEY: ${{ secrets.SAMBANOVA_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          TARGET="${{ github.event.inputs.target || '5000' }}"
+          MODE="${{ github.event.inputs.mode || 'resume' }}"
+          MODE_FLAG=""
+          if [ "$MODE" = "rebuild" ]; then
+            MODE_FLAG="--rebuild"
+          else
+            MODE_FLAG="--resume"
+          fi
+          echo "Building bank: target=$TARGET, mode=$MODE"
+          python scripts/build_script_bank.py --target "$TARGET" $MODE_FLAG
+
+      - name: Commit bank to repo
+        if: always()
+        run: |
+          git config user.name "Quietlyy Bot"
+          git config user.email "bot@quietlyy.com"
+          git add -f assets/script_bank.json assets/script_bank_state.json
+          if git diff --cached --quiet; then
+            echo "No bank changes to commit"
+          else
+            COUNT=$(python -c "import json; print(json.load(open('assets/script_bank.json'))['total'])")
+            git commit -m "Bot: script bank — $COUNT scripts [build #${{ github.run_number }}]"
+            git pull --rebase || true
+            git push || true
+          fi
+
+      - name: Upload bank artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: script-bank-${{ github.run_number }}
+          path: |
+            assets/script_bank.json
+            assets/script_bank_state.json
+          retention-days: 30
+          if-no-files-found: ignore

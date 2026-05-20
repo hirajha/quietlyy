@@ -710,11 +710,78 @@ def _generate_raw(prompt, style):
     return None, ("all_rate_limited" if all_rate_limited else "all_failed")
 
 
+_SCRIPT_BANK_PATH = os.path.join(os.path.dirname(__file__), "..", "assets", "script_bank.json")
+_SCRIPT_BANK_STATE_PATH = os.path.join(os.path.dirname(__file__), "..", "assets", "script_bank_state.json")
+
+
+def _try_pick_from_bank():
+    """Pick the next unused script from the pre-generated bank.
+
+    Returns (result_dict, None) on success, (None, reason) if bank is
+    unavailable / exhausted. When exhausted, caller will fall back to live
+    AI generation AND should trigger a rebuild (handled by a separate
+    workflow).
+    """
+    if not os.path.exists(_SCRIPT_BANK_PATH) or not os.path.exists(_SCRIPT_BANK_STATE_PATH):
+        return None, "no_bank_yet"
+
+    try:
+        with open(_SCRIPT_BANK_PATH) as f:
+            bank_data = json.load(f)
+        with open(_SCRIPT_BANK_STATE_PATH) as f:
+            state = json.load(f)
+    except Exception as e:
+        return None, f"bank_read_error: {e}"
+
+    scripts = bank_data.get("scripts", [])
+    next_index = state.get("next_index", 0)
+
+    if next_index >= len(scripts):
+        # Bank exhausted — caller should trigger rebuild workflow
+        return None, f"bank_exhausted ({len(scripts)} used)"
+
+    entry = scripts[next_index]
+    remaining = len(scripts) - next_index - 1
+    print(f"[script] 📚 Picked from bank: index {next_index}/{len(scripts)} "
+          f"({remaining} remaining) — {entry.get('style')}: {entry.get('topic', '')[:60]}")
+
+    # Advance the pointer atomically
+    state["next_index"] = next_index + 1
+    state["last_used_at"] = __import__("datetime").datetime.utcnow().isoformat()
+    try:
+        with open(_SCRIPT_BANK_STATE_PATH, "w") as f:
+            json.dump(state, f, indent=2)
+    except Exception as e:
+        print(f"[script] WARNING: couldn't update bank state: {e}")
+
+    # Format the entry to match what AI generation returns
+    return {
+        "script":          entry["script"],
+        "visual_keywords": entry.get("visual_keywords", []),
+        "topic":           entry.get("topic", ""),
+        "style":           entry.get("style", "emotional"),
+        "quality_score":   entry.get("quality_score", 0),
+        "source":          "bank",
+        "bank_id":         entry.get("id", next_index),
+    }, None
+
+
 def generate_script(tone_hints="", theme_hints=None, idea_hints=""):
     import time
     templates = load_templates()
     examples = templates["example_scripts"]
     MAX_ATTEMPTS = 5
+
+    # ── BANK FIRST: zero-duplicate guarantee, no AI call needed ──
+    bank_result, bank_reason = _try_pick_from_bank()
+    if bank_result:
+        # Persist to used_scripts history (same as live gen path) for downstream
+        # dedup/recency tracking; saving here is idempotent w.r.t. bank state.
+        save_used_script(bank_result["script"], bank_result["topic"], bank_result["style"])
+        if bank_result["style"] == "wisdom":
+            save_wisdom_quote(bank_result["script"])
+        return bank_result
+    print(f"[script] Bank unavailable ({bank_reason}) — falling back to live AI generation")
 
     for attempt in range(1, MAX_ATTEMPTS + 1):
         style, topic = pick_style_and_topic(templates, theme_hints=theme_hints)
@@ -765,6 +832,20 @@ def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candi
         predictor_available = True
     except ImportError:
         predictor_available = False
+
+    # ── BANK FIRST: skip the candidate-generation loop entirely when bank is available ──
+    # The bank already contains quality-gated unique scripts; engagement prediction
+    # was already considered at build time. Picking from bank avoids burning
+    # 3-5 AI calls per pipeline run AND guarantees zero duplicates.
+    if not forced_topic and not forced_style:  # bank doesn't honor forced overrides
+        bank_result, bank_reason = _try_pick_from_bank()
+        if bank_result:
+            save_used_script(bank_result["script"], bank_result["topic"], bank_result["style"])
+            if bank_result["style"] == "wisdom":
+                save_wisdom_quote(bank_result["script"])
+            bank_result["engagement_score"] = bank_result.get("quality_score", 0)
+            return bank_result
+        print(f"[script] Bank unavailable ({bank_reason}) — falling back to live candidate generation")
 
     import time
     templates = load_templates()
