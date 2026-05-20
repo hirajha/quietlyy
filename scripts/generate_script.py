@@ -240,37 +240,46 @@ def build_prompt(topic, examples, style="emotional", tone_hints="", idea_hints="
 
 Topic: {topic}
 
-THE WHISPRS FORMAT — study this carefully:
-Each line is a BREATH FRAGMENT: 2-6 words only.
-Lines are grammatically enjambed — they flow into each other, not standalone sentences.
-The poem is ONE continuous piece broken into 12-14 short breaths.
+━━ THE WHISPRS RHYTHM — STUDY THE LINE LENGTHS ━━
+Real Whisprs narrators VARY line length to break the metronomic feel:
+  - Some lines are 2-3 words (tight, punchy)
+  - Some are 4-6 words (medium breath)
+  - Some are 7-10 words (a flowing thought)
+NEVER use the SAME line length twice in a row. Mix them up.
 
-Real Whisprs example (topic: leaving but never letting go):
-I'm a leaver who never really left
-I walked away
-but kept looking back
-not chasing
-just watching from a distance
-but holding onto hope
-I won't make you stay
-quiet and steady
-not out of weakness
-but out of love
+Real Whisprs example — count the words:
+I'm a leaver who never really left   (8 words — flowing)
+I walked away                          (3 — punch)
+but kept looking back                  (4)
+not chasing                            (2 — tight)
+just watching from a distance          (5)
+but holding onto hope                  (4)
+I won't make you stay                  (5)
+quiet and steady                       (3 — punch)
+not out of weakness                    (4)
+but out of love                        (4)
+
+Notice: 8 → 3 → 4 → 2 → 5 → 4 → 5 → 3 → 4 → 4 — RHYTHM VARIES.
+
+Punctuation = breath markers (this controls our audio gap timing):
+  - End line with period (.) when a complete thought lands → LONGER pause
+  - End line with comma (,) or nothing → SHORTER pause, thought continues
+  - This makes the narrator sound human, not robotic.
 
 Rules:
-- 2-6 words per line — STRICTLY. Never more than 6 words on a line.
-- 12-14 lines total — enough for 25-30 seconds at one breath per fragment
-- Continuation lines start lowercase: "but...", "and...", "just...", "slowly..."
-- New thoughts capitalize: "Some people...", "The hands that..."
+- LINE LENGTH: vary between 2-10 words. NEVER same length twice in a row.
+- TOTAL: 10-13 lines for 25-30 seconds
+- Lines are enjambed — they flow grammatically into each other
+- Continuation lines start lowercase: "but...", "and...", "just..."
+- New emotional beats CAPITALIZE: "Some people...", "The hands that..."
 - ONE central image/metaphor carried through the whole piece
-- No "Save this" / "Tag someone" CTA — the poem is the CTA
-- No punctuation except a period on the final line
+- Use periods at major beat-endings (deep breath); commas for flowing within
 - NEVER start with "You were..." — banned
 
 Also provide 4 visual keywords (atmospheric, solitary scenes).
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\nline9\\nline10\\nline11\\nline12", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
+{{"script": "line1\\nline2\\n...line10-13", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
     elif style == "love":
         style_examples = [e for e in examples if e.get("style") == "love"][:2]
@@ -284,71 +293,82 @@ Return ONLY valid JSON:
 
 Topic: {topic}
 
-THE WHISPRS FORMAT:
-Each line is a BREATH FRAGMENT: 2-6 words only.
-Lines are enjambed — each flows grammatically into the next.
-ONE continuous poem broken into 12-14 short breaths.
+━━ THE WHISPRS RHYTHM ━━
+VARY line lengths to avoid sounding robotic:
+  - Some 2-3 word punches
+  - Some 4-6 word medium breaths
+  - Some 7-10 word flowing thoughts
+NEVER use the SAME line length twice in a row.
 
-Real Whisprs example (topic: shelter and warmth):
-the umbrella feels too heavy to hold
-The same hands that reached for you in storms
-slowly forget the warmth you gave
-but sunshine makes your presence fade
-Some people don't love you
-they love the comfort you create.
+Real Whisprs example — count the words:
+the umbrella feels too heavy to hold        (7 — flowing)
+The same hands that reached for you in storms  (9 — long)
+slowly forget the warmth you gave            (6)
+but sunshine makes your presence fade        (6)
+Some people don't love you                   (5)
+they love the comfort you create.            (6, period = deep breath)
 
-⚠️ OPENING (this video must open this way):
+Punctuation = breath markers:
+  - Period (.) at end → LONGER pause (complete thought lands)
+  - Comma (,) or no punctuation → SHORT pause (thought continues)
+
+⚠️ OPENING (must open this way):
 {opening["instruction"]}
 
 Rules:
-- 2-6 words per line — STRICTLY. Never more than 6 words on a line.
-- 12-14 lines total for 30 seconds
-- Continuation lines start lowercase: "but...", "and...", "slowly..."
-- New thoughts capitalize
+- VARY line length 2-10 words. NEVER same length twice in a row.
+- 10-13 lines for 30 seconds
+- Continuation lowercase: "but...", "and...", "slowly..."
+- New thoughts CAPITALIZE
 - ONE central tender image/metaphor through the whole piece
-- End with a quiet close, optionally: "send this to them." or "let them know." (lowercase, one line)
+- End with a quiet close — period or "send this to them." (final line)
 - NO clichés: no "my heart", "soulmate", "forever and always"
 - NEVER start with "You were..." — banned
 
 Also provide 4 visual keywords: quiet intimate atmosphere.
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\nline9\\nline10\\nline11\\nline12", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
+{{"script": "line1\\nline2\\n...line10-13", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
     elif style == "nostalgic":
         return f"""Write a 30-second nostalgic poem for "Quietlyy" in the exact Whisprs style.{audience_block}{avoid_block}
 
 Topic: {topic}
 
-THE WHISPRS FORMAT:
-Each line is a BREATH FRAGMENT: 2-6 words only.
-Lines enjamb — each flows into the next grammatically.
-ONE continuous poem in 12-14 short breaths.
+━━ THE WHISPRS RHYTHM ━━
+VARY line lengths (2-3 punchy / 4-6 medium / 7-10 flowing).
+NEVER same length twice in a row.
 
 Example (topic: the people we used to be close to):
-We never said goodbye
-we just
-stopped calling
-stopped showing up
-stopped saving each other seats
-and somewhere between then and now
-we became strangers
-who still smile
-when we pass.
+We never said goodbye                       (4)
+we just                                     (2 — punch)
+stopped calling                             (2 — punch)
+stopped showing up                          (3)
+stopped saving each other seats             (5)
+and somewhere between then and now          (6 — flowing)
+we became strangers                         (3)
+who still smile                             (3)
+when we pass.                               (3, period = deep breath)
+
+Notice: 4 → 2 → 2 → 3 → 5 → 6 → 3 → 3 → 3 — varied with rhythm.
+
+Punctuation = breath:
+  - Period → LONGER pause (a beat lands)
+  - Comma or none → SHORT pause (continues)
 
 Rules:
-- 2-6 words per line — STRICTLY
-- 12-14 lines total for 30 seconds
+- VARY length 2-10 words. NEVER same length twice in a row.
+- 10-13 lines for 30 seconds
 - The topic triggers a FEELING not a description of an object
-- Continuation lines lowercase: "we just...", "still..."
-- New thoughts capitalize
-- End with a quiet ache — no forced "send this" CTA unless it feels completely natural
+- Continuation lowercase: "we just...", "still..."
+- New thoughts CAPITALIZE
+- End with a quiet ache
 - NEVER start with "There was a time", "In a world", "Have you ever"
 
 Also provide 4 visual keywords (warm, human, atmospheric scenes).
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\nline9\\nline10\\nline11\\nline12", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
+{{"script": "line1\\nline2\\n...line10-13", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
     elif style == "wisdom":
         used_wisdom_quotes = _load_state().get("used_wisdom_quotes", [])
@@ -364,19 +384,24 @@ Return ONLY valid JSON:
 
 Topic: {topic}
 
-THE WHISPRS FORMAT — each line is a BREATH FRAGMENT (2-6 words).
-Lines enjamb into each other. 12-14 lines total.
+━━ THE WHISPRS RHYTHM ━━
+VARY line lengths (2-3 punchy / 4-6 medium / 7-10 flowing).
+NEVER same length twice in a row.
 
-Real Whisprs wisdom example (Rumi, 24 seconds):
-Rumi said
-you're with everyone
-you're with no one.
+Real Whisprs wisdom example (Rumi):
+Rumi said                                   (2 — attribution punch)
+you're with everyone                        (3)
+you're with no one.                         (4, period = deep breath)
 
 Structure for wisdom:
-Line 1: Attribution (3-5 words): "Rumi once said…" / "Marcus Aurelius wrote…" / "An old proverb…"
-Lines 2-5: The quote in breath fragments (2-6 words each, NO extra commentary)
-Lines 6-10: Reflection — unpack it in short, honest fragments — what it means in real life
-Lines 11-12: Quiet close — a landing fragment, not a lesson
+Line 1: Attribution (2-5 words): "Rumi once said…" / "Marcus Aurelius wrote…"
+Lines 2-5: The quote in VARIED breath fragments
+Lines 6-10: Reflection — unpack it in honest, VARIED fragments
+Lines 11-12: Quiet close — a landing, not a lesson
+
+Punctuation = breath:
+  - Period → LONGER pause
+  - Comma or none → SHORT pause
 
 WISDOM SOURCES:
 - Rumi — love, longing, the soul's search
@@ -389,9 +414,9 @@ WISDOM SOURCES:
 - Hafiz — joy, the divine, life's abundance
 
 Rules:
-- 2-6 words per line — STRICTLY
-- 12-14 lines for 30 seconds
-- Attribution on its own line: "Rumi said" or "Rumi once wrote…"
+- VARY length 2-10 words. NEVER same twice in a row.
+- 10-13 lines for 30 seconds
+- Attribution on its own line
 - Quote lines are lowercase fragments continuing naturally
 - Reflection lowercase, personal, honest — NOT generic advice
 - End with quiet open landing — no forced "Save this"
@@ -404,58 +429,64 @@ Return ONLY valid JSON:
     else:  # emotional — the core Quietlyy format, matched exactly to Whisprs
         opening = random.choice(_OPENING_PATTERNS)
         return f"""Write a 30-second emotional poem for "Quietlyy" in the EXACT Whisprs style.
-Whisprs reached 2M followers in 2 months with this exact format. Match it precisely.{audience_block}{avoid_block}
+Whisprs reached 2M followers with this format. Match it precisely.{audience_block}{avoid_block}
 
 Topic: {topic}
 
-━━ THE WHISPRS FORMAT ━━
-Each line = one breath fragment. 2-6 words ONLY. Never more.
-Lines are enjambed — they flow grammatically into each other.
-The poem is ONE emotional statement broken into 12-14 short breaths.
-Each breath lands, then silence, then the next breath arrives.
+━━ THE WHISPRS RHYTHM (CRITICAL) ━━
+Real Whisprs narrators VARY line length so the rhythm sounds HUMAN, not robotic:
+  - 2-3 word lines = punches (a tight beat)
+  - 4-6 word lines = medium breaths
+  - 7-10 word lines = flowing thoughts (a longer phrase)
+NEVER use the SAME line length twice in a row. Mix them up.
 
-Real Whisprs examples:
+Real Whisprs Video 1 (count the words per line):
+I'm a leaver who never really left          (8 — flowing)
+I walked away                                (3 — punch)
+but kept looking back                        (4)
+not chasing                                  (2 — tight)
+just watching from a distance                (5)
+but holding onto hope                        (4)
+I won't make you stay                        (5)
+quiet and steady                             (3 — punch)
+not out of weakness                          (4)
+but out of love.                             (4, period = breath)
 
-Video 1 (topic: leaving but never truly going):
-I'm a leaver who never really left
-I walked away
-but kept looking back
-not chasing
-just watching from a distance
-but holding onto hope
-I won't make you stay
-quiet and steady
-not out of weakness
-but out of love
+Rhythm: 8 → 3 → 4 → 2 → 5 → 4 → 5 → 3 → 4 → 4. NEVER monotone.
 
-Video 2 (topic: people who use your warmth):
-the umbrella feels too heavy to hold
-The same hands that reached for you in storms
-slowly forget the warmth you gave
-but sunshine makes your presence fade
-Some people don't love you
-they love the comfort you create.
+Real Whisprs Video 2:
+the umbrella feels too heavy to hold         (7 — flowing)
+The same hands that reached for you in storms (9 — long)
+slowly forget the warmth you gave            (6)
+but sunshine makes your presence fade        (6)
+Some people don't love you                   (5)
+they love the comfort you create.            (6, period)
+
+━━ PUNCTUATION = BREATH MARKERS (this controls voiceover timing) ━━
+  - Period (.) at end → LONGER pause (~1.8s, deep breath, beat lands)
+  - Comma (,) or no punctuation → SHORTER pause (~0.6s, flow continues)
+  - Use this DELIBERATELY to control where the audio pauses
 
 ━━ YOUR POEM ━━
 Topic: {topic}
 ⚠️ Opening style required: {opening["instruction"]}
 
 Rules — follow exactly:
-- 2-6 words per line. Hard limit. Never more than 6 words on a line.
-- 12-14 lines total (30 seconds at one breath + pause per fragment)
-- Continuation lines start LOWERCASE: "but...", "and...", "just...", "slowly...", "not..."
+- VARY line length 2-10 words. NEVER same length twice in a row.
+- 10-13 lines total (30 seconds with varied pauses)
+- Continuation lines LOWERCASE: "but...", "and...", "just...", "slowly...", "not..."
 - New emotional beats CAPITALIZE: "Some people...", "The hands that...", "I won't..."
 - ONE central image or metaphor carried the whole way through
 - The poem makes the viewer think: "who told them about my life?"
-- End with a quiet, powerful close — 2-5 words. Period.
-- Optionally: final line "send this to them." or "let them know." (if it fits naturally)
+- End with a quiet, powerful close — 3-7 words. Period at the very end.
+- Optionally: final line "send this to them." or "let them know." (if natural)
 - NO "Save this", NO "Tag someone" — feel, don't sell
 - NEVER start with "You were..." — banned
 
 Also provide 4 visual keywords (solitary, atmospheric scenes).
 
 Return ONLY valid JSON:
-{{"script": "line1\\nline2\\nline3\\nline4\\nline5\\nline6\\nline7\\nline8\\nline9\\nline10\\nline11\\nline12", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
+{{"script": "line1\\nline2\\n...line10-13", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
 
 def _call_openai_compatible(url, key, model, prompt):

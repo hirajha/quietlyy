@@ -16,10 +16,38 @@ ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
 ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "")
 ELEVENLABS_MODEL = "eleven_turbo_v2_5"
 
-# Silence between lines — 1.5s for short Whisprs-style fragments.
-# Short 2-5 word fragments + 1.5s of silence = natural breathing rhythm.
-# The pause IS the emotion — it lets each fragment land before the next arrives.
-LINE_GAP = 1.5
+# ── Variable pause logic (Whisprs-style breathing rhythm) ─────────────────────
+# User feedback: uniform 1.5s pauses every line sounded robotic. Real Whisprs
+# narration uses VARIED pauses based on punctuation:
+#   - End of sentence (period)   → longer breath (1.8s) — the thought lands
+#   - Continuation (comma, dash) → short pause   (0.6s) — within the thought
+#   - No ending punctuation      → medium pause  (1.0s) — natural breath
+# This mirrors human speech: longer pauses between complete thoughts,
+# shorter pauses within a flowing phrase.
+LINE_GAP_DEFAULT = 1.0   # legacy fallback (still used for ffmpeg silence gen)
+LINE_GAP_SENTENCE = 1.8  # after a complete sentence (.) or strong end (! ?)
+LINE_GAP_CONTINUATION = 0.6   # after comma, dash, ellipsis — flow continues
+LINE_GAP_NEUTRAL = 1.0   # no ending punctuation — natural breath
+
+# Legacy alias for code that still references LINE_GAP (e.g. for capacity calcs)
+LINE_GAP = LINE_GAP_NEUTRAL
+
+
+def _gap_for_line(text):
+    """Return the silence-pause duration (seconds) AFTER this line.
+
+    Mirrors human speech rhythm — periods get deep breath, commas get short
+    flow-pause, neutral endings get a default neutral pause.
+    """
+    stripped = text.rstrip()
+    if not stripped:
+        return LINE_GAP_NEUTRAL
+    last = stripped[-1]
+    if last in ".!?":
+        return LINE_GAP_SENTENCE
+    if last in ",;:—-…":
+        return LINE_GAP_CONTINUATION
+    return LINE_GAP_NEUTRAL
 
 # CTA patterns — lines matching these are NOT narrated; shown as baked text overlay instead.
 # Check both startswith (for clean CTA lines) and contains (for embedded CTAs).
@@ -185,21 +213,32 @@ def _get_duration_ms(filepath):
     return float(result.stdout.strip()) * 1000
 
 
-def _join_lines_with_silence(line_files, audio_path):
-    """Concatenate line audio files with silence gaps between them."""
-    silence_path = os.path.join(OUTPUT_DIR, "_silence.mp3")
-    subprocess.run([
-        "ffmpeg", "-y", "-f", "lavfi", "-i",
-        f"anullsrc=r=24000:cl=mono",
-        "-t", str(LINE_GAP), "-b:a", "192k", silence_path,
-    ], capture_output=True, check=True)
+def _join_lines_with_silence(line_files, audio_path, gaps_seconds=None):
+    """Concatenate line audio files with VARIABLE silence gaps between them.
+
+    gaps_seconds: list of N-1 gap durations (one between each adjacent pair).
+                  If None, uses LINE_GAP_NEUTRAL for all gaps (legacy behavior).
+    """
+    if gaps_seconds is None:
+        gaps_seconds = [LINE_GAP_NEUTRAL] * max(0, len(line_files) - 1)
+
+    # Pre-render the distinct silence durations we'll need (deduped)
+    distinct_gaps = sorted(set(gaps_seconds))
+    silence_paths = {}
+    for gap in distinct_gaps:
+        sp = os.path.join(OUTPUT_DIR, f"_silence_{int(gap*1000)}.mp3")
+        subprocess.run([
+            "ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono",
+            "-t", f"{gap:.3f}", "-b:a", "192k", sp,
+        ], capture_output=True, check=True)
+        silence_paths[gap] = sp
 
     concat_path = os.path.join(OUTPUT_DIR, "_concat.txt")
     with open(concat_path, "w") as f:
         for i, lf in enumerate(line_files):
             f.write(f"file '{lf}'\n")
             if i < len(line_files) - 1:
-                f.write(f"file '{silence_path}'\n")
+                f.write(f"file '{silence_paths[gaps_seconds[i]]}'\n")
 
     subprocess.run([
         "ffmpeg", "-y", "-f", "concat", "-safe", "0",
@@ -207,7 +246,9 @@ def _join_lines_with_silence(line_files, audio_path):
     ], capture_output=True, check=True)
 
     # Cleanup (keep _line_*.mp3 — compositor uses them for per-line timing)
-    os.remove(silence_path)
+    for sp in silence_paths.values():
+        try: os.remove(sp)
+        except OSError: pass
     os.remove(concat_path)
 
 
@@ -236,6 +277,12 @@ def generate_audio(script_text):
 
     all_word_timings = []  # per-line word timing lists (None if unavailable)
 
+    # Compute per-line gap durations from punctuation (Whisprs rhythm)
+    # gaps_seconds[i] is the silence AFTER lines[i] before lines[i+1]
+    gaps_seconds = []
+    for i, line in enumerate(lines[:-1]):
+        gaps_seconds.append(_gap_for_line(line))
+
     for i, line in enumerate(lines):
         line_path = os.path.join(OUTPUT_DIR, f"_line_{i}.mp3")
         word_timings = _record_line_elevenlabs(line, line_path)
@@ -248,9 +295,12 @@ def generate_audio(script_text):
             "start_ms": cumulative_ms,
             "duration_ms": line_dur,
         })
-        cumulative_ms += line_dur + (LINE_GAP * 1000)
+        # Use variable gap based on punctuation (no gap after the last line)
+        gap_after = gaps_seconds[i] if i < len(gaps_seconds) else 0
+        cumulative_ms += line_dur + (gap_after * 1000)
         src = "ElevenLabs timestamps" if word_timings else "estimated"
-        print(f"[audio]   Line {i+1}/{len(lines)}: {line_dur/1000:.1f}s ({src})")
+        gap_label = f", pause: {gap_after:.1f}s" if i < len(gaps_seconds) else ", final"
+        print(f"[audio]   Line {i+1}/{len(lines)}: {line_dur/1000:.1f}s ({src}{gap_label})")
 
     # Build subtitle data — use real timestamps when available, fall back to estimate
     sub_data = []
@@ -277,8 +327,8 @@ def generate_audio(script_text):
 
     print("[audio] ElevenLabs: success")
 
-    # Join all lines with silence gaps
-    _join_lines_with_silence(line_files, audio_path)
+    # Join all lines with VARIABLE silence gaps (punctuation-aware)
+    _join_lines_with_silence(line_files, audio_path, gaps_seconds=gaps_seconds)
 
     # Save subtitles
     with open(subtitle_path, "w") as f:

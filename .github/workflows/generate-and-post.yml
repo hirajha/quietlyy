@@ -2,19 +2,17 @@ name: Quietlyy -- Generate & Post Video
 
 on:
   schedule:
-    # ── Primary slots ─────────────────────────────────────────────────────────
-    - cron: '30 1 * * *'   # 07:00 AM IST  (primary)
-    - cron: '30 5 * * *'   # 11:00 AM IST  (primary)
-    - cron: '30 9 * * *'   # 02:30 PM IST  (primary)
-    - cron: '30 16 * * *'  # 10:00 PM IST  (primary)
+    # ── 2 posts per day (Facebook research: 1-2 posts/day is optimal) ─────────
+    # Posting 4x/day was triggering algorithmic suppression on new accounts.
+    # Reduced to morning + evening, 12 hours apart, matching Whisprs cadence.
+    - cron: '30 2 * * *'   # 08:00 AM IST  (morning slot — primary)
+    - cron: '30 14 * * *'  # 08:00 PM IST  (evening slot — primary)
     # ── Backup slots — fire 90 min after each primary ─────────────────────────
-    # GitHub Actions free-tier crons can be silently dropped during high load
-    # (e.g. 07:00 IST slot was missed 2026-05-15). Backups auto-skip if the
-    # primary already succeeded (see "Skip if recent success" step below).
-    - cron: '0 3 * * *'    # 08:30 AM IST  (backup for 07:00)
-    - cron: '0 7 * * *'    # 12:30 PM IST  (backup for 11:00)
-    - cron: '0 11 * * *'   # 04:30 PM IST  (backup for 02:30 PM)
-    - cron: '0 18 * * *'   # 11:30 PM IST  (backup for 10:00 PM)
+    # GitHub Actions free-tier crons can be silently dropped during high load.
+    # Backups auto-skip if the primary already succeeded (see "Skip if recent
+    # success" step below — uses 80-min lookback).
+    - cron: '0 4 * * *'    # 09:30 AM IST  (backup for 08:00 AM)
+    - cron: '0 16 * * *'   # 09:30 PM IST  (backup for 08:00 PM)
 
   workflow_dispatch:
     inputs:
