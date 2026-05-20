@@ -1,8 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When Friendship Becomes One-Sided",
-    "Staying Too Long",
     "Being Strong for Everyone While Breaking Inside",
     "When You Stop Explaining",
     "Healing Alone",
@@ -20,12 +18,12 @@
     "Heartbreak Lesson",
     "Loving Quietly From a Distance",
     "When Love Was Not Enough",
-    "Growing Up Too Fast"
+    "Growing Up Too Fast",
+    "Friendship That Faded",
+    "The Voice in Your Head That Says You Are Not Enough"
   ],
   "used_poetic": [],
   "used_love": [
-    "You Didn't Fix Me, You Stayed",
-    "Loving in Silence",
     "When You Found Me",
     "Falling For Someone Who Does Not Know",
     "The Way You Look at Me",
@@ -43,10 +41,11 @@
     "Loving You Quietly",
     "You Are My Calm",
     "You Make the Hard Days Easier",
-    "What I Mean When I Say I Love You"
+    "What I Mean When I Say I Love You",
+    "I Didn't Know Love Could Feel This Soft",
+    "You Didn't Fix Me, You Stayed"
   ],
   "used_wisdom": [
-    "The Meaning We Choose to Find",
     "The Freedom of Acceptance",
     "The Gift of Impermanence",
     "The Quiet Revolution of Self-Respect",
@@ -65,11 +64,12 @@
     "Why Peace Is Not the Absence of Storm",
     "The Strength in Stillness",
     "Why Suffering Transforms Us",
-    "The Beauty of an Unfinished Life"
+    "The Beauty of an Unfinished Life",
+    "The Wisdom of Not Forcing"
   ],
-  "last_style": "wisdom",
+  "last_style": "love",
   "last_regular_style": "love",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -105,7 +105,7 @@
     "you belong to no one but",
     "pain is inevitable suffering is optional"
   ],
-  "lyria_last_429": "2026-05-19T08:54:41.901273+00:00",
+  "lyria_last_429": "2026-05-20T05:48:51.617741+00:00",
   "recent_gallery_tracks": [
     "2026-05-15_195354_c7f4f9.mp3",
     "2026-05-15_195354_c7f4f9.mp3",
@@ -119,6 +119,7 @@
     "2026-05-18_055444_a0bd8f.mp3",
     "2026-05-18_055444_a0bd8f.mp3",
     "2026-05-17_052111_75e87f.mp3",
-    "2026-05-17_081158_796f8e.mp3"
+    "2026-05-17_081158_796f8e.mp3",
+    "2026-05-17_092356_51873f.mp3"
   ]
 }
