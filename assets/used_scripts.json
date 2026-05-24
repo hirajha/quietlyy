@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Being the One Who Always Checks In",
-    "style": "emotional",
-    "script": "You always sent the first message.\nCarrying connection, a quiet, heavy stone.\nYou were the lighthouse, burning your own light.\nGuiding ships that never truly docked.\nBut lighthouses aren't meant to chase.\nTheir worth is in their steady flame.\nSome connections are meant to drift.\nYour light is precious. Burn it for yourself.\nSave this for the days you forget your own glow.",
-    "hash": "767bb9f06a2ccccd0ee9c46ff4e1580a",
-    "metaphors": [
-      "light"
-    ],
-    "themes": [
-      "silence",
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The Person Behind My Smile",
     "style": "love",
     "script": "Do you remember\u2026\nthe way we used to\nget lost in conversations?\nYou'd listen with your eyes\nand I'd feel the weight\nof being understood.\nIn the stillness of the night\nyour laughter echoes\u2026\nand I'm home.\nTag the one who is your refuge \u2764\ufe0f",
@@ -665,5 +652,16 @@
     "hash": "5bb95bc00e6cc95ad1057b425d082735",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "Keeping Their Number Saved",
+    "style": "emotional",
+    "script": "Midnight. The city sleeps\nslowly\nfingers tracing\nthe number still saved\nand the memories\nSome people keep them\nas a reminder\nof what's been lost\nbut not me\nI won't delete it\njust a ghost\nin my phone. Period",
+    "hash": "cc4f51f1a74d8f5abec0bc844bde0fae",
+    "metaphors": [],
+    "themes": [
+      "silence",
+      "grief_loss"
+    ]
   }
 ]
