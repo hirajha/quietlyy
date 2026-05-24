@@ -1,17 +1,5 @@
 [
   {
-    "topic": "How You Changed Everything",
-    "style": "love",
-    "script": "In the stillness\u2026\nyou appear.\n\nThe way you listen\nto the sound of rain,\nlike it's a secret\nonly we understand.\n\nYour fingers brushing mine,\nlike a promise.\n\nEverything feels\u2026\nlike a warm breeze.\n\nTag the one who is your refuge \u2764\ufe0f",
-    "hash": "15177f8ce03980db3886c50e37ffc5bc",
-    "metaphors": [
-      "rain"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Being the One Who Always Checks In",
     "style": "emotional",
     "script": "You always sent the first message.\nCarrying connection, a quiet, heavy stone.\nYou were the lighthouse, burning your own light.\nGuiding ships that never truly docked.\nBut lighthouses aren't meant to chase.\nTheir worth is in their steady flame.\nSome connections are meant to drift.\nYour light is precious. Burn it for yourself.\nSave this for the days you forget your own glow.",
@@ -669,5 +657,13 @@
       "silence",
       "loneliness"
     ]
+  },
+  {
+    "topic": "The Weight of Being the Strong One",
+    "style": "emotional",
+    "script": "It doesn't weigh. Not yet.\nslowly\nThe weight is a mountain\nI'm climbing\nthe hands that hold me up\nare my own\nSome people call it strength\nbut it's just a facade\nI won't let it crumble\nand slowly I'm losing\nmy grip. Done.",
+    "hash": "5bb95bc00e6cc95ad1057b425d082735",
+    "metaphors": [],
+    "themes": []
   }
 ]
