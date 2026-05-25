@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Person Behind My Smile",
-    "style": "love",
-    "script": "Do you remember\u2026\nthe way we used to\nget lost in conversations?\nYou'd listen with your eyes\nand I'd feel the weight\nof being understood.\nIn the stillness of the night\nyour laughter echoes\u2026\nand I'm home.\nTag the one who is your refuge \u2764\ufe0f",
-    "hash": "c20e44987854a489b1346e5e54f99c2b",
-    "metaphors": [
-      "echo"
-    ],
-    "themes": [
-      "silence",
-      "nostalgia",
-      "being_used",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Exhaustion of Pretending to Be Okay",
     "style": "emotional",
     "script": "Your fingers still type their name.\nIn the search bar of your mind.\nA reflex of longing.\nA muscle memory of love.\nBut what if the weight you carry\nis not the love you gave,\nbut the love you didn't receive?\nSend this to someone who is still searching.",
@@ -661,6 +646,20 @@
     "metaphors": [],
     "themes": [
       "silence",
+      "grief_loss"
+    ]
+  },
+  {
+    "topic": "When You Cry in the Car Alone",
+    "style": "wisdom",
+    "script": "Maya Angelou wrote\nyou may not control\nall the events that happen\nwhen you cry in the car alone, \n   the tears fall like summer rain\nand the world outside becomes\na blurred watercolor painting\nof greens and grays\n   in those moments i find myself\nlost in the rhythm of my breath\ni am searching for a glimpse\nof peace, a sense of calm\nand the world slowly comes back\ninto focus, like a whisper",
+    "hash": "2a889cc10aa897a7bc237bab260b10d4",
+    "metaphors": [
+      "rain"
+    ],
+    "themes": [
+      "heartbreak",
+      "loneliness",
       "grief_loss"
     ]
   }
