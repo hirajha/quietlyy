@@ -382,10 +382,81 @@ def _draw_follow_button(img):
     return result.convert("RGB")
 
 
+HOOK_DURATION = 2.5  # seconds — scroll-stopper card at video start
+HOOK_DURATION_MS = int(HOOK_DURATION * 1000)
+
+
+def _render_hook_card(hook_text, background_image_path, output_path):
+    """Build a static PNG hook card: dimmed background image + giant bold centered text.
+
+    The hook plays before the narrator starts speaking. Purpose: stop the
+    scroll. Whisprs-style: a single powerful line, large enough to read in
+    0.5s, centered, with high-contrast outline.
+    """
+    # Background: heavily dimmed copy of first image
+    if background_image_path and os.path.exists(background_image_path):
+        bg = Image.open(background_image_path).convert("RGBA")
+        # Cover-scale + crop to 1080x1920
+        img_ratio = bg.width / bg.height
+        target_ratio = WIDTH / HEIGHT
+        if img_ratio > target_ratio:
+            new_h, new_w = HEIGHT, int(HEIGHT * img_ratio)
+        else:
+            new_w, new_h = WIDTH, int(WIDTH / img_ratio)
+        bg = bg.resize((new_w, new_h), Image.LANCZOS)
+        left, top = (new_w - WIDTH) // 2, (new_h - HEIGHT) // 2
+        bg = bg.crop((left, top, left + WIDTH, top + HEIGHT))
+    else:
+        bg = Image.new("RGBA", (WIDTH, HEIGHT), (15, 15, 22, 255))
+
+    # Dim overlay (60% black) so text reads clearly
+    dim = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 150))
+    canvas = Image.alpha_composite(bg, dim)
+
+    # Render bold hook text — large, centered, with outline
+    draw = ImageDraw.Draw(canvas)
+    # Strip trailing punctuation for cleaner card display
+    display_text = hook_text.strip().rstrip(".,;:—-")
+    # Wrap text intelligently — target 3-4 words per line, max ~16 chars
+    words = display_text.split()
+    if len(words) <= 4:
+        wrapped_lines = [" ".join(words)]
+    else:
+        # Two roughly-equal lines
+        mid = len(words) // 2
+        wrapped_lines = [" ".join(words[:mid]), " ".join(words[mid:])]
+
+    font = get_font(110)  # Large bold/cursive
+    total_h = len(wrapped_lines) * 130
+    start_y = (HEIGHT - total_h) // 2
+
+    for i, line in enumerate(wrapped_lines):
+        bbox = draw.textbbox((0, 0), line, font=font)
+        tw = bbox[2] - bbox[0]
+        x = (WIDTH - tw) // 2
+        y = start_y + i * 130
+        # Heavy shadow / outline
+        for ox in range(-3, 4):
+            for oy in range(-3, 4):
+                if ox * ox + oy * oy <= 9:
+                    draw.text((x + ox, y + oy), line, font=font, fill=(0, 0, 0, 255))
+        draw.text((x, y), line, font=font, fill=(255, 255, 255, 255))
+
+    # Subtle brand watermark at bottom
+    canvas = _draw_watermark(canvas.convert("RGB")).convert("RGBA")
+
+    canvas.convert("RGB").save(output_path, "PNG")
+
+
 def compose_video(script_data, image_paths, audio_path, subtitle_path, music_path, cta_line=None):
     """
     Compositor: clean background panels + ASS word-by-word subtitle animation.
     Text appears word-by-word in sync with narration via ffmpeg subtitles filter.
+
+    NEW (2026-05-26): Prepends a 2.5s 'hook card' to every video — bold
+    centered text from the script's first line. Goal: stop the scroll in
+    the first second. Voice is delayed by HOOK_DURATION so subtitles still
+    sync with narration.
     """
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -489,6 +560,26 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         lines_label = " | ".join(f'"{l[:18]}…"' if len(l) > 18 else f'"{l}"' for l in group)
         print(f"[video]   Panel {g_i+1}/{num_groups} ({seg_durations[g_i]:.1f}s): {lines_label}")
 
+    # ── Step 1b: PREPEND hook card (scroll-stopper for first 2.5s) ─────────────
+    hook_text = lines[0] if lines else "Some things deserve to be said."
+    hook_card_png = os.path.join(OUTPUT_DIR, "_hook_card.png")
+    hook_card_mp4 = os.path.join(OUTPUT_DIR, "_hook_card.mp4")
+    bg_for_hook = image_paths[0] if image_paths else None
+    _render_hook_card(hook_text, bg_for_hook, hook_card_png)
+    _ffmpeg(
+        "ffmpeg", "-y",
+        "-loop", "1", "-i", hook_card_png,
+        "-t", f"{HOOK_DURATION:.3f}",
+        "-vf", f"fps={FPS},format=yuv420p",
+        "-c:v", "libx264", "-preset", "ultrafast", "-crf", "18",
+        "-pix_fmt", "yuv420p",
+        hook_card_mp4,
+    )
+    panel_videos.insert(0, hook_card_mp4)
+    seg_durations.insert(0, HOOK_DURATION)
+    total_video += HOOK_DURATION
+    print(f"[video]   Hook card prepended ({HOOK_DURATION}s): '{hook_text[:50]}'")
+
     # ── Step 2: Concatenate panels with crossfade ───────────────────────────────
     output_no_audio = os.path.join(OUTPUT_DIR, "_video_noaudio.mp4")
 
@@ -535,11 +626,16 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         )
 
     # ── Step 3: Generate ASS word-by-word subtitle file ────────────────────────
+    # All subtitle timestamps are shifted by HOOK_DURATION so they sync with the
+    # delayed voice (voice is offset by HOOK_DURATION in the audio mix below).
     ass_path = None
     if subtitle_path and os.path.exists(subtitle_path):
         try:
             with open(subtitle_path) as f:
                 subtitles = json.load(f)
+            # Shift every subtitle event by HOOK_DURATION (in ms)
+            for sub in subtitles:
+                sub["offset_ms"] = sub.get("offset_ms", 0) + HOOK_DURATION_MS
             ass_path = os.path.join(OUTPUT_DIR, "subtitles.ass")
             _generate_ass_subtitles(subtitles, lines, ass_path)
         except Exception as e:
@@ -589,8 +685,10 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-i", audio_path,
             "-stream_loop", "-1", "-i", music_path,
             "-filter_complex",
-            # Voice: -11 LUFS, then split → [voice_out] (for final mix) + [voice_sc] (sidechain trigger)
-            f"[1:a]loudnorm=I=-11:LRA=7:TP=-0.5,apad=pad_dur=1,asplit=2[voice_out][voice_sc];"
+            # Voice: -11 LUFS, then delay by HOOK_DURATION (2.5s) so hook card
+            # is visible BEFORE narrator starts speaking, then split → [voice_out]
+            # (for final mix) + [voice_sc] (sidechain trigger)
+            f"[1:a]adelay={HOOK_DURATION_MS}|{HOOK_DURATION_MS},loudnorm=I=-11:LRA=7:TP=-0.5,apad=pad_dur=1,asplit=2[voice_out][voice_sc];"
             # Music: -22 LUFS undipped (was -20). User feedback: 'music before
             # narrator starts is too loud — when narrator begins, the duck makes
             # such a big drop that I miss the first few words'. Lowering the
@@ -622,7 +720,8 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-i", audio_path,
             "-filter_complex",
             f"[0:v]{video_filter}[vout];"
-            f"[1:a]loudnorm=I=-11:LRA=7:TP=-0.5,apad=pad_dur=1[voice]",
+            # adelay shifts voice by HOOK_DURATION so the hook card is silent
+            f"[1:a]adelay={HOOK_DURATION_MS}|{HOOK_DURATION_MS},loudnorm=I=-11:LRA=7:TP=-0.5,apad=pad_dur=1[voice]",
             "-map", "[vout]", "-map", "[voice]",
             "-c:v", "libx264", "-preset", "medium", "-crf", "23",
             "-c:a", "aac", "-b:a", "192k",

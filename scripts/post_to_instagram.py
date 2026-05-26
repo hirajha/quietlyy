@@ -168,6 +168,35 @@ def post(video_path, caption):
     return {"id": media_id, "platform": "instagram"}
 
 
+def post_engagement_comment(media_id, comment_text):
+    """Post the first comment AS THE IG account on a published Reel.
+
+    Same engagement-boost reasoning as Facebook: being the first commenter
+    with a question seeds the comment thread. Non-fatal on failure.
+    """
+    if not media_id or not comment_text:
+        return False
+    ig_user_id = os.environ.get("INSTAGRAM_USER_ID")
+    token = os.environ.get("FB_PAGE_ACCESS_TOKEN")
+    if not (ig_user_id and token):
+        return False
+    try:
+        resp = requests.post(
+            f"{GRAPH_API}/{media_id}/comments",
+            params={"access_token": token},
+            data={"message": comment_text},
+            timeout=15,
+        )
+        if resp.status_code == 200:
+            cid = resp.json().get("id", "?")
+            print(f"[instagram] 💬 First comment posted (id={cid}): \"{comment_text[:60]}\"")
+            return True
+        print(f"[instagram] Comment failed: {resp.status_code} — {resp.text[:200]}")
+    except Exception as e:
+        print(f"[instagram] Comment error: {type(e).__name__}: {e}")
+    return False
+
+
 def _raise_with_body(resp):
     try:
         resp.raise_for_status()

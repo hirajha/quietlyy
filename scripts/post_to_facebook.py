@@ -149,6 +149,37 @@ def post_as_reel(video_path, description):
     return result
 
 
+def post_engagement_comment(post_id, comment_text):
+    """Post the first comment AS THE PAGE on a published Reel/post.
+
+    Engagement signal: pages that have the first comment as a question
+    get 2-3x more reach (algorithm rewards comment threads). We can't
+    PIN it via API (FB doesn't allow that), but being the first commenter
+    is still strong.
+
+    Returns True on success, False otherwise. Failure is non-fatal.
+    """
+    if not post_id or not comment_text:
+        return False
+    page_id, raw_token = get_credentials()
+    token = get_page_token(page_id, raw_token)
+    try:
+        resp = requests.post(
+            f"{GRAPH_API}/{post_id}/comments",
+            params={"access_token": token},
+            data={"message": comment_text},
+            timeout=15,
+        )
+        if resp.status_code == 200:
+            cid = resp.json().get("id", "?")
+            print(f"[facebook] 💬 First comment posted (id={cid}): \"{comment_text[:60]}\"")
+            return True
+        print(f"[facebook] Comment failed: {resp.status_code} — {resp.text[:200]}")
+    except Exception as e:
+        print(f"[facebook] Comment error: {type(e).__name__}: {e}")
+    return False
+
+
 def post_as_video(video_path, description):
     page_id, raw_token = get_credentials()
     token = get_page_token(page_id, raw_token)

@@ -30,8 +30,8 @@ from generate_seo import generate_seo
 from market_research import get_research, get_tone_hints, get_top_themes
 from fetch_ideas import fetch_fresh_ideas, ideas_to_theme_hints
 from predict_engagement import predict_engagement
-from post_to_facebook import post
-from post_to_instagram import post as post_instagram
+from post_to_facebook import post, post_engagement_comment as fb_engagement_comment
+from post_to_instagram import post as post_instagram, post_engagement_comment as ig_engagement_comment
 from post_to_youtube import post as post_youtube
 from copyright_check import run_compliance_check
 
@@ -89,6 +89,65 @@ def quality_check(audio_path, image_paths, music_path, video_path):
     if errors:
         return False, " | ".join(errors)
     return True, "OK"
+
+
+def _build_engagement_question(style, script_text):
+    """Build a first-comment question to seed engagement on the post.
+
+    Strategy: pages that have a question as the first comment under their
+    own posts get 2-3x more reach (algorithm treats the resulting thread as
+    a signal of interesting content). We rotate questions per style so the
+    same prompt doesn't appear daily.
+
+    Returns a one-line string ready to post as a comment.
+    """
+    import random
+    questions = {
+        "emotional": [
+            "Save this if this found you at the right time. 💭",
+            "Who came to mind when you read this? 🤍",
+            "Tell me — does this feel like your story too?",
+            "What part hit hardest? 💔",
+            "Have you ever felt this exact thing?",
+        ],
+        "love": [
+            "Send this to the one who needs to read it. 💌",
+            "Tell me — is there someone you can't stop thinking about?",
+            "Save this for the next time you doubt them. 🤍",
+            "Who did you think of while watching? 💭",
+            "Does love still feel like this for you?",
+        ],
+        "nostalgic": [
+            "Who do you miss the most right now? 🤍",
+            "Save this for the people you grew up with. 💭",
+            "What moment from your past would you replay?",
+            "Tag someone who was there with you. 🌸",
+            "Tell me — what do you wish you could go back to?",
+        ],
+        "poetic": [
+            "Save this for a quiet night. 💭",
+            "Which line stayed with you the longest? 🤍",
+            "Tell me what this made you feel.",
+            "Read this slowly. Did it land somewhere familiar?",
+            "What part of you needed to hear this today?",
+        ],
+        "wisdom": [
+            "Save this — you'll need it again. 🤍",
+            "Tell me — what does this mean to you?",
+            "Which line will you carry with you today? 💭",
+            "Share this with someone who needs the reminder.",
+            "Tell me — when was the last time you felt this truth?",
+        ],
+        "motivational": [
+            "Save this for the days that feel too heavy. 🤍",
+            "Tell me — what's the one thing you're working through?",
+            "Which line do you need to hear today? 💭",
+            "Share this with someone fighting quietly.",
+            "What truth did this remind you of?",
+        ],
+    }
+    pool = questions.get(style, questions["emotional"])
+    return random.choice(pool)
 
 
 def _is_quota_error(exc):
@@ -268,6 +327,11 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
             else:
                 print(f"  Facebook posted! ID: {result.get('id', '?')}")
                 _status("facebook", "ok", str(result.get("id", "")))
+                # Seed engagement: post a question as first comment
+                fb_post_id = result.get("id")
+                if fb_post_id:
+                    engagement_q = _build_engagement_question(script_style, script_text)
+                    fb_engagement_comment(fb_post_id, engagement_q)
             with open(os.path.join(OUTPUT_DIR, "post_result.json"), "w") as f:
                 json.dump(result, f, indent=2)
         except Exception as e:
@@ -289,6 +353,11 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
             ig_result = post_instagram(video_path, ig_caption)
             print(f"  Instagram Reel posted! ID: {ig_result.get('id')}")
             _status("instagram", "ok", str(ig_result.get("id", "")))
+            # Seed engagement: post a question as first comment
+            ig_media_id = ig_result.get("id")
+            if ig_media_id:
+                engagement_q = _build_engagement_question(script_style, script_text)
+                ig_engagement_comment(ig_media_id, engagement_q)
             with open(os.path.join(OUTPUT_DIR, "instagram_result.json"), "w") as f:
                 json.dump(ig_result, f, indent=2)
         except Exception as e:
