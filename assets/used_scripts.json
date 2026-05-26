@@ -1,15 +1,5 @@
 [
   {
-    "topic": "When Love Feels Like Coming Home",
-    "style": "love",
-    "script": "Do you ever feel\u2026\nlike you're unfolding\n\nin the most gentle way\nwhen I'm with you.\n\nYour fingers on my skin\nare the only warmth I need.\n\nIn the stillness\u2026\nI find my safe place.\n\nTag the person who makes life feel like this \u2764\ufe0f",
-    "hash": "d9d52599fcf2835debb5097f58ec5a14",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Way You Look at Me",
     "style": "love",
     "script": "Do you know\u2026\nthe way you listen\n\nis my favorite sound.\nIt's the way you tilt\nyour head to the side...\nand your eyes\nstay on mine.\nIn a world that's always\nmoving too fast...\nyou are my stillness.\n\nTag the person who makes life feel like this \u2764\ufe0f",
@@ -661,6 +651,18 @@
     "metaphors": [
       "echo",
       "sun"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Meaning We Choose to Find",
+    "style": "emotional",
+    "script": "The old key still fits.\nslowly turning\nNot a single scratch\nand the door creaks\nSlowly opening to memories\nBut the smell is different\nSome people find solace\nin familiar places\nI won't be one of them\nand i'm still searching\nNot for answers\nbut for questions.\nperiod",
+    "hash": "16fdbd919c5a98046af237f409cddba0",
+    "metaphors": [
+      "door"
     ],
     "themes": [
       "silence"
