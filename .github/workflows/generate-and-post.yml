@@ -49,37 +49,49 @@ jobs:
     timeout-minutes: 60
     permissions:
       contents: write
+    # ── Concurrency lock — only ONE pipeline runs at a time ────────────────────
+    # Without this, when GitHub's cron is delayed and fires primary+backup near
+    # each other, both can race to pick the same bank script (observed
+    # 2026-05-25: runs 26387543353 + 26390540245 both picked bank index #2,
+    # producing duplicate videos). The lock makes the second run WAIT for the
+    # first to finish committing its state → file-based gap check then catches
+    # it and exits clean.
+    concurrency:
+      group: quietlyy-post-pipeline
+      cancel-in-progress: false
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Skip if recent success exists (idempotency for backup crons)
-        # Backup crons fire 90 min after primaries. If the primary already
-        # succeeded, this run is redundant — exit cleanly. Workflow_dispatch
-        # (manual triggers) ALWAYS run regardless.
+      - name: Skip if recent post exists (6-hour minimum gap)
+        # File-based gap enforcement. Reads assets/last_post_time.txt — written
+        # by every successful run AND committed to repo via the Save step. This
+        # is more reliable than gh-api time queries because:
+        #   - git state is consistent across runs (no eventual-consistency lag)
+        #   - 6h gap is well within the boundary of GitHub cron delays (~3-4h)
+        #   - Combined with the concurrency lock above, prevents all race cases
+        # Manual workflow_dispatch ALWAYS runs regardless (no gap check).
         id: dedupe
         if: github.event_name == 'schedule'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Count successful runs of THIS workflow in the last 80 minutes
-          SINCE=$(date -u -d '80 minutes ago' '+%Y-%m-%dT%H:%M:%SZ')
-          COUNT=$(gh run list \
-            --workflow=generate-and-post.yml \
-            --status=success \
-            --created=">=${SINCE}" \
-            --limit=5 \
-            --json databaseId \
-            --jq 'length')
-          echo "Recent successful runs in last 80 min: $COUNT"
-          if [ "$COUNT" -gt 0 ]; then
-            echo "skip=true" >> $GITHUB_OUTPUT
-            echo "✓ Primary run already succeeded — backup will skip"
+          MIN_GAP_MIN=360  # 6 hours minimum between any two posts
+          if [ -f "assets/last_post_time.txt" ]; then
+            LAST=$(cat assets/last_post_time.txt | tr -d ' \n\r' || echo 0)
+            NOW=$(date -u +%s)
+            DIFF_MIN=$(( (NOW - LAST) / 60 ))
+            DIFF_HR=$(( DIFF_MIN / 60 ))
+            echo "Last post: $DIFF_MIN minutes ago (~${DIFF_HR}h)"
+            if [ "$DIFF_MIN" -lt "$MIN_GAP_MIN" ]; then
+              echo "skip=true" >> $GITHUB_OUTPUT
+              echo "✓ Within 6h of last post — enforcing gap, skipping"
+              exit 0
+            fi
           else
-            echo "skip=false" >> $GITHUB_OUTPUT
-            echo "→ No recent run found — proceeding (this slot was missed or is a primary)"
+            echo "No last_post_time.txt — first scheduled run"
           fi
+          echo "skip=false" >> $GITHUB_OUTPUT
+          echo "→ Gap OK ($MIN_GAP_MIN min minimum met), proceeding"
 
       - name: Set up Python
         if: steps.dedupe.outputs.skip != 'true'
@@ -142,6 +154,19 @@ jobs:
           fi
           python scripts/pipeline.py $ARGS
 
+      - name: Record successful post timestamp (enforces 6h gap on next run)
+        if: success() && steps.dedupe.outputs.skip != 'true'
+        run: |
+          # Only write timestamp if pipeline actually posted (checks for the
+          # output marker file the post steps create on success). Otherwise
+          # next runs would skip even when this run didn't actually post.
+          if [ -f output/post_result.json ] || [ -f output/instagram_result.json ] || [ -f output/youtube_result.json ]; then
+            date -u +%s > assets/last_post_time.txt
+            echo "Recorded last post timestamp: $(cat assets/last_post_time.txt)"
+          else
+            echo "Pipeline ran but no post receipts found — not updating last_post_time.txt"
+          fi
+
       - name: Save gallery + research cache to repo
         if: always() && steps.dedupe.outputs.skip != 'true'
         run: |
@@ -150,8 +175,9 @@ jobs:
           if [ -f output/pipeline_status.json ]; then
             cp output/pipeline_status.json assets/last_run_status.json
           fi
-          git add -f assets/gallery/ assets/music_gallery/ assets/market_research.json assets/used_scripts.json assets/used_topics.json assets/last_run_status.json assets/script_bank_state.json || true
+          git add -f assets/gallery/ assets/music_gallery/ assets/market_research.json assets/used_scripts.json assets/used_topics.json assets/last_run_status.json assets/script_bank_state.json assets/last_post_time.txt || true
           git diff --cached --quiet || git commit -m "Bot: gallery + research cache [run #${{ github.run_number }}]"
+          git pull --rebase || true
           git push || true
 
       - name: Show pipeline status in log
