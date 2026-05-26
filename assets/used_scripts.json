@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Safest Place I Know",
-    "style": "love",
-    "script": "In the stillness\u2026\nI find my way to you.\n\nYour fingers intertwined with mine\nis my favorite kind of map.\n\nThe way you listen\u2026\nwith your whole face\nis where I feel most at home.\n\nYou're the warmth I step into\nafter a long day.\n\nTag the person who makes life feel like this \u2764\ufe0f",
-    "hash": "a286935d0f4757336e2ba728473f9953",
-    "metaphors": [
-      "map"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When Love Feels Like Coming Home",
     "style": "love",
     "script": "Do you ever feel\u2026\nlike you're unfolding\n\nin the most gentle way\nwhen I'm with you.\n\nYour fingers on my skin\nare the only warmth I need.\n\nIn the stillness\u2026\nI find my safe place.\n\nTag the person who makes life feel like this \u2764\ufe0f",
@@ -660,6 +648,19 @@
     "metaphors": [
       "star",
       "wind"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "More Than My Favorite Person",
+    "style": "nostalgic",
+    "script": "you're more than my favorite person\n \n   still thinking about\n \n   your laugh echoing somewhere\n \n   MEMORIES OF SUMMER afternoons\n \n   we just shared stories\n \n   and somewhere between laughter\n \n   and tears we found solace\n \n   NEWFOUND COMFORT in each other\n \n   still searching for\n \n   that feeling of being home\n \n   in someone's eyes\n \n   fading like a sunset",
+    "hash": "4dcf7f8a25dcffb68f2b49c5a28edd88",
+    "metaphors": [
+      "echo",
+      "sun"
     ],
     "themes": [
       "silence"
