@@ -1,20 +1,5 @@
 [
   {
-    "topic": "When You Have to Pretend You Are Fine at Work",
-    "style": "emotional",
-    "script": "You said fine. You were not fine.\nBefore the meeting, you rehearsed a smile.\nIn the mirror, a stranger's face stared back.\nA mask you wear, a weight you carry.\nYou're not alone in this silent struggle.\nThe burden of pretending is a heavy one.\nMay you find the strength to lay it down.",
-    "hash": "e7e66b6bd7fecd10c54a103e7035f43b",
-    "metaphors": [
-      "star",
-      "mirror",
-      "mask"
-    ],
-    "themes": [
-      "loneliness",
-      "silence"
-    ]
-  },
-  {
     "topic": "People Who Use You",
     "style": "emotional",
     "script": "Your hands still make space for them.\nAt the dinner table, in your bed.\nIt's the shape of their absence\nthat teaches you their presence.\nWas a temporary reprieve\nfrom the emptiness you've always known.\nYou were waiting for someone\nto fill a hole that was never about them.\nSend this to someone still waiting.",
@@ -670,6 +655,17 @@
     "themes": [
       "growth",
       "silence"
+    ]
+  },
+  {
+    "topic": "Crying Without Knowing Why",
+    "style": "nostalgic",
+    "script": "tears fall without warning\nwe just\nlost in the haze\nof our own minds\nSOMETHING IS SHIFTING\ninside us\nstill we search\nfor a reason\nto explain\nthe ache that settles\nin our chests.",
+    "hash": "2b6993c2fe01f1d6ed55f33b774a8b03",
+    "metaphors": [],
+    "themes": [
+      "silence",
+      "grief_loss"
     ]
   }
 ]
