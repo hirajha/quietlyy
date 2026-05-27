@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Way You Look at Me",
-    "style": "love",
-    "script": "Do you know\u2026\nthe way you listen\n\nis my favorite sound.\nIt's the way you tilt\nyour head to the side...\nand your eyes\nstay on mine.\nIn a world that's always\nmoving too fast...\nyou are my stillness.\n\nTag the person who makes life feel like this \u2764\ufe0f",
-    "hash": "8c6367e4d11730ff5f1c182c455b1626",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Have to Pretend You Are Fine at Work",
     "style": "emotional",
     "script": "You said fine. You were not fine.\nBefore the meeting, you rehearsed a smile.\nIn the mirror, a stranger's face stared back.\nA mask you wear, a weight you carry.\nYou're not alone in this silent struggle.\nThe burden of pretending is a heavy one.\nMay you find the strength to lay it down.",
@@ -665,6 +655,20 @@
       "door"
     ],
     "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The First Time I Knew",
+    "style": "love",
+    "script": "There's a softness that settles\nin the spaces between us\nslowly becoming a warmth\nthat spreads like blooming flowers\nAnd the way it grows\nis a gentle thing\nFragile as the first light\nof morning slowly\nCreeping over the hills\nGently unfolding like a canvas\nof unspoken understanding\nbut never fully seen\n SEND THIS TO QUIETLYY.",
+    "hash": "866ee449e419bdbccf524d9c15968363",
+    "metaphors": [
+      "light",
+      "flower"
+    ],
+    "themes": [
+      "growth",
       "silence"
     ]
   }
