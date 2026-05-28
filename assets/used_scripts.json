@@ -1,15 +1,5 @@
 [
   {
-    "topic": "When You Found Me",
-    "style": "love",
-    "script": "Do you remember\u2026\nthe way I spilled coffee\non my shirt that morning.\nYou laughed and helped me clean\nthe stain... with your fingers.\nYour touch was warm.\nYou made it feel like an accident\nwas a beautiful thing.\nTag the person who makes life's little messes feel like home. \u2764\ufe0f",
-    "hash": "7965fd0c9773a0b1a5c05354667a852e",
-    "metaphors": [],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "You Didn't Fix Me, You Stayed",
     "style": "love",
     "script": "Do you remember\u2026\nthe way we linger\n\nin the spaces between words?\nYou listen like a refuge.\n\nYour fingers intertwined with mine\nfeel like a warm ember.\nYou didn't fix me, you stayed.\nAnd in that, I found peace...\n\nTag the one who is your gentle haven \u2764\ufe0f",
@@ -669,6 +659,18 @@
     "themes": [
       "growth",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "When Someone Chooses You Every Day",
+    "style": "nostalgic",
+    "script": "they choose me                        \nwithout condition             \nstill believing in my soul      \nDEEP DOWN WE KNOW          \nthe weight of it settles     \nand somewhere in the everyday \nwe find a gentle rhythm      \nSTRENGTHENED BY THEIR FAITH \nwe just keep going           \nthrough the noise             \nand the chaos still          \nwhispers a quiet ache       ",
+    "hash": "51e89e180b29857ff13c0e92445cfa84",
+    "metaphors": [
+      "noise"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
