@@ -1,15 +1,5 @@
 [
   {
-    "topic": "People Who Use You",
-    "style": "emotional",
-    "script": "Your hands still make space for them.\nAt the dinner table, in your bed.\nIt's the shape of their absence\nthat teaches you their presence.\nWas a temporary reprieve\nfrom the emptiness you've always known.\nYou were waiting for someone\nto fill a hole that was never about them.\nSend this to someone still waiting.",
-    "hash": "a2abc6e6a90a6bda2038760fc57af3af",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Found Me",
     "style": "love",
     "script": "Do you remember\u2026\nthe way I spilled coffee\non my shirt that morning.\nYou laughed and helped me clean\nthe stain... with your fingers.\nYour touch was warm.\nYou made it feel like an accident\nwas a beautiful thing.\nTag the person who makes life's little messes feel like home. \u2764\ufe0f",
@@ -665,6 +655,19 @@
     "metaphors": [],
     "themes": [
       "silence",
+      "grief_loss"
+    ]
+  },
+  {
+    "topic": "When Grief Becomes a Teacher",
+    "style": "emotional",
+    "script": "There's a grief that settles slowly\nin my bones\nit's a weight\nthat's always there\nbut shapes me\ninto someone stronger\nSome people call it resilience\nthe ability to bend\nnot break\nand find a way to heal\nslowly\nin the darkness. Period.",
+    "hash": "ebcb37f910bb5b032db829de904ad513",
+    "metaphors": [
+      "dark"
+    ],
+    "themes": [
+      "growth",
       "grief_loss"
     ]
   }
