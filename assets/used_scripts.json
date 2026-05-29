@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Being Strong for Everyone While Breaking Inside",
-    "style": "emotional",
-    "script": "You hold it together for everyone.\nYour cracks are hidden.\nLike a river that runs underground,\nyour pain is invisible.\nBut the weight of it\nis what keeps you up at night,\nreminding you that even the strongest foundations can be shaken.\nSave this for someone who is holding on.",
-    "hash": "f4fb092653efeb3b57abb8a70306582c",
-    "metaphors": [],
-    "themes": [
-      "heartbreak",
-      "love"
-    ]
-  },
-  {
     "topic": "The First Time I Knew",
     "style": "love",
     "script": "Do you remember\u2026\nthe way sunlight\nfilters through blinds\non a slow morning?\n\nYou turn to me\nwith a question...\nand I see the soft\nfocus of your gaze.\n\nIn that moment...\nI feel the world\nslowing its pace.\n\nTag the person who makes life feel like this \u2764\ufe0f",
@@ -671,6 +660,18 @@
     "metaphors": [
       "shadow",
       "light"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "What I Never Said Out Loud",
+    "style": "poetic",
+    "script": "I'm a keeper of secrets. \nSome people think I'm transparent, \nbut hidden truths accumulate \njust beneath the surface, \nand the weight is crushing \nThe hands that hold my thoughts \nare trembling, \nand the words I never spoke \nare echoing, \nSome days I feel like I'm drowning \nin unspoken emotions, \nand the pressure is building.",
+    "hash": "b7b5e7607f54cb8347599d7f3752920b",
+    "metaphors": [
+      "echo"
     ],
     "themes": [
       "silence"
