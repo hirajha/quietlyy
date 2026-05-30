@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Part You Never Talk About"
+    "detail": "The Small Things I Notice About You"
   },
   "audio": {
     "result": "ok",
@@ -44,15 +44,15 @@
     "detail": ""
   },
   "facebook": {
-    "result": "ok",
-    "detail": ""
+    "result": "fail",
+    "detail": "Credentials invalid or API error -- saved for manual. Check FB_PAGE_ACCESS_TOKEN."
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18122542801630886"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://graph.facebook.com/v22.0/17841439177937652/media?access_token=EAAXDATnOZAP8BRjXbNnkVd944yDjF0IRd11N24LN8hohl3OazGmZBvdVdp2jOTWC1ZAV5NxsBjdWWcPlWfnWtnLQ6IlZCOgfX6eRKPF8PC22zYaZCapIGdNIJQmAidZABuZCjdfhRummkgLUbuDPpiZBecZBg5NnueUqqu2zjhzXrV7efCDyO6wonUBwPIDSdVPZC71a0pdggVdnp0jZAvRhvJR0jaW8oSV5CGUaRy2BZBTBdqHyYuvhvp9JOTuHZA8O7Imuzct9W62F5m7oRFaXSZCzVmVyHGxQZDZD | API response: {\"error\":{\"message\":\"Error validating access token: Session has expired on Saturday, 30-May-26 03:00:00 PDT. The current time is Saturday, 30-May-26 08:57:40 PDT.\",\"type\":\"OAuth"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/Q9wLZfHn2dg"
+    "detail": "https://www.youtube.com/shorts/tGFmHteao4k"
   }
 }
