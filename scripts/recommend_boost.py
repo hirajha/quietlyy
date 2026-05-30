@@ -85,8 +85,16 @@ def build_brief(days=7, max_recommendations=3):
     if not results:
         return "# Boost Brief\n\n**No posts found in the last %d days.**\n" % days
 
+    has_insights = any(r.get("has_insights") for r in results)
     avg_eng_rate = sum(r["engagement_rate_pct"] for r in results) / len(results)
     avg_impressions = sum(r["impressions"] for r in results) / len(results)
+
+    # When Insights API is denied, we can't compute proper engagement rate.
+    # Lower the threshold and skip the impressions-based filter so we still
+    # produce a useful brief from basic metrics (likes/comments/shares).
+    if not has_insights:
+        global MIN_IMPRESSIONS_TO_CONSIDER
+        MIN_IMPRESSIONS_TO_CONSIDER = 0
 
     # Filter to BOOST CANDIDATES
     candidates = []
@@ -110,10 +118,23 @@ def build_brief(days=7, max_recommendations=3):
         "# 📊 Quietlyy Boost Brief",
         f"_Generated: {now_iso}_",
         "",
-        f"**Avg engagement rate (last {days} days):** `{avg_eng_rate:.2f}%`  ",
-        f"**Avg impressions per post:** `{avg_impressions:.0f}`",
-        "",
     ]
+    if has_insights:
+        lines += [
+            f"**Avg engagement rate (last {days} days):** `{avg_eng_rate:.2f}%`  ",
+            f"**Avg impressions per post:** `{avg_impressions:.0f}`",
+            "",
+        ]
+    else:
+        lines += [
+            "> ⚠️ **Insights API access not granted on FB token.** Rankings below use only",
+            "> reactions/comments/shares (no impressions or engagement rate). To unlock proper",
+            "> ranking, grant `read_insights` on FB_PAGE_ACCESS_TOKEN at",
+            "> https://developers.facebook.com/tools/explorer/ — pick page → permissions → add `read_insights`.",
+            "",
+            f"**Avg engagement score (last {days} days):** `{avg_eng_rate:.1f}` (weighted: shares×5 + comments×2 + reactions)",
+            "",
+        ]
 
     if not candidates:
         lines += [

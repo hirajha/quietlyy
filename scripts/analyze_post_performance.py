@@ -74,42 +74,60 @@ def fetch_recent_posts(page_id, token, days=30, limit=100):
     return resp.json().get("data", [])
 
 
+_INSIGHTS_PERMISSION_WARNED = False  # only warn once per run
+
+
 def fetch_post_metrics(post_id, token):
-    """Pull engagement metrics for a single post."""
+    """Pull engagement metrics for a single post.
+
+    Tries Insights API first (needs read_insights permission). If denied,
+    falls back to basic post fields (likes, comments, shares) which work
+    with pages_read_engagement. Returns dict with whatever data we got.
+    """
+    global _INSIGHTS_PERMISSION_WARNED
+    result = {}
+
+    # ── Try Insights API (rich metrics, but needs read_insights) ────────────
     metrics = [
         "post_impressions",
         "post_impressions_unique",
         "post_engaged_users",
         "post_reactions_by_type_total",
-        "post_video_views",  # for Reels
+        "post_video_views",
     ]
     resp = requests.get(
         f"{GRAPH_API}/{post_id}/insights",
         params={"access_token": token, "metric": ",".join(metrics)},
         timeout=15,
     )
-    if resp.status_code != 200:
-        return None
+    if resp.status_code == 200:
+        for entry in resp.json().get("data", []):
+            name = entry.get("name")
+            values = entry.get("values", [])
+            if not values:
+                continue
+            val = values[0].get("value", 0)
+            if name == "post_reactions_by_type_total" and isinstance(val, dict):
+                result["reactions_total"] = sum(val.values())
+            else:
+                result[name] = val
+    else:
+        if not _INSIGHTS_PERMISSION_WARNED:
+            err = resp.json().get("error", {})
+            print(f"[analyze] ⚠️  Insights API failed (status {resp.status_code}): "
+                  f"{err.get('message', resp.text[:200])}", file=sys.stderr)
+            print(f"[analyze] ⚠️  Need read_insights permission on FB_PAGE_ACCESS_TOKEN.", file=sys.stderr)
+            print(f"[analyze] ⚠️  Falling back to basic post fields (likes/comments/shares).", file=sys.stderr)
+            _INSIGHTS_PERMISSION_WARNED = True
 
-    result = {}
-    for entry in resp.json().get("data", []):
-        name = entry.get("name")
-        values = entry.get("values", [])
-        if not values:
-            continue
-        val = values[0].get("value", 0)
-        if name == "post_reactions_by_type_total" and isinstance(val, dict):
-            result["reactions_total"] = sum(val.values())
-            result["reactions_by_type"] = val
-        else:
-            result[name] = val
-
-    # Also fetch engagement counts directly (comments/shares not in insights)
+    # ── Fallback: basic post fields (always work with pages_read_engagement) ──
     resp2 = requests.get(
         f"{GRAPH_API}/{post_id}",
         params={
             "access_token": token,
-            "fields": "shares,comments.summary(true).limit(0)",
+            "fields": "shares,comments.summary(true).limit(0),"
+                      "likes.summary(true).limit(0),"
+                      "reactions.summary(true).limit(0)",
         },
         timeout=15,
     )
@@ -117,8 +135,15 @@ def fetch_post_metrics(post_id, token):
         d = resp2.json()
         result["shares"] = d.get("shares", {}).get("count", 0)
         result["comments"] = d.get("comments", {}).get("summary", {}).get("total_count", 0)
+        # If Insights gave us reactions_total, prefer that; otherwise use this
+        if "reactions_total" not in result:
+            result["reactions_total"] = d.get("reactions", {}).get("summary", {}).get("total_count", 0)
+        # Use likes count as proxy for impressions when insights is denied
+        if "post_impressions" not in result:
+            result["likes_count"] = d.get("likes", {}).get("summary", {}).get("total_count", 0)
 
-    return result
+    # Always return a dict (even if minimal) — caller decides if it's enough
+    return result if result else None
 
 
 def analyze(days=30):
@@ -142,7 +167,13 @@ def analyze(days=30):
         comments = metrics.get("comments", 0)
         shares = metrics.get("shares", 0)
         total_eng = reactions + comments + shares
-        eng_rate = (total_eng / impressions * 100) if impressions > 0 else 0
+        # If Insights gave us impressions, compute proper engagement rate.
+        # Otherwise rank by weighted absolute engagement (shares matter most).
+        if impressions > 0:
+            eng_rate = total_eng / impressions * 100
+        else:
+            # Weighted engagement score as proxy (shares 5x > comments 2x > reactions 1x)
+            eng_rate = (shares * 5 + comments * 2 + reactions) / 10.0
 
         results.append({
             "id": post_id,
@@ -156,9 +187,10 @@ def analyze(days=30):
             "shares": shares,
             "total_engagement": total_eng,
             "engagement_rate_pct": round(eng_rate, 2),
+            "has_insights": impressions > 0,
         })
 
-    # Sort by engagement rate descending
+    # Sort by engagement rate descending (or proxy score if no Insights)
     results.sort(key=lambda r: r["engagement_rate_pct"], reverse=True)
     return results
 
