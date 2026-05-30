@@ -1,5 +1,5 @@
 # 📊 Quietlyy Boost Brief
-_Generated: 2026-05-30 08:02 UTC_
+_Generated: 2026-05-30 08:10 UTC_
 
 > ⚠️ **Insights API access not granted on FB token.** Rankings below use only
 > reactions/comments/shares (no impressions or engagement rate). To unlock proper
