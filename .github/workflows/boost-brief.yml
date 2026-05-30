@@ -1,0 +1,64 @@
+name: Quietlyy -- Daily Boost Brief
+
+# Runs once daily, queries Facebook Insights for recent post performance,
+# identifies over-performing posts (1.5x+ avg engagement), and commits a
+# markdown brief to assets/boost_brief.md with direct Ads Manager links.
+#
+# NO AUTOMATED SPEND. User reads the brief, clicks through, approves manually.
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 09:00 UTC = 14:30 IST — after the morning post has been live ~6 hours
+    # so organic engagement signal has settled, before evening post pushes
+    # the morning one off the algorithm window.
+    - cron: '0 9 * * *'
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate boost brief
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: |
+          python scripts/recommend_boost.py --days 7 --max 3
+
+      - name: Commit brief to repo
+        run: |
+          git config user.name "Quietlyy Bot"
+          git config user.email "bot@quietlyy.com"
+          git add -f assets/boost_brief.md
+          if git diff --cached --quiet; then
+            echo "No brief changes"
+          else
+            git commit -m "Bot: daily boost brief"
+            git pull --rebase || true
+            git push || true
+          fi
+
+      - name: Upload brief as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: boost-brief-${{ github.run_number }}
+          path: assets/boost_brief.md
+          retention-days: 30
+          if-no-files-found: ignore
