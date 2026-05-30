@@ -1,0 +1,64 @@
+name: Quietlyy -- Weekly Cross-Promo Finder
+
+# Runs every Monday 04:00 UTC (09:30 IST). Searches FB for emotional-content
+# peer pages (500-15K followers), outputs assets/cross_promo_pages.md with
+# a DM template you copy/paste to ~5 of them.
+#
+# Realistic conversion: 1-2 of 5 reciprocate = 1-2 free shares per week
+# to audiences of 500-15K each.
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Monday 04:00 UTC = 09:30 IST. Start the work week with new contacts.
+    - cron: '0 4 * * 1'
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Find peer pages + generate outreach brief
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: |
+          python scripts/find_cross_promo_pages.py --max 10
+
+      - name: Commit brief to repo
+        if: always()
+        run: |
+          git config user.name "Quietlyy Bot"
+          git config user.email "bot@quietlyy.com"
+          git add -f assets/cross_promo_pages.md || true
+          if git diff --cached --quiet; then
+            echo "No brief changes"
+          else
+            git commit -m "Bot: weekly cross-promo outreach brief"
+            git pull --rebase || true
+            git push || true
+          fi
+
+      - name: Upload brief as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cross-promo-brief-${{ github.run_number }}
+          path: assets/cross_promo_pages.md
+          retention-days: 30
+          if-no-files-found: ignore

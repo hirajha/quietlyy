@@ -1,0 +1,77 @@
+name: Quietlyy -- First-Hour Engagement Booster
+
+# Runs every 30 min DURING the windows after our scheduled posts.
+# Checks if the latest post (20-90 min old) has <3 comments. If so, posts
+# ONE thoughtful follow-up comment from the page to seed the comment thread
+# while the algorithm is still deciding distribution.
+#
+# 80% of a post's eventual reach is determined in the first hour (2026 FB
+# algo research). Early comment activity is one of the strongest signals.
+#
+# Schedule covers:
+#   - 02:30-05:30 UTC = morning post window (08:00-11:00 IST)
+#   - 14:30-17:30 UTC = evening post window (20:00-23:00 IST)
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (identify candidates but DO NOT comment)'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
+  schedule:
+    # Morning post window: 02:30 UTC ± backups → seed between 03:00 and 05:30
+    - cron: '0,30 3-5 * * *'
+    # Evening post window: 14:30 UTC ± backups → seed between 15:00 and 17:30
+    - cron: '0,30 15-17 * * *'
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    concurrency:
+      group: quietlyy-engagement-seed
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Seed engagement on fresh posts
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: |
+          DRY="${{ github.event.inputs.dry_run }}"
+          ARGS=""
+          if [ "$DRY" = "true" ]; then
+            ARGS="--dry-run"
+          fi
+          python scripts/seed_engagement.py $ARGS
+
+      - name: Commit state to repo
+        if: always()
+        run: |
+          git config user.name "Quietlyy Bot"
+          git config user.email "bot@quietlyy.com"
+          git add -f assets/engagement_seeds.json || true
+          if git diff --cached --quiet; then
+            echo "No state changes"
+          else
+            git commit -m "Bot: engagement seed state"
+            git pull --rebase || true
+            git push || true
+          fi
