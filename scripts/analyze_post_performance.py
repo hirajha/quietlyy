@@ -91,13 +91,22 @@ def fetch_post_metrics(post_id, token):
     #    different metrics; Reels reject many regular-post metrics, etc.)
     #    Querying ONE AT A TIME isolates the failing metric so we still get
     #    data for the ones that work.
+    # FB Reels content can need DIFFERENT endpoints depending on whether the
+    # ID is a media_fbid, video_id, or post_id. Try ALL three with the most
+    # universal metric (post_impressions / total_video_views) and log fully
+    # for the first post so we can diagnose what's actually working.
+    debug_first = not _INSIGHTS_PERMISSION_WARNED  # log only first post
+
+    if debug_first:
+        print(f"[analyze][debug] First-post metric probe for {post_id}:", file=sys.stderr)
+
     candidate_metrics = [
         "post_impressions",
         "post_impressions_unique",
         "post_reactions_by_type_total",
-        # These two often fail on Reels but work on Page Posts — try anyway:
         "post_engaged_users",
         "post_clicks",
+        "post_video_views",
     ]
     successful = 0
     for m in candidate_metrics:
@@ -106,6 +115,10 @@ def fetch_post_metrics(post_id, token):
             params={"access_token": token, "metric": m},
             timeout=15,
         )
+        if debug_first:
+            err_text = r.text[:120] if r.status_code != 200 else "ok"
+            data_count = len(r.json().get("data", [])) if r.status_code == 200 else 0
+            print(f"[analyze][debug]   /insights metric={m}: {r.status_code} entries={data_count} {err_text}", file=sys.stderr)
         if r.status_code != 200:
             continue
         for entry in r.json().get("data", []):
@@ -120,7 +133,6 @@ def fetch_post_metrics(post_id, token):
         successful += 1
 
     # ── Reels need /video_insights with different metric names ──────────────
-    # Most of our posts are Reels; try the video-specific endpoint too.
     video_metrics = ["total_video_views", "total_video_impressions"]
     for m in video_metrics:
         r = requests.get(
@@ -128,6 +140,10 @@ def fetch_post_metrics(post_id, token):
             params={"access_token": token, "metric": m},
             timeout=15,
         )
+        if debug_first:
+            err_text = r.text[:120] if r.status_code != 200 else "ok"
+            data_count = len(r.json().get("data", [])) if r.status_code == 200 else 0
+            print(f"[analyze][debug]   /video_insights metric={m}: {r.status_code} entries={data_count} {err_text}", file=sys.stderr)
         if r.status_code != 200:
             continue
         for entry in r.json().get("data", []):
@@ -135,18 +151,14 @@ def fetch_post_metrics(post_id, token):
             if not values:
                 continue
             val = values[0].get("value", 0)
-            # Map video metric → unified field name so the rest of the code works
             if m == "total_video_views":
                 result["post_video_views"] = val
             elif m == "total_video_impressions" and "post_impressions" not in result:
                 result["post_impressions"] = val
 
-    # One-time diagnostic if EVERY metric failed
-    if successful == 0 and "post_impressions" not in result and not _INSIGHTS_PERMISSION_WARNED:
-        print(f"[analyze] ⚠️  No metrics returned from /insights or /video_insights "
-              f"for {post_id} — token may lack read_insights, OR this post type "
-              f"is too new (Insights have ~30min delay). Falling back to basic fields.", file=sys.stderr)
-        _INSIGHTS_PERMISSION_WARNED = True
+    if debug_first:
+        print(f"[analyze][debug]   Final result keys: {list(result.keys())}", file=sys.stderr)
+        _INSIGHTS_PERMISSION_WARNED = True  # don't repeat for subsequent posts
 
     # ── Fallback: basic post fields (always work with pages_read_engagement) ──
     resp2 = requests.get(
