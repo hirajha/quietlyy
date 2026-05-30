@@ -5,10 +5,12 @@ Reads the boost brief, identifies the top candidate, and creates a Facebook
 ad campaign to boost that post — WITHOUT manual intervention.
 
 ═══ SAFETY CAPS (hard-coded, cannot be exceeded) ═══
-  DAILY_BUDGET_CAP    = $10  per day, total across all boosts
-  DAILY_BOOST_LIMIT   = 1    boost per day max
-  PER_BOOST_BUDGET    = $7   default per boost
-  PER_BOOST_DURATION  = 1    day per boost
+  AD_ACCOUNT_CURRENCY  = INR (user funded the 'Quietlyy' ad account in INR)
+  DAILY_BUDGET_CAP     = ₹500 per day, total across all boosts
+  DAILY_BOOST_LIMIT    = 1    boost per day max
+  PER_BOOST_BUDGET     = ₹500 default per boost (= the daily cap → never doubled up)
+  PER_BOOST_DURATION   = 1    day per boost
+  → Funded with ₹1,000 = 2 boosts before fund exhaustion. No surprise charges.
 
 All boosts logged to assets/boost_history.json with date+amount+ad_id+status.
 If today's spend already hit the cap, this script does nothing.
@@ -41,10 +43,14 @@ import requests
 GRAPH_API = "https://graph.facebook.com/v22.0"
 
 # ═══ HARD SAFETY CAPS ═══
-DAILY_BUDGET_CAP_USD = 10        # never spend more than this per day, period
+# Currency: INR (user funded the 'Quietlyy' ad account with ₹1,000 in INR).
+# FB Marketing API uses minor units → 1 INR = 100 paise, so budget × 100 below.
+AD_CURRENCY = "INR"
+DAILY_BUDGET_CAP = 500           # ₹500 per day max, period
 DAILY_BOOST_LIMIT = 1            # max 1 new boost per day
-PER_BOOST_BUDGET_USD = 7         # default budget per boost
+PER_BOOST_BUDGET = 500           # ₹500 default per boost (= daily cap)
 PER_BOOST_DURATION_DAYS = 1      # each boost runs for 24 hours
+AD_ACCOUNT_NAME = "Quietlyy"     # used by auto-detect when FB_AD_ACCOUNT_ID not set
 
 ASSETS_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
 BRIEF_PATH = os.path.join(ASSETS_DIR, "boost_brief.md")
@@ -71,10 +77,11 @@ def _today_utc():
     return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
-def _today_spent_usd(history):
-    """Sum boost amounts created today (UTC). Used for the daily cap."""
+def _today_spent(history):
+    """Sum boost amounts created today (UTC) in AD_CURRENCY. Used for the daily cap."""
     today = _today_utc()
-    return sum(b.get("budget_usd", 0) for b in history.get("boosts", [])
+    # Backwards-compat: read either new "budget" or legacy "budget_usd"
+    return sum(b.get("budget", b.get("budget_usd", 0)) for b in history.get("boosts", [])
                if b.get("date") == today and b.get("status") == "ok")
 
 
@@ -108,7 +115,13 @@ def _parse_top_candidate_from_brief():
 
     # Suggested budget — line like "Suggested boost: `$7`"
     budget_m = re.search(r"Suggested boost:\s*`\$(\d+)`", brief)
-    budget = int(budget_m.group(1)) if budget_m else PER_BOOST_BUDGET_USD
+    # Brief still uses $ as suggested-budget display unit (it's currency-agnostic
+    # market data). Take the dollar number and treat as INR (since our ad
+    # account is INR). Multiplied by ~80 would over-spend — instead we use
+    # the brief's number as a relative-strength signal capped at PER_BOOST_BUDGET.
+    suggested = int(budget_m.group(1)) if budget_m else PER_BOOST_BUDGET
+    # Scale: brief's $7 → ₹350, $14 → ₹500 (rough INR equivalent intent)
+    budget = min(suggested * 50, PER_BOOST_BUDGET)
 
     # Message preview — line after "### 1."
     preview_m = re.search(r"### 1\. (.+)", brief)
@@ -117,7 +130,7 @@ def _parse_top_candidate_from_brief():
     return {
         "post_id": post_id,
         "message_preview": preview,
-        "suggested_budget": min(budget, PER_BOOST_BUDGET_USD),  # never exceed cap
+        "suggested_budget": min(budget, PER_BOOST_BUDGET),  # never exceed cap
     }
 
 
@@ -138,7 +151,13 @@ def _get_page_token():
 
 
 def _autodetect_ad_account(token):
-    """If FB_AD_ACCOUNT_ID isn't set, try to find a single ad account on the user."""
+    """If FB_AD_ACCOUNT_ID isn't set, find the ad account.
+
+    Priority:
+      1. Single active ad account → use it
+      2. Multiple active → prefer the one named AD_ACCOUNT_NAME ("Quietlyy")
+      3. Multiple active, no name match → ask user to set FB_AD_ACCOUNT_ID
+    """
     resp = requests.get(
         f"{GRAPH_API}/me/adaccounts",
         params={"access_token": token, "fields": "id,name,account_status,currency"},
@@ -148,21 +167,34 @@ def _autodetect_ad_account(token):
         return None, resp.text[:300]
     accounts = resp.json().get("data", [])
     active = [a for a in accounts if a.get("account_status") == 1]
+
     if len(active) == 1:
-        return active[0]["id"], None  # 'act_XXX'
+        a = active[0]
+        if a.get("currency") and a["currency"] != AD_CURRENCY:
+            print(f"[auto-boost] ⚠️  Ad account currency is {a['currency']}, expected {AD_CURRENCY}. "
+                  f"Caps assume {AD_CURRENCY} — verify your budget settings.", file=sys.stderr)
+        return a["id"], None
+
     if len(active) > 1:
-        names = [f"{a['id']} ({a.get('name')})" for a in active]
-        return None, f"Multiple ad accounts — set FB_AD_ACCOUNT_ID. Options: {names}"
+        # Try to match by name first
+        name_match = [a for a in active if a.get("name", "").lower() == AD_ACCOUNT_NAME.lower()]
+        if len(name_match) == 1:
+            return name_match[0]["id"], None
+        names = [f"{a['id']} ({a.get('name')}, {a.get('currency')})" for a in active]
+        return None, f"Multiple ad accounts and none named '{AD_ACCOUNT_NAME}'. Set FB_AD_ACCOUNT_ID. Options: {names}"
+
     return None, f"No active ad accounts found. {len(accounts)} total, 0 active."
 
 
-def create_boost(post_id, page_id, ad_account_id, token, budget_usd, days, dry_run=False):
+def create_boost(post_id, page_id, ad_account_id, token, budget, days, dry_run=False):
     """Create campaign + ad set + ad to boost an existing post.
+
+    `budget` is in AD_CURRENCY (₹ for INR account). FB Marketing API uses
+    minor units → multiplied by 100 below (1 INR = 100 paise).
 
     Returns dict with keys: status ('ok'|'error'), ad_id, error, breakdown.
     """
-    # Budget in cents — FB Marketing API uses minor currency units
-    daily_budget_cents = budget_usd * 100
+    daily_budget_minor = budget * 100  # ₹500 → 50000 paise
 
     if dry_run:
         return {
@@ -170,7 +202,7 @@ def create_boost(post_id, page_id, ad_account_id, token, budget_usd, days, dry_r
             "ad_id": "DRY_RUN_NO_AD_CREATED",
             "campaign_id": "DRY_RUN",
             "adset_id": "DRY_RUN",
-            "breakdown": "Dry run — would have boosted post for $%d/%dd" % (budget_usd, days),
+            "breakdown": f"Dry run — would have boosted post for ₹{budget}/{days}d",
         }
 
     # Step 1: Create campaign (objective: POST_ENGAGEMENT)
@@ -204,7 +236,7 @@ def create_boost(post_id, page_id, ad_account_id, token, budget_usd, days, dry_r
         data={
             "name": f"Auto-boost AdSet {post_id[-8:]}",
             "campaign_id": campaign_id,
-            "daily_budget": daily_budget_cents,
+            "daily_budget": daily_budget_minor,
             "billing_event": "IMPRESSIONS",
             "optimization_goal": "POST_ENGAGEMENT",
             "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
@@ -258,7 +290,7 @@ def create_boost(post_id, page_id, ad_account_id, token, budget_usd, days, dry_r
         "ad_id": ad_id,
         "campaign_id": campaign_id,
         "adset_id": adset_id,
-        "breakdown": f"Boosted for ${budget_usd}/day × {days}d. View in Ads Manager.",
+        "breakdown": f"Boosted for ₹{budget}/day × {days}d. View in Ads Manager.",
     }
 
 
@@ -271,11 +303,11 @@ def main():
     # ── Load history & enforce daily caps ────────────────────────────────────
     history = _load_history()
     today = _today_utc()
-    today_spent = _today_spent_usd(history)
+    today_spent = _today_spent(history)
     today_count = _today_boost_count(history)
 
-    if today_spent >= DAILY_BUDGET_CAP_USD:
-        print(f"[auto-boost] 🛑 Already spent ${today_spent} today (cap: ${DAILY_BUDGET_CAP_USD}) — skipping")
+    if today_spent >= DAILY_BUDGET_CAP:
+        print(f"[auto-boost] 🛑 Already spent ₹{today_spent} today (cap: ₹{DAILY_BUDGET_CAP}) — skipping")
         sys.exit(0)
     if today_count >= DAILY_BOOST_LIMIT:
         print(f"[auto-boost] 🛑 Already boosted {today_count} post(s) today (limit: {DAILY_BOOST_LIMIT}) — skipping")
@@ -287,10 +319,10 @@ def main():
         print(f"[auto-boost] No candidate in today's brief — nothing to boost")
         sys.exit(0)
 
-    budget = min(candidate["suggested_budget"], DAILY_BUDGET_CAP_USD - today_spent)
+    budget = min(candidate["suggested_budget"], DAILY_BUDGET_CAP - today_spent)
     print(f"[auto-boost] Candidate: {candidate['message_preview'][:60]}")
-    print(f"[auto-boost] Budget: ${budget} (suggested: ${candidate['suggested_budget']}, "
-          f"cap remaining: ${DAILY_BUDGET_CAP_USD - today_spent})")
+    print(f"[auto-boost] Budget: ₹{budget} (suggested: ₹{candidate['suggested_budget']}, "
+          f"cap remaining: ₹{DAILY_BUDGET_CAP - today_spent})")
 
     # ── Resolve ad account + token ───────────────────────────────────────────
     page_id, token = _get_page_token()
@@ -319,7 +351,7 @@ def main():
         page_id=page_id,
         ad_account_id=ad_account_id,
         token=token,
-        budget_usd=budget,
+        budget=budget,
         days=PER_BOOST_DURATION_DAYS,
         dry_run=args.dry_run,
     )
@@ -330,7 +362,8 @@ def main():
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "post_id": candidate["post_id"],
         "message_preview": candidate["message_preview"][:80],
-        "budget_usd": budget if result["status"] == "ok" else 0,
+        "budget": budget if result["status"] == "ok" else 0,
+        "currency": AD_CURRENCY,
         "status": result["status"],
         "ad_id": result.get("ad_id"),
         "campaign_id": result.get("campaign_id"),
@@ -345,7 +378,7 @@ def main():
     # ── Final report ─────────────────────────────────────────────────────────
     if result["status"] == "ok":
         print(f"[auto-boost] ✅ Boost created. Ad ID: {result['ad_id']}")
-        print(f"[auto-boost]    Today's spend: ${today_spent + budget} / ${DAILY_BUDGET_CAP_USD}")
+        print(f"[auto-boost]    Today's spend: ₹{today_spent + budget} / ₹{DAILY_BUDGET_CAP}")
         print(f"[auto-boost]    View: https://www.facebook.com/ads/manager/")
     else:
         print(f"[auto-boost] ❌ Boost failed: {result.get('error')}")
