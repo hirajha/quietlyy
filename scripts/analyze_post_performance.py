@@ -91,34 +91,22 @@ def fetch_post_metrics(post_id, token):
     #    different metrics; Reels reject many regular-post metrics, etc.)
     #    Querying ONE AT A TIME isolates the failing metric so we still get
     #    data for the ones that work.
-    # FB Reels content can need DIFFERENT endpoints depending on whether the
-    # ID is a media_fbid, video_id, or post_id. Try ALL three with the most
-    # universal metric (post_impressions / total_video_views) and log fully
-    # for the first post so we can diagnose what's actually working.
-    debug_first = not _INSIGHTS_PERMISSION_WARNED  # log only first post
-
-    if debug_first:
-        print(f"[analyze][debug] First-post metric probe for {post_id}:", file=sys.stderr)
-
-    candidate_metrics = [
-        "post_impressions",
-        "post_impressions_unique",
+    # Only valid Insights metrics on Graph API v22 (verified by per-metric probe
+    # in run 26678970847). post_impressions and post_engaged_users were
+    # DEPRECATED. /video_insights endpoint doesn't exist — use /insights with
+    # post_video_views for Reel views.
+    metrics_to_try = [
+        "post_impressions_unique",     # → reach (unique users), our "impressions" proxy
         "post_reactions_by_type_total",
-        "post_engaged_users",
         "post_clicks",
-        "post_video_views",
+        "post_video_views",            # works on Reels via /insights
     ]
-    successful = 0
-    for m in candidate_metrics:
+    for m in metrics_to_try:
         r = requests.get(
             f"{GRAPH_API}/{post_id}/insights",
             params={"access_token": token, "metric": m},
             timeout=15,
         )
-        if debug_first:
-            err_text = r.text[:120] if r.status_code != 200 else "ok"
-            data_count = len(r.json().get("data", [])) if r.status_code == 200 else 0
-            print(f"[analyze][debug]   /insights metric={m}: {r.status_code} entries={data_count} {err_text}", file=sys.stderr)
         if r.status_code != 200:
             continue
         for entry in r.json().get("data", []):
@@ -130,35 +118,10 @@ def fetch_post_metrics(post_id, token):
                 result["reactions_total"] = sum(val.values())
             else:
                 result[m] = val
-        successful += 1
 
-    # ── Reels need /video_insights with different metric names ──────────────
-    video_metrics = ["total_video_views", "total_video_impressions"]
-    for m in video_metrics:
-        r = requests.get(
-            f"{GRAPH_API}/{post_id}/video_insights",
-            params={"access_token": token, "metric": m},
-            timeout=15,
-        )
-        if debug_first:
-            err_text = r.text[:120] if r.status_code != 200 else "ok"
-            data_count = len(r.json().get("data", [])) if r.status_code == 200 else 0
-            print(f"[analyze][debug]   /video_insights metric={m}: {r.status_code} entries={data_count} {err_text}", file=sys.stderr)
-        if r.status_code != 200:
-            continue
-        for entry in r.json().get("data", []):
-            values = entry.get("values", [])
-            if not values:
-                continue
-            val = values[0].get("value", 0)
-            if m == "total_video_views":
-                result["post_video_views"] = val
-            elif m == "total_video_impressions" and "post_impressions" not in result:
-                result["post_impressions"] = val
-
-    if debug_first:
-        print(f"[analyze][debug]   Final result keys: {list(result.keys())}", file=sys.stderr)
-        _INSIGHTS_PERMISSION_WARNED = True  # don't repeat for subsequent posts
+    # Unify the field name — analyze() looks for "post_impressions"
+    if "post_impressions_unique" in result and "post_impressions" not in result:
+        result["post_impressions"] = result["post_impressions_unique"]
 
     # ── Fallback: basic post fields (always work with pages_read_engagement) ──
     resp2 = requests.get(
