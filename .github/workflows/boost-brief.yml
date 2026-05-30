@@ -1,25 +1,40 @@
-name: Quietlyy -- Daily Boost Brief
+name: Quietlyy -- Daily Boost Brief + Auto-Boost
 
-# Runs once daily, queries Facebook Insights for recent post performance,
-# identifies over-performing posts (1.5x+ avg engagement), and commits a
-# markdown brief to assets/boost_brief.md with direct Ads Manager links.
-#
-# NO AUTOMATED SPEND. User reads the brief, clicks through, approves manually.
+# Runs once daily. Two steps:
+#   1. Generate boost brief (assets/boost_brief.md) by reading FB Insights
+#      for last 7 days of posts.
+#   2. AUTO-EXECUTE the top recommendation via Facebook Marketing API.
+#      Hard safety caps in scripts/auto_boost.py:
+#        - $10/day max spend (DAILY_BUDGET_CAP_USD)
+#        - 1 boost per day max (DAILY_BOOST_LIMIT)
+#        - $7 default per boost (PER_BOOST_BUDGET_USD)
+#        - 24h duration (PER_BOOST_DURATION_DAYS)
+#      All boost results logged to assets/boost_history.json.
 
 on:
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (compute brief but DO NOT spend on a real ad)'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
   schedule:
-    # 09:00 UTC = 14:30 IST — after the morning post has been live ~6 hours
-    # so organic engagement signal has settled, before evening post pushes
-    # the morning one off the algorithm window.
+    # 09:00 UTC = 14:30 IST — after morning post has ~6h of organic signal,
+    # before evening post pushes the morning one off the algorithm window.
     - cron: '0 9 * * *'
 
 jobs:
   brief:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     permissions:
       contents: write
+    # Concurrency lock — prevent two boost runs racing on history file
+    concurrency:
+      group: quietlyy-boost-pipeline
+      cancel-in-progress: false
 
     steps:
       - name: Checkout repo
@@ -41,24 +56,40 @@ jobs:
         run: |
           python scripts/recommend_boost.py --days 7 --max 3
 
-      - name: Commit brief to repo
+      - name: Auto-boost top candidate (capped at $10/day, 1 boost/day)
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          FB_AD_ACCOUNT_ID: ${{ secrets.FB_AD_ACCOUNT_ID }}
+        run: |
+          DRY="${{ github.event.inputs.dry_run }}"
+          ARGS=""
+          if [ "$DRY" = "true" ]; then
+            ARGS="--dry-run"
+          fi
+          python scripts/auto_boost.py $ARGS
+
+      - name: Commit brief + history to repo
+        if: always()
         run: |
           git config user.name "Quietlyy Bot"
           git config user.email "bot@quietlyy.com"
-          git add -f assets/boost_brief.md
+          git add -f assets/boost_brief.md assets/boost_history.json || true
           if git diff --cached --quiet; then
-            echo "No brief changes"
+            echo "No brief/history changes"
           else
-            git commit -m "Bot: daily boost brief"
+            git commit -m "Bot: daily boost brief + history"
             git pull --rebase || true
             git push || true
           fi
 
-      - name: Upload brief as artifact
+      - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: boost-brief-${{ github.run_number }}
-          path: assets/boost_brief.md
+          path: |
+            assets/boost_brief.md
+            assets/boost_history.json
           retention-days: 30
           if-no-files-found: ignore
