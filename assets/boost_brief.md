@@ -1,5 +1,5 @@
 # 📊 Quietlyy Boost Brief
-_Generated: 2026-05-30 08:10 UTC_
+_Generated: 2026-05-30 08:12 UTC_
 
 > ⚠️ **Insights API access not granted on FB token.** Rankings below use only
 > reactions/comments/shares (no impressions or engagement rate). To unlock proper
@@ -14,7 +14,7 @@ These posts are out-performing your average — boosting them now will reach
 the audience that already resonates with your content (highest-quality followers).
 
 ### 1. I'm a keeper of secrets.  Some people think I'm transparent, but hidden truths a
-- **Engagement rate:** `0.40%` (1.8× average)
+- **Engagement rate:** `0.40%` (1.7× average)
 - **Stats:** 0 impressions · 4 reactions · 0 comments · 0 shares
 - **Age:** 14h (fresh)
 - **Suggested boost:** `$7` → estimated reach +700–2,100
