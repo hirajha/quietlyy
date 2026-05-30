@@ -56,7 +56,7 @@ jobs:
         run: |
           python scripts/recommend_boost.py --days 7 --max 3
 
-      - name: Auto-boost top candidate (capped at $10/day, 1 boost/day)
+      - name: Auto-boost top candidate (capped at ₹500/day, 1 boost/day)
         env:
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
