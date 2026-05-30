@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The First Time I Knew",
-    "style": "love",
-    "script": "Do you remember\u2026\nthe way sunlight\nfilters through blinds\non a slow morning?\n\nYou turn to me\nwith a question...\nand I see the soft\nfocus of your gaze.\n\nIn that moment...\nI feel the world\nslowing its pace.\n\nTag the person who makes life feel like this \u2764\ufe0f",
-    "hash": "95059344f0616b32edc96b7038d4cf52",
-    "metaphors": [
-      "light",
-      "sun"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "You Make the Hard Days Easier",
     "style": "love",
     "script": "Do you ever notice\u2026\nthe way my voice\nsounds different\nwhen I'm talking to you?\n\nYou listen like\nyou're gathering pieces\nof a puzzle...\nand it makes me feel\nlike I can breathe.\n\nSend this to them. They deserve to know. \u2764\ufe0f",
@@ -676,5 +663,19 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Part You Never Talk About",
+    "style": "emotional",
+    "script": "Midnight. The city sleeps\ndark alleys\nand forgotten streets\nslowly whisper secrets\nof the part you never talk about\nSome people hide\nbehind masks of confidence\nbut the shadows know\nthe truth you conceal\nNot even the wind\njudges your darkest nights\nsend this to them.",
+    "hash": "31da1b03c86039263568c7e7e1082b81",
+    "metaphors": [
+      "shadow",
+      "dark",
+      "mask",
+      "tree",
+      "wind"
+    ],
+    "themes": []
   }
 ]
