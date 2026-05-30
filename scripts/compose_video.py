@@ -689,13 +689,14 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             # is visible BEFORE narrator starts speaking, then split → [voice_out]
             # (for final mix) + [voice_sc] (sidechain trigger)
             f"[1:a]adelay={HOOK_DURATION_MS}|{HOOK_DURATION_MS},loudnorm=I=-11:LRA=7:TP=-0.5,apad=pad_dur=1,asplit=2[voice_out][voice_sc];"
-            # Music: -22 LUFS undipped (was -20). User feedback: 'music before
-            # narrator starts is too loud — when narrator begins, the duck makes
-            # such a big drop that I miss the first few words'. Lowering the
-            # baseline 2dB means the pre-speech music is gentler, so the
-            # transition into speech feels smoother — your ears don't need to
-            # adjust as much when the duck kicks in.
-            f"[2:a]loudnorm=I=-22:LRA=7:TP=-2,"
+            # Music: -21 LUFS undipped. History:
+            #   -17 → way too loud (overpowered voice transitions)
+            #   -22 → felt too quiet after the hook card was added (music now
+            #         plays solo for first 2.5s, so a soft baseline becomes
+            #         noticeably faint vs. when voice kicked in immediately)
+            #   -21 → small 1dB bump back up; still gentle enough that the
+            #         duck-into-voice transition stays smooth
+            f"[2:a]loudnorm=I=-21:LRA=7:TP=-2,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4[music_norm];"
             # Sidechain duck — GENTLE settings (no audible pumping):
             #   threshold=0.04 → only sustained speech triggers, ignores breath noise
