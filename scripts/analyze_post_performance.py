@@ -87,38 +87,66 @@ def fetch_post_metrics(post_id, token):
     global _INSIGHTS_PERMISSION_WARNED
     result = {}
 
-    # ── Try Insights API (rich metrics, but needs read_insights) ────────────
-    metrics = [
+    # ── Try /insights metric-by-metric (different post types support
+    #    different metrics; Reels reject many regular-post metrics, etc.)
+    #    Querying ONE AT A TIME isolates the failing metric so we still get
+    #    data for the ones that work.
+    candidate_metrics = [
         "post_impressions",
         "post_impressions_unique",
-        "post_engaged_users",
         "post_reactions_by_type_total",
-        "post_video_views",
+        # These two often fail on Reels but work on Page Posts — try anyway:
+        "post_engaged_users",
+        "post_clicks",
     ]
-    resp = requests.get(
-        f"{GRAPH_API}/{post_id}/insights",
-        params={"access_token": token, "metric": ",".join(metrics)},
-        timeout=15,
-    )
-    if resp.status_code == 200:
-        for entry in resp.json().get("data", []):
-            name = entry.get("name")
+    successful = 0
+    for m in candidate_metrics:
+        r = requests.get(
+            f"{GRAPH_API}/{post_id}/insights",
+            params={"access_token": token, "metric": m},
+            timeout=15,
+        )
+        if r.status_code != 200:
+            continue
+        for entry in r.json().get("data", []):
             values = entry.get("values", [])
             if not values:
                 continue
             val = values[0].get("value", 0)
-            if name == "post_reactions_by_type_total" and isinstance(val, dict):
+            if m == "post_reactions_by_type_total" and isinstance(val, dict):
                 result["reactions_total"] = sum(val.values())
             else:
-                result[name] = val
-    else:
-        if not _INSIGHTS_PERMISSION_WARNED:
-            err = resp.json().get("error", {})
-            print(f"[analyze] ⚠️  Insights API failed (status {resp.status_code}): "
-                  f"{err.get('message', resp.text[:200])}", file=sys.stderr)
-            print(f"[analyze] ⚠️  Need read_insights permission on FB_PAGE_ACCESS_TOKEN.", file=sys.stderr)
-            print(f"[analyze] ⚠️  Falling back to basic post fields (likes/comments/shares).", file=sys.stderr)
-            _INSIGHTS_PERMISSION_WARNED = True
+                result[m] = val
+        successful += 1
+
+    # ── Reels need /video_insights with different metric names ──────────────
+    # Most of our posts are Reels; try the video-specific endpoint too.
+    video_metrics = ["total_video_views", "total_video_impressions"]
+    for m in video_metrics:
+        r = requests.get(
+            f"{GRAPH_API}/{post_id}/video_insights",
+            params={"access_token": token, "metric": m},
+            timeout=15,
+        )
+        if r.status_code != 200:
+            continue
+        for entry in r.json().get("data", []):
+            values = entry.get("values", [])
+            if not values:
+                continue
+            val = values[0].get("value", 0)
+            # Map video metric → unified field name so the rest of the code works
+            if m == "total_video_views":
+                result["post_video_views"] = val
+            elif m == "total_video_impressions" and "post_impressions" not in result:
+                result["post_impressions"] = val
+
+    # One-time diagnostic if EVERY metric failed
+    if successful == 0 and "post_impressions" not in result and not _INSIGHTS_PERMISSION_WARNED:
+        print(f"[analyze] ⚠️  No metrics returned from /insights or /video_insights "
+              f"for {post_id} — token may lack read_insights, OR this post type "
+              f"is too new (Insights have ~30min delay). Falling back to basic fields.", file=sys.stderr)
+        _INSIGHTS_PERMISSION_WARNED = True
 
     # ── Fallback: basic post fields (always work with pages_read_engagement) ──
     resp2 = requests.get(
