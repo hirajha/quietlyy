@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Way You Look at Me",
-    "style": "love",
-    "script": "Your fingers brush mine...\nand I feel the pause.\n\nIn the quiet, I hear\nthe way you listen.\n\nYour laughter is a refuge...\nwhere I can be still.\n\nYou are the pause\nthat makes me whole...\n\nTag the person who makes life feel like this... \u2764\ufe0f",
-    "hash": "210773bf2fdd7e51586ef6f2698ee9ab",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Have to Pretend You Are Fine at Work",
     "style": "emotional",
     "script": "You said fine. You were not fine.\nYour smile is a reflex now.\nIt's the only way to keep your desk\nfrom becoming a therapist's couch.\nYou're not hiding, you're just\nsurviving the meetings and emails.\nThe exhaustion is a weight\nthat nobody sees, nobody validates.\nSend this to someone carrying something heavy.",
@@ -679,6 +669,19 @@
     ],
     "themes": [
       "self_worth"
+    ]
+  },
+  {
+    "topic": "The Quiet Kind of Love Nobody Talks About",
+    "style": "love",
+    "script": "You're sitting in the stillness. \nSoftly the morning light creeps, \nit wraps around your shoulders \nGently, \nand the world OUTSIDE FADES \ninto a soothing haze \nslowly, \nthe warmth of the sun seeps \nINTO YOUR SKIN, \ncalming every nerve, \nquietly, \nSerenity Found \nin this peaceful space, \nand your eyes close, \nsend this to Quietlyy.",
+    "hash": "c0c189ce0d3e2899b5f8562f54ae219a",
+    "metaphors": [
+      "light",
+      "sun"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
