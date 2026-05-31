@@ -1,13 +1,5 @@
 [
   {
-    "topic": "When You Have to Pretend You Are Fine at Work",
-    "style": "emotional",
-    "script": "You said fine. You were not fine.\nYour smile is a reflex now.\nIt's the only way to keep your desk\nfrom becoming a therapist's couch.\nYou're not hiding, you're just\nsurviving the meetings and emails.\nThe exhaustion is a weight\nthat nobody sees, nobody validates.\nSend this to someone carrying something heavy.",
-    "hash": "caa4f05db92d632ffd17a19b85e33779",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "The Freedom of Acceptance",
     "style": "emotional",
     "script": "You set reminders for no one.\nFor the people who left without warning.\nFor the habits you can't break.\nBut what if freedom is not forgetting?\nWhat if it's acknowledging the ghosts you've made space for?\nSave this for the days you need to remember that.",
@@ -683,5 +675,13 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Weight of Being the Strong One",
+    "style": "emotional",
+    "script": "It doesn't weigh. Not yet.\nslowly\nThe weight is a mountain\nI'm climbing\nthe hands that hold me up\nare my own\nSome people call it strength\nbut it's just a facade\nI won't let it crumble\nand slowly I'm losing\nmy grip. Done.",
+    "hash": "5bb95bc00e6cc95ad1057b425d082735",
+    "metaphors": [],
+    "themes": []
   }
 ]
