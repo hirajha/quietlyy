@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The First Time I Knew",
-    "style": "love",
-    "script": "You're searching for a glimpse\nand maybe it's a thread\nSlowly weaving a tapestry\nof memories we haven't made\nYet somehow it feels real\nAnd warmth spreads across skin\nNew sensations start to rise\nGently as the morning light\nCreeping over the edges\nOf a life we're still designing\nSlowly taking its first breath\nAnd Maybe This Is Home\nsend this to quietlyy",
-    "hash": "a38e5cbd317a8cc59734e65c0d4acbef",
-    "metaphors": [
-      "star",
-      "light"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Person Who Stayed",
     "style": "love",
     "script": "I never told you\nabout the day I noticed\nhow your hands still fit\naround my smallest fears\nlike an old sweater\nI keep meaning to return\nbut the sleeves stretch longer\nevery time I pull them on\nDid you know most people leave\nwhen the weather changes\nand you stayed through winter\nwithout asking for spring\nlet them know",
@@ -700,5 +687,18 @@
       "dark"
     ],
     "themes": []
+  },
+  {
+    "topic": "The Small Things I Notice About You",
+    "style": "love",
+    "script": "You're folding the corner of your napkin.\nagain and again\nuntil it looks like a tiny origami boat.\nI count the creases,\nthe way they catch the light.\nNoticed how your laugh\nstarts with a single breath,\nlike a secret you're about to share.\nYour sleeves are always rolled up,\njust enough to show the veins\nin your wrists\u2014blue rivers I want to trace.\nSend this to them.",
+    "hash": "5fdcbd5519a5b339eab56aee6a1f0024",
+    "metaphors": [
+      "light",
+      "star"
+    ],
+    "themes": [
+      "self_worth"
+    ]
   }
 ]
