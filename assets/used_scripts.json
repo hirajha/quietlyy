@@ -1,15 +1,5 @@
 [
   {
-    "topic": "When Just Being Near You Is Enough",
-    "style": "love",
-    "script": "in the stillness\u2026\nyour fingers brush mine\nand my breath catches\non the edge of a thought\nthat never quite forms\nTag the one who makes ordinary days feel different.",
-    "hash": "997a01dad2b6a328e42ca1080516e9bb",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Voice in Your Head That Says You Are Not Enough",
     "style": "emotional",
     "script": "You're the ghostwriter of your own life.\nNobody asks to read the drafts.\nThey only see the final version.\nBut the drafts are where the truth is.\nYou're exhausted from editing yourself.\nSave this for the days you need to remember your own story.",
@@ -681,6 +671,20 @@
     "themes": [
       "grief_loss",
       "silence"
+    ]
+  },
+  {
+    "topic": "When You Cry in the Car Alone",
+    "style": "wisdom",
+    "script": "Maya Angelou wrote\nyou may not control\nall the events that happen\nwhen you cry in the car alone, \n   the tears fall like summer rain\nand the world outside becomes\na blurred watercolor painting\nof greens and grays\n   in those moments i find myself\nlost in the rhythm of my breath\ni am searching for a glimpse\nof peace, a sense of calm\nand the world slowly comes back\ninto focus, like a whisper",
+    "hash": "2a889cc10aa897a7bc237bab260b10d4",
+    "metaphors": [
+      "rain"
+    ],
+    "themes": [
+      "loneliness",
+      "heartbreak",
+      "grief_loss"
     ]
   }
 ]
