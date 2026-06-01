@@ -364,11 +364,18 @@ def generate_audio(script_text):
     print(f"[audio] Using ElevenLabs (voice: {ELEVENLABS_VOICE_ID})")
 
     # ── PRIMARY: whole script in ONE call (natural breathing) ────────────────
-    # Insert a real ~1s breath at each line change via ElevenLabs <break> tags,
-    # so the narrator pauses between fragments instead of rushing line-to-line.
-    LINE_BREAK_SEC = 0.9
-    break_tag = f' <break time="{LINE_BREAK_SEC}s" /> '
-    full_text = break_tag.join(_clean_text(l) for l in lines)
+    # Insert a VARIABLE breath at each line change via ElevenLabs <break> tags,
+    # sized by how the line ENDS (user feedback: pause longer at full stops):
+    #   • ends in . ! ?  → 1.8s  (complete thought — let it land)
+    #   • ends in , ; — … → 0.6s (continuation — keep flowing)
+    #   • no punctuation  → 1.0s (enjambed fragment — natural breath)
+    parts = []
+    for i, l in enumerate(lines):
+        parts.append(_clean_text(l))
+        if i < len(lines) - 1:
+            brk = _gap_for_line(l)  # punctuation-aware pause AFTER this line
+            parts.append(f' <break time="{brk:.1f}s" /> ')
+    full_text = "".join(parts)
     word_timings, ok = _record_full_elevenlabs(full_text, audio_path)
 
     if ok and word_timings:
