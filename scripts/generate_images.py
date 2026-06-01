@@ -527,12 +527,23 @@ def generate_with_gemini_imagen(prompt, output_path):
 
 
 def generate_with_pollinations(prompt, output_path):
-    """Free fallback: Pollinations.ai FLUX — no API key needed."""
+    """PRIMARY (and only working free) image generator: Pollinations.ai FLUX.
+
+    Imagen requires a paid Google plan; HF Inference API is deprecated; DALL-E
+    is decommissioned. So FLUX via Pollinations does all our images.
+
+    Quality tuning (2026-06):
+      - Native 768x1366 (was 576x1024) → sharper source before the 1080x1920
+        upscale. FLUX handles higher res well.
+      - Prompt kept to 950 chars (was 500) so the trailing 'FLAT MATTE / NOT
+        anime / no text' instructions survive — truncating at 500 cut them off,
+        which is partly why earlier output drifted off-style.
+    """
     try:
         from urllib.parse import quote
-        url = (f"https://image.pollinations.ai/prompt/{quote(prompt[:500])}"
-               f"?width=576&height=1024&model=flux&nologo=true&seed={random.randint(1,99999)}")
-        resp = requests.get(url, timeout=90)
+        url = (f"https://image.pollinations.ai/prompt/{quote(prompt[:950])}"
+               f"?width=768&height=1366&model=flux&nologo=true&seed={random.randint(1,99999)}")
+        resp = requests.get(url, timeout=120)
         if resp.status_code != 200 or len(resp.content) < 5000:
             return False
         with open(output_path, "wb") as f:
@@ -640,19 +651,20 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
 
         prompt = generate_image_prompt(topic, visual_keywords, i, style=style)
 
-        # Chain reordered 2026-06 by actual quality + what's working:
-        #   1. Gemini Imagen 4.0 — BEST for flat-matte illustration, free, now fixed
-        #   2. Pollinations FLUX — free, reliable, decent quality
-        #   3. HuggingFace FLUX — classic Inference API is deprecated/flaky, kept as
-        #      a long-shot fallback in case HF restores it
+        # Chain (2026-06) by what actually WORKS on free tier:
+        #   1. Pollinations FLUX — the only working free generator, does ~all images
+        #   2. Gemini Imagen — PAID plan only; tried only if Pollinations fails
+        #      (so its paywall error normally never fires). Auto-works if user
+        #      ever adds Google billing.
+        #   3. HuggingFace FLUX — deprecated endpoint, last-ditch
         #   (DALL-E removed — OpenAI decommissioned it)
-        print(f"[images] Panel {i+1}/{num_panels}: trying Gemini Imagen 4.0 (free, best quality)...")
-        success = generate_with_gemini_imagen(prompt, output_path)
+        print(f"[images] Panel {i+1}/{num_panels}: trying Pollinations FLUX (free)...")
+        success = generate_with_pollinations(prompt, output_path)
         if not success:
-            print(f"[images]   Imagen failed — trying Pollinations FLUX (free)...")
-            success = generate_with_pollinations(prompt, output_path)
+            print(f"[images]   Pollinations failed — trying Gemini Imagen (paid plan only)...")
+            success = generate_with_gemini_imagen(prompt, output_path)
         if not success:
-            print(f"[images]   Pollinations failed — trying HuggingFace FLUX (free, flaky)...")
+            print(f"[images]   Imagen failed — trying HuggingFace FLUX (deprecated, flaky)...")
             success = generate_with_huggingface(prompt, output_path)
 
         if success:
