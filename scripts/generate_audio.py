@@ -410,7 +410,7 @@ def generate_audio(script_text):
         total_dur = _get_duration_ms(audio_path) / 1000
         print(f"[audio] ✅ Whole-script single-call recording — {len(lines)} lines, "
               f"{len(word_timings)} words, {total_dur:.1f}s "
-              f"({LINE_BREAK_SEC}s breath per line change, natural flow)")
+              f"(variable breath: 1.8s at full stops, 1.0s enjambed, 0.6s commas)")
     else:
         # ── FALLBACK: old line-by-line stitch with variable silence gaps ─────
         print("[audio] ⚠️  Single-call failed — falling back to line-by-line stitch")
