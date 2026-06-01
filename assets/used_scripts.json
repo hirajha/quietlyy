@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Freedom of Acceptance",
-    "style": "emotional",
-    "script": "You set reminders for no one.\nFor the people who left without warning.\nFor the habits you can't break.\nBut what if freedom is not forgetting?\nWhat if it's acknowledging the ghosts you've made space for?\nSave this for the days you need to remember that.",
-    "hash": "094b0eb2e7fb7fd51b67a026b780a8ed",
-    "metaphors": [],
-    "themes": [
-      "nostalgia",
-      "moving_on",
-      "loneliness"
-    ]
-  },
-  {
     "topic": "When Just Being Near You Is Enough",
     "style": "love",
     "script": "in the stillness\u2026\nyour fingers brush mine\nand my breath catches\non the edge of a thought\nthat never quite forms\nTag the one who makes ordinary days feel different.",
@@ -683,5 +671,16 @@
     "hash": "5bb95bc00e6cc95ad1057b425d082735",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "Keeping Their Number Saved",
+    "style": "emotional",
+    "script": "Midnight. The city sleeps\nslowly\nfingers tracing\nthe number still saved\nand the memories\nSome people keep them\nas a reminder\nof what's been lost\nbut not me\nI won't delete it\njust a ghost\nin my phone. Period",
+    "hash": "cc4f51f1a74d8f5abec0bc844bde0fae",
+    "metaphors": [],
+    "themes": [
+      "grief_loss",
+      "silence"
+    ]
   }
 ]
