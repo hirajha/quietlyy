@@ -711,38 +711,34 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         #
         # USER FEEDBACK 2026-05-17: Previous duck was 'too aggressive — music
         # suddenly rises high and gets too low quickly, very noticeable'.
-        # Fixed: ratio 12→5 (gentler 5dB duck not 11dB), attack 40→250ms (no
-        # sudden onset), release 550→1500ms (music stays low during gaps,
-        # doesn't yo-yo back to peak between every fragment).
+        # MEASURED from 3 real Whisprs MP4s (2026-06): total mix -14.5 LUFS,
+        # TP -0.5 dBTP, and crucially LRA 3.2-4.4 LU — a VERY TIGHT/EVEN mix.
+        # Low LRA means Whisprs BARELY ducks: music sits at a gentle constant
+        # level under a steady voice. This confirms the earlier 'ducking too
+        # noticeable' complaint. So: even gentler duck (ratio 3) + a FINAL
+        # loudnorm to -14.5 LUFS / LRA 4 to match their broadcast-tight profile.
         _ffmpeg(
             "ffmpeg", "-y",
             "-i", output_no_audio,
             "-i", audio_path,
             "-stream_loop", "-1", "-i", music_path,
             "-filter_complex",
-            # Voice: -11 LUFS, then delay by HOOK_DURATION (2.5s) so hook card
-            # is visible BEFORE narrator starts speaking, then split → [voice_out]
-            # (for final mix) + [voice_sc] (sidechain trigger)
-            f"[1:a]adelay={HOOK_DURATION_MS}|{HOOK_DURATION_MS},loudnorm=I=-11:LRA=7:TP=-0.5,apad=pad_dur=1,asplit=2[voice_out][voice_sc];"
-            # Music: -21 LUFS undipped. History:
-            #   -17 → way too loud (overpowered voice transitions)
-            #   -22 → felt too quiet after the hook card was added (music now
-            #         plays solo for first 2.5s, so a soft baseline becomes
-            #         noticeably faint vs. when voice kicked in immediately)
-            #   -21 → small 1dB bump back up; still gentle enough that the
-            #         duck-into-voice transition stays smooth
+            # Voice: delayed by HOOK_DURATION so hook card is silent, then split
+            f"[1:a]adelay={HOOK_DURATION_MS}|{HOOK_DURATION_MS},loudnorm=I=-12:LRA=5:TP=-1,apad=pad_dur=1,asplit=2[voice_out][voice_sc];"
+            # Music: -21 LUFS undipped base, fade in/out
             f"[2:a]loudnorm=I=-21:LRA=7:TP=-2,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4[music_norm];"
-            # Sidechain duck — GENTLE settings (no audible pumping):
-            #   threshold=0.04 → only sustained speech triggers, ignores breath noise
-            #   ratio=5         → gentle 5:1 duck (~5dB drop, not 11dB)
-            #   attack=250ms    → SLOW onset; the duck fades in instead of slamming
-            #   release=1500ms  → SLOW recovery; music stays low through 1.5s gaps
-            #   knee=4          → softer transition curve, no audible knee
-            f"[music_norm][voice_sc]sidechaincompress=threshold=0.04:ratio=5:attack=250:release=1500:knee=4:makeup=1[music_ducked];"
-            # Final mix: video + voice + ducked music
+            # Sidechain duck — VERY gentle (Whisprs LRA 3-4 = minimal ducking):
+            #   ratio=3       → soft ~3dB dip, not a dramatic drop
+            #   attack=300ms  → slow, inaudible onset
+            #   release=1800ms → music eases back gradually, never yo-yos
+            #   knee=5        → very soft knee, zero pumping
+            f"[music_norm][voice_sc]sidechaincompress=threshold=0.04:ratio=3:attack=300:release=1800:knee=5:makeup=1[music_ducked];"
+            # Mix, then FINAL loudnorm to Whisprs' exact measured profile
+            # (-14.5 LUFS, LRA 4, TP -1) → tight, even, broadcast-consistent.
             f"[0:v]{video_filter}[vout];"
-            f"[voice_out][music_ducked]amix=inputs=2:duration=first:normalize=0[aout]",
+            f"[voice_out][music_ducked]amix=inputs=2:duration=first:normalize=0,"
+            f"loudnorm=I=-14.5:LRA=4:TP=-1[aout]",
             "-map", "[vout]", "-map", "[aout]",
             "-c:v", "libx264", "-preset", "medium", "-crf", "23",
             "-c:a", "aac", "-b:a", "192k",

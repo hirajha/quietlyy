@@ -81,68 +81,67 @@ def _pick_reuse_panels(num_panels):
 
 
 # ── Whisprs-matched aesthetic (2M followers in 2 months):
-# - Cinematic GRAPHIC NOVEL / comic illustration style — NOT anime
+# - Painterly editorial illustration with brush + ink + film grain (real Whisprs style)
 # - Wide atmospheric shots: lone figure TINY against vast landscape/sky
 # - Muted cinematic palettes: teal-green, dusty rose/terracotta, warm amber, deep navy
-# - Flat matte digital painting — smooth colour, NO ink lines, NO comic look
 # - Dramatic skies fill upper 2/3 of frame; tiny figure at bottom 1/3
 # - Mix of wide environmental shots + occasional close portrait illustrations
-# - Lonely, contemplative, wandering — flat matte minimalist feel
+# - Lonely, contemplative — painterly textured illustration with grain
 # - ONE warm accent colour (orange/amber) on a muted cool palette = signature
 
 _SCENE_POOL_WIDE = [
     # ── Wide atmospheric — tiny lone figure vs vast environment (signature Whisprs look)
     "A lone figure standing in a vast field of tall wild grass, viewed from the side, "
     "figure small and isolated against a wide muted teal-grey sky with drifting clouds, "
-    "flat matte illustration, "
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, "
     "muted palette: teal sky, olive-green grass, dusty grey — contemplative, emotional",
 
     "A small lone figure in a dark coat walking away down a winding amber-lit forest path, "
     "viewed from high above and behind, warm orange-amber light pooling on the muddy ground, "
     "tall dark bare trees framing both sides, soft glow in the misty distance, "
-    "flat matte illustration, "
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, "
     "palette: deep forest green, warm amber, dark brown — moody and lonely",
 
     "A tiny lone figure in a red coat walking away along a narrow winding path "
     "beside a vast dark navy lake, the still water stretching to a distant misty horizon, "
     "tall wild grass on both sides, viewed from high behind, "
-    "flat matte illustration, "
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, "
     "palette: deep navy blue, teal, amber-gold grass — quiet and melancholy",
 
     "A person sitting alone on a park bench, figure small at the bottom of the frame, "
     "vast dusty rose and terracotta sky filling the upper three-quarters of the image, "
     "a few dark birds scattered in the atmospheric sky, "
-    "flat matte illustration, "
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, "
     "palette: muted dusty rose, terracotta, warm grey — lonely and still",
 
     "A woman viewed from behind standing on a wooden bridge walkway at dusk, "
     "a dramatic suspension bridge structure on the left side, "
     "vast cloudy amber-orange and teal sky above, misty city skyline in the distance, "
-    "flat matte illustration, "
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, "
     "palette: warm amber, burnt orange, muted teal-grey — atmospheric",
 
     "A lone person sitting on a wooden chair placed in the middle of a vast open field, "
     "dramatic swirling sky with large cream and white expressive clouds above, "
     "figure tiny at the very bottom, sky painted in painterly swirling brushstrokes, "
-    "flat matte illustration, "
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, "
     "palette: muted teal sky, cream clouds, warm green field — introspective",
 
     "Overhead bird's-eye view looking straight down at a lone figure "
     "standing alone and still in the center of a large moving crowd of people, "
     "all other figures blurred with motion, one person isolated and stationary, "
-    "flat matte illustration, "
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, "
     "palette: dark warm brown, terracotta, muted orange — alone in a crowd",
 
     "A small figure standing at the edge of a misty coastal cliff path, "
     "facing a vast grey-teal ocean horizon under a heavy overcast sky, "
     "dark wild cliff grass in the foreground, soft diffuse atmospheric light, "
-    "flat matte illustration, "
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, "
     "palette: deep teal-grey ocean, dusty blue-grey sky, olive-green — vast and lonely",
 
     "A lone figure walking away on a quiet autumn street after rain, "
     "wet pavement reflecting amber street lamp light, colorful fallen leaves, "
     "bare trees lining the street, figure small and walking into the distance, "
-    "flat matte illustration, "
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, "
     "palette: warm amber, muted orange-red, dark grey — melancholy and beautiful",
 ]
 
@@ -152,24 +151,24 @@ _SCENE_POOL_PORTRAIT = [
     "eyes gently closed, face tilted slightly upward as if breathing deep, "
     "rain streaking softly down a large window behind her, blurred warm city lights outside, "
     "teal and warm beige-cream tones, soft diffuse light on face, teal jacket, "
-    "flat matte portrait illustration, intimate",
+    "painterly editorial portrait illustration with brush and ink texture, subtle film grain, intimate",
 
     "Close artistic illustration of a wise weathered face in profile, "
     "smooth simplified features, soft flat shading, "
     "dark teal-green background with copper and warm bronze skin tones, "
     "contemplative and sage-like, deeply textured, "
-    "flat matte portrait illustration",
+    "painterly editorial portrait illustration with brush and ink texture, subtle film grain",
 
     "Close portrait illustration of a young woman in three-quarter profile, "
     "eyes closed or gently downcast, lost in private thought, "
     "soft atmospheric background — muted teal or dusty rose wash, "
-    "flat matte illustration, "
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, "
     "intimate and emotionally weighted, beautiful face fully rendered",
 
     "Close-up illustration of a young man gazing out a rain-streaked window, "
     "his reflection softly visible in the glass, rain blurred beyond, "
     "soft muted teal and warm amber tones, face in three-quarter view, "
-    "flat matte illustration, quietly contemplative",
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, quietly contemplative",
 ]
 
 _SCENE_POOL_ENVIRONMENT = [
@@ -177,13 +176,13 @@ _SCENE_POOL_ENVIRONMENT = [
     "An empty winding forest path at golden hour or dusk, "
     "warm orange-amber light filtering through bare trees, "
     "puddles on the path reflecting the light, misty and atmospheric, "
-    "flat matte illustration, "
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, "
     "palette: deep forest green, warm amber, dark earthy shadows",
 
     "An empty moonlit coastal path at the edge of a vast dark sea, "
     "pale moonlight on the water, dark wild grass and cliffs, "
     "heavy overcast sky, atmospheric and lonely, "
-    "flat matte illustration, "
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, "
     "palette: deep navy, soft silver moonlight, dark teal — vast and still",
 ]
 
@@ -195,70 +194,68 @@ _SCENE_POOL = (
     _SCENE_POOL_ENVIRONMENT * 1    # Pure atmospheric establishing shots
 )
 
-# ── Art style for love scripts — same flat matte style, warmer accent
+# ── Art style for love scripts — same painterly-textured style, warmer accent
 _LOVE_STYLE_VARIANTS = [
     (
-        "Flat matte digital illustration — smooth gouache style, soft gradients, minimal detail, NO ink outlines. "
-        "Two small figures together in a vast atmospheric setting (beach, hillside, bridge), "
-        "lots of calm negative space around them. "
-        "Muted cool palette — navy, teal, dusk grey — warmed by ONE soft amber/orange glow (sunset, lamp). "
-        "Tender, quiet, cinematic, poster-like. NOT anime, NOT comic ink art, NOT photorealistic."
+        "Painterly editorial illustration — visible brushwork and ink lines, subtle film-grain texture, "
+        "hand-illustrated and premium. Two figures together in an atmospheric setting (beach, bridge, rainy street). "
+        "Muted desaturated palette (teal, slate, warm grey) with ONE bold warm accent colour (amber, deep rose). "
+        "Tender, moody, cinematic, textured. NOT flat vector, NOT photorealistic, NOT anime."
     ),
     (
-        "Minimalist matte-painting illustration — flat smooth colour fields, gentle light, simplified shapes. "
-        "Two figures close together, small against a large quiet environment (lakeside, rainy street, field). "
-        "Cool muted base (deep blue, teal, slate) with a single warm focal colour (amber, warm rose). "
-        "Emotionally still, premium, like a modern storybook matte painting. NOT anime, NOT photoreal."
+        "Moody painterly illustration — expressive brushstrokes, ink detail, grainy textured background. "
+        "Two figures close together in an emotional, atmospheric space. "
+        "Heavily muted base (grey-teal, charcoal, slate) broken by ONE striking warm accent (amber, crimson rose). "
+        "Premium editorial-illustration feel, hand-drawn and textured. NOT flat, NOT photoreal, NOT anime."
     ),
     (
-        "Flat 2D matte illustration — clean colour, soft atmospheric gradients, no linework. "
-        "Two small people sharing a tender moment in a vast simplified landscape, generous negative space. "
-        "Desaturated cool tones with ONE warm orange/gold accent on the couple or light source. "
-        "Quiet, cinematic, visually striking. NOT anime, NOT comic outlines, NOT photorealistic."
+        "Hand-illustrated editorial art — fine ink linework, painterly washes, film-grain texture. "
+        "Two people sharing a tender moment in an atmospheric scene. "
+        "Desaturated cinematic palette with ONE bold warm focal colour against muted surroundings. "
+        "Textured, emotional, premium graphic-novel-cover quality. NOT flat-matte, NOT photoreal, NOT anime."
     ),
 ]
 
-# ── FLAT MATTE STYLE (matches Typewriters-voice — the page pulling 8-23M views) ──
-# Key traits learned from their Reels (2026-06 visual audit):
-#   • FLAT matte digital painting / gouache — smooth color fields, soft gradients
-#   • NO ink outlines, NO sketchy comic lines, NO visible brush-texture clutter
-#   • A TINY lone figure (or small boat/umbrella) against a VAST minimalist scene
-#   • Huge calm negative space — sky/water/land fills most of the frame
-#   • Muted COOL base palette (deep navy, slate teal, dusky grey) + EXACTLY ONE
-#     warm accent colour (burnt orange / warm red / amber gold) on the focal
-#     figure or light source. That single pop of warmth is the signature.
-#   • Clean, poster-like, emotionally still — premium and scroll-stopping
+# ── WHISPRS PAINTERLY-TEXTURED STYLE (from direct audit of their actual MP4s, 2026-06) ──
+# Frames from 3 real Whisprs videos showed the TRUE style (NOT flat-matte —
+# that was Typewriters voice, a different page):
+#   • PAINTERLY editorial illustration — visible brushwork + ink linework
+#   • Subtle FILM-GRAIN / paper texture overlay on every frame (signature)
+#   • Muted desaturated palette + EXACTLY ONE bold saturated accent colour
+#     (e.g. a red parasol against grey; copper Rumi against teal; olive man
+#     against teal sky). That single bold colour is the focal pop.
+#   • A single emotional figure — small-in-landscape OR medium/close portrait
+#   • Moody, atmospheric, cinematic, hand-illustrated feel — premium, textured
+#   • NOT flat/smooth, NOT photoreal, NOT clean-vector — it has grit and brush
 _STYLE_VARIANTS = [
     (
-        "Flat matte digital illustration — smooth painterly gouache style, soft colour gradients, "
-        "minimal fine detail, NO ink outlines, NO sketchy lines, NO comic-book look. "
-        "A tiny lone figure placed small against a vast minimalist landscape with large amounts of "
-        "calm negative space (sky, sea, field, or hillside filling most of the frame). "
-        "Muted cool palette — deep navy, slate teal, dusky grey — with EXACTLY ONE warm accent "
-        "colour (burnt orange, warm red, or amber gold) on the figure or a single light source. "
-        "Clean, cinematic, poster-like, emotionally still. NOT anime, NOT photorealistic, NOT comic ink art."
+        "Painterly editorial illustration — visible brushwork and ink linework, with a subtle "
+        "film-grain and paper-texture overlay (hand-illustrated, grainy, premium). "
+        "A single emotional figure in an atmospheric scene. "
+        "Muted desaturated palette (teal, olive, slate, dusty grey) with EXACTLY ONE bold "
+        "saturated accent colour (deep red, burnt amber, or copper) as the focal pop. "
+        "Moody, cinematic, contemplative. NOT flat vector, NOT photorealistic, NOT anime."
     ),
     (
-        "Minimalist matte-painting illustration — flat smooth colour, gentle gradients, almost no texture. "
-        "Tiny solitary figure (or a small boat) dwarfed by an enormous quiet landscape; vast empty sky "
-        "or water dominates the composition. "
-        "Cool muted base — midnight navy, muted teal, soft slate — lit by ONE warm glow "
-        "(amber, ember-orange) marking the lone subject. "
-        "Serene, vast, lonely, premium. Like a modern storybook matte painting. NOT anime, NOT photoreal."
+        "Moody digital painting — expressive brushstrokes, ink detail, grungy textured background "
+        "with visible grain. A lone figure or silhouette, emotionally charged. "
+        "Heavily desaturated muted base (grey-green, dark teal, charcoal) broken by ONE striking "
+        "bold accent colour (crimson red, warm amber). "
+        "Atmospheric, painterly, premium editorial-illustration feel. NOT flat, NOT photoreal, NOT anime."
     ),
     (
-        "Flat 2D matte illustration — clean colour fields, soft atmospheric gradient skies, simplified shapes. "
-        "Composition: a very small figure low in the frame against a towering minimalist environment "
-        "(cliff, ocean, valley, night sky). Lots of breathing space. "
-        "Palette: desaturated cool tones (deep blue, teal, grey) with a single warm orange/gold accent. "
-        "Quiet, cinematic, emotionally heavy, poster-like. NOT anime, NOT comic outlines, NOT photorealistic."
+        "Hand-illustrated editorial art — fine ink linework and painterly washes, rich texture and "
+        "subtle film grain, like a premium graphic-novel cover. "
+        "A single contemplative figure (lone in a landscape, or a close emotive portrait). "
+        "Muted cinematic palette with ONE bold saturated focal colour against desaturated surroundings. "
+        "Deeply atmospheric, textured, emotional. NOT flat-matte, NOT photorealistic, NOT anime."
     ),
     (
-        "Matte gouache-style digital painting — smooth flat shading, soft light, minimal detail, no linework. "
-        "A lone tiny figure against a vast simplified landscape, immense calm negative space around them. "
-        "Muted cool colour scheme (navy, slate teal, dusk grey) with ONE warm focal colour "
-        "(burnt orange / warm amber) drawing the eye to the figure or light. "
-        "Still, atmospheric, premium, scroll-stopping. NOT anime, NOT manga, NOT photorealistic."
+        "Textured painterly illustration — brush and ink, grain overlay, moody hand-drawn quality. "
+        "A solitary figure against an atmospheric muted environment. "
+        "Desaturated palette (teal, slate, olive, warm grey) with EXACTLY ONE bold accent colour "
+        "(red, amber, or copper) drawing the eye. "
+        "Cinematic, emotional, premium illustrated look. NOT flat vector art, NOT photoreal, NOT anime."
     ),
 ]
 
@@ -267,52 +264,52 @@ _CHOSEN_STYLE = random.choice(_STYLE_VARIANTS)
 # Shuffle scenes once per run for fresh panel order every video
 _SHUFFLED_SCENES = random.sample(_SCENE_POOL, len(_SCENE_POOL))
 
-# Love-specific scene pool — wide flat matte scenes for love/relationship topics
+# Love-specific scene pool — wide painterly-textured scenes for love/relationship topics
 _LOVE_SCENE_POOL = [
     "Two small figures walking side by side on a vast empty beach at dusk, "
     "huge amber and teal sky above, gentle waves, viewed from far behind, "
-    "flat matte illustration, palette: warm amber, dusty teal, golden hour",
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, palette: warm amber, dusty teal, golden hour",
 
     "Two silhouettes standing close together on a quiet bridge at twilight, "
     "city lights reflected in the water below, atmospheric muted sky, "
-    "flat matte illustration, palette: deep navy, soft amber reflections, muted teal",
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, palette: deep navy, soft amber reflections, muted teal",
 
     "Two people sitting together on a park bench, one resting head on the other's shoulder, "
     "vast autumn sky behind them, colorful fallen leaves, viewed from the side, "
-    "flat matte illustration, palette: warm amber, dusty rose, muted green",
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, palette: warm amber, dusty rose, muted green",
 
     "A close portrait of two faces almost touching, foreheads gently resting together, "
     "soft warm light, muted atmospheric background, tender and still, "
-    "flat matte illustration, palette: warm amber, dusty rose, soft cream",
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, palette: warm amber, dusty rose, soft cream",
 
     "Two small figures lying in a vast field of grass looking up at enormous clouds, "
     "dramatic expressive sky, tiny against the landscape, "
-    "flat matte illustration, palette: teal sky, cream clouds, green field",
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, palette: teal sky, cream clouds, green field",
 
     "Two people standing apart on a wide empty street in rain, "
     "one reaching toward the other, wet amber reflections, moody atmosphere, "
-    "flat matte illustration, palette: deep navy, amber, muted grey",
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, palette: deep navy, amber, muted grey",
 
     "A close illustration of two hands intertwined, soft warm light, "
     "blurred atmospheric background suggesting outdoors or soft interior, "
-    "flat matte portrait illustration, warm palette",
+    "painterly editorial portrait illustration with brush and ink texture, subtle film grain, warm palette",
 
     "Two silhouettes close together under a streetlamp in falling snow or rain, "
     "the light making a warm halo around them, dark street background, "
-    "flat matte illustration, palette: deep navy, warm amber lamp, soft white",
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, palette: deep navy, warm amber lamp, soft white",
 
     "A couple viewed from behind standing at the edge of a vast misty lake, "
     "the water stretching to the horizon, atmospheric and quiet, "
-    "flat matte illustration, palette: deep teal, soft mist, warm gold",
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, palette: deep teal, soft mist, warm gold",
 
     "Two people at a cafe or by a window, one looking at the other who looks away, "
     "rain outside the window blurred, warm interior light, intimate quiet moment, "
-    "flat matte illustration, warm muted palette",
+    "painterly editorial illustration with visible brushwork and ink lines, subtle film-grain texture, warm muted palette",
 ]
 
 
 def generate_image_prompt(topic, visual_keywords, panel_num, style="emotional"):
-    """Create Whisprs-matched scene prompts — flat matte minimalist illustration style.
+    """Create Whisprs-matched scene prompts — painterly textured illustration style.
     Wide atmospheric shots with tiny lone figure against vast environment.
     Love style uses wide romantic couple scenes; others use solo atmospheric scenes."""
     keywords_str = ", ".join(visual_keywords)
@@ -330,10 +327,10 @@ def generate_image_prompt(topic, visual_keywords, panel_num, style="emotional"):
         f"Scene: {scene}. "
         f"Emotional theme: {topic}. Mood keywords: {keywords_str}. "
         f"Portrait orientation (tall, 9:16). "
-        f"FLAT MATTE digital illustration — smooth painterly gouache, soft gradients, simplified shapes, "
-        f"NO ink outlines, NO sketchy lines, NO comic-book look. Tiny lone subject, vast minimalist scene, "
-        f"large calm negative space. Muted COOL palette with EXACTLY ONE warm accent colour. "
-        f"NOT anime, NOT manga, NOT photorealistic, NOT comic ink art. "
+        f"PAINTERLY editorial illustration — visible brushwork and ink lines, subtle film-grain texture, "
+        f"hand-illustrated and premium. Single emotional figure, atmospheric scene. Muted desaturated "
+        f"palette with EXACTLY ONE bold saturated accent colour (red, amber, or copper) as the focal pop. "
+        f"NOT flat vector, NOT photorealistic, NOT anime, NOT 3D render. "
         f"No text, no watermarks, no words, no letters, no UI elements in the image."
     )
 
@@ -535,7 +532,7 @@ def generate_with_pollinations(prompt, output_path):
     Quality tuning (2026-06):
       - Native 768x1366 (was 576x1024) → sharper source before the 1080x1920
         upscale. FLUX handles higher res well.
-      - Prompt kept to 950 chars (was 500) so the trailing 'FLAT MATTE / NOT
+      - Prompt kept to 950 chars (was 500) so the trailing 'painterly / NOT
         anime / no text' instructions survive — truncating at 500 cut them off,
         which is partly why earlier output drifted off-style.
     """
