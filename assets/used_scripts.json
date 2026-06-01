@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Voice in Your Head That Says You Are Not Enough",
-    "style": "emotional",
-    "script": "You're the ghostwriter of your own life.\nNobody asks to read the drafts.\nThey only see the final version.\nBut the drafts are where the truth is.\nYou're exhausted from editing yourself.\nSave this for the days you need to remember your own story.",
-    "hash": "f5690c6b29ca8f38814d856098fe1519",
-    "metaphors": [],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "You Make the Hard Days Easier",
     "style": "love",
     "script": "do you ever notice\u2026\nthe way my fingers\nfind their way to yours\nin crowded spaces\nit's like my hand\nhas a memory of its own\nof the way you fit\nyou make the hard days easier\nTag the person who feels like a gentle refuge",
@@ -685,6 +675,19 @@
       "loneliness",
       "heartbreak",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The Quiet Revolution of Self-Respect",
+    "style": "love",
+    "script": "You're sitting in the stillness. \nSlowly unwinding threads of self-doubt, \nGentle. \nAnd finding your voice \nBecomes the Catalyst \nFor a quiet revolution, \nSoftly it begins \nTo reshape your world \nIn the gentle curves of self-respect, \nAnd slowly you start \nTo see yourself, \nSend this to Quietlyy.",
+    "hash": "515a2d573501c46dc4c1a23200a95f9a",
+    "metaphors": [
+      "star",
+      "wind"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
