@@ -1,17 +1,5 @@
 [
   {
-    "topic": "When Love Feels Like Coming Home",
-    "style": "love",
-    "script": "Home feels incomplete\nand somehow full\nSlowly I realize\nGently I remember\nPlaces we've been\nand streets we've walked\nEvery house a memory\nFills the empty spaces\nNew rooms to discover\nSlowly becoming ours\nIn every corner\nI find my way\nback to you\nlet them know",
-    "hash": "d4344fc875fa57c629d743dac8aaa6c7",
-    "metaphors": [
-      "tree"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "What Silence Teaches Us",
     "style": "wisdom",
     "script": "Lao Tzu said\nin the stillness\nyou find the\nanswers you seek\nin the emptiness\nI find my thoughts\nracing to fill\nthe empty spaces\nbut what if I\njust let it be\nempty and still\nmy mind starts to\nunravel slowly",
@@ -694,6 +682,18 @@
     "metaphors": [
       "light",
       "shadow"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "What I Never Said Out Loud",
+    "style": "poetic",
+    "script": "I'm a keeper of secrets. \nSome people think I'm transparent, \nbut hidden truths accumulate \njust beneath the surface, \nand the weight is crushing \nThe hands that hold my thoughts \nare trembling, \nand the words I never spoke \nare echoing, \nSome days I feel like I'm drowning \nin unspoken emotions, \nand the pressure is building.",
+    "hash": "b7b5e7607f54cb8347599d7f3752920b",
+    "metaphors": [
+      "echo"
     ],
     "themes": [
       "silence"
