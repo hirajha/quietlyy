@@ -209,6 +209,94 @@ def _chars_to_word_timings(chars, starts, ends):
     return [{"word": w, "start_s": s, "end_s": e} for w, s, e in words]
 
 
+def _chars_to_word_timings_with_lines(chars, starts, ends):
+    """Convert char-level alignment → word timings, tracking which LINE each
+    word belongs to (lines separated by '\\n' in the text we sent).
+
+    Returns list of {word, start_s, end_s, line}.
+    This is the core of the whole-script-in-one-call approach: ElevenLabs reads
+    the entire poem with natural flowing prosody + breathing, and we recover
+    per-word AND per-line timing from the single alignment response.
+    """
+    words = []
+    cur, cs, ce = [], [], []
+    line_idx = 0
+
+    def _flush():
+        nonlocal cur, cs, ce
+        if cur:
+            words.append({
+                "word": "".join(cur),
+                "start_s": cs[0],
+                "end_s": ce[-1],
+                "line": line_idx,
+            })
+            cur, cs, ce = [], [], []
+
+    for ch, s, e in zip(chars, starts, ends):
+        if ch == "\n":
+            _flush()
+            line_idx += 1
+        elif ch.isspace():
+            _flush()
+        else:
+            cur.append(ch); cs.append(s); ce.append(e)
+    _flush()
+    return words
+
+
+def _record_full_elevenlabs(full_text, output_path):
+    """Record the ENTIRE script in ONE ElevenLabs call (with timestamps).
+
+    This is THE fix for the 'robotic, doesn't breathe' problem: instead of
+    recording each fragment in isolation and stitching with silence, we send
+    the whole poem (newline-separated) so ElevenLabs reads it with natural
+    connected prosody and breathing between lines.
+
+    Returns (word_timings_with_lines, ok). word_timings each carry a 'line'
+    index so the caller can derive per-line + per-word timing. Returns
+    (None, False) if the timestamped call fails (caller falls back).
+    """
+    import base64
+    voice_settings = {
+        "stability": 0.32,
+        "similarity_boost": 0.85,
+        "style": 0.60,
+        "use_speaker_boost": True,
+        "speed": 0.90,
+    }
+    body = {
+        "text": full_text,
+        "model_id": ELEVENLABS_MODEL,
+        "voice_settings": voice_settings,
+    }
+    ts_url = f"https://api.elevenlabs.io/v1/text-to-speech/{ELEVENLABS_VOICE_ID}/with-timestamps"
+    headers = {"xi-api-key": ELEVENLABS_API_KEY, "Content-Type": "application/json"}
+    try:
+        resp = requests.post(ts_url, json=body, headers=headers, timeout=90)
+        if resp.status_code != 200:
+            print(f"[audio] full-script with-timestamps failed {resp.status_code}: {resp.text[:200]}")
+            return None, False
+        data = resp.json()
+        audio_bytes = base64.b64decode(data["audio_base64"])
+        with open(output_path, "wb") as f:
+            f.write(audio_bytes)
+        alignment = data.get("alignment", {})
+        chars = alignment.get("characters", [])
+        starts = alignment.get("character_start_times_seconds", [])
+        ends = alignment.get("character_end_times_seconds", [])
+        if not (chars and starts and ends):
+            print("[audio] full-script: no alignment data returned")
+            return None, False
+        word_timings = _chars_to_word_timings_with_lines(chars, starts, ends)
+        if os.path.getsize(output_path) < 500:
+            return None, False
+        return word_timings, True
+    except Exception as e:
+        print(f"[audio] full-script recording error: {e}")
+        return None, False
+
+
 def _get_duration_ms(filepath):
     """Get audio duration in milliseconds."""
     result = subprocess.run(
@@ -259,15 +347,16 @@ def _join_lines_with_silence(line_files, audio_path, gaps_seconds=None):
 
 
 def generate_audio(script_text):
-    """Record each line separately, join with real silence.
-    ElevenLabs ONLY. Raises error on failure."""
+    """Generate the voiceover. PRIMARY path records the WHOLE script in one
+    ElevenLabs call (natural flowing prosody + breathing); FALLBACK is the old
+    line-by-line stitch if the single timestamped call fails.
+    ElevenLabs ONLY. Raises error on total failure."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     audio_path = os.path.join(OUTPUT_DIR, "voiceover.mp3")
     subtitle_path = os.path.join(OUTPUT_DIR, "subtitles.json")
+    line_timings_path = os.path.join(OUTPUT_DIR, "line_timings.json")
 
     all_lines = [line.strip() for line in script_text.split("\n") if line.strip()]
-
-    # Filter out CTA lines — they appear as baked text overlay, not narrated by voice
     lines = [l for l in all_lines if not _is_cta_line(l)]
     skipped = len(all_lines) - len(lines)
     if skipped:
@@ -277,76 +366,90 @@ def generate_audio(script_text):
         raise RuntimeError("ELEVENLABS_API_KEY is not set. Cannot generate audio.")
 
     print(f"[audio] Using ElevenLabs (voice: {ELEVENLABS_VOICE_ID})")
-    line_files = []
-    cumulative_ms = 0
-    timing_data = []
 
-    all_word_timings = []  # per-line word timing lists (None if unavailable)
+    # ── PRIMARY: whole script in ONE call (natural breathing) ────────────────
+    full_text = "\n".join(_clean_text(l) for l in lines)
+    word_timings, ok = _record_full_elevenlabs(full_text, audio_path)
 
-    # Compute per-line gap durations from punctuation (Whisprs rhythm)
-    # gaps_seconds[i] is the silence AFTER lines[i] before lines[i+1]
-    gaps_seconds = []
-    for i, line in enumerate(lines[:-1]):
-        gaps_seconds.append(_gap_for_line(line))
+    if ok and word_timings:
+        # Per-word subtitle data (absolute timing from the single recording)
+        sub_data = [{
+            "text": wt["word"],
+            "offset_ms": wt["start_s"] * 1000,
+            "duration_ms": (wt["end_s"] - wt["start_s"]) * 1000,
+        } for wt in word_timings]
 
-    for i, line in enumerate(lines):
-        line_path = os.path.join(OUTPUT_DIR, f"_line_{i}.mp3")
-        word_timings = _record_line_elevenlabs(line, line_path)
-        line_files.append(line_path)
-        all_word_timings.append(word_timings)
-
-        line_dur = _get_duration_ms(line_path)
-        timing_data.append({
-            "line": i,
-            "start_ms": cumulative_ms,
-            "duration_ms": line_dur,
-        })
-        # Use variable gap based on punctuation (no gap after the last line)
-        gap_after = gaps_seconds[i] if i < len(gaps_seconds) else 0
-        cumulative_ms += line_dur + (gap_after * 1000)
-        src = "ElevenLabs timestamps" if word_timings else "estimated"
-        gap_label = f", pause: {gap_after:.1f}s" if i < len(gaps_seconds) else ", final"
-        print(f"[audio]   Line {i+1}/{len(lines)}: {line_dur/1000:.1f}s ({src}{gap_label})")
-
-    # Build subtitle data — use real timestamps when available, fall back to estimate
-    sub_data = []
-    for td, word_timings in zip(timing_data, all_word_timings):
-        line_start_ms = td["start_ms"]
-        if word_timings:
-            # Real per-word timing from ElevenLabs character alignment
-            for wt in word_timings:
-                sub_data.append({
-                    "text": wt["word"],
-                    "offset_ms": line_start_ms + wt["start_s"] * 1000,
-                    "duration_ms": (wt["end_s"] - wt["start_s"]) * 1000,
+        # Per-line timing: first word start → last word end of each line index
+        line_starts, line_ends = {}, {}
+        for wt in word_timings:
+            li = wt["line"]
+            line_starts.setdefault(li, wt["start_s"])
+            line_ends[li] = wt["end_s"]
+        n_lines = max(line_ends.keys()) + 1 if line_ends else 0
+        line_timings = []
+        for i in range(n_lines):
+            if i in line_starts:
+                line_timings.append({
+                    "line": i,
+                    "start_ms": line_starts[i] * 1000,
+                    "end_ms": line_ends[i] * 1000,
                 })
-        else:
-            # Fallback: divide line duration evenly across words
-            words = lines[td["line"]].split()
-            word_dur = td["duration_ms"] / max(len(words), 1)
-            for wi, word in enumerate(words):
-                sub_data.append({
-                    "text": word,
-                    "offset_ms": line_start_ms + wi * word_dur,
-                    "duration_ms": word_dur,
-                })
+        with open(line_timings_path, "w") as f:
+            json.dump(line_timings, f, indent=2)
 
-    print("[audio] ElevenLabs: success")
+        total_dur = _get_duration_ms(audio_path) / 1000
+        print(f"[audio] ✅ Whole-script single-call recording — {len(lines)} lines, "
+              f"{len(word_timings)} words, {total_dur:.1f}s (natural flow + breathing)")
+    else:
+        # ── FALLBACK: old line-by-line stitch with variable silence gaps ─────
+        print("[audio] ⚠️  Single-call failed — falling back to line-by-line stitch")
+        line_files = []
+        cumulative_ms = 0
+        timing_data = []
+        all_word_timings = []
+        gaps_seconds = [_gap_for_line(l) for l in lines[:-1]]
 
-    # Join all lines with VARIABLE silence gaps (punctuation-aware)
-    _join_lines_with_silence(line_files, audio_path, gaps_seconds=gaps_seconds)
+        for i, line in enumerate(lines):
+            line_path = os.path.join(OUTPUT_DIR, f"_line_{i}.mp3")
+            wt = _record_line_elevenlabs(line, line_path)
+            line_files.append(line_path)
+            all_word_timings.append(wt)
+            line_dur = _get_duration_ms(line_path)
+            timing_data.append({"line": i, "start_ms": cumulative_ms, "duration_ms": line_dur})
+            gap_after = gaps_seconds[i] if i < len(gaps_seconds) else 0
+            cumulative_ms += line_dur + (gap_after * 1000)
 
-    # Save subtitles
+        sub_data = []
+        line_timings = []
+        for td, wts in zip(timing_data, all_word_timings):
+            ls = td["start_ms"]
+            line_timings.append({"line": td["line"], "start_ms": ls,
+                                 "end_ms": ls + td["duration_ms"]})
+            if wts:
+                for wt in wts:
+                    sub_data.append({"text": wt["word"],
+                                     "offset_ms": ls + wt["start_s"] * 1000,
+                                     "duration_ms": (wt["end_s"] - wt["start_s"]) * 1000})
+            else:
+                words = lines[td["line"]].split()
+                wd = td["duration_ms"] / max(len(words), 1)
+                for wi, word in enumerate(words):
+                    sub_data.append({"text": word, "offset_ms": ls + wi * wd, "duration_ms": wd})
+
+        _join_lines_with_silence(line_files, audio_path, gaps_seconds=gaps_seconds)
+        with open(line_timings_path, "w") as f:
+            json.dump(line_timings, f, indent=2)
+        total_dur = _get_duration_ms(audio_path) / 1000
+        print(f"[audio] Done (fallback): {len(lines)} lines, {total_dur:.1f}s total")
+
     with open(subtitle_path, "w") as f:
         json.dump(sub_data, f, indent=2)
-
-    total_dur = _get_duration_ms(audio_path) / 1000
-    print(f"[audio] Done: {len(lines)} lines, {total_dur:.1f}s total")
 
     return {
         "audio_path": audio_path,
         "subtitle_path": subtitle_path,
         "subtitles": sub_data,
+        "line_timings_path": line_timings_path,
     }
 
 

@@ -476,7 +476,15 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     duration = get_audio_duration(audio_path)
-    lines = [l.strip() for l in script_data["script"].split("\n") if l.strip()]
+    # Use the SAME narrated-line set as generate_audio (CTA lines are not
+    # narrated, so they have no timing and must not be grouped into panels).
+    try:
+        from generate_audio import _is_cta_line as _is_cta
+    except Exception:
+        def _is_cta(_t):
+            return False
+    all_script_lines = [l.strip() for l in script_data["script"].split("\n") if l.strip()]
+    lines = [l for l in all_script_lines if not _is_cta(l)]
     num_panels = len(image_paths)
     num_lines = len(lines)
 
@@ -488,48 +496,50 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         gi += 2
     num_groups = len(line_groups)
 
-    XFADE = 0.6    # crossfade between panels — defined early for drift compensation
-    TAIL_PAD = 4.0 # tail silence after last word
+    XFADE = 0.6    # crossfade between panels
+    TAIL_PAD = 4.0 # tail after last word
 
-    # Per-line gap MUST match generate_audio.py exactly. generate_audio uses
-    # VARIABLE punctuation-aware gaps (period=1.8s, comma=0.6s, neutral=1.0s),
-    # NOT a fixed gap. Using a fixed 1.5s here made the video ~8s longer than
-    # the audio (sync bug caught in audit 2026-06). Import the same function.
-    try:
-        from generate_audio import _gap_for_line
-    except Exception:
-        def _gap_for_line(_t):
-            return 1.0  # safe fallback if import fails
+    # ── Panel timing from REAL per-line timing (line_timings.json) ────────────
+    # generate_audio now records the whole script in one call and writes the
+    # actual start/end time of each narrated line. We time the panels to those
+    # real boundaries so images change exactly in sync with the narration.
+    line_timings = None
+    lt_path = os.path.join(OUTPUT_DIR, "line_timings.json")
+    if os.path.exists(lt_path):
+        try:
+            with open(lt_path) as f:
+                line_timings = json.load(f)
+        except Exception:
+            line_timings = None
 
-    # gap AFTER each line: variable per punctuation, EXCEPT the last line = 0
-    # (matches generate_audio: last line gets no trailing gap, tail handled separately)
-    per_line_gap = [_gap_for_line(lines[i]) if i < num_lines - 1 else 0.0
-                    for i in range(num_lines)]
-
-    # Build per-group durations from per-line audio files
-    line_durations = []
-    for i in range(num_lines):
-        line_path = os.path.join(OUTPUT_DIR, f"_line_{i}.mp3")
-        if os.path.exists(line_path):
-            line_durations.append(get_audio_duration(line_path))
-
-    if len(line_durations) == num_lines:
+    seg_durations = None
+    if line_timings and len(line_timings) == num_lines:
+        starts = [lt["start_ms"] / 1000.0 for lt in line_timings]
+        ends = [lt["end_ms"] / 1000.0 for lt in line_timings]
+        speech_end = ends[-1]
         seg_durations = []
         li = 0
         for g_i, group in enumerate(line_groups):
             is_last = g_i == num_groups - 1
-            # Each line contributes its audio length + its OWN variable gap
-            group_dur = sum(line_durations[li + j] + per_line_gap[li + j]
-                            for j in range(len(group)))
+            g_first = li
+            g_start = starts[g_first]
             if is_last:
-                group_dur += TAIL_PAD  # last line's gap is already 0; add tail
+                g_end = speech_end + TAIL_PAD
             else:
-                group_dur += XFADE  # compensate xfade overlap so images don't drift ahead
-            seg_durations.append(group_dur)
+                # group ends when the NEXT group's first line begins
+                g_end = starts[li + len(group)]
+            seg = g_end - g_start
+            if not is_last:
+                seg += XFADE  # compensate xfade overlap so images don't drift
+            seg_durations.append(max(seg, 1.0))
             li += len(group)
-        print(f"[video] Per-group durations ({num_groups}): {[f'{d:.1f}s' for d in seg_durations]}")
-    else:
-        per_seg = duration / num_groups
+        print(f"[video] Panel timing from line_timings.json ({num_groups} panels): "
+              f"{[f'{d:.1f}s' for d in seg_durations]}")
+
+    if seg_durations is None:
+        # Fallback: even split across audio duration
+        print("[video] line_timings unavailable/mismatched — even-splitting panels")
+        per_seg = duration / max(num_groups, 1)
         seg_durations = [per_seg] * num_groups
         seg_durations[-1] = per_seg + TAIL_PAD
 
