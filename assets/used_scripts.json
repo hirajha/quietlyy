@@ -1,19 +1,5 @@
 [
   {
-    "topic": "Losing a Parent",
-    "style": "emotional",
-    "script": "There's a grief that has no name\nbut echoes in empty rooms\nand haunts my every step\nslowly becoming my shadow\nnot just a memory\nbut a living ache\nSome days it's hard to breathe\nThe weight of their absence\nis a physical thing\nit presses upon my chest\nand makes my heart heavy\nI won't forget their touch\nsend this to them",
-    "hash": "acbe6da8e37a710fe25fe5c0e0037f38",
-    "metaphors": [
-      "echo",
-      "shadow"
-    ],
-    "themes": [
-      "grief_loss",
-      "love"
-    ]
-  },
-  {
     "topic": "When Love Feels Like Coming Home",
     "style": "love",
     "script": "Home feels incomplete\nand somehow full\nSlowly I realize\nGently I remember\nPlaces we've been\nand streets we've walked\nEvery house a memory\nFills the empty spaces\nNew rooms to discover\nSlowly becoming ours\nIn every corner\nI find my way\nback to you\nlet them know",
@@ -695,6 +681,19 @@
     "hash": "51e89e180b29857ff13c0e92445cfa84",
     "metaphors": [
       "noise"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "What Truly Matters in the End",
+    "style": "love",
+    "script": "There's a kind of tired, \nslowly unfolding \nIN THE DEPTHS of our choices, \nand the weight of what we let go, \nsome things \nSLIP THROUGH THE CRACKS \nof our memory, \nbut the ones that TRULY MATTER \nlinger in the shadows, \nand the light we shine on them, \ndefines the beauty \nof our existence, \nsend this to Quietlyy.",
+    "hash": "ee7d7fd09c45fc5b6e29ba7877d96474",
+    "metaphors": [
+      "light",
+      "shadow"
     ],
     "themes": [
       "silence"

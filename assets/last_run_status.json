@@ -13,46 +13,10 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When Someone Chooses You Every Day"
+    "detail": "What Truly Matters in the End"
   },
   "audio": {
-    "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3"
-  },
-  "images": {
-    "result": "ok",
-    "detail": "7 panels"
-  },
-  "music": {
-    "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [cc0_library]"
-  },
-  "video": {
-    "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/quietlyy_video.mp4"
-  },
-  "quality_gate": {
-    "result": "ok",
-    "detail": ""
-  },
-  "copyright": {
-    "result": "ok",
-    "detail": ""
-  },
-  "seo": {
-    "result": "ok",
-    "detail": ""
-  },
-  "facebook": {
-    "result": "skipped",
-    "detail": ""
-  },
-  "instagram": {
-    "result": "skipped",
-    "detail": ""
-  },
-  "youtube": {
-    "result": "skipped",
-    "detail": ""
+    "result": "fail",
+    "detail": "name 'LINE_BREAK_SEC' is not defined"
   }
 }
