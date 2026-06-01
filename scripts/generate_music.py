@@ -1315,28 +1315,29 @@ def generate_music(topic, script_text="", style="emotional"):
         _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
         return music_path, "elevenlabs_music"
 
-    # ── Quaternary: Reuse from music gallery ──
-    # Plays back a previously generated Lyria/ElevenLabs track. Anti-repetition:
-    # skips last 20 used; wraps around after that.
-    if _pick_from_music_gallery(script_mood, music_path):
-        return music_path, "gallery_reuse"
-
-    # ── Quinary: HF Spaces — currently 401 (ZeroGPU requires HF Pro) ──
-    if _generate_musicgen(script_mood, music_path, duration=30):
-        print(f"[music] HF Space generated unique AI track")
-        return music_path, "musicgen_hf_space"
-    print("[music] All AI generators failed — falling back to CC0 library")
-
-    # NOTE: Pixabay Music API was removed by Pixabay — /api/music/ returns 404.
-    # Both query-based AND mood/genre searches will fail. We keep the code below
-    # only to log a clear deprecation message, but skip the actual call.
-    # (Pixabay still has images/videos APIs; only music was deprecated.)
-
-    # ── Secondary: CC0 library — Kevin MacLeod, no API needed, reliable ──
+    # ── Quaternary: CC0 Kevin MacLeod — GUARANTEED soft sad piano, on-mood ──
+    # MOVED ABOVE gallery reuse (2026-06): the gallery had polluted Sonauto
+    # tracks (some upbeat/dance, wrong mood) that surfaced as background music
+    # totally opposite to the emotional script. CC0 Kevin MacLeod tracks are a
+    # hand-curated, verified-sad piano set — when fresh AI gen is unavailable
+    # (Sonauto out of credits, Lyria paid, ElevenLabs 401), this guarantees
+    # on-brand melancholic piano instead of a random gallery track.
     if _download_cc0_track(script_mood, music_path):
         print(f"[music] CC0 library track used (Kevin MacLeod, mood: {script_mood})")
         return music_path, "cc0_library"
-    print("[music] CC0 download failed — trying Freesound")
+    print("[music] CC0 download failed — trying music gallery")
+
+    # ── Quinary: Reuse from music gallery (only if CC0 download fails) ──
+    # Last-resort reuse of past AI tracks. Demoted below CC0 because gallery
+    # mood can't be verified (see above).
+    if _pick_from_music_gallery(script_mood, music_path):
+        return music_path, "gallery_reuse"
+
+    # ── HF Spaces — currently 401 (ZeroGPU requires HF Pro) ──
+    if _generate_musicgen(script_mood, music_path, duration=30):
+        print(f"[music] HF Space generated unique AI track")
+        return music_path, "musicgen_hf_space"
+    print("[music] All AI + CC0 + gallery failed — trying Freesound")
 
     # ── Tertiary: Freesound — mood-locked CC0 queries ──
     if FREESOUND_API_KEY:

@@ -210,14 +210,14 @@ def _generate_ass_subtitles(subtitles, lines, output_path):
         "OutlineColour, BackColour, Bold, Italic, Underline, Strikeout, "
         "ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, "
         "Alignment, MarginL, MarginR, MarginV, Encoding\n"
-        f"Style: Default,{font_name},62,"
+        f"Style: Default,{font_name},84,"  # 84 (was 62 — user: text too small to read)
         "&H00FFFFFF,"   # Primary: pure white (Whisprs style)
         "&H00FFFFFF,"   # Secondary: white
         "&H00000000,"   # Outline: black
         "&H60000000,"   # Back: subtle semi-transparent black
         "0,0,0,0,"      # Bold=no, Italic=no (Kalam has its own natural style)
         "100,100,1,0,"  # ScaleX/Y, Spacing=1, Angle
-        "1,2,1,"        # BorderStyle=1, Outline=2px (thin, Whisprs-like), Shadow=1px
+        "1,3,2,"        # BorderStyle=1, Outline=3px (thicker for the bigger font), Shadow=2px
         "8,"            # Alignment=8 (top center, overridden per-event by \an8\pos)
         "60,60,200,1\n" # MarginL/R/V, Encoding
         "\n"
@@ -271,49 +271,34 @@ def _draw_cta_overlay(img, cta_line=None):
     overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
 
-    # ── CTA card — amber/gold highlighted pill ──────────────────────────────
+    # ── CTA text — CLEAN white text, NO box (Whisprs style) ──────────────────
+    # Replaced the amber pill (2026-06): the box was clipping/hiding its own
+    # text and looked off-brand vs Whisprs' clean overlays. Now the CTA renders
+    # as large white text with a heavy dark outline — readable on any image,
+    # no box to hide it.
     if cta_line:
-        # Strip emoji from CTA for cleaner baked text rendering
         import re
         clean_cta = re.sub(r'[^\x00-\x7F❤️💾📩🤍]', '', cta_line).strip()
         if not clean_cta:
             clean_cta = cta_line
 
-        cta_font = get_font(40)
-        # Wrap to fit within card width
-        wrapped = _textwrap.wrap(clean_cta, width=26) or [clean_cta]
+        cta_font = get_font(58)  # large + readable
+        wrapped = _textwrap.wrap(clean_cta, width=22) or [clean_cta]
+        line_h = 74
+        block_h = len(wrapped) * line_h
+        # Position in the lower third, comfortably above the follow line
+        start_y = HEIGHT - block_h - 340
 
-        line_h = 52
-        PAD_X, PAD_Y = 48, 28
-        card_w = WIDTH - 120
-        card_h = len(wrapped) * line_h + PAD_Y * 2
-        card_x = 60
-        # Position: lower-center of panel, above follow button
-        card_y = HEIGHT - card_h - 320
-
-        # Draw card: deep warm amber with semi-transparent black shadow
-        shadow = Image.new("RGBA", (card_w + 8, card_h + 8), (0, 0, 0, 80))
-        overlay.paste(shadow, (card_x + 4, card_y + 4), shadow)
-
-        card = Image.new("RGBA", (card_w, card_h), (0, 0, 0, 0))
-        card_draw = ImageDraw.Draw(card)
-        # Warm amber gradient effect: solid amber background
-        card_draw.rounded_rectangle([0, 0, card_w - 1, card_h - 1], radius=20,
-                                    fill=(220, 150, 30, 235))
-        # Subtle inner highlight at top
-        card_draw.rounded_rectangle([0, 0, card_w - 1, card_h // 2], radius=20,
-                                    fill=(240, 175, 50, 40))
-        overlay.paste(card, (card_x, card_y), card)
-
-        # Draw wrapped CTA text (white, bold appearance via outline)
         for li, wline in enumerate(wrapped):
             bbox = draw.textbbox((0, 0), wline, font=cta_font)
             tw = bbox[2] - bbox[0]
-            tx = card_x + (card_w - tw) // 2
-            ty = card_y + PAD_Y + li * line_h - bbox[1]
-            # Soft shadow
-            draw.text((tx + 2, ty + 2), wline, font=cta_font, fill=(0, 0, 0, 100))
-            # Main white text
+            tx = (WIDTH - tw) // 2
+            ty = start_y + li * line_h - bbox[1]
+            # Heavy black outline so white text reads on any background
+            for ox in range(-3, 4):
+                for oy in range(-3, 4):
+                    if ox * ox + oy * oy <= 9:
+                        draw.text((tx + ox, ty + oy), wline, font=cta_font, fill=(0, 0, 0, 230))
             draw.text((tx, ty), wline, font=cta_font, fill=(255, 255, 255, 255))
 
     # ── Brand follow line at very bottom ────────────────────────────────────
@@ -752,10 +737,12 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             # the full video — music fills the silent tail instead of cutting out.
             # (Audit 2026-06: amix duration=first was ending audio ~8s early.)
             f"[1:a]adelay={HOOK_DURATION_MS}|{HOOK_DURATION_MS},loudnorm=I=-12:LRA=5:TP=-1,apad=whole_dur={actual_video_len:.3f},asplit=2[voice_out][voice_sc];"
-            # Music: -21 LUFS base, fade in at start, fade out over the LAST 4s
-            # of the ACTUAL rendered video length (post-xfade), so audio length
-            # exactly equals video length — no overrun, no silent tail.
-            f"[2:a]loudnorm=I=-21:LRA=7:TP=-2,"
+            # Music: -19 LUFS base (was -21 — user: music too light/quiet). With
+            # the gentle ratio-3 duck and final -14.5 normalize, -19 makes the
+            # music clearly present under the voice without overpowering it.
+            # Fade in at start, fade out over the LAST 4s of the ACTUAL rendered
+            # video length (post-xfade) so audio length exactly equals video.
+            f"[2:a]loudnorm=I=-19:LRA=7:TP=-2,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, actual_video_len - 4):.2f}:d=4[music_norm];"
             # Sidechain duck — VERY gentle (Whisprs LRA 3-4 = minimal ducking):
             #   ratio=3       → soft ~3dB dip, not a dramatic drop
