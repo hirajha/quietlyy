@@ -1,16 +1,5 @@
 [
   {
-    "topic": "You Are My Calm",
-    "style": "love",
-    "script": "The pillow still holds your shape\nand the scent of your hair\nslowly fades from my clothes\nbut your presence remains strong\nIn every quiet moment\nI feel your calming presence\nGently soothing my worries\nand healing my deepest cuts\nNew days bring new challenges\nBut with you I am unbroken\nSlowly I learn to breathe\nwithout the weight of fear\nsend this to Quietlyy",
-    "hash": "08aed088bfed14fd867ea155406dd7ce",
-    "metaphors": [],
-    "themes": [
-      "silence",
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "What Home Actually Feels Like",
     "style": "love",
     "script": "The keys still have your mark\n \n   and my fingers find the same fit\n \n   slowly remembering the weight\n \n   But Did You Know 7 billion\n \n   and only one feels like home\n \n   In Their Absence I find solace\n \n   and the city sounds like a hum\n \n   of a Lullaby That Never Ends\n \n   and the smell of fresh cut grass\n \n   brings me back to your laughter\n \n   As I Wander Through The Crowd\n \n   I feel the warmth of your presence\n \n   send this to quietlyy",
@@ -696,6 +685,17 @@
     "themes": [
       "silence",
       "growth"
+    ]
+  },
+  {
+    "topic": "Crying Without Knowing Why",
+    "style": "nostalgic",
+    "script": "tears fall without warning\nwe just\nlost in the haze\nof our own minds\nSOMETHING IS SHIFTING\ninside us\nstill we search\nfor a reason\nto explain\nthe ache that settles\nin our chests.",
+    "hash": "2b6993c2fe01f1d6ed55f33b774a8b03",
+    "metaphors": [],
+    "themes": [
+      "grief_loss",
+      "silence"
     ]
   }
 ]
