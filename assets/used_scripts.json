@@ -1,17 +1,5 @@
 [
   {
-    "topic": "What Silence Teaches Us",
-    "style": "wisdom",
-    "script": "Lao Tzu said\nin the stillness\nyou find the\nanswers you seek\nin the emptiness\nI find my thoughts\nracing to fill\nthe empty spaces\nbut what if I\njust let it be\nempty and still\nmy mind starts to\nunravel slowly",
-    "hash": "56510e4399eeb8110998c6faba9f65b9",
-    "metaphors": [
-      "star"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The First Time I Knew",
     "style": "love",
     "script": "You're searching for a glimpse\nand maybe it's a thread\nSlowly weaving a tapestry\nof memories we haven't made\nYet somehow it feels real\nAnd warmth spreads across skin\nNew sensations start to rise\nGently as the morning light\nCreeping over the edges\nOf a life we're still designing\nSlowly taking its first breath\nAnd Maybe This Is Home\nsend this to quietlyy",
@@ -698,5 +686,19 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Part You Never Talk About",
+    "style": "emotional",
+    "script": "Midnight. The city sleeps\ndark alleys\nand forgotten streets\nslowly whisper secrets\nof the part you never talk about\nSome people hide\nbehind masks of confidence\nbut the shadows know\nthe truth you conceal\nNot even the wind\njudges your darkest nights\nsend this to them.",
+    "hash": "31da1b03c86039263568c7e7e1082b81",
+    "metaphors": [
+      "tree",
+      "mask",
+      "shadow",
+      "wind",
+      "dark"
+    ],
+    "themes": []
   }
 ]
