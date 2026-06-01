@@ -1,16 +1,5 @@
 [
   {
-    "topic": "What Home Actually Feels Like",
-    "style": "love",
-    "script": "The keys still have your mark\n \n   and my fingers find the same fit\n \n   slowly remembering the weight\n \n   But Did You Know 7 billion\n \n   and only one feels like home\n \n   In Their Absence I find solace\n \n   and the city sounds like a hum\n \n   of a Lullaby That Never Ends\n \n   and the smell of fresh cut grass\n \n   brings me back to your laughter\n \n   As I Wander Through The Crowd\n \n   I feel the warmth of your presence\n \n   send this to quietlyy",
-    "hash": "c9512e42272d053293e254c37e8fcf07",
-    "metaphors": [],
-    "themes": [
-      "nostalgia",
-      "silence"
-    ]
-  },
-  {
     "topic": "You Make the Hard Days Easier",
     "style": "love",
     "script": "The pillow still holds your scent\nand memories of warm mornings\nslowly fade like Polaroids\nBut New York City has\nover 8 million people\nand yet I feel seen\nOnly when I'm with you\nGently the city slows down\nand strangers become faces\nSlowly the noise becomes music\nand I find my own rhythm\nIn your eyes my home is\nsend this to quietlyy",
@@ -696,6 +685,19 @@
     "themes": [
       "grief_loss",
       "silence"
+    ]
+  },
+  {
+    "topic": "When Grief Becomes a Teacher",
+    "style": "emotional",
+    "script": "There's a grief that settles slowly\nin my bones\nit's a weight\nthat's always there\nbut shapes me\ninto someone stronger\nSome people call it resilience\nthe ability to bend\nnot break\nand find a way to heal\nslowly\nin the darkness. Period.",
+    "hash": "ebcb37f910bb5b032db829de904ad513",
+    "metaphors": [
+      "dark"
+    ],
+    "themes": [
+      "grief_loss",
+      "growth"
     ]
   }
 ]
