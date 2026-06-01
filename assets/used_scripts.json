@@ -1,13 +1,5 @@
 [
   {
-    "topic": "You Make the Hard Days Easier",
-    "style": "love",
-    "script": "do you ever notice\u2026\nthe way my fingers\nfind their way to yours\nin crowded spaces\nit's like my hand\nhas a memory of its own\nof the way you fit\nyou make the hard days easier\nTag the person who feels like a gentle refuge",
-    "hash": "646ed92e2a2e4fa32ac76e41b37edd50",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "What You Cannot Change and What You Can",
     "style": "wisdom",
     "script": "Epictetus taught\u2026\n\"We are disturbed\u2026\nnot by what happens to us\u2026\nbut by our thoughts about what happens.\"\nIt\u2019s not the sudden storm that breaks you,\nbut the endless fight against the wind.\nFind your quiet shelter, deep inside.\nSave this for the days you forget.",
@@ -685,6 +677,19 @@
     "metaphors": [
       "star",
       "wind"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "More Than My Favorite Person",
+    "style": "nostalgic",
+    "script": "you're more than my favorite person\n \n   still thinking about\n \n   your laugh echoing somewhere\n \n   MEMORIES OF SUMMER afternoons\n \n   we just shared stories\n \n   and somewhere between laughter\n \n   and tears we found solace\n \n   NEWFOUND COMFORT in each other\n \n   still searching for\n \n   that feeling of being home\n \n   in someone's eyes\n \n   fading like a sunset",
+    "hash": "4dcf7f8a25dcffb68f2b49c5a28edd88",
+    "metaphors": [
+      "echo",
+      "sun"
     ],
     "themes": [
       "silence"
