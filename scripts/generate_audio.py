@@ -14,7 +14,10 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 # ElevenLabs config
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
 ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "")
-ELEVENLABS_MODEL = "eleven_turbo_v2_5"
+# eleven_multilingual_v2 = ElevenLabs' highest-FIDELITY model — clearer, richer,
+# warmer than the speed-optimized turbo_v2_5 we used before. Worth the slightly
+# slower generation for narration quality (user asked for a clearer voice).
+ELEVENLABS_MODEL = "eleven_multilingual_v2"
 
 # ── Variable pause logic (Whisprs-style breathing rhythm) ─────────────────────
 # User feedback: uniform 1.5s pauses every line sounded robotic. Real Whisprs
@@ -122,11 +125,15 @@ def _record_line_elevenlabs(text, output_path):
     import base64
     clean = _clean_text(text)
     voice_settings = {
-        "stability": 0.22,          # Low = more natural variation, less robotic (was 0.45)
-        "similarity_boost": 0.80,
-        "style": 0.65,              # Higher = more emotional expression (was 0.40)
-        "use_speaker_boost": True,  # More presence / speaker character (was False)
-        "speed": 0.80,              # Slightly slower for emotional breathing room (was 0.85)
+        # User feedback: 'make the voice more clear'. stability=0.22 was too low —
+        # very low stability adds emotional variation but also vocal WOBBLE that
+        # muddies clarity. 0.40 keeps warmth + emotion while sounding grounded and
+        # articulate. Pairs with the higher-fidelity multilingual_v2 model above.
+        "stability": 0.40,          # was 0.22 — clearer, less wobble
+        "similarity_boost": 0.85,   # was 0.80 — tighter to the reference voice = clearer
+        "style": 0.50,              # was 0.65 — slightly less over-emoting = crisper diction
+        "use_speaker_boost": True,  # presence / clarity
+        "speed": 0.88,              # was 0.80 — 0.80 dragged; 0.88 is calm but not sluggish
     }
     body = {
         "text": clean,
