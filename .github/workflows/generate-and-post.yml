@@ -5,14 +5,22 @@ on:
     # ── 2 posts per day (Facebook research: 1-2 posts/day is optimal) ─────────
     # Posting 4x/day was triggering algorithmic suppression on new accounts.
     # Reduced to morning + evening, 12 hours apart, matching Whisprs cadence.
-    - cron: '30 2 * * *'   # 08:00 AM IST  (morning slot — primary)
-    - cron: '30 14 * * *'  # 08:00 PM IST  (evening slot — primary)
+    # ── 4 posts/day, targeting prime-time evening windows of our 3 biggest
+    #    audiences (US, Europe, India — per market_research.json) ──────────────
+    # Emotional content peaks in EVENING local time (7-10pm) when people unwind.
+    # These 4 slots hit different global prime windows, ~6h apart:
+    - cron: '0 1 * * *'    # 01:00 UTC = 8:00pm US-East (prime) / 6:30am IST
+    - cron: '0 7 * * *'    # 07:00 UTC = 12:30pm IST / 8am UK / 2am US-East
+    - cron: '30 13 * * *'  # 13:30 UTC = 7:00pm IST (prime) / 9am US-East
+    - cron: '0 19 * * *'   # 19:00 UTC = 8:00pm CET Europe (prime) / 3pm US-East
     # ── Backup slots — fire 90 min after each primary ─────────────────────────
     # GitHub Actions free-tier crons can be silently dropped during high load.
     # Backups auto-skip if the primary already succeeded (see "Skip if recent
     # success" step below — uses 80-min lookback).
-    - cron: '0 4 * * *'    # 09:30 AM IST  (backup for 08:00 AM)
-    - cron: '0 16 * * *'   # 09:30 PM IST  (backup for 08:00 PM)
+    - cron: '30 2 * * *'   # backup for 01:00 UTC slot
+    - cron: '30 8 * * *'   # backup for 07:00 UTC slot
+    - cron: '0 15 * * *'   # backup for 13:30 UTC slot
+    - cron: '30 20 * * *'  # backup for 19:00 UTC slot
 
   workflow_dispatch:
     inputs:
@@ -75,7 +83,9 @@ jobs:
         id: dedupe
         if: github.event_name == 'schedule'
         run: |
-          MIN_GAP_MIN=360  # 6 hours minimum between any two posts
+          MIN_GAP_MIN=300  # 5 hours min between posts. 4 posts/day are spaced
+                           # ~6h apart, so this passes them but still blocks the
+                           # 1-2h duplicate window (the bug this guards against).
           if [ -f "assets/last_post_time.txt" ]; then
             LAST=$(cat assets/last_post_time.txt | tr -d ' \n\r' || echo 0)
             NOW=$(date -u +%s)
