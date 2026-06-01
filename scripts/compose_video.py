@@ -675,6 +675,15 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             output_no_audio,
         )
 
+    # ── Step 2b: PROBE the actual rendered video length ────────────────────────
+    # xfade crossfades OVERLAP panels, so the real video is shorter than
+    # sum(seg_durations) by (num_panels-1)*XFADE. Rather than re-derive the math
+    # (error-prone — caused a 4.2s audio overrun in audit 2026-06), just measure
+    # the concatenated file and pad/fade audio to THIS exact value.
+    actual_video_len = get_audio_duration(output_no_audio)
+    print(f"[video] Actual rendered video length: {actual_video_len:.2f}s "
+          f"(sum-of-segments was {total_video:.2f}s; xfade overlap accounts for the diff)")
+
     # ── Step 3: Generate ASS word-by-word subtitle file ────────────────────────
     # All subtitle timestamps are shifted by HOOK_DURATION so they sync with the
     # delayed voice (voice is offset by HOOK_DURATION in the audio mix below).
@@ -742,11 +751,12 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             # to the EXACT total video length (whole_dur) so the mixed audio runs
             # the full video — music fills the silent tail instead of cutting out.
             # (Audit 2026-06: amix duration=first was ending audio ~8s early.)
-            f"[1:a]adelay={HOOK_DURATION_MS}|{HOOK_DURATION_MS},loudnorm=I=-12:LRA=5:TP=-1,apad=whole_dur={total_video:.3f},asplit=2[voice_out][voice_sc];"
+            f"[1:a]adelay={HOOK_DURATION_MS}|{HOOK_DURATION_MS},loudnorm=I=-12:LRA=5:TP=-1,apad=whole_dur={actual_video_len:.3f},asplit=2[voice_out][voice_sc];"
             # Music: -21 LUFS base, fade in at start, fade out over the LAST 4s
-            # of the real video length (not the old short audio length).
+            # of the ACTUAL rendered video length (post-xfade), so audio length
+            # exactly equals video length — no overrun, no silent tail.
             f"[2:a]loudnorm=I=-21:LRA=7:TP=-2,"
-            f"afade=t=in:d=3,afade=t=out:st={max(0, total_video - 4):.2f}:d=4[music_norm];"
+            f"afade=t=in:d=3,afade=t=out:st={max(0, actual_video_len - 4):.2f}:d=4[music_norm];"
             # Sidechain duck — VERY gentle (Whisprs LRA 3-4 = minimal ducking):
             #   ratio=3       → soft ~3dB dip, not a dramatic drop
             #   attack=300ms  → slow, inaudible onset
