@@ -209,35 +209,32 @@ def _chars_to_word_timings(chars, starts, ends):
     return [{"word": w, "start_s": s, "end_s": e} for w, s, e in words]
 
 
-def _chars_to_word_timings_with_lines(chars, starts, ends):
-    """Convert char-level alignment → word timings, tracking which LINE each
-    word belongs to (lines separated by '\\n' in the text we sent).
+def _is_tag_token(t):
+    """True if a token looks like a leaked SSML break tag fragment."""
+    tl = t.lower()
+    return ("<" in t) or (">" in t) or ("=" in t) or ("/" in t) or tl.startswith("break") or tl == 'time'
 
-    Returns list of {word, start_s, end_s, line}.
-    This is the core of the whole-script-in-one-call approach: ElevenLabs reads
-    the entire poem with natural flowing prosody + breathing, and we recover
-    per-word AND per-line timing from the single alignment response.
+
+def _chars_to_clean_words(chars, starts, ends):
+    """Convert char-level alignment → a FLAT list of clean word-timing dicts
+    {word, start_s, end_s}. Splits on any whitespace. Filters out fragments of
+    SSML <break> tags in case they leak into the alignment characters.
+    Line mapping is done by the caller via sequential word count (deterministic),
+    so we don't need to track line breaks in the characters here.
     """
     words = []
     cur, cs, ce = [], [], []
-    line_idx = 0
 
     def _flush():
         nonlocal cur, cs, ce
         if cur:
-            words.append({
-                "word": "".join(cur),
-                "start_s": cs[0],
-                "end_s": ce[-1],
-                "line": line_idx,
-            })
+            w = "".join(cur)
+            if not _is_tag_token(w):
+                words.append({"word": w, "start_s": cs[0], "end_s": ce[-1]})
             cur, cs, ce = [], [], []
 
     for ch, s, e in zip(chars, starts, ends):
-        if ch == "\n":
-            _flush()
-            line_idx += 1
-        elif ch.isspace():
+        if ch.isspace():
             _flush()
         else:
             cur.append(ch); cs.append(s); ce.append(e)
@@ -248,14 +245,13 @@ def _chars_to_word_timings_with_lines(chars, starts, ends):
 def _record_full_elevenlabs(full_text, output_path):
     """Record the ENTIRE script in ONE ElevenLabs call (with timestamps).
 
-    This is THE fix for the 'robotic, doesn't breathe' problem: instead of
-    recording each fragment in isolation and stitching with silence, we send
-    the whole poem (newline-separated) so ElevenLabs reads it with natural
-    connected prosody and breathing between lines.
+    full_text already contains <break time="..."/> tags between lines so the
+    narrator takes a real ~1s breath at each line change while still reading
+    with natural connected prosody.
 
-    Returns (word_timings_with_lines, ok). word_timings each carry a 'line'
-    index so the caller can derive per-line + per-word timing. Returns
-    (None, False) if the timestamped call fails (caller falls back).
+    Returns (clean_word_timings, ok) — a FLAT list of {word,start_s,end_s}
+    (break-tag fragments filtered out). The caller maps words → lines by
+    sequential word count. Returns (None, False) if the call fails.
     """
     import base64
     voice_settings = {
@@ -288,7 +284,7 @@ def _record_full_elevenlabs(full_text, output_path):
         if not (chars and starts and ends):
             print("[audio] full-script: no alignment data returned")
             return None, False
-        word_timings = _chars_to_word_timings_with_lines(chars, starts, ends)
+        word_timings = _chars_to_clean_words(chars, starts, ends)
         if os.path.getsize(output_path) < 500:
             return None, False
         return word_timings, True
@@ -368,7 +364,11 @@ def generate_audio(script_text):
     print(f"[audio] Using ElevenLabs (voice: {ELEVENLABS_VOICE_ID})")
 
     # ── PRIMARY: whole script in ONE call (natural breathing) ────────────────
-    full_text = "\n".join(_clean_text(l) for l in lines)
+    # Insert a real ~1s breath at each line change via ElevenLabs <break> tags,
+    # so the narrator pauses between fragments instead of rushing line-to-line.
+    LINE_BREAK_SEC = 0.9
+    break_tag = f' <break time="{LINE_BREAK_SEC}s" /> '
+    full_text = break_tag.join(_clean_text(l) for l in lines)
     word_timings, ok = _record_full_elevenlabs(full_text, audio_path)
 
     if ok and word_timings:
@@ -379,27 +379,31 @@ def generate_audio(script_text):
             "duration_ms": (wt["end_s"] - wt["start_s"]) * 1000,
         } for wt in word_timings]
 
-        # Per-line timing: first word start → last word end of each line index
-        line_starts, line_ends = {}, {}
-        for wt in word_timings:
-            li = wt["line"]
-            line_starts.setdefault(li, wt["start_s"])
-            line_ends[li] = wt["end_s"]
-        n_lines = max(line_ends.keys()) + 1 if line_ends else 0
+        # Map words → lines by SEQUENTIAL word count (deterministic; robust to
+        # however the break tags were handled in the alignment).
         line_timings = []
-        for i in range(n_lines):
-            if i in line_starts:
+        wi = 0
+        n_words = len(word_timings)
+        for li, line in enumerate(lines):
+            n = len(line.split())
+            grp = word_timings[wi:wi + n]
+            wi += n
+            if grp:
                 line_timings.append({
-                    "line": i,
-                    "start_ms": line_starts[i] * 1000,
-                    "end_ms": line_ends[i] * 1000,
+                    "line": li,
+                    "start_ms": grp[0]["start_s"] * 1000,
+                    "end_ms": grp[-1]["end_s"] * 1000,
                 })
+        # Safety: if word-count mapping consumed fewer/more words than expected
+        # (ElevenLabs tokenized differently), still emit what we have — compose
+        # falls back to even-split if the line count doesn't match.
         with open(line_timings_path, "w") as f:
             json.dump(line_timings, f, indent=2)
 
         total_dur = _get_duration_ms(audio_path) / 1000
         print(f"[audio] ✅ Whole-script single-call recording — {len(lines)} lines, "
-              f"{len(word_timings)} words, {total_dur:.1f}s (natural flow + breathing)")
+              f"{len(word_timings)} words, {total_dur:.1f}s "
+              f"({LINE_BREAK_SEC}s breath per line change, natural flow)")
     else:
         # ── FALLBACK: old line-by-line stitch with variable silence gaps ─────
         print("[audio] ⚠️  Single-call failed — falling back to line-by-line stitch")
