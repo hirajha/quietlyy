@@ -510,8 +510,21 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
 
     XFADE = 0.6    # crossfade between panels — defined early for drift compensation
     TAIL_PAD = 4.0 # tail silence after last word
-    AUDIO_GAP = 1.5  # MUST match LINE_GAP in generate_audio.py exactly (updated to 1.5)
-    GAP = AUDIO_GAP
+
+    # Per-line gap MUST match generate_audio.py exactly. generate_audio uses
+    # VARIABLE punctuation-aware gaps (period=1.8s, comma=0.6s, neutral=1.0s),
+    # NOT a fixed gap. Using a fixed 1.5s here made the video ~8s longer than
+    # the audio (sync bug caught in audit 2026-06). Import the same function.
+    try:
+        from generate_audio import _gap_for_line
+    except Exception:
+        def _gap_for_line(_t):
+            return 1.0  # safe fallback if import fails
+
+    # gap AFTER each line: variable per punctuation, EXCEPT the last line = 0
+    # (matches generate_audio: last line gets no trailing gap, tail handled separately)
+    per_line_gap = [_gap_for_line(lines[i]) if i < num_lines - 1 else 0.0
+                    for i in range(num_lines)]
 
     # Build per-group durations from per-line audio files
     line_durations = []
@@ -525,9 +538,11 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         li = 0
         for g_i, group in enumerate(line_groups):
             is_last = g_i == num_groups - 1
-            group_dur = sum(line_durations[li + j] + GAP for j in range(len(group)))
+            # Each line contributes its audio length + its OWN variable gap
+            group_dur = sum(line_durations[li + j] + per_line_gap[li + j]
+                            for j in range(len(group)))
             if is_last:
-                group_dur = group_dur - GAP + TAIL_PAD
+                group_dur += TAIL_PAD  # last line's gap is already 0; add tail
             else:
                 group_dur += XFADE  # compensate xfade overlap so images don't drift ahead
             seg_durations.append(group_dur)
@@ -539,7 +554,7 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
         seg_durations[-1] = per_seg + TAIL_PAD
 
     total_video = sum(seg_durations)
-    print(f"[video] Audio: {duration:.1f}s, Video: {total_video:.1f}s, {num_groups} panels")
+    print(f"[video] Audio: {duration:.1f}s, Video (panels): {total_video:.1f}s, {num_groups} panels")
 
     # ── Step 1: Generate clean background panels (no text baked in) ────────────
     panel_videos = []
@@ -723,11 +738,15 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             "-i", audio_path,
             "-stream_loop", "-1", "-i", music_path,
             "-filter_complex",
-            # Voice: delayed by HOOK_DURATION so hook card is silent, then split
-            f"[1:a]adelay={HOOK_DURATION_MS}|{HOOK_DURATION_MS},loudnorm=I=-12:LRA=5:TP=-1,apad=pad_dur=1,asplit=2[voice_out][voice_sc];"
-            # Music: -21 LUFS undipped base, fade in/out
+            # Voice: delayed by HOOK_DURATION so hook card is silent, then padded
+            # to the EXACT total video length (whole_dur) so the mixed audio runs
+            # the full video — music fills the silent tail instead of cutting out.
+            # (Audit 2026-06: amix duration=first was ending audio ~8s early.)
+            f"[1:a]adelay={HOOK_DURATION_MS}|{HOOK_DURATION_MS},loudnorm=I=-12:LRA=5:TP=-1,apad=whole_dur={total_video:.3f},asplit=2[voice_out][voice_sc];"
+            # Music: -21 LUFS base, fade in at start, fade out over the LAST 4s
+            # of the real video length (not the old short audio length).
             f"[2:a]loudnorm=I=-21:LRA=7:TP=-2,"
-            f"afade=t=in:d=3,afade=t=out:st={max(0, duration - 4):.2f}:d=4[music_norm];"
+            f"afade=t=in:d=3,afade=t=out:st={max(0, total_video - 4):.2f}:d=4[music_norm];"
             # Sidechain duck — VERY gentle (Whisprs LRA 3-4 = minimal ducking):
             #   ratio=3       → soft ~3dB dip, not a dramatic drop
             #   attack=300ms  → slow, inaudible onset
