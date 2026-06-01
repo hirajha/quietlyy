@@ -490,7 +490,10 @@ def generate_with_gemini_imagen(prompt, output_path):
                     config=types.GenerateImagesConfig(
                         number_of_images=1,
                         aspect_ratio="9:16",
-                        safety_filter_level="BLOCK_ONLY_HIGH",
+                        # API now ONLY accepts BLOCK_LOW_AND_ABOVE (was BLOCK_ONLY_HIGH,
+                        # which started 400ing: "Only block_low_and_above is supported").
+                        # Our content is atmospheric landscapes so strict filtering is fine.
+                        safety_filter_level="BLOCK_LOW_AND_ABOVE",
                     ),
                 )
                 break  # success
@@ -613,7 +616,7 @@ def generate_with_huggingface(prompt, output_path):
 
 def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
     """Generate panel images — free-first provider chain.
-    Order: HuggingFace (free FLUX) → gpt-image-1 → Gemini Imagen 3.
+    Order: Gemini Imagen 4.0 (free, best) → Pollinations FLUX → HuggingFace FLUX.
     - Max 8 panels per video
     - If all providers fail for a panel, reuse an earlier successful panel
     - After 25 gallery images: reuse 2-3 panels (never panel 0)
@@ -637,18 +640,20 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
 
         prompt = generate_image_prompt(topic, visual_keywords, i, style=style)
 
-        # Free-first chain: HF → Gemini Imagen → Pollinations → OpenAI (paid, last resort)
-        print(f"[images] Panel {i+1}/{num_panels}: trying HuggingFace (free)...")
-        success = generate_with_huggingface(prompt, output_path)
+        # Chain reordered 2026-06 by actual quality + what's working:
+        #   1. Gemini Imagen 4.0 — BEST for flat-matte illustration, free, now fixed
+        #   2. Pollinations FLUX — free, reliable, decent quality
+        #   3. HuggingFace FLUX — classic Inference API is deprecated/flaky, kept as
+        #      a long-shot fallback in case HF restores it
+        #   (DALL-E removed — OpenAI decommissioned it)
+        print(f"[images] Panel {i+1}/{num_panels}: trying Gemini Imagen 4.0 (free, best quality)...")
+        success = generate_with_gemini_imagen(prompt, output_path)
         if not success:
-            print(f"[images]   HF failed — trying Gemini Imagen 3 (free)...")
-            success = generate_with_gemini_imagen(prompt, output_path)
-        if not success:
-            print(f"[images]   Gemini failed — trying Pollinations (free)...")
+            print(f"[images]   Imagen failed — trying Pollinations FLUX (free)...")
             success = generate_with_pollinations(prompt, output_path)
         if not success:
-            print(f"[images]   Pollinations failed — trying OpenAI as last resort (paid)...")
-            success = generate_with_dalle(prompt, output_path)
+            print(f"[images]   Pollinations failed — trying HuggingFace FLUX (free, flaky)...")
+            success = generate_with_huggingface(prompt, output_path)
 
         if success:
             print(f"[images] Panel {i+1}: generated")
