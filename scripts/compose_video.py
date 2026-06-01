@@ -417,24 +417,59 @@ def _render_hook_card(hook_text, background_image_path, output_path):
     draw = ImageDraw.Draw(canvas)
     # Strip trailing punctuation for cleaner card display
     display_text = hook_text.strip().rstrip(".,;:—-")
-    # Wrap text intelligently — target 3-4 words per line, max ~16 chars
-    words = display_text.split()
-    if len(words) <= 4:
-        wrapped_lines = [" ".join(words)]
-    else:
-        # Two roughly-equal lines
-        mid = len(words) // 2
-        wrapped_lines = [" ".join(words[:mid]), " ".join(words[mid:])]
 
-    font = get_font(110)  # Large bold/cursive
-    total_h = len(wrapped_lines) * 130
+    # ── MEASURE-BASED WORD WRAP + AUTO-SHRINK FONT ──────────────────────────
+    # Bug fix (2026): old logic split by word COUNT (≤4 words = 1 line) without
+    # ever measuring pixel width, so long lines overflowed both frame edges and
+    # first/last letters were cut off. Now we:
+    #   1. Reserve a safe margin (text must fit within MAX_TEXT_W)
+    #   2. Greedy word-wrap by MEASURED pixel width
+    #   3. If too many lines result, shrink the font and re-wrap
+    SIDE_MARGIN = 90                       # px of guaranteed clear space each side
+    MAX_TEXT_W = WIDTH - 2 * SIDE_MARGIN    # 1080 - 180 = 900px usable width
+    MAX_LINES = 4                           # beyond this, shrink font instead
+
+    def _wrap_to_width(text, font_obj):
+        """Greedy wrap: add words to a line until the next word would overflow."""
+        words = text.split()
+        lines, cur = [], ""
+        for w in words:
+            trial = (cur + " " + w).strip()
+            tw = draw.textbbox((0, 0), trial, font=font_obj)[2] - draw.textbbox((0, 0), trial, font=font_obj)[0]
+            if tw <= MAX_TEXT_W or not cur:
+                cur = trial
+            else:
+                lines.append(cur)
+                cur = w
+        if cur:
+            lines.append(cur)
+        return lines
+
+    # Start large, shrink until it fits in MAX_LINES AND every line fits MAX_TEXT_W
+    font_size = 104
+    while font_size >= 52:
+        font = get_font(font_size)
+        wrapped_lines = _wrap_to_width(display_text, font)
+        # Check: line count OK AND widest line fits
+        widest = max(
+            (draw.textbbox((0, 0), ln, font=font)[2] - draw.textbbox((0, 0), ln, font=font)[0])
+            for ln in wrapped_lines
+        )
+        if len(wrapped_lines) <= MAX_LINES and widest <= MAX_TEXT_W:
+            break
+        font_size -= 6
+
+    # Line height scales with chosen font size
+    line_h = int(font_size * 1.25)
+    total_h = len(wrapped_lines) * line_h
     start_y = (HEIGHT - total_h) // 2
 
     for i, line in enumerate(wrapped_lines):
         bbox = draw.textbbox((0, 0), line, font=font)
         tw = bbox[2] - bbox[0]
-        x = (WIDTH - tw) // 2
-        y = start_y + i * 130
+        # Center horizontally; clamp x so it can never go negative (off-frame left)
+        x = max(SIDE_MARGIN, (WIDTH - tw) // 2)
+        y = start_y + i * line_h
         # Heavy shadow / outline
         for ox in range(-3, 4):
             for oy in range(-3, 4):
