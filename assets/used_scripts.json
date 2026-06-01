@@ -1,18 +1,5 @@
 [
   {
-    "topic": "What You Cannot Change and What You Can",
-    "style": "wisdom",
-    "script": "Epictetus taught\u2026\n\"We are disturbed\u2026\nnot by what happens to us\u2026\nbut by our thoughts about what happens.\"\nIt\u2019s not the sudden storm that breaks you,\nbut the endless fight against the wind.\nFind your quiet shelter, deep inside.\nSave this for the days you forget.",
-    "hash": "546bca5715bec24c8f3c88f2085f5a94",
-    "metaphors": [
-      "storm",
-      "wind"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Falling For Someone Who Does Not Know",
     "style": "love",
     "script": "Your name is the first thing\nI see in the morning...\nOn my phone, my computer,\nmy everything. \nIn the quiet of my room,\nI hear the sound of your laughter...\nIt's the safest sound I know.\nIt's the sound that makes me feel\nlike I'm home. \nTag the one who feels like home.",
@@ -690,6 +677,18 @@
     "metaphors": [
       "echo",
       "sun"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Meaning We Choose to Find",
+    "style": "emotional",
+    "script": "The old key still fits.\nslowly turning\nNot a single scratch\nand the door creaks\nSlowly opening to memories\nBut the smell is different\nSome people find solace\nin familiar places\nI won't be one of them\nand i'm still searching\nNot for answers\nbut for questions.\nperiod",
+    "hash": "16fdbd919c5a98046af237f409cddba0",
+    "metaphors": [
+      "door"
     ],
     "themes": [
       "silence"
