@@ -1,17 +1,5 @@
 [
   {
-    "topic": "You Make the Hard Days Easier",
-    "style": "love",
-    "script": "The pillow still holds your scent\nand memories of warm mornings\nslowly fade like Polaroids\nBut New York City has\nover 8 million people\nand yet I feel seen\nOnly when I'm with you\nGently the city slows down\nand strangers become faces\nSlowly the noise becomes music\nand I find my own rhythm\nIn your eyes my home is\nsend this to quietlyy",
-    "hash": "71dcb6b921c606204d1503ce8aaaaa70",
-    "metaphors": [
-      "noise"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Losing a Parent",
     "style": "emotional",
     "script": "There's a grief that has no name\nbut echoes in empty rooms\nand haunts my every step\nslowly becoming my shadow\nnot just a memory\nbut a living ache\nSome days it's hard to breathe\nThe weight of their absence\nis a physical thing\nit presses upon my chest\nand makes my heart heavy\nI won't forget their touch\nsend this to them",
@@ -698,6 +686,18 @@
     "themes": [
       "grief_loss",
       "growth"
+    ]
+  },
+  {
+    "topic": "When Someone Chooses You Every Day",
+    "style": "nostalgic",
+    "script": "they choose me                        \nwithout condition             \nstill believing in my soul      \nDEEP DOWN WE KNOW          \nthe weight of it settles     \nand somewhere in the everyday \nwe find a gentle rhythm      \nSTRENGTHENED BY THEIR FAITH \nwe just keep going           \nthrough the noise             \nand the chaos still          \nwhispers a quiet ache       ",
+    "hash": "51e89e180b29857ff13c0e92445cfa84",
+    "metaphors": [
+      "noise"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
