@@ -125,15 +125,14 @@ def _record_line_elevenlabs(text, output_path):
     import base64
     clean = _clean_text(text)
     voice_settings = {
-        # User feedback: 'make the voice more clear'. stability=0.22 was too low —
-        # very low stability adds emotional variation but also vocal WOBBLE that
-        # muddies clarity. 0.40 keeps warmth + emotion while sounding grounded and
-        # articulate. Pairs with the higher-fidelity multilingual_v2 model above.
-        "stability": 0.40,          # was 0.22 — clearer, less wobble
-        "similarity_boost": 0.85,   # was 0.80 — tighter to the reference voice = clearer
-        "style": 0.50,              # was 0.65 — slightly less over-emoting = crisper diction
-        "use_speaker_boost": True,  # presence / clarity
-        "speed": 0.88,              # was 0.80 — 0.80 dragged; 0.88 is calm but not sluggish
+        # Tuning history: 0.22 = wobbly, 0.40 = too monotone/robotic (user feedback).
+        # 0.32 is the sweet spot — expressive natural variation (less robotic) while
+        # staying clear. Higher style adds emotional inflection so it doesn't read flat.
+        "stability": 0.32,          # 0.22→0.40→0.32: expressive but not wobbly
+        "similarity_boost": 0.85,
+        "style": 0.60,              # 0.50→0.60: more emotional inflection, less flat
+        "use_speaker_boost": True,
+        "speed": 0.90,              # 0.88→0.90: natural conversational pace
     }
     body = {
         "text": clean,

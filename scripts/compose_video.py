@@ -210,7 +210,7 @@ def _generate_ass_subtitles(subtitles, lines, output_path):
         "OutlineColour, BackColour, Bold, Italic, Underline, Strikeout, "
         "ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, "
         "Alignment, MarginL, MarginR, MarginV, Encoding\n"
-        f"Style: Default,{font_name},84,"  # 84 (was 62 — user: text too small to read)
+        f"Style: Default,{font_name},104,"  # 104 (62→84→104; user: still too small)
         "&H00FFFFFF,"   # Primary: pure white (Whisprs style)
         "&H00FFFFFF,"   # Secondary: white
         "&H00000000,"   # Outline: black
@@ -243,13 +243,15 @@ def _draw_watermark(img):
     overlay = Image.new("RGBA", draw_img.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
 
-    watermark_font = get_font(30)
+    watermark_font = get_font(44)  # was 30 — bigger, the ONLY branding now
     text = "@Quietlyy"
     bbox = draw.textbbox((0, 0), text, font=watermark_font)
     tw = bbox[2] - bbox[0]
     th = bbox[3] - bbox[1]
     x = (WIDTH - tw) // 2
-    y = HEIGHT - 870  # ~1050px from top = ~55% — matches @Whisprs handle position
+    # Single branding, at the BOTTOM but lifted up a bit (was middle @ HEIGHT-870,
+    # plus a separate bottom Follow button — user wanted ONE, at bottom, raised).
+    y = HEIGHT - 360
 
     # Subtle shadow for readability on any background
     draw.text((x + 1, y + 1 - bbox[1]), text, font=watermark_font, fill=(0, 0, 0, 100))
@@ -286,8 +288,9 @@ def _draw_cta_overlay(img, cta_line=None):
         wrapped = _textwrap.wrap(clean_cta, width=22) or [clean_cta]
         line_h = 74
         block_h = len(wrapped) * line_h
-        # Position in the lower third, comfortably above the follow line
-        start_y = HEIGHT - block_h - 340
+        # Position the CTA block above the @Quietlyy watermark (now at HEIGHT-360)
+        # with clearance so they never overlap.
+        start_y = HEIGHT - block_h - 440
 
         for li, wline in enumerate(wrapped):
             bbox = draw.textbbox((0, 0), wline, font=cta_font)
@@ -301,17 +304,9 @@ def _draw_cta_overlay(img, cta_line=None):
                         draw.text((tx + ox, ty + oy), wline, font=cta_font, fill=(0, 0, 0, 230))
             draw.text((tx, ty), wline, font=cta_font, fill=(255, 255, 255, 255))
 
-    # ── Brand follow line at very bottom ────────────────────────────────────
-    follow_font = get_font(28)
-    brand_text = "Follow @Quietlyy for more"
-    bbox = draw.textbbox((0, 0), brand_text, font=follow_font)
-    bw = bbox[2] - bbox[0]
-    by = HEIGHT - 180
-    # Soft dark pill behind brand text
-    pill = Image.new("RGBA", (bw + 40, 44), (0, 0, 0, 140))
-    overlay.paste(pill, ((WIDTH - bw - 40) // 2, by - 8), pill)
-    draw.text(((WIDTH - bw) // 2, by - bbox[1]), brand_text,
-              font=follow_font, fill=(255, 245, 210, 210))
+    # (Removed the "Follow @Quietlyy for more" line — user wanted only ONE
+    # branding. The single @Quietlyy watermark at the bottom is added by
+    # _draw_watermark on every panel, including this one.)
 
     result = Image.alpha_composite(draw_img, overlay)
     return result.convert("RGB")
@@ -568,13 +563,14 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
 
         frame = img.convert("RGB")
 
-        # Bake fixed UI elements
+        # Bake fixed UI elements.
+        # Last panel: CTA text (no follow line — see _draw_cta_overlay).
+        # Follow button REMOVED — user wanted only ONE branding. The single
+        # "@Quietlyy" watermark (now at the bottom) is the only brand mark.
         if g_i == num_groups - 1:
             frame = _draw_cta_overlay(frame, cta_line=cta_line)
-        elif g_i > 0:
-            frame = _draw_follow_button(frame)
 
-        # Always bake @Quietlyy watermark — Whisprs-style bottom-center branding
+        # The ONE branding: @Quietlyy watermark at the bottom, every panel
         frame = _draw_watermark(frame)
 
         frame_path = os.path.join(OUTPUT_DIR, f"_panel_{g_i}.png")
