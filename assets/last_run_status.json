@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "What You Cannot Change and What You Can"
+    "detail": "Falling Out of Love Slowly"
   },
   "audio": {
     "result": "ok",
@@ -25,7 +25,7 @@
   },
   "music": {
     "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [gallery_reuse]"
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [cc0_library]"
   },
   "video": {
     "result": "ok",
@@ -49,10 +49,10 @@
   },
   "instagram": {
     "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://graph.facebook.com/v22.0/17841439177937652/media?access_token=EAAXDATnOZAP8BRjXbNnkVd944yDjF0IRd11N24LN8hohl3OazGmZBvdVdp2jOTWC1ZAV5NxsBjdWWcPlWfnWtnLQ6IlZCOgfX6eRKPF8PC22zYaZCapIGdNIJQmAidZABuZCjdfhRummkgLUbuDPpiZBecZBg5NnueUqqu2zjhzXrV7efCDyO6wonUBwPIDSdVPZC71a0pdggVdnp0jZAvRhvJR0jaW8oSV5CGUaRy2BZBTBdqHyYuvhvp9JOTuHZA8O7Imuzct9W62F5m7oRFaXSZCzVmVyHGxQZDZD | API response: {\"error\":{\"message\":\"Error validating access token: Session has expired on Saturday, 30-May-26 03:00:00 PDT. The current time is Tuesday, 02-Jun-26 04:33:05 PDT.\",\"type\":\"OAuthE"
+    "detail": "400 Client Error: Bad Request for url: https://graph.facebook.com/v22.0/17841439177937652/media?access_token=EAAXDATnOZAP8BRjXbNnkVd944yDjF0IRd11N24LN8hohl3OazGmZBvdVdp2jOTWC1ZAV5NxsBjdWWcPlWfnWtnLQ6IlZCOgfX6eRKPF8PC22zYaZCapIGdNIJQmAidZABuZCjdfhRummkgLUbuDPpiZBecZBg5NnueUqqu2zjhzXrV7efCDyO6wonUBwPIDSdVPZC71a0pdggVdnp0jZAvRhvJR0jaW8oSV5CGUaRy2BZBTBdqHyYuvhvp9JOTuHZA8O7Imuzct9W62F5m7oRFaXSZCzVmVyHGxQZDZD | API response: {\"error\":{\"message\":\"Error validating access token: Session has expired on Saturday, 30-May-26 03:00:00 PDT. The current time is Tuesday, 02-Jun-26 11:03:26 PDT.\",\"type\":\"OAuthE"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/4-ova2fyJXY"
+    "detail": "https://www.youtube.com/shorts/b4V0inW0sfI"
   }
 }
