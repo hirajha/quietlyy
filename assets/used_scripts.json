@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Person Who Stayed",
-    "style": "love",
-    "script": "I never told you\nabout the day I noticed\nhow your hands still fit\naround my smallest fears\nlike an old sweater\nI keep meaning to return\nbut the sleeves stretch longer\nevery time I pull them on\nDid you know most people leave\nwhen the weather changes\nand you stayed through winter\nwithout asking for spring\nlet them know",
-    "hash": "086fa12970617214a66be6902784ddf6",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Missing Someone Who Is Right There",
     "style": "love",
     "script": "Your pillow still holds my scent\nand your fingers still know\nthe contours of my face\nBut Familiarity Is A Curse\nSlowly we become invisible\nIn plain sight we are ghosts\nDid you know 70% of humans\nlive with someone they love\nYet feel alone in the crowd\nIn a world where proximity\nis not the same as closeness\nAs I look at you now\nI wonder what's the point\nof being near someone\nsend this to quietlyy",
@@ -699,6 +689,19 @@
     ],
     "themes": [
       "self_worth"
+    ]
+  },
+  {
+    "topic": "The Quiet Kind of Love Nobody Talks About",
+    "style": "love",
+    "script": "You're sitting in the stillness. \nSoftly the morning light creeps, \nit wraps around your shoulders \nGently, \nand the world OUTSIDE FADES \ninto a soothing haze \nslowly, \nthe warmth of the sun seeps \nINTO YOUR SKIN, \ncalming every nerve, \nquietly, \nSerenity Found \nin this peaceful space, \nand your eyes close, \nsend this to Quietlyy.",
+    "hash": "c0c189ce0d3e2899b5f8562f54ae219a",
+    "metaphors": [
+      "sun",
+      "light"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
