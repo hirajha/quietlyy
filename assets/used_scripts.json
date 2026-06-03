@@ -1,19 +1,5 @@
 [
   {
-    "topic": "Someone Worth Staying For",
-    "style": "love",
-    "script": "You're searching for a haven\nand a gentle voice\nwhispers your name\nSlowly you turn around\nNew paths are being drawn\nFresh starts are unfolding\nBut did you know\n70% of people\nstay for the right\nSomeone worth staying\nFor the warmth they bring\nand the peace they hold\nsend this to quietlyy",
-    "hash": "99abb7c520f5a15624fb3ca65d30414e",
-    "metaphors": [
-      "path",
-      "star"
-    ],
-    "themes": [
-      "self_worth",
-      "silence"
-    ]
-  },
-  {
     "topic": "The Wisdom of Not Forcing",
     "style": "wisdom",
     "script": "Lao Tzu said\nlife is a river\nit flows naturally\nno force can stop\nit goes around rocks\nin real life this\nmeans letting go\nof the need to control\neverything falls apart\nwhen we force it\nsoftly it comes back\nto its natural place",
@@ -704,6 +690,19 @@
     "metaphors": [],
     "themes": [
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "Finding Peace Within Yourself",
+    "style": "love",
+    "script": "It doesn't feel empty. \nSlowly unfolding \nlike a lotus \nFINDING peace within \nis a gentle process \nbut slow growth \nhappens in darkness \nAND patience \nis a warm mist \nthat wraps around you \nGENTLY healing \nand slowly \nsend this to Quietlyy.",
+    "hash": "90e4ca3c147ae7ce1d7b229f320a926a",
+    "metaphors": [
+      "dark"
+    ],
+    "themes": [
+      "silence",
+      "growth"
     ]
   }
 ]
