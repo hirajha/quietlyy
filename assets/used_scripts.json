@@ -1,17 +1,5 @@
 [
   {
-    "topic": "When Someone Chooses You Every Day",
-    "style": "love",
-    "script": "I carry it everywhere\nand the thought of you\nSlowly heals my cracks\nbut statistics say\nMost people leave\nAnd I wonder why\nYou choose me still\nEvery single day\nAnd in this chaos\nI find my anchor\nIn the choice you make\nTo be with me\nsend this to Quietlyy",
-    "hash": "bcf91e3bc5e9ac64942b768e5f1c69ec",
-    "metaphors": [
-      "anchor"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Being Strong for Everyone While Breaking Inside",
     "style": "emotional",
     "script": "What do you call it when\nit becomes a burden\nand the weight is crushing\nbut i keep on smiling\nslowly losing myself\nnot in the process\nbut in the pretence\nSome people need me\nI won't let them down\nand so i stay strong\njust for their sake\nnot for my own\nit's a heavy crown\nsend this to them",
@@ -701,6 +689,19 @@
     "metaphors": [],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Someone Worth Staying For",
+    "style": "wisdom",
+    "script": "Marcus Aurelius wrote\nin the depths of winter\nthere's a stillness that speaks\nof someone worth staying for, \ntheir presence a gentle warmth\nthat thaws the frozen moments\ni've found myself in the quiet\nhours of dawn, searching for\na sense of belonging, a sense\nof being home, and it's then\nthat i feel their absence, \nand the ache of their presence",
+    "hash": "ad54258f9e87525c8fc9e76813e3e162",
+    "metaphors": [
+      "dawn"
+    ],
+    "themes": [
+      "silence",
+      "self_worth"
     ]
   }
 ]
