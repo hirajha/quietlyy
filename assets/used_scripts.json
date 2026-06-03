@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Goodbye You Didn't Get",
-    "style": "emotional",
-    "script": "I never told you\nbut memories remain\nslowly they haunt me\nnot just the pain\nSome faces forget\nthe hands that held mine\nI carry it everywhere\nand the weight is crushing\njust a faint whisper\nof what we used to be\nThe echoes linger\nnot out of sadness\nsend this to them",
-    "hash": "e25894b2dbe18a20e648301b8a56bb17",
-    "metaphors": [
-      "echo"
-    ],
-    "themes": [
-      "nostalgia",
-      "being_used",
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "Learning to Trust the Journey",
     "style": "wisdom",
     "script": "Lao Tzu said\nlife unfolds slowly\nin its own time\nwith its own pace\nwithout our control\ni try to let go\nbut my mind resists\nit wants to know\nwhat's coming next\nwhy must i wait\nin this uncertain space\ni find my breath",
@@ -705,6 +691,18 @@
     ],
     "themes": [
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "Finding Yourself After Them",
+    "style": "love",
+    "script": "There's a clarity that arrives\nlike morning dew on bare feet.\nThe grass knows nothing of your name,\nbut bends anyway.\nYou trace the cracks in the pavement,\nfind whole galaxies in the gaps.\nNo one told you\nquiet could feel this alive.\nThe mirror finally holds\nyour reflection without judgment.\nSend this to them.",
+    "hash": "d21335675201e289bf9bf0b969934935",
+    "metaphors": [
+      "mirror"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
