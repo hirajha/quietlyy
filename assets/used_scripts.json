@@ -1,16 +1,5 @@
 [
   {
-    "topic": "The Wisdom of Not Forcing",
-    "style": "wisdom",
-    "script": "Lao Tzu said\nlife is a river\nit flows naturally\nno force can stop\nit goes around rocks\nin real life this\nmeans letting go\nof the need to control\neverything falls apart\nwhen we force it\nsoftly it comes back\nto its natural place",
-    "hash": "c3e55ad82099e7fc995fb799eb44508b",
-    "metaphors": [],
-    "themes": [
-      "friendship_loss",
-      "moving_on"
-    ]
-  },
-  {
     "topic": "The Goodbye You Didn't Get",
     "style": "emotional",
     "script": "I never told you\nbut memories remain\nslowly they haunt me\nnot just the pain\nSome faces forget\nthe hands that held mine\nI carry it everywhere\nand the weight is crushing\njust a faint whisper\nof what we used to be\nThe echoes linger\nnot out of sadness\nsend this to them",
@@ -703,6 +692,19 @@
     "themes": [
       "silence",
       "growth"
+    ]
+  },
+  {
+    "topic": "When You Make Ordinary Moments Feel Different",
+    "style": "love",
+    "script": "I stopped counting the seconds\nbetween your laugh\nand the way the room tilts.\nEvery mug of coffee tastes like a secret\nwhen you stir it twice,\nclockwise.\nThe ceiling fan hums your name\nbut I never say it out loud.\nYour shadow on the wall\nis a slow eclipse I can\u2019t look away from.\nEven the air conditioner pauses\nwhen you walk in.\nI keep pretending not to notice\nbut my hands remember the shape of your absence.\nSend this to them.",
+    "hash": "1ea8e102b9664a03990d15a06a46e259",
+    "metaphors": [
+      "wall",
+      "shadow"
+    ],
+    "themes": [
+      "nostalgia"
     ]
   }
 ]
