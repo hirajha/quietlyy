@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Dreams Where They Come Back",
-    "style": "emotional",
-    "script": "It doesn't feel gone\nbut still it lingers\nin the darkest corners\nof my subconscious\nSome Memories\nare doors that won't close\nand I'm not trying\nto shut them quietly\nThe Dreams Where\nthey come back to me\nare the hardest\nto let go of\nnot because\nI want them to stay\nlet them know",
-    "hash": "5af03f1733bf9b5becf7420093105f96",
-    "metaphors": [
-      "door",
-      "dark"
-    ],
-    "themes": [
-      "grief_loss",
-      "silence"
-    ]
-  },
-  {
     "topic": "When Someone Chooses You Every Day",
     "style": "love",
     "script": "I carry it everywhere\nand the thought of you\nSlowly heals my cracks\nbut statistics say\nMost people leave\nAnd I wonder why\nYou choose me still\nEvery single day\nAnd in this chaos\nI find my anchor\nIn the choice you make\nTo be with me\nsend this to Quietlyy",
@@ -702,6 +688,16 @@
     "style": "nostalgic",
     "script": "Safe spaces we create\nin the chaos\nFIND Solace\nwhere memories reside\nand familiar scents\nlinger on our skin\nwe just\nbreathe easier\nSTILLNESS falls\nslowly wrapping\naround our souls\nlike a worn blanket\nand in this warmth\na quiet ache",
     "hash": "0906fdb03bfb0584de3f461d5b87f5a3",
+    "metaphors": [],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Apology That Never Came",
+    "style": "nostalgic",
+    "script": "we waited\nfor a word\nstill holding\nonto the thought\nthat SOMETHING\nwould be said\nwe justified\nthe empty space\nas a mistake\nbut DEEP DOWN\nwe knew better.\nand the ache remains",
+    "hash": "1eb9bdeb786a2dc1b408b52dff6a5e5a",
     "metaphors": [],
     "themes": [
       "silence"
