@@ -1,13 +1,5 @@
 [
   {
-    "topic": "Learning to Trust the Journey",
-    "style": "wisdom",
-    "script": "Lao Tzu said\nlife unfolds slowly\nin its own time\nwith its own pace\nwithout our control\ni try to let go\nbut my mind resists\nit wants to know\nwhat's coming next\nwhy must i wait\nin this uncertain space\ni find my breath",
-    "hash": "c57aa39f3da2ab89aae883df462a2aa1",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "The Dreams Where They Come Back",
     "style": "emotional",
     "script": "It doesn't feel gone\nbut still it lingers\nin the darkest corners\nof my subconscious\nSome Memories\nare doors that won't close\nand I'm not trying\nto shut them quietly\nThe Dreams Where\nthey come back to me\nare the hardest\nto let go of\nnot because\nI want them to stay\nlet them know",
@@ -701,6 +693,16 @@
     "metaphors": [
       "mirror"
     ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Safest Place I Know",
+    "style": "nostalgic",
+    "script": "Safe spaces we create\nin the chaos\nFIND Solace\nwhere memories reside\nand familiar scents\nlinger on our skin\nwe just\nbreathe easier\nSTILLNESS falls\nslowly wrapping\naround our souls\nlike a worn blanket\nand in this warmth\na quiet ache",
+    "hash": "0906fdb03bfb0584de3f461d5b87f5a3",
+    "metaphors": [],
     "themes": [
       "silence"
     ]
