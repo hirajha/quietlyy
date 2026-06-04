@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Heartbreak Lesson",
-    "style": "emotional",
-    "script": "The photo is still framed\nbut dust has settled\non the laughter we had\nand the tears we cried\nSlowly fading away\nnot from memory\nbut from sight\nSome hands hold tighter\nthe fragments of us\nNot to remember\nbut to forget\nI won't let go\njust yet\nsend this to them",
-    "hash": "370370ac05d9ebcb57285189a9b5e12f",
-    "metaphors": [],
-    "themes": [
-      "nostalgia",
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Outgrow Your Best Friend",
     "style": "emotional",
     "script": "You're searching for a ghost\nbut finding only echoes\nand empty spaces\nSlowly realizing\nsome bonds expire\nNot from lack of love\nbut from growing apart\nThe hands that once held\nnow barely touch\nI won't force the fit\nNot out of spite\nbut out of respect\nlet them know",
@@ -713,6 +702,18 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "I Didn't Know Love Could Feel This Soft",
+    "style": "emotional",
+    "script": "You\u2019re unfolding the blanket like it\u2019s made of clouds.\nYour fingers hesitate,\nnot from doubt,\nbut because it\u2019s too perfect to disturb.\nThe way they brush your shoulder\u2014\nnot a touch,\na whisper of gravity.\nSome things don\u2019t need to be held tight,\nthey just\u2026 stay.\nLike morning light on half-drawn curtains,\nlike the weight of a cat asleep on your chest.\nYou didn\u2019t know love could be this soft,\nso soft it almost isn\u2019t there.\nLet them know.",
+    "hash": "ddc5e867e28a6385fc485d551eb6cc6f",
+    "metaphors": [
+      "light"
+    ],
+    "themes": [
+      "love"
     ]
   }
 ]
