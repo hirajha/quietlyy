@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Outgrow Your Best Friend",
-    "style": "emotional",
-    "script": "You're searching for a ghost\nbut finding only echoes\nand empty spaces\nSlowly realizing\nsome bonds expire\nNot from lack of love\nbut from growing apart\nThe hands that once held\nnow barely touch\nI won't force the fit\nNot out of spite\nbut out of respect\nlet them know",
-    "hash": "f628fbc0edcc21192bebb4a85f03d993",
-    "metaphors": [
-      "echo"
-    ],
-    "themes": [
-      "love",
-      "friendship_loss",
-      "growth"
-    ]
-  },
-  {
     "topic": "Learning to Trust the Journey",
     "style": "wisdom",
     "script": "Lao Tzu said\nthe journey is\nlong and winding\nwith no clear path\nwe must trust\nin the unknown\nit's hard to let go\nof what's familiar\nfear of the future\nholds me back\nwhat if i stumble\nin the stillness",
@@ -714,6 +700,18 @@
     ],
     "themes": [
       "love"
+    ]
+  },
+  {
+    "topic": "When Love Feels Like Coming Home",
+    "style": "emotional",
+    "script": "I still carry the smell of our porch\nslowly fading\nBut memories linger\nand the creaks of wooden floors\nSome people find comfort\nin familiar voices\nI won't forget the way\nit felt to be home\nnot even when\nthe lights are off\nin the empty rooms.\nsend this to them.",
+    "hash": "578c6ce1044cc9a84e86d26f9b19496d",
+    "metaphors": [
+      "light"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
