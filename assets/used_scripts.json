@@ -1,15 +1,5 @@
 [
   {
-    "topic": "When Someone Changes",
-    "style": "emotional",
-    "script": "Midnight. The city sleeps\nbut I'm awake\nthinking of you\nand how you changed\nslowly becoming\nsomeone I don't know\nNOT the same person\nI once called home\nbut a stranger now\nliving in your skin\nand I'm left wondering\nwhy people change\nso completely\nsend this to them",
-    "hash": "4c84c74f2afa1366bd557dc44ee17cfb",
-    "metaphors": [],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "When Grief Becomes a Teacher",
     "style": "wisdom",
     "script": "Kahlil Gibran wrote\nin sorrow's depths\nyou'll find strength\nhidden from you\nin times of joy\ngrief teaches me\nabout the weight\nof what I hold\nthe fragility of life\nthe importance of touch\nmy heart is learning\nto let go slowly",
@@ -712,5 +702,15 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "When You Have to Pretend You Are Fine at Work",
+    "style": "emotional",
+    "script": "I wear a mask\nEvery day\nthe weight of it\nis slowly crushing me\nbut I keep it on\nThe face that hides\nmy true emotions\nSome people see right through\nI won't let them in\nnot even a crack\nsend this to them.",
+    "hash": "d7cee89af5a2fea78eedcd2f50bf0d4f",
+    "metaphors": [
+      "mask"
+    ],
+    "themes": []
   }
 ]
