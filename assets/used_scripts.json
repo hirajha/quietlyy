@@ -1,15 +1,5 @@
 [
   {
-    "topic": "When You Have to Pretend You Are Fine at Work",
-    "style": "emotional",
-    "script": "There's a weight that's invisible\nbut it's crushing me\nand slowly suffocating\nnot just my voice\nSome people wear masks\nThe hands that type\nare shaking inside\nnot from fear\nbut from exhaustion\nI won't let them see\nthe cracks in my facade\njust a faint whisper\nsend this to them.",
-    "hash": "5489717ec1f8ce890b322474d44a946a",
-    "metaphors": [
-      "mask"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Heartbreak Lesson",
     "style": "emotional",
     "script": "The photo is still framed\nbut dust has settled\non the laughter we had\nand the tears we cried\nSlowly fading away\nnot from memory\nbut from sight\nSome hands hold tighter\nthe fragments of us\nNot to remember\nbut to forget\nI won't let go\njust yet\nsend this to them",
@@ -707,6 +697,21 @@
     ],
     "themes": [
       "growth",
+      "silence"
+    ]
+  },
+  {
+    "topic": "How You Changed Everything",
+    "style": "poetic",
+    "script": "I am the architect. \nDarkness falls, \nand shadows rise slowly \nnot to conceal \nbut to reveal \nthe hands that shaped me \nSome people are the tide \nand I was the shoreline, \neroded and remade \nin their wake, \nI stand transformed. \nThe landscape is new, \nand I am still exploring",
+    "hash": "4fc3766aba2df4af5d0cc406796e8070",
+    "metaphors": [
+      "shadow",
+      "shore",
+      "tide",
+      "dark"
+    ],
+    "themes": [
       "silence"
     ]
   }
