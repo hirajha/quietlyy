@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The First Time I Knew",
-    "style": "love",
-    "script": "I remember nights\nspent whispering secrets\nand hiding truths\nbut did you know\n40% of us\nkeep our deepest thoughts\nhidden even\nfrom those closest\nand I wonder why\nwe fear being seen\nSlowly I realized\nit's okay to be\nvulnerable with you\nsend this to them.",
-    "hash": "0d590b6ef948295c3ac564673be7b23f",
-    "metaphors": [],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "When You Have to Pretend You Are Fine at Work",
     "style": "emotional",
     "script": "There's a weight that's invisible\nbut it's crushing me\nand slowly suffocating\nnot just my voice\nSome people wear masks\nThe hands that type\nare shaking inside\nnot from fear\nbut from exhaustion\nI won't let them see\nthe cracks in my facade\njust a faint whisper\nsend this to them.",
@@ -704,5 +694,20 @@
       "mask"
     ],
     "themes": []
+  },
+  {
+    "topic": "Losing a Parent",
+    "style": "love",
+    "script": "The rocking chair creaks.\nEmpty,\nbut the rhythm stays.\nI still set their place at dinner,\nfork angled just like they liked.\nSome habits aren\u2019t choices.\nThey\u2019re echoes you can\u2019t unlearn.\nThe garden\u2019s overgrown now,\nbut their favorite roses bloom wild.\nI talk to the air sometimes,\nnot expecting answers.\nJust the shape of their voice.\nThe house feels lighter.\nSend this to them.",
+    "hash": "0d5be291402ed2aa9b5fdb274623fe07",
+    "metaphors": [
+      "echo",
+      "garden",
+      "light"
+    ],
+    "themes": [
+      "growth",
+      "silence"
+    ]
   }
 ]
