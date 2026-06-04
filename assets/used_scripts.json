@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Learning to Trust the Journey",
-    "style": "wisdom",
-    "script": "Lao Tzu said\nthe journey is\nlong and winding\nwith no clear path\nwe must trust\nin the unknown\nit's hard to let go\nof what's familiar\nfear of the future\nholds me back\nwhat if i stumble\nin the stillness",
-    "hash": "dda464367b24df844ebf480c295ab611",
-    "metaphors": [
-      "wind",
-      "path"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When Someone Changes",
     "style": "emotional",
     "script": "Midnight. The city sleeps\nbut I'm awake\nthinking of you\nand how you changed\nslowly becoming\nsomeone I don't know\nNOT the same person\nI once called home\nbut a stranger now\nliving in your skin\nand I'm left wondering\nwhy people change\nso completely\nsend this to them",
@@ -709,6 +696,18 @@
     "hash": "578c6ce1044cc9a84e86d26f9b19496d",
     "metaphors": [
       "light"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Beauty of an Unfinished Life",
+    "style": "nostalgic",
+    "script": "Unfinished pages                             \nwe just                                  \nstarted writing                          \nSTORIES UNFOLDING somewhere            \nand characters still evolving          \nwith each new experience                \nLIFE BECOMES A MASTERPIECE             \nslowly                                   \nstill searching                           \nfor the perfect ending                 \nbut BEAUTY LIES IN THE INCOMPLETE      \nand the mystery that remains           \n",
+    "hash": "f0e47bf52d0081c73c82acaec946cfd0",
+    "metaphors": [
+      "star"
     ],
     "themes": [
       "silence"
