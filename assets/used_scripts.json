@@ -1,20 +1,5 @@
 [
   {
-    "topic": "When Friendship Becomes One-Sided",
-    "style": "emotional",
-    "script": "Sunday evening. Shadows fall\nbut darkness gathers\nslowly creeping\ninto every conversation\nSome people forget\nthe weight of presence\nI won't hold on\njust letting go\nnot out of anger\nbut out of love\nThe hands that once\nheld mine tightly\nnow feel like strangers\nsend this to them",
-    "hash": "9ba52389ee73f895e9e6befb53ccb63b",
-    "metaphors": [
-      "shadow",
-      "sun",
-      "dark"
-    ],
-    "themes": [
-      "love",
-      "moving_on"
-    ]
-  },
-  {
     "topic": "Carrying Others Too Long",
     "style": "emotional",
     "script": "There's a burden that weighs\nbut slowly becomes ours\nand we carry it\njust to keep them standing\nSome people rely\non the strength of others\nnot out of need\nbut out of habit\nThe weight becomes\na familiar comfort\nI won't hold it forever\nslowly letting go\nin the stillness",
@@ -703,5 +688,22 @@
     "hash": "33c8cb5ca5832592c0929ad25a8af399",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "Loving Without Losing Yourself",
+    "style": "poetic",
+    "script": "A houseplant on a windowsill,\nlearning to grow,\nnot toward the light,\nbut through the cracks in the glass.\nSome days,\nit forgets the sun exists,\nand that's okay.\nThe roots remember,\ntwisting into soil,\nclaiming space without asking.\nYou can bloom,\nwithout bending.",
+    "hash": "5e626b721928302aa48636741f43482a",
+    "metaphors": [
+      "light",
+      "wind",
+      "roots",
+      "sun",
+      "window"
+    ],
+    "themes": [
+      "growth",
+      "nostalgia"
+    ]
   }
 ]
