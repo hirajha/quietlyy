@@ -1,13 +1,5 @@
 [
   {
-    "topic": "Loving You Quietly",
-    "style": "love",
-    "script": "I carry it everywhere\nand the weight is crushing\nbut slowly I learn\nTo Hold The Invisible\nGently In My Hands\nand the thought is comforting\nSlowly It Becomes\nA Part Of My Everyday\nNew Scars Appear\nAnd The Old Ones Fade\nSlowly Into The Background\nbut The Question Remains\nWhat Is The Shelf Life\nof A Gentle Touch\nsend this to them",
-    "hash": "b5b247e83734332236e2737e5875389d",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "Why Suffering Transforms Us",
     "style": "wisdom",
     "script": "Marcus Aurelius wrote\npain is inevitable\nsuffering is optional\nit shapes us deeply\nin its crucible\ni find my strength\nin the fire of\nmy own resilience\ni am tempered\nlike forged steel\nwhat will i become\nin this slow unfolding\nin the stillness",
@@ -728,6 +720,16 @@
     ],
     "themes": [
       "self_worth"
+    ]
+  },
+  {
+    "topic": "The Way You Look at Me",
+    "style": "nostalgic",
+    "script": "your gaze is a rumor\nit spreads\nthrough my skin\nslowly\nin the creases of my soul\nwhere memories unfold\nwe just\nstill searching\nfor a glimpse of truth\nBENEATH THE SURFACE\nof your eyes\nsomething stirs\nand i am\nunraveling",
+    "hash": "617bf08d65944d0642d3dd47ce07376b",
+    "metaphors": [],
+    "themes": [
+      "silence"
     ]
   }
 ]
