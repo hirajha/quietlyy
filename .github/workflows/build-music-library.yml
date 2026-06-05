@@ -1,0 +1,56 @@
+name: Quietlyy -- Build Music Library
+
+# One-time (or occasional) batch generation of premium emotional instrumental
+# tracks via Sonauto → stored in assets/music_gallery/<mood>/. The pipeline
+# then ROTATES this library instead of generating per-video.
+# Run AFTER topping up Sonauto credits.
+
+on:
+  workflow_dispatch:
+    inputs:
+      per_mood:
+        description: 'Tracks to generate per mood (heartbreak/longing/melancholy)'
+        required: false
+        default: '8'
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120   # async polling per track can be slow
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build music library
+        env:
+          SONAUTO_API_KEY: ${{ secrets.SONAUTO_API_KEY }}
+        run: |
+          python scripts/build_music_library.py --per-mood "${{ github.event.inputs.per_mood || '8' }}"
+
+      - name: Commit library to repo
+        if: always()
+        run: |
+          git config user.name "Quietlyy Bot"
+          git config user.email "bot@quietlyy.com"
+          git add -f assets/music_gallery/ || true
+          if git diff --cached --quiet; then
+            echo "No new tracks"
+          else
+            COUNT=$(find assets/music_gallery -name '*.mp3' | wc -l | tr -d ' ')
+            git commit -m "Bot: music library — $COUNT total tracks"
+            git pull --rebase || true
+            git push || true
+          fi

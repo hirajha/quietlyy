@@ -1293,45 +1293,39 @@ def generate_music(topic, script_text="", style="emotional"):
 
     prompt_used = _MUSICGEN_PROMPTS.get(script_mood, "")
 
-    # ── Primary: Google Lyria 3 via Gemini API — FREE, uses existing key ──
-    # Launched 2026-04-18 as part of Google Flow Music. Same DeepMind model
-    # powering the Flow studio. Uses our existing GEMINI_API_KEY (same key
-    # as script generation). Auto-cooldown (12h) after a 429.
+    # ── PRIMARY: rotate the curated AI MUSIC LIBRARY (gallery) ──
+    # Strategy (2026-06): like Whisprs, we ROTATE a one-time library of premium
+    # AI-generated emotional tracks (built via build_music_library.py) instead
+    # of generating per-video. The gallery is now the PRIMARY source — high
+    # quality, free, instant, no API calls, anti-repetition built in.
+    # (Only reached once the library has tracks; min_pool_size guards against
+    # a too-thin pool causing repeats.)
+    if _pick_from_music_gallery(script_mood, music_path, min_pool_size=2):
+        return music_path, "gallery_library"
+
+    # ── Refresh sources — only if the library is empty/thin for this mood ──
+    # Generate a fresh track AND bank it to grow the library over time.
     if _generate_lyria_music(script_mood, music_path, duration_sec=30):
         _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
         return music_path, "lyria_gemini"
-
-    # ── Secondary: Sonauto Melodia v3 — 1500 free credits, no CC required ──
-    # When Lyria hits daily quota, Sonauto picks up. ~30-90s generation time
-    # (async polling). Sign up at sonauto.ai/developers to get SONAUTO_API_KEY.
     if _generate_sonauto_music(script_mood, music_path, duration_sec=30):
         _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
         return music_path, "sonauto_melodia"
-
-    # ── Tertiary: ElevenLabs Music ──
-    # Currently 401 (plan doesn't include Music API scope). Kept in case
-    # plan is upgraded or Music scope is enabled on the API key.
     if _generate_elevenlabs_music(script_mood, music_path, duration_sec=30):
         _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
         return music_path, "elevenlabs_music"
 
-    # ── Quaternary: CC0 Kevin MacLeod — GUARANTEED soft sad piano, on-mood ──
-    # MOVED ABOVE gallery reuse (2026-06): the gallery had polluted Sonauto
-    # tracks (some upbeat/dance, wrong mood) that surfaced as background music
-    # totally opposite to the emotional script. CC0 Kevin MacLeod tracks are a
-    # hand-curated, verified-sad piano set — when fresh AI gen is unavailable
-    # (Sonauto out of credits, Lyria paid, ElevenLabs 401), this guarantees
-    # on-brand melancholic piano instead of a random gallery track.
+    # ── Fallback: CC0 Kevin MacLeod (generic but reliable, on-mood) ──
+    # Only used if the library is empty AND no generator works. Once the
+    # library is built this should never be reached.
     if _download_cc0_track(script_mood, music_path):
-        print(f"[music] CC0 library track used (Kevin MacLeod, mood: {script_mood})")
+        print(f"[music] CC0 fallback used (Kevin MacLeod, mood: {script_mood})")
         return music_path, "cc0_library"
-    print("[music] CC0 download failed — trying music gallery")
+    print("[music] CC0 download failed — trying broader gallery match")
 
-    # ── Quinary: Reuse from music gallery (only if CC0 download fails) ──
-    # Last-resort reuse of past AI tracks. Demoted below CC0 because gallery
-    # mood can't be verified (see above).
-    if _pick_from_music_gallery(script_mood, music_path):
-        return music_path, "gallery_reuse"
+    # Final gallery attempt with relaxed pool size (any track for the mood)
+    if _pick_from_music_gallery(script_mood, music_path, min_pool_size=1):
+        return music_path, "gallery_library"
 
     # ── HF Spaces — currently 401 (ZeroGPU requires HF Pro) ──
     if _generate_musicgen(script_mood, music_path, duration=30):
