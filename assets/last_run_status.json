@@ -13,46 +13,14 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When You Found Me"
+    "detail": "The Quiet Revolution of Self-Respect"
   },
   "audio": {
     "result": "ok",
     "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3"
   },
   "images": {
-    "result": "ok",
-    "detail": "5 panels"
-  },
-  "music": {
-    "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [elevenlabs_music]"
-  },
-  "video": {
-    "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/quietlyy_video.mp4"
-  },
-  "quality_gate": {
-    "result": "ok",
-    "detail": ""
-  },
-  "copyright": {
-    "result": "ok",
-    "detail": ""
-  },
-  "seo": {
-    "result": "ok",
-    "detail": ""
-  },
-  "facebook": {
-    "result": "skipped",
-    "detail": ""
-  },
-  "instagram": {
-    "result": "skipped",
-    "detail": ""
-  },
-  "youtube": {
-    "result": "skipped",
-    "detail": ""
+    "result": "fail",
+    "detail": "Image generation failed for panel 1 and gallery is empty. All providers down + no stock to fall back on."
   }
 }
