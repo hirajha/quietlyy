@@ -492,8 +492,8 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
     line_groups = []
     gi = 0
     while gi < num_lines:
-        line_groups.append(lines[gi:min(gi + 2, num_lines)])
-        gi += 2
+        line_groups.append(lines[gi:min(gi + 3, num_lines)])
+        gi += 3   # 3 lines per panel (was 2) — fewer image changes, calmer/premium
     num_groups = len(line_groups)
 
     XFADE = 0.6    # crossfade between panels

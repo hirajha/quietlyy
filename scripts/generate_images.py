@@ -189,9 +189,11 @@ _SCENE_POOL_ENVIRONMENT = [
 # Combined pool — weighted for Whisprs aesthetic
 # Wide shots dominate (signature look), with close portraits as counterpoint
 _SCENE_POOL = (
-    _SCENE_POOL_WIDE * 5 +         # Dominant — signature wide atmospheric shots
-    _SCENE_POOL_PORTRAIT * 2 +     # Intimate close portrait illustrations
-    _SCENE_POOL_ENVIRONMENT * 1    # Pure atmospheric establishing shots
+    _SCENE_POOL_WIDE * 6 +         # WIDE atmospheric shots render beautifully painterly
+    _SCENE_POOL_ENVIRONMENT * 2    # Pure atmospheric establishing shots
+    # PORTRAIT close-ups REMOVED (2026-06): FLUX renders close-up faces as
+    # bold comic-book/cartoon (heavy outlines, saturated) — off-style and
+    # unattractive. Wide atmospheric scenes give the premium painterly look.
 )
 
 # ── Art style for love scripts — same painterly-textured style, warmer accent
@@ -327,10 +329,12 @@ def generate_image_prompt(topic, visual_keywords, panel_num, style="emotional"):
         f"Scene: {scene}. "
         f"Emotional theme: {topic}. Mood keywords: {keywords_str}. "
         f"Portrait orientation (tall, 9:16). "
-        f"PAINTERLY editorial illustration — visible brushwork and ink lines, subtle film-grain texture, "
-        f"hand-illustrated and premium. Single emotional figure, atmospheric scene. Muted desaturated "
-        f"palette with EXACTLY ONE bold saturated accent colour (red, amber, or copper) as the focal pop. "
-        f"NOT flat vector, NOT photorealistic, NOT anime, NOT 3D render. "
+        f"Soft PAINTERLY matte illustration — gentle brushwork, muted gouache-like colour, subtle "
+        f"film-grain, atmospheric and emotional like a fine art book cover. A small/distant lone figure "
+        f"in a vast moody landscape. Muted desaturated palette with ONE soft accent colour. "
+        f"CRITICAL STYLE: soft painterly art ONLY. "
+        f"ABSOLUTELY NOT comic book, NOT cartoon, NOT cel-shaded, NOT bold black outlines, NOT vector, "
+        f"NOT saturated, NOT anime/manga, NOT photorealistic, NOT 3D. No close-up faces. "
         f"No text, no watermarks, no words, no letters, no UI elements in the image."
     )
 
