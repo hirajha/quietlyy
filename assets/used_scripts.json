@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Person Who Stayed",
-    "style": "love",
-    "script": "There's a fatigue that lingers\nslowly in your eyes\nand a weight that settles\nGently On Your Skin\nSometimes it's the staying\nthat feels like a burden\nNew days bring the same\nquestions and doubts\nBut In Your Presence\neverything unfolds\nslowly like a petal\nand the world makes sense\nsend this to Quietlyy",
-    "hash": "af3b88b3f7e92fc33478ac5048a8d98c",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Being the One Who Always Checks In",
     "style": "emotional",
     "script": "You're scrolling through\nand seeing their name\nbut not their face\nslowly forgetting\nthe sound of their voice\nand the way they laugh\nSome people need\nconstant reminders\nnot of love\nbut of being seen\nand heard\nI won't forget\nyou exist\nsend this to them",
@@ -721,6 +711,16 @@
     "themes": [
       "silence",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "When You Realized You Were the Option, Not the Priority",
+    "style": "nostalgic",
+    "script": "we were the extras                            \njust filler                                   \nnot the main cast                             \nbut STILL we auditioned                         \nwith every smile and every laugh              \nhoping to get the lead role                   \nbut DEEP down we knew                          \nwe were just options                           \nnot the priority                              \nSO we waited                                  \nstill waiting                                 \nfor a callback that never came                ",
+    "hash": "87238143fa027acb0a2f42afc290ff98",
+    "metaphors": [],
+    "themes": [
+      "silence"
     ]
   }
 ]
