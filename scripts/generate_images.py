@@ -463,6 +463,79 @@ def generate_with_dalle(prompt, output_path):
     return False
 
 
+def generate_with_gemini_flash_image(prompt, output_path):
+    """Google 'Nano Banana' (gemini-2.5-flash-image) native image generation.
+
+    Unlike Imagen (imagen-* models, PAID only), the Gemini Flash native image
+    model runs on the STANDARD Gemini free quota — the same key/quota as our
+    script generation. Uses the generateContent endpoint with
+    responseModalities=['IMAGE']; the image comes back base64 in
+    candidates[0].content.parts[*].inline_data.data.
+
+    This is the primary free generator after Pollinations went paid (HTTP 402)
+    in June 2026, leaving us with no working free image source.
+    """
+    import base64
+    key = os.environ.get("GEMINI_API_KEY")
+    if not key:
+        return False
+    # Try current image-capable Gemini models in order
+    models = ["gemini-2.5-flash-image", "gemini-2.0-flash-preview-image-generation"]
+    for model_id in models:
+        try:
+            resp = requests.post(
+                f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent",
+                headers={"x-goog-api-key": key, "Content-Type": "application/json"},
+                json={
+                    "contents": [{"parts": [{"text":
+                        prompt + " Vertical 9:16 portrait composition, tall format."}]}],
+                    "generationConfig": {"responseModalities": ["IMAGE"]},
+                },
+                timeout=90,
+            )
+            if resp.status_code != 200:
+                print(f"[images]   Nano Banana {model_id}: {resp.status_code} {resp.text[:150]}")
+                continue
+            data = resp.json()
+            img_b64 = None
+            for cand in data.get("candidates", []):
+                for part in cand.get("content", {}).get("parts", []):
+                    inline = part.get("inlineData") or part.get("inline_data")
+                    if inline and inline.get("data"):
+                        img_b64 = inline["data"]
+                        break
+                if img_b64:
+                    break
+            if not img_b64:
+                print(f"[images]   Nano Banana {model_id}: no image in response")
+                continue
+            img_bytes = base64.b64decode(img_b64)
+            if len(img_bytes) < 5000:
+                continue
+            with open(output_path, "wb") as f:
+                f.write(img_bytes)
+            from PIL import Image as PILImage
+            img = PILImage.open(output_path).convert("RGB")
+            # Crop to 9:16 portrait then resize to 1080x1920
+            w, h = img.size
+            target_w = int(h * 9 / 16)
+            if target_w <= w:
+                left = (w - target_w) // 2
+                img = img.crop((left, 0, left + target_w, h))
+            else:
+                target_h = int(w * 16 / 9)
+                top = max(0, (h - target_h) // 2)
+                img = img.crop((0, top, w, top + min(target_h, h)))
+            img = img.resize((1080, 1920), PILImage.LANCZOS)
+            img.save(output_path)
+            print(f"[images]   ✅ Nano Banana ({model_id}) generated")
+            return True
+        except Exception as e:
+            print(f"[images]   Nano Banana {model_id} error: {str(e)[:150]}")
+            continue
+    return False
+
+
 def generate_with_gemini_imagen(prompt, output_path):
     """Fallback: Google Imagen 3 via google-genai SDK."""
     import base64, io
@@ -648,15 +721,18 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
 
         prompt = generate_image_prompt(topic, visual_keywords, i, style=style)
 
-        # Chain (2026-06) by what actually WORKS on free tier:
-        #   1. Pollinations FLUX — the only working free generator, does ~all images
-        #   2. Gemini Imagen — PAID plan only; tried only if Pollinations fails
-        #      (so its paywall error normally never fires). Auto-works if user
-        #      ever adds Google billing.
-        #   3. HuggingFace FLUX — deprecated endpoint, last-ditch
-        #   (DALL-E removed — OpenAI decommissioned it)
-        print(f"[images] Panel {i+1}/{num_panels}: trying Pollinations FLUX (free)...")
-        success = generate_with_pollinations(prompt, output_path)
+        # Chain (2026-06-05) — Pollinations went PAID (HTTP 402), so the new
+        # free primary is Google 'Nano Banana' (gemini-2.5-flash-image) on the
+        # standard Gemini free quota (our existing key):
+        #   1. Nano Banana (Gemini Flash image) — FREE on Gemini quota
+        #   2. Pollinations FLUX — now 402/paid, tried in case they restore free
+        #   3. Gemini Imagen — PAID plan only
+        #   4. HuggingFace FLUX — deprecated endpoint, last-ditch
+        print(f"[images] Panel {i+1}/{num_panels}: trying Nano Banana (Gemini Flash image, free)...")
+        success = generate_with_gemini_flash_image(prompt, output_path)
+        if not success:
+            print(f"[images]   Nano Banana failed — trying Pollinations FLUX...")
+            success = generate_with_pollinations(prompt, output_path)
         if not success:
             print(f"[images]   Pollinations failed — trying Gemini Imagen (paid plan only)...")
             success = generate_with_gemini_imagen(prompt, output_path)
