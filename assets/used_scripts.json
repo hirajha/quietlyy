@@ -1,15 +1,5 @@
 [
   {
-    "topic": "You Didn't Fix Me, You Stayed",
-    "style": "love",
-    "script": "I carry it everywhere\nin my pocket a small\npiece of paper with\nyour handwriting on it\nSlowly memories fade\nBut your presence remains\nGently in my daily\nroutines and thoughts\nNobody told me\nstaying was a choice\nAnd you chose to stay\nIn my life a constant\nquietlyy I'm grateful\nsend this to them",
-    "hash": "afdf077b4fe61b7ef2ce4c0ffb080d23",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Love Someone You Cannot Have",
     "style": "emotional",
     "script": "I never told you\nabout the maps\ni drew of your face\nin the margins\nof my favorite books\nbut pages turned\nand stories changed\nSome memories\nlinger on fingertips\nand the smell\nof old paper stays\nnot out of sadness\nbut out of longing",
@@ -727,6 +717,20 @@
     "metaphors": [],
     "themes": [
       "moving_on"
+    ]
+  },
+  {
+    "topic": "The Small Things I Notice About You",
+    "style": "emotional",
+    "script": "The smallest details linger\nslowly, \nin the margins of memory, \nBut the way a laugh echoes\nis a fragile thing \nSome people don't notice\nthe way a room \nfeels emptier without someone, \nand the shadows that remain\nare a reminder \nof what's been lost, \nNot just the big moments, \nbut the quiet, \nin between, \nperiods of stillness. \nsend this to them.",
+    "hash": "c0a7bd641290bb9c0d5a7aeab4e73c66",
+    "metaphors": [
+      "echo",
+      "shadow"
+    ],
+    "themes": [
+      "grief_loss",
+      "silence"
     ]
   }
 ]
