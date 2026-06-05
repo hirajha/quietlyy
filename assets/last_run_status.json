@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Way You Look at Me"
+    "detail": "The Freedom of Acceptance"
   },
   "audio": {
     "result": "ok",
@@ -44,12 +44,12 @@
     "detail": ""
   },
   "facebook": {
-    "result": "ok",
+    "result": "skipped",
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17869673346682675"
+    "result": "skipped",
+    "detail": ""
   },
   "youtube": {
     "result": "skipped",

@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Why Suffering Transforms Us",
-    "style": "wisdom",
-    "script": "Marcus Aurelius wrote\npain is inevitable\nsuffering is optional\nit shapes us deeply\nin its crucible\ni find my strength\nin the fire of\nmy own resilience\ni am tempered\nlike forged steel\nwhat will i become\nin this slow unfolding\nin the stillness",
-    "hash": "a66f93b74867077d1bd7766946d907a6",
-    "metaphors": [
-      "fire"
-    ],
-    "themes": [
-      "heartbreak",
-      "silence"
-    ]
-  },
-  {
     "topic": "You Didn't Fix Me, You Stayed",
     "style": "love",
     "script": "I carry it everywhere\nin my pocket a small\npiece of paper with\nyour handwriting on it\nSlowly memories fade\nBut your presence remains\nGently in my daily\nroutines and thoughts\nNobody told me\nstaying was a choice\nAnd you chose to stay\nIn my life a constant\nquietlyy I'm grateful\nsend this to them",
@@ -730,6 +717,16 @@
     "metaphors": [],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Freedom of Acceptance",
+    "style": "poetic",
+    "script": "I am free.\nfalling slowly,\ninto the depths\nof my own skin,\nthe hands that held me\nare letting go.\nSome people falter,\nbut I'm finding balance\nin the undertow,\nand rising up,\njust beneath the surface.",
+    "hash": "f0cd8d583a1e810d419cdf9ce244a9e6",
+    "metaphors": [],
+    "themes": [
+      "moving_on"
     ]
   }
 ]
