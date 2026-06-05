@@ -1,15 +1,5 @@
 [
   {
-    "topic": "Being the One Who Always Checks In",
-    "style": "emotional",
-    "script": "You're scrolling through\nand seeing their name\nbut not their face\nslowly forgetting\nthe sound of their voice\nand the way they laugh\nSome people need\nconstant reminders\nnot of love\nbut of being seen\nand heard\nI won't forget\nyou exist\nsend this to them",
-    "hash": "d65944fc1571d6afdf5e25a7420bdcfe",
-    "metaphors": [],
-    "themes": [
-      "love"
-    ]
-  },
-  {
     "topic": "Loving Without Losing Yourself",
     "style": "wisdom",
     "script": "Maya Angelou said\nyou belong to\nno one but\nyourself first\nin your soul\ni find my voice\nin the emptiness\ni hear my thoughts\ni learn to breathe\nwithout the weight\nof others' expectations\ni am free to be\nmy true self",
@@ -721,6 +711,18 @@
     "metaphors": [],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "What I Never Said Out Loud",
+    "style": "poetic",
+    "script": "I built a ladder out of whispers,\nclimbed it every night,\nbut the rungs were made of paper.\nSome mornings,\nthe ink had bled through,\nleft my palms stained with things unsaid.\nThe attic door,\nalways locked from the inside,\nheld more than dust and old photo albums.\nI left the key,\njust once,\non the kitchen table.\nNo note.",
+    "hash": "82028f3c36cf048bb56a5d2d1ef68bd9",
+    "metaphors": [
+      "door"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
