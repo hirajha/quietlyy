@@ -342,6 +342,110 @@ def _join_lines_with_silence(line_files, audio_path, gaps_seconds=None):
     os.remove(concat_path)
 
 
+def _strip_direction(text):
+    """Remove break tags + ellipses from directed text → plain words (for
+    validating the director didn't change the actual words)."""
+    import re
+    t = re.sub(r"<break[^>]*/>", " ", text)
+    t = t.replace("…", " ").replace("...", " ")
+    return [w for w in re.split(r"\s+", t.strip()) if w]
+
+
+def _direct_narration(lines):
+    """AI NARRATION DIRECTOR — use a free LLM to annotate the poem with delivery
+    direction (break tags, ellipses, emphasis) the way a pro audiobook narrator
+    would, so ElevenLabs reads it with feeling instead of mechanically.
+
+    HARD CONSTRAINT: the LLM may ONLY add <break>/ellipsis/emphasis — never add,
+    remove, reorder, or change WORDS. We validate the word sequence is preserved
+    (case-insensitive); if it drifts, we reject and fall back to punctuation rules.
+
+    Returns directed_text (str) on success, or None to fall back.
+    """
+    orig_words = []
+    for l in lines:
+        orig_words.extend(l.split())
+    orig_norm = [w.strip(".,;:!?…—-").lower() for w in orig_words]
+
+    poem = "\n".join(lines)
+    prompt = (
+        "You are a master audiobook narrator preparing an intimate, emotional "
+        "spoken-word poem for text-to-speech. Add delivery direction so it reads "
+        "like a human narrating with real feeling — contemplative, tender, never robotic.\n\n"
+        "STRICT RULES — follow exactly:\n"
+        "1. Do NOT add, remove, reorder, or change ANY word. Keep every original word, in order.\n"
+        "2. Insert ElevenLabs break tags ONLY between words:\n"
+        "   - <break time=\"1.6s\" /> after a COMPLETE thought (where an idea/sentence lands)\n"
+        "   - NO break between enjambed fragments that grammatically continue — they must FLOW as one breath\n"
+        "   - <break time=\"0.4s\" /> for a subtle beat right before an emotional turn\n"
+        "3. Add an ellipsis (…) directly after a word for a soft trailing pause that adds weight (use sparingly, 1-3 times).\n"
+        "4. CAPITALIZE 1-3 of the single most emotionally important words for gentle emphasis (only the most important).\n"
+        "5. Output ONLY the directed poem text with tags/ellipses/caps inline. No explanation, no quotes.\n\n"
+        f"Poem:\n{poem}\n\nDirected version:"
+    )
+
+    def _call_gemini(p):
+        key = os.environ.get("GEMINI_API_KEY")
+        if not key:
+            return None
+        try:
+            r = requests.post(
+                "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+                headers={"x-goog-api-key": key, "Content-Type": "application/json"},
+                json={"contents": [{"parts": [{"text": p}]}],
+                      "generationConfig": {"temperature": 0.6, "maxOutputTokens": 1200}},
+                timeout=40,
+            )
+            if r.status_code != 200:
+                print(f"[audio] director Gemini {r.status_code}: {r.text[:120]}")
+                return None
+            return r.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
+        except Exception as e:
+            print(f"[audio] director Gemini error: {str(e)[:120]}")
+            return None
+
+    def _call_groq(p):
+        key = os.environ.get("GROQ_API_KEY")
+        if not key:
+            return None
+        try:
+            r = requests.post(
+                "https://api.groq.com/openai/v1/chat/completions",
+                headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+                json={"model": "llama-3.3-70b-versatile",
+                      "messages": [{"role": "user", "content": p}],
+                      "temperature": 0.6, "max_tokens": 1200},
+                timeout=40,
+            )
+            if r.status_code != 200:
+                return None
+            return r.json()["choices"][0]["message"]["content"].strip()
+        except Exception:
+            return None
+
+    for caller in (_call_gemini, _call_groq):
+        directed = caller(prompt)
+        if not directed:
+            continue
+        # Strip code fences / quotes the model may wrap around it
+        directed = directed.strip().strip("`").strip()
+        if directed.lower().startswith("directed version"):
+            directed = directed.split(":", 1)[-1].strip()
+        # VALIDATE: same words, same order (ignoring case/punctuation/tags)
+        new_norm = [w.strip(".,;:!?…—-").lower() for w in _strip_direction(directed)]
+        if new_norm == orig_norm:
+            print(f"[audio] 🎬 Narration director applied (via {caller.__name__[6:]}) — words preserved")
+            return directed
+        else:
+            # Allow tiny diffs (≤1 word) from punctuation edge cases; else reject
+            diff = sum(1 for a, b in zip(new_norm, orig_norm) if a != b) + abs(len(new_norm) - len(orig_norm))
+            if diff <= 1 and abs(len(new_norm) - len(orig_norm)) <= 1:
+                print(f"[audio] 🎬 Narration director applied (minor diff={diff})")
+                return directed
+            print(f"[audio] director output changed words (diff={diff}) — rejecting, using rules")
+    return None
+
+
 def generate_audio(script_text):
     """Generate the voiceover. PRIMARY path records the WHOLE script in one
     ElevenLabs call (natural flowing prosody + breathing); FALLBACK is the old
@@ -384,13 +488,18 @@ def generate_audio(script_text):
             return 0.4
         return 0.0  # enjambed — flow, no break (fixes choppiness)
 
-    parts = []
-    for i, l in enumerate(lines):
-        parts.append(_clean_text(l))
-        if i < len(lines) - 1:
-            brk = _break_after(l)
-            parts.append(f' <break time="{brk:.1f}s" /> ' if brk > 0 else ' ')
-    full_text = "".join(parts)
+    # AI NARRATION DIRECTOR first (reads like a human narrator). If it fails or
+    # changes words, fall back to the deterministic punctuation-break rules.
+    full_text = _direct_narration([_clean_text(l) for l in lines])
+    if not full_text:
+        parts = []
+        for i, l in enumerate(lines):
+            parts.append(_clean_text(l))
+            if i < len(lines) - 1:
+                brk = _break_after(l)
+                parts.append(f' <break time="{brk:.1f}s" /> ' if brk > 0 else ' ')
+        full_text = "".join(parts)
+        print("[audio] Using punctuation-rule direction (director unavailable)")
     word_timings, ok = _record_full_elevenlabs(full_text, audio_path)
 
     if ok and word_timings:
