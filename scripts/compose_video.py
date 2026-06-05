@@ -748,14 +748,17 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             # music clearly present under the voice without overpowering it.
             # Fade in at start, fade out over the LAST 4s of the ACTUAL rendered
             # video length (post-xfade) so audio length exactly equals video.
-            f"[2:a]loudnorm=I=-19:LRA=7:TP=-2,"
+            f"[2:a]loudnorm=I=-20:LRA=7:TP=-2,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, actual_video_len - 4):.2f}:d=4[music_norm];"
-            # Sidechain duck — VERY gentle (Whisprs LRA 3-4 = minimal ducking):
-            #   ratio=3       → soft ~3dB dip, not a dramatic drop
-            #   attack=300ms  → slow, inaudible onset
-            #   release=1800ms → music eases back gradually, never yo-yos
-            #   knee=5        → very soft knee, zero pumping
-            f"[music_norm][voice_sc]sidechaincompress=threshold=0.04:ratio=3:attack=300:release=1800:knee=5:makeup=1[music_ducked];"
+            # Sidechain duck — tuned for HUMMING music (human-like vocalise grabs
+            # attention more than pads, so it must recede firmly under the voice
+            # while still blooming in the breath gaps):
+            #   ratio=5       → ~5-6dB dip when narrator speaks (humming steps back)
+            #   attack=250ms  → smooth onset, no pumping
+            #   release=1500ms → blooms back gradually in the pauses (the premium feel)
+            #   knee=5        → soft knee, no audible artifact
+            # Music base also lowered -19→-20 so the humming sits further back overall.
+            f"[music_norm][voice_sc]sidechaincompress=threshold=0.03:ratio=5:attack=250:release=1500:knee=5:makeup=1[music_ducked];"
             # Mix, then FINAL loudnorm to Whisprs' exact measured profile
             # (-14.5 LUFS, LRA 4, TP -1) → tight, even, broadcast-consistent.
             f"[0:v]{video_filter}[vout];"
