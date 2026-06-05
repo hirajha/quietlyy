@@ -8,25 +8,38 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: List available ElevenLabs models
+      - name: Probe v3 TTS + timestamps access
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
         run: |
           python3 - <<'PY'
-          import os, json, urllib.request
+          import os, json, urllib.request, urllib.error
           key = os.environ["ELEVENLABS_API_KEY"]
-          req = urllib.request.Request("https://api.elevenlabs.io/v1/models",
-                                       headers={"xi-api-key": key})
-          data = json.load(urllib.request.urlopen(req, timeout=30))
-          print("=== ElevenLabs models available to this key ===")
-          for m in data:
-              mid = m.get("model_id")
-              name = m.get("name")
-              tts = m.get("can_do_text_to_speech")
-              # timestamps capability flag varies by API version
-              ts = m.get("can_use_speaker_boost"), m.get("can_do_voice_conversion")
-              print(f"  {mid:35} | TTS={tts} | {name}")
-          ids = [m.get("model_id") for m in data]
-          print()
-          print("eleven_v3 present:", any("v3" in (i or "") for i in ids))
+          vid = os.environ["ELEVENLABS_VOICE_ID"]
+          text = "She walked away, but kept looking back."
+
+          def try_model(model_id, with_ts):
+              url = f"https://api.elevenlabs.io/v1/text-to-speech/{vid}"
+              if with_ts:
+                  url += "/with-timestamps"
+              body = json.dumps({"text": text, "model_id": model_id,
+                                 "voice_settings": {"stability":0.4,"similarity_boost":0.8}}).encode()
+              req = urllib.request.Request(url, data=body,
+                    headers={"xi-api-key": key, "Content-Type": "application/json"})
+              try:
+                  r = urllib.request.urlopen(req, timeout=40)
+                  d = r.read()
+                  has_align = b"alignment" in d if with_ts else None
+                  return f"200 OK ({len(d)} bytes)" + (f", alignment={'YES' if has_align else 'NO'}" if with_ts else "")
+              except urllib.error.HTTPError as e:
+                  return f"{e.code} {e.read()[:120].decode(errors='replace')}"
+              except Exception as e:
+                  return f"ERR {e}"
+
+          print("=== ElevenLabs model/timestamp probe ===")
+          for m in ["eleven_v3", "eleven_multilingual_v2", "eleven_turbo_v2_5"]:
+              print(f"\n[{m}]")
+              print(f"  plain TTS:        {try_model(m, False)}")
+              print(f"  with-timestamps:  {try_model(m, True)}")
           PY
