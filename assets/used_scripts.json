@@ -1,15 +1,5 @@
 [
   {
-    "topic": "What You Cannot Change and What You Can",
-    "style": "wisdom",
-    "script": "Maya Angelou said\nlife is precious\nin every moment\nwe are given\na choice to rise\nor to wither\nin the darkness\ni find my strength\nin the uncertainty\ni find my voice\nwhat will you do\nwith this fragile life",
-    "hash": "d25e0198d100759b14775a6ff72ff9cd",
-    "metaphors": [
-      "dark"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Person Who Stayed",
     "style": "love",
     "script": "There's a fatigue that lingers\nslowly in your eyes\nand a weight that settles\nGently On Your Skin\nSometimes it's the staying\nthat feels like a burden\nNew days bring the same\nquestions and doubts\nBut In Your Presence\neverything unfolds\nslowly like a petal\nand the world makes sense\nsend this to Quietlyy",
@@ -715,6 +705,22 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Learning to Trust the Journey",
+    "style": "love",
+    "script": "You're lost in the haze of a forgotten dream\nslowly\nAND TRYING to find your way back\nto a place that feels like home\nGENTLY\nthe morning light creeps in\nit brings a warmth that's hard to ignore\nbut the shadows still linger\nAND IN THEM\nyou're searching for a glimpse of what's to come\nSLOWLY\nthe fog begins to clear\nand a path starts to unfold\nit's uncertain\nbut it's yours\nsend this to Quietlyy.",
+    "hash": "71ec2ff2a1000224e53f3207c2864d88",
+    "metaphors": [
+      "star",
+      "shadow",
+      "light",
+      "path"
+    ],
+    "themes": [
+      "silence",
+      "grief_loss"
     ]
   }
 ]
