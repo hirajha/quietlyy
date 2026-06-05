@@ -1,17 +1,5 @@
 [
   {
-    "topic": "When You Are the One Who Always Forgives",
-    "style": "emotional",
-    "script": "Your old key still fits\nand turns the lock\nslowly creaks open\nnot with a bang\nbut with a whisper\nSome people forgive\nout of habit\nnot out of love\nbut out of fear\nof being alone\nI won't hold onto\nthe weight of your mistakes\njust the memory\nof your presence",
-    "hash": "20e020326d542f5e560da13fb89ba2d0",
-    "metaphors": [],
-    "themes": [
-      "love",
-      "silence",
-      "loneliness"
-    ]
-  },
-  {
     "topic": "The Weight of Being the Strong One",
     "style": "emotional",
     "script": "It doesn't weigh. Not yet.\nslowly\nThe weight is a mountain\nI'm climbing\nthe hands that hold me up\nare my own\nSome people call it strength\nbut it's just a facade\nI won't let it crumble\nand slowly I'm losing\nmy grip. Done.",
@@ -734,5 +722,17 @@
       "grief_loss",
       "nostalgia"
     ]
+  },
+  {
+    "topic": "The Gift of Impermanence",
+    "style": "nostalgic",
+    "script": "WE FORGET how bright\nit burned\nonly after\nthe light goes out.\n\nYou held the door\nfor a stranger\nwho never turned\nto thank you.\n\nTIME STRETCHES\nlike a shadow\nat noon\nthen vanishes\nwithout a sound.\n\nWe keep\nwhat we can\u2019t keep.",
+    "hash": "4bc3c722a71c0372249389e2079473c0",
+    "metaphors": [
+      "door",
+      "shadow",
+      "light"
+    ],
+    "themes": []
   }
 ]
