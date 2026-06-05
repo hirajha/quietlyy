@@ -14,10 +14,11 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 # ElevenLabs config
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
 ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "")
-# eleven_multilingual_v2 = ElevenLabs' highest-FIDELITY model — clearer, richer,
-# warmer than the speed-optimized turbo_v2_5 we used before. Worth the slightly
-# slower generation for narration quality (user asked for a clearer voice).
-ELEVENLABS_MODEL = "eleven_multilingual_v2"
+# eleven_v3 = ElevenLabs' most expressive model + supports AUDIO TAGS
+# ([pause], [emphasized], [slows down], [breathes], [softly]) for true narrator
+# delivery. Verified 2026-06-05 that this key has v3 access AND the
+# with-timestamps endpoint returns alignment (so subtitle/panel sync is kept).
+ELEVENLABS_MODEL = "eleven_v3"
 
 # ── Variable pause logic (Whisprs-style breathing rhythm) ─────────────────────
 # User feedback: uniform 1.5s pauses every line sounded robotic. Real Whisprs
@@ -210,9 +211,11 @@ def _chars_to_word_timings(chars, starts, ends):
 
 
 def _is_tag_token(t):
-    """True if a token looks like a leaked SSML break tag fragment."""
+    """True if a token looks like a leaked break tag or v3 audio-tag fragment."""
     tl = t.lower()
-    return ("<" in t) or (">" in t) or ("=" in t) or ("/" in t) or tl.startswith("break") or tl == 'time'
+    return (("<" in t) or (">" in t) or ("=" in t) or ("/" in t)
+            or ("[" in t) or ("]" in t)          # v3 audio tags like [pause]
+            or tl.startswith("break") or tl == 'time')
 
 
 def _chars_to_clean_words(chars, starts, ends):
@@ -343,10 +346,12 @@ def _join_lines_with_silence(line_files, audio_path, gaps_seconds=None):
 
 
 def _strip_direction(text):
-    """Remove break tags + ellipses from directed text → plain words (for
-    validating the director didn't change the actual words)."""
+    """Remove break tags, v3 audio tags ([pause], [emphasized]...), and ellipses
+    from directed text → plain words (for validating the director kept the
+    actual words unchanged)."""
     import re
     t = re.sub(r"<break[^>]*/>", " ", text)
+    t = re.sub(r"\[[^\]]*\]", " ", t)   # v3 audio tags like [pause], [slows down]
     t = t.replace("…", " ").replace("...", " ")
     return [w for w in re.split(r"\s+", t.strip()) if w]
 
@@ -369,18 +374,23 @@ def _direct_narration(lines):
 
     poem = "\n".join(lines)
     prompt = (
-        "You are a master audiobook narrator preparing an intimate, emotional "
-        "spoken-word poem for text-to-speech. Add delivery direction so it reads "
-        "like a human narrating with real feeling — contemplative, tender, never robotic.\n\n"
+        "You are a master audiobook narrator directing an intimate, emotional "
+        "spoken-word poem for ElevenLabs v3 text-to-speech. Add delivery direction "
+        "so it reads like a human narrating with real feeling — contemplative, "
+        "tender, never robotic.\n\n"
         "STRICT RULES — follow exactly:\n"
-        "1. Do NOT add, remove, reorder, or change ANY word. Keep every original word, in order.\n"
-        "2. Insert ElevenLabs break tags ONLY between words:\n"
-        "   - <break time=\"1.6s\" /> after a COMPLETE thought (where an idea/sentence lands)\n"
-        "   - NO break between enjambed fragments that grammatically continue — they must FLOW as one breath\n"
-        "   - <break time=\"0.4s\" /> for a subtle beat right before an emotional turn\n"
-        "3. Add an ellipsis (…) directly after a word for a soft trailing pause that adds weight (use sparingly, 1-3 times).\n"
-        "4. CAPITALIZE 1-3 of the single most emotionally important words for gentle emphasis (only the most important).\n"
-        "5. Output ONLY the directed poem text with tags/ellipses/caps inline. No explanation, no quotes.\n\n"
+        "1. Do NOT add, remove, reorder, or change ANY spoken word. Keep every original word, in order. "
+        "(Audio tags in [brackets] and <break> tags are NOT words — those you add.)\n"
+        "2. Pacing with break tags between words:\n"
+        "   - <break time=\"1.5s\" /> after a COMPLETE thought (where an idea lands)\n"
+        "   - NO break between enjambed fragments that grammatically continue — they FLOW as one breath\n"
+        "   - <break time=\"0.4s\" /> for a subtle beat before an emotional turn\n"
+        "3. ElevenLabs v3 AUDIO TAGS in [square brackets] for delivery — use 3-6 total, placed before the "
+        "word/phrase they affect. Choose from: [softly], [whispers], [sighs], [breathes], [slows down], "
+        "[gently], [warmly], [emphasized], [tenderly], [pause]. Use them where a narrator naturally would — "
+        "e.g. [softly] to open, [sighs] before a painful line, [emphasized] on the key word, [slows down] on the close.\n"
+        "4. Add an ellipsis (…) right after a word for a soft trailing pause (sparingly, 1-2 times).\n"
+        "5. Output ONLY the directed poem with tags/breaks/ellipses inline. No explanation, no quotes.\n\n"
         f"Poem:\n{poem}\n\nDirected version:"
     )
 
