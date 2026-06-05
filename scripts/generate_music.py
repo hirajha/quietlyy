@@ -41,12 +41,16 @@ LYRIA_COOLDOWN_HOURS = 12
 # texture, slow tempo, no vocals. These prompts are specific enough that
 # MusicGen reliably produces the right vibe (vs vague terms like "sad music").
 # Tested patterns: name instruments + tempo BPM + "instrumental" + "no vocals"
+# SONG-STYLE instrumentals (like a sad pop/acoustic ballad minus vocals) — a
+# real melody + fuller arrangement (piano + strings + soft beat), NOT ambient
+# pads. Original/AI-composed so it's copyright-safe (real karaoke of existing
+# songs would get muted by FB/YT Content ID).
 _MUSICGEN_PROMPTS = {
-    "heartbreak": "Soft sad piano with deep cello, melancholic heartbreak ballad, slow tempo 60 BPM, cinematic instrumental, gentle strings, no drums, no vocals",
-    "longing":    "Wistful piano with cello and violin, nostalgic longing melody, slow tempo 65 BPM, sparse emotional cinematic instrumental, no vocals",
-    "melancholy": "Dark melancholy piano and cello, sad emotional atmosphere, slow tempo 60 BPM, cinematic instrumental, ambient strings, no vocals",
-    "love":       "Tender romantic piano with soft violin, gentle love ballad, slow tempo 70 BPM, intimate emotional instrumental, no vocals",
-    "hope":       "Hopeful piano with rising strings, emotional cinematic build, slow tempo 72 BPM, uplifting instrumental, no vocals",
+    "heartbreak": "Emotional sad piano ballad instrumental, a memorable heartfelt melody, piano lead with warm strings and a soft gentle beat, like an acoustic pop ballad minus the vocals, modern, moving, slow 65 BPM, instrumental only, no vocals",
+    "longing":    "Wistful nostalgic ballad instrumental with a flowing melody, piano and acoustic guitar with soft strings and a gentle beat, like a tender indie love song without vocals, emotional, slow 68 BPM, instrumental only, no vocals",
+    "melancholy": "Melancholic emotional ballad instrumental with a clear sad melody, piano and cello with a soft heartbeat drum, cinematic modern song structure like a sad pop ballad minus vocals, slow 62 BPM, instrumental only, no vocals",
+    "love":       "Tender romantic ballad instrumental, a warm memorable melody, piano and strings with a soft gentle beat, like an emotional love song without vocals, intimate, slow 70 BPM, instrumental only, no vocals",
+    "hope":       "Hopeful uplifting ballad instrumental with a rising melody, piano and strings building with a soft beat, like an emotional song without vocals, cinematic, slow 72 BPM, instrumental only, no vocals",
 }
 
 
