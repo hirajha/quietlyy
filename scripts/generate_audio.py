@@ -364,17 +364,32 @@ def generate_audio(script_text):
     print(f"[audio] Using ElevenLabs (voice: {ELEVENLABS_VOICE_ID})")
 
     # ── PRIMARY: whole script in ONE call (natural breathing) ────────────────
-    # Insert a VARIABLE breath at each line change via ElevenLabs <break> tags,
-    # sized by how the line ENDS (user feedback: pause longer at full stops):
-    #   • ends in . ! ?  → 1.8s  (complete thought — let it land)
-    #   • ends in , ; — … → 0.6s (continuation — keep flowing)
-    #   • no punctuation  → 1.0s (enjambed fragment — natural breath)
+    # Break ONLY at real punctuation — NOT at every line. Whisprs-format scripts
+    # have 2-6 word fragments per line; a break after every line made short-line
+    # scripts choppy ("2 words, pause, 2 words, pause" — user feedback 2026-06-05).
+    # Enjambed lines (no end punctuation) are grammatically continuous, so they
+    # FLOW into the next line with no break. Pauses land only where the meaning
+    # actually completes:
+    #   • ends in . ! ?  → 1.6s break (thought lands)
+    #   • ends in , ; : → 0.4s break (minor beat)
+    #   • no end punctuation (enjambed) → NO break — flow into next line
+    def _break_after(line):
+        s = line.rstrip()
+        if not s:
+            return 0.0
+        last = s[-1]
+        if last in ".!?":
+            return 1.6
+        if last in ",;:—-…":
+            return 0.4
+        return 0.0  # enjambed — flow, no break (fixes choppiness)
+
     parts = []
     for i, l in enumerate(lines):
         parts.append(_clean_text(l))
         if i < len(lines) - 1:
-            brk = _gap_for_line(l)  # punctuation-aware pause AFTER this line
-            parts.append(f' <break time="{brk:.1f}s" /> ')
+            brk = _break_after(l)
+            parts.append(f' <break time="{brk:.1f}s" /> ' if brk > 0 else ' ')
     full_text = "".join(parts)
     word_timings, ok = _record_full_elevenlabs(full_text, audio_path)
 
@@ -410,7 +425,7 @@ def generate_audio(script_text):
         total_dur = _get_duration_ms(audio_path) / 1000
         print(f"[audio] ✅ Whole-script single-call recording — {len(lines)} lines, "
               f"{len(word_timings)} words, {total_dur:.1f}s "
-              f"(variable breath: 1.8s at full stops, 1.0s enjambed, 0.6s commas)")
+              f"(breaks only at punctuation: 1.6s full stops, 0.4s commas, enjambed flows)")
     else:
         # ── FALLBACK: old line-by-line stitch with variable silence gaps ─────
         print("[audio] ⚠️  Single-call failed — falling back to line-by-line stitch")
