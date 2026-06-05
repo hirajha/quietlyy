@@ -8,38 +8,49 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Probe v3 TTS + timestamps access
+      - name: Probe ElevenLabs Music + subscription
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-          ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
         run: |
           python3 - <<'PY'
           import os, json, urllib.request, urllib.error
           key = os.environ["ELEVENLABS_API_KEY"]
-          vid = os.environ["ELEVENLABS_VOICE_ID"]
-          text = "She walked away, but kept looking back."
 
-          def try_model(model_id, with_ts):
-              url = f"https://api.elevenlabs.io/v1/text-to-speech/{vid}"
-              if with_ts:
-                  url += "/with-timestamps"
-              body = json.dumps({"text": text, "model_id": model_id,
-                                 "voice_settings": {"stability":0.4,"similarity_boost":0.8}}).encode()
-              req = urllib.request.Request(url, data=body,
+          def call(method, url, body=None):
+              data = json.dumps(body).encode() if body else None
+              req = urllib.request.Request(url, data=data, method=method,
                     headers={"xi-api-key": key, "Content-Type": "application/json"})
               try:
-                  r = urllib.request.urlopen(req, timeout=40)
-                  d = r.read()
-                  has_align = b"alignment" in d if with_ts else None
-                  return f"200 OK ({len(d)} bytes)" + (f", alignment={'YES' if has_align else 'NO'}" if with_ts else "")
+                  r = urllib.request.urlopen(req, timeout=60)
+                  return r.status, r.read()
               except urllib.error.HTTPError as e:
-                  return f"{e.code} {e.read()[:120].decode(errors='replace')}"
+                  return e.code, e.read()
               except Exception as e:
-                  return f"ERR {e}"
+                  return "ERR", str(e).encode()
 
-          print("=== ElevenLabs model/timestamp probe ===")
-          for m in ["eleven_v3", "eleven_multilingual_v2", "eleven_turbo_v2_5"]:
-              print(f"\n[{m}]")
-              print(f"  plain TTS:        {try_model(m, False)}")
-              print(f"  with-timestamps:  {try_model(m, True)}")
+          print("=== Subscription / plan ===")
+          s, b = call("GET", "https://api.elevenlabs.io/v1/user/subscription")
+          try:
+              d = json.loads(b)
+              print("  tier:", d.get("tier"))
+              print("  character_limit:", d.get("character_limit"))
+              print("  can_extend:", d.get("can_extend_character_limit"))
+              # surface any music-related flags
+              for k in d:
+                  if "music" in k.lower() or "song" in k.lower():
+                      print("  ", k, "=", d[k])
+          except Exception:
+              print("  ", s, b[:200])
+
+          print("\n=== Music API: POST /v1/music ===")
+          s, b = call("POST", "https://api.elevenlabs.io/v1/music",
+                      {"prompt": "soft sad emotional piano, cinematic, no vocals",
+                       "music_length_ms": 15000})
+          print("  status:", s, "| body:", b[:200].decode(errors="replace"))
+
+          print("\n=== Music API alt: /v1/music/compose ===")
+          s, b = call("POST", "https://api.elevenlabs.io/v1/music/compose",
+                      {"prompt": "soft sad emotional piano, cinematic, no vocals",
+                       "music_length_ms": 15000})
+          print("  status:", s, "| body:", b[:200].decode(errors="replace"))
           PY
