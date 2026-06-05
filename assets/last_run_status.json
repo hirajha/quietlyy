@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Small Things I Notice About You"
+    "detail": "The Quiet Exit"
   },
   "audio": {
     "result": "ok",
@@ -25,7 +25,7 @@
   },
   "music": {
     "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [cc0_library]"
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [elevenlabs_music]"
   },
   "video": {
     "result": "ok",

@@ -1,15 +1,5 @@
 [
   {
-    "topic": "When You Love Someone You Cannot Have",
-    "style": "emotional",
-    "script": "I never told you\nabout the maps\ni drew of your face\nin the margins\nof my favorite books\nbut pages turned\nand stories changed\nSome memories\nlinger on fingertips\nand the smell\nof old paper stays\nnot out of sadness\nbut out of longing",
-    "hash": "ed8ea6df7dd76ba0a0a3aa8315d93fbf",
-    "metaphors": [
-      "map"
-    ],
-    "themes": []
-  },
-  {
     "topic": "When You Are the One Who Always Forgives",
     "style": "emotional",
     "script": "Your old key still fits\nand turns the lock\nslowly creaks open\nnot with a bang\nbut with a whisper\nSome people forgive\nout of habit\nnot out of love\nbut out of fear\nof being alone\nI won't hold onto\nthe weight of your mistakes\njust the memory\nof your presence",
@@ -731,6 +721,18 @@
     "themes": [
       "grief_loss",
       "silence"
+    ]
+  },
+  {
+    "topic": "The Quiet Exit",
+    "style": "emotional",
+    "script": "Ghosts of familiarity linger\nslowly\nin every empty space\nnot just a memory\nbut a haunting presence\nSome people can't let go\nand they search\nfor a glimpse of what's lost\njust a faint whisper\nof a life they once knew\nI won't forget\nthe way it used to be. Period",
+    "hash": "4c4b594d67b9bb486da647d5303e5250",
+    "metaphors": [],
+    "themes": [
+      "being_used",
+      "grief_loss",
+      "nostalgia"
     ]
   }
 ]
