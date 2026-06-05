@@ -1,15 +1,5 @@
 [
   {
-    "topic": "Loving Without Losing Yourself",
-    "style": "wisdom",
-    "script": "Maya Angelou said\nyou belong to\nno one but\nyourself first\nin your soul\ni find my voice\nin the emptiness\ni hear my thoughts\ni learn to breathe\nwithout the weight\nof others' expectations\ni am free to be\nmy true self",
-    "hash": "601f06750f1a617137e95ad5caf7b001",
-    "metaphors": [],
-    "themes": [
-      "moving_on"
-    ]
-  },
-  {
     "topic": "Loving You in Silence",
     "style": "love",
     "script": "There's a comfort that remains\n \n   and wraps around my thoughts\n \n   of memories we never made\n \n   but somehow still feel real\n \n   Slowly I realize\n \n   that 75 percent of\n \n   our happiness comes from\n \n   human connections like\n \n   yours and mine Quietlyy\n \n   New moments are born\n \n   in the space between us\n \n   Can we find solace\n \n   in the beauty of\n \n   unspoken words send\n \n   this to Quietlyy",
@@ -723,6 +713,18 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The Difference Between Living and Existing",
+    "style": "poetic",
+    "script": "Existing is a clockwork hum,\nsteady,\nunseen.\nLiving?\nThat\u2019s the moment the gears\nskip,\nstutter,\nremember they\u2019re made of dust.\nSome days you\u2019re the shadow\non the pavement,\nothers\u2014\nyou\u2019re the crack in the sidewalk\nwhere something green insists.",
+    "hash": "bfd1c34c1ed79385b67db4170019cb57",
+    "metaphors": [
+      "shadow"
+    ],
+    "themes": [
+      "nostalgia"
     ]
   }
 ]
