@@ -1293,39 +1293,37 @@ def generate_music(topic, script_text="", style="emotional"):
 
     prompt_used = _MUSICGEN_PROMPTS.get(script_mood, "")
 
-    # ── PRIMARY: rotate the curated AI MUSIC LIBRARY (gallery) ──
-    # Strategy (2026-06): like Whisprs, we ROTATE a one-time library of premium
-    # AI-generated emotional tracks (built via build_music_library.py) instead
-    # of generating per-video. The gallery is now the PRIMARY source — high
-    # quality, free, instant, no API calls, anti-repetition built in.
-    # (Only reached once the library has tracks; min_pool_size guards against
-    # a too-thin pool causing repeats.)
+    # ── PRIMARY: ElevenLabs Music ON-DEMAND (fresh, unique, premium) ──
+    # User pays for ElevenLabs monthly, so generate a fresh studio-quality track
+    # per video (same engine class as the voice). Every track is ALSO banked to
+    # the gallery — growing the premium fallback library over time for free.
+    if _generate_elevenlabs_music(script_mood, music_path, duration_sec=30):
+        _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
+        return music_path, "elevenlabs_music"
+
+    # ── FALLBACK 1: rotate the accumulated premium library (gallery) ──
+    # When ElevenLabs hits its monthly quota or rate-limits, rotate the premium
+    # tracks already generated (anti-repetition built in). Whisprs-style reuse.
     if _pick_from_music_gallery(script_mood, music_path, min_pool_size=2):
         return music_path, "gallery_library"
 
-    # ── Refresh sources — only if the library is empty/thin for this mood ──
-    # Generate a fresh track AND bank it to grow the library over time.
+    # ── FALLBACK 2: other free generators (Lyria/Sonauto) ──
     if _generate_lyria_music(script_mood, music_path, duration_sec=30):
         _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
         return music_path, "lyria_gemini"
     if _generate_sonauto_music(script_mood, music_path, duration_sec=30):
         _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
         return music_path, "sonauto_melodia"
-    if _generate_elevenlabs_music(script_mood, music_path, duration_sec=30):
-        _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
-        return music_path, "elevenlabs_music"
 
-    # ── Fallback: CC0 Kevin MacLeod (generic but reliable, on-mood) ──
-    # Only used if the library is empty AND no generator works. Once the
-    # library is built this should never be reached.
-    if _download_cc0_track(script_mood, music_path):
-        print(f"[music] CC0 fallback used (Kevin MacLeod, mood: {script_mood})")
-        return music_path, "cc0_library"
-    print("[music] CC0 download failed — trying broader gallery match")
-
-    # Final gallery attempt with relaxed pool size (any track for the mood)
+    # ── FALLBACK 3: any gallery track (relaxed pool) ──
     if _pick_from_music_gallery(script_mood, music_path, min_pool_size=1):
         return music_path, "gallery_library"
+
+    # ── LAST RESORT: CC0 Kevin MacLeod (generic but always works) ──
+    if _download_cc0_track(script_mood, music_path):
+        print(f"[music] CC0 last-resort (Kevin MacLeod, mood: {script_mood})")
+        return music_path, "cc0_library"
+    print("[music] CC0 failed — trying remaining sources")
 
     # ── HF Spaces — currently 401 (ZeroGPU requires HF Pro) ──
     if _generate_musicgen(script_mood, music_path, duration=30):
