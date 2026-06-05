@@ -24,8 +24,16 @@ import sys
 import time
 
 from generate_music import (
-    _generate_sonauto_music, _save_to_music_gallery, _MUSICGEN_PROMPTS,
+    _generate_elevenlabs_music, _generate_sonauto_music,
+    _save_to_music_gallery, _MUSICGEN_PROMPTS,
 )
+
+
+def _generate_one_track(mood, tmp):
+    """Try ElevenLabs Music first (premium, same key as voice), then Sonauto."""
+    if _generate_elevenlabs_music(mood, tmp, duration_sec=30):
+        return True
+    return _generate_sonauto_music(mood, tmp, duration_sec=30)
 
 SAFE_MOODS = ["heartbreak", "longing", "melancholy"]
 
@@ -86,7 +94,7 @@ def build(per_mood, moods):
             orig = _MUSICGEN_PROMPTS.get(mood)
             _MUSICGEN_PROMPTS[mood] = prompt
             try:
-                ok = _generate_sonauto_music(mood, tmp, duration_sec=30)
+                ok = _generate_one_track(mood, tmp)
             finally:
                 if orig is not None:
                     _MUSICGEN_PROMPTS[mood] = orig

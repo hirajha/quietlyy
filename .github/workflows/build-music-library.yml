@@ -36,6 +36,7 @@ jobs:
 
       - name: Build music library
         env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           SONAUTO_API_KEY: ${{ secrets.SONAUTO_API_KEY }}
         run: |
           python scripts/build_music_library.py --per-mood "${{ github.event.inputs.per_mood || '8' }}"
