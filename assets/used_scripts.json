@@ -1,13 +1,5 @@
 [
   {
-    "topic": "The Weight of Being the Strong One",
-    "style": "emotional",
-    "script": "It doesn't weigh. Not yet.\nslowly\nThe weight is a mountain\nI'm climbing\nthe hands that hold me up\nare my own\nSome people call it strength\nbut it's just a facade\nI won't let it crumble\nand slowly I'm losing\nmy grip. Done.",
-    "hash": "5bb95bc00e6cc95ad1057b425d082735",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "Keeping Their Number Saved",
     "style": "emotional",
     "script": "Midnight. The city sleeps\nslowly\nfingers tracing\nthe number still saved\nand the memories\nSome people keep them\nas a reminder\nof what's been lost\nbut not me\nI won't delete it\njust a ghost\nin my phone. Period",
@@ -734,5 +726,18 @@
       "light"
     ],
     "themes": []
+  },
+  {
+    "topic": "When You Found Me",
+    "style": "love",
+    "script": "It doesn't feel empty. \nslowly \nYour presence still echoes \nIn hidden alcoves of my mind \nGENTLY \nFolding laundry reminds me \nof the way you \nsmiled at a stray thread \nAnd I am lost \nin the softness of that gaze \nbut \nSLOWLY \nthe world outside \ncreeps into this space \nsend this to Quietlyy.",
+    "hash": "1338511d5f329285ca2783673353006d",
+    "metaphors": [
+      "echo"
+    ],
+    "themes": [
+      "grief_loss",
+      "silence"
+    ]
   }
 ]
