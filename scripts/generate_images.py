@@ -75,9 +75,31 @@ def _add_to_gallery(image_path, topic, panel_num, source):
 
 
 def _pick_reuse_panels(num_panels):
-    """Gallery reuse disabled — every panel is freshly generated with DALL-E.
-    Reusing random gallery images caused wrong-topic frames to appear mid-video."""
+    """Proactive gallery reuse stays DISABLED — every panel is freshly generated.
+    (Mixing random gallery images INTO fresh videos caused wrong-topic frames
+    mid-video.) The gallery is used ONLY as a last-resort FALLBACK when live
+    generation fails entirely — see _pick_gallery_fallback()."""
     return {}
+
+
+def _pick_gallery_fallback(exclude=None):
+    """Return a random stored gallery image path (last-resort fallback when ALL
+    live image providers fail — e.g. if a provider kills its free tier like
+    Pollinations did). Our images are generic atmospheric scenes, so a stock
+    image fits most emotional scripts fine — far better than no post.
+
+    Returns a file path, or None if the gallery is empty.
+    """
+    index = _load_gallery_index()
+    exclude = exclude or set()
+    candidates = []
+    for entry in index:
+        f = os.path.join(GALLERY_DIR, entry.get("file", ""))
+        if os.path.exists(f) and os.path.getsize(f) > 5000 and f not in exclude:
+            candidates.append(f)
+    if not candidates:
+        return None
+    return random.choice(candidates)
 
 
 # ── Whisprs-matched aesthetic (2M followers in 2 months):
@@ -849,14 +871,30 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
         if success:
             print(f"[images] Panel {i+1}: generated")
             successful_paths.append(output_path)
+            # Bank every fresh image to the gallery → builds a stock that serves
+            # as fallback if a provider ever kills its free tier (Pollinations did).
+            try:
+                _add_to_gallery(output_path, topic, i, "fresh")
+            except Exception as e:
+                print(f"[images]   (gallery save skipped: {e})")
         else:
-            # All providers failed — reuse an earlier panel from THIS video
+            # All live providers failed for this panel. Fallback order:
+            #   1. reuse an earlier panel from THIS video (style-consistent)
+            #   2. pull a stock image from the gallery (resilience vs provider death)
+            #   3. only fail if both are empty
             if successful_paths:
                 reuse_src = random.choice(successful_paths)
                 shutil.copy2(reuse_src, output_path)
-                print(f"[images] Panel {i+1}: reusing earlier panel (all providers failed)")
+                print(f"[images] Panel {i+1}: reusing earlier panel (live gen failed)")
             else:
-                raise RuntimeError(f"Image generation failed for panel {i+1} (tried HF, Gemini, Pollinations, OpenAI). No earlier panels to reuse.")
+                gallery_img = _pick_gallery_fallback()
+                if not gallery_img:
+                    raise RuntimeError(
+                        f"Image generation failed for panel {i+1} and gallery is empty. "
+                        f"All providers down + no stock to fall back on.")
+                shutil.copy2(gallery_img, output_path)
+                successful_paths.append(output_path)
+                print(f"[images] Panel {i+1}: using GALLERY STOCK image (all live providers down)")
 
         paths.append(output_path)
 
