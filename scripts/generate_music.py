@@ -38,7 +38,7 @@ LYRIA_COOLDOWN_HOURS = 12
 
 # ── MusicGen prompts per mood ─────────────────────────────────────────────────
 # Engineered for Whisprs-style emotional instrumentals: piano + strings + soft
-# texture, slow tempo, no vocals. These prompts are specific enough that
+# texture, slow tempo, with soft slow wordless humming and gentle ethereal vocalise (hmm, ooh, ahh) layered tenderly under the melody — humming only, absolutely NO words and NO lyrics. These prompts are specific enough that
 # MusicGen reliably produces the right vibe (vs vague terms like "sad music").
 # Tested patterns: name instruments + tempo BPM + "instrumental" + "no vocals"
 # SONG-STYLE instrumentals (like a sad pop/acoustic ballad minus vocals) — a
@@ -46,11 +46,11 @@ LYRIA_COOLDOWN_HOURS = 12
 # pads. Original/AI-composed so it's copyright-safe (real karaoke of existing
 # songs would get muted by FB/YT Content ID).
 _MUSICGEN_PROMPTS = {
-    "heartbreak": "Emotional sad piano ballad instrumental, a memorable heartfelt melody, piano lead with warm strings and a soft gentle beat, like an acoustic pop ballad minus the vocals, modern, moving, slow 65 BPM, instrumental only, no vocals",
-    "longing":    "Wistful nostalgic ballad instrumental with a flowing melody, piano and acoustic guitar with soft strings and a gentle beat, like a tender indie love song without vocals, emotional, slow 68 BPM, instrumental only, no vocals",
-    "melancholy": "Melancholic emotional ballad instrumental with a clear sad melody, piano and cello with a soft heartbeat drum, cinematic modern song structure like a sad pop ballad minus vocals, slow 62 BPM, instrumental only, no vocals",
-    "love":       "Tender romantic ballad instrumental, a warm memorable melody, piano and strings with a soft gentle beat, like an emotional love song without vocals, intimate, slow 70 BPM, instrumental only, no vocals",
-    "hope":       "Hopeful uplifting ballad instrumental with a rising melody, piano and strings building with a soft beat, like an emotional song without vocals, cinematic, slow 72 BPM, instrumental only, no vocals",
+    "heartbreak": "Emotional sad piano ballad instrumental, a memorable heartfelt melody, piano lead with warm strings and a soft gentle beat, like an acoustic pop ballad minus the vocals, modern, moving, slow 65 BPM, with soft slow wordless humming and gentle ethereal vocalise (hmm, ooh, ahh) layered tenderly under the melody — humming only, absolutely NO words and NO lyrics",
+    "longing":    "Wistful nostalgic ballad instrumental with a flowing melody, piano and acoustic guitar with soft strings and a gentle beat, like a tender indie love song without vocals, emotional, slow 68 BPM, with soft slow wordless humming and gentle ethereal vocalise (hmm, ooh, ahh) layered tenderly under the melody — humming only, absolutely NO words and NO lyrics",
+    "melancholy": "Melancholic emotional ballad instrumental with a clear sad melody, piano and cello with a soft heartbeat drum, cinematic modern song structure like a sad pop ballad minus vocals, slow 62 BPM, with soft slow wordless humming and gentle ethereal vocalise (hmm, ooh, ahh) layered tenderly under the melody — humming only, absolutely NO words and NO lyrics",
+    "love":       "Tender romantic ballad instrumental, a warm memorable melody, piano and strings with a soft gentle beat, like an emotional love song without vocals, intimate, slow 70 BPM, with soft slow wordless humming and gentle ethereal vocalise (hmm, ooh, ahh) layered tenderly under the melody — humming only, absolutely NO words and NO lyrics",
+    "hope":       "Hopeful uplifting ballad instrumental with a rising melody, piano and strings building with a soft beat, like an emotional song without vocals, cinematic, slow 72 BPM, with soft slow wordless humming and gentle ethereal vocalise (hmm, ooh, ahh) layered tenderly under the melody — humming only, absolutely NO words and NO lyrics",
 }
 
 
@@ -82,7 +82,7 @@ def _generate_lyria_music(mood, output_path, duration_sec=30):
     full_prompt = (
         f"{prompt}. "
         f"Generate a {duration_sec}-second instrumental piece. "
-        f"Instrumental only, no vocals, no singing, no lyrics."
+        f"Instrumental only, with soft slow wordless humming and gentle ethereal vocalise (hmm, ooh, ahh) layered tenderly under the melody — humming only, absolutely NO words and NO lyrics, no singing, no lyrics."
     )
 
     try:
