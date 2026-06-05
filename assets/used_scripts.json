@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Cry in the Car Alone",
-    "style": "wisdom",
-    "script": "Maya Angelou wrote\nyou may not control\nall the events that happen\nwhen you cry in the car alone, \n   the tears fall like summer rain\nand the world outside becomes\na blurred watercolor painting\nof greens and grays\n   in those moments i find myself\nlost in the rhythm of my breath\ni am searching for a glimpse\nof peace, a sense of calm\nand the world slowly comes back\ninto focus, like a whisper",
-    "hash": "2a889cc10aa897a7bc237bab260b10d4",
-    "metaphors": [
-      "rain"
-    ],
-    "themes": [
-      "heartbreak",
-      "loneliness",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Quiet Revolution of Self-Respect",
     "style": "love",
     "script": "You're sitting in the stillness. \nSlowly unwinding threads of self-doubt, \nGentle. \nAnd finding your voice \nBecomes the Catalyst \nFor a quiet revolution, \nSoftly it begins \nTo reshape your world \nIn the gentle curves of self-respect, \nAnd slowly you start \nTo see yourself, \nSend this to Quietlyy.",
@@ -737,6 +723,19 @@
     "metaphors": [],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Friend Who Disappeared",
+    "style": "love",
+    "script": "There's a emptiness that echoes\nSlowly\nit seeps into my daily routines,\nforgetting the smell of old books\nAND REMEMBERING YOUR LAUGH\nis a distant hum,\nbut nostalgia whispers\nGENTLY IN MY EAR\nsummer afternoons feel\nlonger without you,\nAND THE CITY SEEMS\nempty, a hollow reed\nslowly forgetting\nthe way you used to make me feel\nsend this to them.",
+    "hash": "9c61c56ba0160e7c034155b4b4e3ab29",
+    "metaphors": [
+      "echo"
+    ],
+    "themes": [
+      "being_used",
+      "nostalgia"
     ]
   }
 ]
