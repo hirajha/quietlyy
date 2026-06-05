@@ -1,16 +1,5 @@
 [
   {
-    "topic": "When Grief Becomes a Teacher",
-    "style": "wisdom",
-    "script": "Kahlil Gibran wrote\nin sorrow's depths\nyou'll find strength\nhidden from you\nin times of joy\ngrief teaches me\nabout the weight\nof what I hold\nthe fragility of life\nthe importance of touch\nmy heart is learning\nto let go slowly",
-    "hash": "ec51fcfde3eef81663300cf3daceca03",
-    "metaphors": [],
-    "themes": [
-      "grief_loss",
-      "love"
-    ]
-  },
-  {
     "topic": "Being Strong for Everyone While Breaking Inside",
     "style": "emotional",
     "script": "What do you call it when\nbrokenness is hidden\nand strength is a mask\nbut cracks are forming\nslowly spreading wide\nnot from the outside\nbut from the weight\nSome hands are shaking\nI won't let them see\njust a faint tremble\nand a forced smile\nnot of joy\nbut of survival.\nlet them know.",
@@ -712,5 +701,17 @@
       "mask"
     ],
     "themes": []
+  },
+  {
+    "topic": "Being Tired in Ways Sleep Cannot Fix",
+    "style": "poetic",
+    "script": "I'm drained. \nDeep within \nsome people feel \nthe weight of their days, \nand the nights \njust watching time \nslip away, \nthe hands that hold \ntheir exhausted bodies, \nbut still they stand, \ntired eyes, \nfoggy minds.",
+    "hash": "0a11a9da6ccb84efed4d407ea93977c5",
+    "metaphors": [
+      "rain"
+    ],
+    "themes": [
+      "silence"
+    ]
   }
 ]
