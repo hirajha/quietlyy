@@ -1,0 +1,32 @@
+name: Probe ElevenLabs Models
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: List available ElevenLabs models
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.request
+          key = os.environ["ELEVENLABS_API_KEY"]
+          req = urllib.request.Request("https://api.elevenlabs.io/v1/models",
+                                       headers={"xi-api-key": key})
+          data = json.load(urllib.request.urlopen(req, timeout=30))
+          print("=== ElevenLabs models available to this key ===")
+          for m in data:
+              mid = m.get("model_id")
+              name = m.get("name")
+              tts = m.get("can_do_text_to_speech")
+              # timestamps capability flag varies by API version
+              ts = m.get("can_use_speaker_boost"), m.get("can_do_voice_conversion")
+              print(f"  {mid:35} | TTS={tts} | {name}")
+          ids = [m.get("model_id") for m in data]
+          print()
+          print("eleven_v3 present:", any("v3" in (i or "") for i in ids))
+          PY
