@@ -463,6 +463,102 @@ def generate_with_dalle(prompt, output_path):
     return False
 
 
+def _fit_portrait(img):
+    """Crop + resize any image to exact 1080x1920 (9:16) portrait."""
+    from PIL import Image as PILImage
+    img = img.convert("RGB")
+    w, h = img.size
+    target_w = int(h * 9 / 16)
+    if target_w <= w:
+        left = (w - target_w) // 2
+        img = img.crop((left, 0, left + target_w, h))
+    else:
+        target_h = int(w * 16 / 9)
+        top = max(0, (h - target_h) // 2)
+        img = img.crop((0, top, w, top + min(target_h, h)))
+    return img.resize((1080, 1920), PILImage.LANCZOS)
+
+
+def generate_with_together(prompt, output_path):
+    """Together AI — FREE FLUX.1-schnell-Free endpoint (no credit card).
+    Needs TOGETHER_API_KEY (free signup at together.ai)."""
+    import base64
+    key = os.environ.get("TOGETHER_API_KEY")
+    if not key:
+        return False
+    try:
+        resp = requests.post(
+            "https://api.together.xyz/v1/images/generations",
+            headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+            json={
+                "model": "black-forest-labs/FLUX.1-schnell-Free",
+                "prompt": prompt[:1500],
+                "width": 768, "height": 1344,   # ~9:16, multiples of 16 (cropped exact after)
+                "steps": 4, "n": 1,
+                "response_format": "b64_json",
+            },
+            timeout=90,
+        )
+        if resp.status_code != 200:
+            print(f"[images]   Together: {resp.status_code} {resp.text[:150]}")
+            return False
+        item = (resp.json().get("data") or [{}])[0]
+        b64 = item.get("b64_json")
+        if b64:
+            with open(output_path, "wb") as f:
+                f.write(base64.b64decode(b64))
+        elif item.get("url"):
+            r = requests.get(item["url"], timeout=60)
+            if r.status_code != 200 or len(r.content) < 5000:
+                return False
+            with open(output_path, "wb") as f:
+                f.write(r.content)
+        else:
+            return False
+        from PIL import Image as PILImage
+        _fit_portrait(PILImage.open(output_path)).save(output_path)
+        print("[images]   ✅ Together FLUX.1-schnell generated (free)")
+        return True
+    except Exception as e:
+        print(f"[images]   Together error: {str(e)[:150]}")
+        return False
+
+
+def generate_with_cloudflare(prompt, output_path):
+    """Cloudflare Workers AI — FREE FLUX-1-schnell, 10k requests/day.
+    Needs CLOUDFLARE_ACCOUNT_ID + CLOUDFLARE_API_TOKEN (free Cloudflare account)."""
+    import base64
+    acct = os.environ.get("CLOUDFLARE_ACCOUNT_ID")
+    token = os.environ.get("CLOUDFLARE_API_TOKEN")
+    if not (acct and token):
+        return False
+    try:
+        resp = requests.post(
+            f"https://api.cloudflare.com/client/v4/accounts/{acct}/ai/run/@cf/black-forest-labs/flux-1-schnell",
+            headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+            json={"prompt": prompt[:2000], "steps": 4},
+            timeout=90,
+        )
+        if resp.status_code != 200:
+            print(f"[images]   Cloudflare: {resp.status_code} {resp.text[:150]}")
+            return False
+        b64 = (resp.json().get("result") or {}).get("image")
+        if not b64:
+            print(f"[images]   Cloudflare: no image in response")
+            return False
+        with open(output_path, "wb") as f:
+            f.write(base64.b64decode(b64))
+        if os.path.getsize(output_path) < 5000:
+            return False
+        from PIL import Image as PILImage
+        _fit_portrait(PILImage.open(output_path)).save(output_path)
+        print("[images]   ✅ Cloudflare FLUX-1-schnell generated (free)")
+        return True
+    except Exception as e:
+        print(f"[images]   Cloudflare error: {str(e)[:150]}")
+        return False
+
+
 def generate_with_gemini_flash_image(prompt, output_path):
     """Google 'Nano Banana' (gemini-2.5-flash-image) native image generation.
 
@@ -479,8 +575,8 @@ def generate_with_gemini_flash_image(prompt, output_path):
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         return False
-    # Try current image-capable Gemini models in order
-    models = ["gemini-2.5-flash-image", "gemini-2.0-flash-preview-image-generation"]
+    # gemini-2.5-flash-image ("Nano Banana") — the 2.0 preview name 404s now.
+    models = ["gemini-2.5-flash-image"]
     for model_id in models:
         try:
             resp = requests.post(
@@ -721,15 +817,21 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
 
         prompt = generate_image_prompt(topic, visual_keywords, i, style=style)
 
-        # Chain (2026-06-05) — Pollinations went PAID (HTTP 402), so the new
-        # free primary is Google 'Nano Banana' (gemini-2.5-flash-image) on the
-        # standard Gemini free quota (our existing key):
-        #   1. Nano Banana (Gemini Flash image) — FREE on Gemini quota
-        #   2. Pollinations FLUX — now 402/paid, tried in case they restore free
-        #   3. Gemini Imagen — PAID plan only
-        #   4. HuggingFace FLUX — deprecated endpoint, last-ditch
-        print(f"[images] Panel {i+1}/{num_panels}: trying Nano Banana (Gemini Flash image, free)...")
-        success = generate_with_gemini_flash_image(prompt, output_path)
+        # Chain (2026-06-05) — Pollinations went PAID (402). Free FLUX via
+        # Together AI + Cloudflare Workers AI are the reliable free primaries:
+        #   1. Together AI FLUX.1-schnell-Free   — free, generous, no CC
+        #   2. Cloudflare Workers AI FLUX-schnell — free, 10k req/day
+        #   3. Nano Banana (gemini-2.5-flash-image) — free Gemini quota (small)
+        #   4. Pollinations FLUX — now 402, in case they restore free
+        #   5. Gemini Imagen — paid only · 6. HuggingFace — deprecated
+        print(f"[images] Panel {i+1}/{num_panels}: trying Together AI FLUX (free)...")
+        success = generate_with_together(prompt, output_path)
+        if not success:
+            print(f"[images]   Together failed — trying Cloudflare Workers AI FLUX...")
+            success = generate_with_cloudflare(prompt, output_path)
+        if not success:
+            print(f"[images]   Cloudflare failed — trying Nano Banana (Gemini, free)...")
+            success = generate_with_gemini_flash_image(prompt, output_path)
         if not success:
             print(f"[images]   Nano Banana failed — trying Pollinations FLUX...")
             success = generate_with_pollinations(prompt, output_path)
