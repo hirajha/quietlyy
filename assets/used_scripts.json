@@ -1,17 +1,5 @@
 [
   {
-    "topic": "When Someone Chooses You Every Day",
-    "style": "nostalgic",
-    "script": "they choose me                        \nwithout condition             \nstill believing in my soul      \nDEEP DOWN WE KNOW          \nthe weight of it settles     \nand somewhere in the everyday \nwe find a gentle rhythm      \nSTRENGTHENED BY THEIR FAITH \nwe just keep going           \nthrough the noise             \nand the chaos still          \nwhispers a quiet ache       ",
-    "hash": "51e89e180b29857ff13c0e92445cfa84",
-    "metaphors": [
-      "noise"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What Truly Matters in the End",
     "style": "love",
     "script": "There's a kind of tired, \nslowly unfolding \nIN THE DEPTHS of our choices, \nand the weight of what we let go, \nsome things \nSLIP THROUGH THE CRACKS \nof our memory, \nbut the ones that TRULY MATTER \nlinger in the shadows, \nand the light we shine on them, \ndefines the beauty \nof our existence, \nsend this to Quietlyy.",
@@ -727,6 +715,16 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "When Grief Becomes a Teacher",
+    "style": "nostalgic",
+    "script": "Grief walked in\nuninvited\nsat at the table\nwith its sleeves rolled up.\nIT DIDN\u2019T SPEAK\njust stirred the air\nwith a spoon made of yesterday.\nThe room tilted\nwe held on to chairs\nthat weren\u2019t there.\nNOW THE LESSON\nis how to breathe\naround the shape of what\u2019s missing.",
+    "hash": "70865275198dfd2227f5a8e89b6e67da",
+    "metaphors": [],
+    "themes": [
+      "grief_loss"
     ]
   }
 ]
