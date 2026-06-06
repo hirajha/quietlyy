@@ -1,18 +1,5 @@
 [
   {
-    "topic": "More Than My Favorite Person",
-    "style": "nostalgic",
-    "script": "you're more than my favorite person\n \n   still thinking about\n \n   your laugh echoing somewhere\n \n   MEMORIES OF SUMMER afternoons\n \n   we just shared stories\n \n   and somewhere between laughter\n \n   and tears we found solace\n \n   NEWFOUND COMFORT in each other\n \n   still searching for\n \n   that feeling of being home\n \n   in someone's eyes\n \n   fading like a sunset",
-    "hash": "4dcf7f8a25dcffb68f2b49c5a28edd88",
-    "metaphors": [
-      "echo",
-      "sun"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Meaning We Choose to Find",
     "style": "emotional",
     "script": "The old key still fits.\nslowly turning\nNot a single scratch\nand the door creaks\nSlowly opening to memories\nBut the smell is different\nSome people find solace\nin familiar places\nI won't be one of them\nand i'm still searching\nNot for answers\nbut for questions.\nperiod",
@@ -732,5 +719,17 @@
     "hash": "9ab265f21bd669b3f69fc42b080a0041",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "Why Suffering Transforms Us",
+    "style": "poetic",
+    "script": "Suffering transforms\nin darkness, \nsome people find strength. \nthe weight of it, \ncrushing, \nbut slowly shaping us, \ninto something new, \nthe hands that hold us \ndown, also lift us, \nand in the struggle, \nwe discover our depths. \nthe transformation is painful, \nbut it's what makes us.",
+    "hash": "1f50d5575a524e17a25d4b55c87a484b",
+    "metaphors": [
+      "dark"
+    ],
+    "themes": [
+      "heartbreak"
+    ]
   }
 ]
