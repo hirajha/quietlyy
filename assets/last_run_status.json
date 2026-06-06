@@ -13,10 +13,10 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Why Suffering Transforms Us"
+    "detail": "The Safest Place I Know"
   },
   "audio": {
     "result": "fail",
-    "detail": "ElevenLabs error 401: {\"detail\":{\"type\":\"invalid_request\",\"code\":\"quota_exceeded\",\"message\":\"This request exceeds your quota of 55016. You have 2 credits remaining, while 20 credits are required for this request.\",\"status\""
+    "detail": "ElevenLabs error 401: {\"detail\":{\"type\":\"invalid_request\",\"code\":\"quota_exceeded\",\"message\":\"This request exceeds your quota of 55016. You have 2 credits remaining, while 34 credits are required for this request.\",\"status\""
   }
 }
