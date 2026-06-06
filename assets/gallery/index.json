@@ -4,21 +4,27 @@
     "topic": "Lying Awake Replaying Everything",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1780757836
+    "timestamp": 1780757836,
+    "uses": 1,
+    "last_used": 1780781900
   },
   {
     "file": "6cc8eb4b_4.png",
     "topic": "Lying Awake Replaying Everything",
     "panel": 4,
     "source": "fresh",
-    "timestamp": 1780757852
+    "timestamp": 1780757852,
+    "uses": 1,
+    "last_used": 1780781900
   },
   {
     "file": "6446248c_0.png",
     "topic": "When Grief Becomes a Teacher",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1780761805
+    "timestamp": 1780761805,
+    "uses": 1,
+    "last_used": 1780781900
   },
   {
     "file": "22866643_1.png",
@@ -82,5 +88,19 @@
     "panel": 4,
     "source": "fresh",
     "timestamp": 1780776532
+  },
+  {
+    "file": "aa58c54c_0.png",
+    "topic": "Loving in Silence",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1780781902
+  },
+  {
+    "file": "eeb5d398_1.png",
+    "topic": "Loving in Silence",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1780781906
   }
 ]

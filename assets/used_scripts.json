@@ -1,17 +1,5 @@
 [
   {
-    "topic": "What I Never Said Out Loud",
-    "style": "poetic",
-    "script": "I'm a keeper of secrets. \nSome people think I'm transparent, \nbut hidden truths accumulate \njust beneath the surface, \nand the weight is crushing \nThe hands that hold my thoughts \nare trembling, \nand the words I never spoke \nare echoing, \nSome days I feel like I'm drowning \nin unspoken emotions, \nand the pressure is building.",
-    "hash": "b7b5e7607f54cb8347599d7f3752920b",
-    "metaphors": [
-      "echo"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Part You Never Talk About",
     "style": "emotional",
     "script": "Midnight. The city sleeps\ndark alleys\nand forgotten streets\nslowly whisper secrets\nof the part you never talk about\nSome people hide\nbehind masks of confidence\nbut the shadows know\nthe truth you conceal\nNot even the wind\njudges your darkest nights\nsend this to them.",
@@ -726,6 +714,18 @@
     ],
     "themes": [
       "growth"
+    ]
+  },
+  {
+    "topic": "Loving in Silence",
+    "style": "love",
+    "script": "It doesn't feel empty. Not exactly.\nSlowly\nmemories of you linger\nin the corners of my mind\nFamiliar scents\nAND GENTLE HUSH\nof a summer breeze\nbut whispers of your name\nsoftly echo\nthrough my days\nIN THE STILLNESS\nI find a strange solace\nsend this to Quietlyy.",
+    "hash": "7192dbfe0ea0f59fd43bf1bd8bac7628",
+    "metaphors": [
+      "echo"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
