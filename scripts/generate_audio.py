@@ -245,6 +245,74 @@ def _chars_to_clean_words(chars, starts, ends):
     return words
 
 
+def _record_full_edge_tts(full_text, output_path):
+    """FREE fallback voice (Microsoft Edge neural TTS) for when ElevenLabs is
+    down/quota-exhausted — keeps posts going. Returns (word_timings, ok) in the
+    same format as ElevenLabs (word timing from Edge's WordBoundary events, so
+    subtitle/panel sync still works). Quality is good neural TTS — a notch below
+    ElevenLabs v3, used only as last resort.
+    """
+    try:
+        import edge_tts, asyncio, re as _re
+    except ImportError:
+        print("[audio] edge-tts not installed — cannot use free voice fallback")
+        return None, False
+
+    # Strip ElevenLabs-only direction (v3 audio tags + break tags) → plain text.
+    text = _re.sub(r"<break[^>]*/>", " ", full_text)
+    text = _re.sub(r"\[[^\]]*\]", " ", text)
+    text = _re.sub(r"\s+", " ", text).strip()
+    if not text:
+        return None, False
+
+    VOICE = os.environ.get("EDGE_TTS_VOICE", "en-US-AvaNeural")  # warm natural female
+    words = []
+    audio = bytearray()
+
+    async def _run():
+        communicate = edge_tts.Communicate(text, VOICE, rate="-8%")
+        async for chunk in communicate.stream():
+            ctype = chunk.get("type")
+            if ctype == "audio":
+                audio.extend(chunk["data"])
+            elif ctype == "WordBoundary":  # not emitted by all edge-tts versions
+                start_s = chunk["offset"] / 10_000_000.0
+                dur_s = chunk["duration"] / 10_000_000.0
+                w = (chunk.get("text") or "").strip()
+                if w:
+                    words.append({"word": w, "start_s": start_s, "end_s": start_s + dur_s})
+
+    try:
+        asyncio.run(_run())
+    except Exception as e:
+        print(f"[audio] Edge TTS error: {str(e)[:150]}")
+        return None, False
+
+    if not audio or len(audio) < 5000:
+        return None, False
+    with open(output_path, "wb") as f:
+        f.write(bytes(audio))
+
+    # If this edge-tts version didn't give word boundaries, ESTIMATE them from
+    # the total audio duration, distributed by word length (good enough sync
+    # for a fallback voice).
+    if not words:
+        total_s = _get_duration_ms(output_path) / 1000.0
+        toks = text.split()
+        if not toks or total_s <= 0:
+            return None, True  # audio exists but no timing; caller will estimate per-line
+        weights = [max(len(t), 1) for t in toks]
+        tot_w = sum(weights)
+        t = 0.0
+        for tok, wgt in zip(toks, weights):
+            dur = total_s * (wgt / tot_w)
+            words.append({"word": tok, "start_s": t, "end_s": t + dur})
+            t += dur
+        print(f"[audio]   Edge TTS: estimated timing for {len(words)} words ({total_s:.1f}s)")
+
+    return (words or None), True
+
+
 def _record_full_elevenlabs(full_text, output_path):
     """Record the ENTIRE script in ONE ElevenLabs call (with timestamps).
 
@@ -511,6 +579,14 @@ def generate_audio(script_text):
         full_text = "".join(parts)
         print("[audio] Using punctuation-rule direction (director unavailable)")
     word_timings, ok = _record_full_elevenlabs(full_text, audio_path)
+
+    # FREE last-resort voice: if ElevenLabs is down/quota-exhausted, use Edge TTS
+    # so posts keep going (the 6-06 ElevenLabs quota drain stopped posts for days).
+    if not ok:
+        print("[audio] ElevenLabs unavailable — falling back to free Edge TTS voice")
+        word_timings, ok = _record_full_edge_tts(full_text, audio_path)
+        if ok:
+            print("[audio] ✅ Edge TTS fallback used (free neural voice)")
 
     if ok and word_timings:
         # Per-word subtitle data (absolute timing from the single recording)
