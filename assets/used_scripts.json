@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The First Time I Knew",
-    "style": "love",
-    "script": "There's a softness that settles\nin the spaces between us\nslowly becoming a warmth\nthat spreads like blooming flowers\nAnd the way it grows\nis a gentle thing\nFragile as the first light\nof morning slowly\nCreeping over the hills\nGently unfolding like a canvas\nof unspoken understanding\nbut never fully seen\n SEND THIS TO QUIETLYY.",
-    "hash": "866ee449e419bdbccf524d9c15968363",
-    "metaphors": [
-      "light",
-      "flower"
-    ],
-    "themes": [
-      "growth",
-      "silence"
-    ]
-  },
-  {
     "topic": "Crying Without Knowing Why",
     "style": "nostalgic",
     "script": "tears fall without warning\nwe just\nlost in the haze\nof our own minds\nSOMETHING IS SHIFTING\ninside us\nstill we search\nfor a reason\nto explain\nthe ache that settles\nin our chests.",
@@ -727,5 +713,18 @@
     "hash": "8a8f9810358be5d6a7866536f3baba42",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "How to Carry Loss Without Being Crushed",
+    "style": "nostalgic",
+    "script": "Grief settles\nin our bones\nwe just\nheavy as rocks\nstill trying to\nfind our footing\nSLOWLY we learn\nto carry the weight\nof what's been lost\nin the hollows\nof our memories\nwhere shadows\nlinger still.",
+    "hash": "6e8425b2bb265de5653107b85f44508c",
+    "metaphors": [
+      "shadow"
+    ],
+    "themes": [
+      "silence",
+      "grief_loss"
+    ]
   }
 ]

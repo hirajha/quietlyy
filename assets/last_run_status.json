@@ -13,10 +13,14 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Safest Place I Know"
+    "detail": "How to Carry Loss Without Being Crushed"
   },
   "audio": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3"
+  },
+  "images": {
     "result": "fail",
-    "detail": "ElevenLabs error 401: {\"detail\":{\"type\":\"invalid_request\",\"code\":\"quota_exceeded\",\"message\":\"This request exceeds your quota of 55016. You have 2 credits remaining, while 34 credits are required for this request.\",\"status\""
+    "detail": "Image generation failed for panel 1 and gallery is empty. All providers down + no stock to fall back on."
   }
 }
