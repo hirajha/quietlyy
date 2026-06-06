@@ -1,0 +1,64 @@
+name: Quietlyy -- Build Image Library
+
+# One-time (or occasional) batch generation of painterly atmospheric panel
+# images → stored in assets/gallery/. The pipeline then REUSES this library
+# for most panels (generating only ~2 fresh per video) so daily generation
+# stays well under Cloudflare's 10k-neuron/day free image limit.
+#
+# Free-first (Together → Cloudflare → Nano Banana). Cloudflare's free image
+# quota is ~10k neurons/day (≈20 images), so build_image_library stops after
+# 2 consecutive failures (daily limit hit). Re-run on later days to grow the
+# library toward ~40 images.
+
+on:
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'How many images to attempt this run (stops early if quota hits)'
+        required: false
+        default: '16'
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build image library
+        env:
+          TOGETHER_API_KEY: ${{ secrets.TOGETHER_API_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python scripts/build_image_library.py --count "${{ github.event.inputs.count || '16' }}"
+
+      - name: Commit library to repo
+        if: always()
+        run: |
+          git config user.name "Quietlyy Bot"
+          git config user.email "bot@quietlyy.com"
+          git add -f assets/gallery/ || true
+          if git diff --cached --quiet; then
+            echo "No new images"
+          else
+            COUNT=$(find assets/gallery -type f \( -name '*.png' -o -name '*.jpg' \) | wc -l | tr -d ' ')
+            git commit -m "Bot: image library — $COUNT total images"
+            git pull --rebase || true
+            git push || true
+          fi

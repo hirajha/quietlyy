@@ -23,8 +23,11 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 GALLERY_DIR = os.path.join(os.path.dirname(__file__), "..", "assets", "gallery")
 GALLERY_INDEX = os.path.join(GALLERY_DIR, "index.json")
 GALLERY_MAX = 500
-REUSE_THRESHOLD = 25  # Start reusing after this many images in gallery
-MAX_REUSE_PER_VIDEO = 3  # Max reused images per video
+REUSE_THRESHOLD = 12  # Start reusing once the gallery has this many stock images
+FRESH_PER_VIDEO = 2   # Images generated fresh per video once reuse is active
+                      # (rest pulled from gallery). Keeps daily generation well
+                      # under Cloudflare's 10k-neuron/day free limit: 2 fresh ×
+                      # 4 videos = 8/day vs 20/day if every panel were fresh.
 
 
 def _load_gallery_index():
@@ -75,11 +78,55 @@ def _add_to_gallery(image_path, topic, panel_num, source):
 
 
 def _pick_reuse_panels(num_panels):
-    """Proactive gallery reuse stays DISABLED — every panel is freshly generated.
-    (Mixing random gallery images INTO fresh videos caused wrong-topic frames
-    mid-video.) The gallery is used ONLY as a last-resort FALLBACK when live
-    generation fails entirely — see _pick_gallery_fallback()."""
-    return {}
+    """Pick which panels to REUSE from the gallery instead of generating fresh.
+
+    Why reuse is safe here: our panel images are NOT topic-specific — they're
+    generic atmospheric scenes (lone figure vs landscape) chosen by panel index,
+    independent of the script. So a reused gallery image is just as fitting as a
+    freshly generated one. Reusing is essential for sustainability: generating
+    every panel fresh (20/day) hit Cloudflare's 10k-neuron/day free limit.
+
+    Strategy: keep FRESH_PER_VIDEO panels fresh (panels 0..FRESH_PER_VIDEO-1,
+    so the newest content leads), reuse the rest from the gallery using
+    least-recently-used rotation (anti-repetition across the whole library).
+
+    Returns {panel_index: gallery_file_path}. Empty until the gallery has
+    REUSE_THRESHOLD images (so the library builds up first).
+    """
+    index = _load_gallery_index()
+    # Only consider real, on-disk images.
+    usable = [e for e in index
+              if os.path.exists(os.path.join(GALLERY_DIR, e.get("file", "")))
+              and os.path.getsize(os.path.join(GALLERY_DIR, e["file"])) > 5000]
+    if len(usable) < REUSE_THRESHOLD:
+        return {}  # build the library first
+
+    n_reuse = max(0, num_panels - FRESH_PER_VIDEO)
+    if n_reuse <= 0:
+        return {}
+
+    # Least-recently-used rotation: pick the images used fewest times (oldest
+    # last-use first), so the whole library cycles evenly and nothing repeats
+    # back-to-back across videos.
+    usable.sort(key=lambda e: (e.get("uses", 0), e.get("last_used", 0)))
+    chosen = usable[:n_reuse]
+
+    now = int(time.time())
+    chosen_files = {c["file"] for c in chosen}
+    for e in index:
+        if e.get("file") in chosen_files:
+            e["uses"] = e.get("uses", 0) + 1
+            e["last_used"] = now
+    _save_gallery_index(index)
+
+    # Reuse the LAST n_reuse panels; keep the first FRESH_PER_VIDEO fresh.
+    reuse_map = {}
+    for offset, entry in enumerate(chosen):
+        panel_idx = FRESH_PER_VIDEO + offset
+        reuse_map[panel_idx] = os.path.join(GALLERY_DIR, entry["file"])
+    print(f"[images] Reusing {len(reuse_map)} panel(s) from gallery "
+          f"(library has {len(usable)} images), generating {num_panels - len(reuse_map)} fresh")
+    return reuse_map
 
 
 def _pick_gallery_fallback(exclude=None):
@@ -821,8 +868,11 @@ def generate_images(topic, visual_keywords, num_panels=5, style="emotional"):
     """Generate panel images — free-first provider chain.
     Order: Gemini Imagen 4.0 (free, best) → Pollinations FLUX → HuggingFace FLUX.
     - Max 8 panels per video
-    - If all providers fail for a panel, reuse an earlier successful panel
-    - After 25 gallery images: reuse 2-3 panels (never panel 0)
+    - Once the gallery has REUSE_THRESHOLD images, reuse all but FRESH_PER_VIDEO
+      panels from the gallery (least-recently-used rotation) — keeps daily
+      generation under Cloudflare's 10k-neuron/day free limit.
+    - If all live providers fail for a panel, reuse an earlier panel, then fall
+      back to gallery stock.
     At least 1 image must succeed or pipeline fails."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     num_panels = min(num_panels, 8)  # Hard cap at 8 — enough for poetic scripts
