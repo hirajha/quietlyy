@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Crying Without Knowing Why",
-    "style": "nostalgic",
-    "script": "tears fall without warning\nwe just\nlost in the haze\nof our own minds\nSOMETHING IS SHIFTING\ninside us\nstill we search\nfor a reason\nto explain\nthe ache that settles\nin our chests.",
-    "hash": "2b6993c2fe01f1d6ed55f33b774a8b03",
-    "metaphors": [],
-    "themes": [
-      "silence",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "When Grief Becomes a Teacher",
     "style": "emotional",
     "script": "There's a grief that settles slowly\nin my bones\nit's a weight\nthat's always there\nbut shapes me\ninto someone stronger\nSome people call it resilience\nthe ability to bend\nnot break\nand find a way to heal\nslowly\nin the darkness. Period.",
@@ -725,6 +714,19 @@
     "themes": [
       "silence",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "When You Love Someone Who Is Leaving",
+    "style": "nostalgic",
+    "script": "memories of you linger\nwe just\nfading like sunlight\non my skin so warm\nSOMETHING IS SHIFTING\ninside me still\nwe were invincible\nSTILL I HOLD ON\nto the thought of you\nin the emptiness\ni am searching\nfor a ghost of our laughter",
+    "hash": "f55670adfc3cc526f403d2e5504277ad",
+    "metaphors": [
+      "light",
+      "sun"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
