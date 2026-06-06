@@ -1,18 +1,5 @@
 [
   {
-    "topic": "When Grief Becomes a Teacher",
-    "style": "emotional",
-    "script": "There's a grief that settles slowly\nin my bones\nit's a weight\nthat's always there\nbut shapes me\ninto someone stronger\nSome people call it resilience\nthe ability to bend\nnot break\nand find a way to heal\nslowly\nin the darkness. Period.",
-    "hash": "ebcb37f910bb5b032db829de904ad513",
-    "metaphors": [
-      "dark"
-    ],
-    "themes": [
-      "growth",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "When Someone Chooses You Every Day",
     "style": "nostalgic",
     "script": "they choose me                        \nwithout condition             \nstill believing in my soul      \nDEEP DOWN WE KNOW          \nthe weight of it settles     \nand somewhere in the everyday \nwe find a gentle rhythm      \nSTRENGTHENED BY THEIR FAITH \nwe just keep going           \nthrough the noise             \nand the chaos still          \nwhispers a quiet ache       ",
@@ -724,6 +711,19 @@
     "metaphors": [
       "light",
       "sun"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Lying Awake Replaying Everything",
+    "style": "love",
+    "script": "I stopped counting the ceiling cracks at 3:17.\nThey branch like veins,\nquietly mapping the weight of everything unsaid.\nThe fan hums a lullaby for ghosts,\nand I trace your name in the condensation.\nIt drips.\nSlowly,\nthe way my thoughts dissolve into morning.\nI never meant to memorize the shape of your absence,\nbut the sheets still hold the echo of your turning.\nThe alarm won\u2019t save me.\nSend this to them.",
+    "hash": "32e00382524a98b5e99c7bb950f1b59d",
+    "metaphors": [
+      "echo",
+      "map"
     ],
     "themes": [
       "silence"

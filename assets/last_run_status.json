@@ -13,14 +13,30 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When You Love Someone Who Is Leaving"
+    "detail": "Lying Awake Replaying Everything"
   },
   "audio": {
     "result": "ok",
     "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3"
   },
   "images": {
+    "result": "ok",
+    "detail": "5 panels"
+  },
+  "music": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [gallery_library]"
+  },
+  "video": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/quietlyy_video.mp4"
+  },
+  "quality_gate": {
+    "result": "ok",
+    "detail": ""
+  },
+  "copyright": {
     "result": "fail",
-    "detail": "Image generation failed for panel 1 and gallery is empty. All providers down + no stock to fall back on."
+    "detail": "{'all_passed': False, 'checks': {'music': {'passed': False, 'message': \"Unknown music source 'gallery_library' \u2014 cannot confirm copyright-free\", 'file': '/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3'}, 'images': {'passed': True, 'message': 'Images OK \u2014 DALL-E 3 generated, user owns output (OpenAI ToS \u00a73)', 'count': 5}, 'voice': {'passed': True, 'message': 'Voice OK \u2014 ElevenLabs commercial license (Starter+ plan)', 'file': '/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3'}, 'script': {'passed': True, 'message': 'Script OK \u2014 AI-generated original"
   }
 }
