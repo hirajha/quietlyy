@@ -1297,21 +1297,18 @@ def generate_music(topic, script_text="", style="emotional"):
 
     prompt_used = _MUSICGEN_PROMPTS.get(script_mood, "")
 
-    # ── PRIMARY: ElevenLabs Music ON-DEMAND (fresh, unique, premium) ──
-    # User pays for ElevenLabs monthly, so generate a fresh studio-quality track
-    # per video (same engine class as the voice). Every track is ALSO banked to
-    # the gallery — growing the premium fallback library over time for free.
-    if _generate_elevenlabs_music(script_mood, music_path, duration_sec=30):
-        _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
-        return music_path, "elevenlabs_music"
-
-    # ── FALLBACK 1: rotate the accumulated premium library (gallery) ──
-    # When ElevenLabs hits its monthly quota or rate-limits, rotate the premium
-    # tracks already generated (anti-repetition built in). Whisprs-style reuse.
-    if _pick_from_music_gallery(script_mood, music_path, min_pool_size=2):
+    # ── PRIMARY: rotate the premium music LIBRARY (gallery) — FREE, no quota ──
+    # CRITICAL (2026-06-06): ElevenLabs Music is extremely quota-heavy (hundreds
+    # of credits/track) and SHARES the monthly character quota with the VOICE.
+    # Generating music on-demand drained the quota and KILLED voice generation
+    # (no posts for ~2 days). Music now ONLY rotates the pre-built library —
+    # zero quota cost — so the entire ElevenLabs quota is reserved for the voice.
+    # (To add more library tracks, run build-music-library manually — deliberate,
+    # not per-video.) min_pool_size=1 so even a thin mood pool is used.
+    if _pick_from_music_gallery(script_mood, music_path, min_pool_size=1):
         return music_path, "gallery_library"
 
-    # ── FALLBACK 2: other free generators (Lyria/Sonauto) ──
+    # ── FALLBACK: free generators (do NOT use ElevenLabs — protects voice quota) ──
     if _generate_lyria_music(script_mood, music_path, duration_sec=30):
         _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
         return music_path, "lyria_gemini"
@@ -1319,11 +1316,7 @@ def generate_music(topic, script_text="", style="emotional"):
         _save_to_music_gallery(script_mood, music_path, prompt_used=prompt_used)
         return music_path, "sonauto_melodia"
 
-    # ── FALLBACK 3: any gallery track (relaxed pool) ──
-    if _pick_from_music_gallery(script_mood, music_path, min_pool_size=1):
-        return music_path, "gallery_library"
-
-    # ── LAST RESORT: CC0 Kevin MacLeod (generic but always works) ──
+    # ── LAST RESORT: CC0 Kevin MacLeod (free, always works) ──
     if _download_cc0_track(script_mood, music_path):
         print(f"[music] CC0 last-resort (Kevin MacLeod, mood: {script_mood})")
         return music_path, "cc0_library"
