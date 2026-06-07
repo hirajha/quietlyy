@@ -1060,30 +1060,29 @@ def _pick_from_music_gallery(mood, output_path, min_pool_size=3):
         return False
 
     recent_list = _load_recent_gallery()
-    recent_set = set(recent_list)
 
-    # Step 1: try fresh tracks (never used or used >20 ago)
-    fresh = [t for t in all_tracks if t not in recent_set]
+    # PER-MOOD anti-repetition: the global recent list mixes all moods, so for a
+    # small mood pool it would flag everything as "recent" and force wrap-around
+    # (→ repeats). Instead, only avoid the most-recent tracks OF THIS MOOD, and
+    # cap the avoid-count so at least 2 tracks are ALWAYS fresh. This guarantees
+    # real shuffling within each mood.
+    recent_this_mood = [t for t in recent_list if t in all_tracks]
+    avoid_n = min(len(recent_this_mood), max(0, len(all_tracks) - 2))
+    avoid = set(recent_this_mood[-avoid_n:]) if avoid_n else set()
+    fresh = [t for t in all_tracks if t not in avoid]
 
-    # Step 2: ANTI-SPARSE-REPETITION GUARD
-    # If gallery is too small AND all tracks are in recent-used → fall through.
-    # Better to use CC0 rotation than replay same Sonauto track 2nd time in a row.
-    if not fresh and len(all_tracks) < min_pool_size:
-        print(f"[music] 🚫 Gallery too sparse ({len(all_tracks)} tracks for '{mood}', all recently used) — falling through to CC0 for variety")
-        return False
-
-    # Step 3: Gallery is rich enough (>= min_pool_size) but wrap-around needed.
-    # Allow oldest 1/3 of recent list back in (least-recently used reuse).
+    # Safety: if the mood pool is truly tiny (1-2 tracks) and all are recent,
+    # fall through to CC0 rotation rather than replay the same track.
     if not fresh:
-        if len(recent_list) > 0:
-            cutoff = max(1, len(recent_list) // 3)
-            allowed_back = set(recent_list[cutoff:])  # drop oldest 1/3
-            fresh = [t for t in all_tracks if t in allowed_back or t not in recent_set]
-        if not fresh:
-            fresh = all_tracks  # full reset — every track eligible
-        print(f"[music] 🔄 Gallery wrap-around (>{GALLERY_RECENT_LIMIT} tracks used) — relaxing filter")
+        if len(all_tracks) < min_pool_size:
+            print(f"[music] 🚫 Gallery too sparse ({len(all_tracks)} tracks for '{mood}') — falling through for variety")
+            return False
+        fresh = all_tracks  # last resort
 
-    picked = random.choice(fresh)
+    # Prefer a track NEVER used at all over one used long ago, for max variety.
+    never_used = [t for t in fresh if t not in set(recent_list)]
+    pool = never_used if never_used else fresh
+    picked = random.choice(pool)
     try:
         shutil.copy(os.path.join(gallery_dir, picked), output_path)
         _save_recent_gallery(picked)
