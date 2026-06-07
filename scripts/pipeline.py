@@ -38,9 +38,26 @@ from copyright_check import run_compliance_check
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
 # -- Quality thresholds
-MIN_AUDIO_BYTES   = 100_000   # 100 KB
+MIN_AUDIO_BYTES   =  20_000   # 20 KB — floor to catch empty/truncated files.
+                              # (Edge-TTS fallback is lower-bitrate than
+                              # ElevenLabs, so the real check is DURATION below.)
+MIN_AUDIO_SEC     =  6.0      # narration must be at least this long — catches
+                              # truncated audio regardless of bitrate/codec.
 MIN_IMAGE_BYTES   =  50_000   # 50 KB
 MIN_VIDEO_BYTES   = 800_000   # 800 KB
+
+
+def _audio_duration_sec(path):
+    """Probe audio length in seconds (0.0 if unreadable)."""
+    try:
+        import subprocess
+        out = subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+             "-of", "csv=p=0", path],
+            capture_output=True, text=True, timeout=30).stdout.strip()
+        return float(out) if out else 0.0
+    except Exception:
+        return 0.0
 NUM_PANELS        = 5
 
 _pipeline_status = {}
@@ -72,6 +89,10 @@ def quality_check(audio_path, image_paths, music_path, video_path):
         errors.append("Audio file missing")
     elif os.path.getsize(audio_path) < MIN_AUDIO_BYTES:
         errors.append(f"Audio too small ({os.path.getsize(audio_path)} bytes)")
+    else:
+        dur = _audio_duration_sec(audio_path)
+        if dur < MIN_AUDIO_SEC:
+            errors.append(f"Audio too short ({dur:.1f}s < {MIN_AUDIO_SEC}s)")
     if len(image_paths) < NUM_PANELS:
         errors.append(f"Only {len(image_paths)}/{NUM_PANELS} image panels generated")
     else:
