@@ -24,16 +24,20 @@ import sys
 import time
 
 from generate_music import (
-    _generate_elevenlabs_music, _generate_sonauto_music,
+    _generate_sonauto_music, _generate_musicgen,
     _save_to_music_gallery, _MUSICGEN_PROMPTS,
 )
 
 
 def _generate_one_track(mood, tmp):
-    """Try ElevenLabs Music first (premium, same key as voice), then Sonauto."""
-    if _generate_elevenlabs_music(mood, tmp, duration_sec=30):
+    """Generate one track for the library. NEVER ElevenLabs — its Music API
+    shares the monthly character quota with the VOICE and draining it stopped
+    posts for days (2026-06). Sonauto (paid key) produces the humming/vocalise
+    ballad style; MusicGen (free, keyless HF Spaces) is the no-key fallback
+    (instrumental, no true humming)."""
+    if _generate_sonauto_music(mood, tmp, duration_sec=30):
         return True
-    return _generate_sonauto_music(mood, tmp, duration_sec=30)
+    return _generate_musicgen(mood, tmp, duration=30)
 
 SAFE_MOODS = ["heartbreak", "longing", "melancholy"]
 
