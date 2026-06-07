@@ -61,6 +61,20 @@ Whisprs), not generic sad-poetry.
   Scripts written with the NEW realness prompt only appear via a bank rebuild
   (build-script-bank workflow) or live gen when the bank empties.
 
+## ⚠️ LESSON (2026-06-07): realness ≠ naming objects
+First realness directive over-pushed "name a concrete object" → model produced
+COLD JUNK: "their old keyboard still has your login", "75% of people keep old
+accounts alive". Hira (rightly) furious. Real Whisprs quality = EMOTIONAL TRUTH
+carried by ONE warm human image (table set for two, a coat on the hook, reaching
+for a hand). Corrected `_REALNESS_BLOCK` + gate now BAN: statistics/numbers/data,
+cold tech objects (keyboard/login/password/account), and run-on scripts (too few
+lines ending in punctuation — which also rushed the voice).
+- Voice robustness: `_segment_for_edge` caps enjambed runs at EDGE_MAX_SEG_WORDS
+  (9) → always inserts a breath, so a badly-punctuated script can't rush the
+  narrator. Confirmed: bad script 3 → 11 segments. Good script example: YT
+  cCEcJ3bFReY ("I still set the table for two").
+- NEVER reintroduce object-naming or statistics into script prompts.
+
 ## Voice tunables (env vars / GitHub repo secrets — no code change needed)
 - `EDGE_PAUSE_SENTENCE`, `EDGE_PAUSE_CLAUSE`, `EDGE_PAUSE_ELLIPSIS` — pause seconds
 - `EDGE_TTS_RATE` (default `-10%`; more negative = slower)
