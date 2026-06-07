@@ -648,15 +648,30 @@ def generate_audio(script_text):
                 parts.append(f' <break time="{brk:.1f}s" /> ' if brk > 0 else ' ')
         full_text = "".join(parts)
         print("[audio] Using punctuation-rule direction (director unavailable)")
-    word_timings, ok = _record_full_elevenlabs(full_text, audio_path)
 
-    # FREE last-resort voice: if ElevenLabs is down/quota-exhausted, use Edge TTS
-    # so posts keep going (the 6-06 ElevenLabs quota drain stopped posts for days).
+    # Voice provider. ElevenLabs (premium v3) is used when a key is present and
+    # VOICE_PROVIDER isn't forced to edge. Once you cancel ElevenLabs (no key, or
+    # VOICE_PROVIDER=edge), we go STRAIGHT to the free Edge-TTS voice — no wasted
+    # failing call, no scary 401 logs.
+    use_elevenlabs = (
+        os.environ.get("VOICE_PROVIDER", "").lower() != "edge"
+        and bool(os.environ.get("ELEVENLABS_API_KEY"))
+    )
+    ok = False
+    word_timings = None
+    if use_elevenlabs:
+        word_timings, ok = _record_full_elevenlabs(full_text, audio_path)
+
+    # Free Edge-TTS — primary when ElevenLabs is off, or fallback if it failed
+    # (down / quota-exhausted) so posts always keep going.
     if not ok:
-        print("[audio] ElevenLabs unavailable — falling back to free Edge TTS voice")
+        if use_elevenlabs:
+            print("[audio] ElevenLabs unavailable — falling back to free Edge TTS voice")
+        else:
+            print("[audio] Using free Edge TTS voice (ElevenLabs off)")
         word_timings, ok = _record_full_edge_tts(full_text, audio_path)
         if ok:
-            print("[audio] ✅ Edge TTS fallback used (free neural voice)")
+            print("[audio] ✅ Edge TTS voice used (free neural voice)")
 
     if ok and word_timings:
         # Per-word subtitle data (absolute timing from the single recording)
