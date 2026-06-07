@@ -75,6 +75,17 @@ lines ending in punctuation — which also rushed the voice).
   cCEcJ3bFReY ("I still set the table for two").
 - NEVER reintroduce object-naming or statistics into script prompts.
 
+## Music shuffling (2026-06-07)
+- Was replaying the same tracks: GALLERY_RECENT_LIMIT=20 vs ~5-6 tracks/mood +
+  a GLOBAL recent list → constant wrap-around → repeats. Fixed `_pick_from_music_gallery`
+  to per-mood anti-repetition (avoid only same-mood recents, keep ≥2 fresh, prefer
+  never-used). Confirmed: 5 consecutive videos = 5 different tracks.
+- DEEPER ISSUE (open): all 17 gallery tracks are from ONE 06-05 batch with the
+  same humming-ballad prompt → they SOUND alike even when the file differs. Real
+  fix = diversify the library (varied instruments/tempo) via Sonauto batch (costs
+  credits) or Pixabay (free, but API reliability unverified). Gallery is PRIMARY
+  source (min_pool_size=1) so Pixabay/CC0 variety paths are rarely reached.
+
 ## Voice tunables (env vars / GitHub repo secrets — no code change needed)
 - `EDGE_PAUSE_SENTENCE`, `EDGE_PAUSE_CLAUSE`, `EDGE_PAUSE_ELLIPSIS` — pause seconds
 - `EDGE_TTS_RATE` (default `-10%`; more negative = slower)
