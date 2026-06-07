@@ -245,71 +245,73 @@ def _chars_to_clean_words(chars, starts, ends):
     return words
 
 
-def _edge_pause_after(seg):
-    """Silence (seconds) AFTER an Edge-TTS segment, from its trailing punctuation.
-    Edge TTS reads fast, so pauses are generous and clearly audible — this is
-    what gives the narration its 'pausing between thoughts' feel instead of
-    rushing through like one long paragraph.
+def _edge_pause_after_line(line):
+    """Silence (seconds) AFTER a poem line, decided by its TRAILING punctuation —
+    exactly where a human reading aloud would pause:
+      • ends a sentence (. ! ?)  → full pause (finish the thought)
+      • ends with ellipsis (...) → dramatic trailing pause (this emotional style)
+      • ends a clause (, ; : —)  → short breath
+      • no end punctuation       → ENJAMBED: 0.0, flow into the next line
+    Returning 0.0 for enjambed lines is the key to never pausing mid-phrase —
+    those lines get merged into one continuous breath with the line that follows.
     """
-    import re as _re
-    t = _re.sub(r"\[[^\]]*\]", "", seg).rstrip()
-    t = t.rstrip("…").rstrip()
+    t = line.rstrip()
     if not t:
         return 0.0
+    if t.endswith("...") or t.endswith("…"):
+        return float(os.environ.get("EDGE_PAUSE_ELLIPSIS", "1.5"))
     c = t[-1]
     if c in ".!?":
-        return float(os.environ.get("EDGE_PAUSE_SENTENCE", "1.8"))   # full stop
+        return float(os.environ.get("EDGE_PAUSE_SENTENCE", "1.3"))
     if c in ",;:—-":
-        return float(os.environ.get("EDGE_PAUSE_CLAUSE", "0.6"))     # comma/clause
-    return float(os.environ.get("EDGE_PAUSE_PHRASE", "0.35"))        # enjambed breath
+        return float(os.environ.get("EDGE_PAUSE_CLAUSE", "0.45"))
+    return 0.0  # enjambed — no pause, flows into the next line
 
 
-def _segment_for_edge(full_text):
-    """Break the directed script into phrase segments + the pause to insert after
-    each. Splits on the director's <break> tags; if there aren't enough, falls
-    back to splitting on sentence punctuation so we ALWAYS get real pauses
-    (otherwise Edge TTS reads the whole script as one rushed paragraph).
+def _segment_for_edge(lines):
+    """Group poem lines into phrase segments + the pause to insert after each.
+
+    Reads like a book: consecutive ENJAMBED lines (no end punctuation) are
+    MERGED into one segment so Edge TTS speaks them as a single continuous
+    phrase (natural connected prosody, no seam). A segment closes only when a
+    line ENDS a thought (sentence / clause / ellipsis) — and the pause after it
+    is sized to that punctuation. So pauses land ONLY at real stopping points,
+    never in the middle of a phrase.
+
     Returns a list of (clean_text, pause_after_seconds).
     """
-    import re as _re
-
-    def _clean(s):
-        s = _re.sub(r"\[[^\]]*\]", " ", s)          # remove v3 audio tags
-        s = s.replace("…", " ").replace("...", " ")
-        return _re.sub(r"\s+", " ", s).strip()
-
-    raw = _re.split(r"<break[^>]*/>", full_text)
     segs = []
-    for i, rs in enumerate(raw):
-        ct = _clean(rs)
-        if not ct:
+    buf = []
+    for line in lines:
+        s = _clean_text(line).strip()
+        if not s:
             continue
-        pause = _edge_pause_after(rs) if i < len(raw) - 1 else 0.0
-        segs.append((ct, pause))
-
-    # Not enough break tags → split the cleaned text into sentences/clauses so
-    # the delivery still pauses naturally.
-    if len(segs) < 2:
-        flat = _clean(full_text)
-        pieces = [p for p in _re.split(r"(?<=[.!?])\s+", flat) if p.strip()]
-        segs = []
-        for i, p in enumerate(pieces):
-            pause = _edge_pause_after(p) if i < len(pieces) - 1 else 0.0
-            segs.append((p.strip(), pause))
-
+        buf.append(s)
+        pause = _edge_pause_after_line(s)
+        if pause > 0:                       # this line ends a thought → close segment
+            segs.append((" ".join(buf), pause))
+            buf = []
+        # else: enjambed → keep buffering, flow into the next line
+    if buf:                                  # trailing enjambed lines
+        segs.append((" ".join(buf), 0.0))
+    if segs:
+        segs[-1] = (segs[-1][0], 0.0)        # no pause after the very last segment
     return segs
 
 
-def _record_full_edge_tts(full_text, output_path):
+def _record_full_edge_tts(lines, output_path):
     """FREE fallback voice (Microsoft Edge neural TTS) for when ElevenLabs is
     down/quota-exhausted — keeps posts going. Quality is good neural TTS, a notch
     below ElevenLabs v3.
 
-    Synthesizes the script SEGMENT-BY-SEGMENT (split at the script's pause
-    markers) and splices REAL silence between segments, so the narrator pauses
-    between thoughts instead of rushing through as one long paragraph. Returns
-    (word_timings, ok) — word timing estimated within each segment's measured
-    duration (offset by the inserted silences), so subtitle/panel sync holds.
+    Synthesizes the poem segment-by-segment — merging enjambed lines so each
+    segment is a complete phrase — and splices REAL silence at the natural
+    stopping points (sentence/clause/ellipsis ends), so the narrator pauses
+    between thoughts like a book reader, never mid-phrase. Returns
+    (word_timings, ok) — word timing measured per segment (offset past each
+    inserted silence), so subtitle/panel sync holds.
+
+    `lines` is the list of poem lines (raw); cleaning happens inside.
     """
     try:
         import edge_tts, asyncio
@@ -320,7 +322,7 @@ def _record_full_edge_tts(full_text, output_path):
     VOICE = os.environ.get("EDGE_TTS_VOICE", "en-US-AvaNeural")  # warm natural female
     RATE = os.environ.get("EDGE_TTS_RATE", "-10%")               # calm, unhurried
 
-    segs = _segment_for_edge(full_text)
+    segs = _segment_for_edge(lines)
     if not segs:
         return None, False
 
@@ -669,7 +671,7 @@ def generate_audio(script_text):
             print("[audio] ElevenLabs unavailable — falling back to free Edge TTS voice")
         else:
             print("[audio] Using free Edge TTS voice (ElevenLabs off)")
-        word_timings, ok = _record_full_edge_tts(full_text, audio_path)
+        word_timings, ok = _record_full_edge_tts(lines, audio_path)
         if ok:
             print("[audio] ✅ Edge TTS voice used (free neural voice)")
 
