@@ -43,9 +43,11 @@ def check_music(music_path, music_source="freesound_cc0"):
     #   • Google Lyria 3 (lyria_gemini): Per Gemini API terms, user owns output.
     #   • ElevenLabs Music (elevenlabs_music): Commercial use included on
     #     Starter+ plan (same scope as voice).
-    #   • Gallery reuse (gallery_reuse): Plays back a previously AI-generated
-    #     track. Same license as the original generator (Sonauto/Lyria/ElevenLabs).
-    if music_source in ("sonauto_melodia", "lyria_gemini", "elevenlabs_music", "gallery_reuse"):
+    #   • Gallery reuse / library (gallery_reuse, gallery_library): Plays back a
+    #     previously AI-generated or CC0 track from the music library. Same
+    #     license as the original source (Sonauto/Lyria/ElevenLabs/CC0).
+    if music_source in ("sonauto_melodia", "lyria_gemini", "elevenlabs_music",
+                        "gallery_reuse", "gallery_library"):
         return True, f"Music OK — AI-generated via {music_source}, user owns output per provider ToS"
 
     # HF Spaces (MusicGen): Meta MusicGen is CC-BY-NC 4.0 (NON-commercial only).
