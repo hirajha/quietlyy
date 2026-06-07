@@ -220,21 +220,27 @@
     "topic": "What Real Love Feels Like",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1780831512
+    "timestamp": 1780831512,
+    "uses": 1,
+    "last_used": 1780833872
   },
   {
     "file": "eceebf62_1.png",
     "topic": "What Real Love Feels Like",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1780831516
+    "timestamp": 1780831516,
+    "uses": 1,
+    "last_used": 1780833872
   },
   {
     "file": "89069c29_0.png",
     "topic": "More Than My Favorite Person",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1780832722
+    "timestamp": 1780832722,
+    "uses": 1,
+    "last_used": 1780833872
   },
   {
     "file": "f01b93e2_1.png",
@@ -242,5 +248,12 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780832727
+  },
+  {
+    "file": "9eebb90f_1.png",
+    "topic": "Being Strong for Everyone While Breaking Inside",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1780833879
   }
 ]

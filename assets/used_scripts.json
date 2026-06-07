@@ -1,18 +1,5 @@
 [
   {
-    "topic": "More Than My Favorite Person",
-    "style": "nostalgic",
-    "script": "you're more than my favorite person\n \n   still thinking about\n \n   your laugh echoing somewhere\n \n   MEMORIES OF SUMMER afternoons\n \n   we just shared stories\n \n   and somewhere between laughter\n \n   and tears we found solace\n \n   NEWFOUND COMFORT in each other\n \n   still searching for\n \n   that feeling of being home\n \n   in someone's eyes\n \n   fading like a sunset",
-    "hash": "4dcf7f8a25dcffb68f2b49c5a28edd88",
-    "metaphors": [
-      "echo",
-      "sun"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Meaning We Choose to Find",
     "style": "emotional",
     "script": "The old key still fits.\nslowly turning\nNot a single scratch\nand the door creaks\nSlowly opening to memories\nBut the smell is different\nSome people find solace\nin familiar places\nI won't be one of them\nand i'm still searching\nNot for answers\nbut for questions.\nperiod",
@@ -724,6 +711,16 @@
     "themes": [
       "grief_loss",
       "silence"
+    ]
+  },
+  {
+    "topic": "Being Strong for Everyone While Breaking Inside",
+    "style": "nostalgic",
+    "script": "THEY SEE the steel in your spine\nbend\njust enough to fool them.\nYou laugh\nwhile the cracks hum,\nold hymns no one else hears.\nYOU CARRY their groceries,\nbandage scraped knees,\nanswer every late call.\nThe weight\nsettles like dust\non your ribs.\nNo one notices\nyou\u2019re holding your breath.",
+    "hash": "6aac2303c9c8feed7f5ccdc1536562e4",
+    "metaphors": [],
+    "themes": [
+      "self_worth"
     ]
   }
 ]
