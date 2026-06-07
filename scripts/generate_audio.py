@@ -245,71 +245,141 @@ def _chars_to_clean_words(chars, starts, ends):
     return words
 
 
+def _edge_pause_after(seg):
+    """Silence (seconds) AFTER an Edge-TTS segment, from its trailing punctuation.
+    Edge TTS reads fast, so pauses are generous and clearly audible — this is
+    what gives the narration its 'pausing between thoughts' feel instead of
+    rushing through like one long paragraph.
+    """
+    import re as _re
+    t = _re.sub(r"\[[^\]]*\]", "", seg).rstrip()
+    t = t.rstrip("…").rstrip()
+    if not t:
+        return 0.0
+    c = t[-1]
+    if c in ".!?":
+        return float(os.environ.get("EDGE_PAUSE_SENTENCE", "1.8"))   # full stop
+    if c in ",;:—-":
+        return float(os.environ.get("EDGE_PAUSE_CLAUSE", "0.6"))     # comma/clause
+    return float(os.environ.get("EDGE_PAUSE_PHRASE", "0.35"))        # enjambed breath
+
+
+def _segment_for_edge(full_text):
+    """Break the directed script into phrase segments + the pause to insert after
+    each. Splits on the director's <break> tags; if there aren't enough, falls
+    back to splitting on sentence punctuation so we ALWAYS get real pauses
+    (otherwise Edge TTS reads the whole script as one rushed paragraph).
+    Returns a list of (clean_text, pause_after_seconds).
+    """
+    import re as _re
+
+    def _clean(s):
+        s = _re.sub(r"\[[^\]]*\]", " ", s)          # remove v3 audio tags
+        s = s.replace("…", " ").replace("...", " ")
+        return _re.sub(r"\s+", " ", s).strip()
+
+    raw = _re.split(r"<break[^>]*/>", full_text)
+    segs = []
+    for i, rs in enumerate(raw):
+        ct = _clean(rs)
+        if not ct:
+            continue
+        pause = _edge_pause_after(rs) if i < len(raw) - 1 else 0.0
+        segs.append((ct, pause))
+
+    # Not enough break tags → split the cleaned text into sentences/clauses so
+    # the delivery still pauses naturally.
+    if len(segs) < 2:
+        flat = _clean(full_text)
+        pieces = [p for p in _re.split(r"(?<=[.!?])\s+", flat) if p.strip()]
+        segs = []
+        for i, p in enumerate(pieces):
+            pause = _edge_pause_after(p) if i < len(pieces) - 1 else 0.0
+            segs.append((p.strip(), pause))
+
+    return segs
+
+
 def _record_full_edge_tts(full_text, output_path):
     """FREE fallback voice (Microsoft Edge neural TTS) for when ElevenLabs is
-    down/quota-exhausted — keeps posts going. Returns (word_timings, ok) in the
-    same format as ElevenLabs (word timing from Edge's WordBoundary events, so
-    subtitle/panel sync still works). Quality is good neural TTS — a notch below
-    ElevenLabs v3, used only as last resort.
+    down/quota-exhausted — keeps posts going. Quality is good neural TTS, a notch
+    below ElevenLabs v3.
+
+    Synthesizes the script SEGMENT-BY-SEGMENT (split at the script's pause
+    markers) and splices REAL silence between segments, so the narrator pauses
+    between thoughts instead of rushing through as one long paragraph. Returns
+    (word_timings, ok) — word timing estimated within each segment's measured
+    duration (offset by the inserted silences), so subtitle/panel sync holds.
     """
     try:
-        import edge_tts, asyncio, re as _re
+        import edge_tts, asyncio
     except ImportError:
         print("[audio] edge-tts not installed — cannot use free voice fallback")
         return None, False
 
-    # Strip ElevenLabs-only direction (v3 audio tags + break tags) → plain text.
-    text = _re.sub(r"<break[^>]*/>", " ", full_text)
-    text = _re.sub(r"\[[^\]]*\]", " ", text)
-    text = _re.sub(r"\s+", " ", text).strip()
-    if not text:
-        return None, False
-
     VOICE = os.environ.get("EDGE_TTS_VOICE", "en-US-AvaNeural")  # warm natural female
+    RATE = os.environ.get("EDGE_TTS_RATE", "-10%")               # calm, unhurried
+
+    segs = _segment_for_edge(full_text)
+    if not segs:
+        return None, False
+
+    rendered = []  # (seg_path, pause_after, dur_s, text)
+    for idx, (text, pause) in enumerate(segs):
+        seg_path = os.path.join(OUTPUT_DIR, f"_edge_seg_{idx}.mp3")
+        audio = bytearray()
+
+        async def _run(t=text, buf=audio):
+            comm = edge_tts.Communicate(t, VOICE, rate=RATE)
+            async for ch in comm.stream():
+                if ch.get("type") == "audio":
+                    buf.extend(ch["data"])
+
+        try:
+            asyncio.run(_run())
+        except Exception as e:
+            print(f"[audio] Edge TTS error: {str(e)[:150]}")
+            return None, False
+        if len(audio) < 800:
+            continue
+        with open(seg_path, "wb") as f:
+            f.write(bytes(audio))
+        dur = _get_duration_ms(seg_path) / 1000.0
+        rendered.append((seg_path, pause, dur, text))
+
+    if not rendered:
+        return None, False
+
+    # Word timings — distribute each segment's words across its measured
+    # duration (by word length), advancing the clock past each inserted pause.
     words = []
-    audio = bytearray()
-
-    async def _run():
-        communicate = edge_tts.Communicate(text, VOICE, rate="-8%")
-        async for chunk in communicate.stream():
-            ctype = chunk.get("type")
-            if ctype == "audio":
-                audio.extend(chunk["data"])
-            elif ctype == "WordBoundary":  # not emitted by all edge-tts versions
-                start_s = chunk["offset"] / 10_000_000.0
-                dur_s = chunk["duration"] / 10_000_000.0
-                w = (chunk.get("text") or "").strip()
-                if w:
-                    words.append({"word": w, "start_s": start_s, "end_s": start_s + dur_s})
-
-    try:
-        asyncio.run(_run())
-    except Exception as e:
-        print(f"[audio] Edge TTS error: {str(e)[:150]}")
-        return None, False
-
-    if not audio or len(audio) < 5000:
-        return None, False
-    with open(output_path, "wb") as f:
-        f.write(bytes(audio))
-
-    # If this edge-tts version didn't give word boundaries, ESTIMATE them from
-    # the total audio duration, distributed by word length (good enough sync
-    # for a fallback voice).
-    if not words:
-        total_s = _get_duration_ms(output_path) / 1000.0
+    clock = 0.0
+    for j, (sp, pause, dur, text) in enumerate(rendered):
         toks = text.split()
-        if not toks or total_s <= 0:
-            return None, True  # audio exists but no timing; caller will estimate per-line
-        weights = [max(len(t), 1) for t in toks]
-        tot_w = sum(weights)
-        t = 0.0
-        for tok, wgt in zip(toks, weights):
-            dur = total_s * (wgt / tot_w)
-            words.append({"word": tok, "start_s": t, "end_s": t + dur})
-            t += dur
-        print(f"[audio]   Edge TTS: estimated timing for {len(words)} words ({total_s:.1f}s)")
+        if toks and dur > 0:
+            wts = [max(len(t), 1) for t in toks]
+            tw = sum(wts)
+            t0 = clock
+            for tok, w in zip(toks, wts):
+                d = dur * (w / tw)
+                words.append({"word": tok, "start_s": t0, "end_s": t0 + d})
+                t0 += d
+        clock += dur
+        if j < len(rendered) - 1:
+            clock += pause
 
+    seg_files = [r[0] for r in rendered]
+    gaps = [r[1] for r in rendered[:-1]]  # pause after each segment except last
+    _join_lines_with_silence(seg_files, output_path, gaps_seconds=gaps)
+
+    for sf in seg_files:
+        try:
+            os.remove(sf)
+        except OSError:
+            pass
+
+    print(f"[audio]   Edge TTS: {len(rendered)} paused segments, "
+          f"{len(words)} words, {clock:.1f}s total")
     return (words or None), True
 
 
