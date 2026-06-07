@@ -909,12 +909,23 @@ def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candi
         if predictor_available:
             try:
                 pred = predict_engagement(result["script"], topic, style)
+                # predict_engagement returns scores at the TOP level (hook, save,
+                # share, rewatch) — NOT nested under "scores". The old code read
+                # pred["scores"][...] which never existed, so every composite was
+                # 0.0 and best-of-N ranked by quality only. Read them directly.
+                def _f(k):
+                    try:
+                        return float(pred.get(k, 0) or 0)
+                    except (TypeError, ValueError):
+                        return 0.0
                 composite = (
-                    pred.get("scores", {}).get("hook", 0) * 0.3 +
-                    pred.get("scores", {}).get("save", 0) * 0.25 +
-                    pred.get("scores", {}).get("share", 0) * 0.25 +
-                    pred.get("scores", {}).get("rewatch", 0) * 0.2
+                    _f("hook") * 0.3 + _f("save") * 0.25 +
+                    _f("share") * 0.25 + _f("rewatch") * 0.2
                 )
+                # Fallback: if the predictor gave no detailed scores (e.g. AI
+                # unavailable → just {"overall":5}), use overall so it's non-zero.
+                if composite == 0:
+                    composite = _f("overall")
                 result["engagement_score"] = round(composite, 2)
                 result["engagement_prediction"] = pred.get("prediction", "unknown")
                 print(f"[script]   Engagement score: {composite:.1f}/10 ({pred.get('prediction', '?')})")
