@@ -51,8 +51,12 @@ Whisprs), not generic sad-poetry.
   realness logic always applies; the bank is FALLBACK only (providers down).
   Dedup is independent (used_scripts.json) → use-once-then-forget. Confirmed live:
   YT short sAUdYrVsU0o ("their favorite mug still has your fingerprints").
-- KNOWN ISSUE: predict_engagement returns 0.0 for all candidates, so best-of-3
-  currently ranks by quality_score only. Engagement ranking is a no-op until fixed.
+- FIXED (2026-06-07): engagement predictor wiring — generate_best_script read
+  scores from a nested pred["scores"][...] that never existed (predict_engagement
+  returns them top-level), so composites were always 0.0. Now reads top-level
+  with an "overall" fallback. Best-of-3 genuinely ranks by shareability
+  (save+share+hook+rewatch). Confirmed live: candidates scored 6.8 / 7.4 / 7.4,
+  best (7.4) selected — YT short tRyiE_k8FwU.
 - NOTE: kept 768 are pre-existing concrete scripts (better, visible immediately).
   Scripts written with the NEW realness prompt only appear via a bank rebuild
   (build-script-bank workflow) or live gen when the bank empties.
