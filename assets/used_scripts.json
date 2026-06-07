@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Part You Never Talk About",
-    "style": "emotional",
-    "script": "Midnight. The city sleeps\ndark alleys\nand forgotten streets\nslowly whisper secrets\nof the part you never talk about\nSome people hide\nbehind masks of confidence\nbut the shadows know\nthe truth you conceal\nNot even the wind\njudges your darkest nights\nsend this to them.",
-    "hash": "31da1b03c86039263568c7e7e1082b81",
-    "metaphors": [
-      "shadow",
-      "dark",
-      "mask",
-      "tree",
-      "wind"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Small Things I Notice About You",
     "style": "love",
     "script": "You're folding the corner of your napkin.\nagain and again\nuntil it looks like a tiny origami boat.\nI count the creases,\nthe way they catch the light.\nNoticed how your laugh\nstarts with a single breath,\nlike a secret you're about to share.\nYour sleeves are always rolled up,\njust enough to show the veins\nin your wrists\u2014blue rivers I want to trace.\nSend this to them.",
@@ -727,5 +713,17 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Meaning We Choose to Find",
+    "style": "emotional",
+    "script": "You're tracing circles on the fogged-up window.\nThe cold seeps in,\nbut you keep drawing,\nnot shapes,\njust loops,\nlike the mind does when it's tired of answers.\nSome meanings aren't found,\nthey're carved into the glass,\nslowly,\nwith a fingertip,\nand when the sun hits,\nthey glow for a second.\nLet them see it.",
+    "hash": "98015a98331ae7f4cb4aafcb8fdb55bd",
+    "metaphors": [
+      "wind",
+      "window",
+      "sun"
+    ],
+    "themes": []
   }
 ]

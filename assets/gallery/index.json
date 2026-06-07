@@ -31,21 +31,27 @@
     "topic": "When Grief Becomes a Teacher",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1780761809
+    "timestamp": 1780761809,
+    "uses": 1,
+    "last_used": 1780809745
   },
   {
     "file": "bef91d9d_2.png",
     "topic": "When Grief Becomes a Teacher",
     "panel": 2,
     "source": "fresh",
-    "timestamp": 1780761814
+    "timestamp": 1780761814,
+    "uses": 1,
+    "last_used": 1780809745
   },
   {
     "file": "372c5ba1_3.png",
     "topic": "When Grief Becomes a Teacher",
     "panel": 3,
     "source": "fresh",
-    "timestamp": 1780761819
+    "timestamp": 1780761819,
+    "uses": 1,
+    "last_used": 1780809745
   },
   {
     "file": "64bac4e1_4.png",
@@ -102,5 +108,19 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780781906
+  },
+  {
+    "file": "26a025c3_0.png",
+    "topic": "The Meaning We Choose to Find",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1780809748
+  },
+  {
+    "file": "71101326_1.png",
+    "topic": "The Meaning We Choose to Find",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1780809752
   }
 ]
