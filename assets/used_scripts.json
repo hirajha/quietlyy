@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Crying Without Knowing Why",
-    "style": "nostalgic",
-    "script": "tears fall without warning\nwe just\nlost in the haze\nof our own minds\nSOMETHING IS SHIFTING\ninside us\nstill we search\nfor a reason\nto explain\nthe ache that settles\nin our chests.",
-    "hash": "2b6993c2fe01f1d6ed55f33b774a8b03",
-    "metaphors": [],
-    "themes": [
-      "grief_loss",
-      "silence"
-    ]
-  },
-  {
     "topic": "When Grief Becomes a Teacher",
     "style": "emotional",
     "script": "There's a grief that settles slowly\nin my bones\nit's a weight\nthat's always there\nbut shapes me\ninto someone stronger\nSome people call it resilience\nthe ability to bend\nnot break\nand find a way to heal\nslowly\nin the darkness. Period.",
@@ -717,6 +706,18 @@
     "script": "It doesn't feel empty. Not yet.\nTheir favorite mug\nstill has your fingerprints,\nSlowly gathering dust\nbut still in its place.\nNO ONE ELSE DRINKS FROM IT.\nand that's okay,\nbut sometimes you catch yourself\nwondering what they'd say\nif they saw you using it now.\nDo you hold on to prove a point?\nOR DOES IT JUST FEEL LIKE HOME.\nSend this to them.",
     "hash": "4f0915a5756f28a5694d7358fbf19635",
     "metaphors": [],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "More Than My Favorite Person",
+    "style": "love",
+    "script": "It doesn't feel empty. Not yet.\nTheir old keyboard still has your login,\nslowly the passwords expire\nBUT THE USERNAME REMAINS\nand 75% of people keep old accounts alive\nfor the sake of memories, I guess\nsome people don't delete contacts\nthey just leave them untouched\nlike the empty chair at our table\nnobody sits there, not even guests\nSOMEHOW IT STILL FEELS LIKE HOME\nbut do you ever wonder\nif they too have an empty space\nsend this to them.",
+    "hash": "3d1236d97ca1e06cf14e4094d2170679",
+    "metaphors": [
+      "sword"
+    ],
     "themes": [
       "silence"
     ]

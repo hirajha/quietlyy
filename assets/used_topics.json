@@ -1,8 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "The Moment You Stopped Hoping",
-    "The Night You Stopped Waiting",
     "Being the One Who Always Checks In",
     "Loving Someone Who Can't Love Back",
     "When You Delete the Message Before Sending It",
@@ -20,11 +18,12 @@
     "Learning to Be Alone",
     "The Quiet Exit",
     "When You Are the One Who Always Forgives",
-    "When You Realized You Were the Option, Not the Priority"
+    "When You Realized You Were the Option, Not the Priority",
+    "The Goodbye You Didn't Get",
+    "Staying Too Long"
   ],
   "used_poetic": [],
   "used_love": [
-    "The First Time I Knew",
     "What I'd Tell You If I Could",
     "What Real Love Feels Like",
     "The Kind of Love That Doesn't Shout",
@@ -43,10 +42,10 @@
     "The Way You Look at Me",
     "When Love Feels Like Coming Home",
     "The Little Things You Do",
-    "The One I Think About First"
+    "The One I Think About First",
+    "More Than My Favorite Person"
   ],
   "used_wisdom": [
-    "What Truly Matters in the End",
     "When Grief Becomes a Teacher",
     "The Ancient Truth About Happiness",
     "The Power of Small Moments",
@@ -65,10 +64,11 @@
     "Learning to Trust the Journey",
     "The Difference Between Living and Existing",
     "The Gift of Impermanence",
-    "What Silence Teaches Us"
+    "What Silence Teaches Us",
+    "The Quiet Revolution of Self-Respect"
   ],
-  "last_style": "love",
-  "last_regular_style": "love",
+  "last_style": "emotional",
+  "last_regular_style": "emotional",
   "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
@@ -124,7 +124,8 @@
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153711_704e70.mp3",
-    "2026-06-05_153806_9773e5.mp3"
+    "2026-06-05_153806_9773e5.mp3",
+    "2026-06-05_153640_3f0c91.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
