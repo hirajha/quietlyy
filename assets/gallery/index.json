@@ -193,21 +193,27 @@
     "topic": "Loving the Wrong People",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1780828797
+    "timestamp": 1780828797,
+    "uses": 1,
+    "last_used": 1780832720
   },
   {
     "file": "51118fa6_0.png",
     "topic": "What Silence Teaches Us",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1780831340
+    "timestamp": 1780831340,
+    "uses": 1,
+    "last_used": 1780832720
   },
   {
     "file": "886735cd_1.png",
     "topic": "What Silence Teaches Us",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1780831344
+    "timestamp": 1780831344,
+    "uses": 1,
+    "last_used": 1780832720
   },
   {
     "file": "80b7ea2a_0.png",
@@ -222,5 +228,19 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780831516
+  },
+  {
+    "file": "89069c29_0.png",
+    "topic": "More Than My Favorite Person",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1780832722
+  },
+  {
+    "file": "f01b93e2_1.png",
+    "topic": "More Than My Favorite Person",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1780832727
   }
 ]

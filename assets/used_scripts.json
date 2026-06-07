@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Quiet Revolution of Self-Respect",
-    "style": "love",
-    "script": "You're sitting in the stillness. \nSlowly unwinding threads of self-doubt, \nGentle. \nAnd finding your voice \nBecomes the Catalyst \nFor a quiet revolution, \nSoftly it begins \nTo reshape your world \nIn the gentle curves of self-respect, \nAnd slowly you start \nTo see yourself, \nSend this to Quietlyy.",
-    "hash": "515a2d573501c46dc4c1a23200a95f9a",
-    "metaphors": [
-      "star",
-      "wind"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "More Than My Favorite Person",
     "style": "nostalgic",
     "script": "you're more than my favorite person\n \n   still thinking about\n \n   your laugh echoing somewhere\n \n   MEMORIES OF SUMMER afternoons\n \n   we just shared stories\n \n   and somewhere between laughter\n \n   and tears we found solace\n \n   NEWFOUND COMFORT in each other\n \n   still searching for\n \n   that feeling of being home\n \n   in someone's eyes\n \n   fading like a sunset",
@@ -722,6 +709,20 @@
       "wall"
     ],
     "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "More Than My Favorite Person",
+    "style": "emotional",
+    "script": "I stopped counting the miles between us,\nbut the compass still spins,\nnot lost,\njust waiting for the needle to settle,\nSome roads don\u2019t lead home,\nthey lead to the version of you I keep alive,\nThe suitcase under my bed,\nhalf-packed,\nnot with clothes,\nbut with all the things I meant to say,\nI won\u2019t unpack it,\nnot yet,\nYou\u2019re more than my favorite person,\nyou\u2019re the place I return to in my head.",
+    "hash": "6f90f98dc144a3f041f7ab77c232d9ac",
+    "metaphors": [
+      "compass",
+      "road"
+    ],
+    "themes": [
+      "grief_loss",
       "silence"
     ]
   }
