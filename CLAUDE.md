@@ -33,6 +33,23 @@ Inspect a difference first: `git diff approved-voice-v2 HEAD -- scripts/generate
 
 ---
 
+## Script quality — "emotional realness" (2026-06-07)
+Hira's bar: scripts must feel like they describe the viewer's EXACT life (à la
+Whisprs), not generic sad-poetry.
+- `generate_script.py` `_REALNESS_BLOCK`: prompts demand ONE concrete lived
+  anchor (saved contact, empty side of bed, 2am phone screen), ban abstract
+  nature-metaphor. Closing line must end with a "." mark — NEVER the word
+  "Period"/"Done" (that bug produced "in my phone. Period").
+- `review_script.py`: `check_structure()` hard-rejects artifact/dangling endings;
+  AI scorer weights REALNESS most and enforces realness>=6 (wisdom exempt).
+- `clean_script_bank.py`: one-time heuristic clean (no AI). Bank trimmed
+  1075 → 768 concrete-only scripts, next_index=0. Original at
+  `assets/script_bank.backup.json`.
+- Bank builder reuses build_prompt + review_script → rebuilds inherit all of it.
+- NOTE: kept 768 are pre-existing concrete scripts (better, visible immediately).
+  Scripts written with the NEW realness prompt only appear via a bank rebuild
+  (build-script-bank workflow) or live gen when the bank empties.
+
 ## Voice tunables (env vars / GitHub repo secrets — no code change needed)
 - `EDGE_PAUSE_SENTENCE`, `EDGE_PAUSE_CLAUSE`, `EDGE_PAUSE_ELLIPSIS` — pause seconds
 - `EDGE_TTS_RATE` (default `-10%`; more negative = slower)
