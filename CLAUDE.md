@@ -46,6 +46,13 @@ Whisprs), not generic sad-poetry.
   1075 → 768 concrete-only scripts, next_index=0. Original at
   `assets/script_bank.backup.json`.
 - Bank builder reuses build_prompt + review_script → rebuilds inherit all of it.
+- ARCHITECTURE (2026-06-07): generation is now LIVE-FIRST — `generate_best_script`
+  generates fresh candidates on-demand (best-of-3) every post so the current
+  realness logic always applies; the bank is FALLBACK only (providers down).
+  Dedup is independent (used_scripts.json) → use-once-then-forget. Confirmed live:
+  YT short sAUdYrVsU0o ("their favorite mug still has your fingerprints").
+- KNOWN ISSUE: predict_engagement returns 0.0 for all candidates, so best-of-3
+  currently ranks by quality_score only. Engagement ranking is a no-op until fixed.
 - NOTE: kept 768 are pre-existing concrete scripts (better, visible immediately).
   Scripts written with the NEW realness prompt only appear via a bank rebuild
   (build-script-bank workflow) or live gen when the bank empties.
