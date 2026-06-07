@@ -278,10 +278,22 @@ def _segment_for_edge(lines):
     is sized to that punctuation. So pauses land ONLY at real stopping points,
     never in the middle of a phrase.
 
+    SAFETY NET: if a script has poorly-punctuated run-on lines (the AI sometimes
+    drops end punctuation entirely), naive merging would build one giant segment
+    that reads as a rushed paragraph. So we cap the buffer: once an enjambed run
+    reaches MAX_BUFFER_WORDS, we flush it with a small breath at a line break —
+    guaranteeing the narrator always pauses, regardless of script quality.
+
     Returns a list of (clean_text, pause_after_seconds).
     """
+    MAX_BUFFER_WORDS = int(os.environ.get("EDGE_MAX_SEG_WORDS", "9"))
+    PHRASE_BREATH = float(os.environ.get("EDGE_PAUSE_PHRASE", "0.4"))
     segs = []
     buf = []
+
+    def _wc(parts):
+        return sum(len(p.split()) for p in parts)
+
     for line in lines:
         s = _clean_text(line).strip()
         if not s:
@@ -291,7 +303,10 @@ def _segment_for_edge(lines):
         if pause > 0:                       # this line ends a thought → close segment
             segs.append((" ".join(buf), pause))
             buf = []
-        # else: enjambed → keep buffering, flow into the next line
+        elif _wc(buf) >= MAX_BUFFER_WORDS:  # run-on with no punctuation → force a breath
+            segs.append((" ".join(buf), PHRASE_BREATH))
+            buf = []
+        # else: short enjambed run → keep buffering, flow into the next line
     if buf:                                  # trailing enjambed lines
         segs.append((" ".join(buf), 0.0))
     if segs:

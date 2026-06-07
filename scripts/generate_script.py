@@ -220,22 +220,29 @@ _OPENING_PATTERNS = [
 # SPECIFIC, lived detail — never abstract nature-poetry.
 _REALNESS_BLOCK = """
 ━━ EMOTIONAL REALNESS — THE #1 RULE ━━
-The viewer must think: "this is MY exact life — how do they know?"
-That ONLY happens with concrete, specific, lived detail — NOT abstract poetry:
-  ✓ "Their number is still saved. You're never going to call it."
-  ✓ "You made coffee for two this morning. Out of habit."
-  ✓ "It's 2am. You've read their last text four times."
-  ✓ "You still flinch when someone has their laugh."
-  ✗ "The river bends without asking permission"   (pretty, says NOTHING about their life)
-  ✗ "Love is a quiet storm that never settles"     (vague abstraction — banned)
+The viewer must FEEL it in their chest and think "this is exactly how I feel."
+That comes from EMOTIONAL TRUTH carried by ONE warm, relatable human image —
+the way Whisprs does it:
+  ✓ "the umbrella feels too heavy to hold" / "the same hands that reached for you in storms"
+  ✓ "Their side of the bed is still cold." / "You stopped setting two cups out."
+  ✓ "You still reach for your phone to tell them. Then you remember."
+  ✓ "Some people don't love you — they love the comfort you create."
+These land because they are EMOTIONAL first, with a tender everyday image.
+
+DO NOT confuse "concrete" with naming random objects or facts. These are BANNED —
+they killed recent scripts:
+  ✗ "Their old keyboard still has your login" / "the passwords expire"  (cold, techy, dead)
+  ✗ "75% of people keep old accounts alive"   (NEVER use statistics, %, numbers, data)
+  ✗ listing objects or gadgets (keyboard, login, account, wifi, settings, app)
+  ✗ "The river bends without asking permission"  (abstract nature — says nothing)
+
 HARD RULES:
-- Anchor the whole piece in ONE real, specific human moment or object: a saved
-  contact, an empty side of the bed, a voicemail, a half-typed text, their old
-  hoodie, a chair no one sits in, a 2am phone screen.
-- Name the uncomfortable truth people FEEL but never say out loud.
-- Specific beats poetic. If a line could appear on ANY sad-poetry page, cut it.
-- NO generic nature metaphors (rivers, oceans, storms, seasons, stone) unless
-  tied to a concrete human action in the same breath.
+- Lead with the FEELING; let one soft, human image carry it (a cold side of the
+  bed, a coat still on the hook, a name you almost typed, a song you skip now).
+- Name the ache people feel but never say out loud.
+- NO statistics, percentages, numbers, data, or "facts". This is a poem, not a report.
+- NO cold/technical objects (keyboard, login, password, account, device, app).
+- It must sound like a person whispering a truth — not describing their desk.
 """
 
 

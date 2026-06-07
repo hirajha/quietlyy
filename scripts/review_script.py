@@ -325,11 +325,17 @@ _ARTIFACT_WHOLE = re.compile(r"^\s*(period|full stop|done|the end|end)\s*\.?\s*$
 _ARTIFACT_APPENDED = re.compile(r"[.,!?]\s+(period|full stop|done|the end)\s*\.?\s*$", re.I)
 # Connectives that cannot end a thought → broken close if they're the last line.
 _DANGLING_END = {"but", "and", "so", "or", "the", "a", "of", "to", "with", "just", "not"}
+# Statistics / data — NEVER belong in an emotional poem ("75% of people...").
+_STATS = re.compile(r"\b\d+\s*%|\b\d+\s+percent|\bpercent\b|\b\d+\s+(?:of\s+)?people\b", re.I)
+# Cold/technical objects that make a poem feel like a help-desk ticket.
+_COLD_TECH = re.compile(r"\b(keyboard|login|log\s?in|password|username|wi-?fi|"
+                        r"router|browser|server|database|app icon|settings menu)\b", re.I)
 
 
 def check_structure(script_text):
     """Deterministic structural rejects — catch broken output the AI scorer
-    waves through (it scored 'in my phone. Period' a 7/10)."""
+    waves through (it scored 'in my phone. Period' a 7/10, and 'their old
+    keyboard still has your login... 75% of people' a 7/10)."""
     lines = [l.strip() for l in script_text.split("\n") if l.strip()]
     if len(lines) < 6:
         return False, f"Too few lines ({len(lines)})"
@@ -338,6 +344,16 @@ def check_structure(script_text):
         return False, f"Artifact ending (literal meta-word): '{last}'"
     if last.lower().rstrip(".,!?") in _DANGLING_END:
         return False, f"Final line is a dangling connective: '{last}'"
+    if _STATS.search(script_text):
+        return False, "Contains a statistic/number-as-data (banned in a poem)"
+    if _COLD_TECH.search(script_text):
+        m = _COLD_TECH.search(script_text)
+        return False, f"Cold/technical object ('{m.group()}') — not emotional imagery"
+    # Breath structure: enough lines must END a thought (punctuation) or the
+    # voiceover reads it as one rushed run-on paragraph.
+    punctuated = sum(1 for l in lines if l.rstrip()[-1:] in ".!?,;:—")
+    if punctuated < max(2, int(len(lines) * 0.30)):
+        return False, f"Run-on: only {punctuated}/{len(lines)} lines end with punctuation"
     return True, ""
 
 
