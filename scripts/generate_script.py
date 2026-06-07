@@ -862,20 +862,12 @@ def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candi
     except ImportError:
         predictor_available = False
 
-    # ── BANK FIRST: skip the candidate-generation loop entirely when bank is available ──
-    # The bank already contains quality-gated unique scripts; engagement prediction
-    # was already considered at build time. Picking from bank avoids burning
-    # 3-5 AI calls per pipeline run AND guarantees zero duplicates.
-    if not forced_topic and not forced_style:  # bank doesn't honor forced overrides
-        bank_result, bank_reason = _try_pick_from_bank()
-        if bank_result:
-            save_used_script(bank_result["script"], bank_result["topic"], bank_result["style"])
-            if bank_result["style"] == "wisdom":
-                save_wisdom_quote(bank_result["script"])
-            bank_result["engagement_score"] = bank_result.get("quality_score", 0)
-            return bank_result
-        print(f"[script] Bank unavailable ({bank_reason}) — falling back to live candidate generation")
-
+    # ── LIVE FIRST (Hira 2026-06-07): generate fresh on-demand with the current
+    # realness logic so every post reflects the latest prompt/gate quality. The
+    # pre-generated bank is now only a FALLBACK (storage) for when live gen can't
+    # produce — see the end of this function. Dedup is guaranteed independently
+    # by used_scripts.json + review_script's check_duplicate, so "use once then
+    # forget" holds regardless of source.
     import time
     templates = load_templates()
     examples = templates["example_scripts"]
@@ -932,7 +924,23 @@ def generate_best_script(tone_hints="", theme_hints=None, idea_hints="", n_candi
         candidates.append(result)
 
     if not candidates:
-        raise RuntimeError(f"Script quality gate failed after {MAX_TOTAL_ATTEMPTS} attempts. Cannot proceed.")
+        # ── FALLBACK: live generation failed (providers down / rate-limited /
+        # nothing passed the gate). Pull from the bank (storage) so a post still
+        # goes out. Honors forced overrides by skipping the bank for those.
+        print(f"[script] Live generation produced nothing after {MAX_TOTAL_ATTEMPTS} "
+              f"attempts — falling back to script bank (storage)")
+        if not forced_topic and not forced_style:
+            bank_result, bank_reason = _try_pick_from_bank()
+            if bank_result:
+                save_used_script(bank_result["script"], bank_result["topic"], bank_result["style"])
+                if bank_result["style"] == "wisdom":
+                    save_wisdom_quote(bank_result["script"])
+                bank_result["engagement_score"] = bank_result.get("quality_score", 0)
+                print(f"[script] ✅ Used bank fallback: {bank_result.get('topic','')[:50]}")
+                return bank_result
+            print(f"[script] Bank fallback unavailable ({bank_reason})")
+        raise RuntimeError(
+            f"Live generation failed AND bank fallback unavailable. Cannot proceed.")
 
     # Pick the highest engagement-scoring candidate
     best = max(candidates, key=lambda c: (c["engagement_score"], c["quality_score"]))

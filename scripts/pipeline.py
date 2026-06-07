@@ -214,7 +214,9 @@ def run(skip_post=False, skip_youtube=False, custom_topic=None, forced_style=Non
     try:
         script_data = generate_best_script(
             tone_hints=tone_hints, theme_hints=top_themes,
-            idea_hints=idea_hints, n_candidates=5,
+            # Live-first: generate fresh with current realness logic, pick best
+            # of 3 (quality vs token-cost balance), bank is fallback only.
+            idea_hints=idea_hints, n_candidates=3,
             forced_topic=custom_topic or None,
             forced_style=forced_style or None,
         )
