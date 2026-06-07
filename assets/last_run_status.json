@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Loving You Quietly"
+    "detail": "What You Cannot Change and What You Can"
   },
   "audio": {
     "result": "ok",
@@ -33,6 +33,6 @@
   },
   "quality_gate": {
     "result": "fail",
-    "detail": "Audio too small (86256 bytes)"
+    "detail": "Audio too small (95616 bytes)"
   }
 }

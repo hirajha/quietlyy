@@ -85,21 +85,27 @@
     "topic": "The Texts You Never Send",
     "panel": 2,
     "source": "fresh",
-    "timestamp": 1780776524
+    "timestamp": 1780776524,
+    "uses": 1,
+    "last_used": 1780826890
   },
   {
     "file": "d7b0817b_3.png",
     "topic": "The Texts You Never Send",
     "panel": 3,
     "source": "fresh",
-    "timestamp": 1780776528
+    "timestamp": 1780776528,
+    "uses": 1,
+    "last_used": 1780826890
   },
   {
     "file": "a3985ba1_4.png",
     "topic": "The Texts You Never Send",
     "panel": 4,
     "source": "fresh",
-    "timestamp": 1780776532
+    "timestamp": 1780776532,
+    "uses": 1,
+    "last_used": 1780826890
   },
   {
     "file": "aa58c54c_0.png",
@@ -142,5 +148,19 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780814857
+  },
+  {
+    "file": "ec87ea2d_0.png",
+    "topic": "What You Cannot Change and What You Can",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1780826893
+  },
+  {
+    "file": "33c3300f_1.png",
+    "topic": "What You Cannot Change and What You Can",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1780826897
   }
 ]
