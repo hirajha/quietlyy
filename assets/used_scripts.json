@@ -1,13 +1,5 @@
 [
   {
-    "topic": "The Weight of Being the Strong One",
-    "style": "emotional",
-    "script": "It doesn't weigh. Not yet.\nslowly\nThe weight is a mountain\nI'm climbing\nthe hands that hold me up\nare my own\nSome people call it strength\nbut it's just a facade\nI won't let it crumble\nand slowly I'm losing\nmy grip. Done.",
-    "hash": "5bb95bc00e6cc95ad1057b425d082735",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "Keeping Their Number Saved",
     "style": "emotional",
     "script": "Midnight. The city sleeps\nslowly\nfingers tracing\nthe number still saved\nand the memories\nSome people keep them\nas a reminder\nof what's been lost\nbut not me\nI won't delete it\njust a ghost\nin my phone. Period",
@@ -720,6 +712,16 @@
     "themes": [
       "grief_loss",
       "heartbreak"
+    ]
+  },
+  {
+    "topic": "Loving the Wrong People",
+    "style": "emotional",
+    "script": "4:17 a.m. The kettle hums,\nstill warm from last night\u2019s tea.\nYou trace the cracks in the ceiling,\ncounting,\nnot sheep,\nbut the ways they promised,\nthe way promises dissolve like sugar.\nSome people don\u2019t keep you,\nthey keep the version of you,\nthe one that fits in their pockets,\nquietly,\nwithout the weight of your real name.\nThe kettle clicks off.\nYou pour.",
+    "hash": "203de52ffd093b046156d55093052796",
+    "metaphors": [],
+    "themes": [
+      "silence"
     ]
   }
 ]

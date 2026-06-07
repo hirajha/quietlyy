@@ -112,21 +112,27 @@
     "topic": "Loving in Silence",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1780781902
+    "timestamp": 1780781902,
+    "uses": 1,
+    "last_used": 1780828791
   },
   {
     "file": "eeb5d398_1.png",
     "topic": "Loving in Silence",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1780781906
+    "timestamp": 1780781906,
+    "uses": 1,
+    "last_used": 1780828791
   },
   {
     "file": "26a025c3_0.png",
     "topic": "The Meaning We Choose to Find",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1780809748
+    "timestamp": 1780809748,
+    "uses": 1,
+    "last_used": 1780828791
   },
   {
     "file": "71101326_1.png",
@@ -162,5 +168,19 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780826897
+  },
+  {
+    "file": "1737ee75_0.png",
+    "topic": "Loving the Wrong People",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1780828793
+  },
+  {
+    "file": "e0a52bec_1.png",
+    "topic": "Loving the Wrong People",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1780828797
   }
 ]
