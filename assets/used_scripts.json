@@ -1,17 +1,5 @@
 [
   {
-    "topic": "When Someone Chooses You Every Day",
-    "style": "nostalgic",
-    "script": "they choose me                        \nwithout condition             \nstill believing in my soul      \nDEEP DOWN WE KNOW          \nthe weight of it settles     \nand somewhere in the everyday \nwe find a gentle rhythm      \nSTRENGTHENED BY THEIR FAITH \nwe just keep going           \nthrough the noise             \nand the chaos still          \nwhispers a quiet ache       ",
-    "hash": "51e89e180b29857ff13c0e92445cfa84",
-    "metaphors": [
-      "noise"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What Truly Matters in the End",
     "style": "love",
     "script": "There's a kind of tired, \nslowly unfolding \nIN THE DEPTHS of our choices, \nand the weight of what we let go, \nsome things \nSLIP THROUGH THE CRACKS \nof our memory, \nbut the ones that TRULY MATTER \nlinger in the shadows, \nand the light we shine on them, \ndefines the beauty \nof our existence, \nsend this to Quietlyy.",
@@ -720,6 +708,20 @@
       "silence",
       "nostalgia",
       "love"
+    ]
+  },
+  {
+    "topic": "When Someone Chooses You Every Day",
+    "style": "love",
+    "script": "There\u2019s a quiet kind of trust\u2014\nthat doesn\u2019t need to ask.\nThe way your keys still land on the table first,\nwhile mine wait in my palm.\nDid you know,\nmost people only choose once?\nA decision made,\nthen left to gather dust.\nBut you,\nyou pick me in the morning light,\nin the grocery aisle,\nin the way you reach for my hand\nbefore the streetlight changes.\nI keep forgetting to be amazed.",
+    "hash": "495dd1280b7656b9aeb86f868d96f1ff",
+    "metaphors": [
+      "tree",
+      "light"
+    ],
+    "themes": [
+      "loneliness",
+      "silence"
     ]
   }
 ]

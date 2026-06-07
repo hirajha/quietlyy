@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When You Delete the Message Before Sending It",
-    "Missing a Person Who Is Still Here",
-    "The First Heartbreak",
     "Heartbreak Lesson",
     "Loving Quietly From a Distance",
     "When Love Was Not Enough",
@@ -20,14 +17,13 @@
     "The Goodbye You Didn't Get",
     "Staying Too Long",
     "The Part You Never Talk About",
-    "Being Strong for Everyone While Breaking Inside"
+    "Being Strong for Everyone While Breaking Inside",
+    "Being the One Who Always Checks In",
+    "The Last Text You Never Sent",
+    "Grieving Someone Who Did Not Die"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Kind of Love That Doesn't Shout",
-    "Loving You in Silence",
-    "Someone Worth Staying For",
-    "The Quiet Kind of Love Nobody Talks About",
     "Loving You Quietly",
     "You Are My Calm",
     "You Make the Hard Days Easier",
@@ -43,11 +39,13 @@
     "The One I Think About First",
     "More Than My Favorite Person",
     "The Small Things I Notice About You",
-    "Loving in Silence"
+    "Loving in Silence",
+    "Falling For Someone Who Does Not Know",
+    "When Someone Chooses You Every Day",
+    "What Home Actually Feels Like",
+    "The Kind of Love That Doesn't Shout"
   ],
   "used_wisdom": [
-    "The Power of Small Moments",
-    "What You Cannot Change and What You Can",
     "Finding Peace Within Yourself",
     "Learning to Belong to Yourself",
     "What Real Love Requires",
@@ -65,11 +63,13 @@
     "What Silence Teaches Us",
     "The Quiet Revolution of Self-Respect",
     "The Courage to Begin Again",
-    "When Grief Becomes a Teacher"
+    "When Grief Becomes a Teacher",
+    "The Meaning We Choose to Find",
+    "The Ancient Truth About Happiness"
   ],
-  "last_style": "emotional",
-  "last_regular_style": "emotional",
-  "videos_since_wisdom": 1,
+  "last_style": "love",
+  "last_regular_style": "love",
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -126,7 +126,8 @@
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153640_3f0c91.mp3",
-    "2026-06-05_153744_816dfe.mp3"
+    "2026-06-05_153744_816dfe.mp3",
+    "2026-06-05_153555_7cd9b3.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
