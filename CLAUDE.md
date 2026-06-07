@@ -1,39 +1,35 @@
 # Quietlyy — Project Memory
 
-## ✅ APPROVED VOICE BASELINE — "approved-voice-v1"
+## ✅ CURRENT APPROVED VOICE BASELINE — "approved-voice-v2"
 
-**Status:** Approved by Hira on 2026-06-07 — *"today's 2nd video was actually
-all good including the pause."*
+**Status:** Approved by Hira on 2026-06-07 — *"looks good."* This is the
+CURRENT live version.
 
-- **Git tag:** `approved-voice-v1`
-- **Commit:** `0819346` — "Edge-TTS: pause between thoughts instead of rushing one long paragraph"
-- **Produced by:** GitHub Actions run `27091576908`
+- **Git tag:** `approved-voice-v2`
+- **Commit:** `56ced96` — "Edge-TTS pauses: read like a book — flow through phrases, pause at thoughts"
+- **Produced by:** GitHub Actions run `27092020527` (YT short R-9Ip431Cg4)
 - **What it sounds like:** Free Edge-TTS voice (`en-US-AvaNeural`, rate `-10%`),
-  script synthesized segment-by-segment with REAL silence spliced between
-  segments. Pause lengths:
-  - sentence end (`. ! ?`) → **1.8s**
-  - clause (`, ; : —`) → **0.6s**
-  - enjambed / phrase boundary → **0.35s** breath
-  (Segmentation in this version splits on the director's `<break>` tags.)
+  synthesized by poem-line structure. Enjambed lines (no end punctuation) are
+  MERGED into one continuous phrase — never pauses mid-phrase. Pauses land only
+  at thought-ends:
+  - sentence end (`. ! ?`) → **1.3s**
+  - ellipsis (`...`) → **1.5s** (dramatic)
+  - clause (`, ; : —`) → **0.45s**
 
-### How to switch BACK to the approved version (if a newer change is worse)
-Restore just the audio script from the approved tag, then commit + push:
+### How to switch to a known-good version (if a newer change is worse)
+Restore just the audio script from a tag, then commit + push:
 ```bash
 cd /Users/home/Desktop/quietlyy
-git checkout approved-voice-v1 -- scripts/generate_audio.py
-git commit -m "Revert voice to approved-voice-v1 (Hira-approved pacing)"
+git checkout approved-voice-v2 -- scripts/generate_audio.py   # or approved-voice-v1
+git commit -m "Revert voice to approved-voice-v2 (Hira-approved pacing)"
 git push
 ```
-To inspect the difference first:
-```bash
-git diff approved-voice-v1 HEAD -- scripts/generate_audio.py
-```
+Inspect a difference first: `git diff approved-voice-v2 HEAD -- scripts/generate_audio.py`
 
-### Versions AFTER the baseline (under evaluation)
-- `56ced96` "Edge-TTS pauses: read like a book" (run `27092020527`) — line-based
-  segmentation: merges enjambed lines into one continuous phrase (no mid-phrase
-  pause), pauses 1.3s sentence / 1.5s ellipsis / 0.45s clause. **Pending Hira's
-  verdict** — if good, keep; else revert to `approved-voice-v1` above.
+### Previous baseline (also good, kept as fallback)
+- **`approved-voice-v1`** — commit `0819346`, run `27091576908`. Earlier paced
+  version: splits on director `<break>` tags; pauses 1.8s sentence / 0.6s clause
+  / 0.35s phrase breath. Superseded by v2 but still a valid revert target.
 
 ---
 
