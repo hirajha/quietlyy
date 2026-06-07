@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "What Silence Teaches Us"
+    "detail": "What Real Love Feels Like"
   },
   "audio": {
     "result": "ok",
@@ -36,7 +36,23 @@
     "detail": ""
   },
   "copyright": {
-    "result": "fail",
-    "detail": "{'all_passed': False, 'checks': {'music': {'passed': False, 'message': \"Unknown music source 'gallery_library' \u2014 cannot confirm copyright-free\", 'file': '/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3'}, 'images': {'passed': True, 'message': 'Images OK \u2014 DALL-E 3 generated, user owns output (OpenAI ToS \u00a73)', 'count': 5}, 'voice': {'passed': True, 'message': 'Voice OK \u2014 ElevenLabs commercial license (Starter+ plan)', 'file': '/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3'}, 'script': {'passed': True, 'message': 'Script OK \u2014 AI-generated original"
+    "result": "ok",
+    "detail": ""
+  },
+  "seo": {
+    "result": "ok",
+    "detail": ""
+  },
+  "facebook": {
+    "result": "ok",
+    "detail": ""
+  },
+  "instagram": {
+    "result": "ok",
+    "detail": "18595828888016198"
+  },
+  "youtube": {
+    "result": "ok",
+    "detail": "https://www.youtube.com/shorts/8-gtnYSXJmo"
   }
 }

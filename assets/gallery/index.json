@@ -166,21 +166,27 @@
     "topic": "What You Cannot Change and What You Can",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1780826893
+    "timestamp": 1780826893,
+    "uses": 1,
+    "last_used": 1780831510
   },
   {
     "file": "33c3300f_1.png",
     "topic": "What You Cannot Change and What You Can",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1780826897
+    "timestamp": 1780826897,
+    "uses": 1,
+    "last_used": 1780831510
   },
   {
     "file": "1737ee75_0.png",
     "topic": "Loving the Wrong People",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1780828793
+    "timestamp": 1780828793,
+    "uses": 1,
+    "last_used": 1780831510
   },
   {
     "file": "e0a52bec_1.png",
@@ -202,5 +208,19 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780831344
+  },
+  {
+    "file": "80b7ea2a_0.png",
+    "topic": "What Real Love Feels Like",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1780831512
+  },
+  {
+    "file": "eceebf62_1.png",
+    "topic": "What Real Love Feels Like",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1780831516
   }
 ]

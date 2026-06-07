@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Cry in the Car Alone",
-    "style": "wisdom",
-    "script": "Maya Angelou wrote\nyou may not control\nall the events that happen\nwhen you cry in the car alone, \n   the tears fall like summer rain\nand the world outside becomes\na blurred watercolor painting\nof greens and grays\n   in those moments i find myself\nlost in the rhythm of my breath\ni am searching for a glimpse\nof peace, a sense of calm\nand the world slowly comes back\ninto focus, like a whisper",
-    "hash": "2a889cc10aa897a7bc237bab260b10d4",
-    "metaphors": [
-      "rain"
-    ],
-    "themes": [
-      "loneliness",
-      "heartbreak",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Quiet Revolution of Self-Respect",
     "style": "love",
     "script": "You're sitting in the stillness. \nSlowly unwinding threads of self-doubt, \nGentle. \nAnd finding your voice \nBecomes the Catalyst \nFor a quiet revolution, \nSoftly it begins \nTo reshape your world \nIn the gentle curves of self-respect, \nAnd slowly you start \nTo see yourself, \nSend this to Quietlyy.",
@@ -724,6 +710,19 @@
     "themes": [
       "nostalgia",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "What Real Love Feels Like",
+    "style": "poetic",
+    "script": "It\u2019s not the way they hold your name,\nlike it\u2019s breakable,\nbut the way they say it,\nwhen they think you\u2019re not listening.\nSome people build walls,\nothers build doorways,\nquietly leaving them open.\nThe hands that reach,\nnot to pull you closer,\nbut to steady the ground beneath you,\nso you can stand on your own.\nThat\u2019s the weight,\nthat doesn\u2019t crush you.",
+    "hash": "6fad2f7ae9e80a26482079e00ba52dca",
+    "metaphors": [
+      "door",
+      "wall"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
