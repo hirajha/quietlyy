@@ -213,6 +213,32 @@ _OPENING_PATTERNS = [
 ]
 
 
+# ── EMOTIONAL REALNESS — the #1 quality lever (Hira: "must feel like it's
+# describing the viewer's exact private life, not generic sad-poetry") ──
+# Injected into every emotional/love/nostalgic prompt. The whole goal is the
+# "how do they know about MY life?" reaction, which comes from CONCRETE,
+# SPECIFIC, lived detail — never abstract nature-poetry.
+_REALNESS_BLOCK = """
+━━ EMOTIONAL REALNESS — THE #1 RULE ━━
+The viewer must think: "this is MY exact life — how do they know?"
+That ONLY happens with concrete, specific, lived detail — NOT abstract poetry:
+  ✓ "Their number is still saved. You're never going to call it."
+  ✓ "You made coffee for two this morning. Out of habit."
+  ✓ "It's 2am. You've read their last text four times."
+  ✓ "You still flinch when someone has their laugh."
+  ✗ "The river bends without asking permission"   (pretty, says NOTHING about their life)
+  ✗ "Love is a quiet storm that never settles"     (vague abstraction — banned)
+HARD RULES:
+- Anchor the whole piece in ONE real, specific human moment or object: a saved
+  contact, an empty side of the bed, a voicemail, a half-typed text, their old
+  hoodie, a chair no one sits in, a 2am phone screen.
+- Name the uncomfortable truth people FEEL but never say out loud.
+- Specific beats poetic. If a line could appear on ANY sad-poetry page, cut it.
+- NO generic nature metaphors (rivers, oceans, storms, seasons, stone) unless
+  tied to a concrete human action in the same breath.
+"""
+
+
 def build_prompt(topic, examples, style="emotional", tone_hints="", idea_hints=""):
     """Build prompt for the given style: 'nostalgic' or 'emotional'."""
     style_examples = [e for e in examples if e.get("style") == style][:3]
@@ -289,7 +315,7 @@ Return ONLY valid JSON:
             "small_specific_detail", "second_person_present_moment", "named_feeling"
         )]
         opening = random.choice(love_openings)
-        return f"""Write a 30-second love poem for "Quietlyy" in the exact Whisprs style.{audience_block}{avoid_block}
+        return f"""Write a 30-second love poem for "Quietlyy" in the exact Whisprs style.{audience_block}{avoid_block}{_REALNESS_BLOCK}
 
 Topic: {topic}
 
@@ -320,8 +346,9 @@ Rules:
 - 10-13 lines for 30 seconds
 - Continuation lowercase: "but...", "and...", "slowly..."
 - New thoughts CAPITALIZE
-- ONE central tender image/metaphor through the whole piece
-- End with a quiet close — period or "send this to them." (final line)
+- ONE central tender, CONCRETE image/moment through the whole piece
+- End with a quiet close that lands. Finish the final line with a "." mark, or
+  use "send this to them." — NEVER write the literal word "Period"/"Done"/"End".
 - NO clichés: no "my heart", "soulmate", "forever and always"
 - NEVER start with "You were..." — banned
 
@@ -331,7 +358,7 @@ Return ONLY valid JSON:
 {{"script": "line1\\nline2\\n...line10-13", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
     elif style == "nostalgic":
-        return f"""Write a 30-second nostalgic poem for "Quietlyy" in the exact Whisprs style.{audience_block}{avoid_block}
+        return f"""Write a 30-second nostalgic poem for "Quietlyy" in the exact Whisprs style.{audience_block}{avoid_block}{_REALNESS_BLOCK}
 
 Topic: {topic}
 
@@ -429,7 +456,7 @@ Return ONLY valid JSON:
     else:  # emotional — the core Quietlyy format, matched exactly to Whisprs
         opening = random.choice(_OPENING_PATTERNS)
         return f"""Write a 30-second emotional poem for "Quietlyy" in the EXACT Whisprs style.
-Whisprs reached 2M followers with this format. Match it precisely.{audience_block}{avoid_block}
+Whisprs reached 2M followers with this format. Match it precisely.{audience_block}{avoid_block}{_REALNESS_BLOCK}
 
 Topic: {topic}
 
@@ -476,9 +503,11 @@ Rules — follow exactly:
 - 10-13 lines total (30 seconds with varied pauses)
 - Continuation lines LOWERCASE: "but...", "and...", "just...", "slowly...", "not..."
 - New emotional beats CAPITALIZE: "Some people...", "The hands that...", "I won't..."
-- ONE central image or metaphor carried the whole way through
+- ONE central concrete image or moment carried the whole way through
 - The poem makes the viewer think: "who told them about my life?"
-- End with a quiet, powerful close — 3-7 words. Period at the very end.
+- End with a quiet, powerful close — 3-7 words — that lands like a gut-punch.
+- Finish the final line with a real period punctuation mark "." — NEVER write
+  the words "Period", "Done", "End", or "Full stop" as text. That is forbidden.
 - Optionally: final line "send this to them." or "let them know." (if natural)
 - NO "Save this", NO "Tag someone" — feel, don't sell
 - NEVER start with "You were..." — banned

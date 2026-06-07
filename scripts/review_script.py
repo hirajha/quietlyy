@@ -219,22 +219,30 @@ Score this script on these criteria:
 2. EMOTION (0-10): Does it feel genuinely human? Would someone feel it in their chest and want to share it?
 3. FRESHNESS (0-10): Is the ANGLE or EXECUTION fresh — even if the topic (love, loss, nostalgia) is familiar?
 4. FLOW (0-10): Do the lines build toward something — a turn, a realisation, or a moment of truth?
+5. REALNESS (0-10): THE MOST IMPORTANT ONE. Would the viewer think "this is MY exact
+   life — how do they know?" That comes from CONCRETE, SPECIFIC, lived detail (a saved
+   contact, an empty side of the bed, a 2am phone screen, a half-typed text). Abstract
+   nature-poetry ("the river bends", "love is a storm") scores LOW here — it's pretty
+   but says nothing about the viewer's actual life.
 
 IMPORTANT CONTEXT: Emotional content about love, loneliness, nostalgia, and heartbreak IS the genre.
 A script about missing someone or letting go is NOT automatically rejected just because those topics are common.
-What matters is whether THIS script has a specific, honest line or angle that feels earned — not whether the topic is universal.
+What matters is whether THIS script has a specific, honest, CONCRETE moment that feels earned.
 
-Only reject outright if:
+Reject outright (set approved=false) if:
 - First line is a cliché opener: "There was a time", "In a world", "We all have", "Life is", "Some people", "Not everyone"
-- The script says absolutely nothing — no specific detail, no real moment, just vague platitudes end to end
+- It's abstract from start to finish — generic nature/weather metaphors with NO concrete human moment or object the viewer would recognise from their own life (REALNESS <= 4)
+- The script says nothing specific — just vague platitudes end to end
 - Lines are copy-paste of each other with no variation or build
-- No ending — the script just stops without a resonant final line
+- No ending — it just stops without a resonant final line, OR it literally writes a meta-word like "Period"/"Done"/"End" as the closing text
 
 Return ONLY valid JSON:
-{{"score": <overall 0-10>, "hook": <0-10>, "emotion": <0-10>, "freshness": <0-10>, "approved": <true/false>, "reason": "<one sentence why>"}}
+{{"score": <overall 0-10>, "hook": <0-10>, "emotion": <0-10>, "freshness": <0-10>, "realness": <0-10>, "approved": <true/false>, "reason": "<one sentence why>"}}
 
-Scoring guide: 8-10 = exceptional and shareable. 6-7 = solid, emotionally effective, approved. 4-5 = generic or flat, needs rework. 0-3 = cliché opener or empty content only.
-A score of 6+ means approved."""
+Weight REALNESS heavily in the overall score. A beautifully-written but abstract poem that
+doesn't describe the viewer's real life should NOT pass.
+Scoring guide: 8-10 = exceptional, specific, shareable. 6-7 = solid and concrete, approved. 4-5 = generic/abstract or flat, reject. 0-3 = cliché or empty.
+A script passes ONLY if overall score >= 6 AND realness >= 6."""
 
     # Try ChatGPT first, then Gemini
     for gen_fn, name in [(_call_openai, "ChatGPT"), (_call_gemini, "Gemini"), (_call_groq, "Groq")]:
@@ -308,6 +316,31 @@ def _call_groq(prompt):
     return json.loads(resp.json()["choices"][0]["message"]["content"])
 
 
+# Meta-words an AI sometimes writes LITERALLY instead of using the punctuation
+# (the prompt used to say "Period at the very end" → models wrote "Period").
+# Match ONLY when the meta-word is a dangling token: the whole last line IS the
+# word, or it's appended after a sentence ("...phone. Period"). This avoids
+# false positives like "...how to stop." where 'stop' is real content.
+_ARTIFACT_WHOLE = re.compile(r"^\s*(period|full stop|done|the end|end)\s*\.?\s*$", re.I)
+_ARTIFACT_APPENDED = re.compile(r"[.,!?]\s+(period|full stop|done|the end)\s*\.?\s*$", re.I)
+# Connectives that cannot end a thought → broken close if they're the last line.
+_DANGLING_END = {"but", "and", "so", "or", "the", "a", "of", "to", "with", "just", "not"}
+
+
+def check_structure(script_text):
+    """Deterministic structural rejects — catch broken output the AI scorer
+    waves through (it scored 'in my phone. Period' a 7/10)."""
+    lines = [l.strip() for l in script_text.split("\n") if l.strip()]
+    if len(lines) < 6:
+        return False, f"Too few lines ({len(lines)})"
+    last = lines[-1]
+    if _ARTIFACT_WHOLE.match(last) or _ARTIFACT_APPENDED.search(last):
+        return False, f"Artifact ending (literal meta-word): '{last}'"
+    if last.lower().rstrip(".,!?") in _DANGLING_END:
+        return False, f"Final line is a dangling connective: '{last}'"
+    return True, ""
+
+
 def review_script(script_text, topic, style, examples):
     """
     Full quality review pipeline.
@@ -327,11 +360,24 @@ def review_script(script_text, topic, style, examples):
         print(f"[quality] REJECTED — {reason}")
         return False, reason, 0
 
+    # 2b. Structural sanity (artifact endings, dangling filler, too short)
+    ok, reason = check_structure(script_text)
+    if not ok:
+        print(f"[quality] REJECTED — {reason}")
+        return False, reason, 0
+
     # 3. AI quality score
     ai_result = check_quality_with_ai(script_text, topic, style, examples)
     score = ai_result.get("score", 5)
+    realness = ai_result.get("realness", score)  # default to overall if model omits it
     approved = ai_result.get("approved", score >= 6)
     reason = ai_result.get("reason", "")
+
+    # Realness floor — wisdom (quote-based) is exempt; everything else must feel
+    # like the viewer's real life, not abstract poetry.
+    if style != "wisdom" and realness < 6:
+        print(f"[quality] REJECTED (realness {realness}/10 — too abstract) — {reason}")
+        return False, f"Realness {realness}/10 (too abstract): {reason}", score
 
     if not approved or score < 6:
         print(f"[quality] REJECTED (score {score}/10) — {reason}")
