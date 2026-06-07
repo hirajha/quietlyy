@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Keeping Their Number Saved",
-    "style": "emotional",
-    "script": "Midnight. The city sleeps\nslowly\nfingers tracing\nthe number still saved\nand the memories\nSome people keep them\nas a reminder\nof what's been lost\nbut not me\nI won't delete it\njust a ghost\nin my phone. Period",
-    "hash": "cc4f51f1a74d8f5abec0bc844bde0fae",
-    "metaphors": [],
-    "themes": [
-      "grief_loss",
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Cry in the Car Alone",
     "style": "wisdom",
     "script": "Maya Angelou wrote\nyou may not control\nall the events that happen\nwhen you cry in the car alone, \n   the tears fall like summer rain\nand the world outside becomes\na blurred watercolor painting\nof greens and grays\n   in those moments i find myself\nlost in the rhythm of my breath\ni am searching for a glimpse\nof peace, a sense of calm\nand the world slowly comes back\ninto focus, like a whisper",
@@ -722,6 +711,19 @@
     "metaphors": [],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "What Silence Teaches Us",
+    "style": "poetic",
+    "script": "The river knows how to bend,\nwithout asking permission.\nIt carves its own name\nin the softest stone,\njust by showing up,\nevery single day.\nSome mornings,\nit forgets to whisper,\nand that\u2019s when the earth listens hardest.\nThe trees lean in,\nnot to hear,\nbut to remember.",
+    "hash": "6fb66652005420ae19bc63719d8fc317",
+    "metaphors": [
+      "tree"
+    ],
+    "themes": [
+      "nostalgia",
+      "grief_loss"
     ]
   }
 ]

@@ -139,21 +139,27 @@
     "topic": "The Meaning We Choose to Find",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1780809752
+    "timestamp": 1780809752,
+    "uses": 1,
+    "last_used": 1780831337
   },
   {
     "file": "e6c228a5_0.png",
     "topic": "Loving You Quietly",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1780814852
+    "timestamp": 1780814852,
+    "uses": 1,
+    "last_used": 1780831337
   },
   {
     "file": "7f6d4dca_1.png",
     "topic": "Loving You Quietly",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1780814857
+    "timestamp": 1780814857,
+    "uses": 1,
+    "last_used": 1780831337
   },
   {
     "file": "ec87ea2d_0.png",
@@ -182,5 +188,19 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780828797
+  },
+  {
+    "file": "51118fa6_0.png",
+    "topic": "What Silence Teaches Us",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1780831340
+  },
+  {
+    "file": "886735cd_1.png",
+    "topic": "What Silence Teaches Us",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1780831344
   }
 ]
