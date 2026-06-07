@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Small Things I Notice About You",
-    "style": "love",
-    "script": "You're folding the corner of your napkin.\nagain and again\nuntil it looks like a tiny origami boat.\nI count the creases,\nthe way they catch the light.\nNoticed how your laugh\nstarts with a single breath,\nlike a secret you're about to share.\nYour sleeves are always rolled up,\njust enough to show the veins\nin your wrists\u2014blue rivers I want to trace.\nSend this to them.",
-    "hash": "5fdcbd5519a5b339eab56aee6a1f0024",
-    "metaphors": [
-      "star",
-      "light"
-    ],
-    "themes": [
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The Quiet Kind of Love Nobody Talks About",
     "style": "love",
     "script": "You're sitting in the stillness. \nSoftly the morning light creeps, \nit wraps around your shoulders \nGently, \nand the world OUTSIDE FADES \ninto a soothing haze \nslowly, \nthe warmth of the sun seeps \nINTO YOUR SKIN, \ncalming every nerve, \nquietly, \nSerenity Found \nin this peaceful space, \nand your eyes close, \nsend this to Quietlyy.",
@@ -724,6 +711,14 @@
       "window",
       "sun"
     ],
+    "themes": []
+  },
+  {
+    "topic": "Loving You Quietly",
+    "style": "emotional",
+    "script": "There's a numbness that follows kindness\nI give\nand slowly forget the cost\nof being there for someone\nSome people need you\nbut not in the way they say\nI won't be the one to remind them\njust a gentle presence\nnot a hero\nbut a ghost in their life\nsend this to them.",
+    "hash": "81cb55077347eac336aeebd759b9691a",
+    "metaphors": [],
     "themes": []
   }
 ]

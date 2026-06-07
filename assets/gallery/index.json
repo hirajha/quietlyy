@@ -58,21 +58,27 @@
     "topic": "When Grief Becomes a Teacher",
     "panel": 4,
     "source": "fresh",
-    "timestamp": 1780761823
+    "timestamp": 1780761823,
+    "uses": 1,
+    "last_used": 1780814850
   },
   {
     "file": "5f287d40_0.png",
     "topic": "The Texts You Never Send",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1780776515
+    "timestamp": 1780776515,
+    "uses": 1,
+    "last_used": 1780814850
   },
   {
     "file": "4bdfbe40_1.png",
     "topic": "The Texts You Never Send",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1780776519
+    "timestamp": 1780776519,
+    "uses": 1,
+    "last_used": 1780814850
   },
   {
     "file": "57604cfc_2.png",
@@ -122,5 +128,19 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780809752
+  },
+  {
+    "file": "e6c228a5_0.png",
+    "topic": "Loving You Quietly",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1780814852
+  },
+  {
+    "file": "7f6d4dca_1.png",
+    "topic": "Loving You Quietly",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1780814857
   }
 ]
