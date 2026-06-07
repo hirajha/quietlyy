@@ -38,14 +38,14 @@
     "Inspirational Quotes"
   ],
   "script_tone_hints": [
-    "Emotional and introspective",
-    "Soft and calming",
+    "Soft and soothing",
+    "Emotional and heartfelt",
     "Inspirational and uplifting"
   ],
   "hook_strategies": [
-    "Start with a relatable question",
+    "Start with a relatable quote",
     "Use a surprising statistic or fact",
-    "Begin with a personal anecdote"
+    "Ask a thought-provoking question"
   ],
   "hashtag_strategy": {
     "facebook": [
@@ -57,10 +57,10 @@
     ],
     "instagram": [
       "#QuoteOfTheDay",
+      "#InspirationalQuotes",
       "#NostalgicVibes",
       "#MentalHealthAwareness",
-      "#SelfLove",
-      "#InspirationalQuotes"
+      "#SelfLove"
     ],
     "youtube": [
       "#MotivationalVideos",
@@ -72,14 +72,12 @@
   },
   "growth_tactics": [
     "Collaborate with influencers and content creators",
-    "Utilize paid advertising on social media platforms",
+    "Utilize paid social media advertising",
     "Engage with the audience through comments and responses"
   ],
   "content_warnings": [
-    "Avoid using copyrighted materials without permission",
-    "Be sensitive to cultural and personal differences",
-    "Ensure that content is accessible and inclusive for all audiences"
+    "Be sensitive to triggering topics such as mental health and heartbreak"
   ],
-  "_generated_at": "2026-05-31T15:49:32.837233+00:00",
+  "_generated_at": "2026-06-07T20:11:18.632475+00:00",
   "_source": "Groq"
 }
