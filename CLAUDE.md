@@ -86,13 +86,16 @@ lines ending in punctuation — which also rushed the voice).
   credits) or Pixabay (free, but API reliability unverified). Gallery is PRIMARY
   source (min_pool_size=1) so Pixabay/CC0 variety paths are rarely reached.
 
-## ✅ CURRENT APPROVED VOICE — "approved-voice-v3" (2026-06-08)
-Hira confirmed via video #59 "The porch light still flickers at 3 a.m."
-(run 27139742217). Natural continuous clips: synthesize ~10-word flowing clips
-(Edge reads with connected prosody) with commas inserted at line breaks for
-per-line breaths; real silence only between clips. Tag: `approved-voice-v3`
-(commit 892016c). The earlier "poet phrasing" (sha 3e44d73, 13 tiny isolated
-clips) sounded ROBOTIC — do NOT go back to per-phrase isolated synthesis.
+## ✅ CURRENT APPROVED VOICE — "approved-voice-v3" = POET PHRASING (2026-06-08)
+Hira A/B'd two porch-light videos and chose **#58 "The porch light stays on all
+night"** (poet phrasing, per-line pauses, 13 clips) — NOT #59 (natural-merged, 6
+clips). So `approved-voice-v3` now points at the POET PHRASING config (restored
+from commit 3e44d73): each poem line is its own breath unit, long lines split
+only at natural boundaries (commas / before phrase-boundary words), pause sized
+by line-end punctuation (sentence 1.3s / clause 0.45s / enjambed 0.3s breath).
+NOTE: an earlier "robo" comment was about a LAGGED older video, not #58 — do not
+over-correct away from poet phrasing again. The natural-merged version (892016c)
+is NOT preferred.
 
 ## ⚠️ DO NOT auto-post test videos to the live accounts
 Hira (2026-06-08): "don't post continuously — this is live accounts and
