@@ -743,18 +743,17 @@ def compose_video(script_data, image_paths, audio_path, subtitle_path, music_pat
             # the full video — music fills the silent tail instead of cutting out.
             # (Audit 2026-06: amix duration=first was ending audio ~8s early.)
             f"[1:a]adelay={HOOK_DURATION_MS}|{HOOK_DURATION_MS},loudnorm=I=-12:LRA=5:TP=-1,apad=whole_dur={actual_video_len:.3f},asplit=2[voice_out][voice_sc];"
-            # Music: -19 LUFS base (was -21 — user: music too light/quiet). With
-            # the gentle ratio-3 duck and final -14.5 normalize, -19 makes the
-            # music clearly present under the voice without overpowering it.
+            # Music: -20 LUFS base (raised from -22 — Hira 2026-06: "background
+            # music needs to be a little bit up"). With the gentle ratio-3 duck
+            # and final -14.5 normalize, -20 makes the music a touch more present
+            # under the voice without overpowering it (~2dB up from -22).
             # Fade in at start, fade out over the LAST 4s of the ACTUAL rendered
             # video length (post-xfade) so audio length exactly equals video.
-            f"[2:a]loudnorm=I=-22:LRA=7:TP=-2,"
+            f"[2:a]loudnorm=I=-20:LRA=7:TP=-2,"
             f"afade=t=in:d=3,afade=t=out:st={max(0, actual_video_len - 4):.2f}:d=4[music_norm];"
-            # Sidechain duck — keep the GOOD during-speech level, just lower the
-            # PAUSE level a little (user: speech music good, pause swell slightly
-            # too loud). Math: base -22 = pause level (2dB lower than the old -20),
-            # ratio 3 → ~3dB dip → speech level ~-25 (unchanged from the 'good'
-            # render). So pause sits just a touch above speech, not a big bloom.
+            # Sidechain duck — gentle so the music stays present under speech.
+            # Math: base -20 = pause level, ratio 3 → ~3dB dip → speech level
+            # ~-23. Tunable via the base loudnorm above (lower = quieter music).
             #   ratio=3       → ~3dB dip during speech
             #   attack=250ms / release=1500ms / knee=5 → smooth, no pumping
             f"[music_norm][voice_sc]sidechaincompress=threshold=0.03:ratio=3:attack=250:release=1500:knee=5:makeup=1[music_ducked];"
