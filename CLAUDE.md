@@ -86,6 +86,22 @@ lines ending in punctuation — which also rushed the voice).
   credits) or Pixabay (free, but API reliability unverified). Gallery is PRIMARY
   source (min_pool_size=1) so Pixabay/CC0 variety paths are rarely reached.
 
+## ✅ CURRENT APPROVED VOICE — "approved-voice-v3" (2026-06-08)
+Hira confirmed via video #59 "The porch light still flickers at 3 a.m."
+(run 27139742217). Natural continuous clips: synthesize ~10-word flowing clips
+(Edge reads with connected prosody) with commas inserted at line breaks for
+per-line breaths; real silence only between clips. Tag: `approved-voice-v3`
+(commit 892016c). The earlier "poet phrasing" (sha 3e44d73, 13 tiny isolated
+clips) sounded ROBOTIC — do NOT go back to per-phrase isolated synthesis.
+
+## ⚠️ DO NOT auto-post test videos to the live accounts
+Hira (2026-06-08): "don't post continuously — this is live accounts and
+subscribers may get angry." Rapid manual `gh workflow run` test-posts spam real
+subscribers AND create a confusing feedback loop (Hira commenting on older posts
+while newer ones land). RULE: verify voice/script changes LOCALLY (the
+segmentation logic runs offline), let the SCHEDULED cron deploy them, and ASK
+before triggering any manual post.
+
 ## Voice tunables (env vars / GitHub repo secrets — no code change needed)
 - `EDGE_PAUSE_SENTENCE`, `EDGE_PAUSE_CLAUSE`, `EDGE_PAUSE_ELLIPSIS` — pause seconds
 - `EDGE_TTS_RATE` (default `-10%`; more negative = slower)
