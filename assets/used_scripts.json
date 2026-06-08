@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Quiet Kind of Love Nobody Talks About",
-    "style": "love",
-    "script": "You're sitting in the stillness. \nSoftly the morning light creeps, \nit wraps around your shoulders \nGently, \nand the world OUTSIDE FADES \ninto a soothing haze \nslowly, \nthe warmth of the sun seeps \nINTO YOUR SKIN, \ncalming every nerve, \nquietly, \nSerenity Found \nin this peaceful space, \nand your eyes close, \nsend this to Quietlyy.",
-    "hash": "c0c189ce0d3e2899b5f8562f54ae219a",
-    "metaphors": [
-      "sun",
-      "light"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What You Cannot Change and What You Can",
     "style": "love",
     "script": "You're sitting in the stillness. \nSlowly darkness gathers, \naround your thoughts, \nAND THEN COMFORT ARRIVES \nin the form of a gentle librarian, \norganizing the books of your mind, \nsome pages torn, \nBUT THE STORIES REMAIN, \nand the characters, \nthey keep living, \nquietly beside you, \nsend this to Quietlyy.",
@@ -714,6 +701,19 @@
       "wind",
       "light",
       "window"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Staying Too Long",
+    "style": "emotional",
+    "script": "The porch light still flickers at 3 a.m.\nnot for safety\njust habit\nSome nights I sit there\nwatching the moths circle the bulb\nand wonder if they ever tire of orbiting\nThe key still fits the lock\nbut the door creaks louder now\nlike it\u2019s warning me\nI could leave the key on the table\nwalk away\nbut the moths don\u2019t know how to stop.",
+    "hash": "4d0a9a739827046fa04ed65e7864f72f",
+    "metaphors": [
+      "door",
+      "light"
     ],
     "themes": [
       "silence"

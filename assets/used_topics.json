@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Staying Too Long",
-    "The Part You Never Talk About",
-    "Being Strong for Everyone While Breaking Inside",
     "Being the One Who Always Checks In",
     "The Last Text You Never Sent",
     "Grieving Someone Who Did Not Die",
@@ -20,14 +17,13 @@
     "Growing Up Too Fast",
     "The Moment You Stopped Hoping",
     "Reading Old Conversations Alone",
-    "The Texts You Never Send"
+    "The Texts You Never Send",
+    "Being Misunderstood",
+    "When You Love Someone You Cannot Have",
+    "When You Delete the Message Before Sending It"
   ],
   "used_poetic": [],
   "used_love": [
-    "More Than My Favorite Person",
-    "The Small Things I Notice About You",
-    "Loving in Silence",
-    "Falling For Someone Who Does Not Know",
     "When Someone Chooses You Every Day",
     "What Home Actually Feels Like",
     "The Kind of Love That Doesn't Shout",
@@ -43,11 +39,13 @@
     "When You Found Me",
     "What Real Love Feels Like",
     "When Just Being Near You Is Enough",
-    "What I Mean When I Say I Love You"
+    "What I Mean When I Say I Love You",
+    "The One I Think About First",
+    "More Than My Favorite Person",
+    "Loving You in Silence",
+    "You Didn't Fix Me, You Stayed"
   ],
   "used_wisdom": [
-    "The Beauty of an Unfinished Life",
-    "The Wisdom of Not Forcing",
     "Learning to Trust the Journey",
     "The Difference Between Living and Existing",
     "The Gift of Impermanence",
@@ -65,11 +63,13 @@
     "The Art of Letting Go",
     "Loving Without Losing Yourself",
     "Learning to Belong to Yourself",
-    "Finding Peace Within Yourself"
+    "Finding Peace Within Yourself",
+    "The Strength in Stillness",
+    "Why Suffering Transforms Us"
   ],
-  "last_style": "emotional",
-  "last_regular_style": "emotional",
-  "videos_since_wisdom": 2,
+  "last_style": "love",
+  "last_regular_style": "love",
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -112,7 +112,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153700_072547.mp3",
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_151550_7dfb17.mp3",
@@ -131,7 +130,8 @@
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153839_5a1856.mp3",
-    "2026-06-05_153651_0d1d62.mp3"
+    "2026-06-05_153651_0d1d62.mp3",
+    "2026-06-05_153617_c5dd1f.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
