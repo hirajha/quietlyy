@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Being the One Who Always Checks In",
-    "The Last Text You Never Sent",
-    "Grieving Someone Who Did Not Die",
     "The First Heartbreak",
     "Loving the Wrong People",
     "Finding Yourself After Them",
@@ -20,13 +17,13 @@
     "The Texts You Never Send",
     "Being Misunderstood",
     "When You Love Someone You Cannot Have",
-    "When You Delete the Message Before Sending It"
+    "When You Delete the Message Before Sending It",
+    "When No One Asks If You Are Okay",
+    "Missing Someone Alive",
+    "When You Miss Someone Who Is Still Alive"
   ],
   "used_poetic": [],
   "used_love": [
-    "When Someone Chooses You Every Day",
-    "What Home Actually Feels Like",
-    "The Kind of Love That Doesn't Shout",
     "What I'd Tell You If I Could",
     "When You Love Someone Who Is Leaving",
     "Loving You Quietly",
@@ -43,12 +40,12 @@
     "The One I Think About First",
     "More Than My Favorite Person",
     "Loving You in Silence",
-    "You Didn't Fix Me, You Stayed"
+    "You Didn't Fix Me, You Stayed",
+    "How You Changed Everything",
+    "The Person Behind My Smile",
+    "The Little Things You Do"
   ],
   "used_wisdom": [
-    "Learning to Trust the Journey",
-    "The Difference Between Living and Existing",
-    "The Gift of Impermanence",
     "What Silence Teaches Us",
     "The Quiet Revolution of Self-Respect",
     "The Courage to Begin Again",
@@ -65,11 +62,14 @@
     "Learning to Belong to Yourself",
     "Finding Peace Within Yourself",
     "The Strength in Stillness",
-    "Why Suffering Transforms Us"
+    "Why Suffering Transforms Us",
+    "How to Carry Loss Without Being Crushed",
+    "Why Peace Is Not the Absence of Storm",
+    "The Difference Between Living and Existing"
   ],
-  "last_style": "love",
+  "last_style": "wisdom",
   "last_regular_style": "love",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -112,7 +112,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153724_b66b80.mp3",
@@ -131,7 +130,8 @@
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153651_0d1d62.mp3",
-    "2026-06-05_153617_c5dd1f.mp3"
+    "2026-06-05_153617_c5dd1f.mp3",
+    "2026-06-05_153627_53fd51.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",

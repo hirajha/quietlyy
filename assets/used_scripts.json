@@ -1,17 +1,5 @@
 [
   {
-    "topic": "What You Cannot Change and What You Can",
-    "style": "love",
-    "script": "You're sitting in the stillness. \nSlowly darkness gathers, \naround your thoughts, \nAND THEN COMFORT ARRIVES \nin the form of a gentle librarian, \norganizing the books of your mind, \nsome pages torn, \nBUT THE STORIES REMAIN, \nand the characters, \nthey keep living, \nquietly beside you, \nsend this to Quietlyy.",
-    "hash": "007af184e9e07415544d82ab7bd56c7d",
-    "metaphors": [
-      "dark"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Falling Out of Love Slowly",
     "style": "emotional",
     "script": "Sunday morning. The city is still\nit's too quiet\nslowly I forget\nthe way your voice sounds\nSome people lose themselves\nin the familiarity of routines\nbut I'm finding my way\nout of the haze\nI won't recognize you\nanymore\nnot even in dreams\nit's just a memory now.\n",
@@ -715,6 +703,16 @@
       "door",
       "light"
     ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "love",
+    "script": "It doesn't feel like mine. Not anymore. \nslowly \nFingers tracing the shape of your name \non the photo I still have. \nBUT \nSometimes I catch myself \nwhispering your laugh \nAND it brings me back \nTO the moment \nI realized \nI'M STILL WEARING YOUR FAVORITE SCARF. \nSending you a piece of me.",
+    "hash": "5727df781f059a2127eef86b0c858d2f",
+    "metaphors": [],
     "themes": [
       "silence"
     ]
