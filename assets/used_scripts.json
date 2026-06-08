@@ -1,18 +1,5 @@
 [
   {
-    "topic": "What Truly Matters in the End",
-    "style": "love",
-    "script": "There's a kind of tired, \nslowly unfolding \nIN THE DEPTHS of our choices, \nand the weight of what we let go, \nsome things \nSLIP THROUGH THE CRACKS \nof our memory, \nbut the ones that TRULY MATTER \nlinger in the shadows, \nand the light we shine on them, \ndefines the beauty \nof our existence, \nsend this to Quietlyy.",
-    "hash": "ee7d7fd09c45fc5b6e29ba7877d96474",
-    "metaphors": [
-      "light",
-      "shadow"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What I Never Said Out Loud",
     "style": "poetic",
     "script": "I'm a keeper of secrets. \nSome people think I'm transparent, \nbut hidden truths accumulate \njust beneath the surface, \nand the weight is crushing \nThe hands that hold my thoughts \nare trembling, \nand the words I never spoke \nare echoing, \nSome days I feel like I'm drowning \nin unspoken emotions, \nand the pressure is building.",
@@ -722,6 +709,19 @@
     "themes": [
       "loneliness",
       "silence"
+    ]
+  },
+  {
+    "topic": "The Moment You Stopped Hoping",
+    "style": "emotional",
+    "script": "You\u2019re staring at the ceiling again.\nThe cracks don\u2019t spell anything anymore,\njust lines you\u2019ve memorized.\nSomewhere,\na clock ticks,\nbut it\u2019s not counting down to anything.\nThe hands that once reached,\nnow rest,\nweightless,\nlike balloons untied.\nYou don\u2019t flinch when the phone buzzes,\nnot even a blink.\nThe moment hope left,\nit didn\u2019t slam the door,\njust clicked the latch.\nand you let it go.",
+    "hash": "65b8e0c9d2250d4aa60aa51ff4bb2d23",
+    "metaphors": [
+      "star",
+      "door"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]

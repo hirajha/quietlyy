@@ -1,10 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Heartbreak Lesson",
-    "Loving Quietly From a Distance",
-    "When Love Was Not Enough",
-    "Growing Up Too Fast",
     "Friendship That Faded",
     "The Voice in Your Head That Says You Are Not Enough",
     "When Friendship Becomes One-Sided",
@@ -20,13 +16,14 @@
     "Being Strong for Everyone While Breaking Inside",
     "Being the One Who Always Checks In",
     "The Last Text You Never Sent",
-    "Grieving Someone Who Did Not Die"
+    "Grieving Someone Who Did Not Die",
+    "The First Heartbreak",
+    "Loving the Wrong People",
+    "Finding Yourself After Them",
+    "Losing Yourself"
   ],
   "used_poetic": [],
   "used_love": [
-    "Loving You Quietly",
-    "You Are My Calm",
-    "You Make the Hard Days Easier",
     "What I Mean When I Say I Love You",
     "I Didn't Know Love Could Feel This Soft",
     "You Didn't Fix Me, You Stayed",
@@ -43,11 +40,12 @@
     "Falling For Someone Who Does Not Know",
     "When Someone Chooses You Every Day",
     "What Home Actually Feels Like",
-    "The Kind of Love That Doesn't Shout"
+    "The Kind of Love That Doesn't Shout",
+    "What I'd Tell You If I Could",
+    "When You Love Someone Who Is Leaving",
+    "Loving You Quietly"
   ],
   "used_wisdom": [
-    "Finding Peace Within Yourself",
-    "Learning to Belong to Yourself",
     "What Real Love Requires",
     "The Art of Letting Go",
     "Loving Without Losing Yourself",
@@ -65,11 +63,13 @@
     "The Courage to Begin Again",
     "When Grief Becomes a Teacher",
     "The Meaning We Choose to Find",
-    "The Ancient Truth About Happiness"
+    "The Ancient Truth About Happiness",
+    "What You Cannot Change and What You Can",
+    "Why the Wound Is the Gift"
   ],
-  "last_style": "love",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 2,
+  "last_style": "emotional",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -127,7 +127,8 @@
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153640_3f0c91.mp3",
     "2026-06-05_153744_816dfe.mp3",
-    "2026-06-05_153555_7cd9b3.mp3"
+    "2026-06-05_153555_7cd9b3.mp3",
+    "2026-06-05_153756_4972f7.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
