@@ -268,65 +268,84 @@ def _edge_pause_after_line(line):
     return 0.0  # enjambed — no pause, flows into the next line
 
 
-def _segment_for_edge(lines):
-    """Build natural-prosody spoken clips + the pause after each.
+# Words that START a new breath-phrase — a poet/reader naturally pauses just
+# BEFORE these, so when we must break a long unpunctuated line we split here to
+# keep the break natural (never strands a dangling "of"/"a"/"too" on its own).
+_PHRASE_BOUNDARY = {
+    "and", "but", "or", "nor", "yet", "so", "of", "in", "on", "at", "to", "for",
+    "with", "from", "by", "like", "that", "which", "who", "when", "where",
+    "while", "before", "after", "until", "though", "because", "into", "onto",
+    "about", "as", "if", "then", "still", "just", "not",
+}
 
-    The balance (Hira): pause at every line like a poet, BUT don't sound robotic.
-    Robotic-ness comes from synthesizing many tiny phrases in ISOLATION (each
-    gets its own flat intonation). So instead we synthesize LONGER continuous
-    clips (Edge reads them with natural connected prosody) and put a COMMA at
-    each internal line break — Edge then pauses naturally at every line WITHIN a
-    flowing read. We only insert real silence BETWEEN clips, at sentence ends
-    (dramatic) or every ~CLIP_MAX_WORDS (a fresh breath), so clips stay short
-    enough to feel paced but long enough to sound human.
+
+def _segment_for_edge(lines):
+    """Turn poem lines into poet-sized spoken phrases + the pause after each.
+
+    Reads like a poet/reader (Hira: "longer continuous lines before a pause —
+    should be how a poet speaks"):
+      - Each poem LINE is its own breath unit — NOT merged into long run-ons —
+        so the narrator pauses at every line, like reading verse.
+      - The pause size matches the line's end: sentence (.!?) = long, clause
+        (,;:—) = medium, ellipsis = dramatic, enjambed (no punctuation) = a
+        small breath (not silence).
+      - Any single line longer than MAX_PHRASE_WORDS is broken into smaller
+        breath-groups — at internal commas first, then only BEFORE a natural
+        phrase-boundary word — so we never pause on a dangling "of"/"a"/"too".
 
     Returns a list of (clean_text, pause_after_seconds).
     """
-    SENTENCE = float(os.environ.get("EDGE_PAUSE_SENTENCE", "0.7"))
-    ELLIPSIS = float(os.environ.get("EDGE_PAUSE_ELLIPSIS", "0.9"))
-    MID = float(os.environ.get("EDGE_PAUSE_PHRASE", "0.35"))
-    CLIP_MAX_WORDS = int(os.environ.get("EDGE_CLIP_MAX_WORDS", "10"))
+    MAX_PHRASE_WORDS = int(os.environ.get("EDGE_MAX_PHRASE_WORDS", "7"))
+    PHRASE_BREATH = float(os.environ.get("EDGE_PAUSE_PHRASE", "0.3"))
+    CLAUSE = float(os.environ.get("EDGE_PAUSE_CLAUSE", "0.45"))
+
+    def _natural_chunks(text):
+        """Break a long line into ≤MAX_PHRASE_WORDS breath-groups at natural
+        boundaries (commas, then before phrase-boundary words). Returns a list
+        of (chunk_text, is_last)."""
+        import re as _re
+        if len(text.split()) <= MAX_PHRASE_WORDS:
+            return [text]
+        # 1) split at internal clause punctuation, keeping the mark
+        parts = [p.strip() for p in _re.findall(r"[^,;:—]+[,;:—]?", text) if p.strip()]
+        chunks = []
+        for p in parts:
+            words = p.split()
+            if len(words) <= MAX_PHRASE_WORDS:
+                chunks.append(p)
+                continue
+            # 2) still too long → break BEFORE a phrase-boundary word near the cap
+            cur = []
+            for tok in words:
+                base = tok.lower().strip(",.;:—!?'\"")
+                if len(cur) >= MAX_PHRASE_WORDS - 2 and base in _PHRASE_BOUNDARY and len(cur) >= 3:
+                    chunks.append(" ".join(cur))
+                    cur = [tok]
+                elif len(cur) >= MAX_PHRASE_WORDS:   # hard cap fallback
+                    chunks.append(" ".join(cur))
+                    cur = [tok]
+                else:
+                    cur.append(tok)
+            if cur:
+                chunks.append(" ".join(cur))
+        return chunks
 
     segs = []
-    clip = []        # poem lines accumulating into the current spoken clip
-    clip_wc = 0
-
-    def _flush(pause, sentence_end):
-        nonlocal clip, clip_wc
-        if not clip:
-            return
-        parts = []
-        for j, ln in enumerate(clip):
-            t = ln.rstrip()
-            is_last = (j == len(clip) - 1)
-            # Put a comma at every internal line break (and at a mid-thought clip
-            # end) so Edge takes a natural breath there with flowing intonation.
-            if not (is_last and sentence_end) and t[-1:] not in ",;:—-.!?":
-                t = t + ","
-            parts.append(t)
-        segs.append((" ".join(parts).strip(), pause))
-        clip = []
-        clip_wc = 0
-
     for line in lines:
         s = _clean_text(line).strip()
         if not s:
             continue
-        clip.append(s)
-        clip_wc += len(s.split())
-        t = s.rstrip()
-        if t.endswith("...") or t.endswith("…"):
-            _flush(ELLIPSIS, True)
-        elif t[-1:] in ".!?":
-            _flush(SENTENCE, True)            # dramatic pause at a real sentence end
-        elif clip_wc >= CLIP_MAX_WORDS:
-            _flush(MID, False)                # fresh breath so clips stay paced
-        # clause/enjambed lines under the cap: keep flowing (comma added at flush)
-    if clip:
-        _flush(0.0, False)
+        end_pause = _edge_pause_after_line(s) or PHRASE_BREATH  # enjambed → breath
+        chunks = _natural_chunks(s)
+        for i, ch in enumerate(chunks):
+            if i == len(chunks) - 1:
+                segs.append((ch, end_pause))           # line-end pause
+            else:
+                last_c = ch.rstrip()[-1:]
+                segs.append((ch, CLAUSE if last_c in ",;:—-" else PHRASE_BREATH))
 
     if segs:
-        segs[-1] = (segs[-1][0], 0.0)        # no pause after the very last clip
+        segs[-1] = (segs[-1][0], 0.0)        # no pause after the very last segment
     return segs
 
 
