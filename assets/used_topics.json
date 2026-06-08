@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When You Love Someone You Cannot Have",
-    "Growing Apart",
-    "Learning to Be Alone",
     "The Quiet Exit",
     "When You Are the One Who Always Forgives",
     "When You Realized You Were the Option, Not the Priority",
@@ -20,14 +17,13 @@
     "Losing Yourself",
     "The Version of You That Did Not Make It",
     "Heartbreak Lesson",
-    "The Family Member Who Hurt You Most"
+    "The Family Member Who Hurt You Most",
+    "When Friendship Becomes One-Sided",
+    "Friendship That Faded",
+    "The Person You Had to Let Go to Save Yourself"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Person Behind My Smile",
-    "Missing Someone Who Is Right There",
-    "How You Changed Everything",
-    "The Way You Look at Me",
     "When Love Feels Like Coming Home",
     "The Little Things You Do",
     "The One I Think About First",
@@ -43,11 +39,13 @@
     "Loving You Quietly",
     "The Text You Read But Did Not Reply To",
     "The Quiet Kind of Love Nobody Talks About",
-    "The First Time I Knew"
+    "The First Time I Knew",
+    "The Safest Place I Know",
+    "Someone Worth Staying For",
+    "Missing Someone Who Is Right There",
+    "When You Found Me"
   ],
   "used_wisdom": [
-    "How to Carry Loss Without Being Crushed",
-    "Why Peace Is Not the Absence of Storm",
     "The Strength in Stillness",
     "Why Suffering Transforms Us",
     "The Beauty of an Unfinished Life",
@@ -65,11 +63,13 @@
     "Why the Wound Is the Gift",
     "What Truly Matters in the End",
     "What Real Love Requires",
-    "The Freedom of Acceptance"
+    "The Freedom of Acceptance",
+    "The Art of Letting Go",
+    "Loving Without Losing Yourself"
   ],
-  "last_style": "wisdom",
-  "last_regular_style": "emotional",
-  "videos_since_wisdom": 0,
+  "last_style": "love",
+  "last_regular_style": "love",
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -107,7 +107,8 @@
     "you may not control all the events that happen",
     "you may not control all the events that happen",
     "the impediment to action is very often a lot of thinking.",
-    "in the depths of winter there's a stillness that speaks"
+    "in the depths of winter there's a stillness that speaks",
+    "you're a guest in this life"
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
@@ -129,7 +130,8 @@
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153756_4972f7.mp3",
-    "2026-06-05_153606_63f17d.mp3"
+    "2026-06-05_153606_63f17d.mp3",
+    "2026-06-05_153839_5a1856.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",

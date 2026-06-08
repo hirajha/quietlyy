@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Part You Never Talk About",
-    "style": "emotional",
-    "script": "Midnight. The city sleeps\ndark alleys\nand forgotten streets\nslowly whisper secrets\nof the part you never talk about\nSome people hide\nbehind masks of confidence\nbut the shadows know\nthe truth you conceal\nNot even the wind\njudges your darkest nights\nsend this to them.",
-    "hash": "31da1b03c86039263568c7e7e1082b81",
-    "metaphors": [
-      "tree",
-      "mask",
-      "shadow",
-      "wind",
-      "dark"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Small Things I Notice About You",
     "style": "love",
     "script": "You're folding the corner of your napkin.\nagain and again\nuntil it looks like a tiny origami boat.\nI count the creases,\nthe way they catch the light.\nNoticed how your laugh\nstarts with a single breath,\nlike a secret you're about to share.\nYour sleeves are always rolled up,\njust enough to show the veins\nin your wrists\u2014blue rivers I want to trace.\nSend this to them.",
@@ -720,6 +706,16 @@
     "metaphors": [],
     "themes": [
       "heartbreak"
+    ]
+  },
+  {
+    "topic": "The Art of Letting Go",
+    "style": "wisdom",
+    "script": "Marcus Aurelius wrote\nyou're a guest\nin this life\nit's a short stay\ndon't get too comfortable,\nI'm still learning to let go\nof the things that weigh me down,\nthe memories, the what ifs,\nthe fear of being without\nit's a heavy burden to carry\nI'm finding my way, slowly\nin the stillness, I breathe",
+    "hash": "9ac3d54d9c5c12ddc0b50e0fc6366f41",
+    "metaphors": [],
+    "themes": [
+      "silence"
     ]
   }
 ]
