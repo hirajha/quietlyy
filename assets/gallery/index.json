@@ -95,8 +95,8 @@
     "panel": 3,
     "source": "fresh",
     "timestamp": 1780776528,
-    "uses": 1,
-    "last_used": 1780826890
+    "uses": 2,
+    "last_used": 1780923463
   },
   {
     "file": "a3985ba1_4.png",
@@ -373,13 +373,31 @@
     "topic": "The Art of Letting Go",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1780922895
+    "timestamp": 1780922895,
+    "uses": 1,
+    "last_used": 1780923463
   },
   {
     "file": "07ef5411_1.png",
     "topic": "The Art of Letting Go",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1780922900
+    "timestamp": 1780922900,
+    "uses": 1,
+    "last_used": 1780923463
+  },
+  {
+    "file": "70410613_0.png",
+    "topic": "Falling For Someone Who Does Not Know",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1780923466
+  },
+  {
+    "file": "c6fa6641_1.png",
+    "topic": "Falling For Someone Who Does Not Know",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1780923470
   }
 ]

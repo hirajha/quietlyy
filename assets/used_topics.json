@@ -1,10 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "The Quiet Exit",
-    "When You Are the One Who Always Forgives",
-    "When You Realized You Were the Option, Not the Priority",
-    "The Goodbye You Didn't Get",
     "Staying Too Long",
     "The Part You Never Talk About",
     "Being Strong for Everyone While Breaking Inside",
@@ -20,13 +16,14 @@
     "The Family Member Who Hurt You Most",
     "When Friendship Becomes One-Sided",
     "Friendship That Faded",
-    "The Person You Had to Let Go to Save Yourself"
+    "The Person You Had to Let Go to Save Yourself",
+    "Growing Up Too Fast",
+    "The Moment You Stopped Hoping",
+    "Reading Old Conversations Alone",
+    "The Texts You Never Send"
   ],
   "used_poetic": [],
   "used_love": [
-    "When Love Feels Like Coming Home",
-    "The Little Things You Do",
-    "The One I Think About First",
     "More Than My Favorite Person",
     "The Small Things I Notice About You",
     "Loving in Silence",
@@ -43,11 +40,12 @@
     "The Safest Place I Know",
     "Someone Worth Staying For",
     "Missing Someone Who Is Right There",
-    "When You Found Me"
+    "When You Found Me",
+    "What Real Love Feels Like",
+    "When Just Being Near You Is Enough",
+    "What I Mean When I Say I Love You"
   ],
   "used_wisdom": [
-    "The Strength in Stillness",
-    "Why Suffering Transforms Us",
     "The Beauty of an Unfinished Life",
     "The Wisdom of Not Forcing",
     "Learning to Trust the Journey",
@@ -65,11 +63,13 @@
     "What Real Love Requires",
     "The Freedom of Acceptance",
     "The Art of Letting Go",
-    "Loving Without Losing Yourself"
+    "Loving Without Losing Yourself",
+    "Learning to Belong to Yourself",
+    "Finding Peace Within Yourself"
   ],
-  "last_style": "love",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 1,
+  "last_style": "emotional",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -112,7 +112,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153734_d4c320.mp3",
@@ -131,7 +130,8 @@
     "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153606_63f17d.mp3",
-    "2026-06-05_153839_5a1856.mp3"
+    "2026-06-05_153839_5a1856.mp3",
+    "2026-06-05_153651_0d1d62.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
