@@ -268,47 +268,82 @@ def _edge_pause_after_line(line):
     return 0.0  # enjambed — no pause, flows into the next line
 
 
+# Words that START a new breath-phrase — a poet/reader naturally pauses just
+# BEFORE these, so when we must break a long unpunctuated line we split here to
+# keep the break natural (never strands a dangling "of"/"a"/"too" on its own).
+_PHRASE_BOUNDARY = {
+    "and", "but", "or", "nor", "yet", "so", "of", "in", "on", "at", "to", "for",
+    "with", "from", "by", "like", "that", "which", "who", "when", "where",
+    "while", "before", "after", "until", "though", "because", "into", "onto",
+    "about", "as", "if", "then", "still", "just", "not",
+}
+
+
 def _segment_for_edge(lines):
-    """Group poem lines into phrase segments + the pause to insert after each.
+    """Turn poem lines into poet-sized spoken phrases + the pause after each.
 
-    Reads like a book: consecutive ENJAMBED lines (no end punctuation) are
-    MERGED into one segment so Edge TTS speaks them as a single continuous
-    phrase (natural connected prosody, no seam). A segment closes only when a
-    line ENDS a thought (sentence / clause / ellipsis) — and the pause after it
-    is sized to that punctuation. So pauses land ONLY at real stopping points,
-    never in the middle of a phrase.
-
-    SAFETY NET: if a script has poorly-punctuated run-on lines (the AI sometimes
-    drops end punctuation entirely), naive merging would build one giant segment
-    that reads as a rushed paragraph. So we cap the buffer: once an enjambed run
-    reaches MAX_BUFFER_WORDS, we flush it with a small breath at a line break —
-    guaranteeing the narrator always pauses, regardless of script quality.
+    Reads like a poet/reader (Hira: "longer continuous lines before a pause —
+    should be how a poet speaks"):
+      - Each poem LINE is its own breath unit — NOT merged into long run-ons —
+        so the narrator pauses at every line, like reading verse.
+      - The pause size matches the line's end: sentence (.!?) = long, clause
+        (,;:—) = medium, ellipsis = dramatic, enjambed (no punctuation) = a
+        small breath (not silence).
+      - Any single line longer than MAX_PHRASE_WORDS is broken into smaller
+        breath-groups — at internal commas first, then only BEFORE a natural
+        phrase-boundary word — so we never pause on a dangling "of"/"a"/"too".
 
     Returns a list of (clean_text, pause_after_seconds).
     """
-    MAX_BUFFER_WORDS = int(os.environ.get("EDGE_MAX_SEG_WORDS", "9"))
-    PHRASE_BREATH = float(os.environ.get("EDGE_PAUSE_PHRASE", "0.4"))
+    MAX_PHRASE_WORDS = int(os.environ.get("EDGE_MAX_PHRASE_WORDS", "7"))
+    PHRASE_BREATH = float(os.environ.get("EDGE_PAUSE_PHRASE", "0.3"))
+    CLAUSE = float(os.environ.get("EDGE_PAUSE_CLAUSE", "0.45"))
+
+    def _natural_chunks(text):
+        """Break a long line into ≤MAX_PHRASE_WORDS breath-groups at natural
+        boundaries (commas, then before phrase-boundary words). Returns a list
+        of (chunk_text, is_last)."""
+        import re as _re
+        if len(text.split()) <= MAX_PHRASE_WORDS:
+            return [text]
+        # 1) split at internal clause punctuation, keeping the mark
+        parts = [p.strip() for p in _re.findall(r"[^,;:—]+[,;:—]?", text) if p.strip()]
+        chunks = []
+        for p in parts:
+            words = p.split()
+            if len(words) <= MAX_PHRASE_WORDS:
+                chunks.append(p)
+                continue
+            # 2) still too long → break BEFORE a phrase-boundary word near the cap
+            cur = []
+            for tok in words:
+                base = tok.lower().strip(",.;:—!?'\"")
+                if len(cur) >= MAX_PHRASE_WORDS - 2 and base in _PHRASE_BOUNDARY and len(cur) >= 3:
+                    chunks.append(" ".join(cur))
+                    cur = [tok]
+                elif len(cur) >= MAX_PHRASE_WORDS:   # hard cap fallback
+                    chunks.append(" ".join(cur))
+                    cur = [tok]
+                else:
+                    cur.append(tok)
+            if cur:
+                chunks.append(" ".join(cur))
+        return chunks
+
     segs = []
-    buf = []
-
-    def _wc(parts):
-        return sum(len(p.split()) for p in parts)
-
     for line in lines:
         s = _clean_text(line).strip()
         if not s:
             continue
-        buf.append(s)
-        pause = _edge_pause_after_line(s)
-        if pause > 0:                       # this line ends a thought → close segment
-            segs.append((" ".join(buf), pause))
-            buf = []
-        elif _wc(buf) >= MAX_BUFFER_WORDS:  # run-on with no punctuation → force a breath
-            segs.append((" ".join(buf), PHRASE_BREATH))
-            buf = []
-        # else: short enjambed run → keep buffering, flow into the next line
-    if buf:                                  # trailing enjambed lines
-        segs.append((" ".join(buf), 0.0))
+        end_pause = _edge_pause_after_line(s) or PHRASE_BREATH  # enjambed → breath
+        chunks = _natural_chunks(s)
+        for i, ch in enumerate(chunks):
+            if i == len(chunks) - 1:
+                segs.append((ch, end_pause))           # line-end pause
+            else:
+                last_c = ch.rstrip()[-1:]
+                segs.append((ch, CLAUSE if last_c in ",;:—-" else PHRASE_BREATH))
+
     if segs:
         segs[-1] = (segs[-1][0], 0.0)        # no pause after the very last segment
     return segs
