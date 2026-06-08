@@ -1,17 +1,5 @@
 [
   {
-    "topic": "What I Never Said Out Loud",
-    "style": "poetic",
-    "script": "I'm a keeper of secrets. \nSome people think I'm transparent, \nbut hidden truths accumulate \njust beneath the surface, \nand the weight is crushing \nThe hands that hold my thoughts \nare trembling, \nand the words I never spoke \nare echoing, \nSome days I feel like I'm drowning \nin unspoken emotions, \nand the pressure is building.",
-    "hash": "b7b5e7607f54cb8347599d7f3752920b",
-    "metaphors": [
-      "echo"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Part You Never Talk About",
     "style": "emotional",
     "script": "Midnight. The city sleeps\ndark alleys\nand forgotten streets\nslowly whisper secrets\nof the part you never talk about\nSome people hide\nbehind masks of confidence\nbut the shadows know\nthe truth you conceal\nNot even the wind\njudges your darkest nights\nsend this to them.",
@@ -722,6 +710,16 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The Version of You That Did Not Make It",
+    "style": "emotional",
+    "script": "It doesn't hurt anymore.\nNot exactly\nbut the emptiness stays\nSlowly unraveling\nthe threads of what could've been\nAnd the memories that linger\nSome people never let go\nI won't forget the way it felt\njust the way it ended\nNot with a bang\nbut a whisper.\nLet them know.",
+    "hash": "47db173725675080cb1a6a4720d60854",
+    "metaphors": [],
+    "themes": [
+      "heartbreak"
     ]
   }
 ]
