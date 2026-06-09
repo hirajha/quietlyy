@@ -1,10 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When Friendship Becomes One-Sided",
-    "Friendship That Faded",
-    "The Person You Had to Let Go to Save Yourself",
-    "Growing Up Too Fast",
     "The Moment You Stopped Hoping",
     "Reading Old Conversations Alone",
     "The Texts You Never Send",
@@ -20,13 +16,14 @@
     "The Grief Nobody Talks About",
     "The First Heartbreak",
     "The Quiet Exit",
-    "The Weight of Being the Strong One"
+    "The Weight of Being the Strong One",
+    "When the House Got Quiet",
+    "The Dreams Where They Come Back",
+    "Losing a Parent",
+    "When You Loved More Than They Did"
   ],
   "used_poetic": [],
   "used_love": [
-    "Someone Worth Staying For",
-    "Missing Someone Who Is Right There",
-    "When You Found Me",
     "What Real Love Feels Like",
     "When Just Being Near You Is Enough",
     "What I Mean When I Say I Love You",
@@ -43,11 +40,12 @@
     "I Didn't Know Love Could Feel This Soft",
     "When You Love Someone Who Is Leaving",
     "You Make the Hard Days Easier",
-    "Falling For Someone Who Does Not Know"
+    "Falling For Someone Who Does Not Know",
+    "The Kind of Love That Doesn't Shout",
+    "When You Make Ordinary Moments Feel Different",
+    "The Way You Look at Me"
   ],
   "used_wisdom": [
-    "The Meaning We Choose to Find",
-    "The Ancient Truth About Happiness",
     "What You Cannot Change and What You Can",
     "Why the Wound Is the Gift",
     "What Truly Matters in the End",
@@ -65,11 +63,13 @@
     "The Gift of Impermanence",
     "Learning to Trust the Journey",
     "What Silence Teaches Us",
-    "The Quiet Revolution of Self-Respect"
+    "The Quiet Revolution of Self-Respect",
+    "The Beauty of an Unfinished Life",
+    "The Power of Small Moments"
   ],
-  "last_style": "love",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 2,
+  "last_style": "emotional",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -112,7 +112,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153744_816dfe.mp3",
@@ -131,7 +130,8 @@
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_153700_072547.mp3",
-    "2026-06-05_153640_3f0c91.mp3"
+    "2026-06-05_153640_3f0c91.mp3",
+    "2026-06-05_153734_d4c320.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",

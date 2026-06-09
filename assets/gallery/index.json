@@ -140,8 +140,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780809752,
-    "uses": 1,
-    "last_used": 1780831337
+    "uses": 2,
+    "last_used": 1781021976
   },
   {
     "file": "e6c228a5_0.png",
@@ -463,13 +463,31 @@
     "topic": "When You Love Someone Who Is Leaving",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781001512
+    "timestamp": 1781001512,
+    "uses": 1,
+    "last_used": 1781021976
   },
   {
     "file": "1af2ea77_1.png",
     "topic": "When You Love Someone Who Is Leaving",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781001516
+    "timestamp": 1781001516,
+    "uses": 1,
+    "last_used": 1781021976
+  },
+  {
+    "file": "dd0188c8_0.png",
+    "topic": "The Way You Look at Me",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781021978
+  },
+  {
+    "file": "309340bd_1.png",
+    "topic": "The Way You Look at Me",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781021982
   }
 ]
