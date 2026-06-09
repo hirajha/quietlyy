@@ -1,18 +1,5 @@
 [
   {
-    "topic": "When You Make Ordinary Moments Feel Different",
-    "style": "love",
-    "script": "I stopped counting the seconds\nbetween your laugh\nand the way the room tilts.\nEvery mug of coffee tastes like a secret\nwhen you stir it twice,\nclockwise.\nThe ceiling fan hums your name\nbut I never say it out loud.\nYour shadow on the wall\nis a slow eclipse I can\u2019t look away from.\nEven the air conditioner pauses\nwhen you walk in.\nI keep pretending not to notice\nbut my hands remember the shape of your absence.\nSend this to them.",
-    "hash": "1ea8e102b9664a03990d15a06a46e259",
-    "metaphors": [
-      "wall",
-      "shadow"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "Finding Yourself After Them",
     "style": "love",
     "script": "There's a clarity that arrives\nlike morning dew on bare feet.\nThe grass knows nothing of your name,\nbut bends anyway.\nYou trace the cracks in the pavement,\nfind whole galaxies in the gaps.\nNo one told you\nquiet could feel this alive.\nThe mirror finally holds\nyour reflection without judgment.\nSend this to them.",
@@ -711,6 +698,17 @@
     "metaphors": [],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "You Still Check Their Profile",
+    "style": "emotional",
+    "script": "Their name is still autocorrected.\nI see it\nand pause.\nbut my fingers\nstill type it out\nslowly, in the dead\nof night, when\nNO ONE is watching.\nSome faces \nare forever linked\nto our deepest pains.\nI still check.\nSend this to them.",
+    "hash": "2da50880a21cbb5b18e9281778c6e1fc",
+    "metaphors": [],
+    "themes": [
+      "silence",
+      "heartbreak"
     ]
   }
 ]

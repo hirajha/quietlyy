@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "The Moment You Stopped Hoping",
-    "Reading Old Conversations Alone",
-    "The Texts You Never Send",
     "Being Misunderstood",
     "When You Love Someone You Cannot Have",
     "When You Delete the Message Before Sending It",
@@ -20,13 +17,13 @@
     "When the House Got Quiet",
     "The Dreams Where They Come Back",
     "Losing a Parent",
-    "When You Loved More Than They Did"
+    "When You Loved More Than They Did",
+    "People Who Use You",
+    "You Still Check Their Profile",
+    "When Friendship Becomes One-Sided"
   ],
   "used_poetic": [],
   "used_love": [
-    "What Real Love Feels Like",
-    "When Just Being Near You Is Enough",
-    "What I Mean When I Say I Love You",
     "The One I Think About First",
     "More Than My Favorite Person",
     "Loving You in Silence",
@@ -43,12 +40,12 @@
     "Falling For Someone Who Does Not Know",
     "The Kind of Love That Doesn't Shout",
     "When You Make Ordinary Moments Feel Different",
-    "The Way You Look at Me"
+    "The Way You Look at Me",
+    "Loving You Quietly",
+    "The Safest Place I Know",
+    "The First Time I Knew"
   ],
   "used_wisdom": [
-    "What You Cannot Change and What You Can",
-    "Why the Wound Is the Gift",
-    "What Truly Matters in the End",
     "What Real Love Requires",
     "The Freedom of Acceptance",
     "The Art of Letting Go",
@@ -65,11 +62,14 @@
     "What Silence Teaches Us",
     "The Quiet Revolution of Self-Respect",
     "The Beauty of an Unfinished Life",
-    "The Power of Small Moments"
+    "The Power of Small Moments",
+    "When Grief Becomes a Teacher",
+    "The Courage to Begin Again",
+    "The Meaning We Choose to Find"
   ],
-  "last_style": "emotional",
+  "last_style": "wisdom",
   "last_regular_style": "emotional",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -112,7 +112,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153724_b66b80.mp3",
@@ -131,7 +130,8 @@
     "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153640_3f0c91.mp3",
-    "2026-06-05_153734_d4c320.mp3"
+    "2026-06-05_153734_d4c320.mp3",
+    "2026-06-05_153606_63f17d.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
