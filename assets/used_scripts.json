@@ -1,15 +1,5 @@
 [
   {
-    "topic": "Heartbreak Lesson",
-    "style": "wisdom",
-    "script": "Marcus Aurelius wrote\nthe impediment to action\nis very often a lot of thinking.\nwe think and think and think\nand never get around to doing.\nand when we finally do act\nit's often with a sense of regret\nbecause we've lost so much time\nthinking about what could go wrong.\nand in that space of hesitation\nI find myself searching for answers.\nand the questions remain",
-    "hash": "9d60bca5055193f331ea8003e09d2666",
-    "metaphors": [],
-    "themes": [
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "Finding Peace Within Yourself",
     "style": "love",
     "script": "It doesn't feel empty. \nSlowly unfolding \nlike a lotus \nFINDING peace within \nis a gentle process \nbut slow growth \nhappens in darkness \nAND patience \nis a warm mist \nthat wraps around you \nGENTLY healing \nand slowly \nsend this to Quietlyy.",
@@ -713,6 +703,17 @@
     "metaphors": [],
     "themes": [
       "love"
+    ]
+  },
+  {
+    "topic": "When You Love Someone Who Is Leaving",
+    "style": "love",
+    "script": "There's a kind of emptiness, \n   Slowly \n   It seeps into your mornings, \n   and the coffee tastes different, \n   BUT \n   The smell of their favorite brew remains, \n   and you're left with \n   The same spoon that stirred your laughter, \n   NOW \n   It stirs only tears, \n   and the question lingers, \n   Will you find your flavor again, \n   or will it forever be \n   the taste of what's left behind.",
+    "hash": "735c01d326c02fc7e9b866e92ebff44e",
+    "metaphors": [],
+    "themes": [
+      "loneliness",
+      "grief_loss"
     ]
   }
 ]

@@ -131,8 +131,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1780809748,
-    "uses": 1,
-    "last_used": 1780828791
+    "uses": 2,
+    "last_used": 1781001510
   },
   {
     "file": "71101326_1.png",
@@ -445,13 +445,31 @@
     "topic": "Borrowed Love",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1780981617
+    "timestamp": 1780981617,
+    "uses": 1,
+    "last_used": 1781001510
   },
   {
     "file": "c053c51b_1.png",
     "topic": "Borrowed Love",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1780981621
+    "timestamp": 1780981621,
+    "uses": 1,
+    "last_used": 1781001510
+  },
+  {
+    "file": "581d80fa_0.png",
+    "topic": "When You Love Someone Who Is Leaving",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781001512
+  },
+  {
+    "file": "1af2ea77_1.png",
+    "topic": "When You Love Someone Who Is Leaving",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781001516
   }
 ]
