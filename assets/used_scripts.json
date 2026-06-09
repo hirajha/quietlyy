@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Falling Out of Love Slowly",
-    "style": "emotional",
-    "script": "Sunday morning. The city is still\nit's too quiet\nslowly I forget\nthe way your voice sounds\nSome people lose themselves\nin the familiarity of routines\nbut I'm finding my way\nout of the haze\nI won't recognize you\nanymore\nnot even in dreams\nit's just a memory now.\n",
-    "hash": "c638adbe7e806b13d2f96e7f8c4769c4",
-    "metaphors": [
-      "sun"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Heartbreak Lesson",
     "style": "wisdom",
     "script": "Marcus Aurelius wrote\nthe impediment to action\nis very often a lot of thinking.\nwe think and think and think\nand never get around to doing.\nand when we finally do act\nit's often with a sense of regret\nbecause we've lost so much time\nthinking about what could go wrong.\nand in that space of hesitation\nI find myself searching for answers.\nand the questions remain",
@@ -715,6 +703,16 @@
     "metaphors": [],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Borrowed Love",
+    "style": "emotional",
+    "script": "You're holding someone's hand.\n \n   Not yours.\n \n   but it feels like home\n \n   and you're searching\n \n   for a love that's truly yours\n \n   but it's hard to let go\n \n   of the comfort they bring\n \n   SOME PEOPLE don't know\n \n   the difference between\n \n   love and convenience\n \n   and you're caught in between\n \n   Not mine.",
+    "hash": "53c6272c81bb74ffe06a443fd8b561e0",
+    "metaphors": [],
+    "themes": [
+      "love"
     ]
   }
 ]

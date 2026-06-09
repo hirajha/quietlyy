@@ -1,10 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "The First Heartbreak",
-    "Loving the Wrong People",
-    "Finding Yourself After Them",
-    "Losing Yourself",
     "The Version of You That Did Not Make It",
     "Heartbreak Lesson",
     "The Family Member Who Hurt You Most",
@@ -20,13 +16,14 @@
     "When You Delete the Message Before Sending It",
     "When No One Asks If You Are Okay",
     "Missing Someone Alive",
-    "When You Miss Someone Who Is Still Alive"
+    "When You Miss Someone Who Is Still Alive",
+    "The Person You Became",
+    "When Love Was Not Enough",
+    "Borrowed Love",
+    "The Grief Nobody Talks About"
   ],
   "used_poetic": [],
   "used_love": [
-    "What I'd Tell You If I Could",
-    "When You Love Someone Who Is Leaving",
-    "Loving You Quietly",
     "The Text You Read But Did Not Reply To",
     "The Quiet Kind of Love Nobody Talks About",
     "The First Time I Knew",
@@ -43,11 +40,12 @@
     "You Didn't Fix Me, You Stayed",
     "How You Changed Everything",
     "The Person Behind My Smile",
-    "The Little Things You Do"
+    "The Little Things You Do",
+    "You Are My Calm",
+    "What I'd Tell You If I Could",
+    "The Person Who Stayed"
   ],
   "used_wisdom": [
-    "What Silence Teaches Us",
-    "The Quiet Revolution of Self-Respect",
     "The Courage to Begin Again",
     "When Grief Becomes a Teacher",
     "The Meaning We Choose to Find",
@@ -65,11 +63,13 @@
     "Why Suffering Transforms Us",
     "How to Carry Loss Without Being Crushed",
     "Why Peace Is Not the Absence of Storm",
-    "The Difference Between Living and Existing"
+    "The Difference Between Living and Existing",
+    "The Gift of Impermanence",
+    "Learning to Trust the Journey"
   ],
-  "last_style": "wisdom",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 0,
+  "last_style": "emotional",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -112,7 +112,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153627_53fd51.mp3",
@@ -131,7 +130,8 @@
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153651_0d1d62.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
-    "2026-06-05_153627_53fd51.mp3"
+    "2026-06-05_153627_53fd51.mp3",
+    "2026-06-05_153700_072547.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
