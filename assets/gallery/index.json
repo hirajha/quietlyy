@@ -176,8 +176,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780826897,
-    "uses": 1,
-    "last_used": 1780831510
+    "uses": 2,
+    "last_used": 1781089235
   },
   {
     "file": "1737ee75_0.png",
@@ -508,13 +508,31 @@
     "topic": "Loving in Silence",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781068782
+    "timestamp": 1781068782,
+    "uses": 1,
+    "last_used": 1781089235
   },
   {
     "file": "a35acaef_1.png",
     "topic": "Loving in Silence",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781068786
+    "timestamp": 1781068786,
+    "uses": 1,
+    "last_used": 1781089235
+  },
+  {
+    "file": "11f6bff6_0.png",
+    "topic": "The Person Behind My Smile",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781089237
+  },
+  {
+    "file": "8eb4dd13_1.png",
+    "topic": "The Person Behind My Smile",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781089241
   }
 ]

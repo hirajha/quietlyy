@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Safest Place I Know",
-    "style": "nostalgic",
-    "script": "Safe spaces we create\nin the chaos\nFIND Solace\nwhere memories reside\nand familiar scents\nlinger on our skin\nwe just\nbreathe easier\nSTILLNESS falls\nslowly wrapping\naround our souls\nlike a worn blanket\nand in this warmth\na quiet ache",
-    "hash": "0906fdb03bfb0584de3f461d5b87f5a3",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Apology That Never Came",
     "style": "nostalgic",
     "script": "we waited\nfor a word\nstill holding\nonto the thought\nthat SOMETHING\nwould be said\nwe justified\nthe empty space\nas a mistake\nbut DEEP DOWN\nwe knew better.\nand the ache remains",
@@ -708,6 +698,16 @@
       "dark",
       "silence"
     ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "emotional",
+    "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
+    "hash": "a1484fb15ac66345b89e7f6b30179a6e",
+    "metaphors": [],
     "themes": [
       "silence"
     ]
