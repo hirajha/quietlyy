@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Apology That Never Came",
-    "style": "nostalgic",
-    "script": "we waited\nfor a word\nstill holding\nonto the thought\nthat SOMETHING\nwould be said\nwe justified\nthe empty space\nas a mistake\nbut DEEP DOWN\nwe knew better.\nand the ache remains",
-    "hash": "1eb9bdeb786a2dc1b408b52dff6a5e5a",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Someone Worth Staying For",
     "style": "wisdom",
     "script": "Marcus Aurelius wrote\nin the depths of winter\nthere's a stillness that speaks\nof someone worth staying for, \ntheir presence a gentle warmth\nthat thaws the frozen moments\ni've found myself in the quiet\nhours of dawn, searching for\na sense of belonging, a sense\nof being home, and it's then\nthat i feel their absence, \nand the ache of their presence",
@@ -710,6 +700,20 @@
     "metaphors": [],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Loving Someone Who Can't Love Back",
+    "style": "emotional",
+    "script": "You're sitting alone.\nnot even a shadow\nThe hands that once held yours\nare now just a memory\nbut the ache remains\nSome people can't love back\nthe weight of that realization\nis crushing you slowly\nnot out of malice\njust out of incapability\nI won't pretend to understand\nbut your pain is valid.\nlet them know.",
+    "hash": "b218ba7170892a31d64a6830c094d356",
+    "metaphors": [
+      "shadow"
+    ],
+    "themes": [
+      "love",
+      "heartbreak",
+      "loneliness"
     ]
   }
 ]

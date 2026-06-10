@@ -185,8 +185,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1780828793,
-    "uses": 1,
-    "last_used": 1780831510
+    "uses": 2,
+    "last_used": 1781110209
   },
   {
     "file": "e0a52bec_1.png",
@@ -526,13 +526,31 @@
     "topic": "The Person Behind My Smile",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781089237
+    "timestamp": 1781089237,
+    "uses": 1,
+    "last_used": 1781110209
   },
   {
     "file": "8eb4dd13_1.png",
     "topic": "The Person Behind My Smile",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781089241
+    "timestamp": 1781089241,
+    "uses": 1,
+    "last_used": 1781110209
+  },
+  {
+    "file": "dd249218_0.png",
+    "topic": "Loving Someone Who Can't Love Back",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781110211
+  },
+  {
+    "file": "5a1b27a3_1.png",
+    "topic": "Loving Someone Who Can't Love Back",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781110216
   }
 ]
