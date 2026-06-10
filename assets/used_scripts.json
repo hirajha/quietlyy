@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Someone Worth Staying For",
-    "style": "wisdom",
-    "script": "Marcus Aurelius wrote\nin the depths of winter\nthere's a stillness that speaks\nof someone worth staying for, \ntheir presence a gentle warmth\nthat thaws the frozen moments\ni've found myself in the quiet\nhours of dawn, searching for\na sense of belonging, a sense\nof being home, and it's then\nthat i feel their absence, \nand the ache of their presence",
-    "hash": "ad54258f9e87525c8fc9e76813e3e162",
-    "metaphors": [
-      "dawn"
-    ],
-    "themes": [
-      "silence",
-      "self_worth"
-    ]
-  },
-  {
     "topic": "Falling For Someone Who Does Not Know",
     "style": "emotional",
     "script": "Midnight. The city sleeps\nslowly\nI'm drawn to strangers\nand their untold stories\nSOME PEOPLE live in my head\nbut they don't know\nI see them in crowds\nNOT OUT OF curiosity\njust a gentle interest\nin the lives they lead\nsend this to them.",
@@ -714,6 +701,20 @@
       "love",
       "heartbreak",
       "loneliness"
+    ]
+  },
+  {
+    "topic": "Finding Peace Within Yourself",
+    "style": "wisdom",
+    "script": "Lao Tzu whispered\nwater does not resist\nit flows around every stone\ncarves canyons without force\nfinds the sea without hurry.\n\nI used to think strength was holding on\nturns out it\u2019s learning to let go\nnot the river that bends\nbut the banks that break.\n\nWhat if peace isn\u2019t somewhere you arrive\nbut something you carry\nlike sunlight in your pockets?",
+    "hash": "3c5429fd48ac8207b574fca2930f1a65",
+    "metaphors": [
+      "light",
+      "sun"
+    ],
+    "themes": [
+      "nostalgia",
+      "being_used"
     ]
   }
 ]

@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "The First Heartbreak",
-    "The Quiet Exit",
-    "The Weight of Being the Strong One",
     "When the House Got Quiet",
     "The Dreams Where They Come Back",
     "Losing a Parent",
@@ -20,13 +17,13 @@
     "Friendship That Faded",
     "Friends Who Only Call When They Need You",
     "Loving Someone Who Can't Love Back",
-    "Being the One Who Always Checks In"
+    "Being the One Who Always Checks In",
+    "Learning to Be Alone",
+    "When You Miss Who They Used to Be",
+    "The Apology That Never Came"
   ],
   "used_poetic": [],
   "used_love": [
-    "When You Love Someone Who Is Leaving",
-    "You Make the Hard Days Easier",
-    "Falling For Someone Who Does Not Know",
     "The Kind of Love That Doesn't Shout",
     "When You Make Ordinary Moments Feel Different",
     "The Way You Look at Me",
@@ -43,12 +40,12 @@
     "The Quiet Kind of Love Nobody Talks About",
     "What I Mean When I Say I Love You",
     "You Didn't Fix Me, You Stayed",
-    "When Someone Chooses You Every Day"
+    "When Someone Chooses You Every Day",
+    "The Small Things I Notice About You",
+    "The Text You Read But Did Not Reply To",
+    "The Person Who Stayed"
   ],
   "used_wisdom": [
-    "The Strength in Stillness",
-    "Why Suffering Transforms Us",
-    "How to Carry Loss Without Being Crushed",
     "Why Peace Is Not the Absence of Storm",
     "The Difference Between Living and Existing",
     "The Gift of Impermanence",
@@ -65,11 +62,14 @@
     "What Real Love Requires",
     "What Truly Matters in the End",
     "The Freedom of Acceptance",
-    "The Ancient Truth About Happiness"
+    "The Ancient Truth About Happiness",
+    "What You Cannot Change and What You Can",
+    "Loving Without Losing Yourself",
+    "Finding Peace Within Yourself"
   ],
-  "last_style": "love",
+  "last_style": "wisdom",
   "last_regular_style": "love",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -108,11 +108,11 @@
     "you may not control all the events that happen",
     "the impediment to action is very often a lot of thinking.",
     "in the depths of winter there's a stillness that speaks",
-    "you're a guest in this life"
+    "you're a guest in this life",
+    "water does not resist it flows around every stone"
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153806_9773e5.mp3",
@@ -131,7 +131,8 @@
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
-    "2026-06-05_153816_e5f3ea.mp3"
+    "2026-06-05_153816_e5f3ea.mp3",
+    "2026-06-05_153724_b66b80.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
