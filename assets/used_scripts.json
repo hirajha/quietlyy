@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Finding Yourself After Them",
-    "style": "love",
-    "script": "There's a clarity that arrives\nlike morning dew on bare feet.\nThe grass knows nothing of your name,\nbut bends anyway.\nYou trace the cracks in the pavement,\nfind whole galaxies in the gaps.\nNo one told you\nquiet could feel this alive.\nThe mirror finally holds\nyour reflection without judgment.\nSend this to them.",
-    "hash": "d21335675201e289bf9bf0b969934935",
-    "metaphors": [
-      "mirror"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Safest Place I Know",
     "style": "nostalgic",
     "script": "Safe spaces we create\nin the chaos\nFIND Solace\nwhere memories reside\nand familiar scents\nlinger on our skin\nwe just\nbreathe easier\nSTILLNESS falls\nslowly wrapping\naround our souls\nlike a worn blanket\nand in this warmth\na quiet ache",
@@ -709,6 +697,19 @@
     "themes": [
       "silence",
       "heartbreak"
+    ]
+  },
+  {
+    "topic": "Loving in Silence",
+    "style": "love",
+    "script": "You're sitting in the dark.\nYour fingers tracing the outline of a memory,\nslowly forgetting the shape of their hand.\nBut the emptiness beside you still feels like a presence,\nAND IT TAKES YOUR BREATH AWAY.\nquietly, you're searching for a ghost,\nand the space between your shoulders aches.\nBUT THE THOUGHT OF THEM STILL WAKES YOU UP,\nand the city outside is too loud,\nso you're trying to fill the silence,\nwith the sound of your own voice,\nsending a message to the void.",
+    "hash": "c1c1e0df5a9715361908c5d25cbf1cef",
+    "metaphors": [
+      "dark",
+      "silence"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
