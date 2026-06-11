@@ -1,20 +1,5 @@
 [
   {
-    "topic": "Losing a Parent",
-    "style": "love",
-    "script": "The rocking chair creaks.\nEmpty,\nbut the rhythm stays.\nI still set their place at dinner,\nfork angled just like they liked.\nSome habits aren\u2019t choices.\nThey\u2019re echoes you can\u2019t unlearn.\nThe garden\u2019s overgrown now,\nbut their favorite roses bloom wild.\nI talk to the air sometimes,\nnot expecting answers.\nJust the shape of their voice.\nThe house feels lighter.\nSend this to them.",
-    "hash": "0d5be291402ed2aa9b5fdb274623fe07",
-    "metaphors": [
-      "echo",
-      "garden",
-      "light"
-    ],
-    "themes": [
-      "growth",
-      "silence"
-    ]
-  },
-  {
     "topic": "How You Changed Everything",
     "style": "poetic",
     "script": "I am the architect. \nDarkness falls, \nand shadows rise slowly \nnot to conceal \nbut to reveal \nthe hands that shaped me \nSome people are the tide \nand I was the shoreline, \neroded and remade \nin their wake, \nI stand transformed. \nThe landscape is new, \nand I am still exploring",
@@ -715,6 +700,22 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The One I Think About First",
+    "style": "emotional",
+    "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
+    "hash": "959854a0569ce7c23fe5253ff2900374",
+    "metaphors": [
+      "text",
+      "sun",
+      "sweater",
+      "light"
+    ],
+    "themes": [
+      "self_worth",
+      "silence"
     ]
   }
 ]

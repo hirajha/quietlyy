@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When You Cry in the Car Alone",
-    "Heartbreak Lesson",
-    "Friendship That Faded",
     "Friends Who Only Call When They Need You",
     "Loving Someone Who Can't Love Back",
     "Being the One Who Always Checks In",
@@ -20,13 +17,13 @@
     "When Friendship Becomes One-Sided",
     "Keeping Their Number Saved",
     "When You Are the One Who Always Forgives",
-    "The Weight of Being the Strong One"
+    "The Weight of Being the Strong One",
+    "Finding Yourself After Them",
+    "Growing Up Too Fast",
+    "Heartbreak Lesson"
   ],
   "used_poetic": [],
   "used_love": [
-    "Loving You in Silence",
-    "What I Never Said Out Loud",
-    "The Way You Look When You Do Not Know I Am Watching",
     "The Quiet Kind of Love Nobody Talks About",
     "What I Mean When I Say I Love You",
     "You Didn't Fix Me, You Stayed",
@@ -43,12 +40,12 @@
     "The First Time I Knew",
     "The Little Things You Do",
     "When You Make Ordinary Moments Feel Different",
-    "Someone Worth Staying For"
+    "Someone Worth Staying For",
+    "Falling For Someone Who Does Not Know",
+    "More Than My Favorite Person",
+    "You Make the Hard Days Easier"
   ],
   "used_wisdom": [
-    "The Beauty of an Unfinished Life",
-    "The Power of Small Moments",
-    "When Grief Becomes a Teacher",
     "The Courage to Begin Again",
     "The Meaning We Choose to Find",
     "Why the Wound Is the Gift",
@@ -65,11 +62,14 @@
     "The Difference Between Living and Existing",
     "The Art of Letting Go",
     "Learning to Trust the Journey",
-    "Learning to Belong to Yourself"
+    "Learning to Belong to Yourself",
+    "Why Peace Is Not the Absence of Storm",
+    "The Gift of Impermanence",
+    "How to Carry Loss Without Being Crushed"
   ],
-  "last_style": "emotional",
+  "last_style": "wisdom",
   "last_regular_style": "emotional",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -113,7 +113,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153640_3f0c91.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153756_4972f7.mp3",
@@ -132,7 +131,8 @@
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153806_9773e5.mp3",
-    "2026-06-05_153651_0d1d62.mp3"
+    "2026-06-05_153651_0d1d62.mp3",
+    "2026-06-05_153711_704e70.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
