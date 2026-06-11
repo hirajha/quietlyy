@@ -1,10 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When the House Got Quiet",
-    "The Dreams Where They Come Back",
-    "Losing a Parent",
-    "When You Loved More Than They Did",
     "People Who Use You",
     "You Still Check Their Profile",
     "When Friendship Becomes One-Sided",
@@ -20,13 +16,14 @@
     "Being the One Who Always Checks In",
     "Learning to Be Alone",
     "When You Miss Who They Used to Be",
-    "The Apology That Never Came"
+    "The Apology That Never Came",
+    "When You Delete the Message Before Sending It",
+    "Missing Someone Alive",
+    "Being Strong for Everyone While Breaking Inside",
+    "The First Heartbreak"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Kind of Love That Doesn't Shout",
-    "When You Make Ordinary Moments Feel Different",
-    "The Way You Look at Me",
     "Loving You Quietly",
     "The Safest Place I Know",
     "The First Time I Knew",
@@ -43,11 +40,12 @@
     "When Someone Chooses You Every Day",
     "The Small Things I Notice About You",
     "The Text You Read But Did Not Reply To",
-    "The Person Who Stayed"
+    "The Person Who Stayed",
+    "When Love Feels Like Coming Home",
+    "The Person Behind My Smile",
+    "What I'd Tell You If I Could"
   ],
   "used_wisdom": [
-    "Why Peace Is Not the Absence of Storm",
-    "The Difference Between Living and Existing",
     "The Gift of Impermanence",
     "Learning to Trust the Journey",
     "What Silence Teaches Us",
@@ -65,11 +63,13 @@
     "The Ancient Truth About Happiness",
     "What You Cannot Change and What You Can",
     "Loving Without Losing Yourself",
-    "Finding Peace Within Yourself"
+    "Finding Peace Within Yourself",
+    "Why Suffering Transforms Us",
+    "The Strength in Stillness"
   ],
-  "last_style": "wisdom",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 0,
+  "last_style": "emotional",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -113,7 +113,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153640_3f0c91.mp3",
@@ -132,7 +131,8 @@
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
-    "2026-06-05_153724_b66b80.mp3"
+    "2026-06-05_153724_b66b80.mp3",
+    "2026-06-05_153744_816dfe.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",

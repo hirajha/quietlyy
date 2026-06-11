@@ -1,13 +1,5 @@
 [
   {
-    "topic": "Falling For Someone Who Does Not Know",
-    "style": "emotional",
-    "script": "Midnight. The city sleeps\nslowly\nI'm drawn to strangers\nand their untold stories\nSOME PEOPLE live in my head\nbut they don't know\nI see them in crowds\nNOT OUT OF curiosity\njust a gentle interest\nin the lives they lead\nsend this to them.",
-    "hash": "33c8cb5ca5832592c0929ad25a8af399",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "Loving Without Losing Yourself",
     "style": "poetic",
     "script": "A houseplant on a windowsill,\nlearning to grow,\nnot toward the light,\nbut through the cracks in the glass.\nSome days,\nit forgets the sun exists,\nand that's okay.\nThe roots remember,\ntwisting into soil,\nclaiming space without asking.\nYou can bloom,\nwithout bending.",
@@ -715,6 +707,18 @@
     "themes": [
       "nostalgia",
       "being_used"
+    ]
+  },
+  {
+    "topic": "Being Strong for Everyone While Breaking Inside",
+    "style": "emotional",
+    "script": "The strongest shoulders carry the quietest storms.\nThey ask how you are,\nnot how you\u2019re really doing.\nYou smile,\nbut the coffee cup shakes just a little.\nSome people see the steam,\nnot the cracks it rises from.\nThe same hands that lift others\nforget to hold their own weight.\nAnd slowly,\nthe world keeps moving,\nwhile you stay still,\nbreathing through the ache.",
+    "hash": "a994c3f55eea29bfbf9e3dd4cb00f6dd",
+    "metaphors": [
+      "storm"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
