@@ -105,6 +105,16 @@ while newer ones land). RULE: verify voice/script changes LOCALLY (the
 segmentation logic runs offline), let the SCHEDULED cron deploy them, and ASK
 before triggering any manual post.
 
+## Script uniqueness (2026-06-08)
+Hira: "couple of scripts is dupe — same story, few words here and there." Real
+cases: porch-light x2 back-to-back, "You're sitting..." x3 in 10 videos. Fixed
+in review_script.py with deterministic story-level dedup:
+- opener-formula check (first 2 words of line 1, unique in last 25)
+- central-image check (lived-anchor object in first 3 lines, unique in last 25)
+- prompt avoid-block feeds the AI recent first-lines + central images verbatim
+Every video must be a NEW story — never a remix. If dupes still appear, the next
+lever is raising the windows (25) or adding an AI same-story judge.
+
 ## Voice tunables (env vars / GitHub repo secrets — no code change needed)
 - `EDGE_PAUSE_SENTENCE`, `EDGE_PAUSE_CLAUSE`, `EDGE_PAUSE_ELLIPSIS` — pause seconds
 - `EDGE_TTS_RATE` (default `-10%`; more negative = slower)
