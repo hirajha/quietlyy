@@ -86,7 +86,17 @@ def load_used_scripts():
 
 
 # Common metaphors/images to track — if a script uses 2+ of these from recent scripts, reject
+# ORDER MATTERS for _central_image (first match wins): specific lived-anchor
+# objects FIRST (they ARE the story — a repeat anchor = a repeat story even
+# with new words), generic poetry words after.
 TRACKED_METAPHORS = [
+    # Lived anchors (specific → checked first)
+    "porch", "mug", "cup", "coffee", "tea", "bed", "pillow", "blanket",
+    "phone", "text", "voicemail", "ringtone", "contact", "chair", "table",
+    "couch", "hoodie", "jacket", "sweater", "perfume", "photo", "picture",
+    "song", "playlist", "radio", "ceiling", "kitchen", "hallway", "stairs",
+    "keys", "ring", "note", "diary", "wallet", "glass", "plate",
+    # Generic poetry imagery
     "candle", "storm", "umbrella", "roots", "tide", "shore", "ocean", "waves",
     "shadow", "light", "rain", "fire", "wind", "bridge", "door", "window",
     "mirror", "path", "road", "wall", "garden", "flower", "seed", "tree",
@@ -96,9 +106,31 @@ TRACKED_METAPHORS = [
 
 
 def _extract_metaphors(script_text):
-    """Extract which tracked metaphors appear in this script."""
+    """Extract which tracked metaphors/anchors appear in this script."""
     normalized = _normalize(script_text)
     return set(m for m in TRACKED_METAPHORS if m in normalized)
+
+
+def _opener_stem(script_text, n_words=2):
+    """First N normalized words of line 1 — the opener fingerprint.
+    Two words catches the formula family: 'You're sitting alone.' /
+    'You're sitting with me.' / 'You're sitting by the stove.' all share
+    'youre sitting'. Within the recent window the same first-two-words IS
+    a repeated opening formula, even when the rest differs."""
+    first = script_text.strip().split("\n")[0]
+    return " ".join(_normalize(first).split()[:n_words])
+
+
+def _central_image(script_text):
+    """The anchor the script is BUILT on: the first tracked metaphor/object
+    appearing in the first 3 lines (the hook). Two scripts with the same
+    central image are the same story regardless of wording (porch-light bug)."""
+    lines = [l for l in script_text.split("\n") if l.strip()][:3]
+    head = _normalize(" ".join(lines))
+    for m in TRACKED_METAPHORS:
+        if m in head:
+            return m
+    return None
 
 
 def _extract_core_theme(script_text):
@@ -139,16 +171,33 @@ def save_used_script(script_text, topic, style):
         json.dump(scripts, f, indent=2)
 
 
-def get_recently_used_context(n=8):
+def get_recently_used_context(n=15):
     """Return recently used metaphors and themes for the generation prompt.
     Used to tell the AI what to AVOID so it doesn't repeat itself."""
     scripts = load_used_scripts()[-n:]
     all_metaphors = set()
     all_themes = set()
     for s in scripts:
-        all_metaphors.update(s.get("metaphors", []))
+        # Recompute from text (stored 'metaphors' predate the expanded
+        # anchor list, so most are stale-empty).
+        all_metaphors.update(_extract_metaphors(s.get("script", "")))
         all_themes.update(s.get("themes", []))
     return list(all_metaphors), list(all_themes)
+
+
+def get_recent_openers_and_images(n=15):
+    """Recent opening lines + central images — injected into the generation
+    prompt so the AI avoids repeating a formula instead of burning attempts."""
+    scripts = load_used_scripts()[-n:]
+    openers, images = [], set()
+    for s in scripts:
+        first = s.get("script", "").strip().split("\n")[0].strip()
+        if first:
+            openers.append(first)
+        img = _central_image(s.get("script", ""))
+        if img:
+            images.add(img)
+    return openers, sorted(images)
 
 
 def check_banned_opener(script_text):
@@ -165,6 +214,25 @@ def check_duplicate(script_text):
     used = load_used_scripts()
     new_metaphors = _extract_metaphors(script_text)
     new_themes = _extract_core_theme(script_text)
+    new_opener = _opener_stem(script_text)
+    new_image = _central_image(script_text)
+
+    # Opener formula: same first words as ANY recent script = same template
+    # ("You're sitting..." appeared 3x in 10 videos). Computed from stored
+    # script text, so it covers the whole history without a backfill.
+    for prev in used[-25:]:
+        if new_opener and new_opener == _opener_stem(prev["script"]):
+            return False, (f"Same opener formula as '{prev['topic']}' "
+                           f"('{new_opener}...') — needs a different opening")
+
+    # Central image: the anchor IS the story. Two porch-light scripts in a row
+    # slipped through word-overlap — block a repeat anchor within the last 25
+    # (~6 days at 4/day; the 60-entry history cap bounds it).
+    if new_image:
+        for prev in used[-25:]:
+            if new_image == _central_image(prev["script"]):
+                return False, (f"Same central image as '{prev['topic']}' "
+                               f"('{new_image}') — same story in new words")
 
     for prev in used[-20:]:  # check last 20
         # Word/line level similarity

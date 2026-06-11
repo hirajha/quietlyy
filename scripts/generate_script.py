@@ -9,7 +9,10 @@ import json
 import random
 import requests
 
-from review_script import review_script, save_used_script, get_recently_used_context
+from review_script import (
+    review_script, save_used_script, get_recently_used_context,
+    get_recent_openers_and_images,
+)
 
 TEMPLATES_PATH = os.path.join(os.path.dirname(__file__), "..", "templates", "scripts.json")
 
@@ -257,14 +260,26 @@ def build_prompt(topic, examples, style="emotional", tone_hints="", idea_hints="
     if idea_hints:
         audience_block += f"\n{idea_hints}\n"
 
-    # Inject recently used metaphors/themes so AI explicitly avoids repeating them
-    used_metaphors, used_themes = get_recently_used_context(n=8)
+    # Inject recently used metaphors/themes/openers/images so the AI explicitly
+    # avoids repeating them (a hard gate also rejects repeats — this saves the
+    # wasted attempts).
+    used_metaphors, used_themes = get_recently_used_context(n=15)
+    recent_openers, recent_images = get_recent_openers_and_images(n=15)
     avoid_block = ""
     if used_metaphors:
         avoid_block += f"\nDO NOT use these metaphors/images (already used recently): {', '.join(used_metaphors)}\n"
     if used_themes:
         avoid_block += f"DO NOT write about these emotional concepts (already covered recently): {', '.join(t.replace('_', ' ') for t in used_themes)}\n"
-    avoid_block += "Write something COMPLETELY DIFFERENT — a fresh angle, fresh imagery, fresh emotional territory.\n"
+    if recent_images:
+        avoid_block += (f"DO NOT build the script around any of these objects/anchors "
+                        f"(each already carried a recent video): {', '.join(recent_images)}\n")
+    if recent_openers:
+        avoid_block += ("DO NOT open with anything resembling these recent first lines "
+                        "(no same formula, no same first words):\n"
+                        + "\n".join(f'  - "{o}"' for o in recent_openers[-10:]) + "\n")
+    avoid_block += ("Write something COMPLETELY DIFFERENT — a fresh opening formula, a fresh "
+                    "central image, fresh emotional territory. Every video must feel like a "
+                    "NEW story, never a remix of a previous one.\n")
 
     if style == "poetic":
         style_examples = [e for e in examples if e.get("style") == "poetic"][:2]
