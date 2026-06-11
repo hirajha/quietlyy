@@ -1,22 +1,5 @@
 [
   {
-    "topic": "Loving Without Losing Yourself",
-    "style": "poetic",
-    "script": "A houseplant on a windowsill,\nlearning to grow,\nnot toward the light,\nbut through the cracks in the glass.\nSome days,\nit forgets the sun exists,\nand that's okay.\nThe roots remember,\ntwisting into soil,\nclaiming space without asking.\nYou can bloom,\nwithout bending.",
-    "hash": "5e626b721928302aa48636741f43482a",
-    "metaphors": [
-      "light",
-      "wind",
-      "roots",
-      "sun",
-      "window"
-    ],
-    "themes": [
-      "growth",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "The Smile That Hides Everything",
     "style": "emotional",
     "script": "I wear a mask daily\nslowly losing myself\nBut the hands that hide it\nare the same ones that crafted\nit to perfection over years\nsome people call it a smile\nand they think it's genuine\nnot knowing what's behind\nthe faint lines and curves\nSome hands are skilled at hiding\nand I won't let it slip.\nSend this to them.",
@@ -719,6 +702,16 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Silent Suffering Nobody Sees",
+    "style": "emotional",
+    "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
+    "hash": "1e7beeb950401054760699c316db93c0",
+    "metaphors": [],
+    "themes": [
+      "loneliness"
     ]
   }
 ]

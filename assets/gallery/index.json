@@ -212,8 +212,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780831344,
-    "uses": 1,
-    "last_used": 1780832720
+    "uses": 2,
+    "last_used": 1781177261
   },
   {
     "file": "80b7ea2a_0.png",
@@ -580,13 +580,31 @@
     "topic": "Being Strong for Everyone While Breaking Inside",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781155946
+    "timestamp": 1781155946,
+    "uses": 1,
+    "last_used": 1781177261
   },
   {
     "file": "26665c65_1.png",
     "topic": "Being Strong for Everyone While Breaking Inside",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781155950
+    "timestamp": 1781155950,
+    "uses": 1,
+    "last_used": 1781177261
+  },
+  {
+    "file": "b744559a_0.png",
+    "topic": "Silent Suffering Nobody Sees",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781177263
+  },
+  {
+    "file": "23975b35_1.png",
+    "topic": "Silent Suffering Nobody Sees",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781177267
   }
 ]
