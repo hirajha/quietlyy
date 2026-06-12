@@ -1,10 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Learning to Be Alone",
-    "When You Miss Who They Used to Be",
-    "The Apology That Never Came",
-    "When You Delete the Message Before Sending It",
     "Missing Someone Alive",
     "Being Strong for Everyone While Breaking Inside",
     "The First Heartbreak",
@@ -20,13 +16,14 @@
     "Heartbreak Lesson",
     "Friendship That Faded",
     "The Friend Who Disappeared",
-    "When No One Asks If You Are Okay"
+    "When No One Asks If You Are Okay",
+    "Losing Yourself",
+    "The Exhaustion of Pretending to Be Okay",
+    "Missing the Person You Used to Be",
+    "The Person You Had to Let Go to Save Yourself"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Small Things I Notice About You",
-    "The Text You Read But Did Not Reply To",
-    "The Person Who Stayed",
     "When Love Feels Like Coming Home",
     "The Person Behind My Smile",
     "What I'd Tell You If I Could",
@@ -43,11 +40,12 @@
     "Loving You in Silence",
     "The Kind of Love That Doesn't Shout",
     "What Home Actually Feels Like",
-    "The Way You Look at Me"
+    "The Way You Look at Me",
+    "Loving You Quietly",
+    "I Didn't Know Love Could Feel This Soft",
+    "The Safest Place I Know"
   ],
   "used_wisdom": [
-    "Why the Wound Is the Gift",
-    "The Wisdom of Not Forcing",
     "What Real Love Requires",
     "What Truly Matters in the End",
     "The Freedom of Acceptance",
@@ -65,11 +63,13 @@
     "The Gift of Impermanence",
     "How to Carry Loss Without Being Crushed",
     "The Beauty of an Unfinished Life",
-    "The Courage to Begin Again"
+    "The Courage to Begin Again",
+    "The Power of Small Moments",
+    "Why the Wound Is the Gift"
   ],
-  "last_style": "love",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 1,
+  "last_style": "emotional",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -113,7 +113,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153839_5a1856.mp3",
@@ -132,7 +131,8 @@
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153651_0d1d62.mp3",
     "2026-06-05_153711_704e70.mp3",
-    "2026-06-05_153756_4972f7.mp3"
+    "2026-06-05_153756_4972f7.mp3",
+    "2026-06-05_151550_7dfb17.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",

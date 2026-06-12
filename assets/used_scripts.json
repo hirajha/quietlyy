@@ -1,17 +1,5 @@
 [
   {
-    "topic": "I Didn't Know Love Could Feel This Soft",
-    "style": "emotional",
-    "script": "You\u2019re unfolding the blanket like it\u2019s made of clouds.\nYour fingers hesitate,\nnot from doubt,\nbut because it\u2019s too perfect to disturb.\nThe way they brush your shoulder\u2014\nnot a touch,\na whisper of gravity.\nSome things don\u2019t need to be held tight,\nthey just\u2026 stay.\nLike morning light on half-drawn curtains,\nlike the weight of a cat asleep on your chest.\nYou didn\u2019t know love could be this soft,\nso soft it almost isn\u2019t there.\nLet them know.",
-    "hash": "ddc5e867e28a6385fc485d551eb6cc6f",
-    "metaphors": [
-      "light"
-    ],
-    "themes": [
-      "love"
-    ]
-  },
-  {
     "topic": "When Love Feels Like Coming Home",
     "style": "emotional",
     "script": "I still carry the smell of our porch\nslowly fading\nBut memories linger\nand the creaks of wooden floors\nSome people find comfort\nin familiar voices\nI won't forget the way\nit felt to be home\nnot even when\nthe lights are off\nin the empty rooms.\nsend this to them.",
@@ -712,5 +700,16 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Power of Small Moments",
+    "style": "nostalgic",
+    "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
+    "hash": "fad71d57e80f79313745ebe29e3c5d59",
+    "metaphors": [
+      "door",
+      "wind"
+    ],
+    "themes": []
   }
 ]
