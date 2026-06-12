@@ -1,17 +1,5 @@
 [
   {
-    "topic": "When Love Feels Like Coming Home",
-    "style": "emotional",
-    "script": "I still carry the smell of our porch\nslowly fading\nBut memories linger\nand the creaks of wooden floors\nSome people find comfort\nin familiar voices\nI won't forget the way\nit felt to be home\nnot even when\nthe lights are off\nin the empty rooms.\nsend this to them.",
-    "hash": "578c6ce1044cc9a84e86d26f9b19496d",
-    "metaphors": [
-      "light"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Beauty of an Unfinished Life",
     "style": "nostalgic",
     "script": "Unfinished pages                             \nwe just                                  \nstarted writing                          \nSTORIES UNFOLDING somewhere            \nand characters still evolving          \nwith each new experience                \nLIFE BECOMES A MASTERPIECE             \nslowly                                   \nstill searching                           \nfor the perfect ending                 \nbut BEAUTY LIES IN THE INCOMPLETE      \nand the mystery that remains           \n",
@@ -711,5 +699,19 @@
       "wind"
     ],
     "themes": []
+  },
+  {
+    "topic": "When You Realized You Were the Option, Not the Priority",
+    "style": "nostalgic",
+    "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
+    "hash": "8c0467d2fae388b518ba0b20828aa470",
+    "metaphors": [
+      "star",
+      "ring"
+    ],
+    "themes": [
+      "grief_loss",
+      "growth"
+    ]
   }
 ]
