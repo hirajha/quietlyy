@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Beauty of an Unfinished Life",
-    "style": "nostalgic",
-    "script": "Unfinished pages                             \nwe just                                  \nstarted writing                          \nSTORIES UNFOLDING somewhere            \nand characters still evolving          \nwith each new experience                \nLIFE BECOMES A MASTERPIECE             \nslowly                                   \nstill searching                           \nfor the perfect ending                 \nbut BEAUTY LIES IN THE INCOMPLETE      \nand the mystery that remains           \n",
-    "hash": "f0e47bf52d0081c73c82acaec946cfd0",
-    "metaphors": [
-      "star"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Have to Pretend You Are Fine at Work",
     "style": "emotional",
     "script": "I wear a mask\nEvery day\nthe weight of it\nis slowly crushing me\nbut I keep it on\nThe face that hides\nmy true emotions\nSome people see right through\nI won't let them in\nnot even a crack\nsend this to them.",
@@ -708,6 +696,20 @@
     "metaphors": [
       "star",
       "ring"
+    ],
+    "themes": [
+      "grief_loss",
+      "growth"
+    ]
+  },
+  {
+    "topic": "When You Found Me",
+    "style": "wisdom",
+    "script": "the desert wind whispered\nwhen you found me\ni was not lost\njust waiting\nfor the shape of your shadow to stretch across mine.\n\nyears of dust had settled\nyet my edges stayed sharp\nlike stones the river forgot to smooth.\n\nyou didn\u2019t carry a lantern\nor call my name\nyou simply walked\nuntil the space between us\nbecame a place.",
+    "hash": "54066e280c6cd047669c5874512194c9",
+    "metaphors": [
+      "shadow",
+      "wind"
     ],
     "themes": [
       "grief_loss",
