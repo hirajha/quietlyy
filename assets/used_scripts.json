@@ -1,21 +1,5 @@
 [
   {
-    "topic": "Learning to Trust the Journey",
-    "style": "love",
-    "script": "You're lost in the haze of a forgotten dream\nslowly\nAND TRYING to find your way back\nto a place that feels like home\nGENTLY\nthe morning light creeps in\nit brings a warmth that's hard to ignore\nbut the shadows still linger\nAND IN THEM\nyou're searching for a glimpse of what's to come\nSLOWLY\nthe fog begins to clear\nand a path starts to unfold\nit's uncertain\nbut it's yours\nsend this to Quietlyy.",
-    "hash": "71ec2ff2a1000224e53f3207c2864d88",
-    "metaphors": [
-      "star",
-      "shadow",
-      "light",
-      "path"
-    ],
-    "themes": [
-      "silence",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "When You Realized You Were the Option, Not the Priority",
     "style": "nostalgic",
     "script": "we were the extras                            \njust filler                                   \nnot the main cast                             \nbut STILL we auditioned                         \nwith every smile and every laugh              \nhoping to get the lead role                   \nbut DEEP down we knew                          \nwe were just options                           \nnot the priority                              \nSO we waited                                  \nstill waiting                                 \nfor a callback that never came                ",
@@ -721,6 +705,21 @@
     "themes": [
       "grief_loss",
       "love",
+      "silence"
+    ]
+  },
+  {
+    "topic": "Why Peace Is Not the Absence of Storm",
+    "style": "emotional",
+    "script": "The porch swing still creaks at midnight.\nNot from wind,\njust the weight of what we carried.\nSome storms don\u2019t roar,\nthey settle in the joints of old wood,\nwarping the grain,\nbut never breaking it.\nThe quiet after isn\u2019t peace,\njust the shape of us,\nholding what we survived.\nYou\u2019ll recognize it,\nwhen the ache feels like home.",
+    "hash": "4d985a1afa36592863c9419b2dd0e65d",
+    "metaphors": [
+      "porch",
+      "storm",
+      "rain",
+      "wind"
+    ],
+    "themes": [
       "silence"
     ]
   }
