@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Being Tired in Ways Sleep Cannot Fix",
-    "style": "poetic",
-    "script": "I'm drained. \nDeep within \nsome people feel \nthe weight of their days, \nand the nights \njust watching time \nslip away, \nthe hands that hold \ntheir exhausted bodies, \nbut still they stand, \ntired eyes, \nfoggy minds.",
-    "hash": "0a11a9da6ccb84efed4d407ea93977c5",
-    "metaphors": [
-      "rain"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Wisdom of Not Forcing",
     "style": "love",
     "script": "Your fingers still fit the worn wooden spoon.\nGently,\nthe kitchen lights were too harsh\nfor a morning without them\nSlowly,\nthe morning light seeps through\nthe gaps in the windowframe\nNew Days\nbring unfamiliar rhythms\nbut Sundays\nstill feel like a pause\nIn the stillness\nI find the shape of your absence\nand the wisdom of not forcing\nsend this to Quietlyy.",
@@ -717,6 +705,23 @@
       "sun",
       "shadow",
       "door"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "You Are My Calm",
+    "style": "emotional",
+    "script": "There's a stillness that hums,\nlike a fridge in an empty kitchen.\nYou are the steady buzz,\nthe one I lean against\nwhen the world spins too loud.\nI don't need you to fix it,\njust stand there,\nquiet as a held breath,\nand let the noise\npass through me like wind.\nYou are my calm,\nnot the absence of storm,\nbut the hand I reach for in the dark.",
+    "hash": "304fb0f55bd7b62751f300929725085d",
+    "metaphors": [
+      "kitchen",
+      "noise",
+      "storm",
+      "dark",
+      "wind",
+      "tea"
     ],
     "themes": [
       "silence"

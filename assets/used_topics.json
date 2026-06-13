@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Finding Yourself After Them",
-    "Growing Up Too Fast",
-    "Heartbreak Lesson",
     "Friendship That Faded",
     "The Friend Who Disappeared",
     "When No One Asks If You Are Okay",
@@ -20,14 +17,13 @@
     "The Goodbye You Didn't Get",
     "When You Loved More Than They Did",
     "Loving Quietly From a Distance",
-    "Being the One Who Always Checks In"
+    "Being the One Who Always Checks In",
+    "Friends Who Only Call When They Need You",
+    "When the House Got Quiet",
+    "When Friendship Becomes One-Sided"
   ],
   "used_poetic": [],
   "used_love": [
-    "Falling For Someone Who Does Not Know",
-    "More Than My Favorite Person",
-    "You Make the Hard Days Easier",
-    "Loving You in Silence",
     "The Kind of Love That Doesn't Shout",
     "What Home Actually Feels Like",
     "The Way You Look at Me",
@@ -43,11 +39,13 @@
     "When Love Feels Like Coming Home",
     "The Way You Look When You Do Not Know I Am Watching",
     "When You Love Someone Who Is Leaving",
-    "When Someone Chooses You Every Day"
+    "When Someone Chooses You Every Day",
+    "When You Found Me",
+    "The First Time I Knew",
+    "The Little Things You Do",
+    "More Than My Favorite Person"
   ],
   "used_wisdom": [
-    "Why Suffering Transforms Us",
-    "The Strength in Stillness",
     "The Difference Between Living and Existing",
     "The Art of Letting Go",
     "Learning to Trust the Journey",
@@ -65,11 +63,13 @@
     "The Freedom of Acceptance",
     "The Meaning We Choose to Find",
     "What You Cannot Change and What You Can",
-    "The Ancient Truth About Happiness"
+    "The Ancient Truth About Happiness",
+    "When Grief Becomes a Teacher",
+    "Why Suffering Transforms Us"
   ],
-  "last_style": "emotional",
-  "last_regular_style": "emotional",
-  "videos_since_wisdom": 1,
+  "last_style": "love",
+  "last_regular_style": "love",
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -114,7 +114,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153651_0d1d62.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_153700_072547.mp3",
@@ -133,7 +132,8 @@
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
-    "2026-06-05_153627_53fd51.mp3"
+    "2026-06-05_153627_53fd51.mp3",
+    "2026-06-05_153839_5a1856.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
