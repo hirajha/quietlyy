@@ -1,10 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When Friendship Becomes One-Sided",
-    "Keeping Their Number Saved",
-    "When You Are the One Who Always Forgives",
-    "The Weight of Being the Strong One",
     "Finding Yourself After Them",
     "Growing Up Too Fast",
     "Heartbreak Lesson",
@@ -20,13 +16,14 @@
     "The Apology That Never Came",
     "When Someone Changes",
     "When You Miss Who They Used to Be",
-    "The First Heartbreak"
+    "The First Heartbreak",
+    "The Goodbye You Didn't Get",
+    "When You Loved More Than They Did",
+    "Loving Quietly From a Distance",
+    "Being the One Who Always Checks In"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Little Things You Do",
-    "When You Make Ordinary Moments Feel Different",
-    "Someone Worth Staying For",
     "Falling For Someone Who Does Not Know",
     "More Than My Favorite Person",
     "You Make the Hard Days Easier",
@@ -43,11 +40,12 @@
     "What I'd Tell You If I Could",
     "You Didn't Fix Me, You Stayed",
     "The Text You Read But Did Not Reply To",
-    "When Love Feels Like Coming Home"
+    "When Love Feels Like Coming Home",
+    "The Way You Look When You Do Not Know I Am Watching",
+    "When You Love Someone Who Is Leaving",
+    "When Someone Chooses You Every Day"
   ],
   "used_wisdom": [
-    "Loving Without Losing Yourself",
-    "Finding Peace Within Yourself",
     "Why Suffering Transforms Us",
     "The Strength in Stillness",
     "The Difference Between Living and Existing",
@@ -65,11 +63,13 @@
     "What Real Love Requires",
     "The Wisdom of Not Forcing",
     "The Freedom of Acceptance",
-    "The Meaning We Choose to Find"
+    "The Meaning We Choose to Find",
+    "What You Cannot Change and What You Can",
+    "The Ancient Truth About Happiness"
   ],
-  "last_style": "wisdom",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 0,
+  "last_style": "emotional",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -114,7 +114,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153651_0d1d62.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153627_53fd51.mp3",
@@ -133,7 +132,8 @@
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
-    "2026-06-05_153827_d3f4f7.mp3"
+    "2026-06-05_153827_d3f4f7.mp3",
+    "2026-06-05_153627_53fd51.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",

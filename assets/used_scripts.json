@@ -1,15 +1,5 @@
 [
   {
-    "topic": "When You Have to Pretend You Are Fine at Work",
-    "style": "emotional",
-    "script": "I wear a mask\nEvery day\nthe weight of it\nis slowly crushing me\nbut I keep it on\nThe face that hides\nmy true emotions\nSome people see right through\nI won't let them in\nnot even a crack\nsend this to them.",
-    "hash": "d7cee89af5a2fea78eedcd2f50bf0d4f",
-    "metaphors": [
-      "mask"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Being Tired in Ways Sleep Cannot Fix",
     "style": "poetic",
     "script": "I'm drained. \nDeep within \nsome people feel \nthe weight of their days, \nand the nights \njust watching time \nslip away, \nthe hands that hold \ntheir exhausted bodies, \nbut still they stand, \ntired eyes, \nfoggy minds.",
@@ -714,6 +704,22 @@
     "themes": [
       "grief_loss",
       "growth"
+    ]
+  },
+  {
+    "topic": "The Beauty of an Unfinished Life",
+    "style": "nostalgic",
+    "script": "The way the morning light\nlingers\non your unmade bed\nlike it knows\nsomething you don\u2019t.\nYou leave the door ajar\nnot for the breeze\nbut for the stories\nthat haven\u2019t arrived yet.\nTHE SUNSET STILL WAITS\nfor your shadow to stretch\njust a little longer.\nyou let it.",
+    "hash": "107ebda808c1250524183cd26cf3f711",
+    "metaphors": [
+      "bed",
+      "light",
+      "sun",
+      "shadow",
+      "door"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
