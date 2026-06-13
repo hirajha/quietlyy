@@ -1,10 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Friendship That Faded",
-    "The Friend Who Disappeared",
-    "When No One Asks If You Are Okay",
-    "Losing Yourself",
     "The Exhaustion of Pretending to Be Okay",
     "Missing the Person You Used to Be",
     "The Person You Had to Let Go to Save Yourself",
@@ -20,13 +16,14 @@
     "Being the One Who Always Checks In",
     "Friends Who Only Call When They Need You",
     "When the House Got Quiet",
-    "When Friendship Becomes One-Sided"
+    "When Friendship Becomes One-Sided",
+    "Heartbreak Lesson",
+    "Loving Someone Who Can't Love Back",
+    "The Person You Became",
+    "When You Realized You Were the Option, Not the Priority"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Kind of Love That Doesn't Shout",
-    "What Home Actually Feels Like",
-    "The Way You Look at Me",
     "Loving You Quietly",
     "I Didn't Know Love Could Feel This Soft",
     "The Safest Place I Know",
@@ -43,11 +40,12 @@
     "When You Found Me",
     "The First Time I Knew",
     "The Little Things You Do",
-    "More Than My Favorite Person"
+    "More Than My Favorite Person",
+    "When You Make Ordinary Moments Feel Different",
+    "You Make the Hard Days Easier",
+    "What I Never Said Out Loud"
   ],
   "used_wisdom": [
-    "The Difference Between Living and Existing",
-    "The Art of Letting Go",
     "Learning to Trust the Journey",
     "Learning to Belong to Yourself",
     "Why Peace Is Not the Absence of Storm",
@@ -65,11 +63,13 @@
     "What You Cannot Change and What You Can",
     "The Ancient Truth About Happiness",
     "When Grief Becomes a Teacher",
-    "Why Suffering Transforms Us"
+    "Why Suffering Transforms Us",
+    "Loving Without Losing Yourself",
+    "The Difference Between Living and Existing"
   ],
-  "last_style": "love",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 2,
+  "last_style": "emotional",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -110,11 +110,11 @@
     "in the depths of winter there's a stillness that speaks",
     "you're a guest in this life",
     "water does not resist it flows around every stone",
-    "when you found me i was not lost"
+    "when you found me i was not lost",
+    "in the quiet moments you find your strength,"
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153640_3f0c91.mp3",
@@ -133,7 +133,8 @@
     "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153627_53fd51.mp3",
-    "2026-06-05_153839_5a1856.mp3"
+    "2026-06-05_153839_5a1856.mp3",
+    "2026-06-05_153700_072547.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
