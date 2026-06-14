@@ -1,15 +1,5 @@
 [
   {
-    "topic": "When You Realized You Were the Option, Not the Priority",
-    "style": "nostalgic",
-    "script": "we were the extras                            \njust filler                                   \nnot the main cast                             \nbut STILL we auditioned                         \nwith every smile and every laugh              \nhoping to get the lead role                   \nbut DEEP down we knew                          \nwe were just options                           \nnot the priority                              \nSO we waited                                  \nstill waiting                                 \nfor a callback that never came                ",
-    "hash": "87238143fa027acb0a2f42afc290ff98",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What I Never Said Out Loud",
     "style": "poetic",
     "script": "I built a ladder out of whispers,\nclimbed it every night,\nbut the rungs were made of paper.\nSome mornings,\nthe ink had bled through,\nleft my palms stained with things unsaid.\nThe attic door,\nalways locked from the inside,\nheld more than dust and old photo albums.\nI left the key,\njust once,\non the kitchen table.\nNo note.",
@@ -718,6 +708,19 @@
       "storm",
       "rain",
       "wind"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Smile That Hides Everything",
+    "style": "love",
+    "script": "It\u2019s not a smile. It\u2019s a pocket.\nYou tuck the whole sky inside it,\nfolding edges neatly.\nNo one sees the storm you carry,\njust the quiet gold of your teeth.\nBut sometimes,\nthe stitches unravel,\nand the stars spill out like loose change.\nI pick them up,\npress them back into your palm.\nKeep the night safe for me.\nsend this to them.",
+    "hash": "883fb6debd0864326a3c80d1bb4875e8",
+    "metaphors": [
+      "star",
+      "storm"
     ],
     "themes": [
       "silence"
