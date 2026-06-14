@@ -1,10 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When Someone Changes",
-    "When You Miss Who They Used to Be",
-    "The First Heartbreak",
-    "The Goodbye You Didn't Get",
     "When You Loved More Than They Did",
     "Loving Quietly From a Distance",
     "Being the One Who Always Checks In",
@@ -20,13 +16,14 @@
     "Friendship That Faded",
     "When You Miss Someone You Should Not",
     "When You Love Someone You Cannot Have",
-    "Growing Apart"
+    "Growing Apart",
+    "Keeping Their Number Saved",
+    "Staying Too Long",
+    "Borrowed Love",
+    "The First Heartbreak"
   ],
   "used_poetic": [],
   "used_love": [
-    "You Didn't Fix Me, You Stayed",
-    "The Text You Read But Did Not Reply To",
-    "When Love Feels Like Coming Home",
     "The Way You Look When You Do Not Know I Am Watching",
     "When You Love Someone Who Is Leaving",
     "When Someone Chooses You Every Day",
@@ -43,11 +40,12 @@
     "What Real Love Feels Like",
     "The Small Things I Notice About You",
     "The Way You Look at Me",
-    "What I Mean When I Say I Love You"
+    "What I Mean When I Say I Love You",
+    "Someone Worth Staying For",
+    "The Person Behind My Smile",
+    "I Didn't Know Love Could Feel This Soft"
   ],
   "used_wisdom": [
-    "The Beauty of an Unfinished Life",
-    "The Courage to Begin Again",
     "The Power of Small Moments",
     "Why the Wound Is the Gift",
     "What Silence Teaches Us",
@@ -65,11 +63,13 @@
     "Learning to Trust the Journey",
     "Learning to Belong to Yourself",
     "The Quiet Revolution of Self-Respect",
-    "Finding Peace Within Yourself"
+    "Finding Peace Within Yourself",
+    "The Strength in Stillness",
+    "The Gift of Impermanence"
   ],
-  "last_style": "love",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 1,
+  "last_style": "emotional",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -115,7 +115,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153640_3f0c91.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_151550_7dfb17.mp3",
@@ -134,7 +133,8 @@
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153724_b66b80.mp3",
-    "2026-06-05_153734_d4c320.mp3"
+    "2026-06-05_153734_d4c320.mp3",
+    "2026-06-05_153617_c5dd1f.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",

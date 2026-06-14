@@ -1,17 +1,5 @@
 [
   {
-    "topic": "What I Never Said Out Loud",
-    "style": "poetic",
-    "script": "I built a ladder out of whispers,\nclimbed it every night,\nbut the rungs were made of paper.\nSome mornings,\nthe ink had bled through,\nleft my palms stained with things unsaid.\nThe attic door,\nalways locked from the inside,\nheld more than dust and old photo albums.\nI left the key,\njust once,\non the kitchen table.\nNo note.",
-    "hash": "82028f3c36cf048bb56a5d2d1ef68bd9",
-    "metaphors": [
-      "door"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "The Difference Between Living and Existing",
     "style": "poetic",
     "script": "Existing is a clockwork hum,\nsteady,\nunseen.\nLiving?\nThat\u2019s the moment the gears\nskip,\nstutter,\nremember they\u2019re made of dust.\nSome days you\u2019re the shadow\non the pavement,\nothers\u2014\nyou\u2019re the crack in the sidewalk\nwhere something green insists.",
@@ -721,6 +709,21 @@
     "metaphors": [
       "star",
       "storm"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "What I Mean When I Say I Love You",
+    "style": "emotional",
+    "script": "We forget how heavy light can be.\nThe way it lingers\non the edges of your shadow,\nnot fading,\njust waiting for you to turn around.\nSome promises don\u2019t need words,\nthey hum in the quiet hum of the fridge,\nin the way your keys still jingle\nlike they did the first time.\nI won\u2019t ask you to stay,\nbut I\u2019ll leave the porch light on,\njust in case you\u2019re passing through.\nLet them know.",
+    "hash": "812f25ab4f5cfa8e39ba724f077645c4",
+    "metaphors": [
+      "light",
+      "keys",
+      "porch",
+      "shadow"
     ],
     "themes": [
       "silence"
