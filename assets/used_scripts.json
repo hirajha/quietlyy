@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Difference Between Living and Existing",
-    "style": "poetic",
-    "script": "Existing is a clockwork hum,\nsteady,\nunseen.\nLiving?\nThat\u2019s the moment the gears\nskip,\nstutter,\nremember they\u2019re made of dust.\nSome days you\u2019re the shadow\non the pavement,\nothers\u2014\nyou\u2019re the crack in the sidewalk\nwhere something green insists.",
-    "hash": "bfd1c34c1ed79385b67db4170019cb57",
-    "metaphors": [
-      "shadow"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "The One I Think About First",
     "style": "emotional",
     "script": "You're scrolling through memories at 3am\nin the dark\nSome faces feel like home\nbut your eyes linger\non one person\nthe city outside is asleep\nand the noise is just a hum\nnot loud enough to distract\nYou're searching for a ghost\nin every crowd\nslowly losing hope\nI won't give up. Period.",
@@ -727,6 +715,25 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Finding Yourself After Them",
+    "style": "emotional",
+    "script": "You're tracing the cracks in the ceiling again.\nThe same ones you memorized,\nbut now they look like rivers.\nNot maps,\njust paths you didn't choose.\nYour fingers remember their shape,\nand slowly,\nthe weight of their name\nfeels lighter than the dust\nsettling on your windowsill.\nSome mornings,\nyou wake up and forget to miss them.\nThe sun spills in,\nuninvited,\nand you let it stay.",
+    "hash": "6e033b74e24427b3b872034102bd9430",
+    "metaphors": [
+      "map",
+      "ceiling",
+      "wind",
+      "window",
+      "light",
+      "sun",
+      "path"
+    ],
+    "themes": [
+      "nostalgia",
+      "grief_loss"
     ]
   }
 ]

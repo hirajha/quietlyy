@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When You Loved More Than They Did",
-    "Loving Quietly From a Distance",
-    "Being the One Who Always Checks In",
     "Friends Who Only Call When They Need You",
     "When the House Got Quiet",
     "When Friendship Becomes One-Sided",
@@ -20,14 +17,13 @@
     "Keeping Their Number Saved",
     "Staying Too Long",
     "Borrowed Love",
-    "The First Heartbreak"
+    "The First Heartbreak",
+    "Loving the Wrong People",
+    "The Smile That Hides Everything",
+    "Being Tired in Ways Sleep Cannot Fix"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Way You Look When You Do Not Know I Am Watching",
-    "When You Love Someone Who Is Leaving",
-    "When Someone Chooses You Every Day",
-    "When You Found Me",
     "The First Time I Knew",
     "The Little Things You Do",
     "More Than My Favorite Person",
@@ -43,11 +39,13 @@
     "What I Mean When I Say I Love You",
     "Someone Worth Staying For",
     "The Person Behind My Smile",
-    "I Didn't Know Love Could Feel This Soft"
+    "I Didn't Know Love Could Feel This Soft",
+    "Loving You in Silence",
+    "Missing Someone Who Is Right There",
+    "When Just Being Near You Is Enough",
+    "You Didn't Fix Me, You Stayed"
   ],
   "used_wisdom": [
-    "The Power of Small Moments",
-    "Why the Wound Is the Gift",
     "What Silence Teaches Us",
     "What Real Love Requires",
     "The Wisdom of Not Forcing",
@@ -65,11 +63,13 @@
     "The Quiet Revolution of Self-Respect",
     "Finding Peace Within Yourself",
     "The Strength in Stillness",
-    "The Gift of Impermanence"
+    "The Gift of Impermanence",
+    "How to Carry Loss Without Being Crushed",
+    "What Truly Matters in the End"
   ],
-  "last_style": "emotional",
-  "last_regular_style": "emotional",
-  "videos_since_wisdom": 2,
+  "last_style": "love",
+  "last_regular_style": "love",
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -115,7 +115,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
@@ -134,7 +133,8 @@
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153734_d4c320.mp3",
-    "2026-06-05_153617_c5dd1f.mp3"
+    "2026-06-05_153617_c5dd1f.mp3",
+    "2026-06-05_153744_816dfe.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",

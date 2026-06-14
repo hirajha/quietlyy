@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "What I Mean When I Say I Love You"
+    "detail": "Finding Yourself After Them"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18430691596125178"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18086269730305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/_YHtPAZ-kmw"
+    "detail": "https://www.youtube.com/shorts/EvEt0m0DndU"
   }
 }
