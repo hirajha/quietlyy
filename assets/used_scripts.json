@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Way You Look at Me",
-    "style": "nostalgic",
-    "script": "your gaze is a rumor\nit spreads\nthrough my skin\nslowly\nin the creases of my soul\nwhere memories unfold\nwe just\nstill searching\nfor a glimpse of truth\nBENEATH THE SURFACE\nof your eyes\nsomething stirs\nand i am\nunraveling",
-    "hash": "617bf08d65944d0642d3dd47ce07376b",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Freedom of Acceptance",
     "style": "poetic",
     "script": "I am free.\nfalling slowly,\ninto the depths\nof my own skin,\nthe hands that held me\nare letting go.\nSome people falter,\nbut I'm finding balance\nin the undertow,\nand rising up,\njust beneath the surface.",
@@ -731,6 +721,16 @@
     "metaphors": [],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The Part You Never Talk About",
+    "style": "emotional",
+    "script": "People don't fall out of love all at once.\nSlowly.\nBut the memories linger.\nAnd the smell of old books.\nReminds me of your fingers.\nOn my skin.\nNot anymore.\nSome hands forget.\nThe touch that once warmed.\nJust a faint scar.\nNot even a ghost.",
+    "hash": "ee39daaf310999bac6c1a41603655c96",
+    "metaphors": [],
+    "themes": [
+      "love"
     ]
   }
 ]

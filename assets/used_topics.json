@@ -1,10 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Heartbreak Lesson",
-    "Loving Someone Who Can't Love Back",
-    "The Person You Became",
-    "When You Realized You Were the Option, Not the Priority",
     "The Night You Stopped Waiting",
     "Growing Up Too Fast",
     "Friendship That Faded",
@@ -20,13 +16,14 @@
     "Being Tired in Ways Sleep Cannot Fix",
     "The Person You Had to Let Go to Save Yourself",
     "The Quiet Exit",
-    "When You Are the One Who Always Forgives"
+    "When You Are the One Who Always Forgives",
+    "When You Miss Who They Used to Be",
+    "The Part You Never Talk About",
+    "Being Misunderstood",
+    "Silent Suffering Nobody Sees"
   ],
   "used_poetic": [],
   "used_love": [
-    "When You Make Ordinary Moments Feel Different",
-    "You Make the Hard Days Easier",
-    "What I Never Said Out Loud",
     "Falling For Someone Who Does Not Know",
     "What Home Actually Feels Like",
     "Loving You Quietly",
@@ -43,11 +40,12 @@
     "You Didn't Fix Me, You Stayed",
     "You Are My Calm",
     "The Person Who Stayed",
-    "Loving in Silence"
+    "Loving in Silence",
+    "The Text You Read But Did Not Reply To",
+    "When You Found Me",
+    "When Love Feels Like Coming Home"
   ],
   "used_wisdom": [
-    "The Freedom of Acceptance",
-    "The Meaning We Choose to Find",
     "What You Cannot Change and What You Can",
     "The Ancient Truth About Happiness",
     "When Grief Becomes a Teacher",
@@ -65,11 +63,13 @@
     "What Truly Matters in the End",
     "Why Peace Is Not the Absence of Storm",
     "The Courage to Begin Again",
-    "Why the Wound Is the Gift"
+    "Why the Wound Is the Gift",
+    "The Power of Small Moments",
+    "The Freedom of Acceptance"
   ],
-  "last_style": "wisdom",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 0,
+  "last_style": "emotional",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -116,7 +116,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153724_b66b80.mp3",
@@ -135,7 +134,8 @@
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153744_816dfe.mp3",
-    "2026-06-05_153640_3f0c91.mp3"
+    "2026-06-05_153640_3f0c91.mp3",
+    "2026-06-05_153756_4972f7.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",

@@ -347,8 +347,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780897881,
-    "uses": 1,
-    "last_used": 1780920308
+    "uses": 2,
+    "last_used": 1781529972
   },
   {
     "file": "eaf70896_0.png",
@@ -850,13 +850,31 @@
     "topic": "The Courage to Begin Again",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781504850
+    "timestamp": 1781504850,
+    "uses": 1,
+    "last_used": 1781529972
   },
   {
     "file": "e27e47cd_1.png",
     "topic": "The Courage to Begin Again",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781504855
+    "timestamp": 1781504855,
+    "uses": 1,
+    "last_used": 1781529972
+  },
+  {
+    "file": "e264e588_0.png",
+    "topic": "The Part You Never Talk About",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781529974
+  },
+  {
+    "file": "0a630ea0_1.png",
+    "topic": "The Part You Never Talk About",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781529979
   }
 ]
