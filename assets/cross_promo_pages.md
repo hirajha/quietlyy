@@ -1,5 +1,5 @@
 # 🔗 Quietlyy Cross-Promo Outreach Brief
-_Generated: 2026-06-08 08:41 UTC_
+_Generated: 2026-06-15 09:48 UTC_
 
 ## What this is
 
@@ -47,7 +47,7 @@ Without it, we can't programmatically search for peer pages.
 After sending DMs, mark them in this section so we don't double-DM:
 
 ```
-2026-06-08: Sent to: [page1], [page2], [page3]
+2026-06-15: Sent to: [page1], [page2], [page3]
         Replied: ?
         Reciprocated: ?
 ```
