@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Friends Who Only Call When They Need You",
-    "When the House Got Quiet",
-    "When Friendship Becomes One-Sided",
     "Heartbreak Lesson",
     "Loving Someone Who Can't Love Back",
     "The Person You Became",
@@ -20,13 +17,13 @@
     "The First Heartbreak",
     "Loving the Wrong People",
     "The Smile That Hides Everything",
-    "Being Tired in Ways Sleep Cannot Fix"
+    "Being Tired in Ways Sleep Cannot Fix",
+    "The Person You Had to Let Go to Save Yourself",
+    "The Quiet Exit",
+    "When You Are the One Who Always Forgives"
   ],
   "used_poetic": [],
   "used_love": [
-    "The First Time I Knew",
-    "The Little Things You Do",
-    "More Than My Favorite Person",
     "When You Make Ordinary Moments Feel Different",
     "You Make the Hard Days Easier",
     "What I Never Said Out Loud",
@@ -43,12 +40,12 @@
     "Loving You in Silence",
     "Missing Someone Who Is Right There",
     "When Just Being Near You Is Enough",
-    "You Didn't Fix Me, You Stayed"
+    "You Didn't Fix Me, You Stayed",
+    "You Are My Calm",
+    "The Person Who Stayed",
+    "Loving in Silence"
   ],
   "used_wisdom": [
-    "What Silence Teaches Us",
-    "What Real Love Requires",
-    "The Wisdom of Not Forcing",
     "The Freedom of Acceptance",
     "The Meaning We Choose to Find",
     "What You Cannot Change and What You Can",
@@ -65,11 +62,14 @@
     "The Strength in Stillness",
     "The Gift of Impermanence",
     "How to Carry Loss Without Being Crushed",
-    "What Truly Matters in the End"
+    "What Truly Matters in the End",
+    "Why Peace Is Not the Absence of Storm",
+    "The Courage to Begin Again",
+    "Why the Wound Is the Gift"
   ],
-  "last_style": "love",
+  "last_style": "wisdom",
   "last_regular_style": "love",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -111,11 +111,11 @@
     "you're a guest in this life",
     "water does not resist it flows around every stone",
     "when you found me i was not lost",
-    "in the quiet moments you find your strength,"
+    "in the quiet moments you find your strength,",
+    "the greatest wealth is to live content"
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
@@ -134,7 +134,8 @@
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
-    "2026-06-05_153744_816dfe.mp3"
+    "2026-06-05_153744_816dfe.mp3",
+    "2026-06-05_153640_3f0c91.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",

@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The One I Think About First",
-    "style": "emotional",
-    "script": "You're scrolling through memories at 3am\nin the dark\nSome faces feel like home\nbut your eyes linger\non one person\nthe city outside is asleep\nand the noise is just a hum\nnot loud enough to distract\nYou're searching for a ghost\nin every crowd\nslowly losing hope\nI won't give up. Period.",
-    "hash": "79284e28ccf913add5151eab60469600",
-    "metaphors": [
-      "noise",
-      "dark"
-    ],
-    "themes": [
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The Way You Look at Me",
     "style": "nostalgic",
     "script": "your gaze is a rumor\nit spreads\nthrough my skin\nslowly\nin the creases of my soul\nwhere memories unfold\nwe just\nstill searching\nfor a glimpse of truth\nBENEATH THE SURFACE\nof your eyes\nsomething stirs\nand i am\nunraveling",
@@ -734,6 +721,16 @@
     "themes": [
       "nostalgia",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The Courage to Begin Again",
+    "style": "wisdom",
+    "script": "Marcus Aurelius wrote\nthe greatest wealth\nis to live content\nwith little for there\nis no want where\nthe mind is satisfied.\nWe forget this\nin the rush of life.\nYou're left with memories\nof a simpler time,\nthe smell of old books,\nthe feel of empty pages.",
+    "hash": "6a4b505d673a035f491f8b8c952175e2",
+    "metaphors": [],
+    "themes": [
+      "loneliness"
     ]
   }
 ]

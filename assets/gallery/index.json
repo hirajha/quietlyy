@@ -338,8 +338,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1780897877,
-    "uses": 1,
-    "last_used": 1780920308
+    "uses": 2,
+    "last_used": 1781504848
   },
   {
     "file": "bd3b2ce9_1.png",
@@ -832,13 +832,31 @@
     "topic": "Finding Yourself After Them",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781468715
+    "timestamp": 1781468715,
+    "uses": 1,
+    "last_used": 1781504848
   },
   {
     "file": "557e7e33_1.png",
     "topic": "Finding Yourself After Them",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781468721
+    "timestamp": 1781468721,
+    "uses": 1,
+    "last_used": 1781504848
+  },
+  {
+    "file": "dca233fb_0.png",
+    "topic": "The Courage to Begin Again",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781504850
+  },
+  {
+    "file": "e27e47cd_1.png",
+    "topic": "The Courage to Begin Again",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781504855
   }
 ]

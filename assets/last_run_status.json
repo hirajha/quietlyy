@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Finding Yourself After Them"
+    "detail": "The Courage to Begin Again"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18086269730305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18095211209464181"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/EvEt0m0DndU"
+    "detail": "https://www.youtube.com/shorts/P7TYl-EQ1q0"
   }
 }
