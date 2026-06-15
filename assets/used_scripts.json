@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Freedom of Acceptance",
-    "style": "poetic",
-    "script": "I am free.\nfalling slowly,\ninto the depths\nof my own skin,\nthe hands that held me\nare letting go.\nSome people falter,\nbut I'm finding balance\nin the undertow,\nand rising up,\njust beneath the surface.",
-    "hash": "f0cd8d583a1e810d419cdf9ce244a9e6",
-    "metaphors": [],
-    "themes": [
-      "moving_on"
-    ]
-  },
-  {
     "topic": "The Small Things I Notice About You",
     "style": "emotional",
     "script": "The smallest details linger\nslowly, \nin the margins of memory, \nBut the way a laugh echoes\nis a fragile thing \nSome people don't notice\nthe way a room \nfeels emptier without someone, \nand the shadows that remain\nare a reminder \nof what's been lost, \nNot just the big moments, \nbut the quiet, \nin between, \nperiods of stillness. \nsend this to them.",
@@ -732,5 +722,13 @@
     "themes": [
       "love"
     ]
+  },
+  {
+    "topic": "Being Tired in Ways Sleep Cannot Fix",
+    "style": "love",
+    "script": "You\u2019re peeling an orange at midnight.\nThe rind spirals down like a tired question.\nNo one answers.\nSlowly the segments split,\ntoo bright,\ntoo much effort.\nYou press one to your tongue,\nbut the sweetness\ncan\u2019t dissolve the weight\nin your shoulders.\nThe juice drips.\nSend this to them.",
+    "hash": "20aa6e1b41bac28b41d3788ee28821fb",
+    "metaphors": [],
+    "themes": []
   }
 ]

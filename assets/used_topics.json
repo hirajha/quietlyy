@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "The Night You Stopped Waiting",
-    "Growing Up Too Fast",
-    "Friendship That Faded",
     "When You Miss Someone You Should Not",
     "When You Love Someone You Cannot Have",
     "Growing Apart",
@@ -20,14 +17,13 @@
     "When You Miss Who They Used to Be",
     "The Part You Never Talk About",
     "Being Misunderstood",
-    "Silent Suffering Nobody Sees"
+    "Silent Suffering Nobody Sees",
+    "Letting Go With Grace",
+    "When You Stop Explaining",
+    "The Voice in Your Head That Says You Are Not Enough"
   ],
   "used_poetic": [],
   "used_love": [
-    "Falling For Someone Who Does Not Know",
-    "What Home Actually Feels Like",
-    "Loving You Quietly",
-    "What Real Love Feels Like",
     "The Small Things I Notice About You",
     "The Way You Look at Me",
     "What I Mean When I Say I Love You",
@@ -43,11 +39,13 @@
     "Loving in Silence",
     "The Text You Read But Did Not Reply To",
     "When You Found Me",
-    "When Love Feels Like Coming Home"
+    "When Love Feels Like Coming Home",
+    "The One I Think About First",
+    "What I Never Said Out Loud",
+    "When You Love Someone Who Is Leaving",
+    "The Way You Look When You Do Not Know I Am Watching"
   ],
   "used_wisdom": [
-    "What You Cannot Change and What You Can",
-    "The Ancient Truth About Happiness",
     "When Grief Becomes a Teacher",
     "Why Suffering Transforms Us",
     "Loving Without Losing Yourself",
@@ -65,11 +63,13 @@
     "The Courage to Begin Again",
     "Why the Wound Is the Gift",
     "The Power of Small Moments",
-    "The Freedom of Acceptance"
+    "The Freedom of Acceptance",
+    "What Silence Teaches Us",
+    "The Beauty of an Unfinished Life"
   ],
-  "last_style": "emotional",
-  "last_regular_style": "emotional",
-  "videos_since_wisdom": 1,
+  "last_style": "love",
+  "last_regular_style": "love",
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -116,7 +116,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153744_816dfe.mp3",
@@ -135,7 +134,8 @@
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153640_3f0c91.mp3",
-    "2026-06-05_153756_4972f7.mp3"
+    "2026-06-05_153756_4972f7.mp3",
+    "2026-06-05_153806_9773e5.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
