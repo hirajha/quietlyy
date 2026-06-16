@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Quiet Exit",
-    "style": "emotional",
-    "script": "Ghosts of familiarity linger\nslowly\nin every empty space\nnot just a memory\nbut a haunting presence\nSome people can't let go\nand they search\nfor a glimpse of what's lost\njust a faint whisper\nof a life they once knew\nI won't forget\nthe way it used to be. Period",
-    "hash": "4c4b594d67b9bb486da647d5303e5250",
-    "metaphors": [],
-    "themes": [
-      "being_used",
-      "grief_loss",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "The Gift of Impermanence",
     "style": "nostalgic",
     "script": "WE FORGET how bright\nit burned\nonly after\nthe light goes out.\n\nYou held the door\nfor a stranger\nwho never turned\nto thank you.\n\nTIME STRETCHES\nlike a shadow\nat noon\nthen vanishes\nwithout a sound.\n\nWe keep\nwhat we can\u2019t keep.",
@@ -732,6 +720,20 @@
       "nostalgia",
       "silence",
       "loneliness"
+    ]
+  },
+  {
+    "topic": "What I Never Said Out Loud",
+    "style": "poetic",
+    "script": "The clock hands never asked for my secrets.\nI fed them anyway,\ntiny crumbs of truth\nswallowed by the gears.\nSome nights,\nthe ticking grows teeth,\nchews through the dark\nlike a moth through wool.\nI let it.\nThe holes are where the light gets in,\nbut the light doesn\u2019t know my name.",
+    "hash": "1f8df38c0aa0cfc32af064fe33598e3b",
+    "metaphors": [
+      "wall",
+      "light",
+      "dark"
+    ],
+    "themes": [
+      "growth"
     ]
   }
 ]
