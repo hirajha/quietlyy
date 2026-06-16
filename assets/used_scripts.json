@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Small Things I Notice About You",
-    "style": "emotional",
-    "script": "The smallest details linger\nslowly, \nin the margins of memory, \nBut the way a laugh echoes\nis a fragile thing \nSome people don't notice\nthe way a room \nfeels emptier without someone, \nand the shadows that remain\nare a reminder \nof what's been lost, \nNot just the big moments, \nbut the quiet, \nin between, \nperiods of stillness. \nsend this to them.",
-    "hash": "c0a7bd641290bb9c0d5a7aeab4e73c66",
-    "metaphors": [
-      "echo",
-      "shadow"
-    ],
-    "themes": [
-      "grief_loss",
-      "silence"
-    ]
-  },
-  {
     "topic": "The Quiet Exit",
     "style": "emotional",
     "script": "Ghosts of familiarity linger\nslowly\nin every empty space\nnot just a memory\nbut a haunting presence\nSome people can't let go\nand they search\nfor a glimpse of what's lost\njust a faint whisper\nof a life they once knew\nI won't forget\nthe way it used to be. Period",
@@ -730,5 +716,22 @@
     "hash": "20aa6e1b41bac28b41d3788ee28821fb",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "The Little Things You Do",
+    "style": "love",
+    "script": "The mirror still fogs up for two.\nSlowly forget the face beside yours.\nBut your eyes\n searches for a ghost.\nAnd your hands\nstill brush the hair behind an empty space.\nGently\nas if not to startle the memory.\nTheir favorite song\nplays on the radio.\nYou reach\nto change the station.\nThen remember\nyou're alone now.\nIn this quiet morning.",
+    "hash": "6fc345108322272b7d00193135c612dd",
+    "metaphors": [
+      "star",
+      "song",
+      "mirror",
+      "radio"
+    ],
+    "themes": [
+      "nostalgia",
+      "silence",
+      "loneliness"
+    ]
   }
 ]

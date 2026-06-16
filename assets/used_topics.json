@@ -1,10 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "When You Miss Someone You Should Not",
-    "When You Love Someone You Cannot Have",
-    "Growing Apart",
-    "Keeping Their Number Saved",
     "Staying Too Long",
     "Borrowed Love",
     "The First Heartbreak",
@@ -20,13 +16,14 @@
     "Silent Suffering Nobody Sees",
     "Letting Go With Grace",
     "When You Stop Explaining",
-    "The Voice in Your Head That Says You Are Not Enough"
+    "The Voice in Your Head That Says You Are Not Enough",
+    "When You Have to Pretend You Are Fine at Work",
+    "When Someone Changes",
+    "Finding Yourself After Them",
+    "Grieving Someone Who Did Not Die"
   ],
   "used_poetic": [],
   "used_love": [
-    "The Small Things I Notice About You",
-    "The Way You Look at Me",
-    "What I Mean When I Say I Love You",
     "Someone Worth Staying For",
     "The Person Behind My Smile",
     "I Didn't Know Love Could Feel This Soft",
@@ -43,11 +40,12 @@
     "The One I Think About First",
     "What I Never Said Out Loud",
     "When You Love Someone Who Is Leaving",
-    "The Way You Look When You Do Not Know I Am Watching"
+    "The Way You Look When You Do Not Know I Am Watching",
+    "When Someone Chooses You Every Day",
+    "Loving You Quietly",
+    "The Little Things You Do"
   ],
   "used_wisdom": [
-    "When Grief Becomes a Teacher",
-    "Why Suffering Transforms Us",
     "Loving Without Losing Yourself",
     "The Difference Between Living and Existing",
     "The Art of Letting Go",
@@ -65,11 +63,13 @@
     "The Power of Small Moments",
     "The Freedom of Acceptance",
     "What Silence Teaches Us",
-    "The Beauty of an Unfinished Life"
+    "The Beauty of an Unfinished Life",
+    "What You Cannot Change and What You Can",
+    "The Wisdom of Not Forcing"
   ],
-  "last_style": "love",
-  "last_regular_style": "love",
-  "videos_since_wisdom": 2,
+  "last_style": "emotional",
+  "last_regular_style": "emotional",
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -116,7 +116,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153806_9773e5.mp3",
@@ -135,7 +134,8 @@
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153640_3f0c91.mp3",
     "2026-06-05_153756_4972f7.mp3",
-    "2026-06-05_153806_9773e5.mp3"
+    "2026-06-05_153806_9773e5.mp3",
+    "2026-06-05_153816_e5f3ea.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
