@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Gift of Impermanence",
-    "style": "nostalgic",
-    "script": "WE FORGET how bright\nit burned\nonly after\nthe light goes out.\n\nYou held the door\nfor a stranger\nwho never turned\nto thank you.\n\nTIME STRETCHES\nlike a shadow\nat noon\nthen vanishes\nwithout a sound.\n\nWe keep\nwhat we can\u2019t keep.",
-    "hash": "4bc3c722a71c0372249389e2079473c0",
-    "metaphors": [
-      "door",
-      "shadow",
-      "light"
-    ],
-    "themes": []
-  },
-  {
     "topic": "When You Found Me",
     "style": "love",
     "script": "It doesn't feel empty. \nslowly \nYour presence still echoes \nIn hidden alcoves of my mind \nGENTLY \nFolding laundry reminds me \nof the way you \nsmiled at a stray thread \nAnd I am lost \nin the softness of that gaze \nbut \nSLOWLY \nthe world outside \ncreeps into this space \nsend this to Quietlyy.",
@@ -734,6 +722,21 @@
     ],
     "themes": [
       "growth"
+    ]
+  },
+  {
+    "topic": "Loving Without Losing Yourself",
+    "style": "nostalgic",
+    "script": "You held the door,\nI\nlet the wind\ncarry my name out first.\nIt didn\u2019t mind,\njust curled around your ankles\nlike a cat who chose you,\nbut still sleeps on my side.\nSOMEHOW\nwe built a life\nwithout moving the furniture,\nand when the light slants just so,\nI forget\nwhich shadow is yours.",
+    "hash": "628a74a6f081822e5982b8a41df360d6",
+    "metaphors": [
+      "light",
+      "shadow",
+      "door",
+      "wind"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
