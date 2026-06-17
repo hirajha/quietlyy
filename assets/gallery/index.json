@@ -392,8 +392,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1780923466,
-    "uses": 1,
-    "last_used": 1780924129
+    "uses": 2,
+    "last_used": 1781677079
   },
   {
     "file": "c6fa6641_1.png",
@@ -940,13 +940,31 @@
     "topic": "Loving Without Losing Yourself",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781633997
+    "timestamp": 1781633997,
+    "uses": 1,
+    "last_used": 1781677079
   },
   {
     "file": "7fce0a17_1.png",
     "topic": "Loving Without Losing Yourself",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781634001
+    "timestamp": 1781634001,
+    "uses": 1,
+    "last_used": 1781677079
+  },
+  {
+    "file": "14d438d5_0.png",
+    "topic": "The First Heartbreak",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781677081
+  },
+  {
+    "file": "d4a7de49_1.png",
+    "topic": "The First Heartbreak",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781677086
   }
 ]

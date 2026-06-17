@@ -1,18 +1,5 @@
 [
   {
-    "topic": "When You Found Me",
-    "style": "love",
-    "script": "It doesn't feel empty. \nslowly \nYour presence still echoes \nIn hidden alcoves of my mind \nGENTLY \nFolding laundry reminds me \nof the way you \nsmiled at a stray thread \nAnd I am lost \nin the softness of that gaze \nbut \nSLOWLY \nthe world outside \ncreeps into this space \nsend this to Quietlyy.",
-    "hash": "1338511d5f329285ca2783673353006d",
-    "metaphors": [
-      "echo"
-    ],
-    "themes": [
-      "grief_loss",
-      "silence"
-    ]
-  },
-  {
     "topic": "The Quiet Revolution of Self-Respect",
     "style": "emotional",
     "script": "When did it become easier to shed old skin\nI am rewriting\nthe story of my name\nslowly unlearning\nthe lies I told myself\nSome people still whisper\nbut I am not listening\nI am a canvas\nstretching wide\nNot to fit their frames\nbut to hold my own\nSoftly I rise.\n",
@@ -737,6 +724,20 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The First Heartbreak",
+    "style": "emotional",
+    "script": "The first heartbreak isn\u2019t about them leaving.\nIt\u2019s the way your own hands\nstart to feel like strangers,\nbuttoning shirts you\u2019ll never wear for them,\nfolding sleeves that no longer reach.\nSome mornings,\nyou catch your reflection mid-wave,\nmid-smile,\nand the mirror flinches first.\nNot from pain,\nfrom recognition\u2014\nthat version of you\nis already packed away.",
+    "hash": "e55637f2dab25bdc39804d4fe37455a2",
+    "metaphors": [
+      "mirror",
+      "star"
+    ],
+    "themes": [
+      "heartbreak",
+      "love"
     ]
   }
 ]
