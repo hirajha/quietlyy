@@ -401,8 +401,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780923470,
-    "uses": 1,
-    "last_used": 1780924129
+    "uses": 2,
+    "last_used": 1781697714
   },
   {
     "file": "41461b8e_0.png",
@@ -958,13 +958,31 @@
     "topic": "The First Heartbreak",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781677081
+    "timestamp": 1781677081,
+    "uses": 1,
+    "last_used": 1781697714
   },
   {
     "file": "d4a7de49_1.png",
     "topic": "The First Heartbreak",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781677086
+    "timestamp": 1781677086,
+    "uses": 1,
+    "last_used": 1781697714
+  },
+  {
+    "file": "b5d60683_0.png",
+    "topic": "When You Love Someone Who Is Leaving",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781697718
+  },
+  {
+    "file": "1e6f6546_1.png",
+    "topic": "When You Love Someone Who Is Leaving",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781697722
   }
 ]

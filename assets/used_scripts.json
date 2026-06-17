@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Quiet Revolution of Self-Respect",
-    "style": "emotional",
-    "script": "When did it become easier to shed old skin\nI am rewriting\nthe story of my name\nslowly unlearning\nthe lies I told myself\nSome people still whisper\nbut I am not listening\nI am a canvas\nstretching wide\nNot to fit their frames\nbut to hold my own\nSoftly I rise.\n",
-    "hash": "06a820ad339b1ca575678e93ec17915d",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Friend Who Disappeared",
     "style": "love",
     "script": "There's a emptiness that echoes\nSlowly\nit seeps into my daily routines,\nforgetting the smell of old books\nAND REMEMBERING YOUR LAUGH\nis a distant hum,\nbut nostalgia whispers\nGENTLY IN MY EAR\nsummer afternoons feel\nlonger without you,\nAND THE CITY SEEMS\nempty, a hollow reed\nslowly forgetting\nthe way you used to make me feel\nsend this to them.",
@@ -738,6 +728,19 @@
     "themes": [
       "heartbreak",
       "love"
+    ]
+  },
+  {
+    "topic": "When You Love Someone Who Is Leaving",
+    "style": "emotional",
+    "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
+    "hash": "6d0bc462964895731ac2015330b6c0d5",
+    "metaphors": [
+      "door",
+      "echo"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
