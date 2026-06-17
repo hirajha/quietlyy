@@ -1,9 +1,6 @@
 {
   "used_nostalgic": [],
   "used_emotional": [
-    "Letting Go With Grace",
-    "When You Stop Explaining",
-    "The Voice in Your Head That Says You Are Not Enough",
     "When You Have to Pretend You Are Fine at Work",
     "When Someone Changes",
     "Finding Yourself After Them",
@@ -20,13 +17,13 @@
     "When No One Asks If You Are Okay",
     "Borrowed Love",
     "The Person You Became",
-    "Carrying Others Too Long"
+    "Carrying Others Too Long",
+    "Falling Out of Love Slowly",
+    "Being Strong for Everyone While Breaking Inside",
+    "The One Who Got Away"
   ],
   "used_poetic": [],
   "used_love": [
-    "What I Never Said Out Loud",
-    "When You Love Someone Who Is Leaving",
-    "The Way You Look When You Do Not Know I Am Watching",
     "When Someone Chooses You Every Day",
     "Loving You Quietly",
     "The Little Things You Do",
@@ -43,12 +40,12 @@
     "I Didn't Know Love Could Feel This Soft",
     "The Small Things I Notice About You",
     "Loving You in Silence",
-    "The Person Behind My Smile"
+    "The Person Behind My Smile",
+    "You Didn't Fix Me, You Stayed",
+    "Missing Someone Who Is Right There",
+    "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "How to Carry Loss Without Being Crushed",
-    "What Truly Matters in the End",
-    "Why Peace Is Not the Absence of Storm",
     "The Courage to Begin Again",
     "Why the Wound Is the Gift",
     "The Power of Small Moments",
@@ -65,11 +62,14 @@
     "The Meaning We Choose to Find",
     "The Quiet Revolution of Self-Respect",
     "The Art of Letting Go",
-    "Learning to Belong to Yourself"
+    "Learning to Belong to Yourself",
+    "Finding Peace Within Yourself",
+    "The Gift of Impermanence",
+    "What Truly Matters in the End"
   ],
-  "last_style": "love",
+  "last_style": "wisdom",
   "last_regular_style": "love",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -116,7 +116,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
@@ -135,7 +134,8 @@
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153606_63f17d.mp3",
-    "2026-06-05_153555_7cd9b3.mp3"
+    "2026-06-05_153555_7cd9b3.mp3",
+    "2026-06-05_153651_0d1d62.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",

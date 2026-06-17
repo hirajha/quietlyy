@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Friend Who Disappeared",
-    "style": "love",
-    "script": "There's a emptiness that echoes\nSlowly\nit seeps into my daily routines,\nforgetting the smell of old books\nAND REMEMBERING YOUR LAUGH\nis a distant hum,\nbut nostalgia whispers\nGENTLY IN MY EAR\nsummer afternoons feel\nlonger without you,\nAND THE CITY SEEMS\nempty, a hollow reed\nslowly forgetting\nthe way you used to make me feel\nsend this to them.",
-    "hash": "9c61c56ba0160e7c034155b4b4e3ab29",
-    "metaphors": [
-      "echo"
-    ],
-    "themes": [
-      "being_used",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "The Person Who Stayed",
     "style": "emotional",
     "script": "There's a weight that settles\nin the hollow\nof your chest\nslowly spreading\nthrough your veins\nlike a slow-moving fog\nSome people call it loyalty\nbut it's just the shape\nof the space you've held\nfor someone else\nnot emptiness\njust a presence that remains.\nsend this to them.",
@@ -741,6 +728,20 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Quiet Exit",
+    "style": "emotional",
+    "script": "The last text never gets sent.\nIt sits in drafts,\nlike a boat\nthat missed the tide.\nSome exits don\u2019t slam,\nthey dissolve\u2014\nthe way sugar\nvanishes in tea.\nYour name stays sweet,\nbut the aftertaste\nfades to nothing.\nI won\u2019t wave goodbye.\nJust let the current take me.",
+    "hash": "9db51e34d268e9da039786a6497e27a5",
+    "metaphors": [
+      "tide",
+      "tea",
+      "text"
+    ],
+    "themes": [
+      "grief_loss"
     ]
   }
 ]

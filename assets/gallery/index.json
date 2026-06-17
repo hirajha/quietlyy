@@ -410,8 +410,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1780924131,
-    "uses": 1,
-    "last_used": 1780953161
+    "uses": 2,
+    "last_used": 1781718809
   },
   {
     "file": "8033b982_1.png",
@@ -976,13 +976,31 @@
     "topic": "When You Love Someone Who Is Leaving",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781697718
+    "timestamp": 1781697718,
+    "uses": 1,
+    "last_used": 1781718809
   },
   {
     "file": "1e6f6546_1.png",
     "topic": "When You Love Someone Who Is Leaving",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781697722
+    "timestamp": 1781697722,
+    "uses": 1,
+    "last_used": 1781718809
+  },
+  {
+    "file": "a4948e4a_0.png",
+    "topic": "The Quiet Exit",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781718811
+  },
+  {
+    "file": "59eacf72_1.png",
+    "topic": "The Quiet Exit",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781718816
   }
 ]
