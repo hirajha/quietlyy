@@ -115,6 +115,22 @@ in review_script.py with deterministic story-level dedup:
 Every video must be a NEW story — never a remix. If dupes still appear, the next
 lever is raising the windows (25) or adding an AI same-story judge.
 
+## CONTENT DIRECTION (2026-06-08): direct life/love LESSONS, not vignettes
+Hira: love/emotional vignettes ("porch lights", "you're sitting alone") are
+"useless" — wants motivation / life & love LESSONS, direct truths "we know but
+never speak", quote-style ("when you have nothing, you have something").
+- `STYLES = ["lesson"]` now dominant; famous-quote `wisdom` every 4th (WISDOM_INTERVAL=4).
+- `lesson` style = punchy declarative quotable truths building to one screenshot
+  line; BANS porch-light/mug vignettes, nature metaphors, clichés, attributions.
+  Abstract by design → exempt from the realness floor (like wisdom); AI scorer
+  judges lessons on TRUTH/PUNCH not concrete detail. 30 topics + 3 examples in
+  templates/scripts.json.
+- love/emotional/poetic/nostalgic styles still EXIST (templates + prompts) but
+  are out of rotation — re-add to STYLES if Hira wants variety back.
+- Fixed _repair_json: Gemini (free primary) wraps JSON in ```json fences + uses
+  literal newlines → was failing & wasting the call. Now strips fences + extracts
+  fields tolerating real newlines.
+
 ## Voice tunables (env vars / GitHub repo secrets — no code change needed)
 - `EDGE_PAUSE_SENTENCE`, `EDGE_PAUSE_CLAUSE`, `EDGE_PAUSE_ELLIPSIS` — pause seconds
 - `EDGE_TTS_RATE` (default `-10%`; more negative = slower)
