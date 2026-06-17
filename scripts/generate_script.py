@@ -22,13 +22,16 @@ def load_templates():
         return json.load(f)
 
 
-# Regular rotation styles (love/emotional 2-day cycle).
-# Every 3rd regular video is automatically replaced by a wisdom/famous-poetry video.
-# Use --style= flag or workflow input to force any style (poetic, wisdom, etc.)
-STYLES = ["love", "emotional"]
+# Regular rotation (Hira 2026-06-08): pivot AWAY from soft love/emotional
+# vignettes ("porch lights", "you're sitting alone") TO direct, quotable
+# LIFE/LOVE LESSONS — the truths everyone feels but never says out loud
+# ("when you have nothing, you find out who you are"). 'lesson' is now the
+# dominant style; every 4th video is a famous-quote 'wisdom' video for variety.
+# Use --style= flag or workflow input to force any style.
+STYLES = ["lesson"]
 
-# After this many regular videos, insert one wisdom/famous-poetry video
-WISDOM_INTERVAL = 3
+# After this many regular (lesson) videos, insert one famous-quote wisdom video
+WISDOM_INTERVAL = 4
 
 _STATE_PATH = os.path.join(os.path.dirname(__file__), "..", "assets", "used_topics.json")
 
@@ -419,6 +422,54 @@ Also provide 4 visual keywords (warm, human, atmospheric scenes).
 Return ONLY valid JSON:
 {{"script": "line1\\nline2\\n...line10-13", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
 
+    elif style == "lesson":
+        # DIRECT life/love LESSON — punchy quotable truth, NOT a vignette.
+        # Realness block is deliberately OMITTED: lessons are abstract truths,
+        # not concrete-object scenes.
+        lesson_openings = [p for p in _OPENING_PATTERNS if p["name"] in (
+            "direct_observation", "named_feeling", "quiet_contradiction",
+            "unanswerable_question",
+        )]
+        opening = random.choice(lesson_openings)
+        return f"""Write a 25-30 second DIRECT LIFE/LOVE LESSON for "Quietlyy" — a punchy, quotable TRUTH, not a story.{audience_block}{avoid_block}
+
+Topic: {topic}
+
+━━ WHAT THIS IS ━━
+Hard-won wisdom said plainly — the kind of truth everyone FEELS but nobody says
+out loud. Like a viral "truth quote" page, NOT soft poetry. Every line should be
+quotable on its own, and the whole thing builds to ONE line people screenshot
+and share.
+
+GOLD-STANDARD examples of the VIBE (match this DIRECTNESS — never copy the words):
+  • "When you have nothing, you find out who has nothing to do with you."
+  • "You will not always be a priority to the people you make your priority."
+  • "Some people only love you when loving you is easy."
+  • "Walking away is not weakness. Sometimes it's the strongest thing you do."
+  • "You don't lose real people. You just learn who was never real."
+  • "You teach people how to treat you by what you allow."
+
+━━ RHYTHM ━━
+Short, declarative, punchy. VARY line length (2-9 words), never the same twice in a row.
+Punctuation = breath: period = land the truth (long pause), comma = keep building.
+
+━━ RULES — follow exactly ━━
+- It is a DIRECT TRUTH, not a scene. NO porch lights, no mugs, no "you're sitting
+  alone" vignettes, no weather, no nature metaphors. Say the thing plainly.
+- Name what we all know but never admit. Make them feel SEEN — then a bit braver.
+- Build to ONE devastatingly true, screenshot-worthy FINAL line.
+- Motivating without being cheesy. Earned and honest, a little tough-love.
+- NO clichés: "everything happens for a reason", "stay strong", "good vibes",
+  "you got this", "trust the process".
+- NO famous-person attribution (that is the separate 'wisdom' style).
+- 9-13 lines. Opening: {opening['instruction']}
+- End the final line with a real "." — NEVER write the word "Period"/"Done".
+
+Also provide 4 visual keywords (solitary, atmospheric, cinematic — a lone figure in a vast landscape).
+
+Return ONLY valid JSON:
+{{"script": "line1\\nline2\\n...line9-13", "visual_keywords": ["kw1","kw2","kw3","kw4"]}}"""
+
     elif style == "wisdom":
         used_wisdom_quotes = _load_state().get("used_wisdom_quotes", [])
         banned_quotes_block = ""
@@ -559,26 +610,43 @@ def _call_openai_compatible(url, key, model, prompt):
 
 
 def _repair_json(text):
-    """Try to extract valid JSON from possibly malformed response."""
+    """Extract valid JSON from a possibly-malformed model response.
+
+    Handles the common Gemini failure modes: ```json fences and LITERAL
+    newlines inside the "script" string (invalid JSON). Falls back to pulling
+    the script + visual_keywords fields out directly via regex (tolerating
+    literal newlines), which is what actually saves the free Gemini calls."""
     import re
-    # Try direct parse
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError:
-        pass
-    # Find JSON object in text
-    match = re.search(r'\{[\s\S]*\}', text)
-    if match:
+    # Strip markdown code fences ```json ... ```
+    cleaned = re.sub(r"^\s*```(?:json)?\s*", "", text.strip())
+    cleaned = re.sub(r"\s*```\s*$", "", cleaned)
+
+    for candidate in (cleaned, text):
         try:
-            return json.loads(match.group())
+            return json.loads(candidate)
         except json.JSONDecodeError:
             pass
-    # Fix common issues: unescaped newlines in strings
-    fixed = text.replace('\n', '\\n')
-    try:
-        return json.loads(fixed)
-    except json.JSONDecodeError:
-        pass
+        m = re.search(r"\{[\s\S]*\}", candidate)
+        if m:
+            try:
+                return json.loads(m.group())
+            except json.JSONDecodeError:
+                pass
+
+    # Last resort: pull fields directly. [^"\\] matches across newlines, so this
+    # captures a "script" value even when the model used real line breaks.
+    sm = re.search(r'"script"\s*:\s*"((?:[^"\\]|\\.)*)"', cleaned, re.DOTALL)
+    if sm:
+        script = sm.group(1).replace("\r", "").replace("\n", "\\n")
+        # parse escapes (\n etc.) into real chars
+        try:
+            script = json.loads(f'"{script}"')
+        except json.JSONDecodeError:
+            script = sm.group(1)
+        kw = re.findall(r'"([^"]+)"', re.search(
+            r'"visual_keywords"\s*:\s*\[([^\]]*)\]', cleaned, re.DOTALL).group(1)
+        ) if re.search(r'"visual_keywords"\s*:\s*\[', cleaned) else []
+        return {"script": script, "visual_keywords": kw}
     return None
 
 

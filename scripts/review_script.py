@@ -297,6 +297,12 @@ IMPORTANT CONTEXT: Emotional content about love, loneliness, nostalgia, and hear
 A script about missing someone or letting go is NOT automatically rejected just because those topics are common.
 What matters is whether THIS script has a specific, honest, CONCRETE moment that feels earned.
 
+STYLE EXCEPTION — if style is "lesson" or "wisdom": this is a DIRECT, QUOTABLE TRUTH
+(a viral "truth quote"), NOT a concrete scene. Judge it on how TRUE, PUNCHY, and
+SHAREABLE the lesson is — abstract is EXPECTED and CORRECT here. Do NOT penalise
+REALNESS for lacking physical objects; score realness on whether it names a real,
+recognised truth. A great lesson screenshot-worthy line should score 8-10.
+
 Reject outright (set approved=false) if:
 - First line is a cliché opener: "There was a time", "In a world", "We all have", "Life is", "Some people", "Not everyone"
 - It's abstract from start to finish — generic nature/weather metaphors with NO concrete human moment or object the viewer would recognise from their own life (REALNESS <= 4)
@@ -457,9 +463,10 @@ def review_script(script_text, topic, style, examples):
     approved = ai_result.get("approved", score >= 6)
     reason = ai_result.get("reason", "")
 
-    # Realness floor — wisdom (quote-based) is exempt; everything else must feel
-    # like the viewer's real life, not abstract poetry.
-    if style != "wisdom" and realness < 6:
+    # Realness floor — 'wisdom' and 'lesson' are DIRECT-truth/quote styles that
+    # are abstract BY DESIGN, so they're exempt. Everything else must feel like
+    # the viewer's real life, not abstract poetry.
+    if style not in ("wisdom", "lesson") and realness < 6:
         print(f"[quality] REJECTED (realness {realness}/10 — too abstract) — {reason}")
         return False, f"Realness {realness}/10 (too abstract): {reason}", score
 
