@@ -419,8 +419,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780924135,
-    "uses": 1,
-    "last_used": 1780953161
+    "uses": 2,
+    "last_used": 1781762647
   },
   {
     "file": "74291ae6_0.png",
@@ -994,13 +994,31 @@
     "topic": "The Quiet Exit",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781718811
+    "timestamp": 1781718811,
+    "uses": 1,
+    "last_used": 1781762647
   },
   {
     "file": "59eacf72_1.png",
     "topic": "The Quiet Exit",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781718816
+    "timestamp": 1781718816,
+    "uses": 1,
+    "last_used": 1781762647
+  },
+  {
+    "file": "372535be_0.png",
+    "topic": "The Quiet Revolution of Self-Respect",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781762650
+  },
+  {
+    "file": "88376b7b_1.png",
+    "topic": "The Quiet Revolution of Self-Respect",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781762656
   }
 ]

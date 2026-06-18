@@ -1,13 +1,5 @@
 [
   {
-    "topic": "The Person Who Stayed",
-    "style": "emotional",
-    "script": "There's a weight that settles\nin the hollow\nof your chest\nslowly spreading\nthrough your veins\nlike a slow-moving fog\nSome people call it loyalty\nbut it's just the shape\nof the space you've held\nfor someone else\nnot emptiness\njust a presence that remains.\nsend this to them.",
-    "hash": "9ab265f21bd669b3f69fc42b080a0041",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "Why Suffering Transforms Us",
     "style": "poetic",
     "script": "Suffering transforms\nin darkness, \nsome people find strength. \nthe weight of it, \ncrushing, \nbut slowly shaping us, \ninto something new, \nthe hands that hold us \ndown, also lift us, \nand in the struggle, \nwe discover our depths. \nthe transformation is painful, \nbut it's what makes us.",
@@ -742,6 +734,22 @@
     ],
     "themes": [
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The Quiet Revolution of Self-Respect",
+    "style": "wisdom",
+    "script": "a japanese gardener whispered\nnot every root needs light\nsome grow strongest\nwhere the soil stays dark\ntrust the unseen work\nself-respect isn't a shout\nit's the quiet refusal\nto let others dig up your peace\nyou don't need their tools\nor their permission to thrive\nsome things grow best\nin the hush of your own hands",
+    "hash": "2724092aa1c41bc30f2b32b2fdfcbe59",
+    "metaphors": [
+      "garden",
+      "light",
+      "dark"
+    ],
+    "themes": [
+      "grief_loss",
+      "silence",
+      "growth"
     ]
   }
 ]
