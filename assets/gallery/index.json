@@ -428,8 +428,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1780953163,
-    "uses": 1,
-    "last_used": 1780981615
+    "uses": 2,
+    "last_used": 1781781356
   },
   {
     "file": "217595ed_1.png",
@@ -1012,13 +1012,31 @@
     "topic": "The Quiet Revolution of Self-Respect",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781762650
+    "timestamp": 1781762650,
+    "uses": 1,
+    "last_used": 1781781356
   },
   {
     "file": "88376b7b_1.png",
     "topic": "The Quiet Revolution of Self-Respect",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781762656
+    "timestamp": 1781762656,
+    "uses": 1,
+    "last_used": 1781781356
+  },
+  {
+    "file": "3d893a23_0.png",
+    "topic": "The Love That Was Only Convenient",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781781358
+  },
+  {
+    "file": "b96a2c1b_1.png",
+    "topic": "The Love That Was Only Convenient",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781781363
   }
 ]

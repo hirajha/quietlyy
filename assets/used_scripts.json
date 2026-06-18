@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Why Suffering Transforms Us",
-    "style": "poetic",
-    "script": "Suffering transforms\nin darkness, \nsome people find strength. \nthe weight of it, \ncrushing, \nbut slowly shaping us, \ninto something new, \nthe hands that hold us \ndown, also lift us, \nand in the struggle, \nwe discover our depths. \nthe transformation is painful, \nbut it's what makes us.",
-    "hash": "1f50d5575a524e17a25d4b55c87a484b",
-    "metaphors": [
-      "dark"
-    ],
-    "themes": [
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "The Safest Place I Know",
     "style": "emotional",
     "script": "There's a numbness that settles in\nslowly\nit seeps into my bones\nand spreads\nSome people call it comfort\nbut it's not\nit's the smell of old books\nThe hands that held me\nI won't let go\nnot even now\njust the memories\nSend this to them.",
@@ -750,6 +738,18 @@
       "grief_loss",
       "silence",
       "growth"
+    ]
+  },
+  {
+    "topic": "The Love That Was Only Convenient",
+    "style": "lesson",
+    "script": "Ease can be mistaken for attachment.\nWe confuse comfort for commitment.\nYou learn this when life gets hard.\nWhen your world shifts just slightly.\nAnd their world remains untouched.\nThe calls slow.\nThe plans vanish.\nSuddenly, you are inconvenient.\nTheir presence was a luxury.\nNever a foundation.",
+    "hash": "47631ad8dd1c68bdab3b115636b54258",
+    "metaphors": [
+      "light"
+    ],
+    "themes": [
+      "being_used"
     ]
   }
 ]
