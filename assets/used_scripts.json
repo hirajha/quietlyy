@@ -1,13 +1,5 @@
 [
   {
-    "topic": "The Safest Place I Know",
-    "style": "emotional",
-    "script": "There's a numbness that settles in\nslowly\nit seeps into my bones\nand spreads\nSome people call it comfort\nbut it's not\nit's the smell of old books\nThe hands that held me\nI won't let go\nnot even now\njust the memories\nSend this to them.",
-    "hash": "8a8f9810358be5d6a7866536f3baba42",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "How to Carry Loss Without Being Crushed",
     "style": "nostalgic",
     "script": "Grief settles\nin our bones\nwe just\nheavy as rocks\nstill trying to\nfind our footing\nSLOWLY we learn\nto carry the weight\nof what's been lost\nin the hollows\nof our memories\nwhere shadows\nlinger still.",
@@ -750,6 +742,18 @@
     ],
     "themes": [
       "being_used"
+    ]
+  },
+  {
+    "topic": "Grieving Someone Who Did Not Die",
+    "style": "nostalgic",
+    "script": "I keep your old voicemail\nsaved\nlike a secret\nno one else knows.\nThe way you laughed\nstill tangled in the wires,\nstatic humming your name.\nI press play\nwhen the house is too empty,\nbut the voice that answers\nisn\u2019t yours anymore.\nJust a ghost\nin the shape of hello.",
+    "hash": "e63b9d94af7fefb9f594ba838cae88c5",
+    "metaphors": [
+      "voicemail"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

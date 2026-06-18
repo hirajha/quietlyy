@@ -437,8 +437,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780953167,
-    "uses": 1,
-    "last_used": 1780981615
+    "uses": 2,
+    "last_used": 1781802554
   },
   {
     "file": "6f6a363c_0.png",
@@ -1030,13 +1030,31 @@
     "topic": "The Love That Was Only Convenient",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781781358
+    "timestamp": 1781781358,
+    "uses": 1,
+    "last_used": 1781802554
   },
   {
     "file": "b96a2c1b_1.png",
     "topic": "The Love That Was Only Convenient",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781781363
+    "timestamp": 1781781363,
+    "uses": 1,
+    "last_used": 1781802554
+  },
+  {
+    "file": "1a077665_0.png",
+    "topic": "Grieving Someone Who Did Not Die",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781802557
+  },
+  {
+    "file": "40a7a786_1.png",
+    "topic": "Grieving Someone Who Did Not Die",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781802561
   }
 ]
