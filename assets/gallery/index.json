@@ -464,8 +464,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781001512,
-    "uses": 1,
-    "last_used": 1781021976
+    "uses": 2,
+    "last_used": 1781889358
   },
   {
     "file": "1af2ea77_1.png",
@@ -1084,13 +1084,31 @@
     "topic": "When Someone Chooses You Every Day",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781868767
+    "timestamp": 1781868767,
+    "uses": 1,
+    "last_used": 1781889358
   },
   {
     "file": "b05858aa_1.png",
     "topic": "When Someone Chooses You Every Day",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781868771
+    "timestamp": 1781868771,
+    "uses": 1,
+    "last_used": 1781889358
+  },
+  {
+    "file": "b652e547_0.png",
+    "topic": "When Being Nice Made You A Target",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781889361
+  },
+  {
+    "file": "eedc693b_1.png",
+    "topic": "When Being Nice Made You A Target",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781889366
   }
 ]

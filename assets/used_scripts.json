@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Lying Awake Replaying Everything",
-    "style": "love",
-    "script": "I stopped counting the ceiling cracks at 3:17.\nThey branch like veins,\nquietly mapping the weight of everything unsaid.\nThe fan hums a lullaby for ghosts,\nand I trace your name in the condensation.\nIt drips.\nSlowly,\nthe way my thoughts dissolve into morning.\nI never meant to memorize the shape of your absence,\nbut the sheets still hold the echo of your turning.\nThe alarm won\u2019t save me.\nSend this to them.",
-    "hash": "32e00382524a98b5e99c7bb950f1b59d",
-    "metaphors": [
-      "echo",
-      "map"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When Grief Becomes a Teacher",
     "style": "nostalgic",
     "script": "Grief walked in\nuninvited\nsat at the table\nwith its sleeves rolled up.\nIT DIDN\u2019T SPEAK\njust stirred the air\nwith a spoon made of yesterday.\nThe room tilted\nwe held on to chairs\nthat weren\u2019t there.\nNOW THE LESSON\nis how to breathe\naround the shape of what\u2019s missing.",
@@ -755,5 +742,15 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "When Being Nice Made You A Target",
+    "style": "lesson",
+    "script": "You're not mean. Not intentionally.\nWe've all been there, trying to please.\nYou think being nice will save you.\nBut it just makes you a target.\nFor people who don't respect boundaries.\nFor those who take and take and take.\nYou teach people how to treat you.\nBy what you allow, by what you tolerate.\nBy being nice when you should be firm.\nYou become a lesson in self-respect: you don't always get it from others.",
+    "hash": "75b1a3306710901b3a5ab2167857dbd4",
+    "metaphors": [
+      "tea"
+    ],
+    "themes": []
   }
 ]

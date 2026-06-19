@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When Someone Chooses You Every Day"
+    "detail": "When Being Nice Made You A Target"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18082433804233303"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18087031460305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/wOm984hzVgI"
+    "detail": "https://www.youtube.com/shorts/W0dLrPRt7tE"
   }
 }
