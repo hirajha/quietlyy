@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Grieving Someone Who Did Not Die"
+    "detail": "When Just Being Near You Is Enough"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18086863643305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18115770179505531"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/LNwOZe4ChDc"
+    "detail": "https://www.youtube.com/shorts/QBGb67Zvag8"
   }
 }

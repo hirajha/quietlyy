@@ -1,18 +1,5 @@
 [
   {
-    "topic": "How to Carry Loss Without Being Crushed",
-    "style": "nostalgic",
-    "script": "Grief settles\nin our bones\nwe just\nheavy as rocks\nstill trying to\nfind our footing\nSLOWLY we learn\nto carry the weight\nof what's been lost\nin the hollows\nof our memories\nwhere shadows\nlinger still.",
-    "hash": "6e8425b2bb265de5653107b85f44508c",
-    "metaphors": [
-      "shadow"
-    ],
-    "themes": [
-      "silence",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "When You Love Someone Who Is Leaving",
     "style": "nostalgic",
     "script": "memories of you linger\nwe just\nfading like sunlight\non my skin so warm\nSOMETHING IS SHIFTING\ninside me still\nwe were invincible\nSTILL I HOLD ON\nto the thought of you\nin the emptiness\ni am searching\nfor a ghost of our laughter",
@@ -754,6 +741,18 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "When Just Being Near You Is Enough",
+    "style": "love",
+    "script": "You don\u2019t need words. Not here.\nThe air hums low between us,\nlike a radio left on in another room.\nI count the freckles on your shoulder,\neach one a tiny constellation I\u2019ve memorized.\nSometimes,\nyour breath syncs with mine\nwithout either of us trying.\nIt\u2019s not magic.\nJust physics.\nThe way gravity pulls without asking.\nI could stay like this forever.\nsend this to them.",
+    "hash": "f992fc9c4369c9004c0ebce8b79dc6cb",
+    "metaphors": [
+      "radio"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]

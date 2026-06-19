@@ -446,8 +446,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1780981617,
-    "uses": 1,
-    "last_used": 1781001510
+    "uses": 2,
+    "last_used": 1781850217
   },
   {
     "file": "c053c51b_1.png",
@@ -1048,13 +1048,31 @@
     "topic": "Grieving Someone Who Did Not Die",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781802557
+    "timestamp": 1781802557,
+    "uses": 1,
+    "last_used": 1781850217
   },
   {
     "file": "40a7a786_1.png",
     "topic": "Grieving Someone Who Did Not Die",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781802561
+    "timestamp": 1781802561,
+    "uses": 1,
+    "last_used": 1781850217
+  },
+  {
+    "file": "4ac08c88_0.png",
+    "topic": "When Just Being Near You Is Enough",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781850220
+  },
+  {
+    "file": "07a4c1ef_1.png",
+    "topic": "When Just Being Near You Is Enough",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781850225
   }
 ]
