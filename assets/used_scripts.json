@@ -1,18 +1,5 @@
 [
   {
-    "topic": "When You Love Someone Who Is Leaving",
-    "style": "nostalgic",
-    "script": "memories of you linger\nwe just\nfading like sunlight\non my skin so warm\nSOMETHING IS SHIFTING\ninside me still\nwe were invincible\nSTILL I HOLD ON\nto the thought of you\nin the emptiness\ni am searching\nfor a ghost of our laughter",
-    "hash": "f55670adfc3cc526f403d2e5504277ad",
-    "metaphors": [
-      "light",
-      "sun"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Lying Awake Replaying Everything",
     "style": "love",
     "script": "I stopped counting the ceiling cracks at 3:17.\nThey branch like veins,\nquietly mapping the weight of everything unsaid.\nThe fan hums a lullaby for ghosts,\nand I trace your name in the condensation.\nIt drips.\nSlowly,\nthe way my thoughts dissolve into morning.\nI never meant to memorize the shape of your absence,\nbut the sheets still hold the echo of your turning.\nThe alarm won\u2019t save me.\nSend this to them.",
@@ -753,6 +740,20 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "When Someone Chooses You Every Day",
+    "style": "emotional",
+    "script": "Choosing is louder than saying yes once.\nThe morning light still lands,\njust on your side of the bed.\nNot grand gestures,\njust the way you reach,\nwhen the coffee\u2019s too hot.\nSome decisions aren\u2019t spoken,\nthey\u2019re the quiet weight of a hand,\nresting where yours has always been.\nAnd the world keeps asking why,\nbut the answer\u2019s in the way,\nyou turn the key,\nevery single day.",
+    "hash": "6d6c43691b04cf2219727dfd7d6365c1",
+    "metaphors": [
+      "light",
+      "coffee",
+      "bed"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

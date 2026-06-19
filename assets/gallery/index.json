@@ -455,8 +455,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1780981621,
-    "uses": 1,
-    "last_used": 1781001510
+    "uses": 2,
+    "last_used": 1781868765
   },
   {
     "file": "581d80fa_0.png",
@@ -1066,13 +1066,31 @@
     "topic": "When Just Being Near You Is Enough",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781850220
+    "timestamp": 1781850220,
+    "uses": 1,
+    "last_used": 1781868765
   },
   {
     "file": "07a4c1ef_1.png",
     "topic": "When Just Being Near You Is Enough",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781850225
+    "timestamp": 1781850225,
+    "uses": 1,
+    "last_used": 1781868765
+  },
+  {
+    "file": "f0e46327_0.png",
+    "topic": "When Someone Chooses You Every Day",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781868767
+  },
+  {
+    "file": "b05858aa_1.png",
+    "topic": "When Someone Chooses You Every Day",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781868771
   }
 ]
