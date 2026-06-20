@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Strength In Walking Away"
+    "detail": "The Way You Look at Me"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18059463227721470"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18087185078305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/9Q4A5YorBTQ"
+    "detail": "https://www.youtube.com/shorts/YDUZzymD_Q8"
   }
 }

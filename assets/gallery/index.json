@@ -491,8 +491,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781021982,
-    "uses": 1,
-    "last_used": 1781042853
+    "uses": 2,
+    "last_used": 1781972378
   },
   {
     "file": "aec6ceaa_0.png",
@@ -1138,13 +1138,31 @@
     "topic": "The Strength In Walking Away",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781952668
+    "timestamp": 1781952668,
+    "uses": 1,
+    "last_used": 1781972378
   },
   {
     "file": "4d784ca2_1.png",
     "topic": "The Strength In Walking Away",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781952672
+    "timestamp": 1781952672,
+    "uses": 1,
+    "last_used": 1781972378
+  },
+  {
+    "file": "18936831_0.png",
+    "topic": "The Way You Look at Me",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781972380
+  },
+  {
+    "file": "49fbef1d_1.png",
+    "topic": "The Way You Look at Me",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781972385
   }
 ]
