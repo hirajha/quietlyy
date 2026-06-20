@@ -1,15 +1,5 @@
 [
   {
-    "topic": "When Grief Becomes a Teacher",
-    "style": "nostalgic",
-    "script": "Grief walked in\nuninvited\nsat at the table\nwith its sleeves rolled up.\nIT DIDN\u2019T SPEAK\njust stirred the air\nwith a spoon made of yesterday.\nThe room tilted\nwe held on to chairs\nthat weren\u2019t there.\nNOW THE LESSON\nis how to breathe\naround the shape of what\u2019s missing.",
-    "hash": "70865275198dfd2227f5a8e89b6e67da",
-    "metaphors": [],
-    "themes": [
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Texts You Never Send",
     "style": "poetic",
     "script": "The drafts folder,\na graveyard of almosts,\nwhere words grow teeth,\nbut never bite.\nThey curl like smoke,\nfrom a cigarette you never light,\njust let it burn,\nash falling,\non the screen you darken.\nSome nights,\nyou trace the letters,\nlike constellations,\nthat only you can see.\nThey glow,\nthen fade,\ninto the blue light,\nof what could\u2019ve been.",
@@ -752,5 +742,20 @@
       "tea"
     ],
     "themes": []
+  },
+  {
+    "topic": "The Strength in Stillness",
+    "style": "nostalgic",
+    "script": "You held the door for the storm\nand it\nstayed.\nBare feet on wet wood\ncounting the seconds between thunder\nuntil the house learned to breathe again.\nWE WERE NEVER AFRAID\nwe were just\nwaiting\nfor the right kind of quiet\nto teach us how to stand\ninside the weight of it\nwithout breaking.",
+    "hash": "a67c03bf759752f397c69669d6e76341",
+    "metaphors": [
+      "storm",
+      "tea",
+      "door"
+    ],
+    "themes": [
+      "silence",
+      "growth"
+    ]
   }
 ]
