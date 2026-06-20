@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Meaning We Choose to Find",
-    "style": "emotional",
-    "script": "You're tracing circles on the fogged-up window.\nThe cold seeps in,\nbut you keep drawing,\nnot shapes,\njust loops,\nlike the mind does when it's tired of answers.\nSome meanings aren't found,\nthey're carved into the glass,\nslowly,\nwith a fingertip,\nand when the sun hits,\nthey glow for a second.\nLet them see it.",
-    "hash": "98015a98331ae7f4cb4aafcb8fdb55bd",
-    "metaphors": [
-      "wind",
-      "window",
-      "sun"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Loving You Quietly",
     "style": "emotional",
     "script": "There's a numbness that follows kindness\nI give\nand slowly forget the cost\nof being there for someone\nSome people need you\nbut not in the way they say\nI won't be the one to remind them\njust a gentle presence\nnot a hero\nbut a ghost in their life\nsend this to them.",
@@ -755,6 +743,20 @@
     "themes": [
       "nostalgia",
       "self_worth"
+    ]
+  },
+  {
+    "topic": "Lying Awake Replaying Everything",
+    "style": "emotional",
+    "script": "The night replays like a stuck record.\nNeedle skips,\nbut the song never changes.\nEvery word,\nevery pause,\ncarved deeper into the vinyl.\nSome grooves you can\u2019t smooth out,\njust learn to live inside.\nThe static hums,\nand I wonder\nif anyone else hears it.\nThe silence isn\u2019t empty.\nIt\u2019s full of echoes.\nSend this to them.",
+    "hash": "61b5587072d4e4109c77e68acc11125f",
+    "metaphors": [
+      "echo",
+      "silence",
+      "song"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

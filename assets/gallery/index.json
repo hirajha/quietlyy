@@ -500,8 +500,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781042855,
-    "uses": 1,
-    "last_used": 1781068780
+    "uses": 2,
+    "last_used": 1781992404
   },
   {
     "file": "268f840d_0.png",
@@ -1156,13 +1156,31 @@
     "topic": "The Way You Look at Me",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781972380
+    "timestamp": 1781972380,
+    "uses": 1,
+    "last_used": 1781992404
   },
   {
     "file": "49fbef1d_1.png",
     "topic": "The Way You Look at Me",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781972385
+    "timestamp": 1781972385,
+    "uses": 1,
+    "last_used": 1781992404
+  },
+  {
+    "file": "aad605a2_0.png",
+    "topic": "Lying Awake Replaying Everything",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781992406
+  },
+  {
+    "file": "ea375dda_1.png",
+    "topic": "Lying Awake Replaying Everything",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781992411
   }
 ]
