@@ -482,8 +482,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781021978,
-    "uses": 1,
-    "last_used": 1781042853
+    "uses": 2,
+    "last_used": 1781952666
   },
   {
     "file": "309340bd_1.png",
@@ -1120,13 +1120,31 @@
     "topic": "The Strength in Stillness",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781932790
+    "timestamp": 1781932790,
+    "uses": 1,
+    "last_used": 1781952666
   },
   {
     "file": "6300b335_1.png",
     "topic": "The Strength in Stillness",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781932794
+    "timestamp": 1781932794,
+    "uses": 1,
+    "last_used": 1781952666
+  },
+  {
+    "file": "cda75560_0.png",
+    "topic": "The Strength In Walking Away",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1781952668
+  },
+  {
+    "file": "4d784ca2_1.png",
+    "topic": "The Strength In Walking Away",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1781952672
   }
 ]

@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Texts You Never Send",
-    "style": "poetic",
-    "script": "The drafts folder,\na graveyard of almosts,\nwhere words grow teeth,\nbut never bite.\nThey curl like smoke,\nfrom a cigarette you never light,\njust let it burn,\nash falling,\non the screen you darken.\nSome nights,\nyou trace the letters,\nlike constellations,\nthat only you can see.\nThey glow,\nthen fade,\ninto the blue light,\nof what could\u2019ve been.",
-    "hash": "e15df62bbaf6fd252f631e22a11421c4",
-    "metaphors": [
-      "dark",
-      "letter",
-      "light"
-    ],
-    "themes": [
-      "growth"
-    ]
-  },
-  {
     "topic": "Loving in Silence",
     "style": "love",
     "script": "It doesn't feel empty. Not exactly.\nSlowly\nmemories of you linger\nin the corners of my mind\nFamiliar scents\nAND GENTLE HUSH\nof a summer breeze\nbut whispers of your name\nsoftly echo\nthrough my days\nIN THE STILLNESS\nI find a strange solace\nsend this to Quietlyy.",
@@ -756,6 +742,20 @@
     "themes": [
       "silence",
       "growth"
+    ]
+  },
+  {
+    "topic": "The Strength In Walking Away",
+    "style": "lesson",
+    "script": "What do you call it when you're still holding on?\nTo the hope that things will change.\nBut they never do.\nYou're just waiting for the inevitable.\nFor the pain to become too much.\nTo realize you deserve better.\nThan to be treated like an option.\nNot a priority.\nWalking away is not weakness.\nIt's the strongest thing you can do.",
+    "hash": "5a7988441baeb75a685228277a411274",
+    "metaphors": [
+      "table"
+    ],
+    "themes": [
+      "self_worth",
+      "heartbreak",
+      "silence"
     ]
   }
 ]
