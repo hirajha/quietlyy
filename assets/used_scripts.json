@@ -1,15 +1,5 @@
 [
   {
-    "topic": "Loving the Wrong People",
-    "style": "emotional",
-    "script": "4:17 a.m. The kettle hums,\nstill warm from last night\u2019s tea.\nYou trace the cracks in the ceiling,\ncounting,\nnot sheep,\nbut the ways they promised,\nthe way promises dissolve like sugar.\nSome people don\u2019t keep you,\nthey keep the version of you,\nthe one that fits in their pockets,\nquietly,\nwithout the weight of your real name.\nThe kettle clicks off.\nYou pour.",
-    "hash": "203de52ffd093b046156d55093052796",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What Silence Teaches Us",
     "style": "poetic",
     "script": "The river knows how to bend,\nwithout asking permission.\nIt carves its own name\nin the softest stone,\njust by showing up,\nevery single day.\nSome mornings,\nit forgets to whisper,\nand that\u2019s when the earth listens hardest.\nThe trees lean in,\nnot to hear,\nbut to remember.",
@@ -760,6 +750,21 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Version of You That Did Not Make It",
+    "style": "love",
+    "script": "I carry it everywhere.\nA pocket-sized constellation,\nwrapped in receipts and lint.\nNo one sees the way it glows,\nsoft as a streetlamp through fog.\nYou left it behind,\nthat version of you,\nthe one who laughed at bad jokes.\nI press it to my ear sometimes,\nbut the static just hums your name.\nMaybe it\u2019s not a star after all.\nMaybe it\u2019s a door,\nleft slightly ajar.",
+    "hash": "852c9eb40f349cc47132e447d583cd79",
+    "metaphors": [
+      "star",
+      "door",
+      "light",
+      "tree"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]

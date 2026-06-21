@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Strength in Stillness",
-    "How to Carry Loss Without Being Crushed",
     "The Difference Between Living and Existing",
     "Why the Wound Is the Gift",
     "What Silence Teaches Us",
@@ -65,11 +63,13 @@
     "The Art of Letting Go",
     "The Quiet Revolution of Self-Respect",
     "Learning to Belong to Yourself",
-    "What Truly Matters in the End"
+    "What Truly Matters in the End",
+    "Finding Peace Within Yourself",
+    "Loving Without Losing Yourself"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -118,7 +118,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_151550_7dfb17.mp3",
@@ -137,7 +136,8 @@
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
-    "2026-06-05_153734_d4c320.mp3"
+    "2026-06-05_153734_d4c320.mp3",
+    "2026-06-05_153640_3f0c91.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -146,13 +146,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "What You Learned After Being Broken",
-    "When You Stop Chasing People",
-    "The People Who Disappear When It's Hard",
-    "Learning To Be Enough On Your Own",
-    "When You Finally Stopped Settling",
-    "When Being Nice Made You A Target",
-    "What Healing Actually Looks Like",
     "The People Who Leave When You Need Them Most",
     "Why You Stopped Waiting For An Apology",
     "Why You Stopped Explaining Yourself",
@@ -165,6 +158,13 @@
     "Why Silence Became Your Answer",
     "The Strength In Walking Away",
     "The Quiet Power Of Letting Go",
-    "When You Have Nothing Left"
+    "When You Have Nothing Left",
+    "Outgrowing People You Love",
+    "Loving Someone Who Wouldn't Stay",
+    "The Day You Chose Yourself",
+    "When You Stop Chasing People",
+    "The Cost Of Always Being Available",
+    "When You Finally Stopped Settling",
+    "What You Learned After Being Broken"
   ]
 }
