@@ -509,8 +509,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781068782,
-    "uses": 1,
-    "last_used": 1781089235
+    "uses": 2,
+    "last_used": 1782021817
   },
   {
     "file": "a35acaef_1.png",
@@ -1174,13 +1174,31 @@
     "topic": "Lying Awake Replaying Everything",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1781992406
+    "timestamp": 1781992406,
+    "uses": 1,
+    "last_used": 1782021817
   },
   {
     "file": "ea375dda_1.png",
     "topic": "Lying Awake Replaying Everything",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1781992411
+    "timestamp": 1781992411,
+    "uses": 1,
+    "last_used": 1782021817
+  },
+  {
+    "file": "a07d5f33_0.png",
+    "topic": "The Quiet Revolution of Self-Respect",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782021820
+  },
+  {
+    "file": "85f880ed_1.png",
+    "topic": "The Quiet Revolution of Self-Respect",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782021824
   }
 ]

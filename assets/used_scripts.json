@@ -1,13 +1,5 @@
 [
   {
-    "topic": "Loving You Quietly",
-    "style": "emotional",
-    "script": "There's a numbness that follows kindness\nI give\nand slowly forget the cost\nof being there for someone\nSome people need you\nbut not in the way they say\nI won't be the one to remind them\njust a gentle presence\nnot a hero\nbut a ghost in their life\nsend this to them.",
-    "hash": "81cb55077347eac336aeebd759b9691a",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "What You Cannot Change and What You Can",
     "style": "poetic",
     "script": "The tide doesn\u2019t ask permission.\nIt pulls,\nthen returns,\nleaving shells in its wake,\nunbroken,\nbut rearranged.\nYou can\u2019t stop the moon,\nonly learn to float.\nSome days,\nthe current wins,\nothers,\nyou ride it home.",
@@ -755,6 +747,16 @@
       "silence",
       "song"
     ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Quiet Revolution of Self-Respect",
+    "style": "wisdom",
+    "script": "Lao Tzu wrote\nwe are like the bamboo\nswaying gently\nin the summer breeze,\nour strength comes\nfrom our ability to yield.\nwe often forget\nthis simple truth,\nand try to force our way,\nthrough life's obstacles.\nbut it's in the quiet moments,\nwe find our true resilience,\nand the courage to let go.",
+    "hash": "5f9d4e1a5567098da05fdf3b64ecb617",
+    "metaphors": [],
     "themes": [
       "silence"
     ]
