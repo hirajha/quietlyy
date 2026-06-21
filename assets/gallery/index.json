@@ -518,8 +518,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781068786,
-    "uses": 1,
-    "last_used": 1781089235
+    "uses": 2,
+    "last_used": 1782041805
   },
   {
     "file": "11f6bff6_0.png",
@@ -1192,13 +1192,31 @@
     "topic": "The Quiet Revolution of Self-Respect",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782021820
+    "timestamp": 1782021820,
+    "uses": 1,
+    "last_used": 1782041805
   },
   {
     "file": "85f880ed_1.png",
     "topic": "The Quiet Revolution of Self-Respect",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782021824
+    "timestamp": 1782021824,
+    "uses": 1,
+    "last_used": 1782041805
+  },
+  {
+    "file": "73919d25_0.png",
+    "topic": "The Text You Read But Did Not Reply To",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782041807
+  },
+  {
+    "file": "9705424c_1.png",
+    "topic": "The Text You Read But Did Not Reply To",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782041812
   }
 ]

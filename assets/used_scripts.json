@@ -1,19 +1,5 @@
 [
   {
-    "topic": "What You Cannot Change and What You Can",
-    "style": "poetic",
-    "script": "The tide doesn\u2019t ask permission.\nIt pulls,\nthen returns,\nleaving shells in its wake,\nunbroken,\nbut rearranged.\nYou can\u2019t stop the moon,\nonly learn to float.\nSome days,\nthe current wins,\nothers,\nyou ride it home.",
-    "hash": "5a8a22607f657eda9e93912c4cf0785b",
-    "metaphors": [
-      "tide",
-      "moon"
-    ],
-    "themes": [
-      "grief_loss",
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "Loving the Wrong People",
     "style": "emotional",
     "script": "4:17 a.m. The kettle hums,\nstill warm from last night\u2019s tea.\nYou trace the cracks in the ceiling,\ncounting,\nnot sheep,\nbut the ways they promised,\nthe way promises dissolve like sugar.\nSome people don\u2019t keep you,\nthey keep the version of you,\nthe one that fits in their pockets,\nquietly,\nwithout the weight of your real name.\nThe kettle clicks off.\nYou pour.",
@@ -757,6 +743,21 @@
     "script": "Lao Tzu wrote\nwe are like the bamboo\nswaying gently\nin the summer breeze,\nour strength comes\nfrom our ability to yield.\nwe often forget\nthis simple truth,\nand try to force our way,\nthrough life's obstacles.\nbut it's in the quiet moments,\nwe find our true resilience,\nand the courage to let go.",
     "hash": "5f9d4e1a5567098da05fdf3b64ecb617",
     "metaphors": [],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Text You Read But Did Not Reply To",
+    "style": "love",
+    "script": "There's a quiet like the space between raindrops,\nstill holding the shape of what fell.\nThe screen glows,\nletters sharp as thorns you can't unsee.\nYour fingers hover,\nbut the cursor blinks like a held breath.\nIt's not hesitation,\njust the weight of words already spoken in silence.\nThe message stays,\nsoft as a footprint in new snow.\nYou trace the edges,\nbut never press send.\nThere's no reply,\nonly the echo of your own name.",
+    "hash": "fac9ce77f8aee3528210ab0c28ee1509",
+    "metaphors": [
+      "silence",
+      "echo",
+      "letter",
+      "rain"
+    ],
     "themes": [
       "silence"
     ]
