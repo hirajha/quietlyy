@@ -1,19 +1,5 @@
 [
   {
-    "topic": "More Than My Favorite Person",
-    "style": "emotional",
-    "script": "I stopped counting the miles between us,\nbut the compass still spins,\nnot lost,\njust waiting for the needle to settle,\nSome roads don\u2019t lead home,\nthey lead to the version of you I keep alive,\nThe suitcase under my bed,\nhalf-packed,\nnot with clothes,\nbut with all the things I meant to say,\nI won\u2019t unpack it,\nnot yet,\nYou\u2019re more than my favorite person,\nyou\u2019re the place I return to in my head.",
-    "hash": "6f90f98dc144a3f041f7ab77c232d9ac",
-    "metaphors": [
-      "compass",
-      "road"
-    ],
-    "themes": [
-      "grief_loss",
-      "silence"
-    ]
-  },
-  {
     "topic": "Being Strong for Everyone While Breaking Inside",
     "style": "nostalgic",
     "script": "THEY SEE the steel in your spine\nbend\njust enough to fool them.\nYou laugh\nwhile the cracks hum,\nold hymns no one else hears.\nYOU CARRY their groceries,\nbandage scraped knees,\nanswer every late call.\nThe weight\nsettles like dust\non your ribs.\nNo one notices\nyou\u2019re holding your breath.",
@@ -767,5 +753,13 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Strength In Walking Away",
+    "style": "lesson",
+    "script": "Some bonds are meant to break. \n   Fragile things. \n   They shatter, \n   leaving sharp edges. \n   People don't always notice, \n   but the fissures are there, \n   spreading, \n   a slow unraveling. \n   The strongest thing you can do \n   is acknowledge the fracture. \n   Walking away is not weakness. \n   It's the brave thing to do.",
+    "hash": "3923267667d2f0e4e6dad1cea83e938c",
+    "metaphors": [],
+    "themes": []
   }
 ]

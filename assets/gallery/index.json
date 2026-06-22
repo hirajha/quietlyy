@@ -554,8 +554,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781110216,
-    "uses": 1,
-    "last_used": 1781130597
+    "uses": 2,
+    "last_used": 1782154035
   },
   {
     "file": "ea59cbcb_0.png",
@@ -1264,13 +1264,31 @@
     "topic": "When Love Was Not Enough",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782133251
+    "timestamp": 1782133251,
+    "uses": 1,
+    "last_used": 1782154035
   },
   {
     "file": "fa62d06d_1.png",
     "topic": "When Love Was Not Enough",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782133256
+    "timestamp": 1782133256,
+    "uses": 1,
+    "last_used": 1782154035
+  },
+  {
+    "file": "c01c4186_0.png",
+    "topic": "The Strength In Walking Away",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782154037
+  },
+  {
+    "file": "74d36293_1.png",
+    "topic": "The Strength In Walking Away",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782154042
   }
 ]

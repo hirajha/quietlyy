@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When Love Was Not Enough"
+    "detail": "The Strength In Walking Away"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18082635050191483"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18087531593305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/unGp6hTJmIM"
+    "detail": "https://www.youtube.com/shorts/seT-8FeRdsE"
   }
 }
