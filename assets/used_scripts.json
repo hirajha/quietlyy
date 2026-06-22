@@ -1,18 +1,5 @@
 [
   {
-    "topic": "What Silence Teaches Us",
-    "style": "poetic",
-    "script": "The river knows how to bend,\nwithout asking permission.\nIt carves its own name\nin the softest stone,\njust by showing up,\nevery single day.\nSome mornings,\nit forgets to whisper,\nand that\u2019s when the earth listens hardest.\nThe trees lean in,\nnot to hear,\nbut to remember.",
-    "hash": "6fb66652005420ae19bc63719d8fc317",
-    "metaphors": [
-      "tree"
-    ],
-    "themes": [
-      "nostalgia",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "What Real Love Feels Like",
     "style": "poetic",
     "script": "It\u2019s not the way they hold your name,\nlike it\u2019s breakable,\nbut the way they say it,\nwhen they think you\u2019re not listening.\nSome people build walls,\nothers build doorways,\nquietly leaving them open.\nThe hands that reach,\nnot to pull you closer,\nbut to steady the ground beneath you,\nso you can stand on your own.\nThat\u2019s the weight,\nthat doesn\u2019t crush you.",
@@ -765,6 +752,18 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The Gift of Impermanence",
+    "style": "wisdom",
+    "script": "Buddha said\nit's the impermanence\nthat makes it precious, a fleeting\nmoment of beauty, a whisper\nof what could have been. \nand i think about all\nthe moments i didn't know\nwere my last, the ones\ni took for granted. \nthe laughter, the tears,\nthe memories that now\nfeel like a distant\nhum of a forgotten melody. \nand in the stillness\ni find a sense of peace",
+    "hash": "676e8b093c5e20c9d05d74df38958547",
+    "metaphors": [
+      "tea"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Difference Between Living and Existing",
-    "Why the Wound Is the Gift",
     "What Silence Teaches Us",
     "The Beauty of an Unfinished Life",
     "The Freedom of Acceptance",
@@ -65,11 +63,13 @@
     "Learning to Belong to Yourself",
     "What Truly Matters in the End",
     "Finding Peace Within Yourself",
-    "Loving Without Losing Yourself"
+    "Loving Without Losing Yourself",
+    "The Gift of Impermanence",
+    "The Difference Between Living and Existing"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 2,
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -114,11 +114,11 @@
     "in the quiet moments you find your strength,",
     "the greatest wealth is to live content",
     "not every root needs light some grow strongest",
-    "we are like the bamboo swaying gently"
+    "we are like the bamboo swaying gently",
+    "it's the impermanence that makes it precious, a fleeting"
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153839_5a1856.mp3",
@@ -137,7 +137,8 @@
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153734_d4c320.mp3",
-    "2026-06-05_153640_3f0c91.mp3"
+    "2026-06-05_153640_3f0c91.mp3",
+    "2026-06-05_153627_53fd51.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -146,13 +147,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The People Who Leave When You Need Them Most",
-    "Why You Stopped Waiting For An Apology",
-    "Why You Stopped Explaining Yourself",
-    "The Love That Was Only Convenient",
-    "What Pain Quietly Teaches You",
-    "Being Too Kind In A Cruel World",
-    "The Friends Who Only Stayed For The Good Days",
     "When People Show You Who They Are",
     "The Truth About Being The Strong One",
     "Why Silence Became Your Answer",
@@ -165,6 +159,13 @@
     "When You Stop Chasing People",
     "The Cost Of Always Being Available",
     "When You Finally Stopped Settling",
-    "What You Learned After Being Broken"
+    "What You Learned After Being Broken",
+    "What You Owe Yourself",
+    "What Loneliness Actually Teaches You",
+    "What Healing Actually Looks Like",
+    "When Being Nice Made You A Target",
+    "Why Closure Never Comes",
+    "Why You Stopped Explaining Yourself",
+    "The People Who Disappear When It's Hard"
   ]
 }
