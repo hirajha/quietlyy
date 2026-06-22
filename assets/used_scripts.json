@@ -1,18 +1,5 @@
 [
   {
-    "topic": "What Real Love Feels Like",
-    "style": "poetic",
-    "script": "It\u2019s not the way they hold your name,\nlike it\u2019s breakable,\nbut the way they say it,\nwhen they think you\u2019re not listening.\nSome people build walls,\nothers build doorways,\nquietly leaving them open.\nThe hands that reach,\nnot to pull you closer,\nbut to steady the ground beneath you,\nso you can stand on your own.\nThat\u2019s the weight,\nthat doesn\u2019t crush you.",
-    "hash": "6fad2f7ae9e80a26482079e00ba52dca",
-    "metaphors": [
-      "door",
-      "wall"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "More Than My Favorite Person",
     "style": "emotional",
     "script": "I stopped counting the miles between us,\nbut the compass still spins,\nnot lost,\njust waiting for the needle to settle,\nSome roads don\u2019t lead home,\nthey lead to the version of you I keep alive,\nThe suitcase under my bed,\nhalf-packed,\nnot with clothes,\nbut with all the things I meant to say,\nI won\u2019t unpack it,\nnot yet,\nYou\u2019re more than my favorite person,\nyou\u2019re the place I return to in my head.",
@@ -761,6 +748,21 @@
     "hash": "676e8b093c5e20c9d05d74df38958547",
     "metaphors": [
       "tea"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "When Love Was Not Enough",
+    "style": "nostalgic",
+    "script": "YOU KEPT THE LIGHTS ON\nall night\nso the dark wouldn\u2019t notice\nwe were failing.\n\nI traced your veins\nlike subway lines\nto places we\u2019d never go again.\n\nThe couch still holds\nour old shape\nlike a photograph\nyou can sit inside.\n\nWe ran out of words\nbefore we ran out of time\nand that\u2019s the part\nno one warns you about.",
+    "hash": "dbfbb1b77370eb9d1dec226d9ba7a5f3",
+    "metaphors": [
+      "photo",
+      "dark",
+      "light",
+      "couch"
     ],
     "themes": [
       "silence"

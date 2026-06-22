@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "What Silence Teaches Us",
-    "The Beauty of an Unfinished Life",
     "The Freedom of Acceptance",
     "The Courage to Begin Again",
     "Why Peace Is Not the Absence of Storm",
@@ -65,11 +63,13 @@
     "Finding Peace Within Yourself",
     "Loving Without Losing Yourself",
     "The Gift of Impermanence",
-    "The Difference Between Living and Existing"
+    "The Difference Between Living and Existing",
+    "How to Carry Loss Without Being Crushed",
+    "Why the Wound Is the Gift"
   ],
-  "last_style": "lesson",
+  "last_style": "wisdom",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -119,7 +119,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153606_63f17d.mp3",
@@ -138,7 +137,8 @@
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153640_3f0c91.mp3",
-    "2026-06-05_153627_53fd51.mp3"
+    "2026-06-05_153627_53fd51.mp3",
+    "2026-06-05_153827_d3f4f7.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -147,13 +147,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "When People Show You Who They Are",
-    "The Truth About Being The Strong One",
-    "Why Silence Became Your Answer",
-    "The Strength In Walking Away",
-    "The Quiet Power Of Letting Go",
-    "When You Have Nothing Left",
-    "Outgrowing People You Love",
     "Loving Someone Who Wouldn't Stay",
     "The Day You Chose Yourself",
     "When You Stop Chasing People",
@@ -166,6 +159,13 @@
     "When Being Nice Made You A Target",
     "Why Closure Never Comes",
     "Why You Stopped Explaining Yourself",
-    "The People Who Disappear When It's Hard"
+    "The People Who Disappear When It's Hard",
+    "What Rock Bottom Taught You",
+    "The Love That Was Only Convenient",
+    "The People Who Leave When You Need Them Most",
+    "Why Silence Became Your Answer",
+    "Why You Don't Beg To Be Loved",
+    "The Friends Who Only Stayed For The Good Days",
+    "Why You Stopped Waiting For An Apology"
   ]
 }
