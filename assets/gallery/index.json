@@ -563,8 +563,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781130600,
-    "uses": 1,
-    "last_used": 1781155944
+    "uses": 2,
+    "last_used": 1782191052
   },
   {
     "file": "a7176fb7_1.png",
@@ -1282,13 +1282,31 @@
     "topic": "The Strength In Walking Away",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782154037
+    "timestamp": 1782154037,
+    "uses": 1,
+    "last_used": 1782191052
   },
   {
     "file": "74d36293_1.png",
     "topic": "The Strength In Walking Away",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782154042
+    "timestamp": 1782154042,
+    "uses": 1,
+    "last_used": 1782191052
+  },
+  {
+    "file": "d9e1b1c5_0.png",
+    "topic": "Learning to Trust the Journey",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782191054
+  },
+  {
+    "file": "f311e73b_1.png",
+    "topic": "Learning to Trust the Journey",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782191059
   }
 ]

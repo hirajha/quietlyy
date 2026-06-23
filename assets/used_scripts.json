@@ -1,15 +1,5 @@
 [
   {
-    "topic": "Being Strong for Everyone While Breaking Inside",
-    "style": "nostalgic",
-    "script": "THEY SEE the steel in your spine\nbend\njust enough to fool them.\nYou laugh\nwhile the cracks hum,\nold hymns no one else hears.\nYOU CARRY their groceries,\nbandage scraped knees,\nanswer every late call.\nThe weight\nsettles like dust\non your ribs.\nNo one notices\nyou\u2019re holding your breath.",
-    "hash": "6aac2303c9c8feed7f5ccdc1536562e4",
-    "metaphors": [],
-    "themes": [
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The Strength in Stillness",
     "style": "love",
     "script": "I stopped counting the cracks in the ceiling.\nEvery night they stretch,\nlike roots testing the dark.\nI never told you how steady the plaster feels,\ncool and unshaken,\nwhile the world above it shouts.\nThe house breathes,\nits ribs creaking in the wind,\nbut the cracks stay quiet.\nThey know something about holding,\nabout waiting without breaking.\nI press my palm there,\nsend this to them.",
@@ -761,5 +751,20 @@
     "hash": "3923267667d2f0e4e6dad1cea83e938c",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "Learning to Trust the Journey",
+    "style": "wisdom",
+    "script": "Maya Angelou wrote\nin the stillness\nyou hear your heart\nbeating with a purpose,\nsoftly whispering truths\nthat only emerge\nwhen the world slows down\nand you're left with\njust your thoughts,\nand the weight of your dreams,\nwhat will you listen to,\nand where will it lead you",
+    "hash": "66c668ba24470c45149c5f291e532ca6",
+    "metaphors": [
+      "ring"
+    ],
+    "themes": [
+      "being_used",
+      "silence",
+      "love",
+      "loneliness"
+    ]
   }
 ]
