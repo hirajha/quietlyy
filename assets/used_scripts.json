@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Strength in Stillness",
-    "style": "love",
-    "script": "I stopped counting the cracks in the ceiling.\nEvery night they stretch,\nlike roots testing the dark.\nI never told you how steady the plaster feels,\ncool and unshaken,\nwhile the world above it shouts.\nThe house breathes,\nits ribs creaking in the wind,\nbut the cracks stay quiet.\nThey know something about holding,\nabout waiting without breaking.\nI press my palm there,\nsend this to them.",
-    "hash": "4045b95a41e2d9d959a47d33b7c7cdf5",
-    "metaphors": [
-      "wind",
-      "roots",
-      "dark"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Little Things You Do",
     "style": "love",
     "script": "It doesn't feel empty. Not yet.\nTheir favorite mug\nstill has your fingerprints,\nSlowly gathering dust\nbut still in its place.\nNO ONE ELSE DRINKS FROM IT.\nand that's okay,\nbut sometimes you catch yourself\nwondering what they'd say\nif they saw you using it now.\nDo you hold on to prove a point?\nOR DOES IT JUST FEEL LIKE HOME.\nSend this to them.",
@@ -766,5 +752,16 @@
       "love",
       "loneliness"
     ]
+  },
+  {
+    "topic": "Being Strong for Everyone While Breaking Inside",
+    "style": "love",
+    "script": "You\u2019re stitching the seams of your sleeves again.\nNeedle pricks,\nbut the thread never snaps.\nThey see the embroidery,\nthe tiny flowers you add,\nnot the holes you\u2019re hiding.\nYour hands know the weight of holding,\nsteady for everyone,\nwhile your ribs learn to bend.\nThe fabric stretches,\nbut doesn\u2019t tear.\nYou fold the shirt neatly.\nPlace it back on the hanger.",
+    "hash": "22c477447fa06d18557bb5c2f373035a",
+    "metaphors": [
+      "tea",
+      "flower"
+    ],
+    "themes": []
   }
 ]
