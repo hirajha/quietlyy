@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Being Strong for Everyone While Breaking Inside"
+    "detail": "What Home Actually Feels Like"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18113973679810060"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18087677996305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/4zieyDEL7hc"
+    "detail": "https://www.youtube.com/shorts/tUtaHMVZfNw"
   }
 }

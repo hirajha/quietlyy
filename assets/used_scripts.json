@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Little Things You Do",
-    "style": "love",
-    "script": "It doesn't feel empty. Not yet.\nTheir favorite mug\nstill has your fingerprints,\nSlowly gathering dust\nbut still in its place.\nNO ONE ELSE DRINKS FROM IT.\nand that's okay,\nbut sometimes you catch yourself\nwondering what they'd say\nif they saw you using it now.\nDo you hold on to prove a point?\nOR DOES IT JUST FEEL LIKE HOME.\nSend this to them.",
-    "hash": "4f0915a5756f28a5694d7358fbf19635",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "More Than My Favorite Person",
     "style": "love",
     "script": "It doesn't feel empty. Not yet.\nTheir old keyboard still has your login,\nslowly the passwords expire\nBUT THE USERNAME REMAINS\nand 75% of people keep old accounts alive\nfor the sake of memories, I guess\nsome people don't delete contacts\nthey just leave them untouched\nlike the empty chair at our table\nnobody sits there, not even guests\nSOMEHOW IT STILL FEELS LIKE HOME\nbut do you ever wonder\nif they too have an empty space\nsend this to them.",
@@ -763,5 +753,22 @@
       "flower"
     ],
     "themes": []
+  },
+  {
+    "topic": "What Home Actually Feels Like",
+    "style": "poetic",
+    "script": "Home isn\u2019t a place you find.\nIt\u2019s the echo of spoons,\nclinking in a kitchen drawer at 3 a.m.,\nwhen the world\u2019s asleep\nbut the fridge hums a lullaby.\nSomewhere,\na door left ajar,\njust enough to let the cat slip through,\nand the scent of rain on pavement\nlingers like a promise.\nThe walls don\u2019t hold it\u2014\nthe air does,\nthick with the weight of small, ordinary things.",
+    "hash": "1ac1da77f458a48454d62d2af5760bd2",
+    "metaphors": [
+      "echo",
+      "wall",
+      "rain",
+      "kitchen",
+      "door"
+    ],
+    "themes": [
+      "self_worth",
+      "loneliness"
+    ]
   }
 ]
