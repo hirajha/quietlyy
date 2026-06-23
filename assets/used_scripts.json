@@ -1,17 +1,5 @@
 [
   {
-    "topic": "More Than My Favorite Person",
-    "style": "love",
-    "script": "It doesn't feel empty. Not yet.\nTheir old keyboard still has your login,\nslowly the passwords expire\nBUT THE USERNAME REMAINS\nand 75% of people keep old accounts alive\nfor the sake of memories, I guess\nsome people don't delete contacts\nthey just leave them untouched\nlike the empty chair at our table\nnobody sits there, not even guests\nSOMEHOW IT STILL FEELS LIKE HOME\nbut do you ever wonder\nif they too have an empty space\nsend this to them.",
-    "hash": "3d1236d97ca1e06cf14e4094d2170679",
-    "metaphors": [
-      "sword"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Loving in Silence",
     "style": "love",
     "script": "I still set the table for two.\nThe second plate stays empty,\nbut the chair holds your ghost.\nI talk to it sometimes,\nwhen the apartment gets too quiet.\nDo you ever wonder\nif love is just a habit we can\u2019t break?\nThe way my hands reach for yours\nbefore I remember you\u2019re not here.\nI never told you\nI loved the way you laughed at my jokes\nbefore you even heard the punchline.\nThe world keeps moving,\nbut I\u2019m still waiting for you to walk in.",
@@ -769,6 +757,23 @@
     "themes": [
       "self_worth",
       "loneliness"
+    ]
+  },
+  {
+    "topic": "When You Cry in the Car Alone",
+    "style": "emotional",
+    "script": "Midnight. The engine hums like a lullaby.\nYou\u2019re not lost,\njust circling the same empty block,\nwindows fogged with ghosts of what could\u2019ve been.\nThe steering wheel knows your grip,\nknuckles white as the moon outside,\nbut the road doesn\u2019t ask questions.\nSome tears aren\u2019t for sadness,\nthey\u2019re for the version of you\nwho believed in answers.\nThe car keeps moving.\nYou don\u2019t have to.",
+    "hash": "fa81fecab48c9e79390328f819309d09",
+    "metaphors": [
+      "moon",
+      "road",
+      "tea",
+      "window",
+      "wind",
+      "ring"
+    ],
+    "themes": [
+      "grief_loss"
     ]
   }
 ]
