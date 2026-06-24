@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Art of Letting Go",
-    "The Quiet Revolution of Self-Respect",
     "Learning to Belong to Yourself",
     "What Truly Matters in the End",
     "Finding Peace Within Yourself",
@@ -65,11 +63,13 @@
     "The Freedom of Acceptance",
     "What You Cannot Change and What You Can",
     "The Ancient Truth About Happiness",
-    "When Grief Becomes a Teacher"
+    "When Grief Becomes a Teacher",
+    "Why Peace Is Not the Absence of Storm",
+    "Why Suffering Transforms Us"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 4,
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -116,11 +116,11 @@
     "not every root needs light some grow strongest",
     "we are like the bamboo swaying gently",
     "it's the impermanence that makes it precious, a fleeting",
-    "in the stillness you hear your heart"
+    "in the stillness you hear your heart",
+    "turn the soil, not the sky."
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153700_072547.mp3",
@@ -139,7 +139,8 @@
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153651_0d1d62.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
-    "2026-06-05_153744_816dfe.mp3"
+    "2026-06-05_153744_816dfe.mp3",
+    "2026-06-05_153711_704e70.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -148,13 +149,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Why You Stopped Waiting For An Apology",
-    "The Friends Who Only Stayed For The Good Days",
-    "The Strength In Walking Away",
-    "Why You Stopped Explaining Yourself",
-    "The Lesson In Every Goodbye",
-    "Loving Someone Who Wouldn't Stay",
-    "When You Have Nothing Left",
     "The Love That Was Only Convenient",
     "Why Silence Became Your Answer",
     "The Quiet Power Of Letting Go",
@@ -167,6 +161,13 @@
     "What Healing Actually Looks Like",
     "Why Closure Never Comes",
     "When Being Nice Made You A Target",
-    "The People Who Disappear When It's Hard"
+    "The People Who Disappear When It's Hard",
+    "What You Learned After Being Broken",
+    "Outgrowing People You Love",
+    "Why You Stopped Waiting For An Apology",
+    "The Cost Of Always Being Available",
+    "What Pain Quietly Teaches You",
+    "The Day You Chose Yourself",
+    "The People Who Leave When You Need Them Most"
   ]
 }

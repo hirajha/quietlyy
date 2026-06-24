@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When Someone Chooses You Every Day",
-    "style": "love",
-    "script": "There\u2019s a quiet kind of trust\u2014\nthat doesn\u2019t need to ask.\nThe way your keys still land on the table first,\nwhile mine wait in my palm.\nDid you know,\nmost people only choose once?\nA decision made,\nthen left to gather dust.\nBut you,\nyou pick me in the morning light,\nin the grocery aisle,\nin the way you reach for my hand\nbefore the streetlight changes.\nI keep forgetting to be amazed.",
-    "hash": "495dd1280b7656b9aeb86f868d96f1ff",
-    "metaphors": [
-      "tree",
-      "light"
-    ],
-    "themes": [
-      "loneliness",
-      "silence"
-    ]
-  },
-  {
     "topic": "The Moment You Stopped Hoping",
     "style": "emotional",
     "script": "You\u2019re staring at the ceiling again.\nThe cracks don\u2019t spell anything anymore,\njust lines you\u2019ve memorized.\nSomewhere,\na clock ticks,\nbut it\u2019s not counting down to anything.\nThe hands that once reached,\nnow rest,\nweightless,\nlike balloons untied.\nYou don\u2019t flinch when the phone buzzes,\nnot even a blink.\nThe moment hope left,\nit didn\u2019t slam the door,\njust clicked the latch.\nand you let it go.",
@@ -777,6 +763,20 @@
     "themes": [
       "love",
       "heartbreak",
+      "nostalgia"
+    ]
+  },
+  {
+    "topic": "What Truly Matters in the End",
+    "style": "wisdom",
+    "script": "The old gardener whispered\u2014\nturn the soil,\nnot the sky.\nwhat you plant stays,\nwhat you chase scatters.\n\nI stood there,\nhands full of seeds\nI\u2019d saved for storms\nthat never came.\nnow they\u2019re just weight,\nburied in pockets.\n\nthe earth remembers\neven when you forget.",
+    "hash": "fd97a51d43ed8253a30bc3c31f6aec9d",
+    "metaphors": [
+      "garden",
+      "storm",
+      "seed"
+    ],
+    "themes": [
       "nostalgia"
     ]
   }

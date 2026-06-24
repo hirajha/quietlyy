@@ -608,8 +608,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781177267,
-    "uses": 1,
-    "last_used": 1781197804
+    "uses": 2,
+    "last_used": 1782297044
   },
   {
     "file": "3a62ba79_0.png",
@@ -1372,13 +1372,31 @@
     "topic": "The First Heartbreak",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782277660
+    "timestamp": 1782277660,
+    "uses": 1,
+    "last_used": 1782297044
   },
   {
     "file": "d6827837_1.png",
     "topic": "The First Heartbreak",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782277664
+    "timestamp": 1782277664,
+    "uses": 1,
+    "last_used": 1782297044
+  },
+  {
+    "file": "b1013efa_0.png",
+    "topic": "What Truly Matters in the End",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782297046
+  },
+  {
+    "file": "3b9bc259_1.png",
+    "topic": "What Truly Matters in the End",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782297051
   }
 ]
