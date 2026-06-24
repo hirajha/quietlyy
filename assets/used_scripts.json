@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Version of You That Did Not Make It",
-    "style": "emotional",
-    "script": "It doesn't hurt anymore.\nNot exactly\nbut the emptiness stays\nSlowly unraveling\nthe threads of what could've been\nAnd the memories that linger\nSome people never let go\nI won't forget the way it felt\njust the way it ended\nNot with a bang\nbut a whisper.\nLet them know.",
-    "hash": "47db173725675080cb1a6a4720d60854",
-    "metaphors": [],
-    "themes": [
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "The Art of Letting Go",
     "style": "wisdom",
     "script": "Marcus Aurelius wrote\nyou're a guest\nin this life\nit's a short stay\ndon't get too comfortable,\nI'm still learning to let go\nof the things that weigh me down,\nthe memories, the what ifs,\nthe fear of being without\nit's a heavy burden to carry\nI'm finding my way, slowly\nin the stillness, I breathe",
@@ -776,6 +766,19 @@
     "themes": [
       "being_used",
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "When You Delete the Message Before Sending It",
+    "style": "emotional",
+    "script": "I stopped the ink mid-sentence,\nlike a bird folding its wings\nbefore the storm even arrives.\nNot courage,\njust the quiet fear of being heard.\nThe screen glows,\nsoft and guilty,\nwhile my thumb hovers like a question\nno one asked.\nSome confessions aren\u2019t meant for air,\nthey\u2019re just ghosts\nwe keep feeding.\nI\u2019ll let it starve.",
+    "hash": "34427d10461385f76cc7201364abed49",
+    "metaphors": [
+      "storm",
+      "star"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
