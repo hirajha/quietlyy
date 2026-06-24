@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "What Truly Matters in the End"
+    "detail": "When Just Being Near You Is Enough"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18105587384093970"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18087824780305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/xkbVrDHeFyk"
+    "detail": "https://www.youtube.com/shorts/8DuEC1dKqQM"
   }
 }

@@ -617,8 +617,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781197807,
-    "uses": 1,
-    "last_used": 1781216647
+    "uses": 2,
+    "last_used": 1782315878
   },
   {
     "file": "3705ccca_1.png",
@@ -1390,13 +1390,31 @@
     "topic": "What Truly Matters in the End",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782297046
+    "timestamp": 1782297046,
+    "uses": 1,
+    "last_used": 1782315878
   },
   {
     "file": "3b9bc259_1.png",
     "topic": "What Truly Matters in the End",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782297051
+    "timestamp": 1782297051,
+    "uses": 1,
+    "last_used": 1782315878
+  },
+  {
+    "file": "32539d99_0.png",
+    "topic": "When Just Being Near You Is Enough",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782315880
+  },
+  {
+    "file": "28332fad_1.png",
+    "topic": "When Just Being Near You Is Enough",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782315885
   }
 ]

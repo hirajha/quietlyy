@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Moment You Stopped Hoping",
-    "style": "emotional",
-    "script": "You\u2019re staring at the ceiling again.\nThe cracks don\u2019t spell anything anymore,\njust lines you\u2019ve memorized.\nSomewhere,\na clock ticks,\nbut it\u2019s not counting down to anything.\nThe hands that once reached,\nnow rest,\nweightless,\nlike balloons untied.\nYou don\u2019t flinch when the phone buzzes,\nnot even a blink.\nThe moment hope left,\nit didn\u2019t slam the door,\njust clicked the latch.\nand you let it go.",
-    "hash": "65b8e0c9d2250d4aa60aa51ff4bb2d23",
-    "metaphors": [
-      "star",
-      "door"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "The Version of You That Did Not Make It",
     "style": "emotional",
     "script": "It doesn't hurt anymore.\nNot exactly\nbut the emptiness stays\nSlowly unraveling\nthe threads of what could've been\nAnd the memories that linger\nSome people never let go\nI won't forget the way it felt\njust the way it ended\nNot with a bang\nbut a whisper.\nLet them know.",
@@ -777,6 +764,17 @@
       "seed"
     ],
     "themes": [
+      "nostalgia"
+    ]
+  },
+  {
+    "topic": "When Just Being Near You Is Enough",
+    "style": "nostalgic",
+    "script": "I forget the words\nbut\nI remember the shape of your laugh\ncurled at the edges\nlike old book pages\nWE USED TO SHARE\nNow the room hums\nwith something softer\nthan conversation\njust the sound of you\nbreathing beside me\nand I think\nmaybe that\u2019s all I ever wanted\nto hear.",
+    "hash": "d2319e6327402a9822b70da0eb67996c",
+    "metaphors": [],
+    "themes": [
+      "being_used",
       "nostalgia"
     ]
   }
