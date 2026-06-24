@@ -599,8 +599,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781177263,
-    "uses": 1,
-    "last_used": 1781197804
+    "uses": 2,
+    "last_used": 1782277658
   },
   {
     "file": "23975b35_1.png",
@@ -1354,13 +1354,31 @@
     "topic": "When You Cry in the Car Alone",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782252321
+    "timestamp": 1782252321,
+    "uses": 1,
+    "last_used": 1782277658
   },
   {
     "file": "176f5b96_1.png",
     "topic": "When You Cry in the Car Alone",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782252325
+    "timestamp": 1782252325,
+    "uses": 1,
+    "last_used": 1782277658
+  },
+  {
+    "file": "3e2824a6_0.png",
+    "topic": "The First Heartbreak",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782277660
+  },
+  {
+    "file": "d6827837_1.png",
+    "topic": "The First Heartbreak",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782277664
   }
 ]

@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Loving in Silence",
-    "style": "love",
-    "script": "I still set the table for two.\nThe second plate stays empty,\nbut the chair holds your ghost.\nI talk to it sometimes,\nwhen the apartment gets too quiet.\nDo you ever wonder\nif love is just a habit we can\u2019t break?\nThe way my hands reach for yours\nbefore I remember you\u2019re not here.\nI never told you\nI loved the way you laughed at my jokes\nbefore you even heard the punchline.\nThe world keeps moving,\nbut I\u2019m still waiting for you to walk in.",
-    "hash": "b7dc924194d59d34e6bd1c44de2011a2",
-    "metaphors": [],
-    "themes": [
-      "friendship_loss",
-      "silence",
-      "nostalgia",
-      "love"
-    ]
-  },
-  {
     "topic": "When Someone Chooses You Every Day",
     "style": "love",
     "script": "There\u2019s a quiet kind of trust\u2014\nthat doesn\u2019t need to ask.\nThe way your keys still land on the table first,\nwhile mine wait in my palm.\nDid you know,\nmost people only choose once?\nA decision made,\nthen left to gather dust.\nBut you,\nyou pick me in the morning light,\nin the grocery aisle,\nin the way you reach for my hand\nbefore the streetlight changes.\nI keep forgetting to be amazed.",
@@ -774,6 +761,23 @@
     ],
     "themes": [
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The First Heartbreak",
+    "style": "emotional",
+    "script": "You\u2019re peeling the label off your water bottle,\nagain.\nThe glue sticks to your fingers like old promises,\nstubborn.\nYou tell yourself it\u2019s just habit,\nnot hunger,\nnot the way your ribs remember their shape.\nSome nights,\nthe bed feels like a raft\nadrift,\nand you\u2019re the only one who notices the tide.\nYou count the cracks in the ceiling,\nbut the numbers keep changing.\nThe first heartbreak isn\u2019t a wound,\nit\u2019s a shadow\nlearning to walk without you.",
+    "hash": "62b3884cad9fb9ba4eaf215c954b08e3",
+    "metaphors": [
+      "bed",
+      "shadow",
+      "ceiling",
+      "tide"
+    ],
+    "themes": [
+      "love",
+      "heartbreak",
+      "nostalgia"
     ]
   }
 ]
