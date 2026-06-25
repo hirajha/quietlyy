@@ -1,19 +1,5 @@
 [
   {
-    "topic": "Falling For Someone Who Does Not Know",
-    "style": "emotional",
-    "script": "The porch light stays on all night.\njust for you,\nthough you\u2019ll never walk up the steps.\nI trace your name\nin the condensation on my window,\nbut the glass forgets by morning.\nSome nights,\nI swear I hear your laugh\nin the static between radio stations.\nThe universe keeps sending signals,\nand I keep pretending not to notice.\nThis is how ghosts are made.\nquietly.",
-    "hash": "2a00b5f7f9870384537351970c926728",
-    "metaphors": [
-      "wind",
-      "light",
-      "window"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Staying Too Long",
     "style": "emotional",
     "script": "The porch light still flickers at 3 a.m.\nnot for safety\njust habit\nSome nights I sit there\nwatching the moths circle the bulb\nand wonder if they ever tire of orbiting\nThe key still fits the lock\nbut the door creaks louder now\nlike it\u2019s warning me\nI could leave the key on the table\nwalk away\nbut the moths don\u2019t know how to stop.",
@@ -783,6 +769,23 @@
       "door"
     ],
     "themes": [
+      "growth"
+    ]
+  },
+  {
+    "topic": "How You Changed Everything",
+    "style": "love",
+    "script": "I stopped counting the cracks in the ceiling.\nYour voice turned them into constellations,\nand I learned to navigate by the sound of your breath.\nThe dark wasn\u2019t empty anymore.\nEvery shadow held a shape I could name,\neven the ones that slipped away.\nI built a world inside the quiet hum,\nwhere your laughter was the only clock I needed.\nTime didn\u2019t pass\u2014it pooled.\nNow the air feels lighter,\nbut I still reach for the weight of you.\nsend this to them.",
+    "hash": "ce505af3c08f0b9dc852d793120002af",
+    "metaphors": [
+      "shadow",
+      "ceiling",
+      "light",
+      "dark"
+    ],
+    "themes": [
+      "silence",
+      "being_used",
       "growth"
     ]
   }
