@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Person Behind My Smile",
-    "style": "love",
-    "script": "It doesn't feel like mine. Not anymore. \nslowly \nFingers tracing the shape of your name \non the photo I still have. \nBUT \nSometimes I catch myself \nwhispering your laugh \nAND it brings me back \nTO the moment \nI realized \nI'M STILL WEARING YOUR FAVORITE SCARF. \nSending you a piece of me.",
-    "hash": "5727df781f059a2127eef86b0c858d2f",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Borrowed Love",
     "style": "emotional",
     "script": "You're holding someone's hand.\n \n   Not yours.\n \n   but it feels like home\n \n   and you're searching\n \n   for a love that's truly yours\n \n   but it's hard to let go\n \n   of the comfort they bring\n \n   SOME PEOPLE don't know\n \n   the difference between\n \n   love and convenience\n \n   and you're caught in between\n \n   Not mine.",
@@ -791,6 +781,21 @@
     "themes": [
       "silence",
       "being_used"
+    ]
+  },
+  {
+    "topic": "Losing a Parent",
+    "style": "emotional",
+    "script": "There's a kind of empty\nthat doesn't echo,\njust sits in the corners of rooms\nlike dust you can't sweep away.\nThe chair at the table stays pulled out,\nand no one says your name\nbut the air still hums it.\nSome mornings,\nyou reach for a voice\nthat's been unplugged,\nand the dial tone is your own breath.\nI keep waiting for the static to clear,\nbut the silence is just you,\nlearning to live with the absence.\nSend this to them.",
+    "hash": "8125ee3943485e200a33e538f93b0eb6",
+    "metaphors": [
+      "table",
+      "chair",
+      "silence",
+      "echo"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

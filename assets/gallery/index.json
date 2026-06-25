@@ -662,8 +662,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781243493,
-    "uses": 1,
-    "last_used": 1781262619
+    "uses": 2,
+    "last_used": 1782425374
   },
   {
     "file": "e0f3902d_0.png",
@@ -1480,13 +1480,31 @@
     "topic": "The First Time I Knew",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782403473
+    "timestamp": 1782403473,
+    "uses": 1,
+    "last_used": 1782425374
   },
   {
     "file": "3ed19b2b_1.png",
     "topic": "The First Time I Knew",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782403481
+    "timestamp": 1782403481,
+    "uses": 1,
+    "last_used": 1782425374
+  },
+  {
+    "file": "864da069_0.png",
+    "topic": "Losing a Parent",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782425376
+  },
+  {
+    "file": "130d0015_1.png",
+    "topic": "Losing a Parent",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782425380
   }
 ]
