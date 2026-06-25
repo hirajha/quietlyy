@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "How You Changed Everything"
+    "detail": "The First Time I Knew"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18087942137305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18093491354252126"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/lT4aUnp_Q1I"
+    "detail": "https://www.youtube.com/shorts/K6UTEP1Vl0I"
   }
 }

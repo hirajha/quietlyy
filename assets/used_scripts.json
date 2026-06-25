@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Staying Too Long",
-    "style": "emotional",
-    "script": "The porch light still flickers at 3 a.m.\nnot for safety\njust habit\nSome nights I sit there\nwatching the moths circle the bulb\nand wonder if they ever tire of orbiting\nThe key still fits the lock\nbut the door creaks louder now\nlike it\u2019s warning me\nI could leave the key on the table\nwalk away\nbut the moths don\u2019t know how to stop.",
-    "hash": "4d0a9a739827046fa04ed65e7864f72f",
-    "metaphors": [
-      "door",
-      "light"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Person Behind My Smile",
     "style": "love",
     "script": "It doesn't feel like mine. Not anymore. \nslowly \nFingers tracing the shape of your name \non the photo I still have. \nBUT \nSometimes I catch myself \nwhispering your laugh \nAND it brings me back \nTO the moment \nI realized \nI'M STILL WEARING YOUR FAVORITE SCARF. \nSending you a piece of me.",
@@ -787,6 +774,23 @@
       "silence",
       "being_used",
       "growth"
+    ]
+  },
+  {
+    "topic": "The First Time I Knew",
+    "style": "love",
+    "script": "You're tracing circles on the fogged-up window.\nThe streetlight hums a lullaby,\nand suddenly,\nyou understand\nhow dew chooses its leaves.\nNot with noise,\nnot with force\u2014\njust the quiet weight of morning.\nThat's when I knew.\nYou didn't have to say anything.\nThe way your fingers paused mid-air,\nlike the world had tilted,\njust for us.\nsend this to them.",
+    "hash": "422fa0e24d3d4f080e5a1c62564480ad",
+    "metaphors": [
+      "noise",
+      "tree",
+      "wind",
+      "light",
+      "window"
+    ],
+    "themes": [
+      "silence",
+      "being_used"
     ]
   }
 ]
