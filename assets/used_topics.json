@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Strength in Stillness",
-    "The Beauty of an Unfinished Life",
     "The Courage to Begin Again",
     "The Freedom of Acceptance",
     "What You Cannot Change and What You Can",
@@ -65,11 +63,13 @@
     "How to Carry Loss Without Being Crushed",
     "Learning to Belong to Yourself",
     "The Quiet Revolution of Self-Respect",
-    "The Difference Between Living and Existing"
+    "The Difference Between Living and Existing",
+    "Why the Wound Is the Gift",
+    "Learning to Trust the Journey"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 2,
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -121,7 +121,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153734_d4c320.mp3",
@@ -140,7 +139,8 @@
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153640_3f0c91.mp3",
-    "2026-06-05_153816_e5f3ea.mp3"
+    "2026-06-05_153816_e5f3ea.mp3",
+    "2026-06-05_153700_072547.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -149,13 +149,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The Cost Of Always Being Available",
-    "The People Who Leave When You Need Them Most",
-    "The Day You Chose Yourself",
-    "The Truth About Being The Strong One",
-    "What Loneliness Actually Teaches You",
-    "The Friends Who Only Stayed For The Good Days",
-    "Learning To Be Enough On Your Own",
     "Being Too Kind In A Cruel World",
     "When You Have Nothing Left",
     "What Rock Bottom Taught You",
@@ -168,6 +161,13 @@
     "What Pain Quietly Teaches You",
     "Why Closure Never Comes",
     "What You Learned After Being Broken",
-    "Outgrowing People You Love"
+    "Outgrowing People You Love",
+    "The Lesson In Every Goodbye",
+    "Loving Someone Who Wouldn't Stay",
+    "When Being Nice Made You A Target",
+    "The People Who Disappear When It's Hard",
+    "The Day You Chose Yourself",
+    "Why You Stopped Waiting For An Apology",
+    "The People Who Leave When You Need Them Most"
   ]
 }

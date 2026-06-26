@@ -1,15 +1,5 @@
 [
   {
-    "topic": "Borrowed Love",
-    "style": "emotional",
-    "script": "You're holding someone's hand.\n \n   Not yours.\n \n   but it feels like home\n \n   and you're searching\n \n   for a love that's truly yours\n \n   but it's hard to let go\n \n   of the comfort they bring\n \n   SOME PEOPLE don't know\n \n   the difference between\n \n   love and convenience\n \n   and you're caught in between\n \n   Not mine.",
-    "hash": "53c6272c81bb74ffe06a443fd8b561e0",
-    "metaphors": [],
-    "themes": [
-      "love"
-    ]
-  },
-  {
     "topic": "When You Love Someone Who Is Leaving",
     "style": "love",
     "script": "There's a kind of emptiness, \n   Slowly \n   It seeps into your mornings, \n   and the coffee tastes different, \n   BUT \n   The smell of their favorite brew remains, \n   and you're left with \n   The same spoon that stirred your laughter, \n   NOW \n   It stirs only tears, \n   and the question lingers, \n   Will you find your flavor again, \n   or will it forever be \n   the taste of what's left behind.",
@@ -797,5 +787,16 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "When You Make Ordinary Moments Feel Different",
+    "style": "nostalgic",
+    "script": "You hand me a mug\nwarm\nand I swear\nthe steam writes our names\nin the air,\nnot loud,\njust there,\nlike a secret we didn\u2019t plan.\nTHE KETTLE WHISTLES\nbut it\u2019s not for tea\u2014\nit\u2019s the sound\nof something small\nbecoming something else,\nand I don\u2019t know\nwhat to call it\nanymore.",
+    "hash": "1c2d927934616433ff8eaa5677afb8f7",
+    "metaphors": [
+      "mug",
+      "tea"
+    ],
+    "themes": []
   }
 ]
