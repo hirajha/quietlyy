@@ -689,8 +689,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781282146,
-    "uses": 1,
-    "last_used": 1781302538
+    "uses": 2,
+    "last_used": 1782493576
   },
   {
     "file": "db22b5a7_1.png",
@@ -1534,13 +1534,31 @@
     "topic": "Loving You Quietly",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782470183
+    "timestamp": 1782470183,
+    "uses": 1,
+    "last_used": 1782493576
   },
   {
     "file": "7c9f3e5a_1.png",
     "topic": "Loving You Quietly",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782470187
+    "timestamp": 1782470187,
+    "uses": 1,
+    "last_used": 1782493576
+  },
+  {
+    "file": "bbc13b8e_0.png",
+    "topic": "When Someone Chooses You Every Day",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782493579
+  },
+  {
+    "file": "bdcefc41_1.png",
+    "topic": "When Someone Chooses You Every Day",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782493584
   }
 ]

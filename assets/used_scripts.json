@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Way You Look at Me",
-    "style": "love",
-    "script": "You're sitting with me.\nIn the quiet.\nAnd I feel seen.\nSlowly, your eyes cradle my face,\nGently, they hold my story.\nBut in the stillness, I wonder,\nDO YOU SEE YOURSELF IN ME?\nOR JUST A REFLECTION OF WHAT YOU NEED?\nand in that question, I find my ache.\nIt's the fear of being a temporary home.\nFor someone who's still finding their way.\nSend this to them.",
-    "hash": "ba7d172ad840ae24a34c3512a663b6a6",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "You Still Check Their Profile",
     "style": "emotional",
     "script": "Their name is still autocorrected.\nI see it\nand pause.\nbut my fingers\nstill type it out\nslowly, in the dead\nof night, when\nNO ONE is watching.\nSome faces \nare forever linked\nto our deepest pains.\nI still check.\nSend this to them.",
@@ -803,6 +793,21 @@
     ],
     "themes": [
       "self_worth",
+      "silence"
+    ]
+  },
+  {
+    "topic": "When Someone Chooses You Every Day",
+    "style": "love",
+    "script": "There's a quiet like morning dew settling,\nonly heavier.\nYou choose me,\nnot with grand gestures,\nbut the way sunlight lingers on a windowsill.\nI am the book you reach for,\nevery night,\nwithout thinking.\nThe spine creases,\nthe pages soften,\nand still,\nyou turn to me.\nThere\u2019s no ceremony.\nJust this.\nsend this to them.",
+    "hash": "b07c5cc353af42d7a24dc4cdb585a2be",
+    "metaphors": [
+      "light",
+      "sun",
+      "wind",
+      "window"
+    ],
+    "themes": [
       "silence"
     ]
   }
