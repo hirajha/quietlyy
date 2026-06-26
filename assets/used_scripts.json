@@ -1,16 +1,5 @@
 [
   {
-    "topic": "When You Love Someone Who Is Leaving",
-    "style": "love",
-    "script": "There's a kind of emptiness, \n   Slowly \n   It seeps into your mornings, \n   and the coffee tastes different, \n   BUT \n   The smell of their favorite brew remains, \n   and you're left with \n   The same spoon that stirred your laughter, \n   NOW \n   It stirs only tears, \n   and the question lingers, \n   Will you find your flavor again, \n   or will it forever be \n   the taste of what's left behind.",
-    "hash": "735c01d326c02fc7e9b866e92ebff44e",
-    "metaphors": [],
-    "themes": [
-      "loneliness",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Way You Look at Me",
     "style": "love",
     "script": "You're sitting with me.\nIn the quiet.\nAnd I feel seen.\nSlowly, your eyes cradle my face,\nGently, they hold my story.\nBut in the stillness, I wonder,\nDO YOU SEE YOURSELF IN ME?\nOR JUST A REFLECTION OF WHAT YOU NEED?\nand in that question, I find my ache.\nIt's the fear of being a temporary home.\nFor someone who's still finding their way.\nSend this to them.",
@@ -798,5 +787,23 @@
       "tea"
     ],
     "themes": []
+  },
+  {
+    "topic": "Loving You Quietly",
+    "style": "emotional",
+    "script": "How do you name what lingers\nlike dew on morning grass\nnot heavy enough to hold\nbut too precious to brush away\nSome days I trace your name\nin the steam of my coffee cup\njust to watch it disappear\nThe way you did\nnot with anger\nor even goodbyes\nbut like a shadow slipping\ninto the dark\nI still set the table for two\nquietly.",
+    "hash": "58abf07697d595e49ebe4bfc5c89ae5d",
+    "metaphors": [
+      "cup",
+      "dark",
+      "table",
+      "tea",
+      "coffee",
+      "shadow"
+    ],
+    "themes": [
+      "self_worth",
+      "silence"
+    ]
   }
 ]
