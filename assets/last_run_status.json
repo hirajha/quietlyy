@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Quiet Revolution of Self-Respect"
+    "detail": "The Smile That Hides Everything"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18088304675305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18106870007001592"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/VihMc0h7GCw"
+    "detail": "https://www.youtube.com/shorts/MVvXBBzHclw"
   }
 }

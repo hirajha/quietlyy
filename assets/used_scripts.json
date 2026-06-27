@@ -1,19 +1,5 @@
 [
   {
-    "topic": "Loving Someone Who Can't Love Back",
-    "style": "emotional",
-    "script": "You're sitting alone.\nnot even a shadow\nThe hands that once held yours\nare now just a memory\nbut the ache remains\nSome people can't love back\nthe weight of that realization\nis crushing you slowly\nnot out of malice\njust out of incapability\nI won't pretend to understand\nbut your pain is valid.\nlet them know.",
-    "hash": "b218ba7170892a31d64a6830c094d356",
-    "metaphors": [
-      "shadow"
-    ],
-    "themes": [
-      "love",
-      "heartbreak",
-      "loneliness"
-    ]
-  },
-  {
     "topic": "Finding Peace Within Yourself",
     "style": "wisdom",
     "script": "Lao Tzu whispered\nwater does not resist\nit flows around every stone\ncarves canyons without force\nfinds the sea without hurry.\n\nI used to think strength was holding on\nturns out it\u2019s learning to let go\nnot the river that bends\nbut the banks that break.\n\nWhat if peace isn\u2019t somewhere you arrive\nbut something you carry\nlike sunlight in your pockets?",
@@ -814,5 +800,13 @@
       "growth",
       "silence"
     ]
+  },
+  {
+    "topic": "The Smile That Hides Everything",
+    "style": "love",
+    "script": "I stopped counting the lies I tell,\nwhen your grin appears like a half-drawn curtain.\nEvery tooth a secret,\nevery dimple a vault.\nI trace the edges with my eyes,\nbut the lock stays shut.\nYour laugh lands soft,\nlike a feather dropped in a library.\nNo one hears,\nno one knows\nwhat it\u2019s hiding.\nsend this to them.",
+    "hash": "9f79740350326b6766aed2aa0d35c4c7",
+    "metaphors": [],
+    "themes": []
   }
 ]

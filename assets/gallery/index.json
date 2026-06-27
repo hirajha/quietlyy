@@ -725,8 +725,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781328232,
-    "uses": 1,
-    "last_used": 1781347729
+    "uses": 2,
+    "last_used": 1782596852
   },
   {
     "file": "55a73925_1.png",
@@ -1606,13 +1606,31 @@
     "topic": "The Quiet Revolution of Self-Respect",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782576261
+    "timestamp": 1782576261,
+    "uses": 1,
+    "last_used": 1782596852
   },
   {
     "file": "de41d5e7_1.png",
     "topic": "The Quiet Revolution of Self-Respect",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782576265
+    "timestamp": 1782576265,
+    "uses": 1,
+    "last_used": 1782596852
+  },
+  {
+    "file": "467c59af_0.png",
+    "topic": "The Smile That Hides Everything",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782596854
+  },
+  {
+    "file": "986b8263_1.png",
+    "topic": "The Smile That Hides Everything",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782596858
   }
 ]
