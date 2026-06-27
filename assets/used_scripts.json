@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Loving in Silence",
-    "style": "love",
-    "script": "You're sitting in the dark.\nYour fingers tracing the outline of a memory,\nslowly forgetting the shape of their hand.\nBut the emptiness beside you still feels like a presence,\nAND IT TAKES YOUR BREATH AWAY.\nquietly, you're searching for a ghost,\nand the space between your shoulders aches.\nBUT THE THOUGHT OF THEM STILL WAKES YOU UP,\nand the city outside is too loud,\nso you're trying to fill the silence,\nwith the sound of your own voice,\nsending a message to the void.",
-    "hash": "c1c1e0df5a9715361908c5d25cbf1cef",
-    "metaphors": [
-      "dark",
-      "silence"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Person Behind My Smile",
     "style": "emotional",
     "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
@@ -810,5 +797,18 @@
       "bed"
     ],
     "themes": []
+  },
+  {
+    "topic": "The Exhaustion of Pretending to Be Okay",
+    "style": "poetic",
+    "script": "The weight isn\u2019t in the bones,\njust the shoulders,\ncarrying a sky\nthat\u2019s not yours to hold.\nSome days,\nthe smile cracks,\nnot from laughter,\nbut the strain of keeping daylight\nfrom leaking out.\nThe body remembers,\neven when the mind forgets\u2014\nhow to fold itself\ninto a shape that fits,\nnot the room,\nbut the expectation.",
+    "hash": "5302f0149867601044896742a85f80ff",
+    "metaphors": [
+      "light",
+      "rain"
+    ],
+    "themes": [
+      "nostalgia"
+    ]
   }
 ]

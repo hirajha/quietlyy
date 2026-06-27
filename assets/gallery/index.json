@@ -707,8 +707,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781302541,
-    "uses": 1,
-    "last_used": 1781328230
+    "uses": 2,
+    "last_used": 1782556916
   },
   {
     "file": "7df4f869_1.png",
@@ -1570,13 +1570,31 @@
     "topic": "Loving the Wrong People",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782536525
+    "timestamp": 1782536525,
+    "uses": 1,
+    "last_used": 1782556916
   },
   {
     "file": "b248a089_1.png",
     "topic": "Loving the Wrong People",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782536530
+    "timestamp": 1782536530,
+    "uses": 1,
+    "last_used": 1782556916
+  },
+  {
+    "file": "c24c590a_0.png",
+    "topic": "The Exhaustion of Pretending to Be Okay",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782556918
+  },
+  {
+    "file": "88ddbec0_1.png",
+    "topic": "The Exhaustion of Pretending to Be Okay",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782556923
   }
 ]
