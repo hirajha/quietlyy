@@ -698,8 +698,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781282150,
-    "uses": 1,
-    "last_used": 1781302538
+    "uses": 2,
+    "last_used": 1782536522
   },
   {
     "file": "c0acc9a6_0.png",
@@ -1552,13 +1552,31 @@
     "topic": "When Someone Chooses You Every Day",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782493579
+    "timestamp": 1782493579,
+    "uses": 1,
+    "last_used": 1782536522
   },
   {
     "file": "bdcefc41_1.png",
     "topic": "When Someone Chooses You Every Day",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782493584
+    "timestamp": 1782493584,
+    "uses": 1,
+    "last_used": 1782536522
+  },
+  {
+    "file": "2e0ac5de_0.png",
+    "topic": "Loving the Wrong People",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782536525
+  },
+  {
+    "file": "b248a089_1.png",
+    "topic": "Loving the Wrong People",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782536530
   }
 ]
