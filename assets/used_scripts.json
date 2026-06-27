@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Person Behind My Smile",
-    "style": "emotional",
-    "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
-    "hash": "a1484fb15ac66345b89e7f6b30179a6e",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Loving Someone Who Can't Love Back",
     "style": "emotional",
     "script": "You're sitting alone.\nnot even a shadow\nThe hands that once held yours\nare now just a memory\nbut the ache remains\nSome people can't love back\nthe weight of that realization\nis crushing you slowly\nnot out of malice\njust out of incapability\nI won't pretend to understand\nbut your pain is valid.\nlet them know.",
@@ -809,6 +799,20 @@
     ],
     "themes": [
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "The Quiet Revolution of Self-Respect",
+    "style": "love",
+    "script": "I stopped apologizing for the space I take.\nThe room inhales,\nand suddenly,\nI fit.\nNo one taught me how to stand here,\nbut my shadow grows longer,\nunafraid of its own edges.\nThe mirror holds my gaze,\nnot as a challenge,\nbut a quiet agreement.\nI wear my name like a second skin,\nsoft,\nand perfectly mine.\nSend this to yourself.",
+    "hash": "e36a502109a71ee078739ce419b7a5ad",
+    "metaphors": [
+      "mirror",
+      "shadow"
+    ],
+    "themes": [
+      "growth",
+      "silence"
     ]
   }
 ]

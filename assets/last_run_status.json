@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Exhaustion of Pretending to Be Okay"
+    "detail": "The Quiet Revolution of Self-Respect"
   },
   "audio": {
     "result": "ok",
@@ -49,10 +49,10 @@
   },
   "instagram": {
     "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18088261079305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18088304675305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/DRkL2cpygAY"
+    "detail": "https://www.youtube.com/shorts/VihMc0h7GCw"
   }
 }

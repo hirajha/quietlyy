@@ -716,8 +716,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781302545,
-    "uses": 1,
-    "last_used": 1781328230
+    "uses": 2,
+    "last_used": 1782576256
   },
   {
     "file": "7c9d18bf_0.png",
@@ -1588,13 +1588,31 @@
     "topic": "The Exhaustion of Pretending to Be Okay",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782556918
+    "timestamp": 1782556918,
+    "uses": 1,
+    "last_used": 1782576256
   },
   {
     "file": "88ddbec0_1.png",
     "topic": "The Exhaustion of Pretending to Be Okay",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782556923
+    "timestamp": 1782556923,
+    "uses": 1,
+    "last_used": 1782576256
+  },
+  {
+    "file": "bd726a8d_0.png",
+    "topic": "The Quiet Revolution of Self-Respect",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782576261
+  },
+  {
+    "file": "de41d5e7_1.png",
+    "topic": "The Quiet Revolution of Self-Respect",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782576265
   }
 ]
