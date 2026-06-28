@@ -752,8 +752,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781347736,
-    "uses": 1,
-    "last_used": 1781367488
+    "uses": 2,
+    "last_used": 1782663199
   },
   {
     "file": "f9e6c43d_0.png",
@@ -1660,13 +1660,31 @@
     "topic": "What Real Love Requires",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782643645
+    "timestamp": 1782643645,
+    "uses": 1,
+    "last_used": 1782663199
   },
   {
     "file": "84232959_1.png",
     "topic": "What Real Love Requires",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782643649
+    "timestamp": 1782643649,
+    "uses": 1,
+    "last_used": 1782663199
+  },
+  {
+    "file": "b374d8b5_0.png",
+    "topic": "The Way You Look at Me",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782663201
+  },
+  {
+    "file": "31e47177_1.png",
+    "topic": "The Way You Look at Me",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782663205
   }
 ]

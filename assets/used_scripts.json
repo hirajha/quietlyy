@@ -1,15 +1,5 @@
 [
   {
-    "topic": "Silent Suffering Nobody Sees",
-    "style": "emotional",
-    "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
-    "hash": "1e7beeb950401054760699c316db93c0",
-    "metaphors": [],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "Friends Who Only Call When They Need You",
     "style": "emotional",
     "script": "Friday night. The fridge hums low.\nYour name lights up the screen,\nnot with hello,\njust a question mark,\nsoft as a door left ajar.\nThe hands that once passed you a drink\nnow only pass you the weight,\nthe same old script,\nthe same old need.\nI answer,\nnot out of kindness,\nbut the ghost of a habit.\nLet them go.",
@@ -808,6 +798,19 @@
     ],
     "themes": [
       "love"
+    ]
+  },
+  {
+    "topic": "The Way You Look at Me",
+    "style": "emotional",
+    "script": "The lamp is still on your side of the bed.\nI reach across,\nbut the sheets are cold.\nSome nights,\nI swear I see your shadow stretch,\njust for a second,\nlike a flicker of old film.\nThe way you look at me\u2014\nit isn\u2019t hunger,\nnot even memory,\njust the quiet click of a camera,\npreserving something I can\u2019t name.\ndon\u2019t turn away.",
+    "hash": "fa7d460c2474cdc1d9a7c95f855e9d10",
+    "metaphors": [
+      "bed",
+      "shadow"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

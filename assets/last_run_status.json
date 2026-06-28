@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "What Real Love Requires"
+    "detail": "The Way You Look at Me"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18088427006305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18108555899067789"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/hWOfvhqJ8zM"
+    "detail": "https://www.youtube.com/shorts/eAVFmz80u10"
   }
 }
