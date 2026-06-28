@@ -761,8 +761,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781367490,
-    "uses": 1,
-    "last_used": 1781387634
+    "uses": 2,
+    "last_used": 1782683170
   },
   {
     "file": "b5389318_1.png",
@@ -1678,13 +1678,31 @@
     "topic": "The Way You Look at Me",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782663201
+    "timestamp": 1782663201,
+    "uses": 1,
+    "last_used": 1782683170
   },
   {
     "file": "31e47177_1.png",
     "topic": "The Way You Look at Me",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782663205
+    "timestamp": 1782663205,
+    "uses": 1,
+    "last_used": 1782683170
+  },
+  {
+    "file": "3e0284b7_0.png",
+    "topic": "When Grief Becomes a Teacher",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782683173
+  },
+  {
+    "file": "19d87265_1.png",
+    "topic": "When Grief Becomes a Teacher",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782683177
   }
 ]
