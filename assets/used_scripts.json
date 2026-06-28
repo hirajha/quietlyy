@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Being Strong for Everyone While Breaking Inside",
-    "style": "emotional",
-    "script": "The strongest shoulders carry the quietest storms.\nThey ask how you are,\nnot how you\u2019re really doing.\nYou smile,\nbut the coffee cup shakes just a little.\nSome people see the steam,\nnot the cracks it rises from.\nThe same hands that lift others\nforget to hold their own weight.\nAnd slowly,\nthe world keeps moving,\nwhile you stay still,\nbreathing through the ache.",
-    "hash": "a994c3f55eea29bfbf9e3dd4cb00f6dd",
-    "metaphors": [
-      "storm"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Silent Suffering Nobody Sees",
     "style": "emotional",
     "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
@@ -808,6 +796,18 @@
     "themes": [
       "self_worth",
       "silence"
+    ]
+  },
+  {
+    "topic": "What Real Love Requires",
+    "style": "emotional",
+    "script": "There's a kind of courage\nthat doesn't roar.\nIt bends like reeds in the wind,\nnot breaking,\njust swaying with the weight of what's true.\nSome people call it compromise,\nbut it's really just choosing\nto carry the shape of someone else's soul\nalongside your own.\nThe hands that build a home together\nlearn the cracks,\nand fill them not with gold,\nbut with time.\nReal love requires\nnothing less than this.",
+    "hash": "e9f4d0a53f7b4a184617ccfa67f2dc63",
+    "metaphors": [
+      "wind"
+    ],
+    "themes": [
+      "love"
     ]
   }
 ]
