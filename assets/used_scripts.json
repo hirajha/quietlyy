@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The One I Think About First",
-    "style": "emotional",
-    "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
-    "hash": "959854a0569ce7c23fe5253ff2900374",
-    "metaphors": [
-      "text",
-      "sun",
-      "sweater",
-      "light"
-    ],
-    "themes": [
-      "self_worth",
-      "silence"
-    ]
-  },
-  {
     "topic": "The Part You Never Talk About",
     "style": "nostalgic",
     "script": "The way you laugh\nwhen the story\u2019s too old to tell\nbut you tell it anyway.\n\nWE ALL KNOW\nit\u2019s not funny anymore\njust familiar.\n\nYour hands\nstill shape the air\nlike they did back then\nwhen the words mattered.\n\nNOW THEY DON\u2019T\nbut you keep talking\nand I keep listening\nfor the part you never say.",
@@ -814,6 +798,18 @@
     "themes": [
       "grief_loss",
       "silence"
+    ]
+  },
+  {
+    "topic": "I Didn't Know Love Could Feel This Soft",
+    "style": "nostalgic",
+    "script": "I FORGOT\nwhat cotton feels like\nuntil your voice\nbrushed my ear\nlike a moth\u2019s wing\nagainst the screen door\nI didn\u2019t know\nskin could remember\nthe weight of dew\nor that kindness\ncould settle\nso gently\nit almost wasn\u2019t there",
+    "hash": "7b02a1d701eef60b822c4f0fbe0e858e",
+    "metaphors": [
+      "door"
+    ],
+    "themes": [
+      "nostalgia"
     ]
   }
 ]

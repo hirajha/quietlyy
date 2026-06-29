@@ -13,46 +13,10 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When Grief Becomes a Teacher"
+    "detail": "I Didn't Know Love Could Feel This Soft"
   },
   "audio": {
-    "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3"
-  },
-  "images": {
-    "result": "ok",
-    "detail": "5 panels"
-  },
-  "music": {
-    "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [gallery_library]"
-  },
-  "video": {
-    "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/quietlyy_video.mp4"
-  },
-  "quality_gate": {
-    "result": "ok",
-    "detail": ""
-  },
-  "copyright": {
-    "result": "ok",
-    "detail": ""
-  },
-  "seo": {
-    "result": "ok",
-    "detail": ""
-  },
-  "facebook": {
-    "result": "ok",
-    "detail": ""
-  },
-  "instagram": {
-    "result": "ok",
-    "detail": "18126517981643459"
-  },
-  "youtube": {
-    "result": "ok",
-    "detail": "https://www.youtube.com/shorts/5QLJqfXMeY4"
+    "result": "fail",
+    "detail": "ElevenLabs error 401: {\"detail\":{\"type\":\"invalid_request\",\"code\":\"quota_exceeded\",\"message\":\"This request exceeds your quota of 55016. You have 2 credits remaining, while 8 credits are required for this request.\",\"status\":"
   }
 }
