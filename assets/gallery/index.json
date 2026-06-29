@@ -770,8 +770,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781367494,
-    "uses": 1,
-    "last_used": 1781387634
+    "uses": 2,
+    "last_used": 1782717325
   },
   {
     "file": "1c1ea893_0.png",
@@ -1696,13 +1696,31 @@
     "topic": "When Grief Becomes a Teacher",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782683173
+    "timestamp": 1782683173,
+    "uses": 1,
+    "last_used": 1782717325
   },
   {
     "file": "19d87265_1.png",
     "topic": "When Grief Becomes a Teacher",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782683177
+    "timestamp": 1782683177,
+    "uses": 1,
+    "last_used": 1782717325
+  },
+  {
+    "file": "fc2fc7c6_0.png",
+    "topic": "You Make the Hard Days Easier",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782717328
+  },
+  {
+    "file": "d8c8645a_1.png",
+    "topic": "You Make the Hard Days Easier",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782717333
   }
 ]

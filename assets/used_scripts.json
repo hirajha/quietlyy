@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Part You Never Talk About",
-    "style": "nostalgic",
-    "script": "The way you laugh\nwhen the story\u2019s too old to tell\nbut you tell it anyway.\n\nWE ALL KNOW\nit\u2019s not funny anymore\njust familiar.\n\nYour hands\nstill shape the air\nlike they did back then\nwhen the words mattered.\n\nNOW THEY DON\u2019T\nbut you keep talking\nand I keep listening\nfor the part you never say.",
-    "hash": "64c867aabeca81679ab85398bb70a20b",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Power of Small Moments",
     "style": "nostalgic",
     "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
@@ -810,6 +800,19 @@
     ],
     "themes": [
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "You Make the Hard Days Easier",
+    "style": "nostalgic",
+    "script": "YOU KNOW THE WEIGHT\nI carry\nlike a backpack full of stones\nbut when you walk in\nit lightens\njust enough\nto breathe.\nI DON\u2019T ASK HOW\nor why\nyour voice\nunfolds the creases\nI\u2019ve been ironing for weeks.\nIt\u2019s not magic\njust\nquiet gravity\npulling the day back\nto level.",
+    "hash": "71de72c0ce9b0abb8986863f8261d8f7",
+    "metaphors": [
+      "light"
+    ],
+    "themes": [
+      "self_worth",
+      "silence"
     ]
   }
 ]
