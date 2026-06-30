@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "What You Cannot Change and What You Can",
-    "Why Suffering Transforms Us",
     "Why Peace Is Not the Absence of Storm",
     "The Wisdom of Not Forcing",
     "The Meaning We Choose to Find",
@@ -65,11 +63,13 @@
     "The Difference Between Living and Existing",
     "Learning to Belong to Yourself",
     "The Quiet Revolution of Self-Respect",
-    "The Courage to Begin Again"
+    "The Courage to Begin Again",
+    "The Beauty of an Unfinished Life",
+    "What You Cannot Change and What You Can"
   ],
-  "last_style": "lesson",
+  "last_style": "wisdom",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -121,7 +121,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153640_3f0c91.mp3",
@@ -140,7 +139,8 @@
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153734_d4c320.mp3",
-    "2026-06-05_153756_4972f7.mp3"
+    "2026-06-05_153756_4972f7.mp3",
+    "2026-06-05_153806_9773e5.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -149,13 +149,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The Friends Who Only Stayed For The Good Days",
-    "When You Have Nothing Left",
-    "The Love That Was Only Convenient",
-    "Learning To Be Enough On Your Own",
-    "When Being Nice Made You A Target",
-    "Outgrowing People You Love",
-    "The Strength In Walking Away",
     "What You Learned After Being Broken",
     "Why You Stopped Waiting For An Apology",
     "What Rock Bottom Taught You",
@@ -168,6 +161,13 @@
     "Loving Someone Who Wouldn't Stay",
     "Being Too Kind In A Cruel World",
     "When You Stop Chasing People",
-    "The Quiet Power Of Letting Go"
+    "The Quiet Power Of Letting Go",
+    "What Pain Quietly Teaches You",
+    "What You Owe Yourself",
+    "The Lesson In Every Goodbye",
+    "Why Closure Never Comes",
+    "The People Who Leave When You Need Them Most",
+    "When You Have Nothing Left",
+    "What Healing Actually Looks Like"
   ]
 }

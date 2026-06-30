@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Beauty of an Unfinished Life",
-    "style": "nostalgic",
-    "script": "The way the morning light\nlingers\non your unmade bed\nlike it knows\nsomething you don\u2019t.\nYou leave the door ajar\nnot for the breeze\nbut for the stories\nthat haven\u2019t arrived yet.\nTHE SUNSET STILL WAITS\nfor your shadow to stretch\njust a little longer.\nyou let it.",
-    "hash": "107ebda808c1250524183cd26cf3f711",
-    "metaphors": [
-      "bed",
-      "light",
-      "sun",
-      "shadow",
-      "door"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "You Are My Calm",
     "style": "emotional",
     "script": "There's a stillness that hums,\nlike a fridge in an empty kitchen.\nYou are the steady buzz,\nthe one I lean against\nwhen the world spins too loud.\nI don't need you to fix it,\njust stand there,\nquiet as a held breath,\nand let the noise\npass through me like wind.\nYou are my calm,\nnot the absence of storm,\nbut the hand I reach for in the dark.",
@@ -819,6 +803,18 @@
     "themes": [
       "silence",
       "self_worth"
+    ]
+  },
+  {
+    "topic": "The People Who Leave When You Need Them Most",
+    "style": "lesson",
+    "script": "You're not waiting. You're just stuck.\nWe invest in people who don't invest in us.\nTheir absence is a weight we can't shake.\nWe teach them how to leave us by staying.\nIt's not that they don't care, it's that they care less.\nYou will always be an option to someone who makes you a priority.\nBut to others, you're just a backup plan.\nWe're brave until we're not.\nAnd then we're just alone with our choices.",
+    "hash": "a181a670af79a3d0c56f49d30bc9975b",
+    "metaphors": [
+      "tea"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]

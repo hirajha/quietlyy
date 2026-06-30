@@ -806,8 +806,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781416605,
-    "uses": 1,
-    "last_used": 1781435822
+    "uses": 2,
+    "last_used": 1782816187
   },
   {
     "file": "3f75213c_0.png",
@@ -1768,13 +1768,31 @@
     "topic": "The Voice in Your Head That Says You Are Not Enough",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782796217
+    "timestamp": 1782796217,
+    "uses": 1,
+    "last_used": 1782816187
   },
   {
     "file": "b784eedd_1.png",
     "topic": "The Voice in Your Head That Says You Are Not Enough",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782796222
+    "timestamp": 1782796222,
+    "uses": 1,
+    "last_used": 1782816187
+  },
+  {
+    "file": "b6d73fee_0.png",
+    "topic": "The People Who Leave When You Need Them Most",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782816189
+  },
+  {
+    "file": "ecfc37f3_1.png",
+    "topic": "The People Who Leave When You Need Them Most",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782816193
   }
 ]
