@@ -13,10 +13,46 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Lying Awake Replaying Everything"
+    "detail": "The Cost Of Always Being Available"
   },
   "audio": {
-    "result": "fail",
-    "detail": "ElevenLabs error 401: {\"detail\":{\"type\":\"authorization_error\",\"code\":\"subscription_required\",\"message\":\"Instantly cloned voices are not available on your current plan. Please upgrade your subscription.\",\"status\":\"ivc_not_p"
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3"
+  },
+  "images": {
+    "result": "ok",
+    "detail": "5 panels"
+  },
+  "music": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [gallery_library]"
+  },
+  "video": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/quietlyy_video.mp4"
+  },
+  "quality_gate": {
+    "result": "ok",
+    "detail": ""
+  },
+  "copyright": {
+    "result": "ok",
+    "detail": ""
+  },
+  "seo": {
+    "result": "ok",
+    "detail": ""
+  },
+  "facebook": {
+    "result": "ok",
+    "detail": ""
+  },
+  "instagram": {
+    "result": "ok",
+    "detail": "17956075322983102"
+  },
+  "youtube": {
+    "result": "ok",
+    "detail": "https://www.youtube.com/shorts/s0ryI7m9OPc"
   }
 }

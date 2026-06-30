@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Loving Without Losing Yourself",
-    "style": "wisdom",
-    "script": "Maya Angelou wrote\nin the quiet moments\nyou find your strength,\nwhen the world is loud\nand you're searching for a voice\nthat sounds like home.\nI found myself in the stillness,\nlost in the chaos of loving.\nDid I lose myself in the process\nof giving everything?\nIn the emptiness, I found a question,\nwhat does it mean to love without losing?",
-    "hash": "1c2c556068e80149b06257d5e629bf5c",
-    "metaphors": [],
-    "themes": [
-      "grief_loss",
-      "love",
-      "silence"
-    ]
-  },
-  {
     "topic": "Why Peace Is Not the Absence of Storm",
     "style": "emotional",
     "script": "The porch swing still creaks at midnight.\nNot from wind,\njust the weight of what we carried.\nSome storms don\u2019t roar,\nthey settle in the joints of old wood,\nwarping the grain,\nbut never breaking it.\nThe quiet after isn\u2019t peace,\njust the shape of us,\nholding what we survived.\nYou\u2019ll recognize it,\nwhen the ache feels like home.",
@@ -807,5 +795,17 @@
     "hash": "d3b078770f527aefb6f3467fbb89e9ab",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "The Cost Of Always Being Available",
+    "style": "lesson",
+    "script": "What do you call it when you're always on call?\nWe become our own worst bosses.\nNo clocking out, no days off.\nYou're a phone call away from duty.\nWe're taught to be available, to be loyal.\nTo never disconnect, to never say no.\nBut what's the cost of being always on?\nWe lose ourselves in the static.\nYou forget what it's like to be still.\nYou become a ghost in your own life.",
+    "hash": "6e09f1dc2badde6aecb91d60e65a22f1",
+    "metaphors": [
+      "phone"
+    ],
+    "themes": [
+      "silence"
+    ]
   }
 ]
