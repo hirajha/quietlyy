@@ -1,22 +1,5 @@
 [
   {
-    "topic": "You Are My Calm",
-    "style": "emotional",
-    "script": "There's a stillness that hums,\nlike a fridge in an empty kitchen.\nYou are the steady buzz,\nthe one I lean against\nwhen the world spins too loud.\nI don't need you to fix it,\njust stand there,\nquiet as a held breath,\nand let the noise\npass through me like wind.\nYou are my calm,\nnot the absence of storm,\nbut the hand I reach for in the dark.",
-    "hash": "304fb0f55bd7b62751f300929725085d",
-    "metaphors": [
-      "kitchen",
-      "noise",
-      "storm",
-      "dark",
-      "wind",
-      "tea"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Loving Without Losing Yourself",
     "style": "wisdom",
     "script": "Maya Angelou wrote\nin the quiet moments\nyou find your strength,\nwhen the world is loud\nand you're searching for a voice\nthat sounds like home.\nI found myself in the stillness,\nlost in the chaos of loving.\nDid I lose myself in the process\nof giving everything?\nIn the emptiness, I found a question,\nwhat does it mean to love without losing?",
@@ -816,5 +799,13 @@
     "themes": [
       "loneliness"
     ]
+  },
+  {
+    "topic": "Lying Awake Replaying Everything",
+    "style": "emotional",
+    "script": "How do you name the weight\nthat settles behind your ribs\nwhen the clock\u2019s hands won\u2019t move\nbut your thoughts sprint,\nracing the same laps\naround a track you can\u2019t exit?\nThe sheets feel like water,\ntoo thin to hold you down,\nand every breath is a question\nno one answers.\nSome nights,\nyou\u2019re not replaying memories\u2014\nyou\u2019re rewriting them,\nline by line,\nuntil the page is blank.",
+    "hash": "d3b078770f527aefb6f3467fbb89e9ab",
+    "metaphors": [],
+    "themes": []
   }
 ]
