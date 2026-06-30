@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Found Me",
-    "style": "wisdom",
-    "script": "the desert wind whispered\nwhen you found me\ni was not lost\njust waiting\nfor the shape of your shadow to stretch across mine.\n\nyears of dust had settled\nyet my edges stayed sharp\nlike stones the river forgot to smooth.\n\nyou didn\u2019t carry a lantern\nor call my name\nyou simply walked\nuntil the space between us\nbecame a place.",
-    "hash": "54066e280c6cd047669c5874512194c9",
-    "metaphors": [
-      "shadow",
-      "wind"
-    ],
-    "themes": [
-      "grief_loss",
-      "growth"
-    ]
-  },
-  {
     "topic": "The Beauty of an Unfinished Life",
     "style": "nostalgic",
     "script": "The way the morning light\nlingers\non your unmade bed\nlike it knows\nsomething you don\u2019t.\nYou leave the door ajar\nnot for the breeze\nbut for the stories\nthat haven\u2019t arrived yet.\nTHE SUNSET STILL WAITS\nfor your shadow to stretch\njust a little longer.\nyou let it.",
@@ -817,6 +803,22 @@
     ],
     "themes": [
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The Voice in Your Head That Says You Are Not Enough",
+    "style": "emotional",
+    "script": "There's a hunger that doesn't ask for food,\nnot the kind you feed,\njust the kind that gnaws,\nquiet and relentless.\nThe mirror shows a stranger,\nnot the face you recognize,\nbut the one the voice insists is real.\nYou reach for the light switch,\nbut the room stays dim,\nbecause the dark isn't outside,\nit's the shape of your shadow,\nstretched too thin.\nYou are enough,\njust not in the way they measured.",
+    "hash": "e64cdeb6557c826161722961e4e61a3c",
+    "metaphors": [
+      "shadow",
+      "dark",
+      "mirror",
+      "light"
+    ],
+    "themes": [
+      "silence",
+      "self_worth"
     ]
   }
 ]
