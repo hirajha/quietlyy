@@ -46,7 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "Loving Without Losing Yourself",
     "Why the Wound Is the Gift",
     "The Art of Letting Go",
     "What Truly Matters in the End",
@@ -65,11 +64,12 @@
     "Finding Peace Within Yourself",
     "What Silence Teaches Us",
     "The Freedom of Acceptance",
-    "The Power of Small Moments"
+    "The Power of Small Moments",
+    "How to Carry Loss Without Being Crushed"
   ],
-  "last_style": "wisdom",
+  "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 4,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -118,7 +118,8 @@
     "it's the impermanence that makes it precious, a fleeting",
     "in the stillness you hear your heart",
     "turn the soil, not the sky.",
-    "the soul becomes dyed with the very colour"
+    "the soul becomes dyed with the very colour",
+    "what you never say becomes the tide"
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
@@ -150,14 +151,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The Truth About Being The Strong One",
-    "Being Too Kind In A Cruel World",
-    "What You Owe Yourself",
-    "What Loneliness Actually Teaches You",
-    "When You Stop Chasing People",
-    "The Lesson In Every Goodbye",
-    "What Healing Actually Looks Like",
-    "Why You Stopped Explaining Yourself",
     "The Friends Who Only Stayed For The Good Days",
     "Why Closure Never Comes",
     "The Quiet Power Of Letting Go",
@@ -169,6 +162,14 @@
     "Why You Stopped Waiting For An Apology",
     "Outgrowing People You Love",
     "When People Show You Who They Are",
-    "The People Who Leave When You Need Them Most"
+    "The People Who Leave When You Need Them Most",
+    "What You Learned After Being Broken",
+    "Loving Someone Who Wouldn't Stay",
+    "The Love That Was Only Convenient",
+    "Being Too Kind In A Cruel World",
+    "The Day You Chose Yourself",
+    "When You Stop Chasing People",
+    "The Cost Of Always Being Available",
+    "The Lesson In Every Goodbye"
   ]
 }

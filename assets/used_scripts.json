@@ -1,24 +1,5 @@
 [
   {
-    "topic": "Finding Yourself After Them",
-    "style": "emotional",
-    "script": "You're tracing the cracks in the ceiling again.\nThe same ones you memorized,\nbut now they look like rivers.\nNot maps,\njust paths you didn't choose.\nYour fingers remember their shape,\nand slowly,\nthe weight of their name\nfeels lighter than the dust\nsettling on your windowsill.\nSome mornings,\nyou wake up and forget to miss them.\nThe sun spills in,\nuninvited,\nand you let it stay.",
-    "hash": "6e033b74e24427b3b872034102bd9430",
-    "metaphors": [
-      "map",
-      "ceiling",
-      "wind",
-      "window",
-      "light",
-      "sun",
-      "path"
-    ],
-    "themes": [
-      "nostalgia",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Courage to Begin Again",
     "style": "wisdom",
     "script": "Marcus Aurelius wrote\nthe greatest wealth\nis to live content\nwith little for there\nis no want where\nthe mind is satisfied.\nWe forget this\nin the rush of life.\nYou're left with memories\nof a simpler time,\nthe smell of old books,\nthe feel of empty pages.",
@@ -804,6 +785,21 @@
       "growth",
       "being_used",
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "What I Never Said Out Loud",
+    "style": "wisdom",
+    "script": "the old fisherman whispered\nwhat you never say\nbecomes the tide\npulling you under\nnot the storm.\n\ni stood on the dock\ntasting salt on my tongue\nwondering if the sea\nkeeps every secret\nor just the ones\nwe drown in first.\n\nmaybe some waves\nwere meant to break\nsilent.",
+    "hash": "986f4e8fd3aa946b9360a4ffd7b6e5e4",
+    "metaphors": [
+      "ring",
+      "storm",
+      "tide",
+      "waves"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
