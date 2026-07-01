@@ -1,20 +1,5 @@
 [
   {
-    "topic": "What I Mean When I Say I Love You",
-    "style": "emotional",
-    "script": "We forget how heavy light can be.\nThe way it lingers\non the edges of your shadow,\nnot fading,\njust waiting for you to turn around.\nSome promises don\u2019t need words,\nthey hum in the quiet hum of the fridge,\nin the way your keys still jingle\nlike they did the first time.\nI won\u2019t ask you to stay,\nbut I\u2019ll leave the porch light on,\njust in case you\u2019re passing through.\nLet them know.",
-    "hash": "812f25ab4f5cfa8e39ba724f077645c4",
-    "metaphors": [
-      "light",
-      "keys",
-      "porch",
-      "shadow"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Finding Yourself After Them",
     "style": "emotional",
     "script": "You're tracing the cracks in the ceiling again.\nThe same ones you memorized,\nbut now they look like rivers.\nNot maps,\njust paths you didn't choose.\nYour fingers remember their shape,\nand slowly,\nthe weight of their name\nfeels lighter than the dust\nsettling on your windowsill.\nSome mornings,\nyou wake up and forget to miss them.\nThe sun spills in,\nuninvited,\nand you let it stay.",
@@ -802,5 +787,23 @@
     "hash": "24ba8f69e59e95170508f5fdbd565492",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "What Home Actually Feels Like",
+    "style": "emotional",
+    "script": "4:17 a.m. The kettle hums,\nnot boiling,\njust remembering how.\nYour mug waits,\nchipped edge,\nsame spot since last winter.\nThe couch sighs under you,\nnot tired,\njust used to the weight.\nSome places don\u2019t need walls,\nthey grow around your shoulders,\nsoft,\nlike an old sweater.\nYou don\u2019t notice,\nuntil you do.",
+    "hash": "3b74cc5a28ea6cabce966cb8cec21ced",
+    "metaphors": [
+      "couch",
+      "wall",
+      "mug",
+      "sweater",
+      "ring"
+    ],
+    "themes": [
+      "growth",
+      "being_used",
+      "nostalgia"
+    ]
   }
 ]
