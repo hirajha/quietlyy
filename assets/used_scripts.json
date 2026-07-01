@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Smile That Hides Everything",
-    "style": "love",
-    "script": "It\u2019s not a smile. It\u2019s a pocket.\nYou tuck the whole sky inside it,\nfolding edges neatly.\nNo one sees the storm you carry,\njust the quiet gold of your teeth.\nBut sometimes,\nthe stitches unravel,\nand the stars spill out like loose change.\nI pick them up,\npress them back into your palm.\nKeep the night safe for me.\nsend this to them.",
-    "hash": "883fb6debd0864326a3c80d1bb4875e8",
-    "metaphors": [
-      "star",
-      "storm"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What I Mean When I Say I Love You",
     "style": "emotional",
     "script": "We forget how heavy light can be.\nThe way it lingers\non the edges of your shadow,\nnot fading,\njust waiting for you to turn around.\nSome promises don\u2019t need words,\nthey hum in the quiet hum of the fridge,\nin the way your keys still jingle\nlike they did the first time.\nI won\u2019t ask you to stay,\nbut I\u2019ll leave the porch light on,\njust in case you\u2019re passing through.\nLet them know.",
@@ -807,5 +794,13 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "Finding Peace Within Yourself",
+    "style": "wisdom",
+    "script": "Marcus Aurelius wrote,\nthe soul becomes dyed\nwith the very colour\nof its thoughts.\n\nYou know that faint taste\nof salt on your tongue\nafter a restless night.\nHow it tints the whole day.\nEach passing face.\n\nWe carry our own filter.\nEverywhere.",
+    "hash": "24ba8f69e59e95170508f5fdbd565492",
+    "metaphors": [],
+    "themes": []
   }
 ]
