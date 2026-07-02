@@ -1,13 +1,5 @@
 [
   {
-    "topic": "Being Tired in Ways Sleep Cannot Fix",
-    "style": "love",
-    "script": "You\u2019re peeling an orange at midnight.\nThe rind spirals down like a tired question.\nNo one answers.\nSlowly the segments split,\ntoo bright,\ntoo much effort.\nYou press one to your tongue,\nbut the sweetness\ncan\u2019t dissolve the weight\nin your shoulders.\nThe juice drips.\nSend this to them.",
-    "hash": "20aa6e1b41bac28b41d3788ee28821fb",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "The Little Things You Do",
     "style": "love",
     "script": "The mirror still fogs up for two.\nSlowly forget the face beside yours.\nBut your eyes\n searches for a ghost.\nAnd your hands\nstill brush the hair behind an empty space.\nGently\nas if not to startle the memory.\nTheir favorite song\nplays on the radio.\nYou reach\nto change the station.\nThen remember\nyou're alone now.\nIn this quiet morning.",
@@ -812,6 +804,21 @@
     ],
     "themes": [
       "being_used",
+      "nostalgia"
+    ]
+  },
+  {
+    "topic": "When You Love Someone You Cannot Have",
+    "style": "emotional",
+    "script": "You\u2019re tracing their name\nin the steam on the bathroom mirror,\nnot for them to see,\njust to feel it again.\nThe letters blur,\nbut your finger remembers the shape.\nSome loves are like that\u2014\nnot meant to be kept,\nonly carried,\nlike a pocket full of stones\nthat weigh nothing\nuntil you try to let go.",
+    "hash": "adea481036bc98f01016a8994e4d1803",
+    "metaphors": [
+      "tea",
+      "mirror",
+      "letter"
+    ],
+    "themes": [
+      "love",
       "nostalgia"
     ]
   }

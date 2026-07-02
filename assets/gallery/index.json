@@ -869,8 +869,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781529974,
-    "uses": 1,
-    "last_used": 1781550324
+    "uses": 2,
+    "last_used": 1783007066
   },
   {
     "file": "0a630ea0_1.png",
@@ -1894,13 +1894,31 @@
     "topic": "When You Stop Explaining",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782987723
+    "timestamp": 1782987723,
+    "uses": 1,
+    "last_used": 1783007066
   },
   {
     "file": "17ce6332_1.png",
     "topic": "When You Stop Explaining",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782987727
+    "timestamp": 1782987727,
+    "uses": 1,
+    "last_used": 1783007066
+  },
+  {
+    "file": "801c4c85_0.png",
+    "topic": "When You Love Someone You Cannot Have",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783007069
+  },
+  {
+    "file": "a8eade2f_1.png",
+    "topic": "When You Love Someone You Cannot Have",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783007073
   }
 ]
