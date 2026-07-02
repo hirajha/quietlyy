@@ -1,22 +1,5 @@
 [
   {
-    "topic": "The Little Things You Do",
-    "style": "love",
-    "script": "The mirror still fogs up for two.\nSlowly forget the face beside yours.\nBut your eyes\n searches for a ghost.\nAnd your hands\nstill brush the hair behind an empty space.\nGently\nas if not to startle the memory.\nTheir favorite song\nplays on the radio.\nYou reach\nto change the station.\nThen remember\nyou're alone now.\nIn this quiet morning.",
-    "hash": "6fc345108322272b7d00193135c612dd",
-    "metaphors": [
-      "star",
-      "song",
-      "mirror",
-      "radio"
-    ],
-    "themes": [
-      "nostalgia",
-      "silence",
-      "loneliness"
-    ]
-  },
-  {
     "topic": "What I Never Said Out Loud",
     "style": "poetic",
     "script": "The clock hands never asked for my secrets.\nI fed them anyway,\ntiny crumbs of truth\nswallowed by the gears.\nSome nights,\nthe ticking grows teeth,\nchews through the dark\nlike a moth through wool.\nI let it.\nThe holes are where the light gets in,\nbut the light doesn\u2019t know my name.",
@@ -821,5 +804,18 @@
       "love",
       "nostalgia"
     ]
+  },
+  {
+    "topic": "The Ancient Truth About Happiness",
+    "style": "nostalgic",
+    "script": "Happiness isn\u2019t a place\nit\u2019s\nthe way the light\nbent through your mother\u2019s kitchen window\nwhile she stirred something sweet\nyou never asked for the recipe\nbecause you knew\nyou\u2019d never taste it the same\nand that\u2019s the truth\nolder than the hills\nolder than the names we gave them\nit slips through your fingers\nlike flour\nlike time\nlike the last bus home.",
+    "hash": "2cc89990172895eadb4f613f683c0b0e",
+    "metaphors": [
+      "kitchen",
+      "wind",
+      "light",
+      "window"
+    ],
+    "themes": []
   }
 ]
