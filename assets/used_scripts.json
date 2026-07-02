@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Courage to Begin Again",
-    "style": "wisdom",
-    "script": "Marcus Aurelius wrote\nthe greatest wealth\nis to live content\nwith little for there\nis no want where\nthe mind is satisfied.\nWe forget this\nin the rush of life.\nYou're left with memories\nof a simpler time,\nthe smell of old books,\nthe feel of empty pages.",
-    "hash": "6a4b505d673a035f491f8b8c952175e2",
-    "metaphors": [],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "The Part You Never Talk About",
     "style": "emotional",
     "script": "People don't fall out of love all at once.\nSlowly.\nBut the memories linger.\nAnd the smell of old books.\nReminds me of your fingers.\nOn my skin.\nNot anymore.\nSome hands forget.\nThe touch that once warmed.\nJust a faint scar.\nNot even a ghost.",
@@ -800,6 +790,22 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Grief Nobody Talks About",
+    "style": "emotional",
+    "script": "There's a grief that has no grave,\njust dust settling on old keys,\nThe ones you turned every morning\nbut now they jingle in a drawer,\nnot lost,\njust waiting for a door that won't open.\nSome rooms stay lit after the party,\nThe laughter still hums in the walls,\nand you stand there,\nholding a coat that isn't yours,\nwondering when to leave.\nNobody tells you how heavy air becomes\nwhen it's full of goodbyes you never said.",
+    "hash": "ba428aa446b907d9cc951c777e9926f8",
+    "metaphors": [
+      "wall",
+      "door",
+      "ring",
+      "keys"
+    ],
+    "themes": [
+      "silence",
+      "grief_loss"
     ]
   }
 ]
