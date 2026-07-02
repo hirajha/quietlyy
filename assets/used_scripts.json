@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Part You Never Talk About",
-    "style": "emotional",
-    "script": "People don't fall out of love all at once.\nSlowly.\nBut the memories linger.\nAnd the smell of old books.\nReminds me of your fingers.\nOn my skin.\nNot anymore.\nSome hands forget.\nThe touch that once warmed.\nJust a faint scar.\nNot even a ghost.",
-    "hash": "ee39daaf310999bac6c1a41603655c96",
-    "metaphors": [],
-    "themes": [
-      "love"
-    ]
-  },
-  {
     "topic": "Being Tired in Ways Sleep Cannot Fix",
     "style": "love",
     "script": "You\u2019re peeling an orange at midnight.\nThe rind spirals down like a tired question.\nNo one answers.\nSlowly the segments split,\ntoo bright,\ntoo much effort.\nYou press one to your tongue,\nbut the sweetness\ncan\u2019t dissolve the weight\nin your shoulders.\nThe juice drips.\nSend this to them.",
@@ -806,6 +796,23 @@
     "themes": [
       "silence",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "When You Stop Explaining",
+    "style": "nostalgic",
+    "script": "You used to unpack the sky\nfor me\none star at a time\nuntil I could read it like braille.\nNOW THE DARK IS JUST DARK\nand I don\u2019t ask why.\nThe wind carries what it carries\nmy pockets full of questions\nthat don\u2019t fit anymore.\nI leave them\non the dashboard\nbeside your empty coffee cup.",
+    "hash": "42f54c580ed8c5a04f2277392c0217aa",
+    "metaphors": [
+      "wind",
+      "coffee",
+      "cup",
+      "dark",
+      "star"
+    ],
+    "themes": [
+      "being_used",
+      "nostalgia"
     ]
   }
 ]

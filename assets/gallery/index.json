@@ -860,8 +860,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781504855,
-    "uses": 1,
-    "last_used": 1781529972
+    "uses": 2,
+    "last_used": 1782987720
   },
   {
     "file": "e264e588_0.png",
@@ -1876,13 +1876,31 @@
     "topic": "The Grief Nobody Talks About",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1782968647
+    "timestamp": 1782968647,
+    "uses": 1,
+    "last_used": 1782987720
   },
   {
     "file": "25fdafa0_1.png",
     "topic": "The Grief Nobody Talks About",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1782968654
+    "timestamp": 1782968654,
+    "uses": 1,
+    "last_used": 1782987720
+  },
+  {
+    "file": "0633a25b_0.png",
+    "topic": "When You Stop Explaining",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1782987723
+  },
+  {
+    "file": "17ce6332_1.png",
+    "topic": "When You Stop Explaining",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1782987727
   }
 ]
