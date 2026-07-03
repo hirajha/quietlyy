@@ -1,18 +1,5 @@
 [
   {
-    "topic": "When You Love Someone Who Is Leaving",
-    "style": "emotional",
-    "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
-    "hash": "6d0bc462964895731ac2015330b6c0d5",
-    "metaphors": [
-      "door",
-      "echo"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Quiet Exit",
     "style": "emotional",
     "script": "The last text never gets sent.\nIt sits in drafts,\nlike a boat\nthat missed the tide.\nSome exits don\u2019t slam,\nthey dissolve\u2014\nthe way sugar\nvanishes in tea.\nYour name stays sweet,\nbut the aftertaste\nfades to nothing.\nI won\u2019t wave goodbye.\nJust let the current take me.",
@@ -814,5 +801,18 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Way You Look When You Do Not Know I Am Watching",
+    "style": "love",
+    "script": "You're tracing the rim of your coffee cup,\nsoft circles,\nlike you're trying to solve a puzzle\nonly your fingers understand.\nThe steam curls,\nlingers,\nthen disappears\u2014\nI swear it knows something I don\u2019t.\nYour lips part,\njust slightly,\nas if the next word\nis already halfway to me.\nI should look away.\nSend this to them.",
+    "hash": "77fd2600d4f14bb9d3e12129a4cd2fb3",
+    "metaphors": [
+      "tea",
+      "light",
+      "coffee",
+      "cup"
+    ],
+    "themes": []
   }
 ]
