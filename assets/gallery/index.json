@@ -905,8 +905,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781591897,
-    "uses": 1,
-    "last_used": 1781612474
+    "uses": 2,
+    "last_used": 1783093139
   },
   {
     "file": "c31d5e76_1.png",
@@ -1966,13 +1966,31 @@
     "topic": "The Person Behind My Smile",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783073939
+    "timestamp": 1783073939,
+    "uses": 1,
+    "last_used": 1783093139
   },
   {
     "file": "ce4d3dfe_1.png",
     "topic": "The Person Behind My Smile",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783073943
+    "timestamp": 1783073943,
+    "uses": 1,
+    "last_used": 1783093139
+  },
+  {
+    "file": "18f20de3_0.png",
+    "topic": "When Friendship Becomes One-Sided",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783093142
+  },
+  {
+    "file": "23e32914_1.png",
+    "topic": "When Friendship Becomes One-Sided",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783093146
   }
 ]

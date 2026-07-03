@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The First Heartbreak",
-    "style": "emotional",
-    "script": "The first heartbreak isn\u2019t about them leaving.\nIt\u2019s the way your own hands\nstart to feel like strangers,\nbuttoning shirts you\u2019ll never wear for them,\nfolding sleeves that no longer reach.\nSome mornings,\nyou catch your reflection mid-wave,\nmid-smile,\nand the mirror flinches first.\nNot from pain,\nfrom recognition\u2014\nthat version of you\nis already packed away.",
-    "hash": "e55637f2dab25bdc39804d4fe37455a2",
-    "metaphors": [
-      "mirror",
-      "star"
-    ],
-    "themes": [
-      "heartbreak",
-      "love"
-    ]
-  },
-  {
     "topic": "When You Love Someone Who Is Leaving",
     "style": "emotional",
     "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
@@ -813,6 +799,20 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "When Friendship Becomes One-Sided",
+    "style": "love",
+    "script": "Your side of the couch still holds the dent.\nI trace it with my fingertips,\nlike a fossil of something alive.\nThe TV hums,\nbut the remote stays on your cushion.\nI wait for the weight to shift,\nfor the springs to sigh your name.\nNothing moves.\nJust the slow settling of dust\ninto the shape of a question mark.\nI leave the light on anyway.\nsend this to them.",
+    "hash": "bad65f49c85247c7ff8d60a8a32fcd45",
+    "metaphors": [
+      "light",
+      "couch",
+      "ring"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

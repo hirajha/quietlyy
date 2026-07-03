@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Person Behind My Smile"
+    "detail": "When Friendship Becomes One-Sided"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18089269631305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18072952922694094"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/NIDg4Rch6-A"
+    "detail": "https://www.youtube.com/shorts/m9_hgpB5YUg"
   }
 }
