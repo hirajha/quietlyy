@@ -896,8 +896,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781550331,
-    "uses": 1,
-    "last_used": 1781591895
+    "uses": 2,
+    "last_used": 1783073936
   },
   {
     "file": "47d12b68_0.png",
@@ -1948,13 +1948,31 @@
     "topic": "The Small Things I Notice About You",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783053801
+    "timestamp": 1783053801,
+    "uses": 1,
+    "last_used": 1783073936
   },
   {
     "file": "042ed459_1.png",
     "topic": "The Small Things I Notice About You",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783053806
+    "timestamp": 1783053806,
+    "uses": 1,
+    "last_used": 1783073936
+  },
+  {
+    "file": "394a499c_0.png",
+    "topic": "The Person Behind My Smile",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783073939
+  },
+  {
+    "file": "ce4d3dfe_1.png",
+    "topic": "The Person Behind My Smile",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783073943
   }
 ]

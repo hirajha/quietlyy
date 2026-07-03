@@ -1,20 +1,5 @@
 [
   {
-    "topic": "Loving Without Losing Yourself",
-    "style": "nostalgic",
-    "script": "You held the door,\nI\nlet the wind\ncarry my name out first.\nIt didn\u2019t mind,\njust curled around your ankles\nlike a cat who chose you,\nbut still sleeps on my side.\nSOMEHOW\nwe built a life\nwithout moving the furniture,\nand when the light slants just so,\nI forget\nwhich shadow is yours.",
-    "hash": "628a74a6f081822e5982b8a41df360d6",
-    "metaphors": [
-      "light",
-      "shadow",
-      "door",
-      "wind"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The First Heartbreak",
     "style": "emotional",
     "script": "The first heartbreak isn\u2019t about them leaving.\nIt\u2019s the way your own hands\nstart to feel like strangers,\nbuttoning shirts you\u2019ll never wear for them,\nfolding sleeves that no longer reach.\nSome mornings,\nyou catch your reflection mid-wave,\nmid-smile,\nand the mirror flinches first.\nNot from pain,\nfrom recognition\u2014\nthat version of you\nis already packed away.",
@@ -815,6 +800,19 @@
     ],
     "themes": [
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "wisdom",
+    "script": "Hafiz whispered\nthere\u2019s a lantern in your chest\nburning with stories\nyou\u2019ve never told.\n\nI press my palm there\nfeel the heat\nnot from joy\nbut from all the words\nlocked behind my teeth.\n\nthe smile is just\na door left ajar\nfor the wind to come in.",
+    "hash": "0da360e16d603199aa5210272a15c97b",
+    "metaphors": [
+      "wind",
+      "door"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
