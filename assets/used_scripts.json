@@ -1,19 +1,5 @@
 [
   {
-    "topic": "What I Never Said Out Loud",
-    "style": "poetic",
-    "script": "The clock hands never asked for my secrets.\nI fed them anyway,\ntiny crumbs of truth\nswallowed by the gears.\nSome nights,\nthe ticking grows teeth,\nchews through the dark\nlike a moth through wool.\nI let it.\nThe holes are where the light gets in,\nbut the light doesn\u2019t know my name.",
-    "hash": "1f8df38c0aa0cfc32af064fe33598e3b",
-    "metaphors": [
-      "wall",
-      "light",
-      "dark"
-    ],
-    "themes": [
-      "growth"
-    ]
-  },
-  {
     "topic": "Loving Without Losing Yourself",
     "style": "nostalgic",
     "script": "You held the door,\nI\nlet the wind\ncarry my name out first.\nIt didn\u2019t mind,\njust curled around your ankles\nlike a cat who chose you,\nbut still sleeps on my side.\nSOMEHOW\nwe built a life\nwithout moving the furniture,\nand when the light slants just so,\nI forget\nwhich shadow is yours.",
@@ -817,5 +803,18 @@
       "window"
     ],
     "themes": []
+  },
+  {
+    "topic": "The Small Things I Notice About You",
+    "style": "nostalgic",
+    "script": "The way your laugh\nstumbles\nout like a secret\nmeant only for me.\nYOU TILT YOUR HEAD\nwhen you're listening\nlike the world's a story\nyou don't want to end.\nYour fingers trace\ncircles on the table\nwhen you're thinking\nand I pretend not to watch.\nSOME DAYS\nI'll forget the big things\nbut I'll remember\nhow you take your coffee\nblack\nlike the night we met.",
+    "hash": "359f29e8377ef71d0638799096f05300",
+    "metaphors": [
+      "coffee",
+      "table"
+    ],
+    "themes": [
+      "nostalgia"
+    ]
   }
 ]
