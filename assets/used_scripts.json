@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Grieving Someone Who Did Not Die",
-    "style": "nostalgic",
-    "script": "I keep your old voicemail\nsaved\nlike a secret\nno one else knows.\nThe way you laughed\nstill tangled in the wires,\nstatic humming your name.\nI press play\nwhen the house is too empty,\nbut the voice that answers\nisn\u2019t yours anymore.\nJust a ghost\nin the shape of hello.",
-    "hash": "e63b9d94af7fefb9f594ba838cae88c5",
-    "metaphors": [
-      "voicemail"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When Just Being Near You Is Enough",
     "style": "love",
     "script": "You don\u2019t need words. Not here.\nThe air hums low between us,\nlike a radio left on in another room.\nI count the freckles on your shoulder,\neach one a tiny constellation I\u2019ve memorized.\nSometimes,\nyour breath syncs with mine\nwithout either of us trying.\nIt\u2019s not magic.\nJust physics.\nThe way gravity pulls without asking.\nI could stay like this forever.\nsend this to them.",
@@ -807,6 +795,25 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "When You Realized You Were the Option, Not the Priority",
+    "style": "love",
+    "script": "You scroll past their name again.\nThe screen glows like a porch light left on,\nbut the house is empty now.\nYour thumb lingers\u2014\njust a second too long,\nlike holding a door for someone who never arrives.\nTHE AIR CONDITIONER hums,\nsteady as the excuses you\u2019ve memorized.\nYou used to be the reason they stayed up late,\nnow you\u2019re the notification they snooze.\nThe bed feels wider,\nlike a road that forgot its destination.\nSend this to them.",
+    "hash": "b23792e2575abe886c027314f5d79328",
+    "metaphors": [
+      "bed",
+      "light",
+      "door",
+      "porch",
+      "road",
+      "tea"
+    ],
+    "themes": [
+      "loneliness",
+      "being_used",
+      "nostalgia"
     ]
   }
 ]
