@@ -46,7 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Freedom of Acceptance",
     "The Power of Small Moments",
     "How to Carry Loss Without Being Crushed",
     "The Gift of Impermanence",
@@ -65,11 +64,12 @@
     "The Art of Letting Go",
     "The Meaning We Choose to Find",
     "Why Suffering Transforms Us",
-    "The Ancient Truth About Happiness"
+    "The Ancient Truth About Happiness",
+    "What Silence Teaches Us"
   ],
-  "last_style": "wisdom",
+  "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 4,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -124,7 +124,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
@@ -143,7 +142,8 @@
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
-    "2026-06-05_153744_816dfe.mp3"
+    "2026-06-05_153744_816dfe.mp3",
+    "2026-06-05_153756_4972f7.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -152,14 +152,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "What Rock Bottom Taught You",
-    "The Truth About Being The Strong One",
-    "Why Closure Never Comes",
-    "Learning To Be Enough On Your Own",
-    "What Pain Quietly Teaches You",
-    "What You Owe Yourself",
-    "Being Too Kind In A Cruel World",
-    "Outgrowing People You Love",
     "The Lesson In Every Goodbye",
     "Why Silence Became Your Answer",
     "When You Have Nothing Left",
@@ -171,6 +163,14 @@
     "What You Learned After Being Broken",
     "The People Who Disappear When It's Hard",
     "The Quiet Power Of Letting Go",
-    "Why You Stopped Waiting For An Apology"
+    "Why You Stopped Waiting For An Apology",
+    "Why You Stopped Explaining Yourself",
+    "What Rock Bottom Taught You",
+    "The Friends Who Only Stayed For The Good Days",
+    "The Truth About Being The Strong One",
+    "The People Who Leave When You Need Them Most",
+    "The Love That Was Only Convenient",
+    "Why Closure Never Comes",
+    "When You Stop Chasing People"
   ]
 }

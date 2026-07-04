@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Quiet Revolution of Self-Respect",
-    "style": "wisdom",
-    "script": "a japanese gardener whispered\nnot every root needs light\nsome grow strongest\nwhere the soil stays dark\ntrust the unseen work\nself-respect isn't a shout\nit's the quiet refusal\nto let others dig up your peace\nyou don't need their tools\nor their permission to thrive\nsome things grow best\nin the hush of your own hands",
-    "hash": "2724092aa1c41bc30f2b32b2fdfcbe59",
-    "metaphors": [
-      "garden",
-      "light",
-      "dark"
-    ],
-    "themes": [
-      "grief_loss",
-      "silence",
-      "growth"
-    ]
-  },
-  {
     "topic": "The Love That Was Only Convenient",
     "style": "lesson",
     "script": "Ease can be mistaken for attachment.\nWe confuse comfort for commitment.\nYou learn this when life gets hard.\nWhen your world shifts just slightly.\nAnd their world remains untouched.\nThe calls slow.\nThe plans vanish.\nSuddenly, you are inconvenient.\nTheir presence was a luxury.\nNever a foundation.",
@@ -812,6 +796,16 @@
     ],
     "themes": [
       "grief_loss",
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Safest Place I Know",
+    "style": "nostalgic",
+    "script": "THE SAFEST PLACE I KNOW\nisn\u2019t a place at all\nit\u2019s the hum\nbefore the fridge shuts\nit\u2019s the pause\nbetween your laugh\nand mine\nit\u2019s the way you\u2019d reach\nwithout looking\nto turn off the lamp\nI\u2019d forgotten\nstill warm\nfrom your hand",
+    "hash": "5e0edc9c984dfbf20fd440dfa1f3cae4",
+    "metaphors": [],
+    "themes": [
       "silence"
     ]
   }

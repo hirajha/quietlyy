@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Last Text You Never Sent"
+    "detail": "The Safest Place I Know"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18089415932305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18048261740626084"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/hmmxSN8lYvo"
+    "detail": "https://www.youtube.com/shorts/cbTnK8UYZ7I"
   }
 }
