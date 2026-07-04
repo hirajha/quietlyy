@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "Finding Peace Within Yourself",
-    "What Silence Teaches Us",
     "The Freedom of Acceptance",
     "The Power of Small Moments",
     "How to Carry Loss Without Being Crushed",
@@ -65,11 +63,13 @@
     "What Real Love Requires",
     "The Quiet Revolution of Self-Respect",
     "The Art of Letting Go",
-    "The Meaning We Choose to Find"
+    "The Meaning We Choose to Find",
+    "Why Suffering Transforms Us",
+    "The Ancient Truth About Happiness"
   ],
-  "last_style": "lesson",
+  "last_style": "wisdom",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -124,7 +124,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153711_704e70.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153839_5a1856.mp3",
@@ -143,7 +142,8 @@
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153711_704e70.mp3",
-    "2026-06-05_153827_d3f4f7.mp3"
+    "2026-06-05_153827_d3f4f7.mp3",
+    "2026-06-05_153744_816dfe.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -152,13 +152,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "When Being Nice Made You A Target",
-    "The People Who Disappear When It's Hard",
-    "What You Learned After Being Broken",
-    "The Love That Was Only Convenient",
-    "Why You Stopped Waiting For An Apology",
-    "Loving Someone Who Wouldn't Stay",
-    "The People Who Leave When You Need Them Most",
     "What Rock Bottom Taught You",
     "The Truth About Being The Strong One",
     "Why Closure Never Comes",
@@ -171,6 +164,13 @@
     "Why Silence Became Your Answer",
     "When You Have Nothing Left",
     "The Strength In Walking Away",
-    "What Loneliness Actually Teaches You"
+    "What Loneliness Actually Teaches You",
+    "When People Show You Who They Are",
+    "What Healing Actually Looks Like",
+    "When You Finally Stopped Settling",
+    "What You Learned After Being Broken",
+    "The People Who Disappear When It's Hard",
+    "The Quiet Power Of Letting Go",
+    "Why You Stopped Waiting For An Apology"
   ]
 }

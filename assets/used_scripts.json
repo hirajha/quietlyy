@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Quiet Exit",
-    "style": "emotional",
-    "script": "The last text never gets sent.\nIt sits in drafts,\nlike a boat\nthat missed the tide.\nSome exits don\u2019t slam,\nthey dissolve\u2014\nthe way sugar\nvanishes in tea.\nYour name stays sweet,\nbut the aftertaste\nfades to nothing.\nI won\u2019t wave goodbye.\nJust let the current take me.",
-    "hash": "9db51e34d268e9da039786a6497e27a5",
-    "metaphors": [
-      "tide",
-      "tea",
-      "text"
-    ],
-    "themes": [
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Quiet Revolution of Self-Respect",
     "style": "wisdom",
     "script": "a japanese gardener whispered\nnot every root needs light\nsome grow strongest\nwhere the soil stays dark\ntrust the unseen work\nself-respect isn't a shout\nit's the quiet refusal\nto let others dig up your peace\nyou don't need their tools\nor their permission to thrive\nsome things grow best\nin the hush of your own hands",
@@ -814,5 +800,19 @@
       "cup"
     ],
     "themes": []
+  },
+  {
+    "topic": "The Last Text You Never Sent",
+    "style": "love",
+    "script": "There's a quiet like a held breath underwater.\nThe screen glows too bright,\nand your name sits there,\nsoft as a bruise.\nI trace the letters with my thumb,\nbut the water's getting cold.\nThe words I saved for you\nare just bubbles now,\nrising,\npopping,\ngone before they reach the surface.\nI press send on nothing.\nThe ocean keeps its secrets.",
+    "hash": "ff4314e28b2e0f28669c1d5f9e84e116",
+    "metaphors": [
+      "letter",
+      "ocean"
+    ],
+    "themes": [
+      "grief_loss",
+      "silence"
+    ]
   }
 ]

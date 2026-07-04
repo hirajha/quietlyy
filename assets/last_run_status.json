@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Way You Look When You Do Not Know I Am Watching"
+    "detail": "The Last Text You Never Sent"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18107947735801009"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18089415932305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/geA-P1Am3Vw"
+    "detail": "https://www.youtube.com/shorts/hmmxSN8lYvo"
   }
 }
