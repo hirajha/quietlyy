@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Strength in Stillness",
-    "style": "nostalgic",
-    "script": "You held the door for the storm\nand it\nstayed.\nBare feet on wet wood\ncounting the seconds between thunder\nuntil the house learned to breathe again.\nWE WERE NEVER AFRAID\nwe were just\nwaiting\nfor the right kind of quiet\nto teach us how to stand\ninside the weight of it\nwithout breaking.",
-    "hash": "a67c03bf759752f397c69669d6e76341",
-    "metaphors": [
-      "storm",
-      "tea",
-      "door"
-    ],
-    "themes": [
-      "silence",
-      "growth"
-    ]
-  },
-  {
     "topic": "The Strength In Walking Away",
     "style": "lesson",
     "script": "What do you call it when you're still holding on?\nTo the hope that things will change.\nBut they never do.\nYou're just waiting for the inevitable.\nFor the pain to become too much.\nTo realize you deserve better.\nThan to be treated like an option.\nNot a priority.\nWalking away is not weakness.\nIt's the strongest thing you can do.",
@@ -818,5 +803,22 @@
       "map"
     ],
     "themes": []
+  },
+  {
+    "topic": "More Than My Favorite Person",
+    "style": "love",
+    "script": "There's a kind of light that lingers\nonly where your shadow used to be.\nThe way morning stretches\nacross the bed like a question\nno one answers.\nI trace the shape of your absence\nwith my fingertips\u2014\nnot missing,\njust remembering how the room\nglowed differently when you were here.\nSome people don't leave footprints,\nthey leave the whole floor warmer.\nSend this to them.",
+    "hash": "87fdeb5375682b1e5b0daa6ac2e6bbdd",
+    "metaphors": [
+      "shadow",
+      "ring",
+      "bed",
+      "light"
+    ],
+    "themes": [
+      "nostalgia",
+      "being_used",
+      "grief_loss"
+    ]
   }
 ]

@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "Learning to Belong to Yourself",
-    "The Courage to Begin Again",
     "The Beauty of an Unfinished Life",
     "What You Cannot Change and What You Can",
     "What Real Love Requires",
@@ -65,11 +63,13 @@
     "How to Carry Loss Without Being Crushed",
     "The Wisdom of Not Forcing",
     "Why Peace Is Not the Absence of Storm",
-    "Learning to Trust the Journey"
+    "Learning to Trust the Journey",
+    "The Gift of Impermanence",
+    "The Strength in Stillness"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 4,
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -125,7 +125,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_151550_7dfb17.mp3",
@@ -144,7 +143,8 @@
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153839_5a1856.mp3",
-    "2026-06-05_151550_7dfb17.mp3"
+    "2026-06-05_151550_7dfb17.mp3",
+    "2026-06-05_153734_d4c320.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -153,13 +153,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "What Pain Quietly Teaches You",
-    "What Rock Bottom Taught You",
-    "The Strength In Walking Away",
-    "The People Who Disappear When It's Hard",
-    "The Cost Of Always Being Available",
-    "The Truth About Being The Strong One",
-    "The People Who Leave When You Need Them Most",
     "When You Stop Chasing People",
     "The Friends Who Only Stayed For The Good Days",
     "Why Silence Became Your Answer",
@@ -172,6 +165,13 @@
     "What You Learned After Being Broken",
     "When People Show You Who They Are",
     "What You Owe Yourself",
-    "Being Too Kind In A Cruel World"
+    "Being Too Kind In A Cruel World",
+    "Learning To Be Enough On Your Own",
+    "Why You Stopped Explaining Yourself",
+    "Outgrowing People You Love",
+    "Why Closure Never Comes",
+    "The Day You Chose Yourself",
+    "The Strength In Walking Away",
+    "The Cost Of Always Being Available"
   ]
 }
