@@ -1,15 +1,5 @@
 [
   {
-    "topic": "When Being Nice Made You A Target",
-    "style": "lesson",
-    "script": "You're not mean. Not intentionally.\nWe've all been there, trying to please.\nYou think being nice will save you.\nBut it just makes you a target.\nFor people who don't respect boundaries.\nFor those who take and take and take.\nYou teach people how to treat you.\nBy what you allow, by what you tolerate.\nBy being nice when you should be firm.\nYou become a lesson in self-respect: you don't always get it from others.",
-    "hash": "75b1a3306710901b3a5ab2167857dbd4",
-    "metaphors": [
-      "tea"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Strength in Stillness",
     "style": "nostalgic",
     "script": "You held the door for the storm\nand it\nstayed.\nBare feet on wet wood\ncounting the seconds between thunder\nuntil the house learned to breathe again.\nWE WERE NEVER AFRAID\nwe were just\nwaiting\nfor the right kind of quiet\nto teach us how to stand\ninside the weight of it\nwithout breaking.",
@@ -816,6 +806,16 @@
       "light",
       "road",
       "wind"
+    ],
+    "themes": []
+  },
+  {
+    "topic": "Learning to Trust the Journey",
+    "style": "wisdom",
+    "script": "Lao Tzu taught,\na good traveler\nhas no fixed plans.\nnot intent on\narriving at all.\n\nwe clutch at maps.\nmeasure every step\nagainst a future\nwe\u2019ve already drawn.\nbut the trail itself\nis the only story.\nyou just walk.",
+    "hash": "bf4a664c4fb8581704dbc323d3f65516",
+    "metaphors": [
+      "map"
     ],
     "themes": []
   }

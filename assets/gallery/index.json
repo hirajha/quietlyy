@@ -977,8 +977,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781697718,
-    "uses": 1,
-    "last_used": 1781718809
+    "uses": 2,
+    "last_used": 1783267549
   },
   {
     "file": "1e6f6546_1.png",
@@ -2110,13 +2110,31 @@
     "topic": "When You Cry in the Car Alone",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783248265
+    "timestamp": 1783248265,
+    "uses": 1,
+    "last_used": 1783267549
   },
   {
     "file": "d64951b7_1.png",
     "topic": "When You Cry in the Car Alone",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783248269
+    "timestamp": 1783248269,
+    "uses": 1,
+    "last_used": 1783267549
+  },
+  {
+    "file": "9a369c86_0.png",
+    "topic": "Learning to Trust the Journey",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783267552
+  },
+  {
+    "file": "0975edbe_1.png",
+    "topic": "Learning to Trust the Journey",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783267557
   }
 ]

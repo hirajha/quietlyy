@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When You Cry in the Car Alone"
+    "detail": "Learning to Trust the Journey"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18089623397305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "17894907966539764"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/51E3QO3dgh4"
+    "detail": "https://www.youtube.com/shorts/XM4Lh8w9oiI"
   }
 }
