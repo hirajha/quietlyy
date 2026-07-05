@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When Someone Chooses You Every Day",
-    "style": "emotional",
-    "script": "Choosing is louder than saying yes once.\nThe morning light still lands,\njust on your side of the bed.\nNot grand gestures,\njust the way you reach,\nwhen the coffee\u2019s too hot.\nSome decisions aren\u2019t spoken,\nthey\u2019re the quiet weight of a hand,\nresting where yours has always been.\nAnd the world keeps asking why,\nbut the answer\u2019s in the way,\nyou turn the key,\nevery single day.",
-    "hash": "6d6c43691b04cf2219727dfd7d6365c1",
-    "metaphors": [
-      "light",
-      "coffee",
-      "bed"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When Being Nice Made You A Target",
     "style": "lesson",
     "script": "You're not mean. Not intentionally.\nWe've all been there, trying to please.\nYou think being nice will save you.\nBut it just makes you a target.\nFor people who don't respect boundaries.\nFor those who take and take and take.\nYou teach people how to treat you.\nBy what you allow, by what you tolerate.\nBy being nice when you should be firm.\nYou become a lesson in self-respect: you don't always get it from others.",
@@ -816,5 +802,21 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "When You Cry in the Car Alone",
+    "style": "love",
+    "script": "There's a kind of exhaustion\nthat hums in the dashboard lights.\nThe radio static knows your name,\nbut it doesn't ask why.\nYour tears are just rain\non a windshield no one else sees.\nThe road keeps moving,\nand so do the headlights behind you\u2014\npatient, indifferent.\nYou are the only one\nwho notices the weight of the wheel.\nThe car swallows your breath,\nand the night pretends not to hear.",
+    "hash": "cfadc0718904d76ddea3c2a108a0d7a3",
+    "metaphors": [
+      "rain",
+      "wall",
+      "radio",
+      "tea",
+      "light",
+      "road",
+      "wind"
+    ],
+    "themes": []
   }
 ]

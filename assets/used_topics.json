@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "Learning to Trust the Journey",
-    "The Difference Between Living and Existing",
     "Loving Without Losing Yourself",
     "Learning to Belong to Yourself",
     "The Courage to Begin Again",
@@ -65,11 +63,13 @@
     "What Truly Matters in the End",
     "Finding Peace Within Yourself",
     "Why the Wound Is the Gift",
-    "How to Carry Loss Without Being Crushed"
+    "How to Carry Loss Without Being Crushed",
+    "The Wisdom of Not Forcing",
+    "Why Peace Is Not the Absence of Storm"
   ],
-  "last_style": "lesson",
+  "last_style": "wisdom",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -124,7 +124,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
@@ -143,7 +142,8 @@
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153606_63f17d.mp3",
-    "2026-06-05_153724_b66b80.mp3"
+    "2026-06-05_153724_b66b80.mp3",
+    "2026-06-05_153839_5a1856.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -152,13 +152,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "When Being Nice Made You A Target",
-    "The Lesson In Every Goodbye",
-    "What You Owe Yourself",
-    "Why Silence Became Your Answer",
-    "When You Have Nothing Left",
-    "What Loneliness Actually Teaches You",
-    "Being Too Kind In A Cruel World",
     "Outgrowing People You Love",
     "What You Learned After Being Broken",
     "Learning To Be Enough On Your Own",
@@ -171,6 +164,13 @@
     "What Rock Bottom Taught You",
     "The Strength In Walking Away",
     "The People Who Disappear When It's Hard",
-    "The Cost Of Always Being Available"
+    "The Cost Of Always Being Available",
+    "The Truth About Being The Strong One",
+    "The People Who Leave When You Need Them Most",
+    "When You Stop Chasing People",
+    "The Friends Who Only Stayed For The Good Days",
+    "Why Silence Became Your Answer",
+    "Loving Someone Who Wouldn't Stay",
+    "When Being Nice Made You A Target"
   ]
 }

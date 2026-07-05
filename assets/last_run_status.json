@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When Someone Chooses You Every Day"
+    "detail": "When You Cry in the Car Alone"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18369888469234883"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18089623397305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/MSs5WDqC9NA"
+    "detail": "https://www.youtube.com/shorts/51E3QO3dgh4"
   }
 }
