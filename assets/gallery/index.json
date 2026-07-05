@@ -959,8 +959,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781677081,
-    "uses": 1,
-    "last_used": 1781697714
+    "uses": 2,
+    "last_used": 1783227865
   },
   {
     "file": "d4a7de49_1.png",
@@ -2074,13 +2074,31 @@
     "topic": "When You Realized You Were the Option, Not the Priority",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783200862
+    "timestamp": 1783200862,
+    "uses": 1,
+    "last_used": 1783227865
   },
   {
     "file": "1d3f544a_1.png",
     "topic": "When You Realized You Were the Option, Not the Priority",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783200869
+    "timestamp": 1783200869,
+    "uses": 1,
+    "last_used": 1783227865
+  },
+  {
+    "file": "c96ec41a_0.png",
+    "topic": "When Someone Chooses You Every Day",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783227868
+  },
+  {
+    "file": "0f7db9b4_1.png",
+    "topic": "When Someone Chooses You Every Day",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783227872
   }
 ]

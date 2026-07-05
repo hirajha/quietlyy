@@ -1,17 +1,5 @@
 [
   {
-    "topic": "When Just Being Near You Is Enough",
-    "style": "love",
-    "script": "You don\u2019t need words. Not here.\nThe air hums low between us,\nlike a radio left on in another room.\nI count the freckles on your shoulder,\neach one a tiny constellation I\u2019ve memorized.\nSometimes,\nyour breath syncs with mine\nwithout either of us trying.\nIt\u2019s not magic.\nJust physics.\nThe way gravity pulls without asking.\nI could stay like this forever.\nsend this to them.",
-    "hash": "f992fc9c4369c9004c0ebce8b79dc6cb",
-    "metaphors": [
-      "radio"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "When Someone Chooses You Every Day",
     "style": "emotional",
     "script": "Choosing is louder than saying yes once.\nThe morning light still lands,\njust on your side of the bed.\nNot grand gestures,\njust the way you reach,\nwhen the coffee\u2019s too hot.\nSome decisions aren\u2019t spoken,\nthey\u2019re the quiet weight of a hand,\nresting where yours has always been.\nAnd the world keeps asking why,\nbut the answer\u2019s in the way,\nyou turn the key,\nevery single day.",
@@ -814,6 +802,19 @@
       "loneliness",
       "being_used",
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "When Someone Chooses You Every Day",
+    "style": "emotional",
+    "script": "How do you measure devotion\nwhen it\u2019s not grand gestures\nbut the way they save you the last bite,\nevery single time.\nThe plate stays warm,\nyour name still on their lips\nlike a habit they refuse to break.\nSome choices aren\u2019t spoken,\nthey\u2019re the quiet weight of a hand\nreaching for yours in the dark,\nnot to pull you closer,\njust to remind you you\u2019re already home.\nlet them know.",
+    "hash": "3da9640d8e86c6c855e2b7acba5f02cb",
+    "metaphors": [
+      "dark",
+      "plate"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
