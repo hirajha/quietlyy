@@ -1013,8 +1013,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781762650,
-    "uses": 1,
-    "last_used": 1781781356
+    "uses": 2,
+    "last_used": 1783371344
   },
   {
     "file": "88376b7b_1.png",
@@ -2182,13 +2182,31 @@
     "topic": "The First Time I Knew",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783338220
+    "timestamp": 1783338220,
+    "uses": 1,
+    "last_used": 1783371344
   },
   {
     "file": "f318f5dd_1.png",
     "topic": "The First Time I Knew",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783338224
+    "timestamp": 1783338224,
+    "uses": 1,
+    "last_used": 1783371344
+  },
+  {
+    "file": "9881d307_0.png",
+    "topic": "The Strength In Walking Away",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783371346
+  },
+  {
+    "file": "825c8f13_1.png",
+    "topic": "The Strength In Walking Away",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783371351
   }
 ]

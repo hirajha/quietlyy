@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Quiet Revolution of Self-Respect",
-    "style": "wisdom",
-    "script": "Lao Tzu wrote\nwe are like the bamboo\nswaying gently\nin the summer breeze,\nour strength comes\nfrom our ability to yield.\nwe often forget\nthis simple truth,\nand try to force our way,\nthrough life's obstacles.\nbut it's in the quiet moments,\nwe find our true resilience,\nand the courage to let go.",
-    "hash": "5f9d4e1a5567098da05fdf3b64ecb617",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Text You Read But Did Not Reply To",
     "style": "love",
     "script": "There's a quiet like the space between raindrops,\nstill holding the shape of what fell.\nThe screen glows,\nletters sharp as thorns you can't unsee.\nYour fingers hover,\nbut the cursor blinks like a held breath.\nIt's not hesitation,\njust the weight of words already spoken in silence.\nThe message stays,\nsoft as a footprint in new snow.\nYou trace the edges,\nbut never press send.\nThere's no reply,\nonly the echo of your own name.",
@@ -822,6 +812,19 @@
     "themes": [
       "moving_on",
       "self_worth"
+    ]
+  },
+  {
+    "topic": "The Strength In Walking Away",
+    "style": "lesson",
+    "script": "You don\u2019t leave because you\u2019re weak.\nYou leave because you\u2019re the only one still trying.\n\nRemember that playlist you made?\nThe one that still plays in your head when the room gets quiet.\nThey never asked what it meant.\n\nYou don\u2019t walk away to punish them.\nYou walk away to stop punishing yourself.\n\nThe hardest part isn\u2019t the goodbye.\nIt\u2019s realizing they already said it.\nWithout a word.\nWithout looking back.",
+    "hash": "54c469bf14f61bb7e6c4566c5419e755",
+    "metaphors": [
+      "playlist"
+    ],
+    "themes": [
+      "silence",
+      "nostalgia"
     ]
   }
 ]
