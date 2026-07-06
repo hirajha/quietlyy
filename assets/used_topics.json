@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Beauty of an Unfinished Life",
-    "What You Cannot Change and What You Can",
     "What Real Love Requires",
     "The Quiet Revolution of Self-Respect",
     "The Art of Letting Go",
@@ -65,11 +63,13 @@
     "Why Peace Is Not the Absence of Storm",
     "Learning to Trust the Journey",
     "The Gift of Impermanence",
-    "The Strength in Stillness"
+    "The Strength in Stillness",
+    "When Grief Becomes a Teacher",
+    "The Courage to Begin Again"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -125,7 +125,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153700_072547.mp3",
@@ -144,7 +143,8 @@
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_151550_7dfb17.mp3",
-    "2026-06-05_153734_d4c320.mp3"
+    "2026-06-05_153734_d4c320.mp3",
+    "2026-06-05_153827_d3f4f7.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -153,13 +153,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "When You Stop Chasing People",
-    "The Friends Who Only Stayed For The Good Days",
-    "Why Silence Became Your Answer",
-    "Loving Someone Who Wouldn't Stay",
-    "When Being Nice Made You A Target",
-    "The Love That Was Only Convenient",
-    "Why You Don't Beg To Be Loved",
     "The Quiet Power Of Letting Go",
     "What Healing Actually Looks Like",
     "What You Learned After Being Broken",
@@ -172,6 +165,13 @@
     "Why Closure Never Comes",
     "The Day You Chose Yourself",
     "The Strength In Walking Away",
-    "The Cost Of Always Being Available"
+    "The Cost Of Always Being Available",
+    "The People Who Leave When You Need Them Most",
+    "What Loneliness Actually Teaches You",
+    "The People Who Disappear When It's Hard",
+    "Why Silence Became Your Answer",
+    "When You Finally Stopped Settling",
+    "What Rock Bottom Taught You",
+    "When You Stop Chasing People"
   ]
 }
