@@ -13,46 +13,10 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The First Time I Knew"
+    "detail": "The Lesson In Every Goodbye"
   },
   "audio": {
-    "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3"
-  },
-  "images": {
-    "result": "ok",
-    "detail": "5 panels"
-  },
-  "music": {
-    "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [gallery_library]"
-  },
-  "video": {
-    "result": "ok",
-    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/quietlyy_video.mp4"
-  },
-  "quality_gate": {
-    "result": "ok",
-    "detail": ""
-  },
-  "copyright": {
-    "result": "ok",
-    "detail": ""
-  },
-  "seo": {
-    "result": "ok",
-    "detail": ""
-  },
-  "facebook": {
-    "result": "ok",
-    "detail": ""
-  },
-  "instagram": {
-    "result": "ok",
-    "detail": "18114786163920645"
-  },
-  "youtube": {
-    "result": "ok",
-    "detail": "https://www.youtube.com/shorts/nkh4UiblCkQ"
+    "result": "fail",
+    "detail": "ElevenLabs error 401: {\"detail\":{\"type\":\"authorization_error\",\"code\":\"subscription_required\",\"message\":\"Instantly cloned voices are not available on your current plan. Please upgrade your subscription.\",\"status\":\"ivc_not_p"
   }
 }

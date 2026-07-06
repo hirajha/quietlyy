@@ -1,19 +1,5 @@
 [
   {
-    "topic": "Lying Awake Replaying Everything",
-    "style": "emotional",
-    "script": "The night replays like a stuck record.\nNeedle skips,\nbut the song never changes.\nEvery word,\nevery pause,\ncarved deeper into the vinyl.\nSome grooves you can\u2019t smooth out,\njust learn to live inside.\nThe static hums,\nand I wonder\nif anyone else hears it.\nThe silence isn\u2019t empty.\nIt\u2019s full of echoes.\nSend this to them.",
-    "hash": "61b5587072d4e4109c77e68acc11125f",
-    "metaphors": [
-      "echo",
-      "silence",
-      "song"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Quiet Revolution of Self-Respect",
     "style": "wisdom",
     "script": "Lao Tzu wrote\nwe are like the bamboo\nswaying gently\nin the summer breeze,\nour strength comes\nfrom our ability to yield.\nwe often forget\nthis simple truth,\nand try to force our way,\nthrough life's obstacles.\nbut it's in the quiet moments,\nwe find our true resilience,\nand the courage to let go.",
@@ -822,6 +808,20 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The Lesson In Every Goodbye",
+    "style": "lesson",
+    "script": "When did it become easier to delete,\nthan to explain.\nWe all have that folder of unsent texts.\nThe ones that say too much,\nand not enough.\nYou don\u2019t owe anyone your goodbye,\nbut you owe yourself the truth.\nSome doors don\u2019t slam.\nThey just stop being doors at all.\nYou\u2019ll know you\u2019re free,\nwhen you stop checking if they noticed.",
+    "hash": "c2df1901719c732a56dc95aca24a7d0d",
+    "metaphors": [
+      "door",
+      "text"
+    ],
+    "themes": [
+      "moving_on",
+      "self_worth"
     ]
   }
 ]
