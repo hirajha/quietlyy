@@ -1,16 +1,5 @@
 [
   {
-    "topic": "The Way You Look at Me",
-    "style": "love",
-    "script": "It\u2019s not a look. It\u2019s a slow dissolve.\nThe room tilts,\njust enough to notice.\nYour eyes don\u2019t hold mine\u2014\nthey unravel the seams,\nthread by careful thread.\nI forget how to stand.\nThe floor remembers your name,\nbut my knees don\u2019t.\nYou blink,\nand the world rewrites itself.\nSend this to them.",
-    "hash": "aabcaf8079a659828e3839e7e2741226",
-    "metaphors": [],
-    "themes": [
-      "nostalgia",
-      "self_worth"
-    ]
-  },
-  {
     "topic": "Lying Awake Replaying Everything",
     "style": "emotional",
     "script": "The night replays like a stuck record.\nNeedle skips,\nbut the song never changes.\nEvery word,\nevery pause,\ncarved deeper into the vinyl.\nSome grooves you can\u2019t smooth out,\njust learn to live inside.\nThe static hums,\nand I wonder\nif anyone else hears it.\nThe silence isn\u2019t empty.\nIt\u2019s full of echoes.\nSend this to them.",
@@ -820,5 +809,19 @@
       "shadow"
     ],
     "themes": []
+  },
+  {
+    "topic": "The First Time I Knew",
+    "style": "emotional",
+    "script": "The first time I knew\nwasn\u2019t a moment\u2014\nit was a slow unraveling\nlike a sweater left in the rain\nthreads pulling loose\none by one\nuntil the shape of us\nwas just a puddle on the floor.\nI didn\u2019t cry\nI just kept counting the holes\nwondering if you\u2019d notice\nthe way the cold got in\nor if you\u2019d walk right through me\nlike I wasn\u2019t there at all.",
+    "hash": "59a8236bc590c1bf7bfc91942a32041c",
+    "metaphors": [
+      "ring",
+      "rain",
+      "sweater"
+    ],
+    "themes": [
+      "loneliness"
+    ]
   }
 ]

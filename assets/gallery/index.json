@@ -1004,8 +1004,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781718816,
-    "uses": 1,
-    "last_used": 1781762647
+    "uses": 2,
+    "last_used": 1783338218
   },
   {
     "file": "372535be_0.png",
@@ -2164,13 +2164,31 @@
     "topic": "The Difference Between Living and Existing",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783315041
+    "timestamp": 1783315041,
+    "uses": 1,
+    "last_used": 1783338218
   },
   {
     "file": "ca4bc4d7_1.png",
     "topic": "The Difference Between Living and Existing",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783315046
+    "timestamp": 1783315046,
+    "uses": 1,
+    "last_used": 1783338218
+  },
+  {
+    "file": "b02d9ae5_0.png",
+    "topic": "The First Time I Knew",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783338220
+  },
+  {
+    "file": "f318f5dd_1.png",
+    "topic": "The First Time I Knew",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783338224
   }
 ]
