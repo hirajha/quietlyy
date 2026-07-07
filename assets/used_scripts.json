@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Version of You That Did Not Make It",
-    "style": "love",
-    "script": "I carry it everywhere.\nA pocket-sized constellation,\nwrapped in receipts and lint.\nNo one sees the way it glows,\nsoft as a streetlamp through fog.\nYou left it behind,\nthat version of you,\nthe one who laughed at bad jokes.\nI press it to my ear sometimes,\nbut the static just hums your name.\nMaybe it\u2019s not a star after all.\nMaybe it\u2019s a door,\nleft slightly ajar.",
-    "hash": "852c9eb40f349cc47132e447d583cd79",
-    "metaphors": [
-      "star",
-      "door",
-      "light",
-      "tree"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "The Gift of Impermanence",
     "style": "wisdom",
     "script": "Buddha said\nit's the impermanence\nthat makes it precious, a fleeting\nmoment of beauty, a whisper\nof what could have been. \nand i think about all\nthe moments i didn't know\nwere my last, the ones\ni took for granted. \nthe laughter, the tears,\nthe memories that now\nfeel like a distant\nhum of a forgotten melody. \nand in the stillness\ni find a sense of peace",
@@ -825,5 +810,16 @@
       "door"
     ],
     "themes": []
+  },
+  {
+    "topic": "The Freedom of Acceptance",
+    "style": "wisdom",
+    "script": "Remember the smell of old books.\nThe way dust rises when you crack one open.\n\nHafiz whispered\nfreedom isn\u2019t out there.\nIt\u2019s in the letting go.\n\nWe cling to pages we\u2019ve already read.\nTurn them over and over.\nLike we\u2019re afraid to see what\u2019s next.\n\nThe spine creaks.\nWe hold our breath.\n\nSome stories aren\u2019t meant to stay.",
+    "hash": "169dfc04b02c811c6013736c7d19501f",
+    "metaphors": [],
+    "themes": [
+      "moving_on",
+      "nostalgia"
+    ]
   }
 ]

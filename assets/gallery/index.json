@@ -1031,8 +1031,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781781358,
-    "uses": 1,
-    "last_used": 1781802554
+    "uses": 2,
+    "last_used": 1783420520
   },
   {
     "file": "b96a2c1b_1.png",
@@ -2218,13 +2218,31 @@
     "topic": "When You Loved More Than They Did",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783400138
+    "timestamp": 1783400138,
+    "uses": 1,
+    "last_used": 1783420520
   },
   {
     "file": "a3cc5974_1.png",
     "topic": "When You Loved More Than They Did",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783400143
+    "timestamp": 1783400143,
+    "uses": 1,
+    "last_used": 1783420520
+  },
+  {
+    "file": "07c18a13_0.png",
+    "topic": "The Freedom of Acceptance",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783420522
+  },
+  {
+    "file": "0294471b_1.png",
+    "topic": "The Freedom of Acceptance",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783420526
   }
 ]
