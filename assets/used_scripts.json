@@ -1,20 +1,5 @@
 [
   {
-    "topic": "When Love Was Not Enough",
-    "style": "nostalgic",
-    "script": "YOU KEPT THE LIGHTS ON\nall night\nso the dark wouldn\u2019t notice\nwe were failing.\n\nI traced your veins\nlike subway lines\nto places we\u2019d never go again.\n\nThe couch still holds\nour old shape\nlike a photograph\nyou can sit inside.\n\nWe ran out of words\nbefore we ran out of time\nand that\u2019s the part\nno one warns you about.",
-    "hash": "dbfbb1b77370eb9d1dec226d9ba7a5f3",
-    "metaphors": [
-      "photo",
-      "dark",
-      "light",
-      "couch"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Strength In Walking Away",
     "style": "lesson",
     "script": "Some bonds are meant to break. \n   Fragile things. \n   They shatter, \n   leaving sharp edges. \n   People don't always notice, \n   but the fissures are there, \n   spreading, \n   a slow unraveling. \n   The strongest thing you can do \n   is acknowledge the fracture. \n   Walking away is not weakness. \n   It's the brave thing to do.",
@@ -820,6 +805,19 @@
       "growth",
       "being_used",
       "silence"
+    ]
+  },
+  {
+    "topic": "Why Silence Became Your Answer",
+    "style": "lesson",
+    "script": "What do you call it when silence is the easiest response?\nWe've all been there, you, me, everyone.\nIt's not that we don't care, it's that we don't know how.\nTo make it stop, to make it better.\nWe're stuck, you're stuck, in this limbo.\nWhere speaking up means speaking out of turn.\nAnd being heard means being hurt.\nWe're searching for a way to be seen, to be heard.\nWithout being shredded by the words of others.\nAnd so we choose silence, as our answer.",
+    "hash": "48a3eb831faad81844e408442d9cf0b3",
+    "metaphors": [
+      "silence"
+    ],
+    "themes": [
+      "silence",
+      "heartbreak"
     ]
   }
 ]

@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "Why the Wound Is the Gift",
-    "How to Carry Loss Without Being Crushed",
     "The Wisdom of Not Forcing",
     "Why Peace Is Not the Absence of Storm",
     "Learning to Trust the Journey",
@@ -65,11 +63,13 @@
     "The Ancient Truth About Happiness",
     "The Freedom of Acceptance",
     "Why Suffering Transforms Us",
-    "The Power of Small Moments"
+    "The Power of Small Moments",
+    "What Truly Matters in the End",
+    "Learning to Belong to Yourself"
   ],
-  "last_style": "lesson",
+  "last_style": "wisdom",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -126,7 +126,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
@@ -145,7 +144,8 @@
     "2026-06-05_153651_0d1d62.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
-    "2026-06-05_153627_53fd51.mp3"
+    "2026-06-05_153627_53fd51.mp3",
+    "2026-06-05_153606_63f17d.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -154,13 +154,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "What You Owe Yourself",
-    "When You Finally Stopped Settling",
-    "The Day You Chose Yourself",
-    "When People Show You Who They Are",
-    "Why You Don't Beg To Be Loved",
-    "When Being Nice Made You A Target",
-    "What Healing Actually Looks Like",
     "When You Have Nothing Left",
     "Loving Someone Who Wouldn't Stay",
     "When You Stop Chasing People",
@@ -173,6 +166,13 @@
     "What You Learned After Being Broken",
     "Being Too Kind In A Cruel World",
     "What Loneliness Actually Teaches You",
-    "Why You Stopped Explaining Yourself"
+    "Why You Stopped Explaining Yourself",
+    "The Strength In Walking Away",
+    "The Truth About Being The Strong One",
+    "The Quiet Power Of Letting Go",
+    "Why Silence Became Your Answer",
+    "When You Finally Stopped Settling",
+    "The Love That Was Only Convenient",
+    "The People Who Disappear When It's Hard"
   ]
 }

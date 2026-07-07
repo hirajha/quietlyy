@@ -1049,8 +1049,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781802557,
-    "uses": 1,
-    "last_used": 1781850217
+    "uses": 2,
+    "last_used": 1783461397
   },
   {
     "file": "40a7a786_1.png",
@@ -2254,13 +2254,31 @@
     "topic": "The People Who Leave When You Need Them Most",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783440216
+    "timestamp": 1783440216,
+    "uses": 1,
+    "last_used": 1783461397
   },
   {
     "file": "7e63e23f_1.png",
     "topic": "The People Who Leave When You Need Them Most",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783440223
+    "timestamp": 1783440223,
+    "uses": 1,
+    "last_used": 1783461397
+  },
+  {
+    "file": "b3d91357_0.png",
+    "topic": "Why Silence Became Your Answer",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783461400
+  },
+  {
+    "file": "951aa0e7_1.png",
+    "topic": "Why Silence Became Your Answer",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783461404
   }
 ]
