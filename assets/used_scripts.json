@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Gift of Impermanence",
-    "style": "wisdom",
-    "script": "Buddha said\nit's the impermanence\nthat makes it precious, a fleeting\nmoment of beauty, a whisper\nof what could have been. \nand i think about all\nthe moments i didn't know\nwere my last, the ones\ni took for granted. \nthe laughter, the tears,\nthe memories that now\nfeel like a distant\nhum of a forgotten melody. \nand in the stillness\ni find a sense of peace",
-    "hash": "676e8b093c5e20c9d05d74df38958547",
-    "metaphors": [
-      "tea"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When Love Was Not Enough",
     "style": "nostalgic",
     "script": "YOU KEPT THE LIGHTS ON\nall night\nso the dark wouldn\u2019t notice\nwe were failing.\n\nI traced your veins\nlike subway lines\nto places we\u2019d never go again.\n\nThe couch still holds\nour old shape\nlike a photograph\nyou can sit inside.\n\nWe ran out of words\nbefore we ran out of time\nand that\u2019s the part\nno one warns you about.",
@@ -820,6 +808,18 @@
     "themes": [
       "moving_on",
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "The People Who Leave When You Need Them Most",
+    "style": "lesson",
+    "script": "The people who stay are not the ones who never leave your side.\nThey\u2019re the ones who come back.\n\nYou\u2019ll know them by the way they show up when it\u2019s hard.\nNot when it\u2019s easy.\nNot when it\u2019s convenient.\nWhen it\u2019s messy, and quiet, and real.\n\nSome will vanish the second things get heavy.\nThat\u2019s not a test you failed.\nThat\u2019s a truth you learned.\n\nThe right people don\u2019t need a reason to stay.\nThey just do.",
+    "hash": "038b38d9416b8aa86980b8ee72b9d5eb",
+    "metaphors": [],
+    "themes": [
+      "growth",
+      "being_used",
+      "silence"
     ]
   }
 ]

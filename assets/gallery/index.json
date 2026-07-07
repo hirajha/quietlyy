@@ -1040,8 +1040,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781781363,
-    "uses": 1,
-    "last_used": 1781802554
+    "uses": 2,
+    "last_used": 1783440211
   },
   {
     "file": "1a077665_0.png",
@@ -2236,13 +2236,31 @@
     "topic": "The Freedom of Acceptance",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783420522
+    "timestamp": 1783420522,
+    "uses": 1,
+    "last_used": 1783440211
   },
   {
     "file": "0294471b_1.png",
     "topic": "The Freedom of Acceptance",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783420526
+    "timestamp": 1783420526,
+    "uses": 1,
+    "last_used": 1783440211
+  },
+  {
+    "file": "9b85fc45_0.png",
+    "topic": "The People Who Leave When You Need Them Most",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783440216
+  },
+  {
+    "file": "7e63e23f_1.png",
+    "topic": "The People Who Leave When You Need Them Most",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783440223
   }
 ]
