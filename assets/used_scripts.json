@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Text You Read But Did Not Reply To",
-    "style": "love",
-    "script": "There's a quiet like the space between raindrops,\nstill holding the shape of what fell.\nThe screen glows,\nletters sharp as thorns you can't unsee.\nYour fingers hover,\nbut the cursor blinks like a held breath.\nIt's not hesitation,\njust the weight of words already spoken in silence.\nThe message stays,\nsoft as a footprint in new snow.\nYou trace the edges,\nbut never press send.\nThere's no reply,\nonly the echo of your own name.",
-    "hash": "fac9ce77f8aee3528210ab0c28ee1509",
-    "metaphors": [
-      "silence",
-      "echo",
-      "letter",
-      "rain"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Version of You That Did Not Make It",
     "style": "love",
     "script": "I carry it everywhere.\nA pocket-sized constellation,\nwrapped in receipts and lint.\nNo one sees the way it glows,\nsoft as a streetlamp through fog.\nYou left it behind,\nthat version of you,\nthe one who laughed at bad jokes.\nI press it to my ear sometimes,\nbut the static just hums your name.\nMaybe it\u2019s not a star after all.\nMaybe it\u2019s a door,\nleft slightly ajar.",
@@ -826,5 +811,19 @@
       "silence",
       "nostalgia"
     ]
+  },
+  {
+    "topic": "When You Loved More Than They Did",
+    "style": "nostalgic",
+    "script": "You counted the steps\nbetween their door\nand yours.\nEVERY NIGHT\nwas a rehearsal\nfor leaving.\nThe porch light\nstayed on\nlong after you stopped\nbelieving in dawn.\nYOU KEPT\nsaving the good sheets\nfor guests\nwho never arrived.\nThe kettle\nwhistled\nto an empty kitchen.",
+    "hash": "36164f5d8fd2d8aa8dfa9d0219a1e2ce",
+    "metaphors": [
+      "light",
+      "kitchen",
+      "dawn",
+      "porch",
+      "door"
+    ],
+    "themes": []
   }
 ]

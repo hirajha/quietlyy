@@ -1022,8 +1022,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781762656,
-    "uses": 1,
-    "last_used": 1781781356
+    "uses": 2,
+    "last_used": 1783400136
   },
   {
     "file": "3d893a23_0.png",
@@ -2200,13 +2200,31 @@
     "topic": "The Strength In Walking Away",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783371346
+    "timestamp": 1783371346,
+    "uses": 1,
+    "last_used": 1783400136
   },
   {
     "file": "825c8f13_1.png",
     "topic": "The Strength In Walking Away",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783371351
+    "timestamp": 1783371351,
+    "uses": 1,
+    "last_used": 1783400136
+  },
+  {
+    "file": "60aedb4e_0.png",
+    "topic": "When You Loved More Than They Did",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783400138
+  },
+  {
+    "file": "a3cc5974_1.png",
+    "topic": "When You Loved More Than They Did",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783400143
   }
 ]
