@@ -1,20 +1,5 @@
 [
   {
-    "topic": "Learning to Trust the Journey",
-    "style": "wisdom",
-    "script": "Maya Angelou wrote\nin the stillness\nyou hear your heart\nbeating with a purpose,\nsoftly whispering truths\nthat only emerge\nwhen the world slows down\nand you're left with\njust your thoughts,\nand the weight of your dreams,\nwhat will you listen to,\nand where will it lead you",
-    "hash": "66c668ba24470c45149c5f291e532ca6",
-    "metaphors": [
-      "ring"
-    ],
-    "themes": [
-      "being_used",
-      "silence",
-      "love",
-      "loneliness"
-    ]
-  },
-  {
     "topic": "Being Strong for Everyone While Breaking Inside",
     "style": "love",
     "script": "You\u2019re stitching the seams of your sleeves again.\nNeedle pricks,\nbut the thread never snaps.\nThey see the embroidery,\nthe tiny flowers you add,\nnot the holes you\u2019re hiding.\nYour hands know the weight of holding,\nsteady for everyone,\nwhile your ribs learn to bend.\nThe fabric stretches,\nbut doesn\u2019t tear.\nYou fold the shirt neatly.\nPlace it back on the hanger.",
@@ -825,6 +810,21 @@
     ],
     "themes": [
       "self_worth",
+      "love"
+    ]
+  },
+  {
+    "topic": "The Kind of Love That Doesn't Shout",
+    "style": "love",
+    "script": "There's a kind of devotion that hums.\nLike a fridge in an empty kitchen,\nsteady,\nunseen,\nkeeping the light on for you.\nThe door might stay closed for days,\nbut the hum never stops.\nIt doesn't beg for attention,\njust waits,\nknowing you'll reach for it eventually.\nSome loves are like that.\nSend this to them.",
+    "hash": "cd75fb0dce16e7bdb1b1e4efda612f5d",
+    "metaphors": [
+      "kitchen",
+      "door",
+      "light",
+      "tea"
+    ],
+    "themes": [
       "love"
     ]
   }
