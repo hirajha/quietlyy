@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Kind of Love That Doesn't Shout"
+    "detail": "When You Have Nothing Left"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18432109621132162"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18090172934305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/9jRnclEXsP0"
+    "detail": "https://www.youtube.com/shorts/0Wlh2cPJ69s"
   }
 }

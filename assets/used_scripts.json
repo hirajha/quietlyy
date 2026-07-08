@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Being Strong for Everyone While Breaking Inside",
-    "style": "love",
-    "script": "You\u2019re stitching the seams of your sleeves again.\nNeedle pricks,\nbut the thread never snaps.\nThey see the embroidery,\nthe tiny flowers you add,\nnot the holes you\u2019re hiding.\nYour hands know the weight of holding,\nsteady for everyone,\nwhile your ribs learn to bend.\nThe fabric stretches,\nbut doesn\u2019t tear.\nYou fold the shirt neatly.\nPlace it back on the hanger.",
-    "hash": "22c477447fa06d18557bb5c2f373035a",
-    "metaphors": [
-      "tea",
-      "flower"
-    ],
-    "themes": []
-  },
-  {
     "topic": "What Home Actually Feels Like",
     "style": "poetic",
     "script": "Home isn\u2019t a place you find.\nIt\u2019s the echo of spoons,\nclinking in a kitchen drawer at 3 a.m.,\nwhen the world\u2019s asleep\nbut the fridge hums a lullaby.\nSomewhere,\na door left ajar,\njust enough to let the cat slip through,\nand the scent of rain on pavement\nlingers like a promise.\nThe walls don\u2019t hold it\u2014\nthe air does,\nthick with the weight of small, ordinary things.",
@@ -826,6 +815,17 @@
     ],
     "themes": [
       "love"
+    ]
+  },
+  {
+    "topic": "When You Have Nothing Left",
+    "style": "lesson",
+    "script": "You're not empty. Not entirely.\nWe all have something left to give,\nno matter how small.\nIt's the letting go that's hard,\nnot the giving.\nYou don't realize what you had,\nuntil you're living without it.\nWe cling to what's left,\nbecause it's all that remains.\nYou don't lose everything at once,\nyou lose it piece by piece.",
+    "hash": "21b61af9e20add3ca7eee90e69397071",
+    "metaphors": [],
+    "themes": [
+      "moving_on",
+      "loneliness"
     ]
   }
 ]
