@@ -46,7 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Wisdom of Not Forcing",
     "Why Peace Is Not the Absence of Storm",
     "Learning to Trust the Journey",
     "The Gift of Impermanence",
@@ -65,11 +64,12 @@
     "Why Suffering Transforms Us",
     "The Power of Small Moments",
     "What Truly Matters in the End",
-    "Learning to Belong to Yourself"
+    "Learning to Belong to Yourself",
+    "Why the Wound Is the Gift"
   ],
-  "last_style": "wisdom",
+  "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 4,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -126,7 +126,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153711_704e70.mp3",
@@ -145,7 +144,8 @@
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153627_53fd51.mp3",
-    "2026-06-05_153606_63f17d.mp3"
+    "2026-06-05_153606_63f17d.mp3",
+    "2026-06-05_153700_072547.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -154,14 +154,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "When You Have Nothing Left",
-    "Loving Someone Who Wouldn't Stay",
-    "When You Stop Chasing People",
-    "Why You Stopped Waiting For An Apology",
-    "What Rock Bottom Taught You",
-    "What Pain Quietly Teaches You",
-    "The Lesson In Every Goodbye",
-    "The People Who Leave When You Need Them Most",
     "The Cost Of Always Being Available",
     "What You Learned After Being Broken",
     "Being Too Kind In A Cruel World",
@@ -173,6 +165,14 @@
     "Why Silence Became Your Answer",
     "When You Finally Stopped Settling",
     "The Love That Was Only Convenient",
-    "The People Who Disappear When It's Hard"
+    "The People Who Disappear When It's Hard",
+    "The Friends Who Only Stayed For The Good Days",
+    "When People Show You Who They Are",
+    "Loving Someone Who Wouldn't Stay",
+    "When Being Nice Made You A Target",
+    "When You Stop Chasing People",
+    "What You Owe Yourself",
+    "Why You Stopped Waiting For An Apology",
+    "Learning To Be Enough On Your Own"
   ]
 }

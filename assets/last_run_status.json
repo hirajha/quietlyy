@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Why Silence Became Your Answer"
+    "detail": "When People Show You Who They Are"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18090060803305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18118538212648427"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/qoEOxlsw9Zs"
+    "detail": "https://www.youtube.com/shorts/iM1ACARIXmU"
   }
 }

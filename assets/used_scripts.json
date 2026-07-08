@@ -1,13 +1,5 @@
 [
   {
-    "topic": "The Strength In Walking Away",
-    "style": "lesson",
-    "script": "Some bonds are meant to break. \n   Fragile things. \n   They shatter, \n   leaving sharp edges. \n   People don't always notice, \n   but the fissures are there, \n   spreading, \n   a slow unraveling. \n   The strongest thing you can do \n   is acknowledge the fracture. \n   Walking away is not weakness. \n   It's the brave thing to do.",
-    "hash": "3923267667d2f0e4e6dad1cea83e938c",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "Learning to Trust the Journey",
     "style": "wisdom",
     "script": "Maya Angelou wrote\nin the stillness\nyou hear your heart\nbeating with a purpose,\nsoftly whispering truths\nthat only emerge\nwhen the world slows down\nand you're left with\njust your thoughts,\nand the weight of your dreams,\nwhat will you listen to,\nand where will it lead you",
@@ -818,6 +810,22 @@
     "themes": [
       "silence",
       "heartbreak"
+    ]
+  },
+  {
+    "topic": "When People Show You Who They Are",
+    "style": "lesson",
+    "script": "You keep waiting for them to change.\nLike a song stuck on repeat,\nyou know every note.\nBut the melody never shifts.\n\nPeople show you who they are.\nNot once.\nNot by accident.\nEvery time.\n\nYou don\u2019t need a sign.\nYou need a mirror.\nWhat you accept is what you teach.\n\nThe hardest lesson isn\u2019t seeing the truth.\nIt\u2019s deciding you\u2019re worth more than their version of love.",
+    "hash": "080e90d1fcca9bcabfe7d10c190df5f5",
+    "metaphors": [
+      "tea",
+      "mirror",
+      "note",
+      "song"
+    ],
+    "themes": [
+      "self_worth",
+      "love"
     ]
   }
 ]

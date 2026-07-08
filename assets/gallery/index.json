@@ -1058,8 +1058,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781802561,
-    "uses": 1,
-    "last_used": 1781850217
+    "uses": 2,
+    "last_used": 1783484225
   },
   {
     "file": "4ac08c88_0.png",
@@ -2272,13 +2272,31 @@
     "topic": "Why Silence Became Your Answer",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783461400
+    "timestamp": 1783461400,
+    "uses": 1,
+    "last_used": 1783484225
   },
   {
     "file": "951aa0e7_1.png",
     "topic": "Why Silence Became Your Answer",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783461404
+    "timestamp": 1783461404,
+    "uses": 1,
+    "last_used": 1783484225
+  },
+  {
+    "file": "4069cfca_0.png",
+    "topic": "When People Show You Who They Are",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783484228
+  },
+  {
+    "file": "65a4fa70_1.png",
+    "topic": "When People Show You Who They Are",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783484232
   }
 ]
