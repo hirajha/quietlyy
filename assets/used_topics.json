@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "When Grief Becomes a Teacher",
-    "The Courage to Begin Again",
     "What You Cannot Change and What You Can",
     "Loving Without Losing Yourself",
     "What Real Love Requires",
@@ -65,11 +63,13 @@
     "The Meaning We Choose to Find",
     "The Wisdom of Not Forcing",
     "Learning to Trust the Journey",
-    "How to Carry Loss Without Being Crushed"
+    "How to Carry Loss Without Being Crushed",
+    "The Gift of Impermanence",
+    "What Silence Teaches Us"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 2,
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -126,7 +126,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153756_4972f7.mp3",
@@ -145,7 +144,8 @@
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153711_704e70.mp3",
-    "2026-06-05_153640_3f0c91.mp3"
+    "2026-06-05_153640_3f0c91.mp3",
+    "2026-06-05_153756_4972f7.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -154,13 +154,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Loving Someone Who Wouldn't Stay",
-    "When Being Nice Made You A Target",
-    "When You Stop Chasing People",
-    "What You Owe Yourself",
-    "Why You Stopped Waiting For An Apology",
-    "Learning To Be Enough On Your Own",
-    "Why You Don't Beg To Be Loved",
     "The Cost Of Always Being Available",
     "Why Closure Never Comes",
     "What You Learned After Being Broken",
@@ -173,6 +166,13 @@
     "The Lesson In Every Goodbye",
     "Why Silence Became Your Answer",
     "Why You Stopped Explaining Yourself",
-    "What Pain Quietly Teaches You"
+    "What Pain Quietly Teaches You",
+    "Outgrowing People You Love",
+    "The Friends Who Only Stayed For The Good Days",
+    "When Being Nice Made You A Target",
+    "The Quiet Power Of Letting Go",
+    "The Strength In Walking Away",
+    "When People Show You Who They Are",
+    "What Rock Bottom Taught You"
   ]
 }

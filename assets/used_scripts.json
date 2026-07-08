@@ -1,22 +1,5 @@
 [
   {
-    "topic": "What Home Actually Feels Like",
-    "style": "poetic",
-    "script": "Home isn\u2019t a place you find.\nIt\u2019s the echo of spoons,\nclinking in a kitchen drawer at 3 a.m.,\nwhen the world\u2019s asleep\nbut the fridge hums a lullaby.\nSomewhere,\na door left ajar,\njust enough to let the cat slip through,\nand the scent of rain on pavement\nlingers like a promise.\nThe walls don\u2019t hold it\u2014\nthe air does,\nthick with the weight of small, ordinary things.",
-    "hash": "1ac1da77f458a48454d62d2af5760bd2",
-    "metaphors": [
-      "echo",
-      "wall",
-      "rain",
-      "kitchen",
-      "door"
-    ],
-    "themes": [
-      "self_worth",
-      "loneliness"
-    ]
-  },
-  {
     "topic": "When You Cry in the Car Alone",
     "style": "emotional",
     "script": "Midnight. The engine hums like a lullaby.\nYou\u2019re not lost,\njust circling the same empty block,\nwindows fogged with ghosts of what could\u2019ve been.\nThe steering wheel knows your grip,\nknuckles white as the moon outside,\nbut the road doesn\u2019t ask questions.\nSome tears aren\u2019t for sadness,\nthey\u2019re for the version of you\nwho believed in answers.\nThe car keeps moving.\nYou don\u2019t have to.",
@@ -826,6 +809,18 @@
     "themes": [
       "moving_on",
       "loneliness"
+    ]
+  },
+  {
+    "topic": "Falling For Someone Who Does Not Know",
+    "style": "emotional",
+    "script": "4:17 a.m. The radiator hums.\nYou don\u2019t hear it,\nbut I count every click\u2014\nsteady,\nlike the way I memorize your laugh.\nSome days I swear\nmy ribs are just a shelf\nbuilt to hold what you\u2019ll never take.\nThe hands that reach for you\nare invisible,\nand the air between us\nthickens with things unsaid.\nI won\u2019t name this,\nnot even to myself.\nStill.\n",
+    "hash": "470d15acbb7fab07bf43fae0ad1042ee",
+    "metaphors": [
+      "tea"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

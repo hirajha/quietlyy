@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When You Have Nothing Left"
+    "detail": "Falling For Someone Who Does Not Know"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18090172934305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18079240019275305"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/0Wlh2cPJ69s"
+    "detail": "https://www.youtube.com/shorts/3-9eXCegq2A"
   }
 }
