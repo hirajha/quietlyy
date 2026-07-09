@@ -46,7 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "What Real Love Requires",
     "The Difference Between Living and Existing",
     "The Beauty of an Unfinished Life",
     "The Quiet Revolution of Self-Respect",
@@ -65,11 +64,12 @@
     "The Gift of Impermanence",
     "What Silence Teaches Us",
     "When Grief Becomes a Teacher",
-    "The Strength in Stillness"
+    "The Strength in Stillness",
+    "What You Cannot Change and What You Can"
   ],
-  "last_style": "wisdom",
+  "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 4,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -126,7 +126,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153606_63f17d.mp3",
@@ -145,7 +144,8 @@
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153640_3f0c91.mp3",
     "2026-06-05_153756_4972f7.mp3",
-    "2026-06-05_153744_816dfe.mp3"
+    "2026-06-05_153744_816dfe.mp3",
+    "2026-06-05_153617_c5dd1f.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -154,14 +154,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The Day You Chose Yourself",
-    "The Truth About Being The Strong One",
-    "The Lesson In Every Goodbye",
-    "Why Silence Became Your Answer",
-    "Why You Stopped Explaining Yourself",
-    "What Pain Quietly Teaches You",
-    "Outgrowing People You Love",
-    "The Friends Who Only Stayed For The Good Days",
     "When Being Nice Made You A Target",
     "The Quiet Power Of Letting Go",
     "The Strength In Walking Away",
@@ -173,6 +165,14 @@
     "The Cost Of Always Being Available",
     "Why You Stopped Waiting For An Apology",
     "The Love That Was Only Convenient",
-    "What Loneliness Actually Teaches You"
+    "What Loneliness Actually Teaches You",
+    "Why Closure Never Comes",
+    "When You Finally Stopped Settling",
+    "The Truth About Being The Strong One",
+    "The Day You Chose Yourself",
+    "The People Who Leave When You Need Them Most",
+    "The People Who Disappear When It's Hard",
+    "Why You Stopped Explaining Yourself",
+    "Why Silence Became Your Answer"
   ]
 }

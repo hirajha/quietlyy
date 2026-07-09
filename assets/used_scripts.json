@@ -1,22 +1,5 @@
 [
   {
-    "topic": "The First Heartbreak",
-    "style": "emotional",
-    "script": "You\u2019re peeling the label off your water bottle,\nagain.\nThe glue sticks to your fingers like old promises,\nstubborn.\nYou tell yourself it\u2019s just habit,\nnot hunger,\nnot the way your ribs remember their shape.\nSome nights,\nthe bed feels like a raft\nadrift,\nand you\u2019re the only one who notices the tide.\nYou count the cracks in the ceiling,\nbut the numbers keep changing.\nThe first heartbreak isn\u2019t a wound,\nit\u2019s a shadow\nlearning to walk without you.",
-    "hash": "62b3884cad9fb9ba4eaf215c954b08e3",
-    "metaphors": [
-      "bed",
-      "shadow",
-      "ceiling",
-      "tide"
-    ],
-    "themes": [
-      "love",
-      "heartbreak",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "What Truly Matters in the End",
     "style": "wisdom",
     "script": "The old gardener whispered\u2014\nturn the soil,\nnot the sky.\nwhat you plant stays,\nwhat you chase scatters.\n\nI stood there,\nhands full of seeds\nI\u2019d saved for storms\nthat never came.\nnow they\u2019re just weight,\nburied in pockets.\n\nthe earth remembers\neven when you forget.",
@@ -820,6 +803,16 @@
     "themes": [
       "silence",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The People Who Leave When You Need Them Most",
+    "style": "lesson",
+    "script": "The easy connections always break first.\nWhen your ground shifts.\nWhen the pressure mounts.\nWe assume some bonds are unbreakable.\nThat certain people will always hold.\nThey don't.\nThey just fade.\nAnd you're left to rebuild.\nWith fewer hands.\nBut a clearer view.",
+    "hash": "b2673b9f33437142e2c071cc70e1799f",
+    "metaphors": [],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
