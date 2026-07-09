@@ -1,22 +1,5 @@
 [
   {
-    "topic": "When You Cry in the Car Alone",
-    "style": "emotional",
-    "script": "Midnight. The engine hums like a lullaby.\nYou\u2019re not lost,\njust circling the same empty block,\nwindows fogged with ghosts of what could\u2019ve been.\nThe steering wheel knows your grip,\nknuckles white as the moon outside,\nbut the road doesn\u2019t ask questions.\nSome tears aren\u2019t for sadness,\nthey\u2019re for the version of you\nwho believed in answers.\nThe car keeps moving.\nYou don\u2019t have to.",
-    "hash": "fa81fecab48c9e79390328f819309d09",
-    "metaphors": [
-      "moon",
-      "road",
-      "tea",
-      "window",
-      "wind",
-      "ring"
-    ],
-    "themes": [
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The First Heartbreak",
     "style": "emotional",
     "script": "You\u2019re peeling the label off your water bottle,\nagain.\nThe glue sticks to your fingers like old promises,\nstubborn.\nYou tell yourself it\u2019s just habit,\nnot hunger,\nnot the way your ribs remember their shape.\nSome nights,\nthe bed feels like a raft\nadrift,\nand you\u2019re the only one who notices the tide.\nYou count the cracks in the ceiling,\nbut the numbers keep changing.\nThe first heartbreak isn\u2019t a wound,\nit\u2019s a shadow\nlearning to walk without you.",
@@ -821,6 +804,22 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The One I Think About First",
+    "style": "emotional",
+    "script": "The hallway light stays on for you.\nI step over the creaky floorboard,\nnot to wake the house,\nbut to keep the memory awake.\nSome nights,\nthe air still smells like your soap,\nand I breathe deeper,\nnot to hold onto you,\nbut to prove I still can.\nThe bed\u2019s too wide now,\nand the pillow knows it.\nI think of you first,\nnot because I miss you most,\nbut because you\u2019re the one\nwho taught me how to notice.",
+    "hash": "8545f3b90588f6f4d96cd12be289a4ea",
+    "metaphors": [
+      "light",
+      "pillow",
+      "hallway",
+      "bed"
+    ],
+    "themes": [
+      "silence",
+      "grief_loss"
     ]
   }
 ]
