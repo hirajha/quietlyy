@@ -1,19 +1,5 @@
 [
   {
-    "topic": "What Truly Matters in the End",
-    "style": "wisdom",
-    "script": "The old gardener whispered\u2014\nturn the soil,\nnot the sky.\nwhat you plant stays,\nwhat you chase scatters.\n\nI stood there,\nhands full of seeds\nI\u2019d saved for storms\nthat never came.\nnow they\u2019re just weight,\nburied in pockets.\n\nthe earth remembers\neven when you forget.",
-    "hash": "fd97a51d43ed8253a30bc3c31f6aec9d",
-    "metaphors": [
-      "garden",
-      "storm",
-      "seed"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "When Just Being Near You Is Enough",
     "style": "nostalgic",
     "script": "I forget the words\nbut\nI remember the shape of your laugh\ncurled at the edges\nlike old book pages\nWE USED TO SHARE\nNow the room hums\nwith something softer\nthan conversation\njust the sound of you\nbreathing beside me\nand I think\nmaybe that\u2019s all I ever wanted\nto hear.",
@@ -813,6 +799,19 @@
     "metaphors": [],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The Quiet Revolution of Self-Respect",
+    "style": "nostalgic",
+    "script": "I FOUND MY NAME\nin a drawer\nno one opens anymore.\nIt was folded\nbeneath old receipts,\nloose change,\nand a key\nthat doesn\u2019t fit anything.\nI unfolded it slowly,\nheld it to the light\u2014\nstill mine,\nstill legible,\nstill worth keeping.",
+    "hash": "5e667d5b0220fcca3b2e10d628e7dafb",
+    "metaphors": [
+      "light"
+    ],
+    "themes": [
+      "silence",
+      "self_worth"
     ]
   }
 ]

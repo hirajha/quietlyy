@@ -1112,8 +1112,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1781889366,
-    "uses": 1,
-    "last_used": 1781932787
+    "uses": 2,
+    "last_used": 1783634790
   },
   {
     "file": "f914d7aa_0.png",
@@ -2380,13 +2380,31 @@
     "topic": "The People Who Leave When You Need Them Most",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783614018
+    "timestamp": 1783614018,
+    "uses": 1,
+    "last_used": 1783634790
   },
   {
     "file": "ef9b765e_1.png",
     "topic": "The People Who Leave When You Need Them Most",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783614022
+    "timestamp": 1783614022,
+    "uses": 1,
+    "last_used": 1783634790
+  },
+  {
+    "file": "f246bca5_0.png",
+    "topic": "The Quiet Revolution of Self-Respect",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783634792
+  },
+  {
+    "file": "4df91544_1.png",
+    "topic": "The Quiet Revolution of Self-Respect",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783634797
   }
 ]
