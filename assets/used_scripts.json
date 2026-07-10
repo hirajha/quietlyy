@@ -1,16 +1,5 @@
 [
   {
-    "topic": "When Just Being Near You Is Enough",
-    "style": "nostalgic",
-    "script": "I forget the words\nbut\nI remember the shape of your laugh\ncurled at the edges\nlike old book pages\nWE USED TO SHARE\nNow the room hums\nwith something softer\nthan conversation\njust the sound of you\nbreathing beside me\nand I think\nmaybe that\u2019s all I ever wanted\nto hear.",
-    "hash": "d2319e6327402a9822b70da0eb67996c",
-    "metaphors": [],
-    "themes": [
-      "being_used",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "When You Delete the Message Before Sending It",
     "style": "emotional",
     "script": "I stopped the ink mid-sentence,\nlike a bird folding its wings\nbefore the storm even arrives.\nNot courage,\njust the quiet fear of being heard.\nThe screen glows,\nsoft and guilty,\nwhile my thumb hovers like a question\nno one asked.\nSome confessions aren\u2019t meant for air,\nthey\u2019re just ghosts\nwe keep feeding.\nI\u2019ll let it starve.",
@@ -811,6 +800,19 @@
     ],
     "themes": [
       "silence",
+      "self_worth"
+    ]
+  },
+  {
+    "topic": "When You Stop Chasing People",
+    "style": "lesson",
+    "script": "Chasing people is a temporary high.\nIt feels like connection, but it's just distraction.\nWe confuse being wanted with being seen.\nYou can't force someone to value you.\nPeople show you their priorities by how they use their time.\nYou can't convince someone to make space for you.\nWe teach others how to treat us by what we're willing to endure.\nYour worth isn't measured by someone's willingness to stay.\nWhen you stop chasing people, you start seeing who's been running from you.",
+    "hash": "eb254b66ee2f7c6a7c6da1afd30f0278",
+    "metaphors": [
+      "star",
+      "tea"
+    ],
+    "themes": [
       "self_worth"
     ]
   }

@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Quiet Revolution of Self-Respect"
+    "detail": "When You Stop Chasing People"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17936814987278373"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18090411653305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/LkMBrxwtcfo"
+    "detail": "https://www.youtube.com/shorts/0HFombUnsgM"
   }
 }
