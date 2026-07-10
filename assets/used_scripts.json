@@ -1,22 +1,5 @@
 [
   {
-    "topic": "How You Changed Everything",
-    "style": "love",
-    "script": "I stopped counting the cracks in the ceiling.\nYour voice turned them into constellations,\nand I learned to navigate by the sound of your breath.\nThe dark wasn\u2019t empty anymore.\nEvery shadow held a shape I could name,\neven the ones that slipped away.\nI built a world inside the quiet hum,\nwhere your laughter was the only clock I needed.\nTime didn\u2019t pass\u2014it pooled.\nNow the air feels lighter,\nbut I still reach for the weight of you.\nsend this to them.",
-    "hash": "ce505af3c08f0b9dc852d793120002af",
-    "metaphors": [
-      "shadow",
-      "ceiling",
-      "light",
-      "dark"
-    ],
-    "themes": [
-      "silence",
-      "being_used",
-      "growth"
-    ]
-  },
-  {
     "topic": "The First Time I Knew",
     "style": "love",
     "script": "You're tracing circles on the fogged-up window.\nThe streetlight hums a lullaby,\nand suddenly,\nyou understand\nhow dew chooses its leaves.\nNot with noise,\nnot with force\u2014\njust the quiet weight of morning.\nThat's when I knew.\nYou didn't have to say anything.\nThe way your fingers paused mid-air,\nlike the world had tilted,\njust for us.\nsend this to them.",
@@ -814,6 +797,23 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "You Didn't Fix Me, You Stayed",
+    "style": "nostalgic",
+    "script": "You left the light on in the hallway,\nremember?\nI never asked you to.\nEvery night\nI found my way\nthrough the dark\nwith your glow\nspilling under the door.\nYOU NEVER FIXED THE BULB.\nYou just...\nstayed,\nletting it flicker,\nknowing I\u2019d come back\nto the hum\nof something half-broken.",
+    "hash": "79bd2fa7d88162dba0ea713699671b2e",
+    "metaphors": [
+      "light",
+      "door",
+      "hallway",
+      "dark"
+    ],
+    "themes": [
+      "nostalgia",
+      "loneliness",
+      "heartbreak"
     ]
   }
 ]
