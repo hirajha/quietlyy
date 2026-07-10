@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Ancient Truth About Happiness",
-    "The Freedom of Acceptance",
     "Why Suffering Transforms Us",
     "The Power of Small Moments",
     "What Truly Matters in the End",
@@ -65,11 +63,13 @@
     "Loving Without Losing Yourself",
     "What Real Love Requires",
     "The Courage to Begin Again",
-    "The Difference Between Living and Existing"
+    "The Difference Between Living and Existing",
+    "The Beauty of an Unfinished Life",
+    "Finding Peace Within Yourself"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 2,
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -126,7 +126,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_151550_7dfb17.mp3",
@@ -145,7 +144,8 @@
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153806_9773e5.mp3",
-    "2026-06-05_153839_5a1856.mp3"
+    "2026-06-05_153839_5a1856.mp3",
+    "2026-06-05_153734_d4c320.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -154,13 +154,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The Truth About Being The Strong One",
-    "The Day You Chose Yourself",
-    "The People Who Leave When You Need Them Most",
-    "The People Who Disappear When It's Hard",
-    "Why You Stopped Explaining Yourself",
-    "Why Silence Became Your Answer",
-    "Outgrowing People You Love",
     "Loving Someone Who Wouldn't Stay",
     "What You Owe Yourself",
     "What Healing Actually Looks Like",
@@ -173,6 +166,13 @@
     "Being Too Kind In A Cruel World",
     "What Rock Bottom Taught You",
     "When People Show You Who They Are",
-    "Why You Stopped Waiting For An Apology"
+    "Why You Stopped Waiting For An Apology",
+    "The Love That Was Only Convenient",
+    "Why Closure Never Comes",
+    "The Truth About Being The Strong One",
+    "When Being Nice Made You A Target",
+    "When You Finally Stopped Settling",
+    "The Strength In Walking Away",
+    "What Loneliness Actually Teaches You"
   ]
 }

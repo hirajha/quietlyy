@@ -1,18 +1,5 @@
 [
   {
-    "topic": "When You Delete the Message Before Sending It",
-    "style": "emotional",
-    "script": "I stopped the ink mid-sentence,\nlike a bird folding its wings\nbefore the storm even arrives.\nNot courage,\njust the quiet fear of being heard.\nThe screen glows,\nsoft and guilty,\nwhile my thumb hovers like a question\nno one asked.\nSome confessions aren\u2019t meant for air,\nthey\u2019re just ghosts\nwe keep feeding.\nI\u2019ll let it starve.",
-    "hash": "34427d10461385f76cc7201364abed49",
-    "metaphors": [
-      "storm",
-      "star"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Wisdom of Not Forcing",
     "style": "emotional",
     "script": "I stopped pushing the door\nthat only opens inward,\njust stood in the hallway\nwatching the light shift,\nsome shadows don\u2019t fight back,\nthey simply wait,\nand the air moves differently\nwhen you\u2019re not forcing it,\nI learned to breathe with the draft,\nnot against it,\nthe lock clicked open\non its own time.",
@@ -814,6 +801,19 @@
     ],
     "themes": [
       "self_worth"
+    ]
+  },
+  {
+    "topic": "The Moment You Stopped Hoping",
+    "style": "nostalgic",
+    "script": "You kept the receipts\nfolded\nin your wallet\nlike promises\nno one asked you to keep.\nThe ink faded first\nthen the creases\nthen the hope.\nYOU STOPPED CHECKING\nto see if they were still there\nand that\u2019s when it happened.\nThe drawer closed\non its own\nsoftly\nlike a sigh.",
+    "hash": "01dbc387dc90bf9e9563f9733c4f2f4f",
+    "metaphors": [
+      "wallet",
+      "wall"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
