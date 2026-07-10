@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Moment You Stopped Hoping"
+    "detail": "Being Strong for Everyone While Breaking Inside"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17894000721552821"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18090489389305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/GxDl6-cEvhk"
+    "detail": "https://www.youtube.com/shorts/u4Q_cD2o3KA"
   }
 }
