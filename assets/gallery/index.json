@@ -1175,8 +1175,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1781992406,
-    "uses": 1,
-    "last_used": 1782021817
+    "uses": 2,
+    "last_used": 1783784914
   },
   {
     "file": "ea375dda_1.png",
@@ -2506,13 +2506,31 @@
     "topic": "The Little Things You Do",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783764027
+    "timestamp": 1783764027,
+    "uses": 1,
+    "last_used": 1783784914
   },
   {
     "file": "c7dbf14d_1.png",
     "topic": "The Little Things You Do",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783764031
+    "timestamp": 1783764031,
+    "uses": 1,
+    "last_used": 1783784914
+  },
+  {
+    "file": "ebf43506_0.png",
+    "topic": "Learning to Belong to Yourself",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783784917
+  },
+  {
+    "file": "d8d29369_1.png",
+    "topic": "Learning to Belong to Yourself",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783784921
   }
 ]

@@ -1,16 +1,5 @@
 [
   {
-    "topic": "When You Make Ordinary Moments Feel Different",
-    "style": "nostalgic",
-    "script": "You hand me a mug\nwarm\nand I swear\nthe steam writes our names\nin the air,\nnot loud,\njust there,\nlike a secret we didn\u2019t plan.\nTHE KETTLE WHISTLES\nbut it\u2019s not for tea\u2014\nit\u2019s the sound\nof something small\nbecoming something else,\nand I don\u2019t know\nwhat to call it\nanymore.",
-    "hash": "1c2d927934616433ff8eaa5677afb8f7",
-    "metaphors": [
-      "mug",
-      "tea"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Loving You Quietly",
     "style": "emotional",
     "script": "How do you name what lingers\nlike dew on morning grass\nnot heavy enough to hold\nbut too precious to brush away\nSome days I trace your name\nin the steam of my coffee cup\njust to watch it disappear\nThe way you did\nnot with anger\nor even goodbyes\nbut like a shadow slipping\ninto the dark\nI still set the table for two\nquietly.",
@@ -808,6 +797,19 @@
     "themes": [
       "nostalgia",
       "loneliness"
+    ]
+  },
+  {
+    "topic": "Learning to Belong to Yourself",
+    "style": "emotional",
+    "script": "I stopped apologizing for the space I take\njust standing still\nand breathing\nSome days the air feels borrowed\nlike I\u2019m wearing someone else\u2019s skin\nThe mirror shows a stranger\nbut the reflection blinks back\nnot with judgment\njust quiet recognition\nI won\u2019t shrink anymore\nnot to fit their mold\nor their expectations\nI belong to the shape of me now.",
+    "hash": "28a6b6cf20048302401d7fc8da65f75d",
+    "metaphors": [
+      "ring",
+      "mirror"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
