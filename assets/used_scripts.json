@@ -1,22 +1,5 @@
 [
   {
-    "topic": "The First Time I Knew",
-    "style": "love",
-    "script": "You're tracing circles on the fogged-up window.\nThe streetlight hums a lullaby,\nand suddenly,\nyou understand\nhow dew chooses its leaves.\nNot with noise,\nnot with force\u2014\njust the quiet weight of morning.\nThat's when I knew.\nYou didn't have to say anything.\nThe way your fingers paused mid-air,\nlike the world had tilted,\njust for us.\nsend this to them.",
-    "hash": "422fa0e24d3d4f080e5a1c62564480ad",
-    "metaphors": [
-      "noise",
-      "tree",
-      "wind",
-      "light",
-      "window"
-    ],
-    "themes": [
-      "silence",
-      "being_used"
-    ]
-  },
-  {
     "topic": "Losing a Parent",
     "style": "emotional",
     "script": "There's a kind of empty\nthat doesn't echo,\njust sits in the corners of rooms\nlike dust you can't sweep away.\nThe chair at the table stays pulled out,\nand no one says your name\nbut the air still hums it.\nSome mornings,\nyou reach for a voice\nthat's been unplugged,\nand the dial tone is your own breath.\nI keep waiting for the static to clear,\nbut the silence is just you,\nlearning to live with the absence.\nSend this to them.",
@@ -814,6 +797,21 @@
       "nostalgia",
       "loneliness",
       "heartbreak"
+    ]
+  },
+  {
+    "topic": "The Person You Had to Let Go to Save Yourself",
+    "style": "nostalgic",
+    "script": "I LEFT THE DOOR UNLOCKED\nfor years\njust in case you came back\nto collect your voice from the answering machine\nYOU NEVER DID\nso I erased it\nin one long beep\nand the house sighed\nlike it had been holding its breath\nthe whole time\nnow the keys jingle\nlighter\nin my pocket",
+    "hash": "1af38577c68587f879ca2a2f881177c0",
+    "metaphors": [
+      "keys",
+      "ring",
+      "door",
+      "light"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]

@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "Learning to Belong to Yourself",
-    "Why the Wound Is the Gift",
     "The Meaning We Choose to Find",
     "The Wisdom of Not Forcing",
     "Learning to Trust the Journey",
@@ -65,11 +63,13 @@
     "Finding Peace Within Yourself",
     "The Ancient Truth About Happiness",
     "Why Suffering Transforms Us",
-    "The Power of Small Moments"
+    "The Power of Small Moments",
+    "What Truly Matters in the End",
+    "The Art of Letting Go"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 4,
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -126,7 +126,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153640_3f0c91.mp3",
@@ -145,7 +144,8 @@
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
-    "2026-06-05_153651_0d1d62.mp3"
+    "2026-06-05_153651_0d1d62.mp3",
+    "2026-06-05_153555_7cd9b3.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -154,13 +154,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The Truth About Being The Strong One",
-    "When Being Nice Made You A Target",
-    "When You Finally Stopped Settling",
-    "The Strength In Walking Away",
-    "What Loneliness Actually Teaches You",
-    "When You Have Nothing Left",
-    "The People Who Disappear When It's Hard",
     "What You Owe Yourself",
     "What Healing Actually Looks Like",
     "Learning To Be Enough On Your Own",
@@ -173,6 +166,13 @@
     "What You Learned After Being Broken",
     "When People Show You Who They Are",
     "What Pain Quietly Teaches You",
-    "The Love That Was Only Convenient"
+    "The Love That Was Only Convenient",
+    "Why Closure Never Comes",
+    "The Truth About Being The Strong One",
+    "Why You Stopped Explaining Yourself",
+    "When You Stop Chasing People",
+    "Why You Stopped Waiting For An Apology",
+    "The People Who Leave When You Need Them Most",
+    "The Friends Who Only Stayed For The Good Days"
   ]
 }
