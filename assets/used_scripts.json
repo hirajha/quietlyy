@@ -1,23 +1,5 @@
 [
   {
-    "topic": "Loving You Quietly",
-    "style": "emotional",
-    "script": "How do you name what lingers\nlike dew on morning grass\nnot heavy enough to hold\nbut too precious to brush away\nSome days I trace your name\nin the steam of my coffee cup\njust to watch it disappear\nThe way you did\nnot with anger\nor even goodbyes\nbut like a shadow slipping\ninto the dark\nI still set the table for two\nquietly.",
-    "hash": "58abf07697d595e49ebe4bfc5c89ae5d",
-    "metaphors": [
-      "cup",
-      "dark",
-      "table",
-      "tea",
-      "coffee",
-      "shadow"
-    ],
-    "themes": [
-      "self_worth",
-      "silence"
-    ]
-  },
-  {
     "topic": "When Someone Chooses You Every Day",
     "style": "love",
     "script": "There's a quiet like morning dew settling,\nonly heavier.\nYou choose me,\nnot with grand gestures,\nbut the way sunlight lingers on a windowsill.\nI am the book you reach for,\nevery night,\nwithout thinking.\nThe spine creases,\nthe pages soften,\nand still,\nyou turn to me.\nThere\u2019s no ceremony.\nJust this.\nsend this to them.",
@@ -811,5 +793,17 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Small Things I Notice About You",
+    "style": "poetic",
+    "script": "The way your sleeve catches the light,\njust before you lift your coffee.\nNot gold,\nnot even warm,\njust the exact shade of yesterday\u2019s sky.\nSome people call it ordinary,\nI call it proof.\nYou don\u2019t notice,\nbut the sugar cube cracks,\nnot like glass,\nlike a secret told twice.\nAnd I keep that sound.",
+    "hash": "a3326fad07809c86a4308b90cf72cbc1",
+    "metaphors": [
+      "coffee",
+      "glass",
+      "light"
+    ],
+    "themes": []
   }
 ]

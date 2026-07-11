@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Learning to Belong to Yourself"
+    "detail": "The Small Things I Notice About You"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18011703704921977"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18090691208305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/ivCPIE9Fmj8"
+    "detail": "https://www.youtube.com/shorts/i2TIxSOWU9U"
   }
 }
