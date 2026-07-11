@@ -1,20 +1,5 @@
 [
   {
-    "topic": "Losing a Parent",
-    "style": "emotional",
-    "script": "There's a kind of empty\nthat doesn't echo,\njust sits in the corners of rooms\nlike dust you can't sweep away.\nThe chair at the table stays pulled out,\nand no one says your name\nbut the air still hums it.\nSome mornings,\nyou reach for a voice\nthat's been unplugged,\nand the dial tone is your own breath.\nI keep waiting for the static to clear,\nbut the silence is just you,\nlearning to live with the absence.\nSend this to them.",
-    "hash": "8125ee3943485e200a33e538f93b0eb6",
-    "metaphors": [
-      "table",
-      "chair",
-      "silence",
-      "echo"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Make Ordinary Moments Feel Different",
     "style": "nostalgic",
     "script": "You hand me a mug\nwarm\nand I swear\nthe steam writes our names\nin the air,\nnot loud,\njust there,\nlike a secret we didn\u2019t plan.\nTHE KETTLE WHISTLES\nbut it\u2019s not for tea\u2014\nit\u2019s the sound\nof something small\nbecoming something else,\nand I don\u2019t know\nwhat to call it\nanymore.",
@@ -811,6 +796,17 @@
       "light"
     ],
     "themes": [
+      "loneliness"
+    ]
+  },
+  {
+    "topic": "The Little Things You Do",
+    "style": "love",
+    "script": "You're folding my socks again.\nNot because they need it,\nbut because you remember\nI left them on the floor last Tuesday.\nThe way your fingers pause\non the heel seam\u2014\nsmall hesitation,\nlike you're checking for holes\nno one else would notice.\nI could live inside that pause.\nSend this to them.",
+    "hash": "221abd17ffa246747af1888221f25e74",
+    "metaphors": [],
+    "themes": [
+      "nostalgia",
       "loneliness"
     ]
   }
