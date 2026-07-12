@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Small Things I Notice About You"
+    "detail": "More Than My Favorite Person"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18090691208305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18059229452768690"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/i2TIxSOWU9U"
+    "detail": "https://www.youtube.com/shorts/zZVUzVOGDeg"
   }
 }

@@ -1,20 +1,5 @@
 [
   {
-    "topic": "When Someone Chooses You Every Day",
-    "style": "love",
-    "script": "There's a quiet like morning dew settling,\nonly heavier.\nYou choose me,\nnot with grand gestures,\nbut the way sunlight lingers on a windowsill.\nI am the book you reach for,\nevery night,\nwithout thinking.\nThe spine creases,\nthe pages soften,\nand still,\nyou turn to me.\nThere\u2019s no ceremony.\nJust this.\nsend this to them.",
-    "hash": "b07c5cc353af42d7a24dc4cdb585a2be",
-    "metaphors": [
-      "light",
-      "sun",
-      "wind",
-      "window"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Loving the Wrong People",
     "style": "nostalgic",
     "script": "You kept the receipts\nin a shoebox\nunder the bed\nI never asked why\nbut I knew\nevery time you paid\nfor something I couldn\u2019t afford\nto give.\nYOU WORE MY FAVORITE SWEATER\nto the party\nthe one I lent you\nwhen you said you were cold\nand I watched\nfrom across the room\nas someone else\npulled it over your head.",
@@ -805,5 +790,23 @@
       "light"
     ],
     "themes": []
+  },
+  {
+    "topic": "More Than My Favorite Person",
+    "style": "emotional",
+    "script": "4:17 a.m. The kettle hums,\njust below a whistle.\nYou\u2019re not here,\nbut the mug still warms my palms.\nSome people are sunrises\u2014\nbright and expected,\nand some are this,\nsteady glow through kitchen curtains,\nnot asking for dawn.\nI won\u2019t call you home,\njust leave the porch light on,\nmore than my favorite person\u2014\nyou\u2019re the hour I keep.",
+    "hash": "599120e5a7f363052c63fd9cf501e5d0",
+    "metaphors": [
+      "sun",
+      "tea",
+      "dawn",
+      "kitchen",
+      "mug",
+      "light",
+      "porch"
+    ],
+    "themes": [
+      "silence"
+    ]
   }
 ]
