@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Loving the Wrong People",
-    "style": "nostalgic",
-    "script": "You kept the receipts\nin a shoebox\nunder the bed\nI never asked why\nbut I knew\nevery time you paid\nfor something I couldn\u2019t afford\nto give.\nYOU WORE MY FAVORITE SWEATER\nto the party\nthe one I lent you\nwhen you said you were cold\nand I watched\nfrom across the room\nas someone else\npulled it over your head.",
-    "hash": "ed1b6769dbf0ea24e394f4ecf36d80e0",
-    "metaphors": [
-      "sweater",
-      "bed"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Exhaustion of Pretending to Be Okay",
     "style": "poetic",
     "script": "The weight isn\u2019t in the bones,\njust the shoulders,\ncarrying a sky\nthat\u2019s not yours to hold.\nSome days,\nthe smile cracks,\nnot from laughter,\nbut the strain of keeping daylight\nfrom leaking out.\nThe body remembers,\neven when the mind forgets\u2014\nhow to fold itself\ninto a shape that fits,\nnot the room,\nbut the expectation.",
@@ -804,6 +793,22 @@
       "mug",
       "light",
       "porch"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Loving You Quietly",
+    "style": "love",
+    "script": "You\u2019re not the sky. Not even close.\nBut I collect your weather anyway,\npress each raindrop to my ribs\nlike a secret stamp.\nThe window fogs with your name,\nslowly,\nand I trace it\nuntil the glass forgets.\nYou\u2019re not the light,\njust the quiet hum\nbefore the bulb burns out.\nI\u2019ll keep this,\nsend this to them.",
+    "hash": "4e23196b98f9b350f4f0f2c3ce399058",
+    "metaphors": [
+      "rain",
+      "glass",
+      "wind",
+      "light",
+      "window"
     ],
     "themes": [
       "silence"
