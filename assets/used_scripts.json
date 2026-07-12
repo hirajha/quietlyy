@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Exhaustion of Pretending to Be Okay",
-    "style": "poetic",
-    "script": "The weight isn\u2019t in the bones,\njust the shoulders,\ncarrying a sky\nthat\u2019s not yours to hold.\nSome days,\nthe smile cracks,\nnot from laughter,\nbut the strain of keeping daylight\nfrom leaking out.\nThe body remembers,\neven when the mind forgets\u2014\nhow to fold itself\ninto a shape that fits,\nnot the room,\nbut the expectation.",
-    "hash": "5302f0149867601044896742a85f80ff",
-    "metaphors": [
-      "light",
-      "rain"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "The Quiet Revolution of Self-Respect",
     "style": "love",
     "script": "I stopped apologizing for the space I take.\nThe room inhales,\nand suddenly,\nI fit.\nNo one taught me how to stand here,\nbut my shadow grows longer,\nunafraid of its own edges.\nThe mirror holds my gaze,\nnot as a challenge,\nbut a quiet agreement.\nI wear my name like a second skin,\nsoft,\nand perfectly mine.\nSend this to yourself.",
@@ -812,6 +799,18 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "When You Miss Who They Used to Be",
+    "style": "nostalgic",
+    "script": "I keep their old voice mail\nsaved\nlike a seashell\nfull of static,\nWHEN THEY LAUGHED\nand the world tilted\njust enough to let the light in.\nNow I press play\nand the room doesn\u2019t spin,\njust hums\nlike a fridge\nkeeping something alive\nthat doesn\u2019t belong here anymore.",
+    "hash": "84863f17a11d8860553f737b57190e4f",
+    "metaphors": [
+      "light"
+    ],
+    "themes": [
+      "self_worth"
     ]
   }
 ]
