@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Quiet Revolution of Self-Respect",
-    "style": "love",
-    "script": "I stopped apologizing for the space I take.\nThe room inhales,\nand suddenly,\nI fit.\nNo one taught me how to stand here,\nbut my shadow grows longer,\nunafraid of its own edges.\nThe mirror holds my gaze,\nnot as a challenge,\nbut a quiet agreement.\nI wear my name like a second skin,\nsoft,\nand perfectly mine.\nSend this to yourself.",
-    "hash": "e36a502109a71ee078739ce419b7a5ad",
-    "metaphors": [
-      "mirror",
-      "shadow"
-    ],
-    "themes": [
-      "growth",
-      "silence"
-    ]
-  },
-  {
     "topic": "The Smile That Hides Everything",
     "style": "love",
     "script": "I stopped counting the lies I tell,\nwhen your grin appears like a half-drawn curtain.\nEvery tooth a secret,\nevery dimple a vault.\nI trace the edges with my eyes,\nbut the lock stays shut.\nYour laugh lands soft,\nlike a feather dropped in a library.\nNo one hears,\nno one knows\nwhat it\u2019s hiding.\nsend this to them.",
@@ -811,6 +797,25 @@
     ],
     "themes": [
       "self_worth"
+    ]
+  },
+  {
+    "topic": "You Make the Hard Days Easier",
+    "style": "emotional",
+    "script": "I stopped counting the cracks in the ceiling\nwhen you started tracing them with me\nThe weight of the world\nlighter\nwhen it\u2019s shared on the same pillow\nSome nights I still reach\nand find your hand already there\nnot fixing\njust holding the shape of my fear\nI never knew comfort could be so quiet\na room full of noise\nand only your breath steady\nlike a lighthouse in my storm\nI won\u2019t say it\u2019s easy\nbut you make the hard days\nbearable\nlike sunlight through dust.",
+    "hash": "eab6298cef982f204851025a137ab45d",
+    "metaphors": [
+      "storm",
+      "ceiling",
+      "pillow",
+      "light",
+      "sun",
+      "noise",
+      "star",
+      "tea"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

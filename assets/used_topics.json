@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Courage to Begin Again",
-    "The Difference Between Living and Existing",
     "The Beauty of an Unfinished Life",
     "Finding Peace Within Yourself",
     "The Ancient Truth About Happiness",
@@ -65,11 +63,13 @@
     "How to Carry Loss Without Being Crushed",
     "The Gift of Impermanence",
     "The Meaning We Choose to Find",
-    "What Silence Teaches Us"
+    "What Silence Teaches Us",
+    "When Grief Becomes a Teacher",
+    "Loving Without Losing Yourself"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 2,
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -126,7 +126,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153711_704e70.mp3",
@@ -145,7 +144,8 @@
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153700_072547.mp3",
-    "2026-06-05_153816_e5f3ea.mp3"
+    "2026-06-05_153816_e5f3ea.mp3",
+    "2026-06-05_153744_816dfe.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -154,13 +154,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Why Closure Never Comes",
-    "The Truth About Being The Strong One",
-    "What You Owe Yourself",
-    "The People Who Leave When You Need Them Most",
-    "Loving Someone Who Wouldn't Stay",
-    "The Day You Chose Yourself",
-    "The Love That Was Only Convenient",
     "When Being Nice Made You A Target",
     "When People Show You Who They Are",
     "Learning To Be Enough On Your Own",
@@ -173,6 +166,13 @@
     "The Cost Of Always Being Available",
     "What Loneliness Actually Teaches You",
     "What Healing Actually Looks Like",
-    "When You Stop Chasing People"
+    "When You Stop Chasing People",
+    "The Lesson In Every Goodbye",
+    "Why Closure Never Comes",
+    "When You Finally Stopped Settling",
+    "What Pain Quietly Teaches You",
+    "Being Too Kind In A Cruel World",
+    "The Strength In Walking Away",
+    "The People Who Leave When You Need Them Most"
   ]
 }

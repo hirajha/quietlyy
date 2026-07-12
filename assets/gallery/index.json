@@ -1220,8 +1220,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782041812,
-    "uses": 1,
-    "last_used": 1782073934
+    "uses": 2,
+    "last_used": 1783891748
   },
   {
     "file": "0da7a46f_0.png",
@@ -2596,13 +2596,31 @@
     "topic": "When You Miss Who They Used to Be",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783871928
+    "timestamp": 1783871928,
+    "uses": 1,
+    "last_used": 1783891748
   },
   {
     "file": "3b6951f3_1.png",
     "topic": "When You Miss Who They Used to Be",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783871933
+    "timestamp": 1783871933,
+    "uses": 1,
+    "last_used": 1783891748
+  },
+  {
+    "file": "075475ad_0.png",
+    "topic": "You Make the Hard Days Easier",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783891750
+  },
+  {
+    "file": "4bacaa98_1.png",
+    "topic": "You Make the Hard Days Easier",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783891755
   }
 ]
