@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Way You Look at Me",
-    "style": "emotional",
-    "script": "The lamp is still on your side of the bed.\nI reach across,\nbut the sheets are cold.\nSome nights,\nI swear I see your shadow stretch,\njust for a second,\nlike a flicker of old film.\nThe way you look at me\u2014\nit isn\u2019t hunger,\nnot even memory,\njust the quiet click of a camera,\npreserving something I can\u2019t name.\ndon\u2019t turn away.",
-    "hash": "fa7d460c2474cdc1d9a7c95f855e9d10",
-    "metaphors": [
-      "bed",
-      "shadow"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When Grief Becomes a Teacher",
     "style": "emotional",
     "script": "4am. The kettle hums,\nstill warm from yesterday.\nYou trace the crack in the mug,\nnot yours,\nbut the one you reach for now.\nGrief isn\u2019t a shadow,\nit\u2019s the hand that turns the page,\nslowly,\nwhen you\u2019re too tired to read.\nSome lessons don\u2019t arrive,\nthey replace the light,\nand suddenly,\nyou understand the dark.",
@@ -832,6 +819,19 @@
     "themes": [
       "silence",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "emotional",
+    "script": "4:17 a.m. The radiator hums.\nI trace the cracks in the ceiling,\ncounting the hours like stitches.\nThe face you see,\nbright and unbroken,\nis just a mask\nstitched from old playbills.\nSome nights,\nthe thread snaps,\nand the seams show.\nI press my palms to my cheeks,\nhold the smile in place.\nThe show must go on.",
+    "hash": "3142e983f067bbe9fe1c1281fb1817e6",
+    "metaphors": [
+      "mask",
+      "ceiling"
+    ],
+    "themes": [
+      "heartbreak"
     ]
   }
 ]

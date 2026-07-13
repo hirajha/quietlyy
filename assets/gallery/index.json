@@ -1256,8 +1256,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782110090,
-    "uses": 1,
-    "last_used": 1782133248
+    "uses": 2,
+    "last_used": 1783978757
   },
   {
     "file": "602acc26_0.png",
@@ -2668,13 +2668,31 @@
     "topic": "When Someone Chooses You Every Day",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783959003
+    "timestamp": 1783959003,
+    "uses": 1,
+    "last_used": 1783978757
   },
   {
     "file": "6f0ca39a_1.png",
     "topic": "When Someone Chooses You Every Day",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783959007
+    "timestamp": 1783959007,
+    "uses": 1,
+    "last_used": 1783978757
+  },
+  {
+    "file": "8a61f421_0.png",
+    "topic": "The Person Behind My Smile",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783978760
+  },
+  {
+    "file": "ec17f2c9_1.png",
+    "topic": "The Person Behind My Smile",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783978764
   }
 ]
