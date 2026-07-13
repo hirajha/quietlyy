@@ -1,13 +1,5 @@
 [
   {
-    "topic": "The Smile That Hides Everything",
-    "style": "love",
-    "script": "I stopped counting the lies I tell,\nwhen your grin appears like a half-drawn curtain.\nEvery tooth a secret,\nevery dimple a vault.\nI trace the edges with my eyes,\nbut the lock stays shut.\nYour laugh lands soft,\nlike a feather dropped in a library.\nNo one hears,\nno one knows\nwhat it\u2019s hiding.\nsend this to them.",
-    "hash": "9f79740350326b6766aed2aa0d35c4c7",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "The Way You Look When You Do Not Know I Am Watching",
     "style": "love",
     "script": "I never told you how you look\nwhen the kitchen light spills\nlike melted butter across your shoulders.\nYour fingers forget to tuck that loose strand,\nand the clock hums a lullaby only you can hear.\nThe way your lips part\njust enough to taste the steam from your tea,\nI could watch you dissolve into the morning\nwithout ever needing to stir the sugar.\nYou are the quietest kind of magic,\nunaware of the spell you cast.\nsend this to them.",
@@ -816,6 +808,24 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Loving You in Silence",
+    "style": "emotional",
+    "script": "The porch light stays on.\nWaiting for headlights,\njust dust on the road.\nI memorized the hum\nof your car engine,\nbut the street stays quiet.\nSome nights,\nthe wind carries voices\nthat aren\u2019t yours.\nI pretend they\u2019re close enough,\nand leave the door unlocked.\nNot for hope,\njust habit.",
+    "hash": "bb6b9e50737575a3fcd6fe9d48ed26d5",
+    "metaphors": [
+      "road",
+      "porch",
+      "door",
+      "light",
+      "wind",
+      "tree"
+    ],
+    "themes": [
+      "silence",
+      "self_worth"
     ]
   }
 ]
