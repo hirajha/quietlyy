@@ -1238,8 +1238,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782073941,
-    "uses": 1,
-    "last_used": 1782110082
+    "uses": 2,
+    "last_used": 1783939034
   },
   {
     "file": "a86228fe_0.png",
@@ -2632,13 +2632,31 @@
     "topic": "Loving You in Silence",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783917139
+    "timestamp": 1783917139,
+    "uses": 1,
+    "last_used": 1783939034
   },
   {
     "file": "ac5c59b4_1.png",
     "topic": "Loving You in Silence",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783917143
+    "timestamp": 1783917143,
+    "uses": 1,
+    "last_used": 1783939034
+  },
+  {
+    "file": "c1e5a8dc_0.png",
+    "topic": "The Power of Small Moments",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783939036
+  },
+  {
+    "file": "12569afe_1.png",
+    "topic": "The Power of Small Moments",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783939040
   }
 ]

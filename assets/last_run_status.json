@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Loving You in Silence"
+    "detail": "The Power of Small Moments"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17980786137044096"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18090940727305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/fYblYLkZq6c"
+    "detail": "https://www.youtube.com/shorts/eB2T6QlCL5Q"
   }
 }

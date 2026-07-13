@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Way You Look When You Do Not Know I Am Watching",
-    "style": "love",
-    "script": "I never told you how you look\nwhen the kitchen light spills\nlike melted butter across your shoulders.\nYour fingers forget to tuck that loose strand,\nand the clock hums a lullaby only you can hear.\nThe way your lips part\njust enough to taste the steam from your tea,\nI could watch you dissolve into the morning\nwithout ever needing to stir the sugar.\nYou are the quietest kind of magic,\nunaware of the spell you cast.\nsend this to them.",
-    "hash": "f18d6820ff20e5f2cd82ff8bd61b1554",
-    "metaphors": [
-      "tea",
-      "kitchen",
-      "light"
-    ],
-    "themes": [
-      "self_worth",
-      "silence"
-    ]
-  },
-  {
     "topic": "What Real Love Requires",
     "style": "emotional",
     "script": "There's a kind of courage\nthat doesn't roar.\nIt bends like reeds in the wind,\nnot breaking,\njust swaying with the weight of what's true.\nSome people call it compromise,\nbut it's really just choosing\nto carry the shape of someone else's soul\nalongside your own.\nThe hands that build a home together\nlearn the cracks,\nand fill them not with gold,\nbut with time.\nReal love requires\nnothing less than this.",
@@ -826,6 +811,21 @@
     "themes": [
       "silence",
       "self_worth"
+    ]
+  },
+  {
+    "topic": "The Power of Small Moments",
+    "style": "emotional",
+    "script": "How do you measure the weight of a glance\nthat lingers just a second too long\nbut carries the whole afternoon\nThe way sunlight spills through half-open blinds\nand pools on the floor like liquid gold\nnot asking for anything\njust existing in the space between breaths\nSome moments are quiet thieves\nthey slip in unnoticed\nand rearrange everything inside you\nThe hands that pass you a cup of coffee\nwithout saying a word\nare the ones that know you best\nlet them stay.",
+    "hash": "72f59122bb2fb1a2f08c89ca32ede59b",
+    "metaphors": [
+      "coffee",
+      "light",
+      "sun",
+      "cup"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
