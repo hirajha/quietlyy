@@ -1247,8 +1247,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1782110086,
-    "uses": 1,
-    "last_used": 1782133248
+    "uses": 2,
+    "last_used": 1783959001
   },
   {
     "file": "c77596f1_1.png",
@@ -2650,13 +2650,31 @@
     "topic": "The Power of Small Moments",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783939036
+    "timestamp": 1783939036,
+    "uses": 1,
+    "last_used": 1783959001
   },
   {
     "file": "12569afe_1.png",
     "topic": "The Power of Small Moments",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783939040
+    "timestamp": 1783939040,
+    "uses": 1,
+    "last_used": 1783959001
+  },
+  {
+    "file": "07e3c679_0.png",
+    "topic": "When Someone Chooses You Every Day",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1783959003
+  },
+  {
+    "file": "6f0ca39a_1.png",
+    "topic": "When Someone Chooses You Every Day",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1783959007
   }
 ]

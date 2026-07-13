@@ -1,17 +1,5 @@
 [
   {
-    "topic": "What Real Love Requires",
-    "style": "emotional",
-    "script": "There's a kind of courage\nthat doesn't roar.\nIt bends like reeds in the wind,\nnot breaking,\njust swaying with the weight of what's true.\nSome people call it compromise,\nbut it's really just choosing\nto carry the shape of someone else's soul\nalongside your own.\nThe hands that build a home together\nlearn the cracks,\nand fill them not with gold,\nbut with time.\nReal love requires\nnothing less than this.",
-    "hash": "e9f4d0a53f7b4a184617ccfa67f2dc63",
-    "metaphors": [
-      "wind"
-    ],
-    "themes": [
-      "love"
-    ]
-  },
-  {
     "topic": "The Way You Look at Me",
     "style": "emotional",
     "script": "The lamp is still on your side of the bed.\nI reach across,\nbut the sheets are cold.\nSome nights,\nI swear I see your shadow stretch,\njust for a second,\nlike a flicker of old film.\nThe way you look at me\u2014\nit isn\u2019t hunger,\nnot even memory,\njust the quiet click of a camera,\npreserving something I can\u2019t name.\ndon\u2019t turn away.",
@@ -826,6 +814,24 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "When Someone Chooses You Every Day",
+    "style": "love",
+    "script": "There's a quiet like the moment\nbefore the first raindrop falls.\nYou choose me,\nnot in grand gestures,\nbut in the way morning light lingers on your pillow.\nI am the second cup of coffee you pour,\nthe one you sip slowly,\neven when it's gone cold.\nSome days,\nI am the silence between your thoughts,\nthe space where your breath settles.\nAnd when the world feels too loud,\nI am the hand you reach for without looking.\nsend this to them.",
+    "hash": "e86ba3d1f5a3bab586df9042ff000b7f",
+    "metaphors": [
+      "rain",
+      "cup",
+      "pillow",
+      "light",
+      "silence",
+      "coffee"
+    ],
+    "themes": [
+      "silence",
+      "grief_loss"
     ]
   }
 ]
