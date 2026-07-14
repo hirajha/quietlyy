@@ -1274,8 +1274,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782133256,
-    "uses": 1,
-    "last_used": 1782154035
+    "uses": 2,
+    "last_used": 1784020766
   },
   {
     "file": "c01c4186_0.png",
@@ -2704,13 +2704,31 @@
     "topic": "Learning to Be Alone",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784001915
+    "timestamp": 1784001915,
+    "uses": 1,
+    "last_used": 1784020766
   },
   {
     "file": "2237a064_1.png",
     "topic": "Learning to Be Alone",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784001919
+    "timestamp": 1784001919,
+    "uses": 1,
+    "last_used": 1784020766
+  },
+  {
+    "file": "8dbea590_0.png",
+    "topic": "What I'd Tell You If I Could",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784020769
+  },
+  {
+    "file": "a7c95ff3_1.png",
+    "topic": "What I'd Tell You If I Could",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784020774
   }
 ]

@@ -1,17 +1,5 @@
 [
   {
-    "topic": "I Didn't Know Love Could Feel This Soft",
-    "style": "nostalgic",
-    "script": "I FORGOT\nwhat cotton feels like\nuntil your voice\nbrushed my ear\nlike a moth\u2019s wing\nagainst the screen door\nI didn\u2019t know\nskin could remember\nthe weight of dew\nor that kindness\ncould settle\nso gently\nit almost wasn\u2019t there",
-    "hash": "7b02a1d701eef60b822c4f0fbe0e858e",
-    "metaphors": [
-      "door"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "You Make the Hard Days Easier",
     "style": "nostalgic",
     "script": "YOU KNOW THE WEIGHT\nI carry\nlike a backpack full of stones\nbut when you walk in\nit lightens\njust enough\nto breathe.\nI DON\u2019T ASK HOW\nor why\nyour voice\nunfolds the creases\nI\u2019ve been ironing for weeks.\nIt\u2019s not magic\njust\nquiet gravity\npulling the day back\nto level.",
@@ -831,5 +819,17 @@
     "themes": [
       "nostalgia"
     ]
+  },
+  {
+    "topic": "What I'd Tell You If I Could",
+    "style": "love",
+    "script": "You're tracing the cracks in the ceiling.\nlike a cartographer of dust,\ncharting continents no one sees.\nI'd tell you the way your fingers pause\nis the only border I recognize.\nThe sheets smell like old bookshops,\nand I keep pretending not to notice.\nBut your breath,\na slow tide against my collarbone,\ncarves the only geography that matters.\nI'd say it out loud\nif the words didn't weigh more than the moon.\nsend this to them.",
+    "hash": "7c645f169e9a42b523a5fae24b8d03d5",
+    "metaphors": [
+      "ceiling",
+      "moon",
+      "tide"
+    ],
+    "themes": []
   }
 ]
