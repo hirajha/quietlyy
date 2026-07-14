@@ -1265,8 +1265,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1782133251,
-    "uses": 1,
-    "last_used": 1782154035
+    "uses": 2,
+    "last_used": 1784001913
   },
   {
     "file": "fa62d06d_1.png",
@@ -2686,13 +2686,31 @@
     "topic": "The Person Behind My Smile",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1783978760
+    "timestamp": 1783978760,
+    "uses": 1,
+    "last_used": 1784001913
   },
   {
     "file": "ec17f2c9_1.png",
     "topic": "The Person Behind My Smile",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1783978764
+    "timestamp": 1783978764,
+    "uses": 1,
+    "last_used": 1784001913
+  },
+  {
+    "file": "2e6cf846_0.png",
+    "topic": "Learning to Be Alone",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784001915
+  },
+  {
+    "file": "2237a064_1.png",
+    "topic": "Learning to Be Alone",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784001919
   }
 ]
