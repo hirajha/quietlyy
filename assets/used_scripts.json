@@ -1,22 +1,5 @@
 [
   {
-    "topic": "When You Miss Someone You Should Not",
-    "style": "love",
-    "script": "You trace their name on the fogged-up mirror.\nCondensation drips like slow regret.\nThe bathroom light hums,\nbut the silence isn\u2019t empty anymore.\nIT\u2019S FULL OF WHISPERS YOU CAN\u2019T ERASE.\nYour breath clouds the glass,\nand for a second,\ntheir face appears.\nThen the steam swallows it whole.\nYou don\u2019t wipe it away.\nLet it stay.\nsend this to them.",
-    "hash": "94891105dadea41f38cb30c254085d60",
-    "metaphors": [
-      "glass",
-      "tea",
-      "mirror",
-      "silence",
-      "light",
-      "wall"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Missing Someone Who Is Right There",
     "style": "poetic",
     "script": "The air between us,\nthick as old film,\nstuck in the projector.\nEvery word,\nevery glance,\ndevelops too slow.\nI reach,\nbut my fingers only brush the light,\nnot your skin.\nSome nights,\nthe screen flickers,\nand I swear I see you,\nclear as day,\nthen gone again.",
@@ -831,5 +814,17 @@
       "radio"
     ],
     "themes": []
+  },
+  {
+    "topic": "What Silence Teaches Us",
+    "style": "nostalgic",
+    "script": "Softly falls the quiet\nwe just\nstop and listen\ncarefully to the stillness\nand in its depths we find\nSOMETIMES A DEEPER TRUTH\nrevealed in the pause\nbetween the notes\nStill we search for meaning\nIn the empty spaces\nwe find a gentle hush\nthat settles over us",
+    "hash": "c68b64b286affc7b5946597006a7f2c1",
+    "metaphors": [
+      "note"
+    ],
+    "themes": [
+      "silence"
+    ]
   }
 ]

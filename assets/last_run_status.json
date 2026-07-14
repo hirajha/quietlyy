@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Voice in Your Head That Says You Are Not Enough"
+    "detail": "What Silence Teaches Us"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18091130693305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18097913174247661"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/n6iSt48cm-s"
+    "detail": "https://www.youtube.com/shorts/pf0nc7Y2guE"
   }
 }

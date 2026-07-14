@@ -1292,8 +1292,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782154042,
-    "uses": 1,
-    "last_used": 1782191052
+    "uses": 2,
+    "last_used": 1784065187
   },
   {
     "file": "d9e1b1c5_0.png",
@@ -2740,13 +2740,31 @@
     "topic": "The Voice in Your Head That Says You Are Not Enough",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784042329
+    "timestamp": 1784042329,
+    "uses": 1,
+    "last_used": 1784065187
   },
   {
     "file": "0b4fa7c7_1.png",
     "topic": "The Voice in Your Head That Says You Are Not Enough",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784042334
+    "timestamp": 1784042334,
+    "uses": 1,
+    "last_used": 1784065187
+  },
+  {
+    "file": "fddb6a97_0.png",
+    "topic": "What Silence Teaches Us",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784065189
+  },
+  {
+    "file": "ea7cfa0c_1.png",
+    "topic": "What Silence Teaches Us",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784065194
   }
 ]
