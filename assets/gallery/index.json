@@ -1283,8 +1283,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1782154037,
-    "uses": 1,
-    "last_used": 1782191052
+    "uses": 2,
+    "last_used": 1784042326
   },
   {
     "file": "74d36293_1.png",
@@ -2722,13 +2722,31 @@
     "topic": "What I'd Tell You If I Could",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784020769
+    "timestamp": 1784020769,
+    "uses": 1,
+    "last_used": 1784042326
   },
   {
     "file": "a7c95ff3_1.png",
     "topic": "What I'd Tell You If I Could",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784020774
+    "timestamp": 1784020774,
+    "uses": 1,
+    "last_used": 1784042326
+  },
+  {
+    "file": "5bd7db72_0.png",
+    "topic": "The Voice in Your Head That Says You Are Not Enough",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784042329
+  },
+  {
+    "file": "0b4fa7c7_1.png",
+    "topic": "The Voice in Your Head That Says You Are Not Enough",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784042334
   }
 ]

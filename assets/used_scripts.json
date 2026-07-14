@@ -1,18 +1,5 @@
 [
   {
-    "topic": "You Make the Hard Days Easier",
-    "style": "nostalgic",
-    "script": "YOU KNOW THE WEIGHT\nI carry\nlike a backpack full of stones\nbut when you walk in\nit lightens\njust enough\nto breathe.\nI DON\u2019T ASK HOW\nor why\nyour voice\nunfolds the creases\nI\u2019ve been ironing for weeks.\nIt\u2019s not magic\njust\nquiet gravity\npulling the day back\nto level.",
-    "hash": "71de72c0ce9b0abb8986863f8261d8f7",
-    "metaphors": [
-      "light"
-    ],
-    "themes": [
-      "self_worth",
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Miss Someone You Should Not",
     "style": "love",
     "script": "You trace their name on the fogged-up mirror.\nCondensation drips like slow regret.\nThe bathroom light hums,\nbut the silence isn\u2019t empty anymore.\nIT\u2019S FULL OF WHISPERS YOU CAN\u2019T ERASE.\nYour breath clouds the glass,\nand for a second,\ntheir face appears.\nThen the steam swallows it whole.\nYou don\u2019t wipe it away.\nLet it stay.\nsend this to them.",
@@ -829,6 +816,19 @@
       "ceiling",
       "moon",
       "tide"
+    ],
+    "themes": []
+  },
+  {
+    "topic": "The Voice in Your Head That Says You Are Not Enough",
+    "style": "nostalgic",
+    "script": "IT WHISPERS like static,\nold radio\nbetween stations,\nyou lean closer\nbut the signal fades\ninto white noise.\nYOU TRY TO OUTRUN IT,\nsprint through neon streets,\nbut the echo\nkeeps perfect pace\njust behind your shoulder,\nbreathing,\nYOU ARE NOT THE ONE THEY CHOSE.",
+    "hash": "612f13963721361140d56f1bfbe7fcfe",
+    "metaphors": [
+      "noise",
+      "echo",
+      "tree",
+      "radio"
     ],
     "themes": []
   }
