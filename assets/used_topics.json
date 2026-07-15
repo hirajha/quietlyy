@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Meaning We Choose to Find",
-    "What Silence Teaches Us",
     "When Grief Becomes a Teacher",
     "Loving Without Losing Yourself",
     "What You Cannot Change and What You Can",
@@ -65,11 +63,13 @@
     "Learning to Belong to Yourself",
     "The Strength in Stillness",
     "Learning to Trust the Journey",
-    "The Quiet Revolution of Self-Respect"
+    "The Quiet Revolution of Self-Respect",
+    "Why the Wound Is the Gift",
+    "Why Peace Is Not the Absence of Storm"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 2,
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -126,7 +126,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153651_0d1d62.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
@@ -145,7 +144,8 @@
     "2026-06-05_153640_3f0c91.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
-    "2026-06-05_153827_d3f4f7.mp3"
+    "2026-06-05_153827_d3f4f7.mp3",
+    "2026-06-05_153839_5a1856.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -154,13 +154,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Loving Someone Who Wouldn't Stay",
-    "When You Have Nothing Left",
-    "The Lesson In Every Goodbye",
-    "What Rock Bottom Taught You",
-    "The People Who Disappear When It's Hard",
-    "Being Too Kind In A Cruel World",
-    "When You Finally Stopped Settling",
     "The Day You Chose Yourself",
     "The Strength In Walking Away",
     "When You Stop Chasing People",
@@ -173,6 +166,13 @@
     "What You Learned After Being Broken",
     "Learning To Be Enough On Your Own",
     "When Being Nice Made You A Target",
-    "The Friends Who Only Stayed For The Good Days"
+    "The Friends Who Only Stayed For The Good Days",
+    "When People Show You Who They Are",
+    "The Quiet Power Of Letting Go",
+    "Why Closure Never Comes",
+    "Outgrowing People You Love",
+    "Why You Stopped Explaining Yourself",
+    "What Loneliness Actually Teaches You",
+    "What Rock Bottom Taught You"
   ]
 }

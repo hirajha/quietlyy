@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Voice in Your Head That Says You Are Not Enough",
-    "style": "emotional",
-    "script": "There's a hunger that doesn't ask for food,\nnot the kind you feed,\njust the kind that gnaws,\nquiet and relentless.\nThe mirror shows a stranger,\nnot the face you recognize,\nbut the one the voice insists is real.\nYou reach for the light switch,\nbut the room stays dim,\nbecause the dark isn't outside,\nit's the shape of your shadow,\nstretched too thin.\nYou are enough,\njust not in the way they measured.",
-    "hash": "e64cdeb6557c826161722961e4e61a3c",
-    "metaphors": [
-      "shadow",
-      "dark",
-      "mirror",
-      "light"
-    ],
-    "themes": [
-      "silence",
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The People Who Leave When You Need Them Most",
     "style": "lesson",
     "script": "You're not waiting. You're just stuck.\nWe invest in people who don't invest in us.\nTheir absence is a weight we can't shake.\nWe teach them how to leave us by staying.\nIt's not that they don't care, it's that they care less.\nYou will always be an option to someone who makes you a priority.\nBut to others, you're just a backup plan.\nWe're brave until we're not.\nAnd then we're just alone with our choices.",
@@ -829,5 +813,13 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "Why You Stopped Explaining Yourself",
+    "style": "lesson",
+    "script": "What do you call it when you're no longer apologizing, \n   For who you are. \n   We stopped explaining ourselves, \n   Because we realized, \n   You were never really listening, \n   We were just seeking validation. \n   From people who didn't matter, \n   We were wasting our breath, \n   On those who didn't care, \n   And slowly, \n   You learn to keep your truth to yourself.",
+    "hash": "45e6752e98cb234a34c480904c47348d",
+    "metaphors": [],
+    "themes": []
   }
 ]

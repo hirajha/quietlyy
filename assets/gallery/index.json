@@ -1310,8 +1310,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782191059,
-    "uses": 1,
-    "last_used": 1782211321
+    "uses": 2,
+    "last_used": 1784107225
   },
   {
     "file": "c67548d8_0.png",
@@ -2776,13 +2776,31 @@
     "topic": "One-Sided Effort",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784088371
+    "timestamp": 1784088371,
+    "uses": 1,
+    "last_used": 1784107225
   },
   {
     "file": "74b727db_1.png",
     "topic": "One-Sided Effort",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784088376
+    "timestamp": 1784088376,
+    "uses": 1,
+    "last_used": 1784107225
+  },
+  {
+    "file": "b6977a0e_0.png",
+    "topic": "Why You Stopped Explaining Yourself",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784107228
+  },
+  {
+    "file": "136d9317_1.png",
+    "topic": "Why You Stopped Explaining Yourself",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784107232
   }
 ]
