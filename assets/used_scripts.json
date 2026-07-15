@@ -1,13 +1,5 @@
 [
   {
-    "topic": "Lying Awake Replaying Everything",
-    "style": "emotional",
-    "script": "How do you name the weight\nthat settles behind your ribs\nwhen the clock\u2019s hands won\u2019t move\nbut your thoughts sprint,\nracing the same laps\naround a track you can\u2019t exit?\nThe sheets feel like water,\ntoo thin to hold you down,\nand every breath is a question\nno one answers.\nSome nights,\nyou\u2019re not replaying memories\u2014\nyou\u2019re rewriting them,\nline by line,\nuntil the page is blank.",
-    "hash": "d3b078770f527aefb6f3467fbb89e9ab",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "The Cost Of Always Being Available",
     "style": "lesson",
     "script": "What do you call it when you're always on call?\nWe become our own worst bosses.\nNo clocking out, no days off.\nYou're a phone call away from duty.\nWe're taught to be available, to be loyal.\nTo never disconnect, to never say no.\nBut what's the cost of being always on?\nWe lose ourselves in the static.\nYou forget what it's like to be still.\nYou become a ghost in your own life.",
@@ -822,5 +814,22 @@
       "shadow"
     ],
     "themes": []
+  },
+  {
+    "topic": "Finding Peace Within Yourself",
+    "style": "wisdom",
+    "script": "A Japanese gardener whispered\nroots know the way\nbefore the first green breaks soil.\n\nno need to dig\nor ask directions.\n\nyou\u2019ve carried this quiet compass\ntucked behind your ribs\nsince the day you learned to breathe.\n\nit doesn\u2019t point north\nor map the shortest path\u2014\njust hums when you\u2019re near\nyour own unshaken sky.",
+    "hash": "8ba4c301a746d4233690bbe703c37de2",
+    "metaphors": [
+      "path",
+      "compass",
+      "roots",
+      "garden",
+      "map"
+    ],
+    "themes": [
+      "silence",
+      "growth"
+    ]
   }
 ]

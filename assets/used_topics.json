@@ -46,7 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "What You Cannot Change and What You Can",
     "The Difference Between Living and Existing",
     "The Beauty of an Unfinished Life",
     "The Ancient Truth About Happiness",
@@ -65,11 +64,12 @@
     "Why the Wound Is the Gift",
     "Why Peace Is Not the Absence of Storm",
     "The Meaning We Choose to Find",
-    "What Silence Teaches Us"
+    "What Silence Teaches Us",
+    "How to Carry Loss Without Being Crushed"
   ],
-  "last_style": "wisdom",
+  "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 4,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -122,11 +122,11 @@
     "what you never say becomes the tide",
     "there\u2019s a lantern in your chest burning with stories",
     "a good traveler has no fixed plans.",
-    "The way dust rises when you crack one open. Hafiz whispered"
+    "The way dust rises when you crack one open. Hafiz whispered",
+    "roots know the way before the first green breaks soil."
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153651_0d1d62.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_151550_7dfb17.mp3",
@@ -145,7 +145,8 @@
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153839_5a1856.mp3",
-    "2026-06-05_153555_7cd9b3.mp3"
+    "2026-06-05_153555_7cd9b3.mp3",
+    "2026-06-05_153816_e5f3ea.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -154,14 +155,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The People Who Leave When You Need Them Most",
-    "The Truth About Being The Strong One",
-    "What You Learned After Being Broken",
-    "Learning To Be Enough On Your Own",
-    "When Being Nice Made You A Target",
-    "The Friends Who Only Stayed For The Good Days",
-    "When People Show You Who They Are",
-    "The Quiet Power Of Letting Go",
     "Why Closure Never Comes",
     "Outgrowing People You Love",
     "Why You Stopped Explaining Yourself",
@@ -173,6 +166,14 @@
     "Loving Someone Who Wouldn't Stay",
     "The Love That Was Only Convenient",
     "What You Owe Yourself",
-    "The Strength In Walking Away"
+    "The Strength In Walking Away",
+    "Why You Stopped Waiting For An Apology",
+    "Why You Don't Beg To Be Loved",
+    "The Day You Chose Yourself",
+    "Being Too Kind In A Cruel World",
+    "What You Learned After Being Broken",
+    "The Truth About Being The Strong One",
+    "The Friends Who Only Stayed For The Good Days",
+    "When You Finally Stopped Settling"
   ]
 }
