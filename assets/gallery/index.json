@@ -1301,8 +1301,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1782191054,
-    "uses": 1,
-    "last_used": 1782211321
+    "uses": 2,
+    "last_used": 1784088368
   },
   {
     "file": "f311e73b_1.png",
@@ -2758,13 +2758,31 @@
     "topic": "What Silence Teaches Us",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784065189
+    "timestamp": 1784065189,
+    "uses": 1,
+    "last_used": 1784088368
   },
   {
     "file": "ea7cfa0c_1.png",
     "topic": "What Silence Teaches Us",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784065194
+    "timestamp": 1784065194,
+    "uses": 1,
+    "last_used": 1784088368
+  },
+  {
+    "file": "9c280edb_0.png",
+    "topic": "One-Sided Effort",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784088371
+  },
+  {
+    "file": "74b727db_1.png",
+    "topic": "One-Sided Effort",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784088376
   }
 ]

@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Missing Someone Who Is Right There",
-    "style": "poetic",
-    "script": "The air between us,\nthick as old film,\nstuck in the projector.\nEvery word,\nevery glance,\ndevelops too slow.\nI reach,\nbut my fingers only brush the light,\nnot your skin.\nSome nights,\nthe screen flickers,\nand I swear I see you,\nclear as day,\nthen gone again.",
-    "hash": "707c7d9ceb826c5f9a0d75b5b542076d",
-    "metaphors": [
-      "light"
-    ],
-    "themes": [
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Voice in Your Head That Says You Are Not Enough",
     "style": "emotional",
     "script": "There's a hunger that doesn't ask for food,\nnot the kind you feed,\njust the kind that gnaws,\nquiet and relentless.\nThe mirror shows a stranger,\nnot the face you recognize,\nbut the one the voice insists is real.\nYou reach for the light switch,\nbut the room stays dim,\nbecause the dark isn't outside,\nit's the shape of your shadow,\nstretched too thin.\nYou are enough,\njust not in the way they measured.",
@@ -822,6 +810,21 @@
     "hash": "c68b64b286affc7b5946597006a7f2c1",
     "metaphors": [
       "note"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "One-Sided Effort",
+    "style": "emotional",
+    "script": "You\u2019re rewinding the tape again.\nThe same reel\nspins backward,\nbut the ending never changes.\nSomewhere,\na projector hums in an empty room,\ncasting light on walls you built yourself.\nYou press play,\nand the film still skips,\nstill glitches,\nstill asks for more.\nThe screen goes dark.\nYou load another.",
+    "hash": "6adf7b98e23cad614ecf9f2b642dd470",
+    "metaphors": [
+      "dark",
+      "light",
+      "wind",
+      "wall"
     ],
     "themes": [
       "silence"
