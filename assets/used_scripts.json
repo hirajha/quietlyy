@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The People Who Leave When You Need Them Most",
-    "style": "lesson",
-    "script": "You're not waiting. You're just stuck.\nWe invest in people who don't invest in us.\nTheir absence is a weight we can't shake.\nWe teach them how to leave us by staying.\nIt's not that they don't care, it's that they care less.\nYou will always be an option to someone who makes you a priority.\nBut to others, you're just a backup plan.\nWe're brave until we're not.\nAnd then we're just alone with our choices.",
-    "hash": "a181a670af79a3d0c56f49d30bc9975b",
-    "metaphors": [
-      "tea"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "Lying Awake Replaying Everything",
     "style": "emotional",
     "script": "How do you name the weight\nthat settles behind your ribs\nwhen the clock\u2019s hands won\u2019t move\nbut your thoughts sprint,\nracing the same laps\naround a track you can\u2019t exit?\nThe sheets feel like water,\ntoo thin to hold you down,\nand every breath is a question\nno one answers.\nSome nights,\nyou\u2019re not replaying memories\u2014\nyou\u2019re rewriting them,\nline by line,\nuntil the page is blank.",
@@ -820,6 +808,19 @@
     "script": "What do you call it when you're no longer apologizing, \n   For who you are. \n   We stopped explaining ourselves, \n   Because we realized, \n   You were never really listening, \n   We were just seeking validation. \n   From people who didn't matter, \n   We were wasting our breath, \n   On those who didn't care, \n   And slowly, \n   You learn to keep your truth to yourself.",
     "hash": "45e6752e98cb234a34c480904c47348d",
     "metaphors": [],
+    "themes": []
+  },
+  {
+    "topic": "Friends Who Only Call When They Need You",
+    "style": "emotional",
+    "script": "How do you name a shadow\nthat only appears when you turn on the light?\nThe same voice that fades\ninto static\nwhen the crisis is over,\nbut returns,\ncrisp and clear,\nwhen the batteries are low.\nSome hands only know how to knock\nwhen the door is already open.\nI won\u2019t lock it,\nbut I\u2019ll count the keys,\nand wonder who\u2019s holding the spare.",
+    "hash": "0e7ddd8892e3556d122292afe878c648",
+    "metaphors": [
+      "light",
+      "door",
+      "keys",
+      "shadow"
+    ],
     "themes": []
   }
 ]

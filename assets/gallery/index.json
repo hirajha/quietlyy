@@ -1319,8 +1319,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1782211324,
-    "uses": 1,
-    "last_used": 1782231327
+    "uses": 2,
+    "last_used": 1784128591
   },
   {
     "file": "f624231b_1.png",
@@ -2794,13 +2794,31 @@
     "topic": "Why You Stopped Explaining Yourself",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784107228
+    "timestamp": 1784107228,
+    "uses": 1,
+    "last_used": 1784128591
   },
   {
     "file": "136d9317_1.png",
     "topic": "Why You Stopped Explaining Yourself",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784107232
+    "timestamp": 1784107232,
+    "uses": 1,
+    "last_used": 1784128591
+  },
+  {
+    "file": "32e31984_0.png",
+    "topic": "Friends Who Only Call When They Need You",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784128594
+  },
+  {
+    "file": "4d3d7294_1.png",
+    "topic": "Friends Who Only Call When They Need You",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784128599
   }
 ]
