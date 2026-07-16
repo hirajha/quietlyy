@@ -1,13 +1,5 @@
 [
   {
-    "topic": "Finding Peace Within Yourself",
-    "style": "wisdom",
-    "script": "Marcus Aurelius wrote,\nthe soul becomes dyed\nwith the very colour\nof its thoughts.\n\nYou know that faint taste\nof salt on your tongue\nafter a restless night.\nHow it tints the whole day.\nEach passing face.\n\nWe carry our own filter.\nEverywhere.",
-    "hash": "24ba8f69e59e95170508f5fdbd565492",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "What Home Actually Feels Like",
     "style": "emotional",
     "script": "4:17 a.m. The kettle hums,\nnot boiling,\njust remembering how.\nYour mug waits,\nchipped edge,\nsame spot since last winter.\nThe couch sighs under you,\nnot tired,\njust used to the weight.\nSome places don\u2019t need walls,\nthey grow around your shoulders,\nsoft,\nlike an old sweater.\nYou don\u2019t notice,\nuntil you do.",
@@ -835,6 +827,19 @@
       "love",
       "nostalgia",
       "being_used"
+    ]
+  },
+  {
+    "topic": "What You Owe Yourself",
+    "style": "lesson",
+    "script": "Nobody warns you about the quiet depletion.\nThat subtle fade.\nYou keep pouring out.\nFor everyone else's flicker.\nUntil your own wick runs dry.\nRemember the forgotten bookmark?\nThat story you never finished.\nThat's you now.\nYou owe yourself the ending.\nBefore your own pages turn blank.",
+    "hash": "0502b6aceb2a4660e131350c24ee19f7",
+    "metaphors": [
+      "ring"
+    ],
+    "themes": [
+      "silence",
+      "nostalgia"
     ]
   }
 ]
