@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Difference Between Living and Existing",
-    "The Beauty of an Unfinished Life",
     "The Ancient Truth About Happiness",
     "Finding Peace Within Yourself",
     "The Courage to Begin Again",
@@ -65,11 +63,13 @@
     "Why Peace Is Not the Absence of Storm",
     "The Meaning We Choose to Find",
     "What Silence Teaches Us",
-    "How to Carry Loss Without Being Crushed"
+    "How to Carry Loss Without Being Crushed",
+    "Loving Without Losing Yourself",
+    "When Grief Becomes a Teacher"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 4,
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -127,7 +127,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153724_b66b80.mp3",
@@ -146,7 +145,8 @@
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
-    "2026-06-05_153816_e5f3ea.mp3"
+    "2026-06-05_153816_e5f3ea.mp3",
+    "2026-06-05_153806_9773e5.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -155,13 +155,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Why Closure Never Comes",
-    "Outgrowing People You Love",
-    "Why You Stopped Explaining Yourself",
-    "What Loneliness Actually Teaches You",
-    "What Rock Bottom Taught You",
-    "The People Who Disappear When It's Hard",
-    "What Healing Actually Looks Like",
     "When You Have Nothing Left",
     "Loving Someone Who Wouldn't Stay",
     "The Love That Was Only Convenient",
@@ -174,6 +167,13 @@
     "What You Learned After Being Broken",
     "The Truth About Being The Strong One",
     "The Friends Who Only Stayed For The Good Days",
-    "When You Finally Stopped Settling"
+    "When You Finally Stopped Settling",
+    "What Pain Quietly Teaches You",
+    "The People Who Leave When You Need Them Most",
+    "Outgrowing People You Love",
+    "When People Show You Who They Are",
+    "When You Stop Chasing People",
+    "Why Closure Never Comes",
+    "Why Silence Became Your Answer"
   ]
 }

@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Cost Of Always Being Available",
-    "style": "lesson",
-    "script": "What do you call it when you're always on call?\nWe become our own worst bosses.\nNo clocking out, no days off.\nYou're a phone call away from duty.\nWe're taught to be available, to be loyal.\nTo never disconnect, to never say no.\nBut what's the cost of being always on?\nWe lose ourselves in the static.\nYou forget what it's like to be still.\nYou become a ghost in your own life.",
-    "hash": "6e09f1dc2badde6aecb91d60e65a22f1",
-    "metaphors": [
-      "phone"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Finding Peace Within Yourself",
     "style": "emotional",
     "script": "There's a quiet like floating in saltwater,\nnot drowning,\njust held,\nyour bones too light to sink.\nThe current hums,\nbut it's not the ocean,\nit's your own pulse,\nsteady,\nunhurried,\nfinally yours.\nSomewhere,\na door you didn't know was locked,\nclicks open.\nStay here.",
@@ -830,6 +818,21 @@
     "themes": [
       "silence",
       "growth"
+    ]
+  },
+  {
+    "topic": "The Way You Look When You Do Not Know I Am Watching",
+    "style": "love",
+    "script": "I stopped counting the freckles on your shoulder.\nEach one a tiny constellation I memorize,\nand still you shift,\nunaware of the telescope I\u2019ve become.\nThe way your fingers trace the rim of your coffee cup\u2014\nslow orbits I could sketch blindfolded.\nYou hum,\nbut the melody is for the steam,\nnot me.\nI never told you how the light pools in your collarbone,\nor that I\u2019ve named it.\nSend this to them.",
+    "hash": "63d573e6b4308cfae0ceb19f91bade78",
+    "metaphors": [
+      "tea",
+      "coffee",
+      "cup",
+      "light"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
