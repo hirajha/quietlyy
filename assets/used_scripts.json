@@ -1,23 +1,5 @@
 [
   {
-    "topic": "What Home Actually Feels Like",
-    "style": "emotional",
-    "script": "4:17 a.m. The kettle hums,\nnot boiling,\njust remembering how.\nYour mug waits,\nchipped edge,\nsame spot since last winter.\nThe couch sighs under you,\nnot tired,\njust used to the weight.\nSome places don\u2019t need walls,\nthey grow around your shoulders,\nsoft,\nlike an old sweater.\nYou don\u2019t notice,\nuntil you do.",
-    "hash": "3b74cc5a28ea6cabce966cb8cec21ced",
-    "metaphors": [
-      "couch",
-      "wall",
-      "mug",
-      "sweater",
-      "ring"
-    ],
-    "themes": [
-      "growth",
-      "being_used",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "What I Never Said Out Loud",
     "style": "wisdom",
     "script": "the old fisherman whispered\nwhat you never say\nbecomes the tide\npulling you under\nnot the storm.\n\ni stood on the dock\ntasting salt on my tongue\nwondering if the sea\nkeeps every secret\nor just the ones\nwe drown in first.\n\nmaybe some waves\nwere meant to break\nsilent.",
@@ -840,6 +822,24 @@
     "themes": [
       "silence",
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "When Friendship Becomes One-Sided",
+    "style": "emotional",
+    "script": "The weight of a friendship shifts,\nlike sand slipping through fingers,\nslowly,\nunnoticed,\nuntil the hand is empty.\nYou still set the table,\ntwo plates,\ntwo cups,\nbut the chair stays cold.\nSome people don\u2019t leave,\nthey just stop arriving,\nand the doorbell never rings again.",
+    "hash": "c0a248e983e23e0d1eeabddefabbd612",
+    "metaphors": [
+      "plate",
+      "chair",
+      "cup",
+      "ring",
+      "door",
+      "table"
+    ],
+    "themes": [
+      "silence",
+      "friendship_loss"
     ]
   }
 ]

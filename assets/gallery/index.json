@@ -1364,8 +1364,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782252325,
-    "uses": 1,
-    "last_used": 1782277658
+    "uses": 2,
+    "last_used": 1784238118
   },
   {
     "file": "3e2824a6_0.png",
@@ -2884,13 +2884,31 @@
     "topic": "What You Owe Yourself",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784218858
+    "timestamp": 1784218858,
+    "uses": 1,
+    "last_used": 1784238118
   },
   {
     "file": "3c23e5d9_1.png",
     "topic": "What You Owe Yourself",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784218863
+    "timestamp": 1784218863,
+    "uses": 1,
+    "last_used": 1784238118
+  },
+  {
+    "file": "4b40731d_0.png",
+    "topic": "When Friendship Becomes One-Sided",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784238123
+  },
+  {
+    "file": "96ec4151_1.png",
+    "topic": "When Friendship Becomes One-Sided",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784238127
   }
 ]
