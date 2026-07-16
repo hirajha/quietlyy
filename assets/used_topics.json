@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Ancient Truth About Happiness",
-    "Finding Peace Within Yourself",
     "The Courage to Begin Again",
     "The Power of Small Moments",
     "Why Suffering Transforms Us",
@@ -65,11 +63,13 @@
     "What Silence Teaches Us",
     "How to Carry Loss Without Being Crushed",
     "Loving Without Losing Yourself",
-    "When Grief Becomes a Teacher"
+    "When Grief Becomes a Teacher",
+    "What You Cannot Change and What You Can",
+    "The Gift of Impermanence"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -123,11 +123,11 @@
     "there\u2019s a lantern in your chest burning with stories",
     "a good traveler has no fixed plans.",
     "The way dust rises when you crack one open. Hafiz whispered",
-    "roots know the way before the first green breaks soil."
+    "roots know the way before the first green breaks soil.",
+    "real love doesn\u2019t hold it lets the wind"
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153711_704e70.mp3",
@@ -146,7 +146,8 @@
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
-    "2026-06-05_153806_9773e5.mp3"
+    "2026-06-05_153806_9773e5.mp3",
+    "2026-06-05_153744_816dfe.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -155,13 +156,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "When You Have Nothing Left",
-    "Loving Someone Who Wouldn't Stay",
-    "The Love That Was Only Convenient",
-    "What You Owe Yourself",
-    "The Strength In Walking Away",
-    "Why You Stopped Waiting For An Apology",
-    "Why You Don't Beg To Be Loved",
     "The Day You Chose Yourself",
     "Being Too Kind In A Cruel World",
     "What You Learned After Being Broken",
@@ -174,6 +168,13 @@
     "When People Show You Who They Are",
     "When You Stop Chasing People",
     "Why Closure Never Comes",
-    "Why Silence Became Your Answer"
+    "Why Silence Became Your Answer",
+    "The Quiet Power Of Letting Go",
+    "When You Have Nothing Left",
+    "Learning To Be Enough On Your Own",
+    "The People Who Disappear When It's Hard",
+    "The Cost Of Always Being Available",
+    "The Strength In Walking Away",
+    "Why You Stopped Waiting For An Apology"
   ]
 }

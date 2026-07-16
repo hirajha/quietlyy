@@ -1,21 +1,6 @@
 [
   {
     "topic": "Finding Peace Within Yourself",
-    "style": "emotional",
-    "script": "There's a quiet like floating in saltwater,\nnot drowning,\njust held,\nyour bones too light to sink.\nThe current hums,\nbut it's not the ocean,\nit's your own pulse,\nsteady,\nunhurried,\nfinally yours.\nSomewhere,\na door you didn't know was locked,\nclicks open.\nStay here.",
-    "hash": "356ee7f67d111c1b5036396ede1d00ec",
-    "metaphors": [
-      "light",
-      "ocean",
-      "tea",
-      "door"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
-    "topic": "Finding Peace Within Yourself",
     "style": "wisdom",
     "script": "Marcus Aurelius wrote,\nthe soul becomes dyed\nwith the very colour\nof its thoughts.\n\nYou know that faint taste\nof salt on your tongue\nafter a restless night.\nHow it tints the whole day.\nEach passing face.\n\nWe carry our own filter.\nEverywhere.",
     "hash": "24ba8f69e59e95170508f5fdbd565492",
@@ -833,6 +818,23 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "What Real Love Feels Like",
+    "style": "wisdom",
+    "script": "Hafiz whispered\nreal love doesn\u2019t hold\nit lets the wind\ntake the shape of your name\nacross the sky.\n\nyou\u2019ll know it\nwhen your bones hum\nnot from possession\nbut from belonging\nto the light between stars.\n\nyou won\u2019t own it\nit will own the space\nwhere your shadow used to be.",
+    "hash": "a53caa5a31aa090239cd550484ed617c",
+    "metaphors": [
+      "shadow",
+      "wind",
+      "light",
+      "star"
+    ],
+    "themes": [
+      "love",
+      "nostalgia",
+      "being_used"
     ]
   }
 ]
