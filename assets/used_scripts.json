@@ -1,20 +1,5 @@
 [
   {
-    "topic": "When You Love Someone You Cannot Have",
-    "style": "emotional",
-    "script": "You\u2019re tracing their name\nin the steam on the bathroom mirror,\nnot for them to see,\njust to feel it again.\nThe letters blur,\nbut your finger remembers the shape.\nSome loves are like that\u2014\nnot meant to be kept,\nonly carried,\nlike a pocket full of stones\nthat weigh nothing\nuntil you try to let go.",
-    "hash": "adea481036bc98f01016a8994e4d1803",
-    "metaphors": [
-      "tea",
-      "mirror",
-      "letter"
-    ],
-    "themes": [
-      "love",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "The Ancient Truth About Happiness",
     "style": "nostalgic",
     "script": "Happiness isn\u2019t a place\nit\u2019s\nthe way the light\nbent through your mother\u2019s kitchen window\nwhile she stirred something sweet\nyou never asked for the recipe\nbecause you knew\nyou\u2019d never taste it the same\nand that\u2019s the truth\nolder than the hills\nolder than the names we gave them\nit slips through your fingers\nlike flour\nlike time\nlike the last bus home.",
@@ -831,5 +816,18 @@
     "themes": [
       "growth"
     ]
+  },
+  {
+    "topic": "Loving in Silence",
+    "style": "nostalgic",
+    "script": "I memorized the way you tilt your head\nwhen the light hits wrong\nand your glasses catch the gold\nlike a secret meant for someone else.\nYou never look up\nbut I count the freckles on your wrist\none for every time you hum off-key\nwhile the kettle screams.\nSOME DAYS I WISH I COULD BORROW YOUR SHADOW\njust to feel the weight of standing close\nwithout making a sound.\nThe kitchen smells like cinnamon\nand something almost like regret\nbut softer.\nI leave the sugar bowl out\nin case you need it.",
+    "hash": "5fa6783821af1fcc99ee94471ed2e40c",
+    "metaphors": [
+      "kitchen",
+      "light",
+      "glass",
+      "shadow"
+    ],
+    "themes": []
   }
 ]
