@@ -1,20 +1,5 @@
 [
   {
-    "topic": "What I Never Said Out Loud",
-    "style": "wisdom",
-    "script": "the old fisherman whispered\nwhat you never say\nbecomes the tide\npulling you under\nnot the storm.\n\ni stood on the dock\ntasting salt on my tongue\nwondering if the sea\nkeeps every secret\nor just the ones\nwe drown in first.\n\nmaybe some waves\nwere meant to break\nsilent.",
-    "hash": "986f4e8fd3aa946b9360a4ffd7b6e5e4",
-    "metaphors": [
-      "ring",
-      "storm",
-      "tide",
-      "waves"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Grief Nobody Talks About",
     "style": "emotional",
     "script": "There's a grief that has no grave,\njust dust settling on old keys,\nThe ones you turned every morning\nbut now they jingle in a drawer,\nnot lost,\njust waiting for a door that won't open.\nSome rooms stay lit after the party,\nThe laughter still hums in the walls,\nand you stand there,\nholding a coat that isn't yours,\nwondering when to leave.\nNobody tells you how heavy air becomes\nwhen it's full of goodbyes you never said.",
@@ -840,6 +825,22 @@
     "themes": [
       "silence",
       "friendship_loss"
+    ]
+  },
+  {
+    "topic": "You Didn't Fix Me, You Stayed",
+    "style": "wisdom",
+    "script": "Hafiz whispered\nnot the crack that lets the light in\nbut the hand\nthat cups the broken pieces\nwithout asking them to shine.\n\nyou didn\u2019t fix me\njust held the weight\nwhile the edges softened\nin your palm.\n\nthe wound stayed\nbut the loneliness left\nlike a bird from an open window.",
+    "hash": "6ced6889d283f992c9d30e369c577305",
+    "metaphors": [
+      "cup",
+      "window",
+      "light",
+      "wind"
+    ],
+    "themes": [
+      "heartbreak",
+      "loneliness"
     ]
   }
 ]

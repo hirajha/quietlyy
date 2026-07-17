@@ -1373,8 +1373,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1782277660,
-    "uses": 1,
-    "last_used": 1782297044
+    "uses": 2,
+    "last_used": 1784261266
   },
   {
     "file": "d6827837_1.png",
@@ -2902,13 +2902,31 @@
     "topic": "When Friendship Becomes One-Sided",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784238123
+    "timestamp": 1784238123,
+    "uses": 1,
+    "last_used": 1784261266
   },
   {
     "file": "96ec4151_1.png",
     "topic": "When Friendship Becomes One-Sided",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784238127
+    "timestamp": 1784238127,
+    "uses": 1,
+    "last_used": 1784261266
+  },
+  {
+    "file": "24b1683a_0.png",
+    "topic": "You Didn't Fix Me, You Stayed",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784261269
+  },
+  {
+    "file": "38a036b3_1.png",
+    "topic": "You Didn't Fix Me, You Stayed",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784261277
   }
 ]
