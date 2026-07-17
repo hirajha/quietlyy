@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Grief Nobody Talks About",
-    "style": "emotional",
-    "script": "There's a grief that has no grave,\njust dust settling on old keys,\nThe ones you turned every morning\nbut now they jingle in a drawer,\nnot lost,\njust waiting for a door that won't open.\nSome rooms stay lit after the party,\nThe laughter still hums in the walls,\nand you stand there,\nholding a coat that isn't yours,\nwondering when to leave.\nNobody tells you how heavy air becomes\nwhen it's full of goodbyes you never said.",
-    "hash": "ba428aa446b907d9cc951c777e9926f8",
-    "metaphors": [
-      "wall",
-      "door",
-      "ring",
-      "keys"
-    ],
-    "themes": [
-      "silence",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "When You Stop Explaining",
     "style": "nostalgic",
     "script": "You used to unpack the sky\nfor me\none star at a time\nuntil I could read it like braille.\nNOW THE DARK IS JUST DARK\nand I don\u2019t ask why.\nThe wind carries what it carries\nmy pockets full of questions\nthat don\u2019t fit anymore.\nI leave them\non the dashboard\nbeside your empty coffee cup.",
@@ -841,6 +825,18 @@
     "themes": [
       "heartbreak",
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The Meaning We Choose to Find",
+    "style": "nostalgic",
+    "script": "We built the ladder\nsideways\none rung at a time\nfrom whatever we could reach\nold receipts\nlost keys\nthe way you laughed at nothing.\nSOME DAYS IT HELD\nSOME DAYS IT DIDN\u2019T\nbut we kept climbing\nbecause the view was ours to name\nand the sky\nwas never the point.",
+    "hash": "ff295b990f2e67b354cee23ded8ffbbf",
+    "metaphors": [
+      "keys"
+    ],
+    "themes": [
+      "grief_loss"
     ]
   }
 ]
