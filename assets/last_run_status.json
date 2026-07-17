@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Meaning We Choose to Find"
+    "detail": "The Cost Of Always Being Available"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17941263153266255"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18091593626305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/TOp8Y0vuo4w"
+    "detail": "https://www.youtube.com/shorts/NMpXONuJXRk"
   }
 }

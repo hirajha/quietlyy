@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "Learning to Belong to Yourself",
-    "The Strength in Stillness",
     "Learning to Trust the Journey",
     "The Quiet Revolution of Self-Respect",
     "Why the Wound Is the Gift",
@@ -65,11 +63,13 @@
     "The Courage to Begin Again",
     "The Ancient Truth About Happiness",
     "What Truly Matters in the End",
-    "The Art of Letting Go"
+    "The Art of Letting Go",
+    "The Freedom of Acceptance",
+    "Why Suffering Transforms Us"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -129,7 +129,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153806_9773e5.mp3",
@@ -148,7 +147,8 @@
     "2026-06-05_153651_0d1d62.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153627_53fd51.mp3",
-    "2026-06-05_153827_d3f4f7.mp3"
+    "2026-06-05_153827_d3f4f7.mp3",
+    "2026-06-05_153816_e5f3ea.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -157,13 +157,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Being Too Kind In A Cruel World",
-    "Loving Someone Who Wouldn't Stay",
-    "When People Show You Who They Are",
-    "Outgrowing People You Love",
-    "The People Who Leave When You Need Them Most",
-    "The Friends Who Only Stayed For The Good Days",
-    "The Love That Was Only Convenient",
     "When You Stop Chasing People",
     "What Pain Quietly Teaches You",
     "The Quiet Power Of Letting Go",
@@ -176,6 +169,13 @@
     "The People Who Disappear When It's Hard",
     "When Being Nice Made You A Target",
     "What You Owe Yourself",
-    "What Rock Bottom Taught You"
+    "What Rock Bottom Taught You",
+    "Why You Stopped Explaining Yourself",
+    "When You Finally Stopped Settling",
+    "The Cost Of Always Being Available",
+    "Being Too Kind In A Cruel World",
+    "The Truth About Being The Strong One",
+    "The Day You Chose Yourself",
+    "Why You Stopped Waiting For An Apology"
   ]
 }

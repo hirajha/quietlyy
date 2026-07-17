@@ -1391,8 +1391,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1782297046,
-    "uses": 1,
-    "last_used": 1782315878
+    "uses": 2,
+    "last_used": 1784300744
   },
   {
     "file": "3b9bc259_1.png",
@@ -2938,13 +2938,31 @@
     "topic": "The Meaning We Choose to Find",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784280224
+    "timestamp": 1784280224,
+    "uses": 1,
+    "last_used": 1784300744
   },
   {
     "file": "d45d1484_1.png",
     "topic": "The Meaning We Choose to Find",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784280228
+    "timestamp": 1784280228,
+    "uses": 1,
+    "last_used": 1784300744
+  },
+  {
+    "file": "4e2fb41b_0.png",
+    "topic": "The Cost Of Always Being Available",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784300746
+  },
+  {
+    "file": "bb5320b7_1.png",
+    "topic": "The Cost Of Always Being Available",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784300750
   }
 ]

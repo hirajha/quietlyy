@@ -1,22 +1,5 @@
 [
   {
-    "topic": "When You Stop Explaining",
-    "style": "nostalgic",
-    "script": "You used to unpack the sky\nfor me\none star at a time\nuntil I could read it like braille.\nNOW THE DARK IS JUST DARK\nand I don\u2019t ask why.\nThe wind carries what it carries\nmy pockets full of questions\nthat don\u2019t fit anymore.\nI leave them\non the dashboard\nbeside your empty coffee cup.",
-    "hash": "42f54c580ed8c5a04f2277392c0217aa",
-    "metaphors": [
-      "wind",
-      "coffee",
-      "cup",
-      "dark",
-      "star"
-    ],
-    "themes": [
-      "being_used",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "When You Love Someone You Cannot Have",
     "style": "emotional",
     "script": "You\u2019re tracing their name\nin the steam on the bathroom mirror,\nnot for them to see,\njust to feel it again.\nThe letters blur,\nbut your finger remembers the shape.\nSome loves are like that\u2014\nnot meant to be kept,\nonly carried,\nlike a pocket full of stones\nthat weigh nothing\nuntil you try to let go.",
@@ -837,6 +820,16 @@
     ],
     "themes": [
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The Cost Of Always Being Available",
+    "style": "lesson",
+    "script": "When did we stop guarding our own moments?\nThe ping.\nThe instant reply.\nAlways open.\nAlways ready.\nYou became the constant.\nThe dependable resource.\nNever out of reach.\nBut your own availability, it became the expectation.\nNot a gift anymore.\nJust the price of entry.",
+    "hash": "833267d499079be1b1e23dce220634a3",
+    "metaphors": [],
+    "themes": [
+      "growth"
     ]
   }
 ]
