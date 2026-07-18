@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When Friendship Becomes One-Sided",
-    "style": "love",
-    "script": "Your side of the couch still holds the dent.\nI trace it with my fingertips,\nlike a fossil of something alive.\nThe TV hums,\nbut the remote stays on your cushion.\nI wait for the weight to shift,\nfor the springs to sigh your name.\nNothing moves.\nJust the slow settling of dust\ninto the shape of a question mark.\nI leave the light on anyway.\nsend this to them.",
-    "hash": "bad65f49c85247c7ff8d60a8a32fcd45",
-    "metaphors": [
-      "light",
-      "couch",
-      "ring"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Way You Look When You Do Not Know I Am Watching",
     "style": "love",
     "script": "You're tracing the rim of your coffee cup,\nsoft circles,\nlike you're trying to solve a puzzle\nonly your fingers understand.\nThe steam curls,\nlingers,\nthen disappears\u2014\nI swear it knows something I don\u2019t.\nYour lips part,\njust slightly,\nas if the next word\nis already halfway to me.\nI should look away.\nSend this to them.",
@@ -829,6 +815,19 @@
       "loneliness",
       "grief_loss",
       "heartbreak"
+    ]
+  },
+  {
+    "topic": "The Family Member Who Hurt You Most",
+    "style": "emotional",
+    "script": "4:17 a.m. The kettle hums,\nsteam curls like old secrets.\nYou taught me how to tie my shoes,\nbut not how to untie the knot in my chest.\nSome hands build,\nsome hands just point,\nand yours,\nthey only knew the direction of blame.\nI kept the mug,\nnot the lessons.\nThe tea\u2019s gone cold,\nso have the memories.\nI won\u2019t send this to you.\nLet the steam carry it away.",
+    "hash": "07b16b209d469767aeed9a592f4fbca8",
+    "metaphors": [
+      "mug",
+      "tea"
+    ],
+    "themes": [
+      "grief_loss"
     ]
   }
 ]
