@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Ancient Truth About Happiness",
-    "style": "nostalgic",
-    "script": "Happiness isn\u2019t a place\nit\u2019s\nthe way the light\nbent through your mother\u2019s kitchen window\nwhile she stirred something sweet\nyou never asked for the recipe\nbecause you knew\nyou\u2019d never taste it the same\nand that\u2019s the truth\nolder than the hills\nolder than the names we gave them\nit slips through your fingers\nlike flour\nlike time\nlike the last bus home.",
-    "hash": "2cc89990172895eadb4f613f683c0b0e",
-    "metaphors": [
-      "kitchen",
-      "wind",
-      "light",
-      "window"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Small Things I Notice About You",
     "style": "nostalgic",
     "script": "The way your laugh\nstumbles\nout like a secret\nmeant only for me.\nYOU TILT YOUR HEAD\nwhen you're listening\nlike the world's a story\nyou don't want to end.\nYour fingers trace\ncircles on the table\nwhen you're thinking\nand I pretend not to watch.\nSOME DAYS\nI'll forget the big things\nbut I'll remember\nhow you take your coffee\nblack\nlike the night we met.",
@@ -827,6 +814,18 @@
       "light",
       "glass",
       "shadow"
+    ],
+    "themes": []
+  },
+  {
+    "topic": "When Love Feels Like Coming Home",
+    "style": "poetic",
+    "script": "Some doors don\u2019t creak,\njust sigh when you step inside.\nThe air hums,\nwarmer than memory,\nbut lighter than regret.\nYour name on my lips\nlike a well-worn path\u2014\nfamiliar,\nnot from repetition,\nbut from always leading here.\nThe kettle whistles,\nnot a warning,\njust a reminder:\nwe\u2019re already home.",
+    "hash": "ab3143ef4f9133fa75ceff3c89670320",
+    "metaphors": [
+      "door",
+      "path",
+      "light"
     ],
     "themes": []
   }

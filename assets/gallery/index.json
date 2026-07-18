@@ -1409,8 +1409,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1782315880,
-    "uses": 1,
-    "last_used": 1782334306
+    "uses": 2,
+    "last_used": 1784347369
   },
   {
     "file": "28332fad_1.png",
@@ -2974,13 +2974,31 @@
     "topic": "Loving in Silence",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784323808
+    "timestamp": 1784323808,
+    "uses": 1,
+    "last_used": 1784347369
   },
   {
     "file": "6d8ea1b0_1.png",
     "topic": "Loving in Silence",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784323813
+    "timestamp": 1784323813,
+    "uses": 1,
+    "last_used": 1784347369
+  },
+  {
+    "file": "087eeb16_0.png",
+    "topic": "When Love Feels Like Coming Home",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784347372
+  },
+  {
+    "file": "dbaf9b38_1.png",
+    "topic": "When Love Feels Like Coming Home",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784347377
   }
 ]
