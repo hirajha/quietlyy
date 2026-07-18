@@ -1418,8 +1418,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782315885,
-    "uses": 1,
-    "last_used": 1782334306
+    "uses": 2,
+    "last_used": 1784368991
   },
   {
     "file": "15061812_0.png",
@@ -2992,13 +2992,31 @@
     "topic": "When Love Feels Like Coming Home",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784347372
+    "timestamp": 1784347372,
+    "uses": 1,
+    "last_used": 1784368991
   },
   {
     "file": "dbaf9b38_1.png",
     "topic": "When Love Feels Like Coming Home",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784347377
+    "timestamp": 1784347377,
+    "uses": 1,
+    "last_used": 1784368991
+  },
+  {
+    "file": "fca2c5f6_0.png",
+    "topic": "Lying Awake Replaying Everything",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784368994
+  },
+  {
+    "file": "1c454ab6_1.png",
+    "topic": "Lying Awake Replaying Everything",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784368998
   }
 ]

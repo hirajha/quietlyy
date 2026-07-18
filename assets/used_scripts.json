@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Small Things I Notice About You",
-    "style": "nostalgic",
-    "script": "The way your laugh\nstumbles\nout like a secret\nmeant only for me.\nYOU TILT YOUR HEAD\nwhen you're listening\nlike the world's a story\nyou don't want to end.\nYour fingers trace\ncircles on the table\nwhen you're thinking\nand I pretend not to watch.\nSOME DAYS\nI'll forget the big things\nbut I'll remember\nhow you take your coffee\nblack\nlike the night we met.",
-    "hash": "359f29e8377ef71d0638799096f05300",
-    "metaphors": [
-      "coffee",
-      "table"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "The Person Behind My Smile",
     "style": "wisdom",
     "script": "Hafiz whispered\nthere\u2019s a lantern in your chest\nburning with stories\nyou\u2019ve never told.\n\nI press my palm there\nfeel the heat\nnot from joy\nbut from all the words\nlocked behind my teeth.\n\nthe smile is just\na door left ajar\nfor the wind to come in.",
@@ -828,5 +815,17 @@
       "light"
     ],
     "themes": []
+  },
+  {
+    "topic": "Lying Awake Replaying Everything",
+    "style": "emotional",
+    "script": "How do you name the hours that won\u2019t let go,\nwhen the ceiling becomes a screen,\nand every mistake,\nplays on loop,\nnot loud,\njust relentless,\nThe way your ribs remember every breath they held,\nbut the air stays shallow,\nSome nights,\nyou\u2019re not just awake,\nyou\u2019re the only audience,\nand the credits refuse to roll.\nSend this to them.",
+    "hash": "d657f786597bd0aeb31cf459125fcffc",
+    "metaphors": [
+      "ceiling"
+    ],
+    "themes": [
+      "nostalgia"
+    ]
   }
 ]
