@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Person Behind My Smile",
-    "style": "wisdom",
-    "script": "Hafiz whispered\nthere\u2019s a lantern in your chest\nburning with stories\nyou\u2019ve never told.\n\nI press my palm there\nfeel the heat\nnot from joy\nbut from all the words\nlocked behind my teeth.\n\nthe smile is just\na door left ajar\nfor the wind to come in.",
-    "hash": "0da360e16d603199aa5210272a15c97b",
-    "metaphors": [
-      "wind",
-      "door"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "When Friendship Becomes One-Sided",
     "style": "love",
     "script": "Your side of the couch still holds the dent.\nI trace it with my fingertips,\nlike a fossil of something alive.\nThe TV hums,\nbut the remote stays on your cushion.\nI wait for the weight to shift,\nfor the springs to sigh your name.\nNothing moves.\nJust the slow settling of dust\ninto the shape of a question mark.\nI leave the light on anyway.\nsend this to them.",
@@ -826,6 +813,22 @@
     ],
     "themes": [
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "Finding Yourself After Them",
+    "style": "emotional",
+    "script": "When did the mirror stop showing,\nwhat they wanted you to see\nThe reflection you built,\njust for them,\nslowly cracks,\nlike old paint on a forgotten fence\nSome days,\nyou press your palm to the glass\nand it doesn\u2019t stick anymore\nThe air between you and the surface,\nthin,\nbut enough\nto breathe without permission\nYou are not the shape they left,\njust the space they once filled\nand now,\nfinally,\nyours.",
+    "hash": "a864078603f7f2c53d34485fa9f0dc36",
+    "metaphors": [
+      "mirror",
+      "glass"
+    ],
+    "themes": [
+      "self_worth",
+      "loneliness",
+      "grief_loss",
+      "heartbreak"
     ]
   }
 ]

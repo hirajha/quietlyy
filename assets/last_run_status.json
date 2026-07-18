@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Lying Awake Replaying Everything"
+    "detail": "Finding Yourself After Them"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17958584499153150"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18091763645305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/_PbaABTrN7E"
+    "detail": "https://www.youtube.com/shorts/QD9BxwkSfBs"
   }
 }
