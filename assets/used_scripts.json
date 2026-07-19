@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Little Things You Do",
-    "style": "love",
-    "script": "You're folding the laundry again.\nThe way your fingers pause\non the seams I wore thin.\nNoticing,\nbut never saying,\nthat I still fit inside them.\nA small act of faith,\nlike watering a plant\nyou swear is already dead.\nI pretend not to see,\nbut the sheets smell like us now.\nsend this to them.",
-    "hash": "791d037701e4644f33b33bf87a599e37",
-    "metaphors": [
-      "ring"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Realized You Were the Option, Not the Priority",
     "style": "love",
     "script": "You scroll past their name again.\nThe screen glows like a porch light left on,\nbut the house is empty now.\nYour thumb lingers\u2014\njust a second too long,\nlike holding a door for someone who never arrives.\nTHE AIR CONDITIONER hums,\nsteady as the excuses you\u2019ve memorized.\nYou used to be the reason they stayed up late,\nnow you\u2019re the notification they snooze.\nThe bed feels wider,\nlike a road that forgot its destination.\nSend this to them.",
@@ -831,6 +819,20 @@
     "metaphors": [
       "ceiling",
       "light"
+    ],
+    "themes": [
+      "nostalgia"
+    ]
+  },
+  {
+    "topic": "The Way You Look When You Do Not Know I Am Watching",
+    "style": "nostalgic",
+    "script": "You tilt your head\njust\na little\nlike the sky does\nbefore the first cloud remembers its name.\nYour fingers trace\ninvisible constellations\non the table,\nand I wonder\nif you\u2019re mapping\nsomething I\u2019ll never see\nor if the stars\nare finally mapping you.",
+    "hash": "f2765cd1eed9f779016c02e11e39614c",
+    "metaphors": [
+      "star",
+      "map",
+      "table"
     ],
     "themes": [
       "nostalgia"
