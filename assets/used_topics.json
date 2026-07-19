@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Beauty of an Unfinished Life",
-    "Finding Peace Within Yourself",
     "The Difference Between Living and Existing",
     "The Courage to Begin Again",
     "The Ancient Truth About Happiness",
@@ -65,11 +63,13 @@
     "How to Carry Loss Without Being Crushed",
     "Learning to Trust the Journey",
     "The Strength in Stillness",
-    "Loving Without Losing Yourself"
+    "Loving Without Losing Yourself",
+    "The Gift of Impermanence",
+    "When Grief Becomes a Teacher"
   ],
-  "last_style": "lesson",
+  "last_style": "wisdom",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -130,7 +130,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153640_3f0c91.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
@@ -149,7 +148,8 @@
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153734_d4c320.mp3",
-    "2026-06-05_153724_b66b80.mp3"
+    "2026-06-05_153724_b66b80.mp3",
+    "2026-06-05_153711_704e70.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -158,13 +158,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "When You Finally Stopped Settling",
-    "The People Who Leave When You Need Them Most",
-    "Outgrowing People You Love",
-    "When Being Nice Made You A Target",
-    "What You Owe Yourself",
-    "Why You Stopped Explaining Yourself",
-    "What Healing Actually Looks Like",
     "The Strength In Walking Away",
     "Why Silence Became Your Answer",
     "When People Show You Who They Are",
@@ -177,6 +170,13 @@
     "When You Have Nothing Left",
     "Loving Someone Who Wouldn't Stay",
     "The Love That Was Only Convenient",
-    "The Truth About Being The Strong One"
+    "The Truth About Being The Strong One",
+    "The Day You Chose Yourself",
+    "The Quiet Power Of Letting Go",
+    "The Cost Of Always Being Available",
+    "Being Too Kind In A Cruel World",
+    "What Rock Bottom Taught You",
+    "When You Stop Chasing People",
+    "Outgrowing People You Love"
   ]
 }
