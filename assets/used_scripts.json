@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Way You Look When You Do Not Know I Am Watching",
-    "style": "love",
-    "script": "You're tracing the rim of your coffee cup,\nsoft circles,\nlike you're trying to solve a puzzle\nonly your fingers understand.\nThe steam curls,\nlingers,\nthen disappears\u2014\nI swear it knows something I don\u2019t.\nYour lips part,\njust slightly,\nas if the next word\nis already halfway to me.\nI should look away.\nSend this to them.",
-    "hash": "77fd2600d4f14bb9d3e12129a4cd2fb3",
-    "metaphors": [
-      "tea",
-      "light",
-      "coffee",
-      "cup"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Last Text You Never Sent",
     "style": "love",
     "script": "There's a quiet like a held breath underwater.\nThe screen glows too bright,\nand your name sits there,\nsoft as a bruise.\nI trace the letters with my thumb,\nbut the water's getting cold.\nThe words I saved for you\nare just bubbles now,\nrising,\npopping,\ngone before they reach the surface.\nI press send on nothing.\nThe ocean keeps its secrets.",
@@ -828,6 +815,21 @@
     ],
     "themes": [
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "You Still Check Their Profile",
+    "style": "wisdom",
+    "script": "the old fisherman murmured\nacross the dock\nthe tide pulls back\nbut the net remembers\nevery wave that touched it.\n\nyou scroll their name\nlike a child tracing\nletters in wet sand\nthe ocean will come\nit always does.\n\nyou are not the net\nyou are the shore.",
+    "hash": "b37948853a50fbdb550735153602fa20",
+    "metaphors": [
+      "letter",
+      "ocean",
+      "shore",
+      "tide"
+    ],
+    "themes": [
+      "nostalgia"
     ]
   }
 ]
