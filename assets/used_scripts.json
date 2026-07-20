@@ -1,21 +1,5 @@
 [
   {
-    "topic": "When You Cry in the Car Alone",
-    "style": "love",
-    "script": "There's a kind of exhaustion\nthat hums in the dashboard lights.\nThe radio static knows your name,\nbut it doesn't ask why.\nYour tears are just rain\non a windshield no one else sees.\nThe road keeps moving,\nand so do the headlights behind you\u2014\npatient, indifferent.\nYou are the only one\nwho notices the weight of the wheel.\nThe car swallows your breath,\nand the night pretends not to hear.",
-    "hash": "cfadc0718904d76ddea3c2a108a0d7a3",
-    "metaphors": [
-      "rain",
-      "wall",
-      "radio",
-      "tea",
-      "light",
-      "road",
-      "wind"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Learning to Trust the Journey",
     "style": "wisdom",
     "script": "Lao Tzu taught,\na good traveler\nhas no fixed plans.\nnot intent on\narriving at all.\n\nwe clutch at maps.\nmeasure every step\nagainst a future\nwe\u2019ve already drawn.\nbut the trail itself\nis the only story.\nyou just walk.",
@@ -834,6 +818,22 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Difference Between Living and Existing",
+    "style": "emotional",
+    "script": "You\u2019re staring at the ceiling again.\nThe cracks look like roots\nsearching for something to hold.\nYou count them,\nbut they keep growing.\nSome nights,\nyou swear they whisper your name.\nNot the one you answer to,\nthe one you buried under routine.\nThe alarm rings,\nand you press snooze\non the part of you that wanted to climb trees.",
+    "hash": "fce33e23a3839c8d99ed335cdc111a60",
+    "metaphors": [
+      "tree",
+      "roots",
+      "ring",
+      "ceiling",
+      "star"
+    ],
+    "themes": [
+      "growth"
     ]
   }
 ]
