@@ -1,18 +1,5 @@
 [
   {
-    "topic": "When Someone Chooses You Every Day",
-    "style": "emotional",
-    "script": "How do you measure devotion\nwhen it\u2019s not grand gestures\nbut the way they save you the last bite,\nevery single time.\nThe plate stays warm,\nyour name still on their lips\nlike a habit they refuse to break.\nSome choices aren\u2019t spoken,\nthey\u2019re the quiet weight of a hand\nreaching for yours in the dark,\nnot to pull you closer,\njust to remind you you\u2019re already home.\nlet them know.",
-    "hash": "3da9640d8e86c6c855e2b7acba5f02cb",
-    "metaphors": [
-      "dark",
-      "plate"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Cry in the Car Alone",
     "style": "love",
     "script": "There's a kind of exhaustion\nthat hums in the dashboard lights.\nThe radio static knows your name,\nbut it doesn't ask why.\nYour tears are just rain\non a windshield no one else sees.\nThe road keeps moving,\nand so do the headlights behind you\u2014\npatient, indifferent.\nYou are the only one\nwho notices the weight of the wheel.\nThe car swallows your breath,\nand the night pretends not to hear.",
@@ -833,6 +820,20 @@
     "themes": [
       "loneliness",
       "growth"
+    ]
+  },
+  {
+    "topic": "The Texts You Never Send",
+    "style": "love",
+    "script": "There's a quiet like unsent postcards,\nstacked in a drawer you never open.\nThe ink still smells like rain on pavement,\nbut the stamps curl,\nunlicked.\nI trace your name with my thumb,\nwondering if the address still exists.\nSome words are too heavy to mail,\ntoo fragile to trust the mailbox.\nThey sit,\nbreathing,\nin the dark.\nSend this to them.",
+    "hash": "1f29b53a00935f44c8c7cbafb212d4f9",
+    "metaphors": [
+      "rain",
+      "ring",
+      "dark"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
