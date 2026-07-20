@@ -1,15 +1,5 @@
 [
   {
-    "topic": "Learning to Trust the Journey",
-    "style": "wisdom",
-    "script": "Lao Tzu taught,\na good traveler\nhas no fixed plans.\nnot intent on\narriving at all.\n\nwe clutch at maps.\nmeasure every step\nagainst a future\nwe\u2019ve already drawn.\nbut the trail itself\nis the only story.\nyou just walk.",
-    "hash": "bf4a664c4fb8581704dbc323d3f65516",
-    "metaphors": [
-      "map"
-    ],
-    "themes": []
-  },
-  {
     "topic": "More Than My Favorite Person",
     "style": "love",
     "script": "There's a kind of light that lingers\nonly where your shadow used to be.\nThe way morning stretches\nacross the bed like a question\nno one answers.\nI trace the shape of your absence\nwith my fingertips\u2014\nnot missing,\njust remembering how the room\nglowed differently when you were here.\nSome people don't leave footprints,\nthey leave the whole floor warmer.\nSend this to them.",
@@ -834,6 +824,23 @@
     ],
     "themes": [
       "growth"
+    ]
+  },
+  {
+    "topic": "When Grief Becomes a Teacher",
+    "style": "love",
+    "script": "Grief isn\u2019t crying anymore.\nIt\u2019s the way your coffee goes cold,\nunnoticed.\nThe kitchen light hums,\nbut you don\u2019t hear it.\nSLOWLY,\nthe weight of their absence\nbecomes a second shadow,\nwalking beside you.\nYou don\u2019t turn to look.\nIt doesn\u2019t ask for answers.\nJust teaches you how to carry what\u2019s left.\nsend this to them.",
+    "hash": "ce2ec6c3049e5cc8d3b7a16bb40ab025",
+    "metaphors": [
+      "tea",
+      "light",
+      "coffee",
+      "kitchen",
+      "shadow"
+    ],
+    "themes": [
+      "grief_loss",
+      "loneliness"
     ]
   }
 ]

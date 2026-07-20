@@ -46,7 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Power of Small Moments",
     "Why the Wound Is the Gift",
     "The Wisdom of Not Forcing",
     "The Meaning We Choose to Find",
@@ -65,11 +64,12 @@
     "The Quiet Revolution of Self-Respect",
     "The Freedom of Acceptance",
     "Why Suffering Transforms Us",
-    "Learning to Belong to Yourself"
+    "Learning to Belong to Yourself",
+    "The Art of Letting Go"
   ],
-  "last_style": "wisdom",
+  "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 4,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -131,7 +131,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153651_0d1d62.mp3",
@@ -150,7 +149,8 @@
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153640_3f0c91.mp3",
     "2026-06-05_153806_9773e5.mp3",
-    "2026-06-05_153734_d4c320.mp3"
+    "2026-06-05_153734_d4c320.mp3",
+    "2026-06-05_153555_7cd9b3.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -159,14 +159,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Why You Stopped Waiting For An Apology",
-    "The Love That Was Only Convenient",
-    "What You Learned After Being Broken",
-    "The Cost Of Always Being Available",
-    "Loving Someone Who Wouldn't Stay",
-    "The Quiet Power Of Letting Go",
-    "What You Owe Yourself",
-    "The People Who Leave When You Need Them Most",
     "What Rock Bottom Taught You",
     "The Truth About Being The Strong One",
     "When You Have Nothing Left",
@@ -178,6 +170,14 @@
     "When You Finally Stopped Settling",
     "Why You Stopped Explaining Yourself",
     "Why You Don't Beg To Be Loved",
-    "When You Stop Chasing People"
+    "When You Stop Chasing People",
+    "The Friends Who Only Stayed For The Good Days",
+    "The Day You Chose Yourself",
+    "Learning To Be Enough On Your Own",
+    "The Love That Was Only Convenient",
+    "The Cost Of Always Being Available",
+    "When People Show You Who They Are",
+    "What Healing Actually Looks Like",
+    "Being Too Kind In A Cruel World"
   ]
 }

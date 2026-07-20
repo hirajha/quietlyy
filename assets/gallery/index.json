@@ -1508,8 +1508,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782425380,
-    "uses": 1,
-    "last_used": 1782450832
+    "uses": 2,
+    "last_used": 1784584314
   },
   {
     "file": "67923d95_0.png",
@@ -3172,13 +3172,31 @@
     "topic": "The Difference Between Living and Existing",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784565058
+    "timestamp": 1784565058,
+    "uses": 1,
+    "last_used": 1784584314
   },
   {
     "file": "16f19a0e_1.png",
     "topic": "The Difference Between Living and Existing",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784565062
+    "timestamp": 1784565062,
+    "uses": 1,
+    "last_used": 1784584314
+  },
+  {
+    "file": "bf6551c7_0.png",
+    "topic": "When Grief Becomes a Teacher",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784584318
+  },
+  {
+    "file": "b95886bc_1.png",
+    "topic": "When Grief Becomes a Teacher",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784584322
   }
 ]
