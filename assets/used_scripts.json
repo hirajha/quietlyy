@@ -1,24 +1,5 @@
 [
   {
-    "topic": "When You Realized You Were the Option, Not the Priority",
-    "style": "love",
-    "script": "You scroll past their name again.\nThe screen glows like a porch light left on,\nbut the house is empty now.\nYour thumb lingers\u2014\njust a second too long,\nlike holding a door for someone who never arrives.\nTHE AIR CONDITIONER hums,\nsteady as the excuses you\u2019ve memorized.\nYou used to be the reason they stayed up late,\nnow you\u2019re the notification they snooze.\nThe bed feels wider,\nlike a road that forgot its destination.\nSend this to them.",
-    "hash": "b23792e2575abe886c027314f5d79328",
-    "metaphors": [
-      "bed",
-      "light",
-      "door",
-      "porch",
-      "road",
-      "tea"
-    ],
-    "themes": [
-      "loneliness",
-      "being_used",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "When Someone Chooses You Every Day",
     "style": "emotional",
     "script": "How do you measure devotion\nwhen it\u2019s not grand gestures\nbut the way they save you the last bite,\nevery single time.\nThe plate stays warm,\nyour name still on their lips\nlike a habit they refuse to break.\nSome choices aren\u2019t spoken,\nthey\u2019re the quiet weight of a hand\nreaching for yours in the dark,\nnot to pull you closer,\njust to remind you you\u2019re already home.\nlet them know.",
@@ -836,6 +817,22 @@
     ],
     "themes": [
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "The Beauty of an Unfinished Life",
+    "style": "wisdom",
+    "script": "The old gardener whispered\nsome things grow best\nwhen left half-done.\nnot every seed needs harvest\nnot every path needs walking.\nI thought of my desk\noverrun with sketches\npages torn mid-sentence\nideas dangling like vines\nthat refuse to be trained.\nmaybe the unfinished\nis the only true shape of living.",
+    "hash": "9b239b03a55420b8e514e75c1448ef31",
+    "metaphors": [
+      "rain",
+      "path",
+      "seed",
+      "garden"
+    ],
+    "themes": [
+      "loneliness",
+      "growth"
     ]
   }
 ]
