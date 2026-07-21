@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Lesson In Every Goodbye",
-    "style": "lesson",
-    "script": "When did it become easier to delete,\nthan to explain.\nWe all have that folder of unsent texts.\nThe ones that say too much,\nand not enough.\nYou don\u2019t owe anyone your goodbye,\nbut you owe yourself the truth.\nSome doors don\u2019t slam.\nThey just stop being doors at all.\nYou\u2019ll know you\u2019re free,\nwhen you stop checking if they noticed.",
-    "hash": "c2df1901719c732a56dc95aca24a7d0d",
-    "metaphors": [
-      "door",
-      "text"
-    ],
-    "themes": [
-      "moving_on",
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The Strength In Walking Away",
     "style": "lesson",
     "script": "You don\u2019t leave because you\u2019re weak.\nYou leave because you\u2019re the only one still trying.\n\nRemember that playlist you made?\nThe one that still plays in your head when the room gets quiet.\nThey never asked what it meant.\n\nYou don\u2019t walk away to punish them.\nYou walk away to stop punishing yourself.\n\nThe hardest part isn\u2019t the goodbye.\nIt\u2019s realizing they already said it.\nWithout a word.\nWithout looking back.",
@@ -836,5 +822,18 @@
       "cup"
     ],
     "themes": []
+  },
+  {
+    "topic": "Loving Without Losing Yourself",
+    "style": "poetic",
+    "script": "The tide doesn\u2019t apologize,\nfor pulling back,\nleaving shells breathless on the sand.\nSome people,\nlike the moon,\ncall you closer,\nbut never let you orbit.\nYou learned,\nto shine,\nwithout drowning in their gravity.\nNow,\nyou glow,\nin your own eclipse.",
+    "hash": "8eb4a3e10406045029d3b4143a3a01c8",
+    "metaphors": [
+      "moon",
+      "tide"
+    ],
+    "themes": [
+      "growth"
+    ]
   }
 ]
