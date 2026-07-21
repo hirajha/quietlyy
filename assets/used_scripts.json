@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The First Time I Knew",
-    "style": "emotional",
-    "script": "The first time I knew\nwasn\u2019t a moment\u2014\nit was a slow unraveling\nlike a sweater left in the rain\nthreads pulling loose\none by one\nuntil the shape of us\nwas just a puddle on the floor.\nI didn\u2019t cry\nI just kept counting the holes\nwondering if you\u2019d notice\nthe way the cold got in\nor if you\u2019d walk right through me\nlike I wasn\u2019t there at all.",
-    "hash": "59a8236bc590c1bf7bfc91942a32041c",
-    "metaphors": [
-      "ring",
-      "rain",
-      "sweater"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "The Lesson In Every Goodbye",
     "style": "lesson",
     "script": "When did it become easier to delete,\nthan to explain.\nWe all have that folder of unsent texts.\nThe ones that say too much,\nand not enough.\nYou don\u2019t owe anyone your goodbye,\nbut you owe yourself the truth.\nSome doors don\u2019t slam.\nThey just stop being doors at all.\nYou\u2019ll know you\u2019re free,\nwhen you stop checking if they noticed.",
@@ -837,5 +823,18 @@
       "loneliness",
       "nostalgia"
     ]
+  },
+  {
+    "topic": "When You Make Ordinary Moments Feel Different",
+    "style": "love",
+    "script": "You\u2019re stirring honey into tea.\nThe spoon spins,\nbut the liquid doesn\u2019t swirl\u2014\nit just parts for you,\nlike the ocean for a saint.\nI watch the way your wrist tilts,\nhow the amber pools without sound.\nNo one else notices,\nbut the air hums differently here.\nThe cup warms my palms,\nand I realize\u2014\nthis is how you turn ordinary into sacred.\nsend this to them.",
+    "hash": "98416b8fdc7d1bda2ddf8e76731c2379",
+    "metaphors": [
+      "ocean",
+      "ring",
+      "tea",
+      "cup"
+    ],
+    "themes": []
   }
 ]

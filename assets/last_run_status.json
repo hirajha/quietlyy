@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Someone Worth Staying For"
+    "detail": "When You Make Ordinary Moments Feel Different"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18092200502305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "17869776606630270"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/agk130j6V6k"
+    "detail": "https://www.youtube.com/shorts/SC_Lz0ZJ0K8"
   }
 }
