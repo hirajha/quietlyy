@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Difference Between Living and Existing",
-    "style": "emotional",
-    "script": "How do you explain the weight of a shadow,\nwhen it follows you,\nbut never touches the ground?\nSome days,\nyou\u2019re just a shape,\nstanding in the light,\ncounting breaths,\nnot the seconds.\nThe clock doesn\u2019t care,\nif you\u2019re awake,\nor just waiting for the dark.\nI chose the window,\nnot the view,\nand called it living.",
-    "hash": "86475465dd8ab8bb3fda1c928e4c6671",
-    "metaphors": [
-      "wind",
-      "window",
-      "light",
-      "dark",
-      "shadow"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The First Time I Knew",
     "style": "emotional",
     "script": "The first time I knew\nwasn\u2019t a moment\u2014\nit was a slow unraveling\nlike a sweater left in the rain\nthreads pulling loose\none by one\nuntil the shape of us\nwas just a puddle on the floor.\nI didn\u2019t cry\nI just kept counting the holes\nwondering if you\u2019d notice\nthe way the cold got in\nor if you\u2019d walk right through me\nlike I wasn\u2019t there at all.",
@@ -836,5 +822,20 @@
       "light"
     ],
     "themes": []
+  },
+  {
+    "topic": "Someone Worth Staying For",
+    "style": "love",
+    "script": "I stopped counting the nights.\nYour name fits in my palm like a pebble,\nsmooth from years of holding.\nThe bed never feels empty,\njust softer where you aren\u2019t.\nI trace the shape of your absence,\nand the sheets remember your weight.\nSome bodies leave echoes,\nothers leave holes.\nYou left a rhythm.\nI hum it when the lights go out.\nsend this to them.",
+    "hash": "dcfff7acdf605b6e2786c3fafab34d71",
+    "metaphors": [
+      "bed",
+      "light",
+      "echo"
+    ],
+    "themes": [
+      "loneliness",
+      "nostalgia"
+    ]
   }
 ]
