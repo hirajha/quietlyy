@@ -1517,8 +1517,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1782450834,
-    "uses": 1,
-    "last_used": 1782470181
+    "uses": 2,
+    "last_used": 1784607872
   },
   {
     "file": "4df78fed_1.png",
@@ -3190,13 +3190,31 @@
     "topic": "When Grief Becomes a Teacher",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784584318
+    "timestamp": 1784584318,
+    "uses": 1,
+    "last_used": 1784607872
   },
   {
     "file": "b95886bc_1.png",
     "topic": "When Grief Becomes a Teacher",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784584322
+    "timestamp": 1784584322,
+    "uses": 1,
+    "last_used": 1784607872
+  },
+  {
+    "file": "3804dd09_0.png",
+    "topic": "Being the One Who Always Checks In",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784607874
+  },
+  {
+    "file": "cad41fed_1.png",
+    "topic": "Being the One Who Always Checks In",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784607879
   }
 ]

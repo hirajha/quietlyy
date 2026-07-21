@@ -1,22 +1,5 @@
 [
   {
-    "topic": "More Than My Favorite Person",
-    "style": "love",
-    "script": "There's a kind of light that lingers\nonly where your shadow used to be.\nThe way morning stretches\nacross the bed like a question\nno one answers.\nI trace the shape of your absence\nwith my fingertips\u2014\nnot missing,\njust remembering how the room\nglowed differently when you were here.\nSome people don't leave footprints,\nthey leave the whole floor warmer.\nSend this to them.",
-    "hash": "87fdeb5375682b1e5b0daa6ac2e6bbdd",
-    "metaphors": [
-      "shadow",
-      "ring",
-      "bed",
-      "light"
-    ],
-    "themes": [
-      "nostalgia",
-      "being_used",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Difference Between Living and Existing",
     "style": "emotional",
     "script": "How do you explain the weight of a shadow,\nwhen it follows you,\nbut never touches the ground?\nSome days,\nyou\u2019re just a shape,\nstanding in the light,\ncounting breaths,\nnot the seconds.\nThe clock doesn\u2019t care,\nif you\u2019re awake,\nor just waiting for the dark.\nI chose the window,\nnot the view,\nand called it living.",
@@ -842,5 +825,16 @@
       "grief_loss",
       "loneliness"
     ]
+  },
+  {
+    "topic": "Being the One Who Always Checks In",
+    "style": "love",
+    "script": "There's a kind of loyalty that hums.\nLike a fridge in another room,\nsteady,\nunseen.\nI check the forecast for your mood\nbefore I check my own.\nThe messages pile\nsoft as laundry you'll never fold,\nbut I smooth them anyway.\nSome people need a lighthouse.\nYou just need the fog to lift sometimes.\nI'm the one holding the flashlight,\npointing at nothing.\nsend this to them.",
+    "hash": "b87bf18033458e623bfeedc8beccba9e",
+    "metaphors": [
+      "tea",
+      "light"
+    ],
+    "themes": []
   }
 ]
