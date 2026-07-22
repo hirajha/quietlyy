@@ -1580,8 +1580,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782536530,
-    "uses": 1,
-    "last_used": 1782556916
+    "uses": 2,
+    "last_used": 1784756797
   },
   {
     "file": "c24c590a_0.png",
@@ -3316,13 +3316,31 @@
     "topic": "Silent Suffering Nobody Sees",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784734163
+    "timestamp": 1784734163,
+    "uses": 1,
+    "last_used": 1784756797
   },
   {
     "file": "f0deee0e_1.png",
     "topic": "Silent Suffering Nobody Sees",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784734168
+    "timestamp": 1784734168,
+    "uses": 1,
+    "last_used": 1784756797
+  },
+  {
+    "file": "e71c2fc9_0.png",
+    "topic": "What You Owe Yourself",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784756802
+  },
+  {
+    "file": "f39623ff_1.png",
+    "topic": "What You Owe Yourself",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784756806
   }
 ]

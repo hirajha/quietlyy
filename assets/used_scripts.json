@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The People Who Leave When You Need Them Most",
-    "style": "lesson",
-    "script": "The people who stay are not the ones who never leave your side.\nThey\u2019re the ones who come back.\n\nYou\u2019ll know them by the way they show up when it\u2019s hard.\nNot when it\u2019s easy.\nNot when it\u2019s convenient.\nWhen it\u2019s messy, and quiet, and real.\n\nSome will vanish the second things get heavy.\nThat\u2019s not a test you failed.\nThat\u2019s a truth you learned.\n\nThe right people don\u2019t need a reason to stay.\nThey just do.",
-    "hash": "038b38d9416b8aa86980b8ee72b9d5eb",
-    "metaphors": [],
-    "themes": [
-      "growth",
-      "being_used",
-      "silence"
-    ]
-  },
-  {
     "topic": "Why Silence Became Your Answer",
     "style": "lesson",
     "script": "What do you call it when silence is the easiest response?\nWe've all been there, you, me, everyone.\nIt's not that we don't care, it's that we don't know how.\nTo make it stop, to make it better.\nWe're stuck, you're stuck, in this limbo.\nWhere speaking up means speaking out of turn.\nAnd being heard means being hurt.\nWe're searching for a way to be seen, to be heard.\nWithout being shredded by the words of others.\nAnd so we choose silence, as our answer.",
@@ -838,6 +826,16 @@
       "anchor",
       "rain"
     ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "What You Owe Yourself",
+    "style": "lesson",
+    "script": "It's not anger. Not exactly.\nIt\u2019s the quiet ache of holding back.\nOf always fitting in.\nWe give away our boundaries.\nPiece by piece.\nCall it compromise. Call it peace.\nUntil you barely recognize yourself.\nFor temporary comfort.\nYou owe yourself the space to be whole.",
+    "hash": "3ebbe0bc665101065526443c2794e3ab",
+    "metaphors": [],
     "themes": [
       "silence"
     ]
