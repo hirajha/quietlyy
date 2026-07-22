@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "What You Cannot Change and What You Can",
-    "Why Peace Is Not the Absence of Storm",
     "The Ancient Truth About Happiness",
     "What Truly Matters in the End",
     "The Quiet Revolution of Self-Respect",
@@ -65,11 +63,13 @@
     "How to Carry Loss Without Being Crushed",
     "Why the Wound Is the Gift",
     "The Meaning We Choose to Find",
-    "The Gift of Impermanence"
+    "The Gift of Impermanence",
+    "Learning to Trust the Journey",
+    "What You Cannot Change and What You Can"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -132,7 +132,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153756_4972f7.mp3",
@@ -151,7 +150,8 @@
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153744_816dfe.mp3",
-    "2026-06-05_153734_d4c320.mp3"
+    "2026-06-05_153734_d4c320.mp3",
+    "2026-06-05_153839_5a1856.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -160,13 +160,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "What You Owe Yourself",
-    "The Truth About Being The Strong One",
-    "What Rock Bottom Taught You",
-    "When People Show You Who They Are",
-    "Why You Stopped Explaining Yourself",
-    "The People Who Disappear When It's Hard",
-    "The Love That Was Only Convenient",
     "The Day You Chose Yourself",
     "Being Too Kind In A Cruel World",
     "What Healing Actually Looks Like",
@@ -179,6 +172,13 @@
     "When You Finally Stopped Settling",
     "The Lesson In Every Goodbye",
     "Outgrowing People You Love",
-    "The People Who Leave When You Need Them Most"
+    "The People Who Leave When You Need Them Most",
+    "When Being Nice Made You A Target",
+    "The Quiet Power Of Letting Go",
+    "Loving Someone Who Wouldn't Stay",
+    "Why You Stopped Waiting For An Apology",
+    "What Loneliness Actually Teaches You",
+    "The Truth About Being The Strong One",
+    "When You Stop Chasing People"
   ]
 }
