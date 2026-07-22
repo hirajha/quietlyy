@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Loved More Than They Did",
-    "style": "nostalgic",
-    "script": "You counted the steps\nbetween their door\nand yours.\nEVERY NIGHT\nwas a rehearsal\nfor leaving.\nThe porch light\nstayed on\nlong after you stopped\nbelieving in dawn.\nYOU KEPT\nsaving the good sheets\nfor guests\nwho never arrived.\nThe kettle\nwhistled\nto an empty kitchen.",
-    "hash": "36164f5d8fd2d8aa8dfa9d0219a1e2ce",
-    "metaphors": [
-      "light",
-      "kitchen",
-      "dawn",
-      "porch",
-      "door"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Freedom of Acceptance",
     "style": "wisdom",
     "script": "Remember the smell of old books.\nThe way dust rises when you crack one open.\n\nHafiz whispered\nfreedom isn\u2019t out there.\nIt\u2019s in the letting go.\n\nWe cling to pages we\u2019ve already read.\nTurn them over and over.\nLike we\u2019re afraid to see what\u2019s next.\n\nThe spine creaks.\nWe hold our breath.\n\nSome stories aren\u2019t meant to stay.",
@@ -838,6 +824,19 @@
     "themes": [
       "grief_loss",
       "friendship_loss"
+    ]
+  },
+  {
+    "topic": "Falling Out of Love Slowly",
+    "style": "emotional",
+    "script": "You're folding their sweater again.\nThe wool still smells like rain,\nbut the scent is fading.\nNot in a rush,\njust the way old book pages yellow,\nslowly turning to dust.\nYou don\u2019t hate the color,\njust the way it doesn\u2019t fit anymore.\nSome memories,\nlike mismatched socks,\nare easier to lose.\nYou\u2019ll donate it tomorrow.\nOr maybe next week.",
+    "hash": "3aeaf685094caf25c617ddc478c9d02d",
+    "metaphors": [
+      "rain",
+      "sweater"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

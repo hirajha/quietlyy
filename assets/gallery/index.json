@@ -1562,8 +1562,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782493584,
-    "uses": 1,
-    "last_used": 1782536522
+    "uses": 2,
+    "last_used": 1784713258
   },
   {
     "file": "2e0ac5de_0.png",
@@ -3280,13 +3280,31 @@
     "topic": "When You Outgrow Your Best Friend",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784694333
+    "timestamp": 1784694333,
+    "uses": 1,
+    "last_used": 1784713258
   },
   {
     "file": "555eaba2_1.png",
     "topic": "When You Outgrow Your Best Friend",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784694339
+    "timestamp": 1784694339,
+    "uses": 1,
+    "last_used": 1784713258
+  },
+  {
+    "file": "0066e4a5_0.png",
+    "topic": "Falling Out of Love Slowly",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784713260
+  },
+  {
+    "file": "e56d9ae1_1.png",
+    "topic": "Falling Out of Love Slowly",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784713265
   }
 ]
