@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "Learning to Belong to Yourself",
-    "The Art of Letting Go",
     "What Real Love Requires",
     "The Courage to Begin Again",
     "The Wisdom of Not Forcing",
@@ -65,11 +63,13 @@
     "Why Peace Is Not the Absence of Storm",
     "Finding Peace Within Yourself",
     "The Quiet Revolution of Self-Respect",
-    "When Grief Becomes a Teacher"
+    "When Grief Becomes a Teacher",
+    "The Strength in Stillness",
+    "The Ancient Truth About Happiness"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 4,
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -132,7 +132,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153711_704e70.mp3",
@@ -151,7 +150,8 @@
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
-    "2026-06-05_151550_7dfb17.mp3"
+    "2026-06-05_151550_7dfb17.mp3",
+    "2026-06-05_153827_d3f4f7.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -160,13 +160,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Learning To Be Enough On Your Own",
-    "Why You Don't Beg To Be Loved",
-    "The Love That Was Only Convenient",
-    "The Strength In Walking Away",
-    "When You Have Nothing Left",
-    "What You Learned After Being Broken",
-    "The Friends Who Only Stayed For The Good Days",
     "What Rock Bottom Taught You",
     "The Day You Chose Yourself",
     "Why Silence Became Your Answer",
@@ -179,6 +172,13 @@
     "What Loneliness Actually Teaches You",
     "The Quiet Power Of Letting Go",
     "Being Too Kind In A Cruel World",
-    "When You Stop Chasing People"
+    "When You Stop Chasing People",
+    "Why Closure Never Comes",
+    "The Truth About Being The Strong One",
+    "Why You Don't Beg To Be Loved",
+    "When You Finally Stopped Settling",
+    "Learning To Be Enough On Your Own",
+    "Why You Stopped Waiting For An Apology",
+    "When You Have Nothing Left"
   ]
 }

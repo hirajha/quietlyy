@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Kind of Love That Doesn't Shout",
-    "style": "love",
-    "script": "There's a kind of devotion that hums.\nLike a fridge in an empty kitchen,\nsteady,\nunseen,\nkeeping the light on for you.\nThe door might stay closed for days,\nbut the hum never stops.\nIt doesn't beg for attention,\njust waits,\nknowing you'll reach for it eventually.\nSome loves are like that.\nSend this to them.",
-    "hash": "cd75fb0dce16e7bdb1b1e4efda612f5d",
-    "metaphors": [
-      "kitchen",
-      "door",
-      "light",
-      "tea"
-    ],
-    "themes": [
-      "love"
-    ]
-  },
-  {
     "topic": "When You Have Nothing Left",
     "style": "lesson",
     "script": "You're not empty. Not entirely.\nWe all have something left to give,\nno matter how small.\nIt's the letting go that's hard,\nnot the giving.\nYou don't realize what you had,\nuntil you're living without it.\nWe cling to what's left,\nbecause it's all that remains.\nYou don't lose everything at once,\nyou lose it piece by piece.",
@@ -837,5 +822,23 @@
       "cup"
     ],
     "themes": []
+  },
+  {
+    "topic": "Learning to Belong to Yourself",
+    "style": "emotional",
+    "script": "There's a quiet like the first snowfall,\nnot cold,\njust waiting to be named.\nI built a house inside my ribs,\nfour walls of breath,\nand locked the door.\nSome rooms I never showed anyone,\nnot even the mirror.\nI learned the shape of my own hunger,\nhow it hums,\nnot like a storm,\nbut like a river finding its bed.\nI belong to the current now.\nLet them watch me carry the light.",
+    "hash": "710e1427a95d32c6d639fdb2d54cb055",
+    "metaphors": [
+      "wall",
+      "mirror",
+      "bed",
+      "door",
+      "light",
+      "storm"
+    ],
+    "themes": [
+      "silence",
+      "growth"
+    ]
   }
 ]
