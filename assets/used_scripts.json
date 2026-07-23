@@ -1,21 +1,5 @@
 [
   {
-    "topic": "When People Show You Who They Are",
-    "style": "lesson",
-    "script": "You keep waiting for them to change.\nLike a song stuck on repeat,\nyou know every note.\nBut the melody never shifts.\n\nPeople show you who they are.\nNot once.\nNot by accident.\nEvery time.\n\nYou don\u2019t need a sign.\nYou need a mirror.\nWhat you accept is what you teach.\n\nThe hardest lesson isn\u2019t seeing the truth.\nIt\u2019s deciding you\u2019re worth more than their version of love.",
-    "hash": "080e90d1fcca9bcabfe7d10c190df5f5",
-    "metaphors": [
-      "tea",
-      "mirror",
-      "note",
-      "song"
-    ],
-    "themes": [
-      "self_worth",
-      "love"
-    ]
-  },
-  {
     "topic": "The Kind of Love That Doesn't Shout",
     "style": "love",
     "script": "There's a kind of devotion that hums.\nLike a fridge in an empty kitchen,\nsteady,\nunseen,\nkeeping the light on for you.\nThe door might stay closed for days,\nbut the hum never stops.\nIt doesn't beg for attention,\njust waits,\nknowing you'll reach for it eventually.\nSome loves are like that.\nSend this to them.",
@@ -841,5 +825,17 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "Being Tired in Ways Sleep Cannot Fix",
+    "style": "emotional",
+    "script": "4:17 a.m. The kettle hums,\nbut the steam won\u2019t rise.\nI stir the sugar,\nslowly,\nlike I\u2019m dissolving,\nnot sweetening.\nThe cup stays cold,\njust like the weight in my ribs,\nnot heavy,\njust... there.\nSome mornings,\nyou wake up hollow,\nand no amount of light\nfills the space.\nlet them sleep.",
+    "hash": "a4e5e3b9e6b5ec443388716e336c028d",
+    "metaphors": [
+      "tea",
+      "light",
+      "cup"
+    ],
+    "themes": []
   }
 ]
