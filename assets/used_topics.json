@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "What Real Love Requires",
-    "The Courage to Begin Again",
     "The Wisdom of Not Forcing",
     "The Beauty of an Unfinished Life",
     "What Silence Teaches Us",
@@ -65,11 +63,13 @@
     "The Quiet Revolution of Self-Respect",
     "When Grief Becomes a Teacher",
     "The Strength in Stillness",
-    "The Ancient Truth About Happiness"
+    "The Ancient Truth About Happiness",
+    "What Truly Matters in the End",
+    "Learning to Belong to Yourself"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -132,7 +132,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153744_816dfe.mp3",
@@ -151,7 +150,8 @@
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_151550_7dfb17.mp3",
-    "2026-06-05_153827_d3f4f7.mp3"
+    "2026-06-05_153827_d3f4f7.mp3",
+    "2026-06-05_153724_b66b80.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -160,13 +160,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "What Rock Bottom Taught You",
-    "The Day You Chose Yourself",
-    "Why Silence Became Your Answer",
-    "When People Show You Who They Are",
-    "The People Who Leave When You Need Them Most",
-    "Outgrowing People You Love",
-    "Why You Stopped Explaining Yourself",
     "When Being Nice Made You A Target",
     "What Healing Actually Looks Like",
     "What Loneliness Actually Teaches You",
@@ -179,6 +172,13 @@
     "When You Finally Stopped Settling",
     "Learning To Be Enough On Your Own",
     "Why You Stopped Waiting For An Apology",
-    "When You Have Nothing Left"
+    "When You Have Nothing Left",
+    "What You Learned After Being Broken",
+    "The Love That Was Only Convenient",
+    "What Pain Quietly Teaches You",
+    "The People Who Disappear When It's Hard",
+    "Why Silence Became Your Answer",
+    "Loving Someone Who Wouldn't Stay",
+    "The People Who Leave When You Need Them Most"
   ]
 }

@@ -1,16 +1,5 @@
 [
   {
-    "topic": "When You Have Nothing Left",
-    "style": "lesson",
-    "script": "You're not empty. Not entirely.\nWe all have something left to give,\nno matter how small.\nIt's the letting go that's hard,\nnot the giving.\nYou don't realize what you had,\nuntil you're living without it.\nWe cling to what's left,\nbecause it's all that remains.\nYou don't lose everything at once,\nyou lose it piece by piece.",
-    "hash": "21b61af9e20add3ca7eee90e69397071",
-    "metaphors": [],
-    "themes": [
-      "moving_on",
-      "loneliness"
-    ]
-  },
-  {
     "topic": "Falling For Someone Who Does Not Know",
     "style": "emotional",
     "script": "4:17 a.m. The radiator hums.\nYou don\u2019t hear it,\nbut I count every click\u2014\nsteady,\nlike the way I memorize your laugh.\nSome days I swear\nmy ribs are just a shelf\nbuilt to hold what you\u2019ll never take.\nThe hands that reach for you\nare invisible,\nand the air between us\nthickens with things unsaid.\nI won\u2019t name this,\nnot even to myself.\nStill.\n",
@@ -839,6 +828,21 @@
     "themes": [
       "silence",
       "growth"
+    ]
+  },
+  {
+    "topic": "Falling For Someone Who Does Not Know",
+    "style": "emotional",
+    "script": "Some feelings don\u2019t ask for permission.\nThey arrive like the tide,\nunnoticed until your shoes are wet.\nYou try to step back,\nbut the water remembers your name.\nNot in waves,\njust a slow pull,\ndragging you deeper.\nThe sand beneath you shifts,\nand you realize\nit\u2019s not the ocean you\u2019re afraid of\u2014\nit\u2019s the weight of wanting.\nLet them stay dry.",
+    "hash": "43c4bd890ee31ea5ec5be83fce718e6e",
+    "metaphors": [
+      "waves",
+      "ocean",
+      "tide"
+    ],
+    "themes": [
+      "nostalgia",
+      "grief_loss"
     ]
   }
 ]
