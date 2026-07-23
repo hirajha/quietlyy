@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Why Silence Became Your Answer",
-    "style": "lesson",
-    "script": "What do you call it when silence is the easiest response?\nWe've all been there, you, me, everyone.\nIt's not that we don't care, it's that we don't know how.\nTo make it stop, to make it better.\nWe're stuck, you're stuck, in this limbo.\nWhere speaking up means speaking out of turn.\nAnd being heard means being hurt.\nWe're searching for a way to be seen, to be heard.\nWithout being shredded by the words of others.\nAnd so we choose silence, as our answer.",
-    "hash": "48a3eb831faad81844e408442d9cf0b3",
-    "metaphors": [
-      "silence"
-    ],
-    "themes": [
-      "silence",
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "When People Show You Who They Are",
     "style": "lesson",
     "script": "You keep waiting for them to change.\nLike a song stuck on repeat,\nyou know every note.\nBut the melody never shifts.\n\nPeople show you who they are.\nNot once.\nNot by accident.\nEvery time.\n\nYou don\u2019t need a sign.\nYou need a mirror.\nWhat you accept is what you teach.\n\nThe hardest lesson isn\u2019t seeing the truth.\nIt\u2019s deciding you\u2019re worth more than their version of love.",
@@ -836,6 +823,21 @@
     "script": "It's not anger. Not exactly.\nIt\u2019s the quiet ache of holding back.\nOf always fitting in.\nWe give away our boundaries.\nPiece by piece.\nCall it compromise. Call it peace.\nUntil you barely recognize yourself.\nFor temporary comfort.\nYou owe yourself the space to be whole.",
     "hash": "3ebbe0bc665101065526443c2794e3ab",
     "metaphors": [],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Power of Small Moments",
+    "style": "emotional",
+    "script": "How do you explain the way\nlight lingers on your mother\u2019s hands\nwhen she thinks no one\u2019s watching,\nbut the flour still clings to her skin\nlike a secret she\u2019s too tired to hide?\nThe kitchen hums,\nlow and steady,\nnot asking for anything,\njust the weight of small things\u2014\na cracked mug,\na half-peeled potato,\nthe way time bends\naround what matters most.\nSend this to her.",
+    "hash": "c4e306fb584626739ecde878b808735f",
+    "metaphors": [
+      "tea",
+      "light",
+      "kitchen",
+      "mug"
+    ],
     "themes": [
       "silence"
     ]
