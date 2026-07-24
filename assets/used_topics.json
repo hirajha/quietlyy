@@ -46,7 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Difference Between Living and Existing",
     "How to Carry Loss Without Being Crushed",
     "Why the Wound Is the Gift",
     "The Meaning We Choose to Find",
@@ -65,11 +64,12 @@
     "Why Suffering Transforms Us",
     "The Freedom of Acceptance",
     "What Real Love Requires",
-    "The Wisdom of Not Forcing"
+    "The Wisdom of Not Forcing",
+    "What Silence Teaches Us"
   ],
-  "last_style": "wisdom",
+  "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 4,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -132,7 +132,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153640_3f0c91.mp3",
     "2026-06-05_153806_9773e5.mp3",
@@ -151,7 +150,8 @@
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153606_63f17d.mp3",
-    "2026-06-05_153627_53fd51.mp3"
+    "2026-06-05_153627_53fd51.mp3",
+    "2026-06-05_153617_c5dd1f.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -160,14 +160,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The Love That Was Only Convenient",
-    "What Pain Quietly Teaches You",
-    "The People Who Disappear When It's Hard",
-    "Why Silence Became Your Answer",
-    "Loving Someone Who Wouldn't Stay",
-    "The People Who Leave When You Need Them Most",
-    "Why You Stopped Explaining Yourself",
-    "The Cost Of Always Being Available",
     "The Lesson In Every Goodbye",
     "What Loneliness Actually Teaches You",
     "What Rock Bottom Taught You",
@@ -179,6 +171,14 @@
     "What Healing Actually Looks Like",
     "When You Stop Chasing People",
     "The Day You Chose Yourself",
-    "When Being Nice Made You A Target"
+    "When Being Nice Made You A Target",
+    "Why You Stopped Waiting For An Apology",
+    "The Quiet Power Of Letting Go",
+    "The Friends Who Only Stayed For The Good Days",
+    "What You Owe Yourself",
+    "What Pain Quietly Teaches You",
+    "When You Finally Stopped Settling",
+    "Learning To Be Enough On Your Own",
+    "The Love That Was Only Convenient"
   ]
 }

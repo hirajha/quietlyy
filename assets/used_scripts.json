@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The People Who Leave When You Need Them Most",
-    "style": "lesson",
-    "script": "The easy connections always break first.\nWhen your ground shifts.\nWhen the pressure mounts.\nWe assume some bonds are unbreakable.\nThat certain people will always hold.\nThey don't.\nThey just fade.\nAnd you're left to rebuild.\nWith fewer hands.\nBut a clearer view.",
-    "hash": "b2673b9f33437142e2c071cc70e1799f",
-    "metaphors": [],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "The Quiet Revolution of Self-Respect",
     "style": "nostalgic",
     "script": "I FOUND MY NAME\nin a drawer\nno one opens anymore.\nIt was folded\nbeneath old receipts,\nloose change,\nand a key\nthat doesn\u2019t fit anything.\nI unfolded it slowly,\nheld it to the light\u2014\nstill mine,\nstill legible,\nstill worth keeping.",
@@ -841,6 +831,25 @@
       "kitchen",
       "sweater",
       "hallway"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Small Things I Notice About You",
+    "style": "love",
+    "script": "You don\u2019t glow. Not like that.\nThe way your socks never match,\nbut your toes curl when you laugh\u2014\nI\u2019ve memorized the pattern.\n\nYour coffee cup leaves rings,\nperfect circles on my notebook,\nlike tiny secrets you didn\u2019t mean to tell.\n\nThe way you hum off-key,\njust slightly,\nand the song still fits.\n\nYour shadow on the wall,\ntaller than you are,\nbut softer.\nSend this to them.",
+    "hash": "875f3294e832b890508da074325f7158",
+    "metaphors": [
+      "coffee",
+      "note",
+      "light",
+      "cup",
+      "shadow",
+      "song",
+      "wall",
+      "ring"
     ],
     "themes": [
       "silence"
