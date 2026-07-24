@@ -1625,8 +1625,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1782596854,
-    "uses": 1,
-    "last_used": 1782624159
+    "uses": 2,
+    "last_used": 1784867005
   },
   {
     "file": "986b8263_1.png",
@@ -3406,13 +3406,31 @@
     "topic": "Falling For Someone Who Does Not Know",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784843114
+    "timestamp": 1784843114,
+    "uses": 1,
+    "last_used": 1784867005
   },
   {
     "file": "7488b488_1.png",
     "topic": "Falling For Someone Who Does Not Know",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784843119
+    "timestamp": 1784843119,
+    "uses": 1,
+    "last_used": 1784867005
+  },
+  {
+    "file": "084a2ad1_0.png",
+    "topic": "Being Misunderstood",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784867007
+  },
+  {
+    "file": "68d0c793_1.png",
+    "topic": "Being Misunderstood",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784867011
   }
 ]

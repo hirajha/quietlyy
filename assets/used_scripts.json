@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Falling For Someone Who Does Not Know",
-    "style": "emotional",
-    "script": "4:17 a.m. The radiator hums.\nYou don\u2019t hear it,\nbut I count every click\u2014\nsteady,\nlike the way I memorize your laugh.\nSome days I swear\nmy ribs are just a shelf\nbuilt to hold what you\u2019ll never take.\nThe hands that reach for you\nare invisible,\nand the air between us\nthickens with things unsaid.\nI won\u2019t name this,\nnot even to myself.\nStill.\n",
-    "hash": "470d15acbb7fab07bf43fae0ad1042ee",
-    "metaphors": [
-      "tea"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The One I Think About First",
     "style": "emotional",
     "script": "The hallway light stays on for you.\nI step over the creaky floorboard,\nnot to wake the house,\nbut to keep the memory awake.\nSome nights,\nthe air still smells like your soap,\nand I breathe deeper,\nnot to hold onto you,\nbut to prove I still can.\nThe bed\u2019s too wide now,\nand the pillow knows it.\nI think of you first,\nnot because I miss you most,\nbut because you\u2019re the one\nwho taught me how to notice.",
@@ -843,6 +831,20 @@
     "themes": [
       "nostalgia",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "Being Misunderstood",
+    "style": "love",
+    "script": "There's a quiet like a locked door\u2014\nno one knocks,\njust tests the handle,\nassumes it's stuck.\nI leave the key\nwhere they can't see it,\nbut they never look.\nThe walls hum\nwith things I never said,\nand the echo answers for me.\nI am a language\nyou chose not to learn.\nsend this to them.",
+    "hash": "bdea408988df1e2924314bfdb88bbe32",
+    "metaphors": [
+      "wall",
+      "echo",
+      "door"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

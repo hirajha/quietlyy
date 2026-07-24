@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Wisdom of Not Forcing",
-    "The Beauty of an Unfinished Life",
     "What Silence Teaches Us",
     "The Power of Small Moments",
     "The Difference Between Living and Existing",
@@ -65,11 +63,13 @@
     "The Strength in Stillness",
     "The Ancient Truth About Happiness",
     "What Truly Matters in the End",
-    "Learning to Belong to Yourself"
+    "Learning to Belong to Yourself",
+    "Why Suffering Transforms Us",
+    "The Freedom of Acceptance"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 2,
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -132,7 +132,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153700_072547.mp3",
@@ -151,7 +150,8 @@
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
-    "2026-06-05_153724_b66b80.mp3"
+    "2026-06-05_153724_b66b80.mp3",
+    "2026-06-05_153606_63f17d.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -160,13 +160,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "When Being Nice Made You A Target",
-    "What Healing Actually Looks Like",
-    "What Loneliness Actually Teaches You",
-    "The Quiet Power Of Letting Go",
-    "Being Too Kind In A Cruel World",
-    "When You Stop Chasing People",
-    "Why Closure Never Comes",
     "The Truth About Being The Strong One",
     "Why You Don't Beg To Be Loved",
     "When You Finally Stopped Settling",
@@ -179,6 +172,13 @@
     "The People Who Disappear When It's Hard",
     "Why Silence Became Your Answer",
     "Loving Someone Who Wouldn't Stay",
-    "The People Who Leave When You Need Them Most"
+    "The People Who Leave When You Need Them Most",
+    "Why You Stopped Explaining Yourself",
+    "The Cost Of Always Being Available",
+    "The Lesson In Every Goodbye",
+    "What Loneliness Actually Teaches You",
+    "What Rock Bottom Taught You",
+    "The Strength In Walking Away",
+    "Being Too Kind In A Cruel World"
   ]
 }

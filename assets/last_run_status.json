@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Falling For Someone Who Does Not Know"
+    "detail": "Being Misunderstood"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18092589152305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18081253010268482"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/o1CY3UVqcAo"
+    "detail": "https://www.youtube.com/shorts/oQAuzWtllTc"
   }
 }
