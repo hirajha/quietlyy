@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The One I Think About First",
-    "style": "emotional",
-    "script": "The hallway light stays on for you.\nI step over the creaky floorboard,\nnot to wake the house,\nbut to keep the memory awake.\nSome nights,\nthe air still smells like your soap,\nand I breathe deeper,\nnot to hold onto you,\nbut to prove I still can.\nThe bed\u2019s too wide now,\nand the pillow knows it.\nI think of you first,\nnot because I miss you most,\nbut because you\u2019re the one\nwho taught me how to notice.",
-    "hash": "8545f3b90588f6f4d96cd12be289a4ea",
-    "metaphors": [
-      "light",
-      "pillow",
-      "hallway",
-      "bed"
-    ],
-    "themes": [
-      "silence",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The People Who Leave When You Need Them Most",
     "style": "lesson",
     "script": "The easy connections always break first.\nWhen your ground shifts.\nWhen the pressure mounts.\nWe assume some bonds are unbreakable.\nThat certain people will always hold.\nThey don't.\nThey just fade.\nAnd you're left to rebuild.\nWith fewer hands.\nBut a clearer view.",
@@ -842,6 +826,21 @@
       "wall",
       "echo",
       "door"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Little Things You Do",
+    "style": "nostalgic",
+    "script": "YOU LEAVE THE LIGHT ON\nin the hallway\njust in case\nI wake up scared\nand for years after\nI still check\nbefore I sleep.\n\nSOMEONE TAUGHT YOU\nhow to fold a fitted sheet\nso it lies flat\nlike a promise\nand now every corner\nfeels like home.\n\nTHE WAY YOU\nscrunch your nose\nwhen you laugh\nis the first thing\nI ever memorized.\n\nI FIND YOUR HAIR\nin my sweater pockets\nmonths later\nand it still smells\nlike the kitchen\nwhere you made toast\nat 2 a.m.",
+    "hash": "6d6695c2c3ca6fa8b9db2d00bf46ecbc",
+    "metaphors": [
+      "light",
+      "kitchen",
+      "sweater",
+      "hallway"
     ],
     "themes": [
       "silence"
