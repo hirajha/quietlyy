@@ -1652,8 +1652,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782624165,
-    "uses": 1,
-    "last_used": 1782643642
+    "uses": 2,
+    "last_used": 1784953131
   },
   {
     "file": "2971460f_0.png",
@@ -3460,13 +3460,31 @@
     "topic": "The Small Things I Notice About You",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784924980
+    "timestamp": 1784924980,
+    "uses": 1,
+    "last_used": 1784953131
   },
   {
     "file": "1f8e872c_1.png",
     "topic": "The Small Things I Notice About You",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784924984
+    "timestamp": 1784924984,
+    "uses": 1,
+    "last_used": 1784953131
+  },
+  {
+    "file": "146a409c_0.png",
+    "topic": "The Wisdom of Not Forcing",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784953134
+  },
+  {
+    "file": "e7ce4ad9_1.png",
+    "topic": "The Wisdom of Not Forcing",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784953139
   }
 ]
