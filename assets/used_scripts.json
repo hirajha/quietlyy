@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Moment You Stopped Hoping",
-    "style": "nostalgic",
-    "script": "You kept the receipts\nfolded\nin your wallet\nlike promises\nno one asked you to keep.\nThe ink faded first\nthen the creases\nthen the hope.\nYOU STOPPED CHECKING\nto see if they were still there\nand that\u2019s when it happened.\nThe drawer closed\non its own\nsoftly\nlike a sigh.",
-    "hash": "01dbc387dc90bf9e9563f9733c4f2f4f",
-    "metaphors": [
-      "wallet",
-      "wall"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Being Strong for Everyone While Breaking Inside",
     "style": "emotional",
     "script": "The strongest shoulders carry invisible rain.\nThey don\u2019t bend,\njust learn to angle themselves\nso the weight slides off.\nSome days,\nthe storm clouds follow home,\nand the bedroom ceiling becomes a sky\nno one else sees.\nI won\u2019t let them hear the thunder,\nquietly counting cracks in the plaster\nuntil the shaking stops.\nThe forecast never changes.\nSend this to them.",
@@ -852,6 +839,20 @@
     "metaphors": [
       "sweater",
       "door"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "What You Cannot Change and What You Can",
+    "style": "wisdom",
+    "script": "Lao Tzu whispered\nwhat bends you\nis not the wind\nbut the shape\nof your branches.\n\nyou cannot still the storm\nbut you can learn\nto dance in the rain\nwithout naming it\nor blaming the sky.\n\nlet the weight settle\nwhere it lands.",
+    "hash": "d8354a7155a2bce4dbf138aafe03e23f",
+    "metaphors": [
+      "storm",
+      "wind",
+      "rain"
     ],
     "themes": [
       "silence"

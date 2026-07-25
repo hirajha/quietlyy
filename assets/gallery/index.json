@@ -1670,8 +1670,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782643649,
-    "uses": 1,
-    "last_used": 1782663199
+    "uses": 2,
+    "last_used": 1784995729
   },
   {
     "file": "b374d8b5_0.png",
@@ -3496,13 +3496,31 @@
     "topic": "When You Love Someone Who Is Leaving",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784974568
+    "timestamp": 1784974568,
+    "uses": 1,
+    "last_used": 1784995729
   },
   {
     "file": "78811214_1.png",
     "topic": "When You Love Someone Who Is Leaving",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784974573
+    "timestamp": 1784974573,
+    "uses": 1,
+    "last_used": 1784995729
+  },
+  {
+    "file": "76b7e9b8_0.png",
+    "topic": "What You Cannot Change and What You Can",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784995731
+  },
+  {
+    "file": "76b53954_1.png",
+    "topic": "What You Cannot Change and What You Can",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784995736
   }
 ]
