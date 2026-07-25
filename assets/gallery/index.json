@@ -1661,8 +1661,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1782643645,
-    "uses": 1,
-    "last_used": 1782663199
+    "uses": 2,
+    "last_used": 1784974566
   },
   {
     "file": "84232959_1.png",
@@ -3478,13 +3478,31 @@
     "topic": "The Wisdom of Not Forcing",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1784953134
+    "timestamp": 1784953134,
+    "uses": 1,
+    "last_used": 1784974566
   },
   {
     "file": "e7ce4ad9_1.png",
     "topic": "The Wisdom of Not Forcing",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1784953139
+    "timestamp": 1784953139,
+    "uses": 1,
+    "last_used": 1784974566
+  },
+  {
+    "file": "dcb9a280_0.png",
+    "topic": "When You Love Someone Who Is Leaving",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1784974568
+  },
+  {
+    "file": "78811214_1.png",
+    "topic": "When You Love Someone Who Is Leaving",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1784974573
   }
 ]

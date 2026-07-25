@@ -1,18 +1,5 @@
 [
   {
-    "topic": "When You Stop Chasing People",
-    "style": "lesson",
-    "script": "Chasing people is a temporary high.\nIt feels like connection, but it's just distraction.\nWe confuse being wanted with being seen.\nYou can't force someone to value you.\nPeople show you their priorities by how they use their time.\nYou can't convince someone to make space for you.\nWe teach others how to treat us by what we're willing to endure.\nYour worth isn't measured by someone's willingness to stay.\nWhen you stop chasing people, you start seeing who's been running from you.",
-    "hash": "eb254b66ee2f7c6a7c6da1afd30f0278",
-    "metaphors": [
-      "star",
-      "tea"
-    ],
-    "themes": [
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The Moment You Stopped Hoping",
     "style": "nostalgic",
     "script": "You kept the receipts\nfolded\nin your wallet\nlike promises\nno one asked you to keep.\nThe ink faded first\nthen the creases\nthen the hope.\nYOU STOPPED CHECKING\nto see if they were still there\nand that\u2019s when it happened.\nThe drawer closed\non its own\nsoftly\nlike a sigh.",
@@ -855,6 +842,19 @@
     "themes": [
       "growth",
       "loneliness"
+    ]
+  },
+  {
+    "topic": "When You Love Someone Who Is Leaving",
+    "style": "emotional",
+    "script": "You\u2019re folding their favorite sweater\nagain\njust to feel the weight of it\nThe sleeves still smell like yesterday\nbut the clock ticks louder now\nSome things don\u2019t need words\nto know they\u2019re ending\nYou press the fabric to your face\nslowly\nlike a secret you can\u2019t keep\nThe door is closing\nand you\u2019re still standing there\nholding onto threads.",
+    "hash": "2fa1dea7e3918a5c40cd1ab4a6243f71",
+    "metaphors": [
+      "sweater",
+      "door"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
