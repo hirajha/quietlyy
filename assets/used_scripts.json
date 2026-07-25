@@ -1,20 +1,5 @@
 [
   {
-    "topic": "Being Strong for Everyone While Breaking Inside",
-    "style": "emotional",
-    "script": "The strongest shoulders carry invisible rain.\nThey don\u2019t bend,\njust learn to angle themselves\nso the weight slides off.\nSome days,\nthe storm clouds follow home,\nand the bedroom ceiling becomes a sky\nno one else sees.\nI won\u2019t let them hear the thunder,\nquietly counting cracks in the plaster\nuntil the shaking stops.\nThe forecast never changes.\nSend this to them.",
-    "hash": "8b8a2e5b63e2b7cc95a1824674dc6d3d",
-    "metaphors": [
-      "bed",
-      "rain",
-      "ceiling",
-      "storm"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "You Didn't Fix Me, You Stayed",
     "style": "nostalgic",
     "script": "You left the light on in the hallway,\nremember?\nI never asked you to.\nEvery night\nI found my way\nthrough the dark\nwith your glow\nspilling under the door.\nYOU NEVER FIXED THE BULB.\nYou just...\nstayed,\nletting it flicker,\nknowing I\u2019d come back\nto the hum\nof something half-broken.",
@@ -853,6 +838,22 @@
       "storm",
       "wind",
       "rain"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Being Strong for Everyone While Breaking Inside",
+    "style": "love",
+    "script": "There's a kind of strength that hums\nlike a fridge in an empty kitchen.\nYou keep the lights on,\nbut the bulb flickers only for you.\nThey praise your steady hands,\nnever noticing the cracks you patch with spit and silence.\nThe house stands,\nthe walls breathe,\nand you,\nyou are the only one who hears the foundation sigh.\nSend this to them.",
+    "hash": "a4a68d93502ed6e209648a80232b8237",
+    "metaphors": [
+      "kitchen",
+      "light",
+      "silence",
+      "tea",
+      "wall"
     ],
     "themes": [
       "silence"
