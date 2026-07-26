@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Person Behind My Smile"
+    "detail": "What Real Love Requires"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18093041468305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "17975127237115331"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/0HOgQ5zdc44"
+    "detail": "https://www.youtube.com/shorts/jMomIJj8NYI"
   }
 }

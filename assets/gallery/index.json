@@ -1715,8 +1715,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1782717328,
-    "uses": 1,
-    "last_used": 1782737392
+    "uses": 2,
+    "last_used": 1785101777
   },
   {
     "file": "d8c8645a_1.png",
@@ -3586,13 +3586,31 @@
     "topic": "The Person Behind My Smile",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1785082037
+    "timestamp": 1785082037,
+    "uses": 1,
+    "last_used": 1785101777
   },
   {
     "file": "dc6e72e4_1.png",
     "topic": "The Person Behind My Smile",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1785082041
+    "timestamp": 1785082041,
+    "uses": 1,
+    "last_used": 1785101777
+  },
+  {
+    "file": "5ca4b664_0.png",
+    "topic": "What Real Love Requires",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1785101779
+  },
+  {
+    "file": "aec44d35_1.png",
+    "topic": "What Real Love Requires",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1785101784
   }
 ]
