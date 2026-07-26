@@ -1,22 +1,5 @@
 [
   {
-    "topic": "You Didn't Fix Me, You Stayed",
-    "style": "nostalgic",
-    "script": "You left the light on in the hallway,\nremember?\nI never asked you to.\nEvery night\nI found my way\nthrough the dark\nwith your glow\nspilling under the door.\nYOU NEVER FIXED THE BULB.\nYou just...\nstayed,\nletting it flicker,\nknowing I\u2019d come back\nto the hum\nof something half-broken.",
-    "hash": "79bd2fa7d88162dba0ea713699671b2e",
-    "metaphors": [
-      "light",
-      "door",
-      "hallway",
-      "dark"
-    ],
-    "themes": [
-      "nostalgia",
-      "loneliness",
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "The Person You Had to Let Go to Save Yourself",
     "style": "nostalgic",
     "script": "I LEFT THE DOOR UNLOCKED\nfor years\njust in case you came back\nto collect your voice from the answering machine\nYOU NEVER DID\nso I erased it\nin one long beep\nand the house sighed\nlike it had been holding its breath\nthe whole time\nnow the keys jingle\nlighter\nin my pocket",
@@ -857,6 +840,23 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Way You Look When You Do Not Know I Am Watching",
+    "style": "emotional",
+    "script": "You\u2019re not hiding.\nJust resting your face,\nand the world gets lighter.\nThe way your fingers\nfidget with the edge of the curtain,\nnot nervous,\njust remembering how sunlight feels.\nI\u2019ve seen you like this before\u2014\nunbraced,\nunarmored,\nlike a door left ajar.\nSome secrets only exist\nwhen no one\u2019s looking.\nI\u2019ll keep this one.",
+    "hash": "c3e89721f354951f3b46a3b03873cbbd",
+    "metaphors": [
+      "ring",
+      "sun",
+      "armor",
+      "door",
+      "light"
+    ],
+    "themes": [
+      "nostalgia",
+      "loneliness"
     ]
   }
 ]
