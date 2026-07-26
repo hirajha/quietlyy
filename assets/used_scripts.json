@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Person You Had to Let Go to Save Yourself",
-    "style": "nostalgic",
-    "script": "I LEFT THE DOOR UNLOCKED\nfor years\njust in case you came back\nto collect your voice from the answering machine\nYOU NEVER DID\nso I erased it\nin one long beep\nand the house sighed\nlike it had been holding its breath\nthe whole time\nnow the keys jingle\nlighter\nin my pocket",
-    "hash": "1af38577c68587f879ca2a2f881177c0",
-    "metaphors": [
-      "keys",
-      "ring",
-      "door",
-      "light"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "The Little Things You Do",
     "style": "love",
     "script": "You're folding my socks again.\nNot because they need it,\nbut because you remember\nI left them on the floor last Tuesday.\nThe way your fingers pause\non the heel seam\u2014\nsmall hesitation,\nlike you're checking for holes\nno one else would notice.\nI could live inside that pause.\nSend this to them.",
@@ -857,6 +842,20 @@
     "themes": [
       "nostalgia",
       "loneliness"
+    ]
+  },
+  {
+    "topic": "What I Mean When I Say I Love You",
+    "style": "love",
+    "script": "It\u2019s not devotion. Not like that.\nYour name tastes like rain on old paper,\nsoft edges,\nfading ink I trace with my thumb.\nI DON\u2019T SAY IT TO HOLD YOU,\njust to watch the way your eyelashes\ncatch the light when you\u2019re not looking.\nAnd... it\u2019s not about forever,\njust the quiet hum of your sweater\nwhen you lean against me,\nlike a secret I\u2019m not supposed to keep.\nsend this to them.",
+    "hash": "32fde1e7969f8356309b706f78ba4dd3",
+    "metaphors": [
+      "rain",
+      "sweater",
+      "light"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
