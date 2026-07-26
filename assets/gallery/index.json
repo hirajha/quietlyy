@@ -1706,8 +1706,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782683177,
-    "uses": 1,
-    "last_used": 1782717325
+    "uses": 2,
+    "last_used": 1785082035
   },
   {
     "file": "fc2fc7c6_0.png",
@@ -3568,13 +3568,31 @@
     "topic": "What I Mean When I Say I Love You",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1785061646
+    "timestamp": 1785061646,
+    "uses": 1,
+    "last_used": 1785082035
   },
   {
     "file": "74c818cd_1.png",
     "topic": "What I Mean When I Say I Love You",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1785061650
+    "timestamp": 1785061650,
+    "uses": 1,
+    "last_used": 1785082035
+  },
+  {
+    "file": "35405dd0_0.png",
+    "topic": "The Person Behind My Smile",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1785082037
+  },
+  {
+    "file": "dc6e72e4_1.png",
+    "topic": "The Person Behind My Smile",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1785082041
   }
 ]

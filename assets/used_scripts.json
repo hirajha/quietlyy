@@ -1,16 +1,5 @@
 [
   {
-    "topic": "The Little Things You Do",
-    "style": "love",
-    "script": "You're folding my socks again.\nNot because they need it,\nbut because you remember\nI left them on the floor last Tuesday.\nThe way your fingers pause\non the heel seam\u2014\nsmall hesitation,\nlike you're checking for holes\nno one else would notice.\nI could live inside that pause.\nSend this to them.",
-    "hash": "221abd17ffa246747af1888221f25e74",
-    "metaphors": [],
-    "themes": [
-      "nostalgia",
-      "loneliness"
-    ]
-  },
-  {
     "topic": "Learning to Belong to Yourself",
     "style": "emotional",
     "script": "I stopped apologizing for the space I take\njust standing still\nand breathing\nSome days the air feels borrowed\nlike I\u2019m wearing someone else\u2019s skin\nThe mirror shows a stranger\nbut the reflection blinks back\nnot with judgment\njust quiet recognition\nI won\u2019t shrink anymore\nnot to fit their mold\nor their expectations\nI belong to the shape of me now.",
@@ -853,6 +842,18 @@
       "rain",
       "sweater",
       "light"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "poetic",
+    "script": "The face I wear is paper,\nthin,\nfragile as a moth\u2019s wing in winter.\nEvery laugh I stitch,\nevery grin I fold,\njust another crease in the mask.\nSome days,\nit clings like wet silk,\nothers,\nit peels back,\nrevealing the ink beneath.\nNot sadness,\nnot fear,\njust the quiet hum of being seen,\nfinally,\nwithout explanation.",
+    "hash": "ca016edf910f9e68ad7e712744e4790c",
+    "metaphors": [
+      "mask"
     ],
     "themes": [
       "silence"

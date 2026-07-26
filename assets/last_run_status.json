@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "What I Mean When I Say I Love You"
+    "detail": "The Person Behind My Smile"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17995389228001183"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v25.0/18093041468305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/50UBiHExV9A"
+    "detail": "https://www.youtube.com/shorts/0HOgQ5zdc44"
   }
 }
