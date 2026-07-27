@@ -1,17 +1,5 @@
 [
   {
-    "topic": "When You Miss Who They Used to Be",
-    "style": "nostalgic",
-    "script": "I keep their old voice mail\nsaved\nlike a seashell\nfull of static,\nWHEN THEY LAUGHED\nand the world tilted\njust enough to let the light in.\nNow I press play\nand the room doesn\u2019t spin,\njust hums\nlike a fridge\nkeeping something alive\nthat doesn\u2019t belong here anymore.",
-    "hash": "84863f17a11d8860553f737b57190e4f",
-    "metaphors": [
-      "light"
-    ],
-    "themes": [
-      "self_worth"
-    ]
-  },
-  {
     "topic": "You Make the Hard Days Easier",
     "style": "emotional",
     "script": "I stopped counting the cracks in the ceiling\nwhen you started tracing them with me\nThe weight of the world\nlighter\nwhen it\u2019s shared on the same pillow\nSome nights I still reach\nand find your hand already there\nnot fixing\njust holding the shape of my fear\nI never knew comfort could be so quiet\na room full of noise\nand only your breath steady\nlike a lighthouse in my storm\nI won\u2019t say it\u2019s easy\nbut you make the hard days\nbearable\nlike sunlight through dust.",
@@ -859,6 +847,18 @@
     "themes": [
       "friendship_loss",
       "silence"
+    ]
+  },
+  {
+    "topic": "Someone Worth Staying For",
+    "style": "nostalgic",
+    "script": "YOU KNOW THE WAY\nsomeone\u2019s laugh\nlingers\nlike the last train\u2019s hum\nafter it\u2019s gone.\nThe way they leave\ncrumbs of warmth\non every surface\nYOU TOUCH\nand suddenly\nevery room\nfeels like coming home.",
+    "hash": "20d93a4040fa729c314d6fc1f008191a",
+    "metaphors": [
+      "rain"
+    ],
+    "themes": [
+      "grief_loss"
     ]
   }
 ]
