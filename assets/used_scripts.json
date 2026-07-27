@@ -1,23 +1,5 @@
 [
   {
-    "topic": "More Than My Favorite Person",
-    "style": "emotional",
-    "script": "4:17 a.m. The kettle hums,\njust below a whistle.\nYou\u2019re not here,\nbut the mug still warms my palms.\nSome people are sunrises\u2014\nbright and expected,\nand some are this,\nsteady glow through kitchen curtains,\nnot asking for dawn.\nI won\u2019t call you home,\njust leave the porch light on,\nmore than my favorite person\u2014\nyou\u2019re the hour I keep.",
-    "hash": "599120e5a7f363052c63fd9cf501e5d0",
-    "metaphors": [
-      "sun",
-      "tea",
-      "dawn",
-      "kitchen",
-      "mug",
-      "light",
-      "porch"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Loving You Quietly",
     "style": "love",
     "script": "You\u2019re not the sky. Not even close.\nBut I collect your weather anyway,\npress each raindrop to my ribs\nlike a secret stamp.\nThe window fogs with your name,\nslowly,\nand I trace it\nuntil the glass forgets.\nYou\u2019re not the light,\njust the quiet hum\nbefore the bulb burns out.\nI\u2019ll keep this,\nsend this to them.",
@@ -859,5 +841,23 @@
       "window"
     ],
     "themes": []
+  },
+  {
+    "topic": "When You Make Ordinary Moments Feel Different",
+    "style": "nostalgic",
+    "script": "You hand me a mug\nwarm\nand the steam\ncurls like a question\nI never learned to answer.\nWE STOOD IN THE KITCHEN\ncounting cracks in the ceiling\nwhile the coffee went cold.\nIt wasn\u2019t special\nuntil you looked at me\nlike I was the first light\nyou\u2019d seen in years.\nNow every morning tastes\nof something lost\nand found\nall at once.",
+    "hash": "15b743e765c9122ac6575002cf90f7af",
+    "metaphors": [
+      "mug",
+      "coffee",
+      "kitchen",
+      "light",
+      "ceiling",
+      "tea"
+    ],
+    "themes": [
+      "grief_loss",
+      "growth"
+    ]
   }
 ]
