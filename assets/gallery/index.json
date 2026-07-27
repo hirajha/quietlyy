@@ -1724,8 +1724,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1782717333,
-    "uses": 1,
-    "last_used": 1782737392
+    "uses": 2,
+    "last_used": 1785127538
   },
   {
     "file": "66ed9ae0_0.png",
@@ -3604,13 +3604,31 @@
     "topic": "What Real Love Requires",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1785101779
+    "timestamp": 1785101779,
+    "uses": 1,
+    "last_used": 1785127538
   },
   {
     "file": "aec44d35_1.png",
     "topic": "What Real Love Requires",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1785101784
+    "timestamp": 1785101784,
+    "uses": 1,
+    "last_used": 1785127538
+  },
+  {
+    "file": "6f3c7aab_0.png",
+    "topic": "The Kind of Love That Doesn't Shout",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1785127540
+  },
+  {
+    "file": "8049b4f3_1.png",
+    "topic": "The Kind of Love That Doesn't Shout",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1785127545
   }
 ]

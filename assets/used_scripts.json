@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Small Things I Notice About You",
-    "style": "poetic",
-    "script": "The way your sleeve catches the light,\njust before you lift your coffee.\nNot gold,\nnot even warm,\njust the exact shade of yesterday\u2019s sky.\nSome people call it ordinary,\nI call it proof.\nYou don\u2019t notice,\nbut the sugar cube cracks,\nnot like glass,\nlike a secret told twice.\nAnd I keep that sound.",
-    "hash": "a3326fad07809c86a4308b90cf72cbc1",
-    "metaphors": [
-      "coffee",
-      "glass",
-      "light"
-    ],
-    "themes": []
-  },
-  {
     "topic": "More Than My Favorite Person",
     "style": "emotional",
     "script": "4:17 a.m. The kettle hums,\njust below a whistle.\nYou\u2019re not here,\nbut the mug still warms my palms.\nSome people are sunrises\u2014\nbright and expected,\nand some are this,\nsteady glow through kitchen curtains,\nnot asking for dawn.\nI won\u2019t call you home,\njust leave the porch light on,\nmore than my favorite person\u2014\nyou\u2019re the hour I keep.",
@@ -859,5 +847,17 @@
     "themes": [
       "love"
     ]
+  },
+  {
+    "topic": "The Kind of Love That Doesn't Shout",
+    "style": "nostalgic",
+    "script": "IT LIVES in the way\nshe stirs the pot\none slow circle\nthen tastes\nwithout asking if it's good.\nThe salt finds its way\nlike we do,\nthrough back doors\nand half-open windows.\nWE NEVER NAME IT\nbut the spoons know,\nthe ones we leave\nin the sink overnight.",
+    "hash": "6baacbd9adb0323f7d875f6cb2df6b7e",
+    "metaphors": [
+      "wind",
+      "door",
+      "window"
+    ],
+    "themes": []
   }
 ]
