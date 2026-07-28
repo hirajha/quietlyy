@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Power of Small Moments",
-    "style": "emotional",
-    "script": "How do you measure the weight of a glance\nthat lingers just a second too long\nbut carries the whole afternoon\nThe way sunlight spills through half-open blinds\nand pools on the floor like liquid gold\nnot asking for anything\njust existing in the space between breaths\nSome moments are quiet thieves\nthey slip in unnoticed\nand rearrange everything inside you\nThe hands that pass you a cup of coffee\nwithout saying a word\nare the ones that know you best\nlet them stay.",
-    "hash": "72f59122bb2fb1a2f08c89ca32ede59b",
-    "metaphors": [
-      "coffee",
-      "light",
-      "sun",
-      "cup"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When Someone Chooses You Every Day",
     "style": "love",
     "script": "There's a quiet like the moment\nbefore the first raindrop falls.\nYou choose me,\nnot in grand gestures,\nbut in the way morning light lingers on your pillow.\nI am the second cup of coffee you pour,\nthe one you sip slowly,\neven when it's gone cold.\nSome days,\nI am the silence between your thoughts,\nthe space where your breath settles.\nAnd when the world feels too loud,\nI am the hand you reach for without looking.\nsend this to them.",
@@ -843,6 +828,18 @@
     "hash": "6305a08bfa2485808fb98f3944de8b4b",
     "metaphors": [
       "rain",
+      "phone"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Texts You Never Send",
+    "style": "nostalgic",
+    "script": "Words linger\nwe just\nunsent messages\npiling up somewhere\nin the depths of our phones\nAND YET WE HOLD ON\nstill\nto the hope\nthat someday\nSOMEONE WILL UNDERSTAND\nthe weight of what we didn't say",
+    "hash": "08c524e346d7e333f636dec292b9b211",
+    "metaphors": [
       "phone"
     ],
     "themes": [
