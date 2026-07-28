@@ -1769,8 +1769,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1782796217,
-    "uses": 1,
-    "last_used": 1782816187
+    "uses": 2,
+    "last_used": 1785232133
   },
   {
     "file": "b784eedd_1.png",
@@ -3694,13 +3694,31 @@
     "topic": "Learning To Be Enough On Your Own",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1785212194
+    "timestamp": 1785212194,
+    "uses": 1,
+    "last_used": 1785232133
   },
   {
     "file": "b8e5aa0a_1.png",
     "topic": "Learning To Be Enough On Your Own",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1785212198
+    "timestamp": 1785212198,
+    "uses": 1,
+    "last_used": 1785232133
+  },
+  {
+    "file": "2d49714d_0.png",
+    "topic": "The Cost Of Always Being Available",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1785232135
+  },
+  {
+    "file": "bba772d1_1.png",
+    "topic": "The Cost Of Always Being Available",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1785232140
   }
 ]

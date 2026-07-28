@@ -1,23 +1,5 @@
 [
   {
-    "topic": "Loving You in Silence",
-    "style": "emotional",
-    "script": "The porch light stays on.\nWaiting for headlights,\njust dust on the road.\nI memorized the hum\nof your car engine,\nbut the street stays quiet.\nSome nights,\nthe wind carries voices\nthat aren\u2019t yours.\nI pretend they\u2019re close enough,\nand leave the door unlocked.\nNot for hope,\njust habit.",
-    "hash": "bb6b9e50737575a3fcd6fe9d48ed26d5",
-    "metaphors": [
-      "road",
-      "porch",
-      "door",
-      "light",
-      "wind",
-      "tree"
-    ],
-    "themes": [
-      "silence",
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The Power of Small Moments",
     "style": "emotional",
     "script": "How do you measure the weight of a glance\nthat lingers just a second too long\nbut carries the whole afternoon\nThe way sunlight spills through half-open blinds\nand pools on the floor like liquid gold\nnot asking for anything\njust existing in the space between breaths\nSome moments are quiet thieves\nthey slip in unnoticed\nand rearrange everything inside you\nThe hands that pass you a cup of coffee\nwithout saying a word\nare the ones that know you best\nlet them stay.",
@@ -852,6 +834,19 @@
       "silence",
       "self_worth",
       "love"
+    ]
+  },
+  {
+    "topic": "The Cost Of Always Being Available",
+    "style": "lesson",
+    "script": "You're always on. Not by choice.\nYour phone is your leash,\nconstant reminders of tasks,\npeople needing things from you.\nWe trade peace for availability,\nand call it responsibility.\nBut what's the cost of being always on?\nWe're exhausted, drained, depleted.\nYou're running on empty, and still,\nYou're expected to keep going.\nYou're not a machine, but you're treated like one.",
+    "hash": "6305a08bfa2485808fb98f3944de8b4b",
+    "metaphors": [
+      "rain",
+      "phone"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
