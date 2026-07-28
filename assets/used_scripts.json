@@ -1,24 +1,5 @@
 [
   {
-    "topic": "You Make the Hard Days Easier",
-    "style": "emotional",
-    "script": "I stopped counting the cracks in the ceiling\nwhen you started tracing them with me\nThe weight of the world\nlighter\nwhen it\u2019s shared on the same pillow\nSome nights I still reach\nand find your hand already there\nnot fixing\njust holding the shape of my fear\nI never knew comfort could be so quiet\na room full of noise\nand only your breath steady\nlike a lighthouse in my storm\nI won\u2019t say it\u2019s easy\nbut you make the hard days\nbearable\nlike sunlight through dust.",
-    "hash": "eab6298cef982f204851025a137ab45d",
-    "metaphors": [
-      "storm",
-      "ceiling",
-      "pillow",
-      "light",
-      "sun",
-      "noise",
-      "star",
-      "tea"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Loving You in Silence",
     "style": "emotional",
     "script": "The porch light stays on.\nWaiting for headlights,\njust dust on the road.\nI memorized the hum\nof your car engine,\nbut the street stays quiet.\nSome nights,\nthe wind carries voices\nthat aren\u2019t yours.\nI pretend they\u2019re close enough,\nand leave the door unlocked.\nNot for hope,\njust habit.",
@@ -859,6 +840,18 @@
     ],
     "themes": [
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "Learning To Be Enough On Your Own",
+    "style": "lesson",
+    "script": "We overestimate the power of others.\nTo complete us, to fix us, to make us enough.\nBut the truth is, nobody else can.\nWe look to them to fill the gaps.\nTo validate our existence.\nTo make us feel seen, heard, loved.\nBut it's all just a distraction.\nFrom the fact that we're still incomplete.\nOn our own, we're still not enough.",
+    "hash": "1d2ee73a30569f0a8a3ca5ca1fc07d1d",
+    "metaphors": [],
+    "themes": [
+      "silence",
+      "self_worth",
+      "love"
     ]
   }
 ]
