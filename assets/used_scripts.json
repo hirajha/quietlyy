@@ -1,17 +1,5 @@
 [
   {
-    "topic": "What I'd Tell You If I Could",
-    "style": "love",
-    "script": "You're tracing the cracks in the ceiling.\nlike a cartographer of dust,\ncharting continents no one sees.\nI'd tell you the way your fingers pause\nis the only border I recognize.\nThe sheets smell like old bookshops,\nand I keep pretending not to notice.\nBut your breath,\na slow tide against my collarbone,\ncarves the only geography that matters.\nI'd say it out loud\nif the words didn't weigh more than the moon.\nsend this to them.",
-    "hash": "7c645f169e9a42b523a5fae24b8d03d5",
-    "metaphors": [
-      "ceiling",
-      "moon",
-      "tide"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Voice in Your Head That Says You Are Not Enough",
     "style": "nostalgic",
     "script": "IT WHISPERS like static,\nold radio\nbetween stations,\nyou lean closer\nbut the signal fades\ninto white noise.\nYOU TRY TO OUTRUN IT,\nsprint through neon streets,\nbut the echo\nkeeps perfect pace\njust behind your shoulder,\nbreathing,\nYOU ARE NOT THE ONE THEY CHOSE.",
@@ -837,6 +825,21 @@
       "dark",
       "ring",
       "glass"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Quiet Revolution of Self-Respect",
+    "style": "love",
+    "script": "There's a pride that hums\nsoftly beneath the skin,\nlike a second pulse you've earned.\nYou stop apologizing for sunlight,\nfor taking up space,\nfor the way your laughter spills over.\nThe mirror no longer flinches,\nand that,\nis the quietest revolution.\nYour shadow stretches taller,\nunafraid of its own shape.\nThis isn't defiance.\nThis is simply you,\nlearning to stay.",
+    "hash": "53465f112efc2c6cb8bc42713a899fa3",
+    "metaphors": [
+      "sun",
+      "shadow",
+      "mirror",
+      "light"
     ],
     "themes": [
       "silence"
