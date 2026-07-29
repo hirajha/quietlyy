@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Person Behind My Smile",
-    "style": "emotional",
-    "script": "4:17 a.m. The radiator hums.\nI trace the cracks in the ceiling,\ncounting the hours like stitches.\nThe face you see,\nbright and unbroken,\nis just a mask\nstitched from old playbills.\nSome nights,\nthe thread snaps,\nand the seams show.\nI press my palms to my cheeks,\nhold the smile in place.\nThe show must go on.",
-    "hash": "3142e983f067bbe9fe1c1281fb1817e6",
-    "metaphors": [
-      "mask",
-      "ceiling"
-    ],
-    "themes": [
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "Learning to Be Alone",
     "style": "emotional",
     "script": "I stopped counting the exits\nI built into every room\njust in case\nThe walls remember my shape\nbut the air doesn\u2019t ask questions anymore\nSome nights I trace the cracks in the ceiling\nlike constellations of what almost was\nnot with sadness\njust curiosity\nThe door stays closed\nand I\u2019m learning to knock first\nbefore leaving myself behind\nI carry the key now.",
@@ -839,5 +826,18 @@
       "wind"
     ],
     "themes": []
+  },
+  {
+    "topic": "Borrowed Love",
+    "style": "emotional",
+    "script": "Borrowed love never fits right.\nThe seams show,\neven when you stitch it tight.\nSome hands,\njust hold what isn\u2019t theirs to keep\u2014\ncupping water,\nwatching it slip through.\nYou\u2019ll smile,\nbut the weight shifts,\nand the borrowed light dims.\nNot stolen,\njust returned.\nLet it go.",
+    "hash": "1e86e6f779ba3ea28d686b02b3665a41",
+    "metaphors": [
+      "light",
+      "cup"
+    ],
+    "themes": [
+      "love"
+    ]
   }
 ]
