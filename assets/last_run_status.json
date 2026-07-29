@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Quiet Revolution of Self-Respect"
+    "detail": "Finding Peace Within Yourself"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18091816352090369"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18093537938305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/S7z1v3-CkUk"
+    "detail": "https://www.youtube.com/shorts/amAzUvh15Dc"
   }
 }

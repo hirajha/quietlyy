@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Voice in Your Head That Says You Are Not Enough",
-    "style": "nostalgic",
-    "script": "IT WHISPERS like static,\nold radio\nbetween stations,\nyou lean closer\nbut the signal fades\ninto white noise.\nYOU TRY TO OUTRUN IT,\nsprint through neon streets,\nbut the echo\nkeeps perfect pace\njust behind your shoulder,\nbreathing,\nYOU ARE NOT THE ONE THEY CHOSE.",
-    "hash": "612f13963721361140d56f1bfbe7fcfe",
-    "metaphors": [
-      "noise",
-      "echo",
-      "tree",
-      "radio"
-    ],
-    "themes": []
-  },
-  {
     "topic": "What Silence Teaches Us",
     "style": "nostalgic",
     "script": "Softly falls the quiet\nwe just\nstop and listen\ncarefully to the stillness\nand in its depths we find\nSOMETIMES A DEEPER TRUTH\nrevealed in the pause\nbetween the notes\nStill we search for meaning\nIn the empty spaces\nwe find a gentle hush\nthat settles over us",
@@ -840,6 +827,19 @@
       "shadow",
       "mirror",
       "light"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Finding Peace Within Yourself",
+    "style": "love",
+    "script": "The lamp stays on all night.\nIt knows your shape better than you do,\nsoft edges where the light spills,\nand the way your shadow stretches\nwhen you finally exhale.\nBreathe in the quiet gold,\nthat warm halo you mistake for safety.\nBut it\u2019s just you,\nlearning the weight of your own name,\nletting it sit on your tongue\nlike the first sip of something sweet.\nSend this to yourself.",
+    "hash": "0a70bd1e39cbf10b4a97994755906c37",
+    "metaphors": [
+      "light",
+      "shadow"
     ],
     "themes": [
       "silence"
