@@ -1,19 +1,5 @@
 [
   {
-    "topic": "Learning to Be Alone",
-    "style": "emotional",
-    "script": "I stopped counting the exits\nI built into every room\njust in case\nThe walls remember my shape\nbut the air doesn\u2019t ask questions anymore\nSome nights I trace the cracks in the ceiling\nlike constellations of what almost was\nnot with sadness\njust curiosity\nThe door stays closed\nand I\u2019m learning to knock first\nbefore leaving myself behind\nI carry the key now.",
-    "hash": "9be36132aa258aba94f5e7c74b34ad2a",
-    "metaphors": [
-      "door",
-      "wall",
-      "ceiling"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "What I'd Tell You If I Could",
     "style": "love",
     "script": "You're tracing the cracks in the ceiling.\nlike a cartographer of dust,\ncharting continents no one sees.\nI'd tell you the way your fingers pause\nis the only border I recognize.\nThe sheets smell like old bookshops,\nand I keep pretending not to notice.\nBut your breath,\na slow tide against my collarbone,\ncarves the only geography that matters.\nI'd say it out loud\nif the words didn't weigh more than the moon.\nsend this to them.",
@@ -838,6 +824,22 @@
     ],
     "themes": [
       "love"
+    ]
+  },
+  {
+    "topic": "The Last Text You Never Sent",
+    "style": "love",
+    "script": "You delete the draft again.\nThe screen glows like a moonlit puddle,\nreflecting nothing but your hesitation.\nTiny ripples,\nwhere your fingers touched the glass.\nThe words are still there,\nhovering just beneath the surface.\nYou could reach in,\npluck them out like drowned stars.\nBut the water\u2019s too cold,\nand some constellations belong to the dark.\nSend this to them.",
+    "hash": "bd417b392c711b380db9570b4a893e8d",
+    "metaphors": [
+      "star",
+      "moon",
+      "dark",
+      "ring",
+      "glass"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
