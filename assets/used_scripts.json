@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Friends Who Only Call When They Need You",
-    "style": "emotional",
-    "script": "How do you name a shadow\nthat only appears when you turn on the light?\nThe same voice that fades\ninto static\nwhen the crisis is over,\nbut returns,\ncrisp and clear,\nwhen the batteries are low.\nSome hands only know how to knock\nwhen the door is already open.\nI won\u2019t lock it,\nbut I\u2019ll count the keys,\nand wonder who\u2019s holding the spare.",
-    "hash": "0e7ddd8892e3556d122292afe878c648",
-    "metaphors": [
-      "light",
-      "door",
-      "keys",
-      "shadow"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Finding Peace Within Yourself",
     "style": "wisdom",
     "script": "A Japanese gardener whispered\nroots know the way\nbefore the first green breaks soil.\n\nno need to dig\nor ask directions.\n\nyou\u2019ve carried this quiet compass\ntucked behind your ribs\nsince the day you learned to breathe.\n\nit doesn\u2019t point north\nor map the shortest path\u2014\njust hums when you\u2019re near\nyour own unshaken sky.",
@@ -845,5 +832,17 @@
       "star"
     ],
     "themes": []
+  },
+  {
+    "topic": "People Who Use You",
+    "style": "nostalgic",
+    "script": "YOU KNEW EXACTLY\nwhere to press\nto make me bend.\nI was the chair\nthat held your weight\nwhile you tied your shoes\nand walked away.\nStill warm,\nstill shaped like you,\nI wait\nfor the next pair of hands\nto need me.",
+    "hash": "c28e842ef14227ff7666826c2d033fb8",
+    "metaphors": [
+      "chair"
+    ],
+    "themes": [
+      "silence"
+    ]
   }
 ]
