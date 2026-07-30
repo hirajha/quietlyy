@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Finding Peace Within Yourself"
+    "detail": "Loving in Silence"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18093537938305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18041415443810724"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/amAzUvh15Dc"
+    "detail": "https://www.youtube.com/shorts/VUXmUhqFAhA"
   }
 }

@@ -1,17 +1,5 @@
 [
   {
-    "topic": "What Silence Teaches Us",
-    "style": "nostalgic",
-    "script": "Softly falls the quiet\nwe just\nstop and listen\ncarefully to the stillness\nand in its depths we find\nSOMETIMES A DEEPER TRUTH\nrevealed in the pause\nbetween the notes\nStill we search for meaning\nIn the empty spaces\nwe find a gentle hush\nthat settles over us",
-    "hash": "c68b64b286affc7b5946597006a7f2c1",
-    "metaphors": [
-      "note"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "One-Sided Effort",
     "style": "emotional",
     "script": "You\u2019re rewinding the tape again.\nThe same reel\nspins backward,\nbut the ending never changes.\nSomewhere,\na projector hums in an empty room,\ncasting light on walls you built yourself.\nYou press play,\nand the film still skips,\nstill glitches,\nstill asks for more.\nThe screen goes dark.\nYou load another.",
@@ -840,6 +828,18 @@
     "metaphors": [
       "light",
       "shadow"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Loving in Silence",
+    "style": "nostalgic",
+    "script": "I KNEW IT WAS WRONG\nto keep you\nto keep you close\nwithout ever saying\nwithout ever touching\nwithout ever even looking\nYOU WERE THE SECRET\nI carried\nin the back of my throat\nlike a swallowed coin\nstill warm\nfrom someone else\u2019s pocket\nand every time I spoke\nI saved the last word\nfor you",
+    "hash": "87c44b0f5292977b501815267e9a5af6",
+    "metaphors": [
+      "wall"
     ],
     "themes": [
       "silence"
