@@ -1,13 +1,5 @@
 [
   {
-    "topic": "Why You Stopped Explaining Yourself",
-    "style": "lesson",
-    "script": "What do you call it when you're no longer apologizing, \n   For who you are. \n   We stopped explaining ourselves, \n   Because we realized, \n   You were never really listening, \n   We were just seeking validation. \n   From people who didn't matter, \n   We were wasting our breath, \n   On those who didn't care, \n   And slowly, \n   You learn to keep your truth to yourself.",
-    "hash": "45e6752e98cb234a34c480904c47348d",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "Friends Who Only Call When They Need You",
     "style": "emotional",
     "script": "How do you name a shadow\nthat only appears when you turn on the light?\nThe same voice that fades\ninto static\nwhen the crisis is over,\nbut returns,\ncrisp and clear,\nwhen the batteries are low.\nSome hands only know how to knock\nwhen the door is already open.\nI won\u2019t lock it,\nbut I\u2019ll count the keys,\nand wonder who\u2019s holding the spare.",
@@ -841,6 +833,16 @@
       "light",
       "wind",
       "roots"
+    ],
+    "themes": []
+  },
+  {
+    "topic": "The Meaning We Choose to Find",
+    "style": "nostalgic",
+    "script": "We built the ladder\none rung\nat a time\nnot knowing\nif the sky would hold our weight.\nThe stars blinked anyway,\nindifferent\nbut beautiful.\nWE KEPT CLIMBING.\nSomewhere between the cracks\nwe found constellations\nno one else could name.",
+    "hash": "f6afda9c0f875ef4b7447c7d20f372cf",
+    "metaphors": [
+      "star"
     ],
     "themes": []
   }
