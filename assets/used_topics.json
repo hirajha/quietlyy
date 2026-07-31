@@ -46,7 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "How to Carry Loss Without Being Crushed",
     "The Courage to Begin Again",
     "The Beauty of an Unfinished Life",
     "What Silence Teaches Us",
@@ -65,11 +64,12 @@
     "The Wisdom of Not Forcing",
     "The Ancient Truth About Happiness",
     "The Difference Between Living and Existing",
-    "What You Cannot Change and What You Can"
+    "What You Cannot Change and What You Can",
+    "Why Suffering Transforms Us"
   ],
-  "last_style": "wisdom",
+  "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 4,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -135,7 +135,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153651_0d1d62.mp3",
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153711_704e70.mp3",
@@ -154,7 +153,8 @@
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
-    "2026-06-05_153617_c5dd1f.mp3"
+    "2026-06-05_153617_c5dd1f.mp3",
+    "2026-06-05_153734_d4c320.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -163,14 +163,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "What Pain Quietly Teaches You",
-    "The Strength In Walking Away",
-    "Why Closure Never Comes",
-    "Why You Stopped Explaining Yourself",
-    "Learning To Be Enough On Your Own",
-    "When People Show You Who They Are",
-    "Outgrowing People You Love",
-    "Loving Someone Who Wouldn't Stay",
     "Why Silence Became Your Answer",
     "When You Have Nothing Left",
     "The Friends Who Only Stayed For The Good Days",
@@ -182,6 +174,14 @@
     "Being Too Kind In A Cruel World",
     "The Day You Chose Yourself",
     "What Loneliness Actually Teaches You",
-    "When Being Nice Made You A Target"
+    "When Being Nice Made You A Target",
+    "What Healing Actually Looks Like",
+    "The Quiet Power Of Letting Go",
+    "The Cost Of Always Being Available",
+    "What Rock Bottom Taught You",
+    "The Love That Was Only Convenient",
+    "Why You Don't Beg To Be Loved",
+    "The Lesson In Every Goodbye",
+    "What Pain Quietly Teaches You"
   ]
 }

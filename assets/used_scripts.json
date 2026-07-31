@@ -1,22 +1,5 @@
 [
   {
-    "topic": "Finding Peace Within Yourself",
-    "style": "wisdom",
-    "script": "A Japanese gardener whispered\nroots know the way\nbefore the first green breaks soil.\n\nno need to dig\nor ask directions.\n\nyou\u2019ve carried this quiet compass\ntucked behind your ribs\nsince the day you learned to breathe.\n\nit doesn\u2019t point north\nor map the shortest path\u2014\njust hums when you\u2019re near\nyour own unshaken sky.",
-    "hash": "8ba4c301a746d4233690bbe703c37de2",
-    "metaphors": [
-      "path",
-      "compass",
-      "roots",
-      "garden",
-      "map"
-    ],
-    "themes": [
-      "silence",
-      "growth"
-    ]
-  },
-  {
     "topic": "The Way You Look When You Do Not Know I Am Watching",
     "style": "love",
     "script": "I stopped counting the freckles on your shoulder.\nEach one a tiny constellation I memorize,\nand still you shift,\nunaware of the telescope I\u2019ve become.\nThe way your fingers trace the rim of your coffee cup\u2014\nslow orbits I could sketch blindfolded.\nYou hum,\nbut the melody is for the steam,\nnot me.\nI never told you how the light pools in your collarbone,\nor that I\u2019ve named it.\nSend this to them.",
@@ -843,6 +826,21 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "What Home Actually Feels Like",
+    "style": "love",
+    "script": "I stopped counting the steps to your door.\nThe way the floorboards sigh underfoot,\nlike an old cat settling in sunlight.\nI never told you\nthis is the only place\nwhere my shoulders remember how to drop.\nThe kettle hums a lullaby,\nand suddenly,\nI\u2019m eight years old again,\nsafe inside a story I haven\u2019t finished.\nEven the air tastes different here\u2014\nlike rain on warm stone.\nsend this to them.",
+    "hash": "77e733c3df651dc94d37934b2f677543",
+    "metaphors": [
+      "door",
+      "rain",
+      "light",
+      "sun"
+    ],
+    "themes": [
+      "nostalgia"
     ]
   }
 ]
