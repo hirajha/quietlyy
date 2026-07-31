@@ -1,22 +1,5 @@
 [
   {
-    "topic": "What Real Love Feels Like",
-    "style": "wisdom",
-    "script": "Hafiz whispered\nreal love doesn\u2019t hold\nit lets the wind\ntake the shape of your name\nacross the sky.\n\nyou\u2019ll know it\nwhen your bones hum\nnot from possession\nbut from belonging\nto the light between stars.\n\nyou won\u2019t own it\nit will own the space\nwhere your shadow used to be.",
-    "hash": "a53caa5a31aa090239cd550484ed617c",
-    "metaphors": [
-      "shadow",
-      "wind",
-      "light",
-      "star"
-    ],
-    "themes": [
-      "love",
-      "nostalgia",
-      "being_used"
-    ]
-  },
-  {
     "topic": "What You Owe Yourself",
     "style": "lesson",
     "script": "Nobody warns you about the quiet depletion.\nThat subtle fade.\nYou keep pouring out.\nFor everyone else's flicker.\nUntil your own wick runs dry.\nRemember the forgotten bookmark?\nThat story you never finished.\nThat's you now.\nYou owe yourself the ending.\nBefore your own pages turn blank.",
@@ -840,5 +823,18 @@
       "shadow"
     ],
     "themes": []
+  },
+  {
+    "topic": "How You Changed Everything",
+    "style": "love",
+    "script": "There's a quiet like unopened mail.\nThe kind that sits,\nwaiting for fingers to break the seal.\nYou were the letter I didn\u2019t know I needed,\nfolded inside my own address.\nEvery word you wrote\nshifted the ink of my days.\nI trace your sentences\nwhen the room feels too still.\nSome changes don\u2019t announce themselves,\nthey simply rewrite the margins.\nSend this to them.",
+    "hash": "7bb208b0061d5704abd21486a390cdf3",
+    "metaphors": [
+      "letter"
+    ],
+    "themes": [
+      "silence",
+      "being_used"
+    ]
   }
 ]
