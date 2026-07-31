@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Way You Look When You Do Not Know I Am Watching",
-    "style": "love",
-    "script": "I stopped counting the freckles on your shoulder.\nEach one a tiny constellation I memorize,\nand still you shift,\nunaware of the telescope I\u2019ve become.\nThe way your fingers trace the rim of your coffee cup\u2014\nslow orbits I could sketch blindfolded.\nYou hum,\nbut the melody is for the steam,\nnot me.\nI never told you how the light pools in your collarbone,\nor that I\u2019ve named it.\nSend this to them.",
-    "hash": "63d573e6b4308cfae0ceb19f91bade78",
-    "metaphors": [
-      "tea",
-      "coffee",
-      "cup",
-      "light"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What Real Love Feels Like",
     "style": "wisdom",
     "script": "Hafiz whispered\nreal love doesn\u2019t hold\nit lets the wind\ntake the shape of your name\nacross the sky.\n\nyou\u2019ll know it\nwhen your bones hum\nnot from possession\nbut from belonging\nto the light between stars.\n\nyou won\u2019t own it\nit will own the space\nwhere your shadow used to be.",
@@ -842,5 +827,18 @@
     "themes": [
       "nostalgia"
     ]
+  },
+  {
+    "topic": "Being Misunderstood",
+    "style": "emotional",
+    "script": "How do you explain to someone\nthat your shadows aren\u2019t sadness\u2014\nthey\u2019re just echoes of light\nthat never reached them?\nI\u2019ve tried to stretch my arms\nbut the room keeps shrinking,\nand no one notices\nthe walls are made of their assumptions.\nSome voices wrap around me like fog,\nslowly erasing the edges of what I meant.\nI won\u2019t fight to be seen.\nLet them call it mystery.\nI know it\u2019s just the shape of me\nwhen no one\u2019s looking.",
+    "hash": "07ee409b5395fba036f2505d81946c1c",
+    "metaphors": [
+      "wall",
+      "light",
+      "echo",
+      "shadow"
+    ],
+    "themes": []
   }
 ]
