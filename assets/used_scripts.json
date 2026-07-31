@@ -1,18 +1,5 @@
 [
   {
-    "topic": "What You Owe Yourself",
-    "style": "lesson",
-    "script": "Nobody warns you about the quiet depletion.\nThat subtle fade.\nYou keep pouring out.\nFor everyone else's flicker.\nUntil your own wick runs dry.\nRemember the forgotten bookmark?\nThat story you never finished.\nThat's you now.\nYou owe yourself the ending.\nBefore your own pages turn blank.",
-    "hash": "0502b6aceb2a4660e131350c24ee19f7",
-    "metaphors": [
-      "ring"
-    ],
-    "themes": [
-      "silence",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "When Friendship Becomes One-Sided",
     "style": "emotional",
     "script": "The weight of a friendship shifts,\nlike sand slipping through fingers,\nslowly,\nunnoticed,\nuntil the hand is empty.\nYou still set the table,\ntwo plates,\ntwo cups,\nbut the chair stays cold.\nSome people don\u2019t leave,\nthey just stop arriving,\nand the doorbell never rings again.",
@@ -835,6 +822,23 @@
     "themes": [
       "silence",
       "being_used"
+    ]
+  },
+  {
+    "topic": "The Difference Between Living and Existing",
+    "style": "emotional",
+    "script": "The porch light stays on all night.\nA habit,\nnot a warning.\nSome souls collect moments like loose change,\ncounting them at midnight\nwhile others spend theirs on sunlight,\nbuying time with laughter.\nThe clock doesn\u2019t care if you\u2019re breathing,\nonly if you\u2019re awake enough to hear it.\nbut the wind remembers your name,\nwhispers it through the screen door,\nand for a second,\nyou\u2019re more than just air passing through.",
+    "hash": "ddaf2897e0fb15919dd9a685747a717f",
+    "metaphors": [
+      "door",
+      "wind",
+      "sun",
+      "porch",
+      "light"
+    ],
+    "themes": [
+      "self_worth",
+      "nostalgia"
     ]
   }
 ]
