@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When You Have to Pretend You Are Fine at Work"
+    "detail": "When Being Nice Made You A Target"
   },
   "audio": {
     "result": "ok",
@@ -49,10 +49,10 @@
   },
   "instagram": {
     "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18093925856305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18093970154305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/Tn6--KnW5ns"
+    "detail": "https://www.youtube.com/shorts/tBCI5ChC2BA"
   }
 }

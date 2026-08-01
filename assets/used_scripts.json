@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Meaning We Choose to Find",
-    "style": "nostalgic",
-    "script": "We built the ladder\nsideways\none rung at a time\nfrom whatever we could reach\nold receipts\nlost keys\nthe way you laughed at nothing.\nSOME DAYS IT HELD\nSOME DAYS IT DIDN\u2019T\nbut we kept climbing\nbecause the view was ours to name\nand the sky\nwas never the point.",
-    "hash": "ff295b990f2e67b354cee23ded8ffbbf",
-    "metaphors": [
-      "keys"
-    ],
-    "themes": [
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Cost Of Always Being Available",
     "style": "lesson",
     "script": "When did we stop guarding our own moments?\nThe ping.\nThe instant reply.\nAlways open.\nAlways ready.\nYou became the constant.\nThe dependable resource.\nNever out of reach.\nBut your own availability, it became the expectation.\nNot a gift anymore.\nJust the price of entry.",
@@ -829,6 +817,16 @@
       "cup",
       "tea"
     ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "When Being Nice Made You A Target",
+    "style": "lesson",
+    "script": "When did you first notice the shift?\nYour quiet willingness to help.\nYour eagerness to understand.\nSuddenly felt like a target.\nFor those who only take.\nWho saw kindness as leverage.\nNot a gift.\nNot a connection.\nJust an opening.\nYour best intentions require boundaries.",
+    "hash": "5e4bb269b5a4308dbc8da30599b753a3",
+    "metaphors": [],
     "themes": [
       "silence"
     ]

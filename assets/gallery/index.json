@@ -1922,8 +1922,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1783007073,
-    "uses": 1,
-    "last_used": 1783028998
+    "uses": 2,
+    "last_used": 1785600244
   },
   {
     "file": "bddfa3de_0.png",
@@ -4000,13 +4000,31 @@
     "topic": "When You Have to Pretend You Are Fine at Work",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1785579891
+    "timestamp": 1785579891,
+    "uses": 1,
+    "last_used": 1785600244
   },
   {
     "file": "ce814623_1.png",
     "topic": "When You Have to Pretend You Are Fine at Work",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1785579896
+    "timestamp": 1785579896,
+    "uses": 1,
+    "last_used": 1785600244
+  },
+  {
+    "file": "8b6c5e73_0.png",
+    "topic": "When Being Nice Made You A Target",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1785600247
+  },
+  {
+    "file": "6eff2f7b_1.png",
+    "topic": "When Being Nice Made You A Target",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1785600251
   }
 ]
