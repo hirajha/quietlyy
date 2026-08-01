@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Cost Of Always Being Available",
-    "style": "lesson",
-    "script": "When did we stop guarding our own moments?\nThe ping.\nThe instant reply.\nAlways open.\nAlways ready.\nYou became the constant.\nThe dependable resource.\nNever out of reach.\nBut your own availability, it became the expectation.\nNot a gift anymore.\nJust the price of entry.",
-    "hash": "833267d499079be1b1e23dce220634a3",
-    "metaphors": [],
-    "themes": [
-      "growth"
-    ]
-  },
-  {
     "topic": "Loving in Silence",
     "style": "nostalgic",
     "script": "I memorized the way you tilt your head\nwhen the light hits wrong\nand your glasses catch the gold\nlike a secret meant for someone else.\nYou never look up\nbut I count the freckles on your wrist\none for every time you hum off-key\nwhile the kettle screams.\nSOME DAYS I WISH I COULD BORROW YOUR SHADOW\njust to feel the weight of standing close\nwithout making a sound.\nThe kitchen smells like cinnamon\nand something almost like regret\nbut softer.\nI leave the sugar bowl out\nin case you need it.",
@@ -829,6 +819,21 @@
     "metaphors": [],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "When You Make Ordinary Moments Feel Different",
+    "style": "emotional",
+    "script": "Some mornings taste like old book pages.\nThe coffee steams,\nbut it\u2019s the way you stirred,\nslow and absent,\nthat lingers like a fingerprint on the mug.\nI still reach for the sugar bowl twice,\njust to feel the ghost of your habit.\nThe clock ticks,\nand suddenly,\nevery second is a memory I didn\u2019t ask for.\nSome people don\u2019t leave,\nthey just stop being the weather.\nI miss the forecast.",
+    "hash": "7b3b982c33648464fc66865cf63c1e4f",
+    "metaphors": [
+      "tea",
+      "coffee",
+      "mug"
+    ],
+    "themes": [
+      "silence",
+      "grief_loss"
     ]
   }
 ]
