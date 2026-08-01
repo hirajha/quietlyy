@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "What Pain Quietly Teaches You"
+    "detail": "When You Have to Pretend You Are Fine at Work"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18115955374903968"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18093925856305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/GetdiLijSlI"
+    "detail": "https://www.youtube.com/shorts/Tn6--KnW5ns"
   }
 }

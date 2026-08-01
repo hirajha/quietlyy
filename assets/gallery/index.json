@@ -1913,8 +1913,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1783007069,
-    "uses": 1,
-    "last_used": 1783028998
+    "uses": 2,
+    "last_used": 1785579888
   },
   {
     "file": "a8eade2f_1.png",
@@ -3982,13 +3982,31 @@
     "topic": "What Pain Quietly Teaches You",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1785558571
+    "timestamp": 1785558571,
+    "uses": 1,
+    "last_used": 1785579888
   },
   {
     "file": "82d33e1f_1.png",
     "topic": "What Pain Quietly Teaches You",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1785558576
+    "timestamp": 1785558576,
+    "uses": 1,
+    "last_used": 1785579888
+  },
+  {
+    "file": "47feda8a_0.png",
+    "topic": "When You Have to Pretend You Are Fine at Work",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1785579891
+  },
+  {
+    "file": "ce814623_1.png",
+    "topic": "When You Have to Pretend You Are Fine at Work",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1785579896
   }
 ]
