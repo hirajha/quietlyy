@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Loving in Silence",
-    "style": "nostalgic",
-    "script": "I memorized the way you tilt your head\nwhen the light hits wrong\nand your glasses catch the gold\nlike a secret meant for someone else.\nYou never look up\nbut I count the freckles on your wrist\none for every time you hum off-key\nwhile the kettle screams.\nSOME DAYS I WISH I COULD BORROW YOUR SHADOW\njust to feel the weight of standing close\nwithout making a sound.\nThe kitchen smells like cinnamon\nand something almost like regret\nbut softer.\nI leave the sugar bowl out\nin case you need it.",
-    "hash": "5fa6783821af1fcc99ee94471ed2e40c",
-    "metaphors": [
-      "kitchen",
-      "light",
-      "glass",
-      "shadow"
-    ],
-    "themes": []
-  },
-  {
     "topic": "When Love Feels Like Coming Home",
     "style": "poetic",
     "script": "Some doors don\u2019t creak,\njust sigh when you step inside.\nThe air hums,\nwarmer than memory,\nbut lighter than regret.\nYour name on my lips\nlike a well-worn path\u2014\nfamiliar,\nnot from repetition,\nbut from always leading here.\nThe kettle whistles,\nnot a warning,\njust a reminder:\nwe\u2019re already home.",
@@ -834,6 +821,19 @@
     "themes": [
       "silence",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "Loving You in Silence",
+    "style": "poetic",
+    "script": "Some nights I trace the cracks,\nnot on the ceiling,\njust the ones in my voice.\nI whisper your name,\nbut it lands like a leaf\non still water,\nno splash,\nno ripple,\njust a quiet sinking.\nThe room doesn\u2019t notice,\nand neither do you,\nbut the dark holds it anyway.",
+    "hash": "d4c25b4791adfe4f72144ad1705e83ae",
+    "metaphors": [
+      "dark",
+      "ceiling"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
