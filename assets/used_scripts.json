@@ -1,21 +1,5 @@
 [
   {
-    "topic": "Finding Yourself After Them",
-    "style": "emotional",
-    "script": "When did the mirror stop showing,\nwhat they wanted you to see\nThe reflection you built,\njust for them,\nslowly cracks,\nlike old paint on a forgotten fence\nSome days,\nyou press your palm to the glass\nand it doesn\u2019t stick anymore\nThe air between you and the surface,\nthin,\nbut enough\nto breathe without permission\nYou are not the shape they left,\njust the space they once filled\nand now,\nfinally,\nyours.",
-    "hash": "a864078603f7f2c53d34485fa9f0dc36",
-    "metaphors": [
-      "mirror",
-      "glass"
-    ],
-    "themes": [
-      "self_worth",
-      "loneliness",
-      "grief_loss",
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "The Family Member Who Hurt You Most",
     "style": "emotional",
     "script": "4:17 a.m. The kettle hums,\nsteam curls like old secrets.\nYou taught me how to tie my shoes,\nbut not how to untie the knot in my chest.\nSome hands build,\nsome hands just point,\nand yours,\nthey only knew the direction of blame.\nI kept the mug,\nnot the lessons.\nThe tea\u2019s gone cold,\nso have the memories.\nI won\u2019t send this to you.\nLet the steam carry it away.",
@@ -841,6 +825,22 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The First Time I Knew",
+    "style": "nostalgic",
+    "script": "YOU WERE WEARING\nthat sweater\nI\u2019d later steal\nwhen it rained\nand the bus stop smelled like wet wool,\nold gum,\nyour laugh\nstuck to my ribs\nlike a second shadow\nI didn\u2019t know\nwas mine\nuntil you left.",
+    "hash": "6483ba2166ce99cfa11f30cf263f3497",
+    "metaphors": [
+      "rain",
+      "sweater",
+      "tea",
+      "ring",
+      "shadow"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]

@@ -1967,8 +1967,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1783073939,
-    "uses": 1,
-    "last_used": 1783093139
+    "uses": 2,
+    "last_used": 1785706463
   },
   {
     "file": "ce4d3dfe_1.png",
@@ -4090,13 +4090,31 @@
     "topic": "The Part You Never Talk About",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1785686703
+    "timestamp": 1785686703,
+    "uses": 1,
+    "last_used": 1785706463
   },
   {
     "file": "877b0bc7_1.png",
     "topic": "The Part You Never Talk About",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1785686707
+    "timestamp": 1785686707,
+    "uses": 1,
+    "last_used": 1785706463
+  },
+  {
+    "file": "417427bc_0.png",
+    "topic": "The First Time I Knew",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1785706465
+  },
+  {
+    "file": "c60f5384_1.png",
+    "topic": "The First Time I Knew",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1785706470
   }
 ]
