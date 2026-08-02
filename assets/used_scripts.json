@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Lying Awake Replaying Everything",
-    "style": "emotional",
-    "script": "How do you name the hours that won\u2019t let go,\nwhen the ceiling becomes a screen,\nand every mistake,\nplays on loop,\nnot loud,\njust relentless,\nThe way your ribs remember every breath they held,\nbut the air stays shallow,\nSome nights,\nyou\u2019re not just awake,\nyou\u2019re the only audience,\nand the credits refuse to roll.\nSend this to them.",
-    "hash": "d657f786597bd0aeb31cf459125fcffc",
-    "metaphors": [
-      "ceiling"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "Finding Yourself After Them",
     "style": "emotional",
     "script": "When did the mirror stop showing,\nwhat they wanted you to see\nThe reflection you built,\njust for them,\nslowly cracks,\nlike old paint on a forgotten fence\nSome days,\nyou press your palm to the glass\nand it doesn\u2019t stick anymore\nThe air between you and the surface,\nthin,\nbut enough\nto breathe without permission\nYou are not the shape they left,\njust the space they once filled\nand now,\nfinally,\nyours.",
@@ -839,6 +827,20 @@
     "themes": [
       "silence",
       "being_used"
+    ]
+  },
+  {
+    "topic": "The Part You Never Talk About",
+    "style": "nostalgic",
+    "script": "The way your hands still shake\nwhen you reach for the light.\nWE ALL HAVE ONE THING\nthat hums in the dark.\nYou never name it\nnever let it out\nbut it curls around your ribs\nlike a second shadow.\nSOME NIGHTS\nyou swear it breathes\nright against your ear\nand you don\u2019t flinch.\nIt\u2019s the part that knows\nyou\u2019re already forgiven.",
+    "hash": "8fe827f48bc13e46fc0a6b16d55a59a0",
+    "metaphors": [
+      "dark",
+      "shadow",
+      "light"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
