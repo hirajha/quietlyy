@@ -1,17 +1,5 @@
 [
   {
-    "topic": "When Love Feels Like Coming Home",
-    "style": "poetic",
-    "script": "Some doors don\u2019t creak,\njust sigh when you step inside.\nThe air hums,\nwarmer than memory,\nbut lighter than regret.\nYour name on my lips\nlike a well-worn path\u2014\nfamiliar,\nnot from repetition,\nbut from always leading here.\nThe kettle whistles,\nnot a warning,\njust a reminder:\nwe\u2019re already home.",
-    "hash": "ab3143ef4f9133fa75ceff3c89670320",
-    "metaphors": [
-      "door",
-      "path",
-      "light"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Lying Awake Replaying Everything",
     "style": "emotional",
     "script": "How do you name the hours that won\u2019t let go,\nwhen the ceiling becomes a screen,\nand every mistake,\nplays on loop,\nnot loud,\njust relentless,\nThe way your ribs remember every breath they held,\nbut the air stays shallow,\nSome nights,\nyou\u2019re not just awake,\nyou\u2019re the only audience,\nand the credits refuse to roll.\nSend this to them.",
@@ -834,6 +822,23 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Safest Place I Know",
+    "style": "love",
+    "script": "There's a kind of stillness that breathes,\nlike the space between piano keys.\nYour arms,\na harbor I didn\u2019t chart.\nNo lighthouse needed,\njust the quiet hum of your ribs\nagainst my ear.\nI memorized the shape of safety\nin the way you hold a coffee cup,\nsteady,\nunshaken.\nThe world could tilt,\nbut here\u2014\nyour collarbone is my gravity.\nsend this to them.",
+    "hash": "04c2b63a1d8c6cd9724dbd32c156a863",
+    "metaphors": [
+      "coffee",
+      "light",
+      "cup",
+      "tea",
+      "keys"
+    ],
+    "themes": [
+      "silence",
+      "being_used"
     ]
   }
 ]
