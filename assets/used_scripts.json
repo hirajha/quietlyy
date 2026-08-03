@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Family Member Who Hurt You Most",
-    "style": "emotional",
-    "script": "4:17 a.m. The kettle hums,\nsteam curls like old secrets.\nYou taught me how to tie my shoes,\nbut not how to untie the knot in my chest.\nSome hands build,\nsome hands just point,\nand yours,\nthey only knew the direction of blame.\nI kept the mug,\nnot the lessons.\nThe tea\u2019s gone cold,\nso have the memories.\nI won\u2019t send this to you.\nLet the steam carry it away.",
-    "hash": "07b16b209d469767aeed9a592f4fbca8",
-    "metaphors": [
-      "mug",
-      "tea"
-    ],
-    "themes": [
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "You Still Check Their Profile",
     "style": "wisdom",
     "script": "the old fisherman murmured\nacross the dock\nthe tide pulls back\nbut the net remembers\nevery wave that touched it.\n\nyou scroll their name\nlike a child tracing\nletters in wet sand\nthe ocean will come\nit always does.\n\nyou are not the net\nyou are the shore.",
@@ -841,6 +828,24 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "What I Never Said Out Loud",
+    "style": "emotional",
+    "script": "4:17 a.m. The kettle hums,\nstill warm from the last cup you made.\nI trace the steam,\nslowly rising,\nlike the words I swallowed whole.\nThe kitchen light flickers,\nnot from the bulb,\nbut from the weight of what I didn\u2019t say.\nSome nights,\nthe silence isn\u2019t empty\u2014\nit\u2019s full of echoes,\nand I\u2019m the only one who hears them.\nI won\u2019t rewrite the ending,\njust the part where I stayed quiet.\nSend this to them.",
+    "hash": "60f17302c6473bcb483d8dd44a2a0b37",
+    "metaphors": [
+      "echo",
+      "wall",
+      "light",
+      "kitchen",
+      "cup",
+      "tea",
+      "silence"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
