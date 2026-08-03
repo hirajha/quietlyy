@@ -1,20 +1,5 @@
 [
   {
-    "topic": "You Still Check Their Profile",
-    "style": "wisdom",
-    "script": "the old fisherman murmured\nacross the dock\nthe tide pulls back\nbut the net remembers\nevery wave that touched it.\n\nyou scroll their name\nlike a child tracing\nletters in wet sand\nthe ocean will come\nit always does.\n\nyou are not the net\nyou are the shore.",
-    "hash": "b37948853a50fbdb550735153602fa20",
-    "metaphors": [
-      "letter",
-      "ocean",
-      "shore",
-      "tide"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "What Real Love Requires",
     "style": "emotional",
     "script": "Real love isn\u2019t measured in grand gestures.\nIt\u2019s in the way\nsomeone remembers your coffee order\nbut forgets to drink their own.\nNot the holding on,\njust the choosing,\nday after ordinary day,\nto carry the weight of your name\nlike a second shadow\nno one else can see.\nAnd when the light shifts,\nthey let it stretch beside you,\nnever asking it to shrink.",
@@ -843,6 +828,20 @@
       "cup",
       "tea",
       "silence"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "love",
+    "script": "You trace the cracks in your coffee mug.\nThe ones I never noticed.\nThey spiderweb like secrets\nonly porcelain keeps.\nI wear my grin like a borrowed scarf,\nsoft against your skin,\nbut the tag still scratches my neck.\nYou count the freckles on my shoulder,\nconnect them into constellations\nI didn\u2019t know I carried.\nThe stars in your eyes are quiet,\nbut they\u2019re naming me anyway.\nSend this to them.",
+    "hash": "9bb83e4f1c9c5b68a62f039151d63013",
+    "metaphors": [
+      "mug",
+      "coffee",
+      "star"
     ],
     "themes": [
       "silence"
