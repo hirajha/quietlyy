@@ -1,18 +1,5 @@
 [
   {
-    "topic": "What Truly Matters in the End",
-    "style": "emotional",
-    "script": "I stopped counting the cracks in the ceiling\njust to watch the light move\nslowly, like a promise kept\nThe clock hums\nbut its hands don\u2019t remember my name\nSome days I forget too\nand that\u2019s when I know\nwhat truly matters isn\u2019t time\nit\u2019s the weight of a hand on my shoulder\nnot asking, just staying\nI won\u2019t let go first.",
-    "hash": "3c6337c9fa8ea7af59c188eaaa2953eb",
-    "metaphors": [
-      "ceiling",
-      "light"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "The Way You Look When You Do Not Know I Am Watching",
     "style": "nostalgic",
     "script": "You tilt your head\njust\na little\nlike the sky does\nbefore the first cloud remembers its name.\nYour fingers trace\ninvisible constellations\non the table,\nand I wonder\nif you\u2019re mapping\nsomething I\u2019ll never see\nor if the stars\nare finally mapping you.",
@@ -842,5 +829,18 @@
       "roots"
     ],
     "themes": []
+  },
+  {
+    "topic": "Loving Quietly From a Distance",
+    "style": "emotional",
+    "script": "I still hold my breath\nwhen your name appears\nlike a kite tangled in power lines\nno one else sees it\nbut I watch the way it trembles\nnot begging for rescue\njust existing\nSome days I forget to check\nand the wind carries you further\nI won\u2019t pull the string\nlet the sky keep you",
+    "hash": "689d3ac2fbec542d36c44cb106c9bcf2",
+    "metaphors": [
+      "wind",
+      "ring"
+    ],
+    "themes": [
+      "silence"
+    ]
   }
 ]
