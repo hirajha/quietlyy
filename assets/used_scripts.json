@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Difference Between Living and Existing",
-    "style": "emotional",
-    "script": "You\u2019re staring at the ceiling again.\nThe cracks look like roots\nsearching for something to hold.\nYou count them,\nbut they keep growing.\nSome nights,\nyou swear they whisper your name.\nNot the one you answer to,\nthe one you buried under routine.\nThe alarm rings,\nand you press snooze\non the part of you that wanted to climb trees.",
-    "hash": "fce33e23a3839c8d99ed335cdc111a60",
-    "metaphors": [
-      "tree",
-      "roots",
-      "ring",
-      "ceiling",
-      "star"
-    ],
-    "themes": [
-      "growth"
-    ]
-  },
-  {
     "topic": "When Grief Becomes a Teacher",
     "style": "love",
     "script": "Grief isn\u2019t crying anymore.\nIt\u2019s the way your coffee goes cold,\nunnoticed.\nThe kitchen light hums,\nbut you don\u2019t hear it.\nSLOWLY,\nthe weight of their absence\nbecomes a second shadow,\nwalking beside you.\nYou don\u2019t turn to look.\nIt doesn\u2019t ask for answers.\nJust teaches you how to carry what\u2019s left.\nsend this to them.",
@@ -840,5 +824,22 @@
       "window"
     ],
     "themes": []
+  },
+  {
+    "topic": "What I Mean When I Say I Love You",
+    "style": "poetic",
+    "script": "What I mean is the way,\nthe tide forgets,\nto ask permission before it rises.\nSome nights,\nI am the moon,\nnot pulling,\njust existing,\nand the water still answers.\nI mean the quiet conspiracy,\nof roots,\nthat hold the whole tree up,\nwithout ever being seen.\nI mean,\nI am learning,\nto be the soil,\nnot the storm.",
+    "hash": "021ab06089e8498f369c67cb89587c03",
+    "metaphors": [
+      "tree",
+      "roots",
+      "tide",
+      "moon",
+      "storm"
+    ],
+    "themes": [
+      "silence",
+      "grief_loss"
+    ]
   }
 ]

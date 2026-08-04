@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "Finding Peace Within Yourself",
-    "When Grief Becomes a Teacher",
     "What Truly Matters in the End",
     "The Power of Small Moments",
     "Loving Without Losing Yourself",
@@ -65,11 +63,13 @@
     "The Art of Letting Go",
     "What Silence Teaches Us",
     "The Meaning We Choose to Find",
-    "The Quiet Revolution of Self-Respect"
+    "The Quiet Revolution of Self-Respect",
+    "Learning to Trust the Journey",
+    "Finding Peace Within Yourself"
   ],
-  "last_style": "lesson",
+  "last_style": "wisdom",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -136,7 +136,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153756_4972f7.mp3",
@@ -155,7 +154,8 @@
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153700_072547.mp3",
-    "2026-06-05_153827_d3f4f7.mp3"
+    "2026-06-05_153827_d3f4f7.mp3",
+    "2026-06-05_153756_4972f7.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -164,13 +164,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The Day You Chose Yourself",
-    "The People Who Disappear When It's Hard",
-    "The People Who Leave When You Need Them Most",
-    "The Love That Was Only Convenient",
-    "The Cost Of Always Being Available",
-    "Being Too Kind In A Cruel World",
-    "Why Closure Never Comes",
     "The Friends Who Only Stayed For The Good Days",
     "What Loneliness Actually Teaches You",
     "What Rock Bottom Taught You",
@@ -183,6 +176,13 @@
     "Loving Someone Who Wouldn't Stay",
     "The Strength In Walking Away",
     "Learning To Be Enough On Your Own",
-    "When Being Nice Made You A Target"
+    "When Being Nice Made You A Target",
+    "When You Finally Stopped Settling",
+    "Why You Stopped Waiting For An Apology",
+    "When You Stop Chasing People",
+    "When People Show You Who They Are",
+    "The Day You Chose Yourself",
+    "Outgrowing People You Love",
+    "What You Learned After Being Broken"
   ]
 }
