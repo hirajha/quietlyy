@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Texts You Never Send",
-    "style": "love",
-    "script": "There's a quiet like unsent postcards,\nstacked in a drawer you never open.\nThe ink still smells like rain on pavement,\nbut the stamps curl,\nunlicked.\nI trace your name with my thumb,\nwondering if the address still exists.\nSome words are too heavy to mail,\ntoo fragile to trust the mailbox.\nThey sit,\nbreathing,\nin the dark.\nSend this to them.",
-    "hash": "1f29b53a00935f44c8c7cbafb212d4f9",
-    "metaphors": [
-      "rain",
-      "ring",
-      "dark"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Difference Between Living and Existing",
     "style": "emotional",
     "script": "You\u2019re staring at the ceiling again.\nThe cracks look like roots\nsearching for something to hold.\nYou count them,\nbut they keep growing.\nSome nights,\nyou swear they whisper your name.\nNot the one you answer to,\nthe one you buried under routine.\nThe alarm rings,\nand you press snooze\non the part of you that wanted to climb trees.",
@@ -840,5 +826,19 @@
     "themes": [
       "love"
     ]
+  },
+  {
+    "topic": "Loving in Silence",
+    "style": "poetic",
+    "script": "Some nights,\nthe moon stitches your name\ninto the dark,\nthread by thread,\nand I pretend not to notice.\nThe air hums,\na low current\nonly I can feel,\ncarrying your voice\nlike a secret I was never meant to keep.\nI trace the shape of you\nin the condensation on my window,\nknowing the sun will erase it\nbefore morning,\nbut tracing anyway.",
+    "hash": "509f19a7cda5c6840959b03df6c0135e",
+    "metaphors": [
+      "moon",
+      "wind",
+      "dark",
+      "sun",
+      "window"
+    ],
+    "themes": []
   }
 ]
