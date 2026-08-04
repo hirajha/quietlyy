@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Beauty of an Unfinished Life",
-    "style": "wisdom",
-    "script": "The old gardener whispered\nsome things grow best\nwhen left half-done.\nnot every seed needs harvest\nnot every path needs walking.\nI thought of my desk\noverrun with sketches\npages torn mid-sentence\nideas dangling like vines\nthat refuse to be trained.\nmaybe the unfinished\nis the only true shape of living.",
-    "hash": "9b239b03a55420b8e514e75c1448ef31",
-    "metaphors": [
-      "rain",
-      "path",
-      "seed",
-      "garden"
-    ],
-    "themes": [
-      "loneliness",
-      "growth"
-    ]
-  },
-  {
     "topic": "The Texts You Never Send",
     "style": "love",
     "script": "There's a quiet like unsent postcards,\nstacked in a drawer you never open.\nThe ink still smells like rain on pavement,\nbut the stamps curl,\nunlicked.\nI trace your name with my thumb,\nwondering if the address still exists.\nSome words are too heavy to mail,\ntoo fragile to trust the mailbox.\nThey sit,\nbreathing,\nin the dark.\nSend this to them.",
@@ -840,6 +824,21 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "What Real Love Requires",
+    "style": "nostalgic",
+    "script": "Real love doesn\u2019t ask for much\nit only\nneeds your hands\nsteady when the world tilts\nYOUR VOICE\nsoft in the dark\nwhen the ceiling cracks\nnot to fix\njust to say\ni\u2019m here\nand mean it\nuntil the light comes back.",
+    "hash": "ed090cfbad953840f34e0e3f7496f5d3",
+    "metaphors": [
+      "dark",
+      "ceiling",
+      "tea",
+      "light"
+    ],
+    "themes": [
+      "love"
     ]
   }
 ]

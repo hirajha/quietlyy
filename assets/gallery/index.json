@@ -2012,8 +2012,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1783115220,
-    "uses": 1,
-    "last_used": 1783140205
+    "uses": 2,
+    "last_used": 1785837135
   },
   {
     "file": "3ea84969_0.png",
@@ -4180,13 +4180,31 @@
     "topic": "The Apology That Never Came",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1785817366
+    "timestamp": 1785817366,
+    "uses": 1,
+    "last_used": 1785837135
   },
   {
     "file": "ce766dd7_1.png",
     "topic": "The Apology That Never Came",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1785817371
+    "timestamp": 1785817371,
+    "uses": 1,
+    "last_used": 1785837135
+  },
+  {
+    "file": "cb7be728_0.png",
+    "topic": "What Real Love Requires",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1785837138
+  },
+  {
+    "file": "18a9b51d_1.png",
+    "topic": "What Real Love Requires",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1785837142
   }
 ]
