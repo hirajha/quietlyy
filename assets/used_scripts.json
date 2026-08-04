@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Way You Look When You Do Not Know I Am Watching",
-    "style": "nostalgic",
-    "script": "You tilt your head\njust\na little\nlike the sky does\nbefore the first cloud remembers its name.\nYour fingers trace\ninvisible constellations\non the table,\nand I wonder\nif you\u2019re mapping\nsomething I\u2019ll never see\nor if the stars\nare finally mapping you.",
-    "hash": "f2765cd1eed9f779016c02e11e39614c",
-    "metaphors": [
-      "star",
-      "map",
-      "table"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "The Beauty of an Unfinished Life",
     "style": "wisdom",
     "script": "The old gardener whispered\nsome things grow best\nwhen left half-done.\nnot every seed needs harvest\nnot every path needs walking.\nI thought of my desk\noverrun with sketches\npages torn mid-sentence\nideas dangling like vines\nthat refuse to be trained.\nmaybe the unfinished\nis the only true shape of living.",
@@ -838,6 +824,19 @@
     "metaphors": [
       "wind",
       "ring"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Apology That Never Came",
+    "style": "emotional",
+    "script": "I stopped waiting by the phone\nat 3:17,\nthe exact time you last called.\nNot because I gave up,\nbut because the dust settled\non the receiver,\nand I realized\nno one was coming to wipe it clean.\nSome apologies don\u2019t arrive,\nthey evaporate mid-air,\nleaving only the weight of what could\u2019ve been.\nI still press redial sometimes,\njust to hear the dial tone,\nsteady and unchanging,\nlike my regret.",
+    "hash": "21e25c1c286c5c2233481e25fc4c4b92",
+    "metaphors": [
+      "tea",
+      "phone"
     ],
     "themes": [
       "silence"
