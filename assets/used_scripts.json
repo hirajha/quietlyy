@@ -1,22 +1,5 @@
 [
   {
-    "topic": "When Grief Becomes a Teacher",
-    "style": "love",
-    "script": "Grief isn\u2019t crying anymore.\nIt\u2019s the way your coffee goes cold,\nunnoticed.\nThe kitchen light hums,\nbut you don\u2019t hear it.\nSLOWLY,\nthe weight of their absence\nbecomes a second shadow,\nwalking beside you.\nYou don\u2019t turn to look.\nIt doesn\u2019t ask for answers.\nJust teaches you how to carry what\u2019s left.\nsend this to them.",
-    "hash": "ce2ec6c3049e5cc8d3b7a16bb40ab025",
-    "metaphors": [
-      "tea",
-      "light",
-      "coffee",
-      "kitchen",
-      "shadow"
-    ],
-    "themes": [
-      "grief_loss",
-      "loneliness"
-    ]
-  },
-  {
     "topic": "Being the One Who Always Checks In",
     "style": "love",
     "script": "There's a kind of loyalty that hums.\nLike a fridge in another room,\nsteady,\nunseen.\nI check the forecast for your mood\nbefore I check my own.\nThe messages pile\nsoft as laundry you'll never fold,\nbut I smooth them anyway.\nSome people need a lighthouse.\nYou just need the fog to lift sometimes.\nI'm the one holding the flashlight,\npointing at nothing.\nsend this to them.",
@@ -841,5 +824,16 @@
       "silence",
       "grief_loss"
     ]
+  },
+  {
+    "topic": "Pretending You Are Fine",
+    "style": "love",
+    "script": "There's a kind of ache that wears a smile.\nThe clock ticks,\nbut the hands don\u2019t move.\nYour coffee goes cold\nwhile you rehearse the script\u2014\n\"I\u2019m fine, just tired.\"\nThe mirror reflects\nsomeone who looks like you,\nbut the eyes are rehearsed.\nYou laugh at nothing,\nand the sound is perfect.\nNo one notices the seams.\nSend this to them.",
+    "hash": "2bb76ee16795d1593d3bad4e75edbe0e",
+    "metaphors": [
+      "coffee",
+      "mirror"
+    ],
+    "themes": []
   }
 ]
