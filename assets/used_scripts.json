@@ -1,20 +1,5 @@
 [
   {
-    "topic": "Someone Worth Staying For",
-    "style": "love",
-    "script": "I stopped counting the nights.\nYour name fits in my palm like a pebble,\nsmooth from years of holding.\nThe bed never feels empty,\njust softer where you aren\u2019t.\nI trace the shape of your absence,\nand the sheets remember your weight.\nSome bodies leave echoes,\nothers leave holes.\nYou left a rhythm.\nI hum it when the lights go out.\nsend this to them.",
-    "hash": "dcfff7acdf605b6e2786c3fafab34d71",
-    "metaphors": [
-      "bed",
-      "light",
-      "echo"
-    ],
-    "themes": [
-      "loneliness",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "When You Make Ordinary Moments Feel Different",
     "style": "love",
     "script": "You\u2019re stirring honey into tea.\nThe spoon spins,\nbut the liquid doesn\u2019t swirl\u2014\nit just parts for you,\nlike the ocean for a saint.\nI watch the way your wrist tilts,\nhow the amber pools without sound.\nNo one else notices,\nbut the air hums differently here.\nThe cup warms my palms,\nand I realize\u2014\nthis is how you turn ordinary into sacred.\nsend this to them.",
@@ -840,6 +825,22 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Finding Peace Within Yourself",
+    "style": "emotional",
+    "script": "How do you name the moment\nwhen the mirror stops asking questions?\nYou just stand there,\nnot smiling,\nnot frowning,\njust letting the light settle\nlike dust on old books.\nSome mornings,\nthe quiet isn\u2019t empty\u2014\nit\u2019s a room you\u2019ve finally learned to live in.\nThe walls don\u2019t judge,\nthe floor holds your weight,\nand the door stays open.\nYou don\u2019t have to leave.\nThis is where you\u2019ve been all along.",
+    "hash": "f30a56b54ce61335a7838d5b1517c10b",
+    "metaphors": [
+      "door",
+      "wall",
+      "light",
+      "mirror"
+    ],
+    "themes": [
+      "silence",
+      "growth"
     ]
   }
 ]
