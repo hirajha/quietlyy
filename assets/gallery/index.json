@@ -2066,8 +2066,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1783180796,
-    "uses": 1,
-    "last_used": 1783200860
+    "uses": 2,
+    "last_used": 1785966987
   },
   {
     "file": "77a05171_0.png",
@@ -4288,13 +4288,31 @@
     "topic": "Finding Peace Within Yourself",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1785944839
+    "timestamp": 1785944839,
+    "uses": 1,
+    "last_used": 1785966987
   },
   {
     "file": "fb4ad04d_1.png",
     "topic": "Finding Peace Within Yourself",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1785944843
+    "timestamp": 1785944843,
+    "uses": 1,
+    "last_used": 1785966987
+  },
+  {
+    "file": "2a877478_0.png",
+    "topic": "Healing Alone",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1785966989
+  },
+  {
+    "file": "0d7318e2_1.png",
+    "topic": "Healing Alone",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1785966995
   }
 ]

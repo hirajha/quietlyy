@@ -1,18 +1,5 @@
 [
   {
-    "topic": "When You Make Ordinary Moments Feel Different",
-    "style": "love",
-    "script": "You\u2019re stirring honey into tea.\nThe spoon spins,\nbut the liquid doesn\u2019t swirl\u2014\nit just parts for you,\nlike the ocean for a saint.\nI watch the way your wrist tilts,\nhow the amber pools without sound.\nNo one else notices,\nbut the air hums differently here.\nThe cup warms my palms,\nand I realize\u2014\nthis is how you turn ordinary into sacred.\nsend this to them.",
-    "hash": "98416b8fdc7d1bda2ddf8e76731c2379",
-    "metaphors": [
-      "ocean",
-      "ring",
-      "tea",
-      "cup"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Loving Without Losing Yourself",
     "style": "poetic",
     "script": "The tide doesn\u2019t apologize,\nfor pulling back,\nleaving shells breathless on the sand.\nSome people,\nlike the moon,\ncall you closer,\nbut never let you orbit.\nYou learned,\nto shine,\nwithout drowning in their gravity.\nNow,\nyou glow,\nin your own eclipse.",
@@ -842,5 +829,16 @@
       "silence",
       "growth"
     ]
+  },
+  {
+    "topic": "Healing Alone",
+    "style": "nostalgic",
+    "script": "I FORGOT HOW TO ASK\nfor help\nso I built a ladder\nfrom the splinters\nof every door I closed.\nThe steps creaked\nlike old bones\nlearning to dance again.\nBy the top\nthe wind\nwhispered my name\nand I answered\nwithout flinching.",
+    "hash": "3e60e758e373b322fc45a65a3e59e6f7",
+    "metaphors": [
+      "door",
+      "wind"
+    ],
+    "themes": []
   }
 ]
