@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Being the One Who Always Checks In",
-    "style": "love",
-    "script": "There's a kind of loyalty that hums.\nLike a fridge in another room,\nsteady,\nunseen.\nI check the forecast for your mood\nbefore I check my own.\nThe messages pile\nsoft as laundry you'll never fold,\nbut I smooth them anyway.\nSome people need a lighthouse.\nYou just need the fog to lift sometimes.\nI'm the one holding the flashlight,\npointing at nothing.\nsend this to them.",
-    "hash": "b87bf18033458e623bfeedc8beccba9e",
-    "metaphors": [
-      "tea",
-      "light"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Someone Worth Staying For",
     "style": "love",
     "script": "I stopped counting the nights.\nYour name fits in my palm like a pebble,\nsmooth from years of holding.\nThe bed never feels empty,\njust softer where you aren\u2019t.\nI trace the shape of your absence,\nand the sheets remember your weight.\nSome bodies leave echoes,\nothers leave holes.\nYou left a rhythm.\nI hum it when the lights go out.\nsend this to them.",
@@ -835,5 +824,22 @@
       "mirror"
     ],
     "themes": []
+  },
+  {
+    "topic": "Being Strong for Everyone While Breaking Inside",
+    "style": "emotional",
+    "script": "You\u2019re holding the railing too tight.\nYour knuckles,\npale as the streetlights above,\nand no one asks\nif the weight is too much.\nSome days,\nyou\u2019re the bridge\nthat everyone crosses,\nbut the cracks\nare swallowing your name.\nYou laugh,\nand the sound is a coin\ndropped into a well\u2014\nno echo,\njust silence pretending to listen.\nLet them walk.",
+    "hash": "ad4f9c598b8f3c053ea0f2bd076e3c0d",
+    "metaphors": [
+      "light",
+      "tree",
+      "echo",
+      "silence",
+      "wall",
+      "bridge"
+    ],
+    "themes": [
+      "silence"
+    ]
   }
 ]

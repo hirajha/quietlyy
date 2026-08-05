@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Pretending You Are Fine"
+    "detail": "Being Strong for Everyone While Breaking Inside"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18125880118671243"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18094570421305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/Z9zFFUDWYfk"
+    "detail": "https://www.youtube.com/shorts/eByt-IIICts"
   }
 }
