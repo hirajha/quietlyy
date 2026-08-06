@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Falling Out of Love Slowly",
-    "style": "emotional",
-    "script": "You're folding their sweater again.\nThe wool still smells like rain,\nbut the scent is fading.\nNot in a rush,\njust the way old book pages yellow,\nslowly turning to dust.\nYou don\u2019t hate the color,\njust the way it doesn\u2019t fit anymore.\nSome memories,\nlike mismatched socks,\nare easier to lose.\nYou\u2019ll donate it tomorrow.\nOr maybe next week.",
-    "hash": "3aeaf685094caf25c617ddc478c9d02d",
-    "metaphors": [
-      "rain",
-      "sweater"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Silent Suffering Nobody Sees",
     "style": "love",
     "script": "The pillow still holds your shape\nslowly \n   Forgotten memories resurface \n   IN THE DEPTHS of my mind \n   a whispered promise, \n   and the weight of it \n   SINKS LIKE ANCHORS \n   but gently \n   THE RAIN FALLS \n   on empty pages \n   and the words we never said \n   remain unspoken \n   in this quiet space.",
@@ -834,6 +821,22 @@
     "metaphors": [],
     "themes": [
       "self_worth"
+    ]
+  },
+  {
+    "topic": "The Person Who Stayed",
+    "style": "emotional",
+    "script": "I still set the table for two\nquiet rituals no one sees\nThe chair across from me stays warm\njust from memory\u2019s weight\nSome nights I pour two glasses of rain\nand drink both in the dark\nnot to forget\nyou\u2019re still the hand I reach for in thunder\nThe clock doesn\u2019t move\nbut the dust on your coat does\nI won\u2019t brush it off\nlet it settle like you did\nsend this to them.",
+    "hash": "6bd39fdae9749840601bd5f6c4a6ea19",
+    "metaphors": [
+      "table",
+      "chair",
+      "rain",
+      "dark",
+      "glass"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
