@@ -1,22 +1,5 @@
 [
   {
-    "topic": "When You Outgrow Your Best Friend",
-    "style": "wisdom",
-    "script": "An old gardener whispered\u2014\nroots stretch\nbeyond the pot you planted them in.\n\nthey don\u2019t ask permission\nto seek deeper soil.\n\nmaybe your friendship was a season\na shared path that split at the ridge\none climbs toward sun the other toward rain\nand neither is wrong.\n\nyou\u2019ll meet again in the valley\nas strangers who once knew each other\u2019s names.",
-    "hash": "e71782f569a275517f4cae59648aa227",
-    "metaphors": [
-      "rain",
-      "garden",
-      "sun",
-      "roots",
-      "path"
-    ],
-    "themes": [
-      "grief_loss",
-      "friendship_loss"
-    ]
-  },
-  {
     "topic": "Falling Out of Love Slowly",
     "style": "emotional",
     "script": "You're folding their sweater again.\nThe wool still smells like rain,\nbut the scent is fading.\nNot in a rush,\njust the way old book pages yellow,\nslowly turning to dust.\nYou don\u2019t hate the color,\njust the way it doesn\u2019t fit anymore.\nSome memories,\nlike mismatched socks,\nare easier to lose.\nYou\u2019ll donate it tomorrow.\nOr maybe next week.",
@@ -841,6 +824,16 @@
     "themes": [
       "grief_loss",
       "silence"
+    ]
+  },
+  {
+    "topic": "What Loneliness Actually Teaches You",
+    "style": "lesson",
+    "script": "Your own presence is the only constant.\nNot everyone is meant to stay.\nYou learn to discern.\nTo trust your own footing.\nWe stop seeking outside validation for our worth.\nWe cultivate it within.\nThat ache you carry,\nyou learn to soothe it yourself.\nBecause what others can\u2019t give, you must.",
+    "hash": "a92bf239ddf08bd5f9b2662b5f1a46ed",
+    "metaphors": [],
+    "themes": [
+      "self_worth"
     ]
   }
 ]
