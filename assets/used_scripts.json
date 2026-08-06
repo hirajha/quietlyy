@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Loving Without Losing Yourself",
-    "style": "poetic",
-    "script": "The tide doesn\u2019t apologize,\nfor pulling back,\nleaving shells breathless on the sand.\nSome people,\nlike the moon,\ncall you closer,\nbut never let you orbit.\nYou learned,\nto shine,\nwithout drowning in their gravity.\nNow,\nyou glow,\nin your own eclipse.",
-    "hash": "8eb4a3e10406045029d3b4143a3a01c8",
-    "metaphors": [
-      "moon",
-      "tide"
-    ],
-    "themes": [
-      "growth"
-    ]
-  },
-  {
     "topic": "When You Outgrow Your Best Friend",
     "style": "wisdom",
     "script": "An old gardener whispered\u2014\nroots stretch\nbeyond the pot you planted them in.\n\nthey don\u2019t ask permission\nto seek deeper soil.\n\nmaybe your friendship was a season\na shared path that split at the ridge\none climbs toward sun the other toward rain\nand neither is wrong.\n\nyou\u2019ll meet again in the valley\nas strangers who once knew each other\u2019s names.",
@@ -840,5 +827,20 @@
       "wind"
     ],
     "themes": []
+  },
+  {
+    "topic": "Loving the Wrong People",
+    "style": "emotional",
+    "script": "There's a hunger that eats,\nnot for food,\nbut for the shape of their voice.\nYou memorize the cracks,\nthe way it breaks on certain words,\nand call it music.\nSome people don't feed you,\nthey just teach you how to starve quietly.\nThe hands that never held yours\nstill leave fingerprints on your ribs,\nand you trace them,\nlike constellations of what could've been.\nYou don't miss them,\njust the version of you\nthat believed in their light.",
+    "hash": "b6947e5c1cfc88a0bf129da9e8e184e4",
+    "metaphors": [
+      "star",
+      "light",
+      "tea"
+    ],
+    "themes": [
+      "grief_loss",
+      "silence"
+    ]
   }
 ]

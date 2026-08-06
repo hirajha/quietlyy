@@ -2075,8 +2075,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1783200862,
-    "uses": 1,
-    "last_used": 1783227865
+    "uses": 2,
+    "last_used": 1785990070
   },
   {
     "file": "1d3f544a_1.png",
@@ -4306,13 +4306,31 @@
     "topic": "Healing Alone",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1785966989
+    "timestamp": 1785966989,
+    "uses": 1,
+    "last_used": 1785990070
   },
   {
     "file": "0d7318e2_1.png",
     "topic": "Healing Alone",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1785966995
+    "timestamp": 1785966995,
+    "uses": 1,
+    "last_used": 1785990070
+  },
+  {
+    "file": "5024d06d_0.png",
+    "topic": "Loving the Wrong People",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1785990073
+  },
+  {
+    "file": "e7c7d4a1_1.png",
+    "topic": "Loving the Wrong People",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1785990077
   }
 ]
