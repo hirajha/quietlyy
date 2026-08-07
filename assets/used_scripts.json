@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Being Tired in Ways Sleep Cannot Fix",
-    "style": "emotional",
-    "script": "4:17 a.m. The kettle hums,\nbut the steam won\u2019t rise.\nI stir the sugar,\nslowly,\nlike I\u2019m dissolving,\nnot sweetening.\nThe cup stays cold,\njust like the weight in my ribs,\nnot heavy,\njust... there.\nSome mornings,\nyou wake up hollow,\nand no amount of light\nfills the space.\nlet them sleep.",
-    "hash": "a4e5e3b9e6b5ec443388716e336c028d",
-    "metaphors": [
-      "tea",
-      "light",
-      "cup"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Learning to Belong to Yourself",
     "style": "emotional",
     "script": "There's a quiet like the first snowfall,\nnot cold,\njust waiting to be named.\nI built a house inside my ribs,\nfour walls of breath,\nand locked the door.\nSome rooms I never showed anyone,\nnot even the mirror.\nI learned the shape of my own hunger,\nhow it hums,\nnot like a storm,\nbut like a river finding its bed.\nI belong to the current now.\nLet them watch me carry the light.",
@@ -834,6 +822,22 @@
       "loneliness",
       "being_used",
       "self_worth"
+    ]
+  },
+  {
+    "topic": "Why You Don't Beg To Be Loved",
+    "style": "lesson",
+    "script": "You don\u2019t beg.\nNot because you\u2019re proud.\nBecause you finally learned:\nSome doors only open from the inside.\n\nRemember the last time you waited by the phone?\nThe way your stomach dropped when their name lit up\u2014\nNot with the text you hoped for,\nBut the one you already knew was coming.\n\nYou don\u2019t beg anymore.\nBecause real love doesn\u2019t make you count the seconds.\nAnd the people who do?\nThey were never yours to keep.",
+    "hash": "73b55370dc8d0b68c909dff2e5c20c25",
+    "metaphors": [
+      "door",
+      "phone",
+      "text"
+    ],
+    "themes": [
+      "nostalgia",
+      "growth",
+      "love"
     ]
   }
 ]
