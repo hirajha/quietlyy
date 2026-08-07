@@ -2102,8 +2102,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1783227872,
-    "uses": 1,
-    "last_used": 1783248263
+    "uses": 2,
+    "last_used": 1786063790
   },
   {
     "file": "a461a57b_0.png",
@@ -4360,13 +4360,31 @@
     "topic": "The Person Who Stayed",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1786031377
+    "timestamp": 1786031377,
+    "uses": 1,
+    "last_used": 1786063790
   },
   {
     "file": "a19518cd_1.png",
     "topic": "The Person Who Stayed",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1786031382
+    "timestamp": 1786031382,
+    "uses": 1,
+    "last_used": 1786063790
+  },
+  {
+    "file": "d477b5ff_0.png",
+    "topic": "The Small Things I Notice About You",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1786063792
+  },
+  {
+    "file": "85b49532_1.png",
+    "topic": "The Small Things I Notice About You",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1786063798
   }
 ]

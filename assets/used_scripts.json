@@ -1,19 +1,5 @@
 [
   {
-    "topic": "Silent Suffering Nobody Sees",
-    "style": "love",
-    "script": "The pillow still holds your shape\nslowly \n   Forgotten memories resurface \n   IN THE DEPTHS of my mind \n   a whispered promise, \n   and the weight of it \n   SINKS LIKE ANCHORS \n   but gently \n   THE RAIN FALLS \n   on empty pages \n   and the words we never said \n   remain unspoken \n   in this quiet space.",
-    "hash": "d60f614b478a83651b5dea519f5b6510",
-    "metaphors": [
-      "pillow",
-      "anchor",
-      "rain"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What You Owe Yourself",
     "style": "lesson",
     "script": "It's not anger. Not exactly.\nIt\u2019s the quiet ache of holding back.\nOf always fitting in.\nWe give away our boundaries.\nPiece by piece.\nCall it compromise. Call it peace.\nUntil you barely recognize yourself.\nFor temporary comfort.\nYou owe yourself the space to be whole.",
@@ -838,5 +824,16 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Small Things I Notice About You",
+    "style": "emotional",
+    "script": "How do you name the space between,\nthe way your fingers\nleave dents in the couch cushion,\nnot from weight\nbut from waiting.\nI notice the way you stir your coffee,\nthree slow circles,\npause,\nthen lift the spoon like it\u2019s fragile.\nSome days,\nI swear I can hear the air shift\nwhen you exhale,\nlike the room itself\nis holding its breath.\nTell them.",
+    "hash": "d991a78d19f59c70195c7024eecc229c",
+    "metaphors": [
+      "couch",
+      "coffee"
+    ],
+    "themes": []
   }
 ]
