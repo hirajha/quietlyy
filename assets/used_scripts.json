@@ -1,15 +1,5 @@
 [
   {
-    "topic": "What You Owe Yourself",
-    "style": "lesson",
-    "script": "It's not anger. Not exactly.\nIt\u2019s the quiet ache of holding back.\nOf always fitting in.\nWe give away our boundaries.\nPiece by piece.\nCall it compromise. Call it peace.\nUntil you barely recognize yourself.\nFor temporary comfort.\nYou owe yourself the space to be whole.",
-    "hash": "3ebbe0bc665101065526443c2794e3ab",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Power of Small Moments",
     "style": "emotional",
     "script": "How do you explain the way\nlight lingers on your mother\u2019s hands\nwhen she thinks no one\u2019s watching,\nbut the flour still clings to her skin\nlike a secret she\u2019s too tired to hide?\nThe kitchen hums,\nlow and steady,\nnot asking for anything,\njust the weight of small things\u2014\na cracked mug,\na half-peeled potato,\nthe way time bends\naround what matters most.\nSend this to her.",
@@ -833,6 +823,16 @@
     "metaphors": [
       "couch",
       "coffee"
+    ],
+    "themes": []
+  },
+  {
+    "topic": "People Who Use You",
+    "style": "wisdom",
+    "script": "Hafiz knew this\u2014\nthe ones who take\nleave fingerprints on your kindness.\nnot scars,\njust smudges of their own hurry.\n\nyou learn to wipe them clean\nnot with anger,\nbut the same cloth you use\nfor dew on morning grass.\n\nsome hands are cups,\nsome are sieves.\nknow the difference,\nand pour anyway.",
+    "hash": "dc866de24948c9681c1515bc0d2c0775",
+    "metaphors": [
+      "cup"
     ],
     "themes": []
   }
