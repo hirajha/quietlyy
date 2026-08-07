@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Power of Small Moments",
-    "style": "emotional",
-    "script": "How do you explain the way\nlight lingers on your mother\u2019s hands\nwhen she thinks no one\u2019s watching,\nbut the flour still clings to her skin\nlike a secret she\u2019s too tired to hide?\nThe kitchen hums,\nlow and steady,\nnot asking for anything,\njust the weight of small things\u2014\na cracked mug,\na half-peeled potato,\nthe way time bends\naround what matters most.\nSend this to her.",
-    "hash": "c4e306fb584626739ecde878b808735f",
-    "metaphors": [
-      "tea",
-      "light",
-      "kitchen",
-      "mug"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Being Tired in Ways Sleep Cannot Fix",
     "style": "emotional",
     "script": "4:17 a.m. The kettle hums,\nbut the steam won\u2019t rise.\nI stir the sugar,\nslowly,\nlike I\u2019m dissolving,\nnot sweetening.\nThe cup stays cold,\njust like the weight in my ribs,\nnot heavy,\njust... there.\nSome mornings,\nyou wake up hollow,\nand no amount of light\nfills the space.\nlet them sleep.",
@@ -835,5 +820,20 @@
       "cup"
     ],
     "themes": []
+  },
+  {
+    "topic": "The Cost Of Always Being Available",
+    "style": "lesson",
+    "script": "The last text you answered at 2 a.m. wasn\u2019t urgent.\nIt just felt like it.\nWe confuse availability with importance.\nLike replying fast proves we matter.\nBut some people text late because they\u2019re lonely,\nnot because you\u2019re needed.\nYou start to believe your worth is measured in read receipts.\nIt\u2019s not.\nThe cost of always being available?\nYou forget how to be present.\nAnd the people who truly see you?\nThey don\u2019t need you on call.",
+    "hash": "607ffa3b50dfd6a166da7e88455bc68d",
+    "metaphors": [
+      "text",
+      "star"
+    ],
+    "themes": [
+      "loneliness",
+      "being_used",
+      "self_worth"
+    ]
   }
 ]

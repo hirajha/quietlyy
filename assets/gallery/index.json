@@ -2120,8 +2120,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1783248269,
-    "uses": 1,
-    "last_used": 1783267549
+    "uses": 2,
+    "last_used": 1786113311
   },
   {
     "file": "9a369c86_0.png",
@@ -4396,13 +4396,31 @@
     "topic": "People Who Use You",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1786091321
+    "timestamp": 1786091321,
+    "uses": 1,
+    "last_used": 1786113311
   },
   {
     "file": "3dc520cd_1.png",
     "topic": "People Who Use You",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1786091325
+    "timestamp": 1786091325,
+    "uses": 1,
+    "last_used": 1786113311
+  },
+  {
+    "file": "7776d0fb_0.png",
+    "topic": "The Cost Of Always Being Available",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1786113313
+  },
+  {
+    "file": "373d0887_1.png",
+    "topic": "The Cost Of Always Being Available",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1786113318
   }
 ]

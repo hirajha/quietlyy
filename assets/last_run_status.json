@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "People Who Use You"
+    "detail": "The Cost Of Always Being Available"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18129211417648532"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18094897151305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/JzDktJgApRs"
+    "detail": "https://www.youtube.com/shorts/Ac8y5hFLxp8"
   }
 }
