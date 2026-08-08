@@ -1,19 +1,5 @@
 [
   {
-    "topic": "Being Misunderstood",
-    "style": "love",
-    "script": "There's a quiet like a locked door\u2014\nno one knocks,\njust tests the handle,\nassumes it's stuck.\nI leave the key\nwhere they can't see it,\nbut they never look.\nThe walls hum\nwith things I never said,\nand the echo answers for me.\nI am a language\nyou chose not to learn.\nsend this to them.",
-    "hash": "bdea408988df1e2924314bfdb88bbe32",
-    "metaphors": [
-      "wall",
-      "echo",
-      "door"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Little Things You Do",
     "style": "nostalgic",
     "script": "YOU LEAVE THE LIGHT ON\nin the hallway\njust in case\nI wake up scared\nand for years after\nI still check\nbefore I sleep.\n\nSOMEONE TAUGHT YOU\nhow to fold a fitted sheet\nso it lies flat\nlike a promise\nand now every corner\nfeels like home.\n\nTHE WAY YOU\nscrunch your nose\nwhen you laugh\nis the first thing\nI ever memorized.\n\nI FIND YOUR HAIR\nin my sweater pockets\nmonths later\nand it still smells\nlike the kitchen\nwhere you made toast\nat 2 a.m.",
@@ -834,6 +820,19 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The Strength in Stillness",
+    "style": "nostalgic",
+    "script": "THE WAY YOU STAND\nstill\nlike the last train\nholding its breath\nbefore the station empties.\n\nYou don\u2019t flinch\nwhen the wind tests you\nor when the world\nshifts its weight.\n\nLEAVES fall\naround your feet\nbut never touch you\u2014\nyou were the ground\nall along.",
+    "hash": "dbeb0f1136bd46460ebc0c604ac1532e",
+    "metaphors": [
+      "wind",
+      "rain"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
