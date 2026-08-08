@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Learning to Trust the Journey"
+    "detail": "The People Who Leave When You Need Them Most"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18094972208305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18105785450132262"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/BScTwpM05Xo"
+    "detail": "https://www.youtube.com/shorts/l64RAAlAbEg"
   }
 }
