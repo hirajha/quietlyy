@@ -1,23 +1,5 @@
 [
   {
-    "topic": "Learning to Belong to Yourself",
-    "style": "emotional",
-    "script": "There's a quiet like the first snowfall,\nnot cold,\njust waiting to be named.\nI built a house inside my ribs,\nfour walls of breath,\nand locked the door.\nSome rooms I never showed anyone,\nnot even the mirror.\nI learned the shape of my own hunger,\nhow it hums,\nnot like a storm,\nbut like a river finding its bed.\nI belong to the current now.\nLet them watch me carry the light.",
-    "hash": "710e1427a95d32c6d639fdb2d54cb055",
-    "metaphors": [
-      "wall",
-      "mirror",
-      "bed",
-      "door",
-      "light",
-      "storm"
-    ],
-    "themes": [
-      "silence",
-      "growth"
-    ]
-  },
-  {
     "topic": "Falling For Someone Who Does Not Know",
     "style": "emotional",
     "script": "Some feelings don\u2019t ask for permission.\nThey arrive like the tide,\nunnoticed until your shoes are wet.\nYou try to step back,\nbut the water remembers your name.\nNot in waves,\njust a slow pull,\ndragging you deeper.\nThe sand beneath you shifts,\nand you realize\nit\u2019s not the ocean you\u2019re afraid of\u2014\nit\u2019s the weight of wanting.\nLet them stay dry.",
@@ -838,6 +820,23 @@
       "nostalgia",
       "growth",
       "love"
+    ]
+  },
+  {
+    "topic": "Learning to Trust the Journey",
+    "style": "wisdom",
+    "script": "Remember the smell of wet pavement\nin July.\nThe way the heat rose\nlike a slow breath\nbefore the storm broke.\n\nLao Tzu knew this\u2014\ntrust the path\neven when it disappears\ninto mist.\n\nWe spend years\nmapping every turn\nwhile the road\nrewrites itself.\n\nYou\u2019ll recognize it\nwhen the next step\nfeels lighter\nthan the last.",
+    "hash": "30a36aae11c65477900319f544491aa4",
+    "metaphors": [
+      "light",
+      "storm",
+      "path",
+      "map",
+      "road"
+    ],
+    "themes": [
+      "heartbreak",
+      "nostalgia"
     ]
   }
 ]
