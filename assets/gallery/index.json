@@ -1,23 +1,5 @@
 [
   {
-    "file": "bef91d9d_2.png",
-    "topic": "When Grief Becomes a Teacher",
-    "panel": 2,
-    "source": "fresh",
-    "timestamp": 1780761814,
-    "uses": 2,
-    "last_used": 1780868172
-  },
-  {
-    "file": "372c5ba1_3.png",
-    "topic": "When Grief Becomes a Teacher",
-    "panel": 3,
-    "source": "fresh",
-    "timestamp": 1780761819,
-    "uses": 2,
-    "last_used": 1780868172
-  },
-  {
     "file": "64bac4e1_4.png",
     "topic": "When Grief Becomes a Teacher",
     "panel": 4,
@@ -2147,8 +2129,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1783338220,
-    "uses": 1,
-    "last_used": 1783371344
+    "uses": 2,
+    "last_used": 1786267203
   },
   {
     "file": "f318f5dd_1.png",
@@ -4486,13 +4468,31 @@
     "topic": "One-Sided Effort",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1786245086
+    "timestamp": 1786245086,
+    "uses": 1,
+    "last_used": 1786267203
   },
   {
     "file": "63b40868_1.png",
     "topic": "One-Sided Effort",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1786245090
+    "timestamp": 1786245090,
+    "uses": 1,
+    "last_used": 1786267203
+  },
+  {
+    "file": "e8918100_0.png",
+    "topic": "The Art of Letting Go",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1786267206
+  },
+  {
+    "file": "fcb8bd2d_1.png",
+    "topic": "The Art of Letting Go",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1786267211
   }
 ]

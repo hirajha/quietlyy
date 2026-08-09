@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Wisdom of Not Forcing",
-    "style": "wisdom",
-    "script": "Lao Tzu whispered\u2014\nnot everything soft\nbends to your will.\n\nsome things grow\nonly where the soil\nis left undisturbed.\n\nyou can dig and dig,\nbut the seed knows\nwhen the sun is right.\n\nwhat you force\nnever takes root\u2014\nwhat waits,\ndoes.",
-    "hash": "be411f84ebfc8f824cbe932fee626223",
-    "metaphors": [
-      "sun",
-      "seed",
-      "bed"
-    ],
-    "themes": [
-      "growth",
-      "loneliness"
-    ]
-  },
-  {
     "topic": "When You Love Someone Who Is Leaving",
     "style": "emotional",
     "script": "You\u2019re folding their favorite sweater\nagain\njust to feel the weight of it\nThe sleeves still smell like yesterday\nbut the clock ticks louder now\nSome things don\u2019t need words\nto know they\u2019re ending\nYou press the fabric to your face\nslowly\nlike a secret you can\u2019t keep\nThe door is closing\nand you\u2019re still standing there\nholding onto threads.",
@@ -827,6 +812,21 @@
     ],
     "themes": [
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "The Art of Letting Go",
+    "style": "love",
+    "script": "The last text still glows on your screen.\nUnanswered,\nbut not unread.\nI trace the letters like a child\nlearning a new language.\nThe backspace button hums,\nsoft as a lullaby.\nOne tap,\nand the weight lifts.\nNot erased,\njust... set down.\nThe phone dims,\nquietly,\nlike a door closing behind me.",
+    "hash": "7e77fd5951691551c3ffa9e2d0baf8c9",
+    "metaphors": [
+      "letter",
+      "door",
+      "phone",
+      "text"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
