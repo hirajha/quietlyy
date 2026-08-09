@@ -1,19 +1,5 @@
 [
   {
-    "topic": "What You Cannot Change and What You Can",
-    "style": "wisdom",
-    "script": "Lao Tzu whispered\nwhat bends you\nis not the wind\nbut the shape\nof your branches.\n\nyou cannot still the storm\nbut you can learn\nto dance in the rain\nwithout naming it\nor blaming the sky.\n\nlet the weight settle\nwhere it lands.",
-    "hash": "d8354a7155a2bce4dbf138aafe03e23f",
-    "metaphors": [
-      "storm",
-      "wind",
-      "rain"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Being Strong for Everyone While Breaking Inside",
     "style": "love",
     "script": "There's a kind of strength that hums\nlike a fridge in an empty kitchen.\nYou keep the lights on,\nbut the bulb flickers only for you.\nThey praise your steady hands,\nnever noticing the cracks you patch with spit and silence.\nThe house stands,\nthe walls breathe,\nand you,\nyou are the only one who hears the foundation sigh.\nSend this to them.",
@@ -826,6 +812,20 @@
       "moving_on",
       "silence",
       "self_worth"
+    ]
+  },
+  {
+    "topic": "Loving Quietly From a Distance",
+    "style": "nostalgic",
+    "script": "I leave the porch light on\nfor you\njust in case\nyou ever drive by\nslow enough to see\nit flicker like a Morse code\nI never learned to send.\nThe neighbors think I\u2019m forgetful\nbut really\nI\u2019m waiting\nfor the hum of tires\non wet pavement\nto sound like your name.",
+    "hash": "828e2df957c76b442bf0500553846f97",
+    "metaphors": [
+      "porch",
+      "light"
+    ],
+    "themes": [
+      "self_worth",
+      "growth"
     ]
   }
 ]
