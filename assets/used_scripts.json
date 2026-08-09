@@ -1,24 +1,5 @@
 [
   {
-    "topic": "The Small Things I Notice About You",
-    "style": "love",
-    "script": "You don\u2019t glow. Not like that.\nThe way your socks never match,\nbut your toes curl when you laugh\u2014\nI\u2019ve memorized the pattern.\n\nYour coffee cup leaves rings,\nperfect circles on my notebook,\nlike tiny secrets you didn\u2019t mean to tell.\n\nThe way you hum off-key,\njust slightly,\nand the song still fits.\n\nYour shadow on the wall,\ntaller than you are,\nbut softer.\nSend this to them.",
-    "hash": "875f3294e832b890508da074325f7158",
-    "metaphors": [
-      "coffee",
-      "note",
-      "light",
-      "cup",
-      "shadow",
-      "song",
-      "wall",
-      "ring"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Wisdom of Not Forcing",
     "style": "wisdom",
     "script": "Lao Tzu whispered\u2014\nnot everything soft\nbends to your will.\n\nsome things grow\nonly where the soil\nis left undisturbed.\n\nyou can dig and dig,\nbut the seed knows\nwhen the sun is right.\n\nwhat you force\nnever takes root\u2014\nwhat waits,\ndoes.",
@@ -830,5 +811,22 @@
       "rain"
     ],
     "themes": []
+  },
+  {
+    "topic": "One-Sided Effort",
+    "style": "nostalgic",
+    "script": "YOU REMEMBER THE WAY\nI\u2019d set the table\nfor two\nbefore you even thought of coming\n\nI\u2019d leave the porch light on\npast midnight\npast reason\n\nYOU NEVER ASKED FOR IT\nbut I gave\nanyway\nlike a tide\nthat keeps returning\nto a shore\nthat doesn\u2019t want the water\n\nnow the plates gather dust\nand the bulb burns out",
+    "hash": "a87c3d17fd11bb161b80efc71097f1cb",
+    "metaphors": [
+      "shore",
+      "light",
+      "plate",
+      "table",
+      "porch",
+      "tide"
+    ],
+    "themes": [
+      "nostalgia"
+    ]
   }
 ]
