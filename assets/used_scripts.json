@@ -1,18 +1,5 @@
 [
   {
-    "topic": "When You Love Someone Who Is Leaving",
-    "style": "emotional",
-    "script": "You\u2019re folding their favorite sweater\nagain\njust to feel the weight of it\nThe sleeves still smell like yesterday\nbut the clock ticks louder now\nSome things don\u2019t need words\nto know they\u2019re ending\nYou press the fabric to your face\nslowly\nlike a secret you can\u2019t keep\nThe door is closing\nand you\u2019re still standing there\nholding onto threads.",
-    "hash": "2fa1dea7e3918a5c40cd1ab4a6243f71",
-    "metaphors": [
-      "sweater",
-      "door"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What You Cannot Change and What You Can",
     "style": "wisdom",
     "script": "Lao Tzu whispered\nwhat bends you\nis not the wind\nbut the shape\nof your branches.\n\nyou cannot still the storm\nbut you can learn\nto dance in the rain\nwithout naming it\nor blaming the sky.\n\nlet the weight settle\nwhere it lands.",
@@ -827,6 +814,18 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Being Too Kind In A Cruel World",
+    "style": "lesson",
+    "script": "Kindness is often mistaken for endless access.\nYour boundless spirit,\nbecomes a free pass.\nFor those who take,\nthey rarely give.\nWe learn this slow.\nEach quiet sacrifice, a toll.\nThey were never kind enough to warn you.\nYou were just too kind to notice.",
+    "hash": "6a027fa2161010c9ad2f1145130b2f51",
+    "metaphors": [],
+    "themes": [
+      "moving_on",
+      "silence",
+      "self_worth"
     ]
   }
 ]
