@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Person Behind My Smile",
-    "style": "poetic",
-    "script": "The face I wear is paper,\nthin,\nfragile as a moth\u2019s wing in winter.\nEvery laugh I stitch,\nevery grin I fold,\njust another crease in the mask.\nSome days,\nit clings like wet silk,\nothers,\nit peels back,\nrevealing the ink beneath.\nNot sadness,\nnot fear,\njust the quiet hum of being seen,\nfinally,\nwithout explanation.",
-    "hash": "ca016edf910f9e68ad7e712744e4790c",
-    "metaphors": [
-      "mask"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What Real Love Requires",
     "style": "poetic",
     "script": "Real love isn\u2019t a promise,\nit\u2019s a practice.\nEvery morning,\nyou wake up,\nchoose again.\nThe hands that built the bridge\ncan also burn it,\nbut they don\u2019t.\nSome people carry storms inside,\nnot to destroy,\nbut to water the seeds\nyou forgot you planted.",
@@ -819,5 +807,20 @@
       "light"
     ],
     "themes": []
+  },
+  {
+    "topic": "When You Found Me",
+    "style": "poetic",
+    "script": "When you found me,\nI was a half-built bridge\nsuspended over nothing,\njust steel whispers\nand the wind\u2019s warning.\nYou didn\u2019t ask for directions,\njust brought a toolbox\nand a silence that knew how to listen.\nSome nights,\nthe bolts still hum your name,\nbut the river underneath?\nIt never once asked for a map.",
+    "hash": "c398c79c3fd5c6306919559ff46d795e",
+    "metaphors": [
+      "silence",
+      "wind",
+      "bridge",
+      "map"
+    ],
+    "themes": [
+      "silence"
+    ]
   }
 ]
