@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Quiet Power Of Letting Go"
+    "detail": "When You Love Someone Who Is Leaving"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18095267405305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18113083490046760"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/f1CQ-tFTV-0"
+    "detail": "https://www.youtube.com/shorts/BAu832IsX34"
   }
 }

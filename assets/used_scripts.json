@@ -1,22 +1,5 @@
 [
   {
-    "topic": "The Way You Look When You Do Not Know I Am Watching",
-    "style": "emotional",
-    "script": "You\u2019re not hiding.\nJust resting your face,\nand the world gets lighter.\nThe way your fingers\nfidget with the edge of the curtain,\nnot nervous,\njust remembering how sunlight feels.\nI\u2019ve seen you like this before\u2014\nunbraced,\nunarmored,\nlike a door left ajar.\nSome secrets only exist\nwhen no one\u2019s looking.\nI\u2019ll keep this one.",
-    "hash": "c3e89721f354951f3b46a3b03873cbbd",
-    "metaphors": [
-      "ring",
-      "sun",
-      "armor",
-      "door",
-      "light"
-    ],
-    "themes": [
-      "nostalgia",
-      "loneliness"
-    ]
-  },
-  {
     "topic": "What I Mean When I Say I Love You",
     "style": "love",
     "script": "It\u2019s not devotion. Not like that.\nYour name tastes like rain on old paper,\nsoft edges,\nfading ink I trace with my thumb.\nI DON\u2019T SAY IT TO HOLD YOU,\njust to watch the way your eyelashes\ncatch the light when you\u2019re not looking.\nAnd... it\u2019s not about forever,\njust the quiet hum of your sweater\nwhen you lean against me,\nlike a secret I\u2019m not supposed to keep.\nsend this to them.",
@@ -822,6 +805,22 @@
       "loneliness",
       "love",
       "silence"
+    ]
+  },
+  {
+    "topic": "When You Love Someone Who Is Leaving",
+    "style": "emotional",
+    "script": "The suitcase stays half-packed for weeks.\nNot out of hesitation,\njust the quiet weight of what fits inside.\nSome memories\nrefuse to fold neatly,\nstubborn as a sleeve caught in the zipper.\nI trace the seams,\ncounting the miles between stitches,\nbut the distance isn\u2019t in the fabric.\nIt\u2019s in the way the light shifts\nwhen you walk out the door.\nI\u2019ll leave the porch light on.\nNot to guide you back,\njust so you know\nsomeone still sees the dark.",
+    "hash": "abab3c27774aac500a656bfd38182669",
+    "metaphors": [
+      "porch",
+      "dark",
+      "light",
+      "door"
+    ],
+    "themes": [
+      "silence",
+      "friendship_loss"
     ]
   }
 ]
