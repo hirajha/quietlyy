@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Loving Quietly From a Distance"
+    "detail": "The Quiet Power Of Letting Go"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18116032174844023"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18095267405305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/tP6KE1J5IHI"
+    "detail": "https://www.youtube.com/shorts/f1CQ-tFTV-0"
   }
 }
