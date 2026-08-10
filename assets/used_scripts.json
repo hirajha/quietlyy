@@ -1,19 +1,5 @@
 [
   {
-    "topic": "What I Mean When I Say I Love You",
-    "style": "love",
-    "script": "It\u2019s not devotion. Not like that.\nYour name tastes like rain on old paper,\nsoft edges,\nfading ink I trace with my thumb.\nI DON\u2019T SAY IT TO HOLD YOU,\njust to watch the way your eyelashes\ncatch the light when you\u2019re not looking.\nAnd... it\u2019s not about forever,\njust the quiet hum of your sweater\nwhen you lean against me,\nlike a secret I\u2019m not supposed to keep.\nsend this to them.",
-    "hash": "32fde1e7969f8356309b706f78ba4dd3",
-    "metaphors": [
-      "rain",
-      "sweater",
-      "light"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Person Behind My Smile",
     "style": "poetic",
     "script": "The face I wear is paper,\nthin,\nfragile as a moth\u2019s wing in winter.\nEvery laugh I stitch,\nevery grin I fold,\njust another crease in the mask.\nSome days,\nit clings like wet silk,\nothers,\nit peels back,\nrevealing the ink beneath.\nNot sadness,\nnot fear,\njust the quiet hum of being seen,\nfinally,\nwithout explanation.",
@@ -822,5 +808,16 @@
       "silence",
       "friendship_loss"
     ]
+  },
+  {
+    "topic": "The Exhaustion of Pretending to Be Okay",
+    "style": "emotional",
+    "script": "You\u2019re not tired. Just hollow.\nThe same smile you rehearse in the mirror,\nslowly cracks under fluorescent light.\nNo one asks,\nand you don\u2019t tell\u2014\njust nod,\nlike a dashboard bobblehead in rush hour.\nSome days,\neven gravity feels like an audience.\nThe weight of your own bones,\na standing ovation you didn\u2019t ask for.\nYou\u2019re not okay.\nYou\u2019re just better at lying to yourself now.",
+    "hash": "8090e2b4f99a2819e00dc0faa0aeaa38",
+    "metaphors": [
+      "mirror",
+      "light"
+    ],
+    "themes": []
   }
 ]
