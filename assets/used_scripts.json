@@ -1,23 +1,5 @@
 [
   {
-    "topic": "When You Make Ordinary Moments Feel Different",
-    "style": "nostalgic",
-    "script": "You hand me a mug\nwarm\nand the steam\ncurls like a question\nI never learned to answer.\nWE STOOD IN THE KITCHEN\ncounting cracks in the ceiling\nwhile the coffee went cold.\nIt wasn\u2019t special\nuntil you looked at me\nlike I was the first light\nyou\u2019d seen in years.\nNow every morning tastes\nof something lost\nand found\nall at once.",
-    "hash": "15b743e765c9122ac6575002cf90f7af",
-    "metaphors": [
-      "mug",
-      "coffee",
-      "kitchen",
-      "light",
-      "ceiling",
-      "tea"
-    ],
-    "themes": [
-      "grief_loss",
-      "growth"
-    ]
-  },
-  {
     "topic": "When Friendship Becomes One-Sided",
     "style": "emotional",
     "script": "Saturday afternoon. The screen glows blue.\nYour name appears,\nthen disappears,\nlike a tide pulling back.\nI still set the table for two,\nbut the chair stays empty.\nSome friendships are mirrors,\nreflecting only what you need to see.\nThe messages you ignore\nbecome echoes in my inbox,\nslowly dissolving into static.\nI won\u2019t delete your number,\njust the expectation.\nLet it go.",
@@ -825,6 +807,16 @@
     "themes": [
       "growth",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The Strength In Walking Away",
+    "style": "lesson",
+    "script": "Nobody escapes the weight of their own expectations. \nMost people are just trying to survive. \nTheir words are laced with hidden conditions. \nSome relationships are a gentle decline. \nInto a space where love is just a memory. \nWe invest years in people who will eventually become strangers. \nIt's a risk we take, a gamble with our hearts. \nThe hardest part is accepting that it's okay to move on. \nWalking away is not weakness. \nIt's the bravest thing you'll ever do.",
+    "hash": "c925fdeafa45a86a59a4d72424f5b0a2",
+    "metaphors": [],
+    "themes": [
+      "love"
     ]
   }
 ]
