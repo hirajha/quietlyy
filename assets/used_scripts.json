@@ -1,19 +1,5 @@
 [
   {
-    "topic": "What Real Love Requires",
-    "style": "poetic",
-    "script": "Real love isn\u2019t a promise,\nit\u2019s a practice.\nEvery morning,\nyou wake up,\nchoose again.\nThe hands that built the bridge\ncan also burn it,\nbut they don\u2019t.\nSome people carry storms inside,\nnot to destroy,\nbut to water the seeds\nyou forgot you planted.",
-    "hash": "2a292e107c90c4ae62734abe9bbdb23b",
-    "metaphors": [
-      "bridge",
-      "storm",
-      "seed"
-    ],
-    "themes": [
-      "love"
-    ]
-  },
-  {
     "topic": "The Kind of Love That Doesn't Shout",
     "style": "nostalgic",
     "script": "IT LIVES in the way\nshe stirs the pot\none slow circle\nthen tastes\nwithout asking if it's good.\nThe salt finds its way\nlike we do,\nthrough back doors\nand half-open windows.\nWE NEVER NAME IT\nbut the spoons know,\nthe ones we leave\nin the sink overnight.",
@@ -818,6 +804,21 @@
       "wind",
       "bridge",
       "map"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "You Are My Calm",
+    "style": "love",
+    "script": "You are not the rain. Not even close.\nA single drop on the windowpane,\nand suddenly I\u2019m breathing again.\nThe room doesn\u2019t change,\nbut the air tastes lighter.\nYour voice doesn\u2019t fix anything,\nit just makes the cracks feel intentional.\nLike kintsugi,\nbut the gold is your name.\nI don\u2019t need you to hold me,\njust let me lean.\nThe quiet hum of your presence,\nthat\u2019s the only lullaby I\u2019ve ever known.\nsend this to them.",
+    "hash": "4f397c2e0f4131e1c70d411fff290c0f",
+    "metaphors": [
+      "wind",
+      "rain",
+      "light",
+      "window"
     ],
     "themes": [
       "silence"
