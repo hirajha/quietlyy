@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Kind of Love That Doesn't Shout",
-    "style": "nostalgic",
-    "script": "IT LIVES in the way\nshe stirs the pot\none slow circle\nthen tastes\nwithout asking if it's good.\nThe salt finds its way\nlike we do,\nthrough back doors\nand half-open windows.\nWE NEVER NAME IT\nbut the spoons know,\nthe ones we leave\nin the sink overnight.",
-    "hash": "6baacbd9adb0323f7d875f6cb2df6b7e",
-    "metaphors": [
-      "wind",
-      "door",
-      "window"
-    ],
-    "themes": []
-  },
-  {
     "topic": "When You Make Ordinary Moments Feel Different",
     "style": "nostalgic",
     "script": "You hand me a mug\nwarm\nand the steam\ncurls like a question\nI never learned to answer.\nWE STOOD IN THE KITCHEN\ncounting cracks in the ceiling\nwhile the coffee went cold.\nIt wasn\u2019t special\nuntil you looked at me\nlike I was the first light\nyou\u2019d seen in years.\nNow every morning tastes\nof something lost\nand found\nall at once.",
@@ -822,6 +810,21 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Smile That Hides Everything",
+    "style": "love",
+    "script": "The porch light stays on all night.\nYou taught it to wait,\nbut it never learned how to turn off.\nYOUR SMILE IS A LOCKED JOURNAL,\npages filled with ink that won\u2019t bleed.\nI trace the spine,\nwondering if the key is lost\nor just hidden in plain sight.\nThe corners are soft now,\nworn from hands that pretend not to notice.\nI leave it on the shelf,\nwhere the dust settles like a secret.\nsend this to them.",
+    "hash": "f9bbde7254b57af6858fefcbea1a8df2",
+    "metaphors": [
+      "light",
+      "ring",
+      "porch"
+    ],
+    "themes": [
+      "growth",
+      "grief_loss"
     ]
   }
 ]
