@@ -1,22 +1,5 @@
 [
   {
-    "topic": "When Friendship Becomes One-Sided",
-    "style": "emotional",
-    "script": "Saturday afternoon. The screen glows blue.\nYour name appears,\nthen disappears,\nlike a tide pulling back.\nI still set the table for two,\nbut the chair stays empty.\nSome friendships are mirrors,\nreflecting only what you need to see.\nThe messages you ignore\nbecome echoes in my inbox,\nslowly dissolving into static.\nI won\u2019t delete your number,\njust the expectation.\nLet it go.",
-    "hash": "598ada8f94328891feddc6ccacea7b1f",
-    "metaphors": [
-      "echo",
-      "chair",
-      "mirror",
-      "tide",
-      "table"
-    ],
-    "themes": [
-      "friendship_loss",
-      "silence"
-    ]
-  },
-  {
     "topic": "Someone Worth Staying For",
     "style": "nostalgic",
     "script": "YOU KNOW THE WAY\nsomeone\u2019s laugh\nlingers\nlike the last train\u2019s hum\nafter it\u2019s gone.\nThe way they leave\ncrumbs of warmth\non every surface\nYOU TOUCH\nand suddenly\nevery room\nfeels like coming home.",
@@ -818,5 +801,17 @@
     "themes": [
       "love"
     ]
+  },
+  {
+    "topic": "When Someone Chooses You Every Day",
+    "style": "nostalgic",
+    "script": "YOU LEAVE the porch light on\nfor me\nwarm yellow spilling down the steps\nlike an invitation\nI step over the threshold\nand the door clicks shut\nnot locked\njust held\nYOU STIR the pot one more time\nadd a pinch of salt\ntaste it\nsay nothing\nI count the freckles on your wrist\nwhile you pretend not to notice\nthe way my fingers linger\nWE DON\u2019T talk about forever\nwe just\nkeep choosing",
+    "hash": "94288fd7ba767396252b088c4b40ec4f",
+    "metaphors": [
+      "porch",
+      "light",
+      "door"
+    ],
+    "themes": []
   }
 ]
