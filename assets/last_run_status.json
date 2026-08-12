@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Someone Worth Staying For"
+    "detail": "The One Who Got Away"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18025613615892735"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18095657195305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/WLOU5zMcVG8"
+    "detail": "https://www.youtube.com/shorts/U8KqaIeLNXs"
   }
 }

@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Cost Of Always Being Available",
-    "style": "lesson",
-    "script": "You're always on. Not by choice.\nYour phone is your leash,\nconstant reminders of tasks,\npeople needing things from you.\nWe trade peace for availability,\nand call it responsibility.\nBut what's the cost of being always on?\nWe're exhausted, drained, depleted.\nYou're running on empty, and still,\nYou're expected to keep going.\nYou're not a machine, but you're treated like one.",
-    "hash": "6305a08bfa2485808fb98f3944de8b4b",
-    "metaphors": [
-      "rain",
-      "phone"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Texts You Never Send",
     "style": "nostalgic",
     "script": "Words linger\nwe just\nunsent messages\npiling up somewhere\nin the depths of our phones\nAND YET WE HOLD ON\nstill\nto the hope\nthat someday\nSOMEONE WILL UNDERSTAND\nthe weight of what we didn't say",
@@ -816,6 +803,20 @@
     "themes": [
       "self_worth",
       "silence"
+    ]
+  },
+  {
+    "topic": "The One Who Got Away",
+    "style": "wisdom",
+    "script": "Hafiz whispered\nsome souls\nare like rain\nthat never quite reaches the ground,\nhovering just above your skin\na promise you can almost taste.\nI keep wondering\nif the one who left\nwas ever meant to stay\nor just to teach me\nhow to hold what evaporates\nwithout regret.",
+    "hash": "95561841fad1e3820f7903283e53fe3d",
+    "metaphors": [
+      "rain",
+      "ring",
+      "tea"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
