@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The One Who Got Away"
+    "detail": "Grieving Someone Who Did Not Die"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18095657195305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18025072718849083"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/U8KqaIeLNXs"
+    "detail": "https://www.youtube.com/shorts/BRP59hrsFuw"
   }
 }
