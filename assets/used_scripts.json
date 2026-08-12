@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Learning To Be Enough On Your Own",
-    "style": "lesson",
-    "script": "We overestimate the power of others.\nTo complete us, to fix us, to make us enough.\nBut the truth is, nobody else can.\nWe look to them to fill the gaps.\nTo validate our existence.\nTo make us feel seen, heard, loved.\nBut it's all just a distraction.\nFrom the fact that we're still incomplete.\nOn our own, we're still not enough.",
-    "hash": "1d2ee73a30569f0a8a3ca5ca1fc07d1d",
-    "metaphors": [],
-    "themes": [
-      "silence",
-      "self_worth",
-      "love"
-    ]
-  },
-  {
     "topic": "The Cost Of Always Being Available",
     "style": "lesson",
     "script": "You're always on. Not by choice.\nYour phone is your leash,\nconstant reminders of tasks,\npeople needing things from you.\nWe trade peace for availability,\nand call it responsibility.\nBut what's the cost of being always on?\nWe're exhausted, drained, depleted.\nYou're running on empty, and still,\nYou're expected to keep going.\nYou're not a machine, but you're treated like one.",
@@ -813,5 +801,21 @@
       "wind"
     ],
     "themes": []
+  },
+  {
+    "topic": "Someone Worth Staying For",
+    "style": "emotional",
+    "script": "You don\u2019t need saving.\nNot like this.\nThe way you hold the door open,\nquiet,\njust long enough for me to slip through\u2014\nthat\u2019s the kind of anchor\nI\u2019ve been searching for.\nSome people leave footprints,\nyou leave whole paths,\nworn smooth by trust.\nI won\u2019t ask you to stay,\nbut I\u2019ll always choose the road\nthat leads back to you.",
+    "hash": "6fb0e21cd1c32324ca87139ae7fe612a",
+    "metaphors": [
+      "path",
+      "anchor",
+      "road",
+      "door"
+    ],
+    "themes": [
+      "self_worth",
+      "silence"
+    ]
   }
 ]
