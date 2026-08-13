@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Falling For Someone Who Does Not Know",
-    "style": "emotional",
-    "script": "Tuesday at 4:17.\nThe kettle hums,\nbut the room stays cold.\nI trace your name\nin steam on the window,\nnot for you to see,\njust to feel the shape of it.\nSome words\nare too heavy to speak,\nso I leave them\non the counter like loose change,\nhoping you\u2019ll pick them up,\nbut you never do.",
-    "hash": "bf0dffce1afdb75b5db5c1625cfbf0be",
-    "metaphors": [
-      "tea",
-      "window",
-      "wind"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Borrowed Love",
     "style": "emotional",
     "script": "Borrowed love never fits right.\nThe seams show,\neven when you stitch it tight.\nSome hands,\njust hold what isn\u2019t theirs to keep\u2014\ncupping water,\nwatching it slip through.\nYou\u2019ll smile,\nbut the weight shifts,\nand the borrowed light dims.\nNot stolen,\njust returned.\nLet it go.",
@@ -828,5 +816,16 @@
       "silence",
       "grief_loss"
     ]
+  },
+  {
+    "topic": "When People Show You Who They Are",
+    "style": "lesson",
+    "script": "What do you call it when someone shows you their true self?\nIt's a revelation, a moment of clarity,\nusually after you've given them your all.\nSome people wear masks, others hide behind filters,\nbut eventually, their facade crumbles.\nYou can't unsee what you've seen,\nand you can't unfeel what you've felt.\nPeople will reveal themselves, \nagain and again, until you listen.\nYou don't have to accept the truth, \nbut ignoring it won't change it. \nPeople show you who they are, and that's who they are.",
+    "hash": "5ffaee760f24b85120dda6dc4c13b488",
+    "metaphors": [
+      "mask",
+      "ring"
+    ],
+    "themes": []
   }
 ]
