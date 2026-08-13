@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Borrowed Love",
-    "style": "emotional",
-    "script": "Borrowed love never fits right.\nThe seams show,\neven when you stitch it tight.\nSome hands,\njust hold what isn\u2019t theirs to keep\u2014\ncupping water,\nwatching it slip through.\nYou\u2019ll smile,\nbut the weight shifts,\nand the borrowed light dims.\nNot stolen,\njust returned.\nLet it go.",
-    "hash": "1e86e6f779ba3ea28d686b02b3665a41",
-    "metaphors": [
-      "light",
-      "cup"
-    ],
-    "themes": [
-      "love"
-    ]
-  },
-  {
     "topic": "The Last Text You Never Sent",
     "style": "love",
     "script": "You delete the draft again.\nThe screen glows like a moonlit puddle,\nreflecting nothing but your hesitation.\nTiny ripples,\nwhere your fingers touched the glass.\nThe words are still there,\nhovering just beneath the surface.\nYou could reach in,\npluck them out like drowned stars.\nBut the water\u2019s too cold,\nand some constellations belong to the dark.\nSend this to them.",
@@ -827,5 +814,21 @@
       "ring"
     ],
     "themes": []
+  },
+  {
+    "topic": "The Courage to Begin Again",
+    "style": "emotional",
+    "script": "The suitcase still smells like salt air.\nNot from a trip,\njust the way you packed it\u2014\nslowly,\nlike you knew it wouldn\u2019t be coming back.\nSome doors don\u2019t creak when they close,\nthey just sigh,\nand the hallway gets a little darker.\nBut the keys are still warm in your palm,\nand the lock turns easier than you thought.\nNot a new start,\njust the courage to walk through.\nLet them know.",
+    "hash": "6c5965fd2b74f11cce6f8fa888afef62",
+    "metaphors": [
+      "door",
+      "dark",
+      "keys",
+      "star",
+      "hallway"
+    ],
+    "themes": [
+      "silence"
+    ]
   }
 ]
