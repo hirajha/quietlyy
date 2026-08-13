@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Courage to Begin Again"
+    "detail": "The First Time I Knew"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17865955491649386"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18095815514305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/PpLPIaWuIo4"
+    "detail": "https://www.youtube.com/shorts/Q3fyo5ivTOQ"
   }
 }
