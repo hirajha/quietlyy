@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Finding Peace Within Yourself",
-    "style": "love",
-    "script": "The lamp stays on all night.\nIt knows your shape better than you do,\nsoft edges where the light spills,\nand the way your shadow stretches\nwhen you finally exhale.\nBreathe in the quiet gold,\nthat warm halo you mistake for safety.\nBut it\u2019s just you,\nlearning the weight of your own name,\nletting it sit on your tongue\nlike the first sip of something sweet.\nSend this to yourself.",
-    "hash": "0a70bd1e39cbf10b4a97994755906c37",
-    "metaphors": [
-      "light",
-      "shadow"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Loving in Silence",
     "style": "nostalgic",
     "script": "I KNEW IT WAS WRONG\nto keep you\nto keep you close\nwithout ever saying\nwithout ever touching\nwithout ever even looking\nYOU WERE THE SECRET\nI carried\nin the back of my throat\nlike a swallowed coin\nstill warm\nfrom someone else\u2019s pocket\nand every time I spoke\nI saved the last word\nfor you",
@@ -828,6 +815,22 @@
       "rain"
     ],
     "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Loving in Silence",
+    "style": "nostalgic",
+    "script": "I kept your voice on my phone\ntoo long\ntoo quiet\nlike a secret I couldn\u2019t delete.\nYOU NEVER KNEW\nI played it back\non rainy afternoons\nwhen the house was empty\nand the walls leaned in.\nNow the file\u2019s gone\nbut the echo still hums\nin the spaces between my ribs.",
+    "hash": "fa6996929779601754025c255d16e28c",
+    "metaphors": [
+      "echo",
+      "wall",
+      "phone",
+      "rain"
+    ],
+    "themes": [
+      "grief_loss",
       "silence"
     ]
   }
