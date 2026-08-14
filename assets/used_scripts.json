@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Loving in Silence",
-    "style": "nostalgic",
-    "script": "I KNEW IT WAS WRONG\nto keep you\nto keep you close\nwithout ever saying\nwithout ever touching\nwithout ever even looking\nYOU WERE THE SECRET\nI carried\nin the back of my throat\nlike a swallowed coin\nstill warm\nfrom someone else\u2019s pocket\nand every time I spoke\nI saved the last word\nfor you",
-    "hash": "87c44b0f5292977b501815267e9a5af6",
-    "metaphors": [
-      "wall"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Letting Go With Grace",
     "style": "wisdom",
     "script": "A Japanese gardener whispered\nnot the branch that bends\nbut the one that snaps\nunder snow\nlearns nothing.\n\nI watched an old pine\nsway without apology\nroots deep in shifting earth\n\u2014 it never asks the wind to stop.\n\nYou can hold a bird\nbut not its flight\nlet the sky teach you\nhow to be empty\nhow to be full.",
@@ -831,6 +819,19 @@
     ],
     "themes": [
       "grief_loss",
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Quiet Revolution of Self-Respect",
+    "style": "emotional",
+    "script": "You\u2019re folding the laundry again.\nnot because it\u2019s dirty\nbut because it\u2019s something to do\nwith your hands.\nThe sleeves still smell like their cologne,\nbut slowly\nyou stop pressing them to your face.\nSome nights,\nyou leave the basket half-empty\nand walk outside.\nThe air isn\u2019t lighter,\njust different.\nYou\u2019re learning to breathe it anyway.\nnot for them.\nnot for anyone.\njust the quiet click\nwhen the door locks behind you.",
+    "hash": "6148fb5036ca8381053ec82db30c5d01",
+    "metaphors": [
+      "door",
+      "light"
+    ],
+    "themes": [
       "silence"
     ]
   }
