@@ -1,17 +1,5 @@
 [
   {
-    "topic": "People Who Use You",
-    "style": "nostalgic",
-    "script": "YOU KNEW EXACTLY\nwhere to press\nto make me bend.\nI was the chair\nthat held your weight\nwhile you tied your shoes\nand walked away.\nStill warm,\nstill shaped like you,\nI wait\nfor the next pair of hands\nto need me.",
-    "hash": "c28e842ef14227ff7666826c2d033fb8",
-    "metaphors": [
-      "chair"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What Home Actually Feels Like",
     "style": "love",
     "script": "I stopped counting the steps to your door.\nThe way the floorboards sigh underfoot,\nlike an old cat settling in sunlight.\nI never told you\nthis is the only place\nwhere my shoulders remember how to drop.\nThe kettle hums a lullaby,\nand suddenly,\nI\u2019m eight years old again,\nsafe inside a story I haven\u2019t finished.\nEven the air tastes different here\u2014\nlike rain on warm stone.\nsend this to them.",
@@ -836,6 +824,14 @@
       "note",
       "cup"
     ],
+    "themes": []
+  },
+  {
+    "topic": "The Day You Chose Yourself",
+    "style": "lesson",
+    "script": "Most people settle for a version of themselves. \nThey become a watered-down imitation, \na collection of other people's expectations, \na list of shoulds. \nIt's a heavy burden to carry, \nthe weight of who you're supposed to be, \nthe pressure to conform. \nBut what if you chose differently? \nWhat if you chose to be the authentic, \nunedited version? \nYou'd be surprised at how liberating it feels to be yourself.",
+    "hash": "aade2f39dcf7323117cfc62208b7bbc6",
+    "metaphors": [],
     "themes": []
   }
 ]
