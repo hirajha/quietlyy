@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Being Misunderstood",
-    "style": "emotional",
-    "script": "How do you explain to someone\nthat your shadows aren\u2019t sadness\u2014\nthey\u2019re just echoes of light\nthat never reached them?\nI\u2019ve tried to stretch my arms\nbut the room keeps shrinking,\nand no one notices\nthe walls are made of their assumptions.\nSome voices wrap around me like fog,\nslowly erasing the edges of what I meant.\nI won\u2019t fight to be seen.\nLet them call it mystery.\nI know it\u2019s just the shape of me\nwhen no one\u2019s looking.",
-    "hash": "07ee409b5395fba036f2505d81946c1c",
-    "metaphors": [
-      "wall",
-      "light",
-      "echo",
-      "shadow"
-    ],
-    "themes": []
-  },
-  {
     "topic": "How You Changed Everything",
     "style": "love",
     "script": "There's a quiet like unopened mail.\nThe kind that sits,\nwaiting for fingers to break the seal.\nYou were the letter I didn\u2019t know I needed,\nfolded inside my own address.\nEvery word you wrote\nshifted the ink of my days.\nI trace your sentences\nwhen the room feels too still.\nSome changes don\u2019t announce themselves,\nthey simply rewrite the margins.\nSend this to them.",
@@ -833,6 +820,21 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Person Who Stayed",
+    "style": "poetic",
+    "script": "The person who stayed\nisn\u2019t a shadow,\njust the shape of the door left open.\nEvery time you walk through,\nyou don\u2019t notice\nhow the hinges remember your weight,\nhow the air shifts,\njust slightly,\nto make room.\nSome nights,\nthe house breathes slower,\nwaiting for the click of the latch,\nbut never locking.",
+    "hash": "35c9279d7b2696f0e354cd085251e158",
+    "metaphors": [
+      "door",
+      "shadow",
+      "light"
+    ],
+    "themes": [
+      "loneliness",
+      "nostalgia"
     ]
   }
 ]
