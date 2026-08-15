@@ -1,20 +1,5 @@
 [
   {
-    "topic": "What Home Actually Feels Like",
-    "style": "love",
-    "script": "I stopped counting the steps to your door.\nThe way the floorboards sigh underfoot,\nlike an old cat settling in sunlight.\nI never told you\nthis is the only place\nwhere my shoulders remember how to drop.\nThe kettle hums a lullaby,\nand suddenly,\nI\u2019m eight years old again,\nsafe inside a story I haven\u2019t finished.\nEven the air tastes different here\u2014\nlike rain on warm stone.\nsend this to them.",
-    "hash": "77e733c3df651dc94d37934b2f677543",
-    "metaphors": [
-      "door",
-      "rain",
-      "light",
-      "sun"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "Being Misunderstood",
     "style": "emotional",
     "script": "How do you explain to someone\nthat your shadows aren\u2019t sadness\u2014\nthey\u2019re just echoes of light\nthat never reached them?\nI\u2019ve tried to stretch my arms\nbut the room keeps shrinking,\nand no one notices\nthe walls are made of their assumptions.\nSome voices wrap around me like fog,\nslowly erasing the edges of what I meant.\nI won\u2019t fight to be seen.\nLet them call it mystery.\nI know it\u2019s just the shape of me\nwhen no one\u2019s looking.",
@@ -833,5 +818,21 @@
     "hash": "aade2f39dcf7323117cfc62208b7bbc6",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "The Apology That Never Came",
+    "style": "emotional",
+    "script": "4:17 a.m. The fridge hums low.\nI trace the cracks,\nnot the promises.\nSome words,\njust echoes in a hallway,\nnever finding the right door.\nYour voice,\nstill tangled in the sheets,\nbut the bed\u2019s been made.\nI won\u2019t ask for rain,\njust the forecast.\nThe sky stayed clear.\nsend this to them.",
+    "hash": "002148fcc61a0dfc2b1f9a668f6965a6",
+    "metaphors": [
+      "echo",
+      "door",
+      "rain",
+      "bed",
+      "hallway"
+    ],
+    "themes": [
+      "silence"
+    ]
   }
 ]
