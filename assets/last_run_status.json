@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Person Who Stayed"
+    "detail": "The Text You Read But Did Not Reply To"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18416856076145827"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18096204620305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/Nw-F0gBgdwQ"
+    "detail": "https://www.youtube.com/shorts/eWTSTXsu2tI"
   }
 }

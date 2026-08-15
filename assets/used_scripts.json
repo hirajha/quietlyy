@@ -1,18 +1,5 @@
 [
   {
-    "topic": "How You Changed Everything",
-    "style": "love",
-    "script": "There's a quiet like unopened mail.\nThe kind that sits,\nwaiting for fingers to break the seal.\nYou were the letter I didn\u2019t know I needed,\nfolded inside my own address.\nEvery word you wrote\nshifted the ink of my days.\nI trace your sentences\nwhen the room feels too still.\nSome changes don\u2019t announce themselves,\nthey simply rewrite the margins.\nSend this to them.",
-    "hash": "7bb208b0061d5704abd21486a390cdf3",
-    "metaphors": [
-      "letter"
-    ],
-    "themes": [
-      "silence",
-      "being_used"
-    ]
-  },
-  {
     "topic": "The Difference Between Living and Existing",
     "style": "emotional",
     "script": "The porch light stays on all night.\nA habit,\nnot a warning.\nSome souls collect moments like loose change,\ncounting them at midnight\nwhile others spend theirs on sunlight,\nbuying time with laughter.\nThe clock doesn\u2019t care if you\u2019re breathing,\nonly if you\u2019re awake enough to hear it.\nbut the wind remembers your name,\nwhispers it through the screen door,\nand for a second,\nyou\u2019re more than just air passing through.",
@@ -835,6 +822,20 @@
     "themes": [
       "loneliness",
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "The Text You Read But Did Not Reply To",
+    "style": "love",
+    "script": "I stopped counting the hours\nsince your name lit up my screen.\nThe message still glows,\na soft blue pulse in the dark,\nlike a jellyfish drifting\nthrough currents I can\u2019t swim.\nI trace the words with my thumb,\nbut the tide keeps pulling me under.\nSome secrets are too fragile to answer.\nThey float there,\nwaiting for the moon to rise.\nsend this to them.",
+    "hash": "47d511742ef5b348546751bc13535055",
+    "metaphors": [
+      "dark",
+      "tide",
+      "moon"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
