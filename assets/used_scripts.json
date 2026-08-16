@@ -1,15 +1,5 @@
 [
   {
-    "topic": "When Being Nice Made You A Target",
-    "style": "lesson",
-    "script": "When did you first notice the shift?\nYour quiet willingness to help.\nYour eagerness to understand.\nSuddenly felt like a target.\nFor those who only take.\nWho saw kindness as leverage.\nNot a gift.\nNot a connection.\nJust an opening.\nYour best intentions require boundaries.",
-    "hash": "5e4bb269b5a4308dbc8da30599b753a3",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Make Ordinary Moments Feel Different",
     "style": "emotional",
     "script": "Some mornings taste like old book pages.\nThe coffee steams,\nbut it\u2019s the way you stirred,\nslow and absent,\nthat lingers like a fingerprint on the mug.\nI still reach for the sugar bowl twice,\njust to feel the ghost of your habit.\nThe clock ticks,\nand suddenly,\nevery second is a memory I didn\u2019t ask for.\nSome people don\u2019t leave,\nthey just stop being the weather.\nI miss the forecast.",
@@ -836,6 +826,20 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "When You Make Ordinary Moments Feel Different",
+    "style": "emotional",
+    "script": "The porch light stayed on all summer.\nWe never turned it off,\njust watched moths circle,\nsoft and reckless.\nSome evenings feel like stolen time,\nnot borrowed,\nnot returned.\nThe air hums different when you're near,\nless like breathing,\nmore like remembering how.\nI keep the key,\nnot to unlock anything,\njust to hold the weight.",
+    "hash": "bd6be22520946a12dd2eb3b688601b49",
+    "metaphors": [
+      "light",
+      "porch",
+      "ring"
+    ],
+    "themes": [
+      "nostalgia"
     ]
   }
 ]

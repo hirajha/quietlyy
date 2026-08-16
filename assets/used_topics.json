@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Art of Letting Go",
-    "The Freedom of Acceptance",
     "Why Peace Is Not the Absence of Storm",
     "The Ancient Truth About Happiness",
     "The Quiet Revolution of Self-Respect",
@@ -65,11 +63,13 @@
     "The Power of Small Moments",
     "The Difference Between Living and Existing",
     "Finding Peace Within Yourself",
-    "What You Cannot Change and What You Can"
+    "What You Cannot Change and What You Can",
+    "Why Suffering Transforms Us",
+    "Why the Wound Is the Gift"
   ],
-  "last_style": "lesson",
+  "last_style": "wisdom",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -141,7 +141,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153640_3f0c91.mp3",
@@ -160,7 +159,8 @@
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
-    "2026-06-05_153724_b66b80.mp3"
+    "2026-06-05_153724_b66b80.mp3",
+    "2026-06-05_153734_d4c320.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -169,13 +169,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Being Too Kind In A Cruel World",
-    "The Strength In Walking Away",
-    "Why You Don't Beg To Be Loved",
-    "When Being Nice Made You A Target",
-    "The Cost Of Always Being Available",
-    "Why You Stopped Waiting For An Apology",
-    "What You Owe Yourself",
     "Why You Stopped Explaining Yourself",
     "The Quiet Power Of Letting Go",
     "The People Who Leave When You Need Them Most",
@@ -188,6 +181,13 @@
     "Outgrowing People You Love",
     "When You Stop Chasing People",
     "What Pain Quietly Teaches You",
-    "The Truth About Being The Strong One"
+    "The Truth About Being The Strong One",
+    "The Friends Who Only Stayed For The Good Days",
+    "The Day You Chose Yourself",
+    "Why Closure Never Comes",
+    "What Healing Actually Looks Like",
+    "What You Learned After Being Broken",
+    "What Loneliness Actually Teaches You",
+    "When You Have Nothing Left"
   ]
 }
