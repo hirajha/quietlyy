@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Have to Pretend You Are Fine at Work",
-    "style": "emotional",
-    "script": "You\u2019re not tired. Just hollow.\nThe coffee cup stays full,\nbut the steam never rises.\nSome mornings,\nyou button the same shirt twice,\nforgetting which one\u2019s real.\nThe clock hums,\na quiet machine counting nothing.\nYou laugh,\nand the sound lands wrong,\nlike a coin dropped in sand.\nNo one notices.\nThey never see the suitcase\nstill packed under your desk.",
-    "hash": "47fab65b2cf9b022522dd7e454f64700",
-    "metaphors": [
-      "coffee",
-      "cup",
-      "tea"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When Being Nice Made You A Target",
     "style": "lesson",
     "script": "When did you first notice the shift?\nYour quiet willingness to help.\nYour eagerness to understand.\nSuddenly felt like a target.\nFor those who only take.\nWho saw kindness as leverage.\nNot a gift.\nNot a connection.\nJust an opening.\nYour best intentions require boundaries.",
@@ -836,6 +822,20 @@
       "growth",
       "silence",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The Strength in Stillness",
+    "style": "nostalgic",
+    "script": "THE WAY YOU HOLD YOURSELF\nwhen the room empties out\nisn\u2019t weakness\nit\u2019s the weight of knowing\nyou don\u2019t need the noise\nto prove you\u2019re alive.\n\nYou let the storm\npass right through you\nlike a screen door\nin an old summer house\nletting in the breeze\nbut keeping the shape of you\nintact.\n\nAnd when they ask how\nsay nothing.\nThe quiet\nis already speaking.",
+    "hash": "649fe32e83a3318e2ca467aebe3034ab",
+    "metaphors": [
+      "door",
+      "storm",
+      "noise"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
