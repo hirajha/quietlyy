@@ -1,17 +1,5 @@
 [
   {
-    "topic": "What Pain Quietly Teaches You",
-    "style": "lesson",
-    "script": "The music sounds different after goodbye.\nA certain playlist hurts to hear.\nThat laugh. That specific cadence.\nWe carry these hollow spaces now.\nEmpty pockets where familiar comfort sat.\nYou learn quickly.\nWho checks in. Who truly saw you.\nWho was just passing through.\nPain reveals what commitment looks like.",
-    "hash": "94de032237b07f1233ac38d11cd2c348",
-    "metaphors": [
-      "playlist"
-    ],
-    "themes": [
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "When You Have to Pretend You Are Fine at Work",
     "style": "emotional",
     "script": "You\u2019re not tired. Just hollow.\nThe coffee cup stays full,\nbut the steam never rises.\nSome mornings,\nyou button the same shirt twice,\nforgetting which one\u2019s real.\nThe clock hums,\na quiet machine counting nothing.\nYou laugh,\nand the sound lands wrong,\nlike a coin dropped in sand.\nNo one notices.\nThey never see the suitcase\nstill packed under your desk.",
@@ -832,6 +820,21 @@
     ],
     "themes": [
       "nostalgia",
+      "grief_loss"
+    ]
+  },
+  {
+    "topic": "When You Found Me",
+    "style": "emotional",
+    "script": "I stopped believing in luck\nwhen your shadow stretched over mine\nNot a rescue\njust a quiet collision of two lost orbits\nThe way you held my wrist\nhad the weight of an old promise\nbut your fingers trembled like leaves before rain\nSomewhere between your hesitation and my surrender\nwe became something temporary and permanent\nI won\u2019t name what we were\njust know I still trace the constellations of your freckles\nwhen the night feels too wide\nsend this to them.",
+    "hash": "c498849f73a109071d90773d882b8972",
+    "metaphors": [
+      "rain",
+      "shadow"
+    ],
+    "themes": [
+      "growth",
+      "silence",
       "grief_loss"
     ]
   }
