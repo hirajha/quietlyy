@@ -1,22 +1,5 @@
 [
   {
-    "topic": "The Difference Between Living and Existing",
-    "style": "emotional",
-    "script": "The porch light stays on all night.\nA habit,\nnot a warning.\nSome souls collect moments like loose change,\ncounting them at midnight\nwhile others spend theirs on sunlight,\nbuying time with laughter.\nThe clock doesn\u2019t care if you\u2019re breathing,\nonly if you\u2019re awake enough to hear it.\nbut the wind remembers your name,\nwhispers it through the screen door,\nand for a second,\nyou\u2019re more than just air passing through.",
-    "hash": "ddaf2897e0fb15919dd9a685747a717f",
-    "metaphors": [
-      "door",
-      "wind",
-      "sun",
-      "porch",
-      "light"
-    ],
-    "themes": [
-      "self_worth",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "What Pain Quietly Teaches You",
     "style": "lesson",
     "script": "The music sounds different after goodbye.\nA certain playlist hurts to hear.\nThat laugh. That specific cadence.\nWe carry these hollow spaces now.\nEmpty pockets where familiar comfort sat.\nYou learn quickly.\nWho checks in. Who truly saw you.\nWho was just passing through.\nPain reveals what commitment looks like.",
@@ -836,6 +819,20 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "How You Changed Everything",
+    "style": "wisdom",
+    "script": "the heron knows\nnothing is lost\nonly rearranged\ninto the next tide\ninto the next sky.\n\nyou didn\u2019t change the world\nyou changed the way\nthe light falls on the water\nand suddenly\nevery reflection\nis a new beginning\n\nthe ripples remember you.",
+    "hash": "4a93cfbb1a72f0719a28b1dfd7296718",
+    "metaphors": [
+      "tide",
+      "light"
+    ],
+    "themes": [
+      "nostalgia",
+      "grief_loss"
     ]
   }
 ]
