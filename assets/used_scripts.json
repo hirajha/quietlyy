@@ -1,20 +1,5 @@
 [
   {
-    "topic": "When You Make Ordinary Moments Feel Different",
-    "style": "emotional",
-    "script": "Some mornings taste like old book pages.\nThe coffee steams,\nbut it\u2019s the way you stirred,\nslow and absent,\nthat lingers like a fingerprint on the mug.\nI still reach for the sugar bowl twice,\njust to feel the ghost of your habit.\nThe clock ticks,\nand suddenly,\nevery second is a memory I didn\u2019t ask for.\nSome people don\u2019t leave,\nthey just stop being the weather.\nI miss the forecast.",
-    "hash": "7b3b982c33648464fc66865cf63c1e4f",
-    "metaphors": [
-      "tea",
-      "coffee",
-      "mug"
-    ],
-    "themes": [
-      "silence",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "Loving You in Silence",
     "style": "poetic",
     "script": "Some nights I trace the cracks,\nnot on the ceiling,\njust the ones in my voice.\nI whisper your name,\nbut it lands like a leaf\non still water,\nno splash,\nno ripple,\njust a quiet sinking.\nThe room doesn\u2019t notice,\nand neither do you,\nbut the dark holds it anyway.",
@@ -840,6 +825,22 @@
     ],
     "themes": [
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "The Art of Letting Go",
+    "style": "wisdom",
+    "script": "Hafiz whispered\nlike dandelions in wind\nwe scatter seeds\nnot to keep\nbut to gift the sky.\n\nyou cling to what was never yours\na borrowed coat\na name on a lease\na shadow that walks beside you.\n\nlet the wind take it\nit was never heavy\nuntil you carried it alone.\nwatch it rise\nlike dust in sunlight",
+    "hash": "075841748f7ca0e2aaabef7dc19cbec7",
+    "metaphors": [
+      "sun",
+      "seed",
+      "shadow",
+      "light",
+      "wind"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
