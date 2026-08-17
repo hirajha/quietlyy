@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Loving You in Silence",
-    "style": "poetic",
-    "script": "Some nights I trace the cracks,\nnot on the ceiling,\njust the ones in my voice.\nI whisper your name,\nbut it lands like a leaf\non still water,\nno splash,\nno ripple,\njust a quiet sinking.\nThe room doesn\u2019t notice,\nand neither do you,\nbut the dark holds it anyway.",
-    "hash": "d4c25b4791adfe4f72144ad1705e83ae",
-    "metaphors": [
-      "dark",
-      "ceiling"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Safest Place I Know",
     "style": "love",
     "script": "There's a kind of stillness that breathes,\nlike the space between piano keys.\nYour arms,\na harbor I didn\u2019t chart.\nNo lighthouse needed,\njust the quiet hum of your ribs\nagainst my ear.\nI memorized the shape of safety\nin the way you hold a coffee cup,\nsteady,\nunshaken.\nThe world could tilt,\nbut here\u2014\nyour collarbone is my gravity.\nsend this to them.",
@@ -841,6 +828,22 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "Someone Worth Staying For",
+    "style": "wisdom",
+    "script": "An old farmer once whispered\nroots don\u2019t ask the storm for mercy\nthey bend\nthen stand again\ntaller than before.\n\nYou\u2019ll know them by the way\ntheir hands steady the ladder\nwhile you climb\nnot by the height they promise.\nThe earth remembers every step\neven the ones you take alone.\nStay for the ones\nwho leave the light on.",
+    "hash": "0c6b110fbec8d39953d2bbf720529a06",
+    "metaphors": [
+      "storm",
+      "roots",
+      "light",
+      "tea"
+    ],
+    "themes": [
+      "loneliness",
+      "nostalgia"
     ]
   }
 ]
