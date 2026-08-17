@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Part You Never Talk About",
-    "style": "nostalgic",
-    "script": "The way your hands still shake\nwhen you reach for the light.\nWE ALL HAVE ONE THING\nthat hums in the dark.\nYou never name it\nnever let it out\nbut it curls around your ribs\nlike a second shadow.\nSOME NIGHTS\nyou swear it breathes\nright against your ear\nand you don\u2019t flinch.\nIt\u2019s the part that knows\nyou\u2019re already forgiven.",
-    "hash": "8fe827f48bc13e46fc0a6b16d55a59a0",
-    "metaphors": [
-      "dark",
-      "shadow",
-      "light"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The First Time I Knew",
     "style": "nostalgic",
     "script": "YOU WERE WEARING\nthat sweater\nI\u2019d later steal\nwhen it rained\nand the bus stop smelled like wet wool,\nold gum,\nyour laugh\nstuck to my ribs\nlike a second shadow\nI didn\u2019t know\nwas mine\nuntil you left.",
@@ -838,5 +824,21 @@
       "porch"
     ],
     "themes": []
+  },
+  {
+    "topic": "You Are My Calm",
+    "style": "wisdom",
+    "script": "the tide once whispered\nacross the wet stones\nyou are not the storm\nnor the shelter\njust the space between\n\nand i realized\ni\u2019ve been building walls\nwhen all i needed\nwas to let the wind pass through\nyou are my calm\nthe quiet that breathes\nbefore the next wave",
+    "hash": "9f64c15f1cf35e280af3c944af11375c",
+    "metaphors": [
+      "wall",
+      "wind",
+      "storm",
+      "tide"
+    ],
+    "themes": [
+      "being_used",
+      "silence"
+    ]
   }
 ]
