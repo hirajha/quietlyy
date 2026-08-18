@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Wisdom of Not Forcing"
+    "detail": "The Cost Of Always Being Available"
   },
   "audio": {
     "result": "ok",
@@ -49,10 +49,10 @@
   },
   "instagram": {
     "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18096591260305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18096625787305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/kOz_OD9gnH0"
+    "detail": "https://www.youtube.com/shorts/NqRUPWSBCYI"
   }
 }

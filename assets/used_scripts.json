@@ -1,23 +1,5 @@
 [
   {
-    "topic": "What I Never Said Out Loud",
-    "style": "emotional",
-    "script": "4:17 a.m. The kettle hums,\nstill warm from the last cup you made.\nI trace the steam,\nslowly rising,\nlike the words I swallowed whole.\nThe kitchen light flickers,\nnot from the bulb,\nbut from the weight of what I didn\u2019t say.\nSome nights,\nthe silence isn\u2019t empty\u2014\nit\u2019s full of echoes,\nand I\u2019m the only one who hears them.\nI won\u2019t rewrite the ending,\njust the part where I stayed quiet.\nSend this to them.",
-    "hash": "60f17302c6473bcb483d8dd44a2a0b37",
-    "metaphors": [
-      "echo",
-      "wall",
-      "light",
-      "kitchen",
-      "cup",
-      "tea",
-      "silence"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Person Behind My Smile",
     "style": "love",
     "script": "You trace the cracks in your coffee mug.\nThe ones I never noticed.\nThey spiderweb like secrets\nonly porcelain keeps.\nI wear my grin like a borrowed scarf,\nsoft against your skin,\nbut the tag still scratches my neck.\nYou count the freckles on my shoulder,\nconnect them into constellations\nI didn\u2019t know I carried.\nThe stars in your eyes are quiet,\nbut they\u2019re naming me anyway.\nSend this to them.",
@@ -837,6 +819,21 @@
     "themes": [
       "being_used",
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "The Cost Of Always Being Available",
+    "style": "lesson",
+    "script": "What's the hidden cost of constantly being there?\nI remember ignoring my own needs just to answer a late-night call.\nDid you know, people who are always 'on' report significantly higher levels of exhaustion?\nYou think you're being helpful.\nYou believe you're showing love.\nBut you're teaching them something else entirely.\nYou're teaching them your boundaries are optional.\nThat your time has no real value.\nThat your energy is infinite.\nEventually, you'll be empty.\nThey won't even notice.\nBecause you made yourself too easy to forget.",
+    "hash": "e6985d2a360a962cd84ee366a3a558e9",
+    "metaphors": [
+      "ring",
+      "tea"
+    ],
+    "themes": [
+      "nostalgia",
+      "self_worth",
+      "love"
     ]
   }
 ]

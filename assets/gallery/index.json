@@ -1,23 +1,5 @@
 [
   {
-    "file": "ef8e4fbb_0.png",
-    "topic": "When You Realized You Were the Option, Not the Priority",
-    "panel": 0,
-    "source": "fresh",
-    "timestamp": 1781282146,
-    "uses": 2,
-    "last_used": 1782493576
-  },
-  {
-    "file": "db22b5a7_1.png",
-    "topic": "When You Realized You Were the Option, Not the Priority",
-    "panel": 1,
-    "source": "fresh",
-    "timestamp": 1781282150,
-    "uses": 2,
-    "last_used": 1782536522
-  },
-  {
     "file": "c0acc9a6_0.png",
     "topic": "When You Found Me",
     "panel": 0,
@@ -1823,8 +1805,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1783764027,
-    "uses": 1,
-    "last_used": 1783784914
+    "uses": 2,
+    "last_used": 1787039161
   },
   {
     "file": "c7dbf14d_1.png",
@@ -4486,13 +4468,31 @@
     "topic": "The Wisdom of Not Forcing",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1787019505
+    "timestamp": 1787019505,
+    "uses": 1,
+    "last_used": 1787039161
   },
   {
     "file": "9a91a51b_1.png",
     "topic": "The Wisdom of Not Forcing",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1787019550
+    "timestamp": 1787019550,
+    "uses": 1,
+    "last_used": 1787039161
+  },
+  {
+    "file": "939382b5_0.png",
+    "topic": "The Cost Of Always Being Available",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1787039164
+  },
+  {
+    "file": "cd461727_1.png",
+    "topic": "The Cost Of Always Being Available",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1787039169
   }
 ]
