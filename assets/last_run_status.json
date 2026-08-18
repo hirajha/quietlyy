@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "You Are My Calm"
+    "detail": "The Wisdom of Not Forcing"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18037279739827125"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18096591260305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/jraFdzCZ4kw"
+    "detail": "https://www.youtube.com/shorts/kOz_OD9gnH0"
   }
 }

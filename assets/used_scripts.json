@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The First Time I Knew",
-    "style": "nostalgic",
-    "script": "YOU WERE WEARING\nthat sweater\nI\u2019d later steal\nwhen it rained\nand the bus stop smelled like wet wool,\nold gum,\nyour laugh\nstuck to my ribs\nlike a second shadow\nI didn\u2019t know\nwas mine\nuntil you left.",
-    "hash": "6483ba2166ce99cfa11f30cf263f3497",
-    "metaphors": [
-      "rain",
-      "sweater",
-      "tea",
-      "ring",
-      "shadow"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "What I Never Said Out Loud",
     "style": "emotional",
     "script": "4:17 a.m. The kettle hums,\nstill warm from the last cup you made.\nI trace the steam,\nslowly rising,\nlike the words I swallowed whole.\nThe kitchen light flickers,\nnot from the bulb,\nbut from the weight of what I didn\u2019t say.\nSome nights,\nthe silence isn\u2019t empty\u2014\nit\u2019s full of echoes,\nand I\u2019m the only one who hears them.\nI won\u2019t rewrite the ending,\njust the part where I stayed quiet.\nSend this to them.",
@@ -839,6 +823,20 @@
     "themes": [
       "being_used",
       "silence"
+    ]
+  },
+  {
+    "topic": "The Wisdom of Not Forcing",
+    "style": "love",
+    "script": "It\u2019s not surrender. Not really.\nA river doesn\u2019t fight the rock,\nbut the rock remembers the water\u2019s name.\nYou\u2019ve stopped pushing,\nand the door swings open on its own.\nThe hinge creaks,\nsoft as a secret told at dawn.\nYou\u2019re not wiser,\njust softer in the places that used to ache.\nThe world gives what it gives,\nand you\u2019re learning to receive.\nNot with hands,\nwith empty palms.\nsend this to them.",
+    "hash": "d87694008e463f1ed8da68c3635f9377",
+    "metaphors": [
+      "door",
+      "dawn"
+    ],
+    "themes": [
+      "being_used",
+      "nostalgia"
     ]
   }
 ]
