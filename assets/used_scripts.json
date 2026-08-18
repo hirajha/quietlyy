@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Person Behind My Smile",
-    "style": "love",
-    "script": "You trace the cracks in your coffee mug.\nThe ones I never noticed.\nThey spiderweb like secrets\nonly porcelain keeps.\nI wear my grin like a borrowed scarf,\nsoft against your skin,\nbut the tag still scratches my neck.\nYou count the freckles on my shoulder,\nconnect them into constellations\nI didn\u2019t know I carried.\nThe stars in your eyes are quiet,\nbut they\u2019re naming me anyway.\nSend this to them.",
-    "hash": "9bb83e4f1c9c5b68a62f039151d63013",
-    "metaphors": [
-      "mug",
-      "coffee",
-      "star"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Kind of Love That Doesn't Shout",
     "style": "wisdom",
     "script": "A vine once whispered\nto the stone beneath it\nnot I need you\nbut I choose you.\n\nno roots cling\nno branches beg\nonly the slow\nunseen embrace\nthat holds without holding.\n\nyou\u2019ll know it\nwhen the light lingers\na second longer\nthan it has to\nand no one asks why.",
@@ -834,6 +820,21 @@
       "nostalgia",
       "self_worth",
       "love"
+    ]
+  },
+  {
+    "topic": "What I Never Said Out Loud",
+    "style": "emotional",
+    "script": "How do you name the weight\nthat settles in your pockets\nwhen the words won\u2019t climb out?\nNot heavy,\njust there\u2014\nlike river stones you\u2019ve carried\nsince you were twelve.\nSome secrets don\u2019t scream,\nthey hum,\nlow and steady,\nunder every conversation.\nI left them on the windowsill\nwhere the light touches first.\nLet them stay.",
+    "hash": "5e2680e1d281eba7d035dc5710650df7",
+    "metaphors": [
+      "light",
+      "tea",
+      "wind",
+      "window"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]

@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Cost Of Always Being Available"
+    "detail": "What I Never Said Out Loud"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18096625787305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18100868303376613"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/NqRUPWSBCYI"
+    "detail": "https://www.youtube.com/shorts/jSHQQ6Wbd1Q"
   }
 }
