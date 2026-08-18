@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Loving Quietly From a Distance",
-    "style": "emotional",
-    "script": "I still hold my breath\nwhen your name appears\nlike a kite tangled in power lines\nno one else sees it\nbut I watch the way it trembles\nnot begging for rescue\njust existing\nSome days I forget to check\nand the wind carries you further\nI won\u2019t pull the string\nlet the sky keep you",
-    "hash": "689d3ac2fbec542d36c44cb106c9bcf2",
-    "metaphors": [
-      "wind",
-      "ring"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Apology That Never Came",
     "style": "emotional",
     "script": "I stopped waiting by the phone\nat 3:17,\nthe exact time you last called.\nNot because I gave up,\nbut because the dust settled\non the receiver,\nand I realized\nno one was coming to wipe it clean.\nSome apologies don\u2019t arrive,\nthey evaporate mid-air,\nleaving only the weight of what could\u2019ve been.\nI still press redial sometimes,\njust to hear the dial tone,\nsteady and unchanging,\nlike my regret.",
@@ -835,6 +822,24 @@
       "light",
       "noise",
       "door"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Learning to Belong to Yourself",
+    "style": "love",
+    "script": "You're tracing the cracks in your bedroom ceiling.\nA spider weaves her world above you,\nsteady,\npatient.\nShe doesn't ask the walls to change shape.\nThe corners know her name.\nYou press your palm to the cool glass,\nwatch your breath fog the night.\nIt doesn't stay,\nbut it was yours for a moment.\nThe streetlight hums a lullaby.\nYou hum back,\nquietly,\nuntil the melody belongs to you.",
+    "hash": "14d478e1310cbd4150e0cd396da5d8c6",
+    "metaphors": [
+      "tea",
+      "tree",
+      "wall",
+      "bed",
+      "ceiling",
+      "light",
+      "glass"
     ],
     "themes": [
       "silence"
