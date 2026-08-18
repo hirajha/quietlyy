@@ -1,16 +1,5 @@
 [
   {
-    "topic": "The Kind of Love That Doesn't Shout",
-    "style": "wisdom",
-    "script": "A vine once whispered\nto the stone beneath it\nnot I need you\nbut I choose you.\n\nno roots cling\nno branches beg\nonly the slow\nunseen embrace\nthat holds without holding.\n\nyou\u2019ll know it\nwhen the light lingers\na second longer\nthan it has to\nand no one asks why.",
-    "hash": "38da2c19a13390ae21d42b0ea30bfcd0",
-    "metaphors": [
-      "light",
-      "roots"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Loving Quietly From a Distance",
     "style": "emotional",
     "script": "I still hold my breath\nwhen your name appears\nlike a kite tangled in power lines\nno one else sees it\nbut I watch the way it trembles\nnot begging for rescue\njust existing\nSome days I forget to check\nand the wind carries you further\nI won\u2019t pull the string\nlet the sky keep you",
@@ -835,6 +824,20 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "Keeping Their Number Saved",
+    "style": "emotional",
+    "script": "There's a kind of guilt that doesn't ache,\njust lingers like a half-tied knot.\nI saved your number,\nnot for hope,\nbut because some doors\nshould stay slightly ajar.\nThe screen glows,\nfingers hover,\nnever press call,\njust trace the digits\nlike a secret I can't bury.\nSome ghosts don't haunt,\nthey just visit in quiet code.\nI won't delete you,\nI'll let you fade\ninto the background noise.",
+    "hash": "fd744aa301eab85bdf498a31c5f9dc28",
+    "metaphors": [
+      "light",
+      "noise",
+      "door"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
