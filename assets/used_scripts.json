@@ -1,19 +1,5 @@
 [
   {
-    "topic": "Loving in Silence",
-    "style": "poetic",
-    "script": "Some nights,\nthe moon stitches your name\ninto the dark,\nthread by thread,\nand I pretend not to notice.\nThe air hums,\na low current\nonly I can feel,\ncarrying your voice\nlike a secret I was never meant to keep.\nI trace the shape of you\nin the condensation on my window,\nknowing the sun will erase it\nbefore morning,\nbut tracing anyway.",
-    "hash": "509f19a7cda5c6840959b03df6c0135e",
-    "metaphors": [
-      "moon",
-      "wind",
-      "dark",
-      "sun",
-      "window"
-    ],
-    "themes": []
-  },
-  {
     "topic": "What I Mean When I Say I Love You",
     "style": "poetic",
     "script": "What I mean is the way,\nthe tide forgets,\nto ask permission before it rises.\nSome nights,\nI am the moon,\nnot pulling,\njust existing,\nand the water still answers.\nI mean the quiet conspiracy,\nof roots,\nthat hold the whole tree up,\nwithout ever being seen.\nI mean,\nI am learning,\nto be the soil,\nnot the storm.",
@@ -840,6 +826,21 @@
     "metaphors": [
       "ring",
       "ceiling"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "When You Love Someone Who Is Leaving",
+    "style": "emotional",
+    "script": "I still pack their favorite sweater\nin the suitcase every trip\njust in case the road brings them home again\nThe zipper sticks at the same corner\na memory I can\u2019t force shut\nSome nights I leave it open\nlike an invitation\nbut the wind only carries dust\nnot their voice\nI won\u2019t close it completely\nnot yet\nlet the moths decide.",
+    "hash": "75b38d011a0df0c122fec40621b60031",
+    "metaphors": [
+      "sweater",
+      "wind",
+      "road",
+      "ring"
     ],
     "themes": [
       "silence"
