@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Apology That Never Came",
-    "style": "emotional",
-    "script": "I stopped waiting by the phone\nat 3:17,\nthe exact time you last called.\nNot because I gave up,\nbut because the dust settled\non the receiver,\nand I realized\nno one was coming to wipe it clean.\nSome apologies don\u2019t arrive,\nthey evaporate mid-air,\nleaving only the weight of what could\u2019ve been.\nI still press redial sometimes,\njust to hear the dial tone,\nsteady and unchanging,\nlike my regret.",
-    "hash": "21e25c1c286c5c2233481e25fc4c4b92",
-    "metaphors": [
-      "tea",
-      "phone"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What Real Love Requires",
     "style": "nostalgic",
     "script": "Real love doesn\u2019t ask for much\nit only\nneeds your hands\nsteady when the world tilts\nYOUR VOICE\nsoft in the dark\nwhen the ceiling cracks\nnot to fix\njust to say\ni\u2019m here\nand mean it\nuntil the light comes back.",
@@ -844,5 +831,20 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Way You Look When You Do Not Know I Am Watching",
+    "style": "poetic",
+    "script": "The way your fingers trace the rim,\nof an empty glass,\nlike you\u2019re reading braille off yesterday\u2019s news.\nSomewhere between hunger,\nand forgetting you haven\u2019t eaten.\nYour shadow stretches,\nlonger than the afternoon,\nbut refuses to let go of the chair.\nI count the cracks in the ceiling,\nwhile you count the steps,\nto a door that isn\u2019t there.\nAnd when the light shifts,\nyou don\u2019t flinch,\njust tilt your head,\nlike the world owes you an answer.",
+    "hash": "fefbf61738cd9b596df1594bd63b6533",
+    "metaphors": [
+      "chair",
+      "ceiling",
+      "door",
+      "light",
+      "glass",
+      "shadow"
+    ],
+    "themes": []
   }
 ]

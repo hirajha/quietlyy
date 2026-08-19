@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "Finding Peace Within Yourself",
-    "What You Cannot Change and What You Can",
     "Why Suffering Transforms Us",
     "Why the Wound Is the Gift",
     "The Strength in Stillness",
@@ -65,11 +63,13 @@
     "The Gift of Impermanence",
     "Learning to Trust the Journey",
     "What Truly Matters in the End",
-    "The Meaning We Choose to Find"
+    "The Meaning We Choose to Find",
+    "When Grief Becomes a Teacher",
+    "The Difference Between Living and Existing"
   ],
-  "last_style": "lesson",
+  "last_style": "wisdom",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -144,7 +144,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153744_816dfe.mp3",
@@ -163,7 +162,8 @@
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
-    "2026-06-05_153806_9773e5.mp3"
+    "2026-06-05_153806_9773e5.mp3",
+    "2026-06-05_153734_d4c320.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -172,13 +172,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Outgrowing People You Love",
-    "The People Who Disappear When It's Hard",
-    "The Truth About Being The Strong One",
-    "When Being Nice Made You A Target",
-    "When You Finally Stopped Settling",
-    "The Strength In Walking Away",
-    "Being Too Kind In A Cruel World",
     "Why You Stopped Explaining Yourself",
     "The Quiet Power Of Letting Go",
     "What You Learned After Being Broken",
@@ -191,6 +184,13 @@
     "What Rock Bottom Taught You",
     "The People Who Leave When You Need Them Most",
     "What You Owe Yourself",
-    "Why You Stopped Waiting For An Apology"
+    "Why You Stopped Waiting For An Apology",
+    "When You Have Nothing Left",
+    "What Healing Actually Looks Like",
+    "Outgrowing People You Love",
+    "When You Stop Chasing People",
+    "The Truth About Being The Strong One",
+    "Loving Someone Who Wouldn't Stay",
+    "Why Closure Never Comes"
   ]
 }
