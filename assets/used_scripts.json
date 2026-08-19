@@ -1,22 +1,5 @@
 [
   {
-    "topic": "What I Mean When I Say I Love You",
-    "style": "poetic",
-    "script": "What I mean is the way,\nthe tide forgets,\nto ask permission before it rises.\nSome nights,\nI am the moon,\nnot pulling,\njust existing,\nand the water still answers.\nI mean the quiet conspiracy,\nof roots,\nthat hold the whole tree up,\nwithout ever being seen.\nI mean,\nI am learning,\nto be the soil,\nnot the storm.",
-    "hash": "021ab06089e8498f369c67cb89587c03",
-    "metaphors": [
-      "tree",
-      "roots",
-      "tide",
-      "moon",
-      "storm"
-    ],
-    "themes": [
-      "silence",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "Pretending You Are Fine",
     "style": "love",
     "script": "There's a kind of ache that wears a smile.\nThe clock ticks,\nbut the hands don\u2019t move.\nYour coffee goes cold\nwhile you rehearse the script\u2014\n\"I\u2019m fine, just tired.\"\nThe mirror reflects\nsomeone who looks like you,\nbut the eyes are rehearsed.\nYou laugh at nothing,\nand the sound is perfect.\nNo one notices the seams.\nSend this to them.",
@@ -843,6 +826,23 @@
       "ring"
     ],
     "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Being Misunderstood",
+    "style": "love",
+    "script": "The last text you sent was still unsent.\nIt flickers like a moth against the screen,\nsoft wings brushing glass.\nThey read it three times,\nbut never saw the way your fingers trembled\nwhile typing each letter.\nWORDS don't always land where we aim.\nSometimes they scatter like seeds in the wind,\nand grow into something wild,\nsomething unrecognizable.\nYou keep the draft,\nquiet proof of a truth they'll never understand.\nsend this to them.",
+    "hash": "1852ddf1d5cbb78d5cb1302dd5869db1",
+    "metaphors": [
+      "glass",
+      "letter",
+      "wind",
+      "seed",
+      "text"
+    ],
+    "themes": [
+      "growth",
       "silence"
     ]
   }
