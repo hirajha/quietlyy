@@ -1,22 +1,5 @@
 [
   {
-    "topic": "Being Strong for Everyone While Breaking Inside",
-    "style": "emotional",
-    "script": "You\u2019re holding the railing too tight.\nYour knuckles,\npale as the streetlights above,\nand no one asks\nif the weight is too much.\nSome days,\nyou\u2019re the bridge\nthat everyone crosses,\nbut the cracks\nare swallowing your name.\nYou laugh,\nand the sound is a coin\ndropped into a well\u2014\nno echo,\njust silence pretending to listen.\nLet them walk.",
-    "hash": "ad4f9c598b8f3c053ea0f2bd076e3c0d",
-    "metaphors": [
-      "light",
-      "tree",
-      "echo",
-      "silence",
-      "wall",
-      "bridge"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Finding Peace Within Yourself",
     "style": "emotional",
     "script": "How do you name the moment\nwhen the mirror stops asking questions?\nYou just stand there,\nnot smiling,\nnot frowning,\njust letting the light settle\nlike dust on old books.\nSome mornings,\nthe quiet isn\u2019t empty\u2014\nit\u2019s a room you\u2019ve finally learned to live in.\nThe walls don\u2019t judge,\nthe floor holds your weight,\nand the door stays open.\nYou don\u2019t have to leave.\nThis is where you\u2019ve been all along.",
@@ -844,5 +827,15 @@
       "tea"
     ],
     "themes": []
+  },
+  {
+    "topic": "The Cost Of Always Being Available",
+    "style": "lesson",
+    "script": "You're not tired. Just spent.\nWe answer every call.\nWe make ourselves reachable.\nIt feels kind. Like being a reliable friend.\nBut they stop looking for you.\nThey just know you're there.\nAlways.\nAnd you taught them.\nThat your effort has no real cost.",
+    "hash": "6f2ea56ac9538def1200cb9a64bac610",
+    "metaphors": [],
+    "themes": [
+      "friendship_loss"
+    ]
   }
 ]
