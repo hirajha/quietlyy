@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Healing Alone",
-    "style": "nostalgic",
-    "script": "I FORGOT HOW TO ASK\nfor help\nso I built a ladder\nfrom the splinters\nof every door I closed.\nThe steps creaked\nlike old bones\nlearning to dance again.\nBy the top\nthe wind\nwhispered my name\nand I answered\nwithout flinching.",
-    "hash": "3e60e758e373b322fc45a65a3e59e6f7",
-    "metaphors": [
-      "door",
-      "wind"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Loving the Wrong People",
     "style": "emotional",
     "script": "There's a hunger that eats,\nnot for food,\nbut for the shape of their voice.\nYou memorize the cracks,\nthe way it breaks on certain words,\nand call it music.\nSome people don't feed you,\nthey just teach you how to starve quietly.\nThe hands that never held yours\nstill leave fingerprints on your ribs,\nand you trace them,\nlike constellations of what could've been.\nYou don't miss them,\njust the version of you\nthat believed in their light.",
@@ -838,6 +827,19 @@
     "themes": [
       "growth",
       "loneliness"
+    ]
+  },
+  {
+    "topic": "What Home Actually Feels Like",
+    "style": "emotional",
+    "script": "Home isn\u2019t walls. Not really.\nIt\u2019s the way the kettle hums,\njust before it boils,\nwarm and patient,\nlike someone who knows you\u2019re coming.\nThe sink is full of dishes,\nbut the water runs clear,\nand for once,\nyou don\u2019t mind the weight.\nSome rooms remember your shape,\neven when you forget.\nYou leave,\nbut the door never locks behind you.\nIt just waits.",
+    "hash": "a58712221f7ece11ed8a1daf421da878",
+    "metaphors": [
+      "wall",
+      "door"
+    ],
+    "themes": [
+      "nostalgia"
     ]
   }
 ]
