@@ -1,21 +1,5 @@
 [
   {
-    "topic": "Finding Peace Within Yourself",
-    "style": "emotional",
-    "script": "How do you name the moment\nwhen the mirror stops asking questions?\nYou just stand there,\nnot smiling,\nnot frowning,\njust letting the light settle\nlike dust on old books.\nSome mornings,\nthe quiet isn\u2019t empty\u2014\nit\u2019s a room you\u2019ve finally learned to live in.\nThe walls don\u2019t judge,\nthe floor holds your weight,\nand the door stays open.\nYou don\u2019t have to leave.\nThis is where you\u2019ve been all along.",
-    "hash": "f30a56b54ce61335a7838d5b1517c10b",
-    "metaphors": [
-      "door",
-      "wall",
-      "light",
-      "mirror"
-    ],
-    "themes": [
-      "silence",
-      "growth"
-    ]
-  },
-  {
     "topic": "Healing Alone",
     "style": "nostalgic",
     "script": "I FORGOT HOW TO ASK\nfor help\nso I built a ladder\nfrom the splinters\nof every door I closed.\nThe steps creaked\nlike old bones\nlearning to dance again.\nBy the top\nthe wind\nwhispered my name\nand I answered\nwithout flinching.",
@@ -836,6 +820,24 @@
     "metaphors": [],
     "themes": [
       "friendship_loss"
+    ]
+  },
+  {
+    "topic": "The Night You Stopped Waiting",
+    "style": "nostalgic",
+    "script": "YOU LEFT THE LIGHT ON\nin the kitchen\nagain\nlike I\u2019d walk through that door\nany second\nI stopped checking the clock\nstopped setting two plates\nstopped pretending the couch\nwasn\u2019t just mine now\nSOMEWHERE\nbetween the last text\nand the first gray hair\nyou became\na name I don\u2019t say out loud\nanymore",
+    "hash": "57464b96548b29c2f8c3a1693c97a343",
+    "metaphors": [
+      "couch",
+      "kitchen",
+      "plate",
+      "light",
+      "door",
+      "text"
+    ],
+    "themes": [
+      "growth",
+      "loneliness"
     ]
   }
 ]
