@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Pretending You Are Fine",
-    "style": "love",
-    "script": "There's a kind of ache that wears a smile.\nThe clock ticks,\nbut the hands don\u2019t move.\nYour coffee goes cold\nwhile you rehearse the script\u2014\n\"I\u2019m fine, just tired.\"\nThe mirror reflects\nsomeone who looks like you,\nbut the eyes are rehearsed.\nYou laugh at nothing,\nand the sound is perfect.\nNo one notices the seams.\nSend this to them.",
-    "hash": "2bb76ee16795d1593d3bad4e75edbe0e",
-    "metaphors": [
-      "coffee",
-      "mirror"
-    ],
-    "themes": []
-  },
-  {
     "topic": "Being Strong for Everyone While Breaking Inside",
     "style": "emotional",
     "script": "You\u2019re holding the railing too tight.\nYour knuckles,\npale as the streetlights above,\nand no one asks\nif the weight is too much.\nSome days,\nyou\u2019re the bridge\nthat everyone crosses,\nbut the cracks\nare swallowing your name.\nYou laugh,\nand the sound is a coin\ndropped into a well\u2014\nno echo,\njust silence pretending to listen.\nLet them walk.",
@@ -845,5 +834,15 @@
       "growth",
       "silence"
     ]
+  },
+  {
+    "topic": "Falling For Someone Who Does Not Know",
+    "style": "emotional",
+    "script": "Tuesday, 2:17pm. The caf\u00e9 hums.\nYour name slips through my lips,\njust a breath,\nlike sugar dissolving in tea.\nI stir too long,\nwatching the swirl,\nnot tasting,\njust waiting for the sweetness to settle.\nSome words,\nI write them down,\nthen tear the page,\nnot from anger,\nbut from knowing,\nthe ink was never yours to keep.",
+    "hash": "bb436bc1c6cb0f3417d5741d06bc9b07",
+    "metaphors": [
+      "tea"
+    ],
+    "themes": []
   }
 ]
