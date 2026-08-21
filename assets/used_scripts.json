@@ -1,20 +1,5 @@
 [
   {
-    "topic": "Loving the Wrong People",
-    "style": "emotional",
-    "script": "There's a hunger that eats,\nnot for food,\nbut for the shape of their voice.\nYou memorize the cracks,\nthe way it breaks on certain words,\nand call it music.\nSome people don't feed you,\nthey just teach you how to starve quietly.\nThe hands that never held yours\nstill leave fingerprints on your ribs,\nand you trace them,\nlike constellations of what could've been.\nYou don't miss them,\njust the version of you\nthat believed in their light.",
-    "hash": "b6947e5c1cfc88a0bf129da9e8e184e4",
-    "metaphors": [
-      "star",
-      "light",
-      "tea"
-    ],
-    "themes": [
-      "grief_loss",
-      "silence"
-    ]
-  },
-  {
     "topic": "What Loneliness Actually Teaches You",
     "style": "lesson",
     "script": "Your own presence is the only constant.\nNot everyone is meant to stay.\nYou learn to discern.\nTo trust your own footing.\nWe stop seeking outside validation for our worth.\nWe cultivate it within.\nThat ache you carry,\nyou learn to soothe it yourself.\nBecause what others can\u2019t give, you must.",
@@ -840,6 +825,20 @@
     ],
     "themes": [
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "The Gift of Impermanence",
+    "style": "love",
+    "script": "There's a quiet like dandelion seeds.\nThey land,\nsoft,\non your palm.\nYou know they won't stay,\nbut you cup them anyway.\nThe wind takes them,\nnot cruel,\njust honest.\nSome things are meant to be held,\nthen let go.\nThe gift isn't the keeping.\nIt's the moment you chose to open your hands.\nsend this to them.",
+    "hash": "d9fff2b204d9975c3f3f62ddd744c146",
+    "metaphors": [
+      "seed",
+      "wind",
+      "cup"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
