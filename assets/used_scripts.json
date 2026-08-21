@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Person Who Stayed",
-    "style": "emotional",
-    "script": "I still set the table for two\nquiet rituals no one sees\nThe chair across from me stays warm\njust from memory\u2019s weight\nSome nights I pour two glasses of rain\nand drink both in the dark\nnot to forget\nyou\u2019re still the hand I reach for in thunder\nThe clock doesn\u2019t move\nbut the dust on your coat does\nI won\u2019t brush it off\nlet it settle like you did\nsend this to them.",
-    "hash": "6bd39fdae9749840601bd5f6c4a6ea19",
-    "metaphors": [
-      "table",
-      "chair",
-      "rain",
-      "dark",
-      "glass"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Small Things I Notice About You",
     "style": "emotional",
     "script": "How do you name the space between,\nthe way your fingers\nleave dents in the couch cushion,\nnot from weight\nbut from waiting.\nI notice the way you stir your coffee,\nthree slow circles,\npause,\nthen lift the spoon like it\u2019s fragile.\nSome days,\nI swear I can hear the air shift\nwhen you exhale,\nlike the room itself\nis holding its breath.\nTell them.",
@@ -844,6 +828,21 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Silent Suffering Nobody Sees",
+    "style": "wisdom",
+    "script": "The old gardener whispered\nsome wounds\nnever break the skin.\nThey bloom inward\nlike roots in the dark.\n\nYou walk through rooms\ncarrying a weight\nno one names.\nThe body remembers\nwhat the mouth won\u2019t say.\n\nLet the ache\nrest like a stone\nin your pocket.",
+    "hash": "e9167bb59dd88446eb698a7eaf03fcab",
+    "metaphors": [
+      "dark",
+      "garden",
+      "roots"
+    ],
+    "themes": [
+      "heartbreak",
+      "nostalgia"
     ]
   }
 ]
