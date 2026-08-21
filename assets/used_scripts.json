@@ -1,16 +1,5 @@
 [
   {
-    "topic": "The Small Things I Notice About You",
-    "style": "emotional",
-    "script": "How do you name the space between,\nthe way your fingers\nleave dents in the couch cushion,\nnot from weight\nbut from waiting.\nI notice the way you stir your coffee,\nthree slow circles,\npause,\nthen lift the spoon like it\u2019s fragile.\nSome days,\nI swear I can hear the air shift\nwhen you exhale,\nlike the room itself\nis holding its breath.\nTell them.",
-    "hash": "d991a78d19f59c70195c7024eecc229c",
-    "metaphors": [
-      "couch",
-      "coffee"
-    ],
-    "themes": []
-  },
-  {
     "topic": "People Who Use You",
     "style": "wisdom",
     "script": "Hafiz knew this\u2014\nthe ones who take\nleave fingerprints on your kindness.\nnot scars,\njust smudges of their own hurry.\n\nyou learn to wipe them clean\nnot with anger,\nbut the same cloth you use\nfor dew on morning grass.\n\nsome hands are cups,\nsome are sieves.\nknow the difference,\nand pour anyway.",
@@ -843,6 +832,21 @@
     "themes": [
       "heartbreak",
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "The Difference Between Living and Existing",
+    "style": "wisdom",
+    "script": "An old gardener whispered\nroots don\u2019t ask for light\nthey reach anyway\ntoward what they need\nwithout knowing why.\n\nI think that\u2019s living \u2014\nnot the bloom\nthe stubborn underground stretch\nwhen no one\u2019s watching.\nExisting is just waiting\nfor the rain to stop.\nMaybe the dirt\nis enough.",
+    "hash": "c27fb6259c71f3d4f336218acaf80d41",
+    "metaphors": [
+      "light",
+      "roots",
+      "rain",
+      "garden"
+    ],
+    "themes": [
+      "self_worth"
     ]
   }
 ]
