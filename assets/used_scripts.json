@@ -1,15 +1,5 @@
 [
   {
-    "topic": "What Loneliness Actually Teaches You",
-    "style": "lesson",
-    "script": "Your own presence is the only constant.\nNot everyone is meant to stay.\nYou learn to discern.\nTo trust your own footing.\nWe stop seeking outside validation for our worth.\nWe cultivate it within.\nThat ache you carry,\nyou learn to soothe it yourself.\nBecause what others can\u2019t give, you must.",
-    "hash": "a92bf239ddf08bd5f9b2662b5f1a46ed",
-    "metaphors": [],
-    "themes": [
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The Person Who Stayed",
     "style": "emotional",
     "script": "I still set the table for two\nquiet rituals no one sees\nThe chair across from me stays warm\njust from memory\u2019s weight\nSome nights I pour two glasses of rain\nand drink both in the dark\nnot to forget\nyou\u2019re still the hand I reach for in thunder\nThe clock doesn\u2019t move\nbut the dust on your coat does\nI won\u2019t brush it off\nlet it settle like you did\nsend this to them.",
@@ -836,6 +826,21 @@
       "seed",
       "wind",
       "cup"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "love",
+    "script": "There's a quiet like a held breath\nbefore the laugh escapes.\nThe way your fingers trace the rim of a cup,\nunaware I'm memorizing the shape of your pause.\nI built this smile from old receipts,\nink fading with every thank you,\nand the corners curl when no one's looking.\nYour name fits in the spaces between my teeth\nwhere I hide the words I won't say out loud.\nThe clock hums,\nbut time moves differently near you\u2014\nslower,\nsofter,\nlike snow settling on a windowsill.\nI let you see the version that knows how to glow,\nwhile the real me\ncounts the cracks in the ceiling.\nsend this to them.",
+    "hash": "aa499e52968a636903fc0bceea52d62e",
+    "metaphors": [
+      "ceiling",
+      "wind",
+      "cup",
+      "window"
     ],
     "themes": [
       "silence"
