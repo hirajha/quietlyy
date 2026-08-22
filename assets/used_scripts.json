@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Cost Of Always Being Available",
-    "style": "lesson",
-    "script": "The last text you answered at 2 a.m. wasn\u2019t urgent.\nIt just felt like it.\nWe confuse availability with importance.\nLike replying fast proves we matter.\nBut some people text late because they\u2019re lonely,\nnot because you\u2019re needed.\nYou start to believe your worth is measured in read receipts.\nIt\u2019s not.\nThe cost of always being available?\nYou forget how to be present.\nAnd the people who truly see you?\nThey don\u2019t need you on call.",
-    "hash": "607ffa3b50dfd6a166da7e88455bc68d",
-    "metaphors": [
-      "text",
-      "star"
-    ],
-    "themes": [
-      "loneliness",
-      "being_used",
-      "self_worth"
-    ]
-  },
-  {
     "topic": "Why You Don't Beg To Be Loved",
     "style": "lesson",
     "script": "You don\u2019t beg.\nNot because you\u2019re proud.\nBecause you finally learned:\nSome doors only open from the inside.\n\nRemember the last time you waited by the phone?\nThe way your stomach dropped when their name lit up\u2014\nNot with the text you hoped for,\nBut the one you already knew was coming.\n\nYou don\u2019t beg anymore.\nBecause real love doesn\u2019t make you count the seconds.\nAnd the people who do?\nThey were never yours to keep.",
@@ -852,5 +837,19 @@
       "song"
     ],
     "themes": []
+  },
+  {
+    "topic": "The Last Text You Never Sent",
+    "style": "nostalgic",
+    "script": "The cursor blinked\nonce\nthen twice\nlike a streetlight about to die.\nI typed your name\nand the whole screen\nheld its breath.\nYOU WERE GONE\nbefore the first word\nlanded.\nStill,\nI saved it\nlike a ticket stub\nto a show\nthat never opened.",
+    "hash": "d4751d0a54aca569ac2aafc683c0a742",
+    "metaphors": [
+      "light",
+      "tree"
+    ],
+    "themes": [
+      "grief_loss",
+      "silence"
+    ]
   }
 ]
