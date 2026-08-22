@@ -1,15 +1,5 @@
 [
   {
-    "topic": "People Who Use You",
-    "style": "wisdom",
-    "script": "Hafiz knew this\u2014\nthe ones who take\nleave fingerprints on your kindness.\nnot scars,\njust smudges of their own hurry.\n\nyou learn to wipe them clean\nnot with anger,\nbut the same cloth you use\nfor dew on morning grass.\n\nsome hands are cups,\nsome are sieves.\nknow the difference,\nand pour anyway.",
-    "hash": "dc866de24948c9681c1515bc0d2c0775",
-    "metaphors": [
-      "cup"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Cost Of Always Being Available",
     "style": "lesson",
     "script": "The last text you answered at 2 a.m. wasn\u2019t urgent.\nIt just felt like it.\nWe confuse availability with importance.\nLike replying fast proves we matter.\nBut some people text late because they\u2019re lonely,\nnot because you\u2019re needed.\nYou start to believe your worth is measured in read receipts.\nIt\u2019s not.\nThe cost of always being available?\nYou forget how to be present.\nAnd the people who truly see you?\nThey don\u2019t need you on call.",
@@ -848,5 +838,19 @@
     "themes": [
       "self_worth"
     ]
+  },
+  {
+    "topic": "When You Miss Someone You Should Not",
+    "style": "love",
+    "script": "I stopped counting the hours,\nthey pool like rainwater in my shoes.\nEvery puddle reflects your shadow,\nbut the sidewalk stays empty.\nI trace your initials on fogged glass,\nthe letters disappear before I finish.\nSome days,\nthe ache feels like a borrowed coat,\ntoo big,\ntoo heavy,\nI wear it anyway.\nThe radiator hums your favorite song,\nI pretend it's you humming back.\nSend this to them.",
+    "hash": "29b4dc0884724c2d147530061d403ab1",
+    "metaphors": [
+      "rain",
+      "glass",
+      "letter",
+      "shadow",
+      "song"
+    ],
+    "themes": []
   }
 ]
