@@ -1,21 +1,5 @@
 [
   {
-    "topic": "Why You Don't Beg To Be Loved",
-    "style": "lesson",
-    "script": "You don\u2019t beg.\nNot because you\u2019re proud.\nBecause you finally learned:\nSome doors only open from the inside.\n\nRemember the last time you waited by the phone?\nThe way your stomach dropped when their name lit up\u2014\nNot with the text you hoped for,\nBut the one you already knew was coming.\n\nYou don\u2019t beg anymore.\nBecause real love doesn\u2019t make you count the seconds.\nAnd the people who do?\nThey were never yours to keep.",
-    "hash": "73b55370dc8d0b68c909dff2e5c20c25",
-    "metaphors": [
-      "door",
-      "phone",
-      "text"
-    ],
-    "themes": [
-      "nostalgia",
-      "growth",
-      "love"
-    ]
-  },
-  {
     "topic": "Learning to Trust the Journey",
     "style": "wisdom",
     "script": "Remember the smell of wet pavement\nin July.\nThe way the heat rose\nlike a slow breath\nbefore the storm broke.\n\nLao Tzu knew this\u2014\ntrust the path\neven when it disappears\ninto mist.\n\nWe spend years\nmapping every turn\nwhile the road\nrewrites itself.\n\nYou\u2019ll recognize it\nwhen the next step\nfeels lighter\nthan the last.",
@@ -850,6 +834,25 @@
     "themes": [
       "grief_loss",
       "silence"
+    ]
+  },
+  {
+    "topic": "When Love Feels Like Coming Home",
+    "style": "love",
+    "script": "I stopped counting the steps\nto your door.\nThe porch light hums,\nsoft orange like the last sip of tea.\nI never told you how the floorboards creak\nin the same rhythm as my old clock,\nticking your name.\nYour voice,\na blanket draped over my shoulders\nbefore I knew I was cold.\nThe way you leave the window open\njust enough for the breeze to visit.\nI carry it everywhere,\nthis quiet shape of belonging.\nsend this to them.",
+    "hash": "f6c2dcbb7c20fbaa352490aaef7e1c89",
+    "metaphors": [
+      "tea",
+      "light",
+      "door",
+      "porch",
+      "wind",
+      "window",
+      "blanket"
+    ],
+    "themes": [
+      "silence",
+      "self_worth"
     ]
   }
 ]
