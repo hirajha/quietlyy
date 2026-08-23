@@ -1,16 +1,5 @@
 [
   {
-    "topic": "The Difference Between Living and Existing",
-    "style": "wisdom",
-    "script": "A Zen master whispered\nto the crowded room\u2014\nbreathing is not waiting.\nYou inhale the world\nbut do you taste the rain?\n\nI stood by the river\nafter dawn,\nwatched a heron stab the shallows\u2014\nno hesitation,\njust the slow uncoiling of hunger.\n\nWe mistake endurance for life,\ncount the hours like coins in a jar,\nforget the weight of a single ripe peach\nin the palm.",
-    "hash": "6af6b8e8f158693eca5e6108691ec662",
-    "metaphors": [
-      "dawn",
-      "rain"
-    ],
-    "themes": []
-  },
-  {
     "topic": "One-Sided Effort",
     "style": "nostalgic",
     "script": "YOU REMEMBER THE WAY\nI\u2019d set the table\nfor two\nbefore you even thought of coming\n\nI\u2019d leave the porch light on\npast midnight\npast reason\n\nYOU NEVER ASKED FOR IT\nbut I gave\nanyway\nlike a tide\nthat keeps returning\nto a shore\nthat doesn\u2019t want the water\n\nnow the plates gather dust\nand the bulb burns out",
@@ -853,6 +842,23 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "Falling For Someone Who Does Not Know",
+    "style": "emotional",
+    "script": "The porch light stays on all night.\njust for you,\nthough you\u2019ll never walk up the steps.\nI trace your name\nin the condensation on my window,\nbut the glass forgets by morning.\nSome nights,\nI swear I hear your laugh\nin the static between radio stations.\nThe universe keeps sending signals,\nand I keep pretending not to notice.\nThis is how ghosts are made.\nquietly.",
+    "hash": "2a00b5f7f9870384537351970c926728",
+    "metaphors": [
+      "porch",
+      "light",
+      "radio",
+      "window",
+      "wind",
+      "glass"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
