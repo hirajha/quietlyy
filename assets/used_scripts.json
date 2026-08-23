@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Strength in Stillness",
-    "style": "nostalgic",
-    "script": "THE WAY YOU STAND\nstill\nlike the last train\nholding its breath\nbefore the station empties.\n\nYou don\u2019t flinch\nwhen the wind tests you\nor when the world\nshifts its weight.\n\nLEAVES fall\naround your feet\nbut never touch you\u2014\nyou were the ground\nall along.",
-    "hash": "dbeb0f1136bd46460ebc0c604ac1532e",
-    "metaphors": [
-      "wind",
-      "rain"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Difference Between Living and Existing",
     "style": "wisdom",
     "script": "A Zen master whispered\nto the crowded room\u2014\nbreathing is not waiting.\nYou inhale the world\nbut do you taste the rain?\n\nI stood by the river\nafter dawn,\nwatched a heron stab the shallows\u2014\nno hesitation,\njust the slow uncoiling of hunger.\n\nWe mistake endurance for life,\ncount the hours like coins in a jar,\nforget the weight of a single ripe peach\nin the palm.",
@@ -851,5 +838,21 @@
       "wind"
     ],
     "themes": []
+  },
+  {
+    "topic": "The Moment You Stopped Hoping",
+    "style": "emotional",
+    "script": "You\u2019re staring at the ceiling again.\nThe cracks don\u2019t spell anything anymore,\njust lines you\u2019ve memorized.\nSomewhere,\na clock ticks,\nbut it\u2019s not counting down to anything.\nThe hands that once reached,\nnow rest,\nweightless,\nlike balloons untied.\nYou don\u2019t flinch when the phone buzzes,\nnot even a blink.\nThe moment hope left,\nit didn\u2019t slam the door,\njust clicked the latch.\nand you let it go.",
+    "hash": "65b8e0c9d2250d4aa60aa51ff4bb2d23",
+    "metaphors": [
+      "phone",
+      "star",
+      "door",
+      "ring",
+      "ceiling"
+    ],
+    "themes": [
+      "loneliness"
+    ]
   }
 ]
