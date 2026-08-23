@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The People Who Leave When You Need Them Most",
-    "style": "lesson",
-    "script": "The first time someone leaves when you need them,\nyou think it\u2019s an accident.\nThe second time,\nyou realize it\u2019s a pattern.\nThe third time,\nyou stop calling.\nWe teach people how much we\u2019ll tolerate\nby how long we tolerate it.\nSome souls only show up when the water\u2019s calm.\nYou\u2019ll learn to swim alone,\nand that\u2019s when they\u2019ll finally notice your stroke.\nBut by then,\nyou won\u2019t need them to.",
-    "hash": "03f26f220c74945b600f20563d62c891",
-    "metaphors": [
-      "tea"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "The Strength in Stillness",
     "style": "nostalgic",
     "script": "THE WAY YOU STAND\nstill\nlike the last train\nholding its breath\nbefore the station empties.\n\nYou don\u2019t flinch\nwhen the wind tests you\nor when the world\nshifts its weight.\n\nLEAVES fall\naround your feet\nbut never touch you\u2014\nyou were the ground\nall along.",
@@ -848,6 +836,19 @@
       "rain",
       "wind",
       "light"
+    ],
+    "themes": []
+  },
+  {
+    "topic": "The Way You Look When You Do Not Know I Am Watching",
+    "style": "emotional",
+    "script": "You're folding laundry like it's sacred,\njust the way your mother taught you.\nThe sleeves align,\nperfect creases,\nbut your eyes drift\nto the window where the streetlight hums.\nSome nights,\nyou let the wrinkles stay,\nand I see the weight you carry\nwhen no one's looking.\nYou smooth the collar,\nslowly,\nlike you're tucking in a memory.\nI won't interrupt.",
+    "hash": "b9ddeafd95f78d641518bf6409e7024f",
+    "metaphors": [
+      "light",
+      "tree",
+      "window",
+      "wind"
     ],
     "themes": []
   }
