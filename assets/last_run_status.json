@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Friends Who Only Call When They Need You"
+    "detail": "The One I Think About First"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18097598201305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18108432299034873"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/yXdJ9gwisPE"
+    "detail": "https://www.youtube.com/shorts/Ob_O9mGJwV0"
   }
 }

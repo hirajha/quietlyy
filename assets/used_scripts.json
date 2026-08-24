@@ -1,17 +1,5 @@
 [
   {
-    "topic": "The Quiet Power Of Letting Go",
-    "style": "lesson",
-    "script": "Nobody admits the weight of what's left unspoken.\nWe carry it quietly.\nIn every conversation, a thousand things go unsaid.\nWe learn to live with the discomfort.\nOf knowing what we cannot say.\nOf feeling what we cannot show.\nWe are experts at hiding our true selves.\nEven from those closest to us.\nAnd the heaviest burden is the one we hide from our own hearts.\nWe are all secretly waiting for someone to see us, truly see us, and still choose to stay.",
-    "hash": "10edcbba56e431ee2b98ec8f2f9e9b61",
-    "metaphors": [],
-    "themes": [
-      "loneliness",
-      "love",
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Love Someone Who Is Leaving",
     "style": "emotional",
     "script": "The suitcase stays half-packed for weeks.\nNot out of hesitation,\njust the quiet weight of what fits inside.\nSome memories\nrefuse to fold neatly,\nstubborn as a sleeve caught in the zipper.\nI trace the seams,\ncounting the miles between stitches,\nbut the distance isn\u2019t in the fabric.\nIt\u2019s in the way the light shifts\nwhen you walk out the door.\nI\u2019ll leave the porch light on.\nNot to guide you back,\njust so you know\nsomeone still sees the dark.",
@@ -852,6 +840,22 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The One I Think About First",
+    "style": "emotional",
+    "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
+    "hash": "959854a0569ce7c23fe5253ff2900374",
+    "metaphors": [
+      "sun",
+      "sweater",
+      "text",
+      "light"
+    ],
+    "themes": [
+      "self_worth",
+      "silence"
     ]
   }
 ]
