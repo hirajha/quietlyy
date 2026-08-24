@@ -1,14 +1,5 @@
 [
   {
-    "file": "f914d7aa_0.png",
-    "topic": "The Strength in Stillness",
-    "panel": 0,
-    "source": "fresh",
-    "timestamp": 1781932790,
-    "uses": 2,
-    "last_used": 1783659182
-  },
-  {
     "file": "6300b335_1.png",
     "topic": "The Strength in Stillness",
     "panel": 1,
@@ -1607,8 +1598,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1784020769,
-    "uses": 1,
-    "last_used": 1784042326
+    "uses": 2,
+    "last_used": 1787558493
   },
   {
     "file": "a7c95ff3_1.png",
@@ -4486,13 +4477,24 @@
     "topic": "The Person Behind My Smile",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1787538200
+    "timestamp": 1787538200,
+    "uses": 1,
+    "last_used": 1787558493
   },
   {
     "file": "3aeae541_1.png",
     "topic": "The Person Behind My Smile",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1787538246
+    "timestamp": 1787538246,
+    "uses": 1,
+    "last_used": 1787558493
+  },
+  {
+    "file": "5583cde7_0.png",
+    "topic": "Silent Suffering Nobody Sees",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1787558496
   }
 ]

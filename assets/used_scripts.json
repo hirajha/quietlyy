@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Being Too Kind In A Cruel World",
-    "style": "lesson",
-    "script": "Kindness is often mistaken for endless access.\nYour boundless spirit,\nbecomes a free pass.\nFor those who take,\nthey rarely give.\nWe learn this slow.\nEach quiet sacrifice, a toll.\nThey were never kind enough to warn you.\nYou were just too kind to notice.",
-    "hash": "6a027fa2161010c9ad2f1145130b2f51",
-    "metaphors": [],
-    "themes": [
-      "moving_on",
-      "silence",
-      "self_worth"
-    ]
-  },
-  {
     "topic": "Loving Quietly From a Distance",
     "style": "nostalgic",
     "script": "I leave the porch light on\nfor you\njust in case\nyou ever drive by\nslow enough to see\nit flicker like a Morse code\nI never learned to send.\nThe neighbors think I\u2019m forgetful\nbut really\nI\u2019m waiting\nfor the hum of tires\non wet pavement\nto sound like your name.",
@@ -855,6 +843,16 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Silent Suffering Nobody Sees",
+    "style": "emotional",
+    "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
+    "hash": "1e7beeb950401054760699c316db93c0",
+    "metaphors": [],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
