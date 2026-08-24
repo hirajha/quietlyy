@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Art of Letting Go",
-    "style": "love",
-    "script": "The last text still glows on your screen.\nUnanswered,\nbut not unread.\nI trace the letters like a child\nlearning a new language.\nThe backspace button hums,\nsoft as a lullaby.\nOne tap,\nand the weight lifts.\nNot erased,\njust... set down.\nThe phone dims,\nquietly,\nlike a door closing behind me.",
-    "hash": "7e77fd5951691551c3ffa9e2d0baf8c9",
-    "metaphors": [
-      "letter",
-      "door",
-      "phone",
-      "text"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Being Too Kind In A Cruel World",
     "style": "lesson",
     "script": "Kindness is often mistaken for endless access.\nYour boundless spirit,\nbecomes a free pass.\nFor those who take,\nthey rarely give.\nWe learn this slow.\nEach quiet sacrifice, a toll.\nThey were never kind enough to warn you.\nYou were just too kind to notice.",
@@ -854,6 +839,19 @@
       "porch",
       "door",
       "table"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "emotional",
+    "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
+    "hash": "a1484fb15ac66345b89e7f6b30179a6e",
+    "metaphors": [
+      "song",
+      "radio"
     ],
     "themes": [
       "silence"
