@@ -1,16 +1,5 @@
 [
   {
-    "topic": "The Exhaustion of Pretending to Be Okay",
-    "style": "emotional",
-    "script": "You\u2019re not tired. Just hollow.\nThe same smile you rehearse in the mirror,\nslowly cracks under fluorescent light.\nNo one asks,\nand you don\u2019t tell\u2014\njust nod,\nlike a dashboard bobblehead in rush hour.\nSome days,\neven gravity feels like an audience.\nThe weight of your own bones,\na standing ovation you didn\u2019t ask for.\nYou\u2019re not okay.\nYou\u2019re just better at lying to yourself now.",
-    "hash": "8090e2b4f99a2819e00dc0faa0aeaa38",
-    "metaphors": [
-      "mirror",
-      "light"
-    ],
-    "themes": []
-  },
-  {
     "topic": "When You Found Me",
     "style": "poetic",
     "script": "When you found me,\nI was a half-built bridge\nsuspended over nothing,\njust steel whispers\nand the wind\u2019s warning.\nYou didn\u2019t ask for directions,\njust brought a toolbox\nand a silence that knew how to listen.\nSome nights,\nthe bolts still hum your name,\nbut the river underneath?\nIt never once asked for a map.",
@@ -850,6 +839,18 @@
     "metaphors": [],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "When Being Nice Made You A Target",
+    "style": "lesson",
+    "script": "Generosity is often misread.\nSome people interpret kindness,\nas availability.\nThey see your open hand,\nnot your worth.\nThey assume your grace means,\nyou have no edge.\nNo line to cross.\nYou teach people how to take from you,\nby how much you let them.",
+    "hash": "69d70f7489de56640a25b51910dc216c",
+    "metaphors": [
+      "tea"
+    ],
+    "themes": [
+      "self_worth"
     ]
   }
 ]
