@@ -1,20 +1,5 @@
 [
   {
-    "topic": "You Are My Calm",
-    "style": "love",
-    "script": "You are not the rain. Not even close.\nA single drop on the windowpane,\nand suddenly I\u2019m breathing again.\nThe room doesn\u2019t change,\nbut the air tastes lighter.\nYour voice doesn\u2019t fix anything,\nit just makes the cracks feel intentional.\nLike kintsugi,\nbut the gold is your name.\nI don\u2019t need you to hold me,\njust let me lean.\nThe quiet hum of your presence,\nthat\u2019s the only lullaby I\u2019ve ever known.\nsend this to them.",
-    "hash": "4f397c2e0f4131e1c70d411fff290c0f",
-    "metaphors": [
-      "wind",
-      "rain",
-      "light",
-      "window"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Smile That Hides Everything",
     "style": "love",
     "script": "The porch light stays on all night.\nYou taught it to wait,\nbut it never learned how to turn off.\nYOUR SMILE IS A LOCKED JOURNAL,\npages filled with ink that won\u2019t bleed.\nI trace the spine,\nwondering if the key is lost\nor just hidden in plain sight.\nThe corners are soft now,\nworn from hands that pretend not to notice.\nI leave it on the shelf,\nwhere the dust settles like a secret.\nsend this to them.",
@@ -848,5 +833,19 @@
       "wind"
     ],
     "themes": []
+  },
+  {
+    "topic": "When You Realized You Were the Option, Not the Priority",
+    "style": "nostalgic",
+    "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
+    "hash": "8c0467d2fae388b518ba0b20828aa470",
+    "metaphors": [
+      "ring",
+      "star"
+    ],
+    "themes": [
+      "growth",
+      "grief_loss"
+    ]
   }
 ]
