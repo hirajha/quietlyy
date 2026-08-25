@@ -1,20 +1,5 @@
 [
   {
-    "topic": "When You Found Me",
-    "style": "poetic",
-    "script": "When you found me,\nI was a half-built bridge\nsuspended over nothing,\njust steel whispers\nand the wind\u2019s warning.\nYou didn\u2019t ask for directions,\njust brought a toolbox\nand a silence that knew how to listen.\nSome nights,\nthe bolts still hum your name,\nbut the river underneath?\nIt never once asked for a map.",
-    "hash": "c398c79c3fd5c6306919559ff46d795e",
-    "metaphors": [
-      "silence",
-      "wind",
-      "bridge",
-      "map"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "You Are My Calm",
     "style": "love",
     "script": "You are not the rain. Not even close.\nA single drop on the windowpane,\nand suddenly I\u2019m breathing again.\nThe room doesn\u2019t change,\nbut the air tastes lighter.\nYour voice doesn\u2019t fix anything,\nit just makes the cracks feel intentional.\nLike kintsugi,\nbut the gold is your name.\nI don\u2019t need you to hold me,\njust let me lean.\nThe quiet hum of your presence,\nthat\u2019s the only lullaby I\u2019ve ever known.\nsend this to them.",
@@ -852,5 +837,16 @@
     "themes": [
       "self_worth"
     ]
+  },
+  {
+    "topic": "The Power of Small Moments",
+    "style": "nostalgic",
+    "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
+    "hash": "fad71d57e80f79313745ebe29e3c5d59",
+    "metaphors": [
+      "door",
+      "wind"
+    ],
+    "themes": []
   }
 ]
