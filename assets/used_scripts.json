@@ -1,17 +1,5 @@
 [
   {
-    "topic": "When Someone Chooses You Every Day",
-    "style": "nostalgic",
-    "script": "YOU LEAVE the porch light on\nfor me\nwarm yellow spilling down the steps\nlike an invitation\nI step over the threshold\nand the door clicks shut\nnot locked\njust held\nYOU STIR the pot one more time\nadd a pinch of salt\ntaste it\nsay nothing\nI count the freckles on your wrist\nwhile you pretend not to notice\nthe way my fingers linger\nWE DON\u2019T talk about forever\nwe just\nkeep choosing",
-    "hash": "94288fd7ba767396252b088c4b40ec4f",
-    "metaphors": [
-      "porch",
-      "light",
-      "door"
-    ],
-    "themes": []
-  },
-  {
     "topic": "When You Realized You Were the Option, Not the Priority",
     "style": "emotional",
     "script": "How do you name the moment\nwhen the seatbelt light turns off,\nand no one reaches for your hand?\nYou were never the destination,\njust the detour they took\nwhen the highway felt too long.\nSome people don\u2019t keep you,\nthey keep the idea of you,\na postcard they tuck in their pocket\nuntil the ink runs dry.\nI won\u2019t ask for a window seat,\nI\u2019ll fold my hands in my lap,\nand watch the clouds pass.\nYou were never the flight,\njust the turbulence they braced for.",
@@ -848,6 +836,23 @@
       "door",
       "sun",
       "light"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "You Are My Calm",
+    "style": "emotional",
+    "script": "There's a stillness that hums,\nlike a fridge in an empty kitchen.\nYou are the steady buzz,\nthe one I lean against\nwhen the world spins too loud.\nI don't need you to fix it,\njust stand there,\nquiet as a held breath,\nand let the noise\npass through me like wind.\nYou are my calm,\nnot the absence of storm,\nbut the hand I reach for in the dark.",
+    "hash": "304fb0f55bd7b62751f300929725085d",
+    "metaphors": [
+      "dark",
+      "tea",
+      "wind",
+      "storm",
+      "kitchen",
+      "noise"
     ],
     "themes": [
       "silence"
