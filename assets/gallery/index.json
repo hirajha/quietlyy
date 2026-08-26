@@ -1,23 +1,5 @@
 [
   {
-    "file": "c01c4186_0.png",
-    "topic": "The Strength In Walking Away",
-    "panel": 0,
-    "source": "fresh",
-    "timestamp": 1782154037,
-    "uses": 2,
-    "last_used": 1784042326
-  },
-  {
-    "file": "74d36293_1.png",
-    "topic": "The Strength In Walking Away",
-    "panel": 1,
-    "source": "fresh",
-    "timestamp": 1782154042,
-    "uses": 2,
-    "last_used": 1784065187
-  },
-  {
     "file": "d9e1b1c5_0.png",
     "topic": "Learning to Trust the Journey",
     "panel": 0,
@@ -1553,8 +1535,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1784151543,
-    "uses": 1,
-    "last_used": 1784175453
+    "uses": 2,
+    "last_used": 1787780488
   },
   {
     "file": "c3b4bb31_1.png",
@@ -4486,13 +4468,31 @@
     "topic": "You Are My Calm",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1787753539
+    "timestamp": 1787753539,
+    "uses": 1,
+    "last_used": 1787780488
   },
   {
     "file": "0d549705_1.png",
     "topic": "You Are My Calm",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1787753583
+    "timestamp": 1787753583,
+    "uses": 1,
+    "last_used": 1787780488
+  },
+  {
+    "file": "ebbc3ecd_0.png",
+    "topic": "Why Peace Is Not the Absence of Storm",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1787780492
+  },
+  {
+    "file": "738a4a13_1.png",
+    "topic": "Why Peace Is Not the Absence of Storm",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1787780536
   }
 ]
