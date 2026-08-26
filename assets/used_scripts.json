@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Smile That Hides Everything",
-    "style": "love",
-    "script": "The porch light stays on all night.\nYou taught it to wait,\nbut it never learned how to turn off.\nYOUR SMILE IS A LOCKED JOURNAL,\npages filled with ink that won\u2019t bleed.\nI trace the spine,\nwondering if the key is lost\nor just hidden in plain sight.\nThe corners are soft now,\nworn from hands that pretend not to notice.\nI leave it on the shelf,\nwhere the dust settles like a secret.\nsend this to them.",
-    "hash": "f9bbde7254b57af6858fefcbea1a8df2",
-    "metaphors": [
-      "light",
-      "ring",
-      "porch"
-    ],
-    "themes": [
-      "growth",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Strength In Walking Away",
     "style": "lesson",
     "script": "Nobody escapes the weight of their own expectations. \nMost people are just trying to survive. \nTheir words are laced with hidden conditions. \nSome relationships are a gentle decline. \nInto a space where love is just a memory. \nWe invest years in people who will eventually become strangers. \nIt's a risk we take, a gamble with our hearts. \nThe hardest part is accepting that it's okay to move on. \nWalking away is not weakness. \nIt's the bravest thing you'll ever do.",
@@ -846,6 +831,20 @@
     "themes": [
       "growth",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "When You Found Me",
+    "style": "wisdom",
+    "script": "the desert wind whispered\nwhen you found me\ni was not lost\njust waiting\nfor the shape of your shadow to stretch across mine.\n\nyears of dust had settled\nyet my edges stayed sharp\nlike stones the river forgot to smooth.\n\nyou didn\u2019t carry a lantern\nor call my name\nyou simply walked\nuntil the space between us\nbecame a place.",
+    "hash": "54066e280c6cd047669c5874512194c9",
+    "metaphors": [
+      "shadow",
+      "wind"
+    ],
+    "themes": [
+      "grief_loss",
+      "growth"
     ]
   }
 ]
