@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Courage to Begin Again",
-    "The Quiet Revolution of Self-Respect",
     "The Freedom of Acceptance",
     "Learning to Belong to Yourself",
     "The Ancient Truth About Happiness",
@@ -65,11 +63,13 @@
     "What Truly Matters in the End",
     "The Art of Letting Go",
     "When Grief Becomes a Teacher",
-    "The Wisdom of Not Forcing"
+    "The Wisdom of Not Forcing",
+    "What Silence Teaches Us",
+    "Finding Peace Within Yourself"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 2,
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -147,7 +147,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153700_072547.mp3",
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
@@ -166,7 +165,8 @@
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153627_53fd51.mp3",
-    "2026-06-05_153806_9773e5.mp3"
+    "2026-06-05_153806_9773e5.mp3",
+    "2026-06-05_153640_3f0c91.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -175,13 +175,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "When You Stop Chasing People",
-    "What Pain Quietly Teaches You",
-    "The People Who Leave When You Need Them Most",
-    "What Loneliness Actually Teaches You",
-    "The Lesson In Every Goodbye",
-    "The Love That Was Only Convenient",
-    "Being Too Kind In A Cruel World",
     "What Rock Bottom Taught You",
     "Learning To Be Enough On Your Own",
     "When People Show You Who They Are",
@@ -194,6 +187,13 @@
     "When You Finally Stopped Settling",
     "What You Owe Yourself",
     "Loving Someone Who Wouldn't Stay",
-    "The People Who Disappear When It's Hard"
+    "The People Who Disappear When It's Hard",
+    "The Cost Of Always Being Available",
+    "What You Learned After Being Broken",
+    "When You Stop Chasing People",
+    "What Healing Actually Looks Like",
+    "The People Who Leave When You Need Them Most",
+    "The Day You Chose Yourself",
+    "What Loneliness Actually Teaches You"
   ]
 }

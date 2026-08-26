@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Strength In Walking Away",
-    "style": "lesson",
-    "script": "Nobody escapes the weight of their own expectations. \nMost people are just trying to survive. \nTheir words are laced with hidden conditions. \nSome relationships are a gentle decline. \nInto a space where love is just a memory. \nWe invest years in people who will eventually become strangers. \nIt's a risk we take, a gamble with our hearts. \nThe hardest part is accepting that it's okay to move on. \nWalking away is not weakness. \nIt's the bravest thing you'll ever do.",
-    "hash": "c925fdeafa45a86a59a4d72424f5b0a2",
-    "metaphors": [],
-    "themes": [
-      "love"
-    ]
-  },
-  {
     "topic": "When Someone Chooses You Every Day",
     "style": "nostalgic",
     "script": "YOU LEAVE the porch light on\nfor me\nwarm yellow spilling down the steps\nlike an invitation\nI step over the threshold\nand the door clicks shut\nnot locked\njust held\nYOU STIR the pot one more time\nadd a pinch of salt\ntaste it\nsay nothing\nI count the freckles on your wrist\nwhile you pretend not to notice\nthe way my fingers linger\nWE DON\u2019T talk about forever\nwe just\nkeep choosing",
@@ -845,6 +835,22 @@
     "themes": [
       "grief_loss",
       "growth"
+    ]
+  },
+  {
+    "topic": "The Beauty of an Unfinished Life",
+    "style": "nostalgic",
+    "script": "The way the morning light\nlingers\non your unmade bed\nlike it knows\nsomething you don\u2019t.\nYou leave the door ajar\nnot for the breeze\nbut for the stories\nthat haven\u2019t arrived yet.\nTHE SUNSET STILL WAITS\nfor your shadow to stretch\njust a little longer.\nyou let it.",
+    "hash": "107ebda808c1250524183cd26cf3f711",
+    "metaphors": [
+      "bed",
+      "shadow",
+      "door",
+      "sun",
+      "light"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
