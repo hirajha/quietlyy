@@ -1,27 +1,5 @@
 [
   {
-    "topic": "Grieving Someone Who Did Not Die",
-    "style": "poetic",
-    "script": "The house still breathes your cologne,\nbut the keys don\u2019t turn,\nthe locks have learned your shape.\nSome nights,\nthe faucet drips your name,\nsteady,\nlike a metronome counting absence.\nI trace the cracks in the ceiling,\nmap them to the last words you didn\u2019t say,\njust shadows,\nstretching longer than the silence.\nThe bed is a tide,\npulling me under,\nbut the shore is gone.",
-    "hash": "8aca562334bf7b7988d4db7d83993d78",
-    "metaphors": [
-      "shore",
-      "shadow",
-      "tea",
-      "tide",
-      "map",
-      "ceiling",
-      "bed",
-      "silence",
-      "keys"
-    ],
-    "themes": [
-      "growth",
-      "silence",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "When People Show You Who They Are",
     "style": "lesson",
     "script": "What do you call it when someone shows you their true self?\nIt's a revelation, a moment of clarity,\nusually after you've given them your all.\nSome people wear masks, others hide behind filters,\nbut eventually, their facade crumbles.\nYou can't unsee what you've seen,\nand you can't unfeel what you've felt.\nPeople will reveal themselves, \nagain and again, until you listen.\nYou don't have to accept the truth, \nbut ignoring it won't change it. \nPeople show you who they are, and that's who they are.",
@@ -857,6 +835,25 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Finding Yourself After Them",
+    "style": "emotional",
+    "script": "You're tracing the cracks in the ceiling again.\nThe same ones you memorized,\nbut now they look like rivers.\nNot maps,\njust paths you didn't choose.\nYour fingers remember their shape,\nand slowly,\nthe weight of their name\nfeels lighter than the dust\nsettling on your windowsill.\nSome mornings,\nyou wake up and forget to miss them.\nThe sun spills in,\nuninvited,\nand you let it stay.",
+    "hash": "6e033b74e24427b3b872034102bd9430",
+    "metaphors": [
+      "ceiling",
+      "wind",
+      "map",
+      "sun",
+      "window",
+      "path",
+      "light"
+    ],
+    "themes": [
+      "grief_loss",
+      "nostalgia"
     ]
   }
 ]
