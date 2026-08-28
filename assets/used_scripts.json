@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Courage to Begin Again",
-    "style": "emotional",
-    "script": "The suitcase still smells like salt air.\nNot from a trip,\njust the way you packed it\u2014\nslowly,\nlike you knew it wouldn\u2019t be coming back.\nSome doors don\u2019t creak when they close,\nthey just sigh,\nand the hallway gets a little darker.\nBut the keys are still warm in your palm,\nand the lock turns easier than you thought.\nNot a new start,\njust the courage to walk through.\nLet them know.",
-    "hash": "6c5965fd2b74f11cce6f8fa888afef62",
-    "metaphors": [
-      "door",
-      "dark",
-      "keys",
-      "star",
-      "hallway"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The First Time I Knew",
     "style": "love",
     "script": "The porch light flickered once at 3:17 a.m.\nYou didn\u2019t ask why I knew the exact time.\nA single moth circled the bulb,\nits wings brushing the glass like a secret.\nI counted the seconds between beats,\nand suddenly,\nyou were the only rhythm that made sense.\nYour laugh,\na quiet hum in the dark,\nbecame the dial tone I wanted to answer forever.\nThe air smelled like cut grass and rain,\nbut all I could taste was the sugar on your lips.\nWe didn\u2019t say a word.\nThe light burned out before morning.\nsend this to them.",
@@ -852,5 +836,19 @@
     "hash": "20aa6e1b41bac28b41d3788ee28821fb",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "The People Who Disappear When It's Hard",
+    "style": "lesson",
+    "script": "Commitment is not measured in laughter.\nOr shared memory.\nWe confuse good times.\nWith deep roots.\nThen everything shifts.\nThe ground gets unsteady.\nAnd the hands you thought were holding yours.\nAre gone.\nThey just let go.\nQuietly.\nThey were never really holding on.",
+    "hash": "e8591c8718caa9136112e365db356f45",
+    "metaphors": [
+      "tea",
+      "roots"
+    ],
+    "themes": [
+      "grief_loss",
+      "silence"
+    ]
   }
 ]
