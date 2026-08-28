@@ -1,16 +1,5 @@
 [
   {
-    "topic": "When People Show You Who They Are",
-    "style": "lesson",
-    "script": "What do you call it when someone shows you their true self?\nIt's a revelation, a moment of clarity,\nusually after you've given them your all.\nSome people wear masks, others hide behind filters,\nbut eventually, their facade crumbles.\nYou can't unsee what you've seen,\nand you can't unfeel what you've felt.\nPeople will reveal themselves, \nagain and again, until you listen.\nYou don't have to accept the truth, \nbut ignoring it won't change it. \nPeople show you who they are, and that's who they are.",
-    "hash": "5ffaee760f24b85120dda6dc4c13b488",
-    "metaphors": [
-      "mask",
-      "ring"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Courage to Begin Again",
     "style": "emotional",
     "script": "The suitcase still smells like salt air.\nNot from a trip,\njust the way you packed it\u2014\nslowly,\nlike you knew it wouldn\u2019t be coming back.\nSome doors don\u2019t creak when they close,\nthey just sigh,\nand the hallway gets a little darker.\nBut the keys are still warm in your palm,\nand the lock turns easier than you thought.\nNot a new start,\njust the courage to walk through.\nLet them know.",
@@ -855,5 +844,13 @@
       "grief_loss",
       "nostalgia"
     ]
+  },
+  {
+    "topic": "Being Tired in Ways Sleep Cannot Fix",
+    "style": "love",
+    "script": "You\u2019re peeling an orange at midnight.\nThe rind spirals down like a tired question.\nNo one answers.\nSlowly the segments split,\ntoo bright,\ntoo much effort.\nYou press one to your tongue,\nbut the sweetness\ncan\u2019t dissolve the weight\nin your shoulders.\nThe juice drips.\nSend this to them.",
+    "hash": "20aa6e1b41bac28b41d3788ee28821fb",
+    "metaphors": [],
+    "themes": []
   }
 ]
