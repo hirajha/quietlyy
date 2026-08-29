@@ -1,22 +1,5 @@
 [
   {
-    "topic": "The First Time I Knew",
-    "style": "love",
-    "script": "The porch light flickered once at 3:17 a.m.\nYou didn\u2019t ask why I knew the exact time.\nA single moth circled the bulb,\nits wings brushing the glass like a secret.\nI counted the seconds between beats,\nand suddenly,\nyou were the only rhythm that made sense.\nYour laugh,\na quiet hum in the dark,\nbecame the dial tone I wanted to answer forever.\nThe air smelled like cut grass and rain,\nbut all I could taste was the sugar on your lips.\nWe didn\u2019t say a word.\nThe light burned out before morning.\nsend this to them.",
-    "hash": "2fd24019d10ff9ed11f8ac171266c2cb",
-    "metaphors": [
-      "glass",
-      "light",
-      "porch",
-      "rain",
-      "dark"
-    ],
-    "themes": [
-      "silence",
-      "growth"
-    ]
-  },
-  {
     "topic": "The Quiet Kind of Love Nobody Talks About",
     "style": "emotional",
     "script": "There's a devotion that doesn't cling,\nnot chains,\njust roots,\ndeep in the soil of your absence.\nThe leaves still turn toward you,\nbut the wind doesn't ask why.\nSome hands build shelters,\nand some hands,\nquietly,\nlearn to hold the rain.\nI won't call it sacrifice,\njust the shape of my palms,\nwhen you're not here.\nSend this to them.",
@@ -849,6 +832,20 @@
     "themes": [
       "grief_loss",
       "silence"
+    ]
+  },
+  {
+    "topic": "What I Never Said Out Loud",
+    "style": "poetic",
+    "script": "The clock hands never asked for my secrets.\nI fed them anyway,\ntiny crumbs of truth\nswallowed by the gears.\nSome nights,\nthe ticking grows teeth,\nchews through the dark\nlike a moth through wool.\nI let it.\nThe holes are where the light gets in,\nbut the light doesn\u2019t know my name.",
+    "hash": "1f8df38c0aa0cfc32af064fe33598e3b",
+    "metaphors": [
+      "wall",
+      "light",
+      "dark"
+    ],
+    "themes": [
+      "growth"
     ]
   }
 ]
