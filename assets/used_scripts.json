@@ -1,21 +1,5 @@
 [
   {
-    "topic": "Loving in Silence",
-    "style": "nostalgic",
-    "script": "I kept your voice on my phone\ntoo long\ntoo quiet\nlike a secret I couldn\u2019t delete.\nYOU NEVER KNEW\nI played it back\non rainy afternoons\nwhen the house was empty\nand the walls leaned in.\nNow the file\u2019s gone\nbut the echo still hums\nin the spaces between my ribs.",
-    "hash": "fa6996929779601754025c255d16e28c",
-    "metaphors": [
-      "echo",
-      "wall",
-      "phone",
-      "rain"
-    ],
-    "themes": [
-      "grief_loss",
-      "silence"
-    ]
-  },
-  {
     "topic": "The Quiet Revolution of Self-Respect",
     "style": "emotional",
     "script": "You\u2019re folding the laundry again.\nnot because it\u2019s dirty\nbut because it\u2019s something to do\nwith your hands.\nThe sleeves still smell like their cologne,\nbut slowly\nyou stop pressing them to your face.\nSome nights,\nyou leave the basket half-empty\nand walk outside.\nThe air isn\u2019t lighter,\njust different.\nYou\u2019re learning to breathe it anyway.\nnot for them.\nnot for anyone.\njust the quiet click\nwhen the door locks behind you.",
@@ -847,6 +831,20 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The First Heartbreak",
+    "style": "emotional",
+    "script": "The first heartbreak isn\u2019t about them leaving.\nIt\u2019s the way your own hands\nstart to feel like strangers,\nbuttoning shirts you\u2019ll never wear for them,\nfolding sleeves that no longer reach.\nSome mornings,\nyou catch your reflection mid-wave,\nmid-smile,\nand the mirror flinches first.\nNot from pain,\nfrom recognition\u2014\nthat version of you\nis already packed away.",
+    "hash": "e55637f2dab25bdc39804d4fe37455a2",
+    "metaphors": [
+      "mirror",
+      "star"
+    ],
+    "themes": [
+      "heartbreak",
+      "love"
     ]
   }
 ]
