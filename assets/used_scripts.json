@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Quiet Kind of Love Nobody Talks About",
-    "style": "emotional",
-    "script": "There's a devotion that doesn't cling,\nnot chains,\njust roots,\ndeep in the soil of your absence.\nThe leaves still turn toward you,\nbut the wind doesn't ask why.\nSome hands build shelters,\nand some hands,\nquietly,\nlearn to hold the rain.\nI won't call it sacrifice,\njust the shape of my palms,\nwhen you're not here.\nSend this to them.",
-    "hash": "00513d8ade44dc30b8674ad8255388ce",
-    "metaphors": [
-      "roots",
-      "wind",
-      "rain"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Loving in Silence",
     "style": "nostalgic",
     "script": "I kept your voice on my phone\ntoo long\ntoo quiet\nlike a secret I couldn\u2019t delete.\nYOU NEVER KNEW\nI played it back\non rainy afternoons\nwhen the house was empty\nand the walls leaned in.\nNow the file\u2019s gone\nbut the echo still hums\nin the spaces between my ribs.",
@@ -846,6 +832,21 @@
     ],
     "themes": [
       "growth"
+    ]
+  },
+  {
+    "topic": "Loving Without Losing Yourself",
+    "style": "nostalgic",
+    "script": "You held the door,\nI\nlet the wind\ncarry my name out first.\nIt didn\u2019t mind,\njust curled around your ankles\nlike a cat who chose you,\nbut still sleeps on my side.\nSOMEHOW\nwe built a life\nwithout moving the furniture,\nand when the light slants just so,\nI forget\nwhich shadow is yours.",
+    "hash": "628a74a6f081822e5982b8a41df360d6",
+    "metaphors": [
+      "wind",
+      "shadow",
+      "light",
+      "door"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
