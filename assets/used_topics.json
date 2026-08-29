@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "What Silence Teaches Us",
-    "Finding Peace Within Yourself",
     "The Difference Between Living and Existing",
     "The Freedom of Acceptance",
     "The Quiet Revolution of Self-Respect",
@@ -65,11 +63,13 @@
     "Why Peace Is Not the Absence of Storm",
     "Why Suffering Transforms Us",
     "The Art of Letting Go",
-    "What Truly Matters in the End"
+    "What Truly Matters in the End",
+    "The Beauty of an Unfinished Life",
+    "The Wisdom of Not Forcing"
   ],
-  "last_style": "lesson",
+  "last_style": "wisdom",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -147,7 +147,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153724_b66b80.mp3",
@@ -166,7 +165,8 @@
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153806_9773e5.mp3",
-    "2026-06-05_153651_0d1d62.mp3"
+    "2026-06-05_153651_0d1d62.mp3",
+    "2026-06-05_153555_7cd9b3.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -175,13 +175,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The Love That Was Only Convenient",
-    "What Healing Actually Looks Like",
-    "When Being Nice Made You A Target",
-    "The People Who Leave When You Need Them Most",
-    "Loving Someone Who Wouldn't Stay",
-    "Outgrowing People You Love",
-    "The Day You Chose Yourself",
     "Learning To Be Enough On Your Own",
     "The Quiet Power Of Letting Go",
     "The Strength In Walking Away",
@@ -194,6 +187,13 @@
     "The Friends Who Only Stayed For The Good Days",
     "The Truth About Being The Strong One",
     "What You Learned After Being Broken",
-    "What Rock Bottom Taught You"
+    "What Rock Bottom Taught You",
+    "What You Owe Yourself",
+    "The Cost Of Always Being Available",
+    "When People Show You Who They Are",
+    "When You Have Nothing Left",
+    "Why Silence Became Your Answer",
+    "Why You Don't Beg To Be Loved",
+    "Why You Stopped Explaining Yourself"
   ]
 }

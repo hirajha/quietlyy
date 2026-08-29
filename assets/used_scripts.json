@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Quiet Revolution of Self-Respect",
-    "style": "emotional",
-    "script": "You\u2019re folding the laundry again.\nnot because it\u2019s dirty\nbut because it\u2019s something to do\nwith your hands.\nThe sleeves still smell like their cologne,\nbut slowly\nyou stop pressing them to your face.\nSome nights,\nyou leave the basket half-empty\nand walk outside.\nThe air isn\u2019t lighter,\njust different.\nYou\u2019re learning to breathe it anyway.\nnot for them.\nnot for anyone.\njust the quiet click\nwhen the door locks behind you.",
-    "hash": "6148fb5036ca8381053ec82db30c5d01",
-    "metaphors": [
-      "door",
-      "light"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What I Never Said Out Loud",
     "style": "love",
     "script": "There's a quiet like static after rain,\nsoftly humming in the walls.\nI never told you\nI memorized the way your sleeves\nfolded at the wrists,\nlike secrets tucked just out of reach.\nThe space between us\nwasn\u2019t empty\u2014\nit was full of things I swallowed whole.\nYour voice on the phone\nsounded like pages turning,\nand I never said\nyour name tasted like morning tea.\nsend this to them.",
@@ -845,6 +832,19 @@
     "themes": [
       "heartbreak",
       "love"
+    ]
+  },
+  {
+    "topic": "When You Love Someone Who Is Leaving",
+    "style": "emotional",
+    "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
+    "hash": "6d0bc462964895731ac2015330b6c0d5",
+    "metaphors": [
+      "door",
+      "echo"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

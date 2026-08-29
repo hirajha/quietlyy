@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The First Heartbreak"
+    "detail": "When You Love Someone Who Is Leaving"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18098314424305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18017968748924084"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/90KZTlxiPIc"
+    "detail": "https://www.youtube.com/shorts/au8WiU3GxuU"
   }
 }
