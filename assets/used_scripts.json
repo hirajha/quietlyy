@@ -1,20 +1,5 @@
 [
   {
-    "topic": "What I Never Said Out Loud",
-    "style": "love",
-    "script": "There's a quiet like static after rain,\nsoftly humming in the walls.\nI never told you\nI memorized the way your sleeves\nfolded at the wrists,\nlike secrets tucked just out of reach.\nThe space between us\nwasn\u2019t empty\u2014\nit was full of things I swallowed whole.\nYour voice on the phone\nsounded like pages turning,\nand I never said\nyour name tasted like morning tea.\nsend this to them.",
-    "hash": "925d16c4c3e606f94e4de3584deb1912",
-    "metaphors": [
-      "wall",
-      "rain",
-      "tea",
-      "phone"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Losing Yourself",
     "style": "emotional",
     "script": "4:17 a.m. The kettle hums one last note.\nIt\u2019s not the water that\u2019s boiling,\njust the questions you stopped asking.\nEvery cup tastes the same now,\nbitter,\nlike the name you no longer recognize.\nThe mirror holds a stranger\u2019s gaze,\nand you nod,\nnot out of agreement,\nbut exhaustion.\nSome days,\nyou forget to wear your own skin.\nLet them wonder.",
@@ -845,6 +830,20 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Quiet Exit",
+    "style": "emotional",
+    "script": "The last text never gets sent.\nIt sits in drafts,\nlike a boat\nthat missed the tide.\nSome exits don\u2019t slam,\nthey dissolve\u2014\nthe way sugar\nvanishes in tea.\nYour name stays sweet,\nbut the aftertaste\nfades to nothing.\nI won\u2019t wave goodbye.\nJust let the current take me.",
+    "hash": "9db51e34d268e9da039786a6497e27a5",
+    "metaphors": [
+      "text",
+      "tide",
+      "tea"
+    ],
+    "themes": [
+      "grief_loss"
     ]
   }
 ]

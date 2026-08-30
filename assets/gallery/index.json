@@ -1,23 +1,5 @@
 [
   {
-    "file": "a14aef37_0.png",
-    "topic": "How You Changed Everything",
-    "panel": 0,
-    "source": "fresh",
-    "timestamp": 1782383007,
-    "uses": 2,
-    "last_used": 1784476833
-  },
-  {
-    "file": "9271c86d_1.png",
-    "topic": "How You Changed Everything",
-    "panel": 1,
-    "source": "fresh",
-    "timestamp": 1782383013,
-    "uses": 2,
-    "last_used": 1784496872
-  },
-  {
     "file": "83450ecc_0.png",
     "topic": "The First Time I Knew",
     "panel": 0,
@@ -1463,8 +1445,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1784261269,
-    "uses": 1,
-    "last_used": 1784280221
+    "uses": 2,
+    "last_used": 1788070581
   },
   {
     "file": "38a036b3_1.png",
@@ -4486,13 +4468,31 @@
     "topic": "When You Love Someone Who Is Leaving",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1788039134
+    "timestamp": 1788039134,
+    "uses": 1,
+    "last_used": 1788070581
   },
   {
     "file": "2a419527_1.png",
     "topic": "When You Love Someone Who Is Leaving",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1788039178
+    "timestamp": 1788039178,
+    "uses": 1,
+    "last_used": 1788070581
+  },
+  {
+    "file": "711576bb_0.png",
+    "topic": "The Quiet Exit",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1788070584
+  },
+  {
+    "file": "55290302_1.png",
+    "topic": "The Quiet Exit",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1788070629
   }
 ]
