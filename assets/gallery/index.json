@@ -1,23 +1,5 @@
 [
   {
-    "file": "864da069_0.png",
-    "topic": "Losing a Parent",
-    "panel": 0,
-    "source": "fresh",
-    "timestamp": 1782425376,
-    "uses": 2,
-    "last_used": 1784565055
-  },
-  {
-    "file": "130d0015_1.png",
-    "topic": "Losing a Parent",
-    "panel": 1,
-    "source": "fresh",
-    "timestamp": 1782425380,
-    "uses": 2,
-    "last_used": 1784584314
-  },
-  {
     "file": "67923d95_0.png",
     "topic": "When You Make Ordinary Moments Feel Different",
     "panel": 0,
@@ -1445,8 +1427,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1784280224,
-    "uses": 1,
-    "last_used": 1784300744
+    "uses": 2,
+    "last_used": 1788113990
   },
   {
     "file": "d45d1484_1.png",
@@ -4486,13 +4468,31 @@
     "topic": "The Quiet Revolution of Self-Respect",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1788093763
+    "timestamp": 1788093763,
+    "uses": 1,
+    "last_used": 1788113990
   },
   {
     "file": "5dd10446_1.png",
     "topic": "The Quiet Revolution of Self-Respect",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1788093807
+    "timestamp": 1788093807,
+    "uses": 1,
+    "last_used": 1788113990
+  },
+  {
+    "file": "8a6b1946_0.png",
+    "topic": "Grieving Someone Who Did Not Die",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1788113993
+  },
+  {
+    "file": "84e138c7_1.png",
+    "topic": "Grieving Someone Who Did Not Die",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1788114038
   }
 ]

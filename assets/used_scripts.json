@@ -1,13 +1,5 @@
 [
   {
-    "topic": "The Day You Chose Yourself",
-    "style": "lesson",
-    "script": "Most people settle for a version of themselves. \nThey become a watered-down imitation, \na collection of other people's expectations, \na list of shoulds. \nIt's a heavy burden to carry, \nthe weight of who you're supposed to be, \nthe pressure to conform. \nBut what if you chose differently? \nWhat if you chose to be the authentic, \nunedited version? \nYou'd be surprised at how liberating it feels to be yourself.",
-    "hash": "aade2f39dcf7323117cfc62208b7bbc6",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "The Apology That Never Came",
     "style": "emotional",
     "script": "4:17 a.m. The fridge hums low.\nI trace the cracks,\nnot the promises.\nSome words,\njust echoes in a hallway,\nnever finding the right door.\nYour voice,\nstill tangled in the sheets,\nbut the bed\u2019s been made.\nI won\u2019t ask for rain,\njust the forecast.\nThe sky stayed clear.\nsend this to them.",
@@ -848,6 +840,18 @@
       "grief_loss",
       "silence",
       "growth"
+    ]
+  },
+  {
+    "topic": "Grieving Someone Who Did Not Die",
+    "style": "nostalgic",
+    "script": "I keep your old voicemail\nsaved\nlike a secret\nno one else knows.\nThe way you laughed\nstill tangled in the wires,\nstatic humming your name.\nI press play\nwhen the house is too empty,\nbut the voice that answers\nisn\u2019t yours anymore.\nJust a ghost\nin the shape of hello.",
+    "hash": "e63b9d94af7fefb9f594ba838cae88c5",
+    "metaphors": [
+      "voicemail"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
