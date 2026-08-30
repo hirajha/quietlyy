@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Losing Yourself",
-    "style": "emotional",
-    "script": "4:17 a.m. The kettle hums one last note.\nIt\u2019s not the water that\u2019s boiling,\njust the questions you stopped asking.\nEvery cup tastes the same now,\nbitter,\nlike the name you no longer recognize.\nThe mirror holds a stranger\u2019s gaze,\nand you nod,\nnot out of agreement,\nbut exhaustion.\nSome days,\nyou forget to wear your own skin.\nLet them wonder.",
-    "hash": "9e5d6b7c173c9c9a5da967cca8eae928",
-    "metaphors": [
-      "mirror",
-      "note",
-      "cup"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Day You Chose Yourself",
     "style": "lesson",
     "script": "Most people settle for a version of themselves. \nThey become a watered-down imitation, \na collection of other people's expectations, \na list of shoulds. \nIt's a heavy burden to carry, \nthe weight of who you're supposed to be, \nthe pressure to conform. \nBut what if you chose differently? \nWhat if you chose to be the authentic, \nunedited version? \nYou'd be surprised at how liberating it feels to be yourself.",
@@ -844,6 +832,22 @@
     ],
     "themes": [
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The Quiet Revolution of Self-Respect",
+    "style": "wisdom",
+    "script": "a japanese gardener whispered\nnot every root needs light\nsome grow strongest\nwhere the soil stays dark\ntrust the unseen work\nself-respect isn't a shout\nit's the quiet refusal\nto let others dig up your peace\nyou don't need their tools\nor their permission to thrive\nsome things grow best\nin the hush of your own hands",
+    "hash": "2724092aa1c41bc30f2b32b2fdfcbe59",
+    "metaphors": [
+      "dark",
+      "light",
+      "garden"
+    ],
+    "themes": [
+      "grief_loss",
+      "silence",
+      "growth"
     ]
   }
 ]

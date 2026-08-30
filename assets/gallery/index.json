@@ -1,23 +1,5 @@
 [
   {
-    "file": "83450ecc_0.png",
-    "topic": "The First Time I Knew",
-    "panel": 0,
-    "source": "fresh",
-    "timestamp": 1782403473,
-    "uses": 2,
-    "last_used": 1784522643
-  },
-  {
-    "file": "3ed19b2b_1.png",
-    "topic": "The First Time I Knew",
-    "panel": 1,
-    "source": "fresh",
-    "timestamp": 1782403481,
-    "uses": 2,
-    "last_used": 1784543193
-  },
-  {
     "file": "864da069_0.png",
     "topic": "Losing a Parent",
     "panel": 0,
@@ -1454,8 +1436,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1784261277,
-    "uses": 1,
-    "last_used": 1784280221
+    "uses": 2,
+    "last_used": 1788093758
   },
   {
     "file": "25cc7100_0.png",
@@ -4486,13 +4468,31 @@
     "topic": "The Quiet Exit",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1788070584
+    "timestamp": 1788070584,
+    "uses": 1,
+    "last_used": 1788093758
   },
   {
     "file": "55290302_1.png",
     "topic": "The Quiet Exit",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1788070629
+    "timestamp": 1788070629,
+    "uses": 1,
+    "last_used": 1788093758
+  },
+  {
+    "file": "2e493cf3_0.png",
+    "topic": "The Quiet Revolution of Self-Respect",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1788093763
+  },
+  {
+    "file": "5dd10446_1.png",
+    "topic": "The Quiet Revolution of Self-Respect",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1788093807
   }
 ]
