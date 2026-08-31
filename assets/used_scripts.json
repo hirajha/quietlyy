@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Person Who Stayed",
-    "style": "poetic",
-    "script": "The person who stayed\nisn\u2019t a shadow,\njust the shape of the door left open.\nEvery time you walk through,\nyou don\u2019t notice\nhow the hinges remember your weight,\nhow the air shifts,\njust slightly,\nto make room.\nSome nights,\nthe house breathes slower,\nwaiting for the click of the latch,\nbut never locking.",
-    "hash": "35c9279d7b2696f0e354cd085251e158",
-    "metaphors": [
-      "door",
-      "shadow",
-      "light"
-    ],
-    "themes": [
-      "loneliness",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "The Text You Read But Did Not Reply To",
     "style": "love",
     "script": "I stopped counting the hours\nsince your name lit up my screen.\nThe message still glows,\na soft blue pulse in the dark,\nlike a jellyfish drifting\nthrough currents I can\u2019t swim.\nI trace the words with my thumb,\nbut the tide keeps pulling me under.\nSome secrets are too fragile to answer.\nThey float there,\nwaiting for the moon to rise.\nsend this to them.",
@@ -848,6 +833,20 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "When Someone Chooses You Every Day",
+    "style": "emotional",
+    "script": "Choosing is louder than saying yes once.\nThe morning light still lands,\njust on your side of the bed.\nNot grand gestures,\njust the way you reach,\nwhen the coffee\u2019s too hot.\nSome decisions aren\u2019t spoken,\nthey\u2019re the quiet weight of a hand,\nresting where yours has always been.\nAnd the world keeps asking why,\nbut the answer\u2019s in the way,\nyou turn the key,\nevery single day.",
+    "hash": "6d6c43691b04cf2219727dfd7d6365c1",
+    "metaphors": [
+      "coffee",
+      "bed",
+      "light"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

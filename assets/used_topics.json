@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "What Real Love Requires",
-    "Loving Without Losing Yourself",
     "The Power of Small Moments",
     "Learning to Trust the Journey",
     "How to Carry Loss Without Being Crushed",
@@ -65,11 +63,13 @@
     "Finding Peace Within Yourself",
     "The Meaning We Choose to Find",
     "The Courage to Begin Again",
-    "The Ancient Truth About Happiness"
+    "The Ancient Truth About Happiness",
+    "The Difference Between Living and Existing",
+    "What Real Love Requires"
   ],
-  "last_style": "lesson",
+  "last_style": "wisdom",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -147,7 +147,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_151550_7dfb17.mp3",
     "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_153806_9773e5.mp3",
@@ -166,7 +165,8 @@
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_151550_7dfb17.mp3",
-    "2026-06-05_153640_3f0c91.mp3"
+    "2026-06-05_153640_3f0c91.mp3",
+    "2026-06-05_153700_072547.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -175,13 +175,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The Strength In Walking Away",
-    "The Day You Chose Yourself",
-    "When You Finally Stopped Settling",
-    "The Quiet Power Of Letting Go",
-    "When You Stop Chasing People",
-    "What Loneliness Actually Teaches You",
-    "The Cost Of Always Being Available",
     "What Rock Bottom Taught You",
     "When People Show You Who They Are",
     "What Pain Quietly Teaches You",
@@ -194,6 +187,13 @@
     "Why Silence Became Your Answer",
     "Why You Stopped Waiting For An Apology",
     "What You Owe Yourself",
-    "What Healing Actually Looks Like"
+    "What Healing Actually Looks Like",
+    "Learning To Be Enough On Your Own",
+    "The Strength In Walking Away",
+    "Loving Someone Who Wouldn't Stay",
+    "The Day You Chose Yourself",
+    "The People Who Leave When You Need Them Most",
+    "The Love That Was Only Convenient",
+    "The People Who Disappear When It's Hard"
   ]
 }
