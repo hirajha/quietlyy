@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Apology That Never Came",
-    "style": "emotional",
-    "script": "4:17 a.m. The fridge hums low.\nI trace the cracks,\nnot the promises.\nSome words,\njust echoes in a hallway,\nnever finding the right door.\nYour voice,\nstill tangled in the sheets,\nbut the bed\u2019s been made.\nI won\u2019t ask for rain,\njust the forecast.\nThe sky stayed clear.\nsend this to them.",
-    "hash": "002148fcc61a0dfc2b1f9a668f6965a6",
-    "metaphors": [
-      "echo",
-      "door",
-      "rain",
-      "bed",
-      "hallway"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Person Who Stayed",
     "style": "poetic",
     "script": "The person who stayed\nisn\u2019t a shadow,\njust the shape of the door left open.\nEvery time you walk through,\nyou don\u2019t notice\nhow the hinges remember your weight,\nhow the air shifts,\njust slightly,\nto make room.\nSome nights,\nthe house breathes slower,\nwaiting for the click of the latch,\nbut never locking.",
@@ -852,6 +836,18 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "When Just Being Near You Is Enough",
+    "style": "love",
+    "script": "You don\u2019t need words. Not here.\nThe air hums low between us,\nlike a radio left on in another room.\nI count the freckles on your shoulder,\neach one a tiny constellation I\u2019ve memorized.\nSometimes,\nyour breath syncs with mine\nwithout either of us trying.\nIt\u2019s not magic.\nJust physics.\nThe way gravity pulls without asking.\nI could stay like this forever.\nsend this to them.",
+    "hash": "f992fc9c4369c9004c0ebce8b79dc6cb",
+    "metaphors": [
+      "radio"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
