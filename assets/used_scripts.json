@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Text You Read But Did Not Reply To",
-    "style": "love",
-    "script": "I stopped counting the hours\nsince your name lit up my screen.\nThe message still glows,\na soft blue pulse in the dark,\nlike a jellyfish drifting\nthrough currents I can\u2019t swim.\nI trace the words with my thumb,\nbut the tide keeps pulling me under.\nSome secrets are too fragile to answer.\nThey float there,\nwaiting for the moon to rise.\nsend this to them.",
-    "hash": "47d511742ef5b348546751bc13535055",
-    "metaphors": [
-      "dark",
-      "tide",
-      "moon"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "How You Changed Everything",
     "style": "wisdom",
     "script": "the heron knows\nnothing is lost\nonly rearranged\ninto the next tide\ninto the next sky.\n\nyou didn\u2019t change the world\nyou changed the way\nthe light falls on the water\nand suddenly\nevery reflection\nis a new beginning\n\nthe ripples remember you.",
@@ -847,6 +833,21 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Strength in Stillness",
+    "style": "nostalgic",
+    "script": "You held the door for the storm\nand it\nstayed.\nBare feet on wet wood\ncounting the seconds between thunder\nuntil the house learned to breathe again.\nWE WERE NEVER AFRAID\nwe were just\nwaiting\nfor the right kind of quiet\nto teach us how to stand\ninside the weight of it\nwithout breaking.",
+    "hash": "a67c03bf759752f397c69669d6e76341",
+    "metaphors": [
+      "tea",
+      "storm",
+      "door"
+    ],
+    "themes": [
+      "silence",
+      "growth"
     ]
   }
 ]
