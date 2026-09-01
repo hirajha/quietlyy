@@ -1,20 +1,5 @@
 [
   {
-    "topic": "When You Found Me",
-    "style": "emotional",
-    "script": "I stopped believing in luck\nwhen your shadow stretched over mine\nNot a rescue\njust a quiet collision of two lost orbits\nThe way you held my wrist\nhad the weight of an old promise\nbut your fingers trembled like leaves before rain\nSomewhere between your hesitation and my surrender\nwe became something temporary and permanent\nI won\u2019t name what we were\njust know I still trace the constellations of your freckles\nwhen the night feels too wide\nsend this to them.",
-    "hash": "c498849f73a109071d90773d882b8972",
-    "metaphors": [
-      "rain",
-      "shadow"
-    ],
-    "themes": [
-      "growth",
-      "silence",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Strength in Stillness",
     "style": "nostalgic",
     "script": "THE WAY YOU HOLD YOURSELF\nwhen the room empties out\nisn\u2019t weakness\nit\u2019s the weight of knowing\nyou don\u2019t need the noise\nto prove you\u2019re alive.\n\nYou let the storm\npass right through you\nlike a screen door\nin an old summer house\nletting in the breeze\nbut keeping the shape of you\nintact.\n\nAnd when they ask how\nsay nothing.\nThe quiet\nis already speaking.",
@@ -845,6 +830,20 @@
     "themes": [
       "self_worth",
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "Lying Awake Replaying Everything",
+    "style": "emotional",
+    "script": "The night replays like a stuck record.\nNeedle skips,\nbut the song never changes.\nEvery word,\nevery pause,\ncarved deeper into the vinyl.\nSome grooves you can\u2019t smooth out,\njust learn to live inside.\nThe static hums,\nand I wonder\nif anyone else hears it.\nThe silence isn\u2019t empty.\nIt\u2019s full of echoes.\nSend this to them.",
+    "hash": "61b5587072d4e4109c77e68acc11125f",
+    "metaphors": [
+      "silence",
+      "echo",
+      "song"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
