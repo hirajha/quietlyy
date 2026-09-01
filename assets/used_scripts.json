@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Make Ordinary Moments Feel Different",
-    "style": "emotional",
-    "script": "The porch light stayed on all summer.\nWe never turned it off,\njust watched moths circle,\nsoft and reckless.\nSome evenings feel like stolen time,\nnot borrowed,\nnot returned.\nThe air hums different when you're near,\nless like breathing,\nmore like remembering how.\nI keep the key,\nnot to unlock anything,\njust to hold the weight.",
-    "hash": "bd6be22520946a12dd2eb3b688601b49",
-    "metaphors": [
-      "light",
-      "porch",
-      "ring"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "The Art of Letting Go",
     "style": "wisdom",
     "script": "Hafiz whispered\nlike dandelions in wind\nwe scatter seeds\nnot to keep\nbut to gift the sky.\n\nyou cling to what was never yours\na borrowed coat\na name on a lease\na shadow that walks beside you.\n\nlet the wind take it\nit was never heavy\nuntil you carried it alone.\nwatch it rise\nlike dust in sunlight",
@@ -844,6 +830,19 @@
       "letter"
     ],
     "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Why Peace Is Not the Absence of Storm",
+    "style": "wisdom",
+    "script": "Remember the last time you smelled\nburnt toast.\nThat sharp tang\nbefore the smoke alarm screamed.\nYou didn\u2019t know it yet\nbut the day was already different.\n\nPeace isn\u2019t the kitchen quiet again.\nIt\u2019s the way you stirred the jam\none last time\nbefore the jar disappeared from the fridge.\n\nYou still reach for it sometimes.",
+    "hash": "97334324d6e6400615b683f5128bfa3a",
+    "metaphors": [
+      "kitchen"
+    ],
+    "themes": [
+      "nostalgia",
       "silence"
     ]
   }
