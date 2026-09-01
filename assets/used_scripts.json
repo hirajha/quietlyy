@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Strength in Stillness",
-    "style": "nostalgic",
-    "script": "THE WAY YOU HOLD YOURSELF\nwhen the room empties out\nisn\u2019t weakness\nit\u2019s the weight of knowing\nyou don\u2019t need the noise\nto prove you\u2019re alive.\n\nYou let the storm\npass right through you\nlike a screen door\nin an old summer house\nletting in the breeze\nbut keeping the shape of you\nintact.\n\nAnd when they ask how\nsay nothing.\nThe quiet\nis already speaking.",
-    "hash": "649fe32e83a3318e2ca467aebe3034ab",
-    "metaphors": [
-      "door",
-      "storm",
-      "noise"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Make Ordinary Moments Feel Different",
     "style": "emotional",
     "script": "The porch light stayed on all summer.\nWe never turned it off,\njust watched moths circle,\nsoft and reckless.\nSome evenings feel like stolen time,\nnot borrowed,\nnot returned.\nThe air hums different when you're near,\nless like breathing,\nmore like remembering how.\nI keep the key,\nnot to unlock anything,\njust to hold the weight.",
@@ -841,6 +827,21 @@
       "silence",
       "echo",
       "song"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Text You Read But Did Not Reply To",
+    "style": "love",
+    "script": "There's a quiet like the space between raindrops,\nstill holding the shape of what fell.\nThe screen glows,\nletters sharp as thorns you can't unsee.\nYour fingers hover,\nbut the cursor blinks like a held breath.\nIt's not hesitation,\njust the weight of words already spoken in silence.\nThe message stays,\nsoft as a footprint in new snow.\nYou trace the edges,\nbut never press send.\nThere's no reply,\nonly the echo of your own name.",
+    "hash": "fac9ce77f8aee3528210ab0c28ee1509",
+    "metaphors": [
+      "silence",
+      "echo",
+      "rain",
+      "letter"
     ],
     "themes": [
       "silence"
