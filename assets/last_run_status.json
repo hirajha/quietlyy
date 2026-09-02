@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Why Peace Is Not the Absence of Storm"
+    "detail": "The Strength In Walking Away"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18130653118640069"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18098882366305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/vszpXjZjE8Q"
+    "detail": "https://www.youtube.com/shorts/sK7jxdAeV0Q"
   }
 }

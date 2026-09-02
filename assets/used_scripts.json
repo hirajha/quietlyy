@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Art of Letting Go",
-    "style": "wisdom",
-    "script": "Hafiz whispered\nlike dandelions in wind\nwe scatter seeds\nnot to keep\nbut to gift the sky.\n\nyou cling to what was never yours\na borrowed coat\na name on a lease\na shadow that walks beside you.\n\nlet the wind take it\nit was never heavy\nuntil you carried it alone.\nwatch it rise\nlike dust in sunlight",
-    "hash": "075841748f7ca0e2aaabef7dc19cbec7",
-    "metaphors": [
-      "sun",
-      "seed",
-      "shadow",
-      "light",
-      "wind"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "Someone Worth Staying For",
     "style": "wisdom",
     "script": "An old farmer once whispered\nroots don\u2019t ask the storm for mercy\nthey bend\nthen stand again\ntaller than before.\n\nYou\u2019ll know them by the way\ntheir hands steady the ladder\nwhile you climb\nnot by the height they promise.\nThe earth remembers every step\neven the ones you take alone.\nStay for the ones\nwho leave the light on.",
@@ -843,6 +827,16 @@
     ],
     "themes": [
       "nostalgia",
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Strength In Walking Away",
+    "style": "lesson",
+    "script": "When did it become easier to stay\nthan to leave quietly?\n\nWe call it loyalty.\nThey call it convenience.\n\nYou memorize the cracks in their voice,\nthe exact shade of their bad moods,\nthe way they say your name like a question.\n\nYou think walking away is the coward\u2019s move.\nBut staying when you\u2019ve already checked out?\nThat\u2019s the real performance.\n\nThe strongest people aren\u2019t the ones who endure.\nThey\u2019re the ones who know when to stop.",
+    "hash": "41f2b30db90222a793dd0a3dc9cf675d",
+    "metaphors": [],
+    "themes": [
       "silence"
     ]
   }

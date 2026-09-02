@@ -46,7 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Beauty of an Unfinished Life",
     "The Wisdom of Not Forcing",
     "What Silence Teaches Us",
     "The Gift of Impermanence",
@@ -65,11 +64,12 @@
     "The Strength in Stillness",
     "Loving Without Losing Yourself",
     "Why Peace Is Not the Absence of Storm",
-    "Learning to Belong to Yourself"
+    "Learning to Belong to Yourself",
+    "The Power of Small Moments"
   ],
-  "last_style": "wisdom",
+  "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 4,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -147,7 +147,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
@@ -166,7 +165,8 @@
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
-    "2026-06-05_153734_d4c320.mp3"
+    "2026-06-05_153734_d4c320.mp3",
+    "2026-06-05_153627_53fd51.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -175,14 +175,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "What Loneliness Actually Teaches You",
-    "What Healing Actually Looks Like",
-    "What Rock Bottom Taught You",
-    "Why You Stopped Waiting For An Apology",
-    "Loving Someone Who Wouldn't Stay",
-    "What You Owe Yourself",
-    "The People Who Leave When You Need Them Most",
-    "When You Stop Chasing People",
     "When You Finally Stopped Settling",
     "The Friends Who Only Stayed For The Good Days",
     "What You Learned After Being Broken",
@@ -194,6 +186,14 @@
     "Outgrowing People You Love",
     "The Truth About Being The Strong One",
     "The People Who Disappear When It's Hard",
-    "Why Closure Never Comes"
+    "Why Closure Never Comes",
+    "The Strength In Walking Away",
+    "When Being Nice Made You A Target",
+    "What Pain Quietly Teaches You",
+    "What Loneliness Actually Teaches You",
+    "When You Have Nothing Left",
+    "Being Too Kind In A Cruel World",
+    "Loving Someone Who Wouldn't Stay",
+    "Why You Stopped Explaining Yourself"
   ]
 }
