@@ -1,15 +1,5 @@
 [
   {
-    "topic": "You Make the Hard Days Easier",
-    "style": "love",
-    "script": "You\u2019re carrying the grocery bags uphill again.\nOne handle snaps.\nOranges roll into the gutter.\nYou laugh,\nbut it\u2019s the kind that cracks.\nI watch from the porch,\nand suddenly the hill isn\u2019t steep.\nThe bags weigh nothing in my hands.\nWe don\u2019t talk about the climb.\nThe sidewalk just feels shorter.\nThe oranges taste sweeter.\nSend this to them.",
-    "hash": "20a588094bed351d2267a6c4ce9b777c",
-    "metaphors": [
-      "porch"
-    ],
-    "themes": []
-  },
-  {
     "topic": "You Are My Calm",
     "style": "wisdom",
     "script": "the tide once whispered\nacross the wet stones\nyou are not the storm\nnor the shelter\njust the space between\n\nand i realized\ni\u2019ve been building walls\nwhen all i needed\nwas to let the wind pass through\nyou are my calm\nthe quiet that breathes\nbefore the next wave",
@@ -837,6 +827,21 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "When Love Was Not Enough",
+    "style": "nostalgic",
+    "script": "YOU KEPT THE LIGHTS ON\nall night\nso the dark wouldn\u2019t notice\nwe were failing.\n\nI traced your veins\nlike subway lines\nto places we\u2019d never go again.\n\nThe couch still holds\nour old shape\nlike a photograph\nyou can sit inside.\n\nWe ran out of words\nbefore we ran out of time\nand that\u2019s the part\nno one warns you about.",
+    "hash": "dbfbb1b77370eb9d1dec226d9ba7a5f3",
+    "metaphors": [
+      "photo",
+      "light",
+      "couch",
+      "dark"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
