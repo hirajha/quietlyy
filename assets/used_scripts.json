@@ -1,21 +1,5 @@
 [
   {
-    "topic": "You Are My Calm",
-    "style": "wisdom",
-    "script": "the tide once whispered\nacross the wet stones\nyou are not the storm\nnor the shelter\njust the space between\n\nand i realized\ni\u2019ve been building walls\nwhen all i needed\nwas to let the wind pass through\nyou are my calm\nthe quiet that breathes\nbefore the next wave",
-    "hash": "9f64c15f1cf35e280af3c944af11375c",
-    "metaphors": [
-      "wall",
-      "wind",
-      "storm",
-      "tide"
-    ],
-    "themes": [
-      "being_used",
-      "silence"
-    ]
-  },
-  {
     "topic": "The Wisdom of Not Forcing",
     "style": "love",
     "script": "It\u2019s not surrender. Not really.\nA river doesn\u2019t fight the rock,\nbut the rock remembers the water\u2019s name.\nYou\u2019ve stopped pushing,\nand the door swings open on its own.\nThe hinge creaks,\nsoft as a secret told at dawn.\nYou\u2019re not wiser,\njust softer in the places that used to ache.\nThe world gives what it gives,\nand you\u2019re learning to receive.\nNot with hands,\nwith empty palms.\nsend this to them.",
@@ -843,5 +827,16 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "Being Strong for Everyone While Breaking Inside",
+    "style": "love",
+    "script": "You\u2019re stitching the seams of your sleeves again.\nNeedle pricks,\nbut the thread never snaps.\nThey see the embroidery,\nthe tiny flowers you add,\nnot the holes you\u2019re hiding.\nYour hands know the weight of holding,\nsteady for everyone,\nwhile your ribs learn to bend.\nThe fabric stretches,\nbut doesn\u2019t tear.\nYou fold the shirt neatly.\nPlace it back on the hanger.",
+    "hash": "22c477447fa06d18557bb5c2f373035a",
+    "metaphors": [
+      "tea",
+      "flower"
+    ],
+    "themes": []
   }
 ]
