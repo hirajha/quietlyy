@@ -1,21 +1,5 @@
 [
   {
-    "topic": "Someone Worth Staying For",
-    "style": "wisdom",
-    "script": "An old farmer once whispered\nroots don\u2019t ask the storm for mercy\nthey bend\nthen stand again\ntaller than before.\n\nYou\u2019ll know them by the way\ntheir hands steady the ladder\nwhile you climb\nnot by the height they promise.\nThe earth remembers every step\neven the ones you take alone.\nStay for the ones\nwho leave the light on.",
-    "hash": "0c6b110fbec8d39953d2bbf720529a06",
-    "metaphors": [
-      "storm",
-      "roots",
-      "light",
-      "tea"
-    ],
-    "themes": [
-      "loneliness",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "You Make the Hard Days Easier",
     "style": "love",
     "script": "You\u2019re carrying the grocery bags uphill again.\nOne handle snaps.\nOranges roll into the gutter.\nYou laugh,\nbut it\u2019s the kind that cracks.\nI watch from the porch,\nand suddenly the hill isn\u2019t steep.\nThe bags weigh nothing in my hands.\nWe don\u2019t talk about the climb.\nThe sidewalk just feels shorter.\nThe oranges taste sweeter.\nSend this to them.",
@@ -838,6 +822,21 @@
     "metaphors": [],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Version of You That Did Not Make It",
+    "style": "love",
+    "script": "I carry it everywhere.\nA pocket-sized constellation,\nwrapped in receipts and lint.\nNo one sees the way it glows,\nsoft as a streetlamp through fog.\nYou left it behind,\nthat version of you,\nthe one who laughed at bad jokes.\nI press it to my ear sometimes,\nbut the static just hums your name.\nMaybe it\u2019s not a star after all.\nMaybe it\u2019s a door,\nleft slightly ajar.",
+    "hash": "852c9eb40f349cc47132e447d583cd79",
+    "metaphors": [
+      "door",
+      "tree",
+      "light",
+      "star"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]

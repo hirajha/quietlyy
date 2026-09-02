@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Strength In Walking Away"
+    "detail": "The Version of You That Did Not Make It"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18098882366305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18374028898235065"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/sK7jxdAeV0Q"
+    "detail": "https://www.youtube.com/shorts/2cTtXbmkrHw"
   }
 }
