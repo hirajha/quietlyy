@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "What Home Actually Feels Like"
+    "detail": "When You Cry in the Car Alone"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18099045377305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18019553300712630"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/m2mmTzQPSnw"
+    "detail": "https://www.youtube.com/shorts/pY1uloMQ5BI"
   }
 }

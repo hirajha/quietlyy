@@ -1,20 +1,5 @@
 [
   {
-    "topic": "What I Never Said Out Loud",
-    "style": "emotional",
-    "script": "How do you name the weight\nthat settles in your pockets\nwhen the words won\u2019t climb out?\nNot heavy,\njust there\u2014\nlike river stones you\u2019ve carried\nsince you were twelve.\nSome secrets don\u2019t scream,\nthey hum,\nlow and steady,\nunder every conversation.\nI left them on the windowsill\nwhere the light touches first.\nLet them stay.",
-    "hash": "5e2680e1d281eba7d035dc5710650df7",
-    "metaphors": [
-      "light",
-      "tea",
-      "wind",
-      "window"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "Keeping Their Number Saved",
     "style": "emotional",
     "script": "There's a kind of guilt that doesn't ache,\njust lingers like a half-tied knot.\nI saved your number,\nnot for hope,\nbut because some doors\nshould stay slightly ajar.\nThe screen glows,\nfingers hover,\nnever press call,\njust trace the digits\nlike a secret I can't bury.\nSome ghosts don't haunt,\nthey just visit in quiet code.\nI won't delete you,\nI'll let you fade\ninto the background noise.",
@@ -839,6 +824,23 @@
     "themes": [
       "self_worth",
       "loneliness"
+    ]
+  },
+  {
+    "topic": "When You Cry in the Car Alone",
+    "style": "emotional",
+    "script": "Midnight. The engine hums like a lullaby.\nYou\u2019re not lost,\njust circling the same empty block,\nwindows fogged with ghosts of what could\u2019ve been.\nThe steering wheel knows your grip,\nknuckles white as the moon outside,\nbut the road doesn\u2019t ask questions.\nSome tears aren\u2019t for sadness,\nthey\u2019re for the version of you\nwho believed in answers.\nThe car keeps moving.\nYou don\u2019t have to.",
+    "hash": "fa81fecab48c9e79390328f819309d09",
+    "metaphors": [
+      "ring",
+      "window",
+      "wind",
+      "moon",
+      "tea",
+      "road"
+    ],
+    "themes": [
+      "grief_loss"
     ]
   }
 ]
