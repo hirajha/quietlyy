@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Wisdom of Not Forcing",
-    "style": "love",
-    "script": "It\u2019s not surrender. Not really.\nA river doesn\u2019t fight the rock,\nbut the rock remembers the water\u2019s name.\nYou\u2019ve stopped pushing,\nand the door swings open on its own.\nThe hinge creaks,\nsoft as a secret told at dawn.\nYou\u2019re not wiser,\njust softer in the places that used to ache.\nThe world gives what it gives,\nand you\u2019re learning to receive.\nNot with hands,\nwith empty palms.\nsend this to them.",
-    "hash": "d87694008e463f1ed8da68c3635f9377",
-    "metaphors": [
-      "door",
-      "dawn"
-    ],
-    "themes": [
-      "being_used",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "The Cost Of Always Being Available",
     "style": "lesson",
     "script": "What's the hidden cost of constantly being there?\nI remember ignoring my own needs just to answer a late-night call.\nDid you know, people who are always 'on' report significantly higher levels of exhaustion?\nYou think you're being helpful.\nYou believe you're showing love.\nBut you're teaching them something else entirely.\nYou're teaching them your boundaries are optional.\nThat your time has no real value.\nThat your energy is infinite.\nEventually, you'll be empty.\nThey won't even notice.\nBecause you made yourself too easy to forget.",
@@ -838,5 +824,19 @@
       "flower"
     ],
     "themes": []
+  },
+  {
+    "topic": "The Friends Who Only Stayed For The Good Days",
+    "style": "lesson",
+    "script": "You thought loyalty was a two-way street.\nIt wasn\u2019t.\nSome friends only show up for the view,\nnot the climb.\nYou carried the snacks,\nthey carried the stories.\nYou remember the laughter,\nbut who remembers the blisters?\nThey\u2019ll call you dramatic\nwhen you finally stop answering.\nThe truth?\nYou weren\u2019t the problem.\nYou were just the only one who stayed.",
+    "hash": "f2d5f78d5801e16e647a2ae61995111f",
+    "metaphors": [
+      "tree",
+      "ring"
+    ],
+    "themes": [
+      "nostalgia",
+      "friendship_loss"
+    ]
   }
 ]
