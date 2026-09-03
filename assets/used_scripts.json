@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Cost Of Always Being Available",
-    "style": "lesson",
-    "script": "What's the hidden cost of constantly being there?\nI remember ignoring my own needs just to answer a late-night call.\nDid you know, people who are always 'on' report significantly higher levels of exhaustion?\nYou think you're being helpful.\nYou believe you're showing love.\nBut you're teaching them something else entirely.\nYou're teaching them your boundaries are optional.\nThat your time has no real value.\nThat your energy is infinite.\nEventually, you'll be empty.\nThey won't even notice.\nBecause you made yourself too easy to forget.",
-    "hash": "e6985d2a360a962cd84ee366a3a558e9",
-    "metaphors": [
-      "ring",
-      "tea"
-    ],
-    "themes": [
-      "nostalgia",
-      "self_worth",
-      "love"
-    ]
-  },
-  {
     "topic": "What I Never Said Out Loud",
     "style": "emotional",
     "script": "How do you name the weight\nthat settles in your pockets\nwhen the words won\u2019t climb out?\nNot heavy,\njust there\u2014\nlike river stones you\u2019ve carried\nsince you were twelve.\nSome secrets don\u2019t scream,\nthey hum,\nlow and steady,\nunder every conversation.\nI left them on the windowsill\nwhere the light touches first.\nLet them stay.",
@@ -837,6 +822,23 @@
     "themes": [
       "nostalgia",
       "friendship_loss"
+    ]
+  },
+  {
+    "topic": "What Home Actually Feels Like",
+    "style": "poetic",
+    "script": "Home isn\u2019t a place you find.\nIt\u2019s the echo of spoons,\nclinking in a kitchen drawer at 3 a.m.,\nwhen the world\u2019s asleep\nbut the fridge hums a lullaby.\nSomewhere,\na door left ajar,\njust enough to let the cat slip through,\nand the scent of rain on pavement\nlingers like a promise.\nThe walls don\u2019t hold it\u2014\nthe air does,\nthick with the weight of small, ordinary things.",
+    "hash": "1ac1da77f458a48454d62d2af5760bd2",
+    "metaphors": [
+      "wall",
+      "door",
+      "rain",
+      "echo",
+      "kitchen"
+    ],
+    "themes": [
+      "self_worth",
+      "loneliness"
     ]
   }
 ]

@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Friends Who Only Stayed For The Good Days"
+    "detail": "What Home Actually Feels Like"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17992453587011200"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18099045377305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/2l-aT6awqYQ"
+    "detail": "https://www.youtube.com/shorts/m2mmTzQPSnw"
   }
 }
