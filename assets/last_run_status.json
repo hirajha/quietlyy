@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The First Heartbreak"
+    "detail": "What Truly Matters in the End"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18099142400305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "17956798698212939"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/6YVdfffWepY"
+    "detail": "https://www.youtube.com/shorts/RKnjyyMci2o"
   }
 }

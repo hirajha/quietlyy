@@ -1,23 +1,5 @@
 [
   {
-    "topic": "Learning to Belong to Yourself",
-    "style": "love",
-    "script": "You're tracing the cracks in your bedroom ceiling.\nA spider weaves her world above you,\nsteady,\npatient.\nShe doesn't ask the walls to change shape.\nThe corners know her name.\nYou press your palm to the cool glass,\nwatch your breath fog the night.\nIt doesn't stay,\nbut it was yours for a moment.\nThe streetlight hums a lullaby.\nYou hum back,\nquietly,\nuntil the melody belongs to you.",
-    "hash": "14d478e1310cbd4150e0cd396da5d8c6",
-    "metaphors": [
-      "tea",
-      "tree",
-      "wall",
-      "bed",
-      "ceiling",
-      "light",
-      "glass"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Way You Look When You Do Not Know I Am Watching",
     "style": "poetic",
     "script": "The way your fingers trace the rim,\nof an empty glass,\nlike you\u2019re reading braille off yesterday\u2019s news.\nSomewhere between hunger,\nand forgetting you haven\u2019t eaten.\nYour shadow stretches,\nlonger than the afternoon,\nbut refuses to let go of the chair.\nI count the cracks in the ceiling,\nwhile you count the steps,\nto a door that isn\u2019t there.\nAnd when the light shifts,\nyou don\u2019t flinch,\njust tilt your head,\nlike the world owes you an answer.",
@@ -844,6 +826,20 @@
       "love",
       "nostalgia",
       "heartbreak"
+    ]
+  },
+  {
+    "topic": "What Truly Matters in the End",
+    "style": "wisdom",
+    "script": "The old gardener whispered\u2014\nturn the soil,\nnot the sky.\nwhat you plant stays,\nwhat you chase scatters.\n\nI stood there,\nhands full of seeds\nI\u2019d saved for storms\nthat never came.\nnow they\u2019re just weight,\nburied in pockets.\n\nthe earth remembers\neven when you forget.",
+    "hash": "fd97a51d43ed8253a30bc3c31f6aec9d",
+    "metaphors": [
+      "garden",
+      "storm",
+      "seed"
+    ],
+    "themes": [
+      "nostalgia"
     ]
   }
 ]
