@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Way You Look When You Do Not Know I Am Watching",
-    "style": "poetic",
-    "script": "The way your fingers trace the rim,\nof an empty glass,\nlike you\u2019re reading braille off yesterday\u2019s news.\nSomewhere between hunger,\nand forgetting you haven\u2019t eaten.\nYour shadow stretches,\nlonger than the afternoon,\nbut refuses to let go of the chair.\nI count the cracks in the ceiling,\nwhile you count the steps,\nto a door that isn\u2019t there.\nAnd when the light shifts,\nyou don\u2019t flinch,\njust tilt your head,\nlike the world owes you an answer.",
-    "hash": "fefbf61738cd9b596df1594bd63b6533",
-    "metaphors": [
-      "chair",
-      "ceiling",
-      "door",
-      "light",
-      "glass",
-      "shadow"
-    ],
-    "themes": []
-  },
-  {
     "topic": "What I Mean When I Say I Love You",
     "style": "love",
     "script": "You trace the cracks in the ceiling.\nLike constellations only we know,\nI memorize the way your fingers hesitate.\nNot afraid,\njust savoring the weight of what comes next.\nYour laugh is a pocket of air in stale rooms,\nsomething small I carry between my ribs.\nI don\u2019t mean forever,\nI mean this breath,\nthis quiet click of the lamp turning off,\nyour shoulder against mine like a question I don\u2019t answer.\nStay. Just like this.\nsend this to them.",
@@ -840,6 +825,17 @@
     ],
     "themes": [
       "nostalgia"
+    ]
+  },
+  {
+    "topic": "When Just Being Near You Is Enough",
+    "style": "nostalgic",
+    "script": "I forget the words\nbut\nI remember the shape of your laugh\ncurled at the edges\nlike old book pages\nWE USED TO SHARE\nNow the room hums\nwith something softer\nthan conversation\njust the sound of you\nbreathing beside me\nand I think\nmaybe that\u2019s all I ever wanted\nto hear.",
+    "hash": "d2319e6327402a9822b70da0eb67996c",
+    "metaphors": [],
+    "themes": [
+      "nostalgia",
+      "being_used"
     ]
   }
 ]
