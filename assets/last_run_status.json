@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When You Cry in the Car Alone"
+    "detail": "The First Heartbreak"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18019553300712630"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18099142400305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/pY1uloMQ5BI"
+    "detail": "https://www.youtube.com/shorts/6YVdfffWepY"
   }
 }

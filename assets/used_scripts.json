@@ -1,19 +1,5 @@
 [
   {
-    "topic": "Keeping Their Number Saved",
-    "style": "emotional",
-    "script": "There's a kind of guilt that doesn't ache,\njust lingers like a half-tied knot.\nI saved your number,\nnot for hope,\nbut because some doors\nshould stay slightly ajar.\nThe screen glows,\nfingers hover,\nnever press call,\njust trace the digits\nlike a secret I can't bury.\nSome ghosts don't haunt,\nthey just visit in quiet code.\nI won't delete you,\nI'll let you fade\ninto the background noise.",
-    "hash": "fd744aa301eab85bdf498a31c5f9dc28",
-    "metaphors": [
-      "light",
-      "noise",
-      "door"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Learning to Belong to Yourself",
     "style": "love",
     "script": "You're tracing the cracks in your bedroom ceiling.\nA spider weaves her world above you,\nsteady,\npatient.\nShe doesn't ask the walls to change shape.\nThe corners know her name.\nYou press your palm to the cool glass,\nwatch your breath fog the night.\nIt doesn't stay,\nbut it was yours for a moment.\nThe streetlight hums a lullaby.\nYou hum back,\nquietly,\nuntil the melody belongs to you.",
@@ -841,6 +827,23 @@
     ],
     "themes": [
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The First Heartbreak",
+    "style": "emotional",
+    "script": "You\u2019re peeling the label off your water bottle,\nagain.\nThe glue sticks to your fingers like old promises,\nstubborn.\nYou tell yourself it\u2019s just habit,\nnot hunger,\nnot the way your ribs remember their shape.\nSome nights,\nthe bed feels like a raft\nadrift,\nand you\u2019re the only one who notices the tide.\nYou count the cracks in the ceiling,\nbut the numbers keep changing.\nThe first heartbreak isn\u2019t a wound,\nit\u2019s a shadow\nlearning to walk without you.",
+    "hash": "62b3884cad9fb9ba4eaf215c954b08e3",
+    "metaphors": [
+      "tide",
+      "ceiling",
+      "shadow",
+      "bed"
+    ],
+    "themes": [
+      "love",
+      "nostalgia",
+      "heartbreak"
     ]
   }
 ]
