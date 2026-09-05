@@ -1,20 +1,5 @@
 [
   {
-    "topic": "When You Love Someone Who Is Leaving",
-    "style": "emotional",
-    "script": "I still pack their favorite sweater\nin the suitcase every trip\njust in case the road brings them home again\nThe zipper sticks at the same corner\na memory I can\u2019t force shut\nSome nights I leave it open\nlike an invitation\nbut the wind only carries dust\nnot their voice\nI won\u2019t close it completely\nnot yet\nlet the moths decide.",
-    "hash": "75b38d011a0df0c122fec40621b60031",
-    "metaphors": [
-      "sweater",
-      "wind",
-      "road",
-      "ring"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Being Misunderstood",
     "style": "love",
     "script": "The last text you sent was still unsent.\nIt flickers like a moth against the screen,\nsoft wings brushing glass.\nThey read it three times,\nbut never saw the way your fingers trembled\nwhile typing each letter.\nWORDS don't always land where we aim.\nSometimes they scatter like seeds in the wind,\nand grow into something wild,\nsomething unrecognizable.\nYou keep the draft,\nquiet proof of a truth they'll never understand.\nsend this to them.",
@@ -836,6 +821,21 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Wisdom of Not Forcing",
+    "style": "emotional",
+    "script": "I stopped pushing the door\nthat only opens inward,\njust stood in the hallway\nwatching the light shift,\nsome shadows don\u2019t fight back,\nthey simply wait,\nand the air moves differently\nwhen you\u2019re not forcing it,\nI learned to breathe with the draft,\nnot against it,\nthe lock clicked open\non its own time.",
+    "hash": "e4afc277ed16036aa78e2074656afe90",
+    "metaphors": [
+      "door",
+      "shadow",
+      "light",
+      "hallway"
+    ],
+    "themes": [
+      "growth"
     ]
   }
 ]
