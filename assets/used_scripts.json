@@ -1,22 +1,5 @@
 [
   {
-    "topic": "Being Misunderstood",
-    "style": "love",
-    "script": "The last text you sent was still unsent.\nIt flickers like a moth against the screen,\nsoft wings brushing glass.\nThey read it three times,\nbut never saw the way your fingers trembled\nwhile typing each letter.\nWORDS don't always land where we aim.\nSometimes they scatter like seeds in the wind,\nand grow into something wild,\nsomething unrecognizable.\nYou keep the draft,\nquiet proof of a truth they'll never understand.\nsend this to them.",
-    "hash": "1852ddf1d5cbb78d5cb1302dd5869db1",
-    "metaphors": [
-      "glass",
-      "letter",
-      "wind",
-      "seed",
-      "text"
-    ],
-    "themes": [
-      "growth",
-      "silence"
-    ]
-  },
-  {
     "topic": "Falling For Someone Who Does Not Know",
     "style": "emotional",
     "script": "Tuesday, 2:17pm. The caf\u00e9 hums.\nYour name slips through my lips,\njust a breath,\nlike sugar dissolving in tea.\nI stir too long,\nwatching the swirl,\nnot tasting,\njust waiting for the sweetness to settle.\nSome words,\nI write them down,\nthen tear the page,\nnot from anger,\nbut from knowing,\nthe ink was never yours to keep.",
@@ -837,5 +820,16 @@
     "themes": [
       "growth"
     ]
+  },
+  {
+    "topic": "Loving Someone Who Wouldn't Stay",
+    "style": "lesson",
+    "script": "Commitment isn't a shared understanding.\nWe often confuse our willingness,\nwith theirs.\nWe give pieces of our stability,\ntrying to anchor someone.\nSomeone who packed light.\nYou learn, some people are only visiting.\nThey are not staying.\nThey never were.\nAnd you were never the destination.",
+    "hash": "128e9369f06c79e844b8bce5b5297c9c",
+    "metaphors": [
+      "light",
+      "anchor"
+    ],
+    "themes": []
   }
 ]

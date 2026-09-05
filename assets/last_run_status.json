@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Wisdom of Not Forcing"
+    "detail": "Loving Someone Who Wouldn't Stay"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17922549648200353"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18099359858305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/mRp_eZbJTwM"
+    "detail": "https://www.youtube.com/shorts/peUnrp6_www"
   }
 }
