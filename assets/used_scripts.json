@@ -1,18 +1,5 @@
 [
   {
-    "topic": "What I Mean When I Say I Love You",
-    "style": "love",
-    "script": "You trace the cracks in the ceiling.\nLike constellations only we know,\nI memorize the way your fingers hesitate.\nNot afraid,\njust savoring the weight of what comes next.\nYour laugh is a pocket of air in stale rooms,\nsomething small I carry between my ribs.\nI don\u2019t mean forever,\nI mean this breath,\nthis quiet click of the lamp turning off,\nyour shoulder against mine like a question I don\u2019t answer.\nStay. Just like this.\nsend this to them.",
-    "hash": "3a060cbacb45390367acf9e92b31c8a5",
-    "metaphors": [
-      "ring",
-      "ceiling"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When You Love Someone Who Is Leaving",
     "style": "emotional",
     "script": "I still pack their favorite sweater\nin the suitcase every trip\njust in case the road brings them home again\nThe zipper sticks at the same corner\na memory I can\u2019t force shut\nSome nights I leave it open\nlike an invitation\nbut the wind only carries dust\nnot their voice\nI won\u2019t close it completely\nnot yet\nlet the moths decide.",
@@ -836,6 +823,19 @@
     "themes": [
       "nostalgia",
       "being_used"
+    ]
+  },
+  {
+    "topic": "When You Delete the Message Before Sending It",
+    "style": "emotional",
+    "script": "I stopped the ink mid-sentence,\nlike a bird folding its wings\nbefore the storm even arrives.\nNot courage,\njust the quiet fear of being heard.\nThe screen glows,\nsoft and guilty,\nwhile my thumb hovers like a question\nno one asked.\nSome confessions aren\u2019t meant for air,\nthey\u2019re just ghosts\nwe keep feeding.\nI\u2019ll let it starve.",
+    "hash": "34427d10461385f76cc7201364abed49",
+    "metaphors": [
+      "storm",
+      "star"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
