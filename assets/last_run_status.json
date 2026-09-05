@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Loving Someone Who Wouldn't Stay"
+    "detail": "How You Changed Everything"
   },
   "audio": {
     "result": "ok",
@@ -49,10 +49,10 @@
   },
   "instagram": {
     "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18099359858305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18099388970305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/peUnrp6_www"
+    "detail": "https://www.youtube.com/shorts/nNCRxebr_Uc"
   }
 }
