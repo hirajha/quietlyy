@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Cost Of Always Being Available",
-    "style": "lesson",
-    "script": "You're not tired. Just spent.\nWe answer every call.\nWe make ourselves reachable.\nIt feels kind. Like being a reliable friend.\nBut they stop looking for you.\nThey just know you're there.\nAlways.\nAnd you taught them.\nThat your effort has no real cost.",
-    "hash": "6f2ea56ac9538def1200cb9a64bac610",
-    "metaphors": [],
-    "themes": [
-      "friendship_loss"
-    ]
-  },
-  {
     "topic": "The Night You Stopped Waiting",
     "style": "nostalgic",
     "script": "YOU LEFT THE LIGHT ON\nin the kitchen\nagain\nlike I\u2019d walk through that door\nany second\nI stopped checking the clock\nstopped setting two plates\nstopped pretending the couch\nwasn\u2019t just mine now\nSOMEWHERE\nbetween the last text\nand the first gray hair\nyou became\na name I don\u2019t say out loud\nanymore",
@@ -837,6 +827,23 @@
       "being_used",
       "silence",
       "growth"
+    ]
+  },
+  {
+    "topic": "The First Time I Knew",
+    "style": "love",
+    "script": "You're tracing circles on the fogged-up window.\nThe streetlight hums a lullaby,\nand suddenly,\nyou understand\nhow dew chooses its leaves.\nNot with noise,\nnot with force\u2014\njust the quiet weight of morning.\nThat's when I knew.\nYou didn't have to say anything.\nThe way your fingers paused mid-air,\nlike the world had tilted,\njust for us.\nsend this to them.",
+    "hash": "422fa0e24d3d4f080e5a1c62564480ad",
+    "metaphors": [
+      "noise",
+      "wind",
+      "tree",
+      "window",
+      "light"
+    ],
+    "themes": [
+      "being_used",
+      "silence"
     ]
   }
 ]
