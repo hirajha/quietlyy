@@ -1,23 +1,5 @@
 [
   {
-    "topic": "The Night You Stopped Waiting",
-    "style": "nostalgic",
-    "script": "YOU LEFT THE LIGHT ON\nin the kitchen\nagain\nlike I\u2019d walk through that door\nany second\nI stopped checking the clock\nstopped setting two plates\nstopped pretending the couch\nwasn\u2019t just mine now\nSOMEWHERE\nbetween the last text\nand the first gray hair\nyou became\na name I don\u2019t say out loud\nanymore",
-    "hash": "57464b96548b29c2f8c3a1693c97a343",
-    "metaphors": [
-      "couch",
-      "kitchen",
-      "plate",
-      "light",
-      "door",
-      "text"
-    ],
-    "themes": [
-      "growth",
-      "loneliness"
-    ]
-  },
-  {
     "topic": "What Home Actually Feels Like",
     "style": "emotional",
     "script": "Home isn\u2019t walls. Not really.\nIt\u2019s the way the kettle hums,\njust before it boils,\nwarm and patient,\nlike someone who knows you\u2019re coming.\nThe sink is full of dishes,\nbut the water runs clear,\nand for once,\nyou don\u2019t mind the weight.\nSome rooms remember your shape,\neven when you forget.\nYou leave,\nbut the door never locks behind you.\nIt just waits.",
@@ -844,6 +826,22 @@
     "themes": [
       "being_used",
       "silence"
+    ]
+  },
+  {
+    "topic": "The Moment You Stopped Hoping",
+    "style": "emotional",
+    "script": "You\u2019re staring at the ceiling again.\nThe cracks don\u2019t spell anything anymore,\njust lines you\u2019ve memorized.\nSomewhere,\na clock ticks,\nbut it\u2019s not counting down to anything.\nThe hands that once reached,\nnow rest,\nweightless,\nlike balloons untied.\nYou don\u2019t flinch when the phone buzzes,\nnot even a blink.\nThe moment hope left,\nit didn\u2019t slam the door,\njust clicked the latch.\nand you let it go.",
+    "hash": "65b8e0c9d2250d4aa60aa51ff4bb2d23",
+    "metaphors": [
+      "door",
+      "ceiling",
+      "star",
+      "ring",
+      "phone"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
