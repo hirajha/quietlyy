@@ -1,20 +1,5 @@
 [
   {
-    "topic": "Silent Suffering Nobody Sees",
-    "style": "wisdom",
-    "script": "The old gardener whispered\nsome wounds\nnever break the skin.\nThey bloom inward\nlike roots in the dark.\n\nYou walk through rooms\ncarrying a weight\nno one names.\nThe body remembers\nwhat the mouth won\u2019t say.\n\nLet the ache\nrest like a stone\nin your pocket.",
-    "hash": "e9167bb59dd88446eb698a7eaf03fcab",
-    "metaphors": [
-      "dark",
-      "garden",
-      "roots"
-    ],
-    "themes": [
-      "heartbreak",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "The Difference Between Living and Existing",
     "style": "wisdom",
     "script": "An old gardener whispered\nroots don\u2019t ask for light\nthey reach anyway\ntoward what they need\nwithout knowing why.\n\nI think that\u2019s living \u2014\nnot the bloom\nthe stubborn underground stretch\nwhen no one\u2019s watching.\nExisting is just waiting\nfor the rain to stop.\nMaybe the dirt\nis enough.",
@@ -845,6 +830,16 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Silent Suffering Nobody Sees",
+    "style": "emotional",
+    "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
+    "hash": "1e7beeb950401054760699c316db93c0",
+    "metaphors": [],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
