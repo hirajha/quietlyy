@@ -1,23 +1,5 @@
 [
   {
-    "file": "bddfa3de_0.png",
-    "topic": "The Ancient Truth About Happiness",
-    "panel": 0,
-    "source": "fresh",
-    "timestamp": 1783029000,
-    "uses": 2,
-    "last_used": 1785620122
-  },
-  {
-    "file": "2adebf69_1.png",
-    "topic": "The Ancient Truth About Happiness",
-    "panel": 1,
-    "source": "fresh",
-    "timestamp": 1783029005,
-    "uses": 2,
-    "last_used": 1785645122
-  },
-  {
     "file": "a691a3c8_0.png",
     "topic": "The Small Things I Notice About You",
     "panel": 0,
@@ -1256,8 +1238,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1784565062,
-    "uses": 1,
-    "last_used": 1784584314
+    "uses": 2,
+    "last_used": 1788787619
   },
   {
     "file": "bf6551c7_0.png",
@@ -4486,13 +4468,31 @@
     "topic": "Staying Too Long",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1788759818
+    "timestamp": 1788759818,
+    "uses": 1,
+    "last_used": 1788787619
   },
   {
     "file": "ad7c5f74_1.png",
     "topic": "Staying Too Long",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1788759863
+    "timestamp": 1788759863,
+    "uses": 1,
+    "last_used": 1788787619
+  },
+  {
+    "file": "ccce4d90_0.png",
+    "topic": "The Person Behind My Smile",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1788787623
+  },
+  {
+    "file": "05344fea_1.png",
+    "topic": "The Person Behind My Smile",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1788787670
   }
 ]
