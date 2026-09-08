@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Miss Someone You Should Not",
-    "style": "love",
-    "script": "I stopped counting the hours,\nthey pool like rainwater in my shoes.\nEvery puddle reflects your shadow,\nbut the sidewalk stays empty.\nI trace your initials on fogged glass,\nthe letters disappear before I finish.\nSome days,\nthe ache feels like a borrowed coat,\ntoo big,\ntoo heavy,\nI wear it anyway.\nThe radiator hums your favorite song,\nI pretend it's you humming back.\nSend this to them.",
-    "hash": "29b4dc0884724c2d147530061d403ab1",
-    "metaphors": [
-      "rain",
-      "glass",
-      "letter",
-      "shadow",
-      "song"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Last Text You Never Sent",
     "style": "nostalgic",
     "script": "The cursor blinked\nonce\nthen twice\nlike a streetlight about to die.\nI typed your name\nand the whole screen\nheld its breath.\nYOU WERE GONE\nbefore the first word\nlanded.\nStill,\nI saved it\nlike a ticket stub\nto a show\nthat never opened.",
@@ -838,6 +824,22 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The One I Think About First",
+    "style": "emotional",
+    "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
+    "hash": "959854a0569ce7c23fe5253ff2900374",
+    "metaphors": [
+      "text",
+      "light",
+      "sweater",
+      "sun"
+    ],
+    "themes": [
+      "silence",
+      "self_worth"
     ]
   }
 ]
