@@ -1,24 +1,5 @@
 [
   {
-    "topic": "When Love Feels Like Coming Home",
-    "style": "love",
-    "script": "I stopped counting the steps\nto your door.\nThe porch light hums,\nsoft orange like the last sip of tea.\nI never told you how the floorboards creak\nin the same rhythm as my old clock,\nticking your name.\nYour voice,\na blanket draped over my shoulders\nbefore I knew I was cold.\nThe way you leave the window open\njust enough for the breeze to visit.\nI carry it everywhere,\nthis quiet shape of belonging.\nsend this to them.",
-    "hash": "f6c2dcbb7c20fbaa352490aaef7e1c89",
-    "metaphors": [
-      "tea",
-      "light",
-      "door",
-      "porch",
-      "wind",
-      "window",
-      "blanket"
-    ],
-    "themes": [
-      "silence",
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The Power of Small Moments",
     "style": "love",
     "script": "There's a kind of wonder that fits in your palm.\nA single raindrop on the window,\nholding the whole sky inside.\nIt doesn't ask to be noticed,\njust lingers,\nand the world feels softer for it.\nYour laugh does that too\u2014\nunfolds like a paper crane,\nsmall,\nbut suddenly the room is lighter.\nI keep these moments in my pockets,\nwhere they warm my hands.\nSend this to them.",
@@ -837,5 +818,16 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Power of Small Moments",
+    "style": "nostalgic",
+    "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
+    "hash": "fad71d57e80f79313745ebe29e3c5d59",
+    "metaphors": [
+      "wind",
+      "door"
+    ],
+    "themes": []
   }
 ]

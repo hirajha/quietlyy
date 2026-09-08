@@ -13,10 +13,46 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Part You Never Talk About"
+    "detail": "The Power of Small Moments"
   },
   "audio": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/voiceover.mp3"
+  },
+  "images": {
+    "result": "ok",
+    "detail": "5 panels"
+  },
+  "music": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [gallery_library]"
+  },
+  "video": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/quietlyy_video.mp4"
+  },
+  "quality_gate": {
+    "result": "ok",
+    "detail": ""
+  },
+  "copyright": {
+    "result": "ok",
+    "detail": ""
+  },
+  "seo": {
+    "result": "ok",
+    "detail": ""
+  },
+  "facebook": {
+    "result": "ok",
+    "detail": ""
+  },
+  "instagram": {
     "result": "fail",
-    "detail": "ElevenLabs error 401: {\"detail\":{\"type\":\"authorization_error\",\"code\":\"subscription_required\",\"message\":\"Instantly cloned voices are not available on your current plan. Please upgrade your subscription.\",\"status\":\"ivc_not_p"
+    "detail": "500 Server Error: Internal Server Error for url: https://graph.facebook.com/v22.0/17841439177937652/media_publish?access_token=EAAXDATnOZAP8BRhftS6YcNj1JKicGjUZB0oQwZAu85wbhNO7B07HFwmxzaiIMgww1mxAkHugZA704uYBX64jv9790pwLZAiqItOYnFpXNUdYaJP8Ur16cuIm3tKDquznyG01LQ7vQ3iJTwFzT5nXT1WzzLevdWKqqTYmfhR7YclCcZAHZBdGWiw6CNBiZAN6mTOalgZDZD | API response: {\"error\":{\"message\":\"An unexpected error has occurred. Please retry your request later.\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":2,\"fbtrace_id\":\"AVgMu43S-66gUKu-j704Lzb\"}}"
+  },
+  "youtube": {
+    "result": "ok",
+    "detail": "https://www.youtube.com/shorts/KbyL7Pdl-Y8"
   }
 }
