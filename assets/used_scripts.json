@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Difference Between Living and Existing",
-    "style": "wisdom",
-    "script": "An old gardener whispered\nroots don\u2019t ask for light\nthey reach anyway\ntoward what they need\nwithout knowing why.\n\nI think that\u2019s living \u2014\nnot the bloom\nthe stubborn underground stretch\nwhen no one\u2019s watching.\nExisting is just waiting\nfor the rain to stop.\nMaybe the dirt\nis enough.",
-    "hash": "c27fb6259c71f3d4f336218acaf80d41",
-    "metaphors": [
-      "light",
-      "roots",
-      "rain",
-      "garden"
-    ],
-    "themes": [
-      "self_worth"
-    ]
-  },
-  {
     "topic": "When You Miss Someone You Should Not",
     "style": "love",
     "script": "I stopped counting the hours,\nthey pool like rainwater in my shoes.\nEvery puddle reflects your shadow,\nbut the sidewalk stays empty.\nI trace your initials on fogged glass,\nthe letters disappear before I finish.\nSome days,\nthe ache feels like a borrowed coat,\ntoo big,\ntoo heavy,\nI wear it anyway.\nThe radiator hums your favorite song,\nI pretend it's you humming back.\nSend this to them.",
@@ -838,6 +823,19 @@
     "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
     "hash": "1e7beeb950401054760699c316db93c0",
     "metaphors": [],
+    "themes": [
+      "loneliness"
+    ]
+  },
+  {
+    "topic": "Friends Who Only Call When They Need You",
+    "style": "emotional",
+    "script": "Friday night. The fridge hums low.\nYour name lights up the screen,\nnot with hello,\njust a question mark,\nsoft as a door left ajar.\nThe hands that once passed you a drink\nnow only pass you the weight,\nthe same old script,\nthe same old need.\nI answer,\nnot out of kindness,\nbut the ghost of a habit.\nLet them go.",
+    "hash": "d9af484d279bc971c950895be7c0fcc3",
+    "metaphors": [
+      "light",
+      "door"
+    ],
     "themes": [
       "loneliness"
     ]
