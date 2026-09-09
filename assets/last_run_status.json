@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Power of Small Moments"
+    "detail": "The People Who Leave When You Need Them Most"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "500 Server Error: Internal Server Error for url: https://graph.facebook.com/v22.0/17841439177937652/media_publish?access_token=EAAXDATnOZAP8BRhftS6YcNj1JKicGjUZB0oQwZAu85wbhNO7B07HFwmxzaiIMgww1mxAkHugZA704uYBX64jv9790pwLZAiqItOYnFpXNUdYaJP8Ur16cuIm3tKDquznyG01LQ7vQ3iJTwFzT5nXT1WzzLevdWKqqTYmfhR7YclCcZAHZBdGWiw6CNBiZAN6mTOalgZDZD | API response: {\"error\":{\"message\":\"An unexpected error has occurred. Please retry your request later.\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":2,\"fbtrace_id\":\"AVgMu43S-66gUKu-j704Lzb\"}}"
+    "result": "ok",
+    "detail": "18106329881523561"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/KbyL7Pdl-Y8"
+    "detail": "https://www.youtube.com/shorts/F6SL1IT5-AY"
   }
 }

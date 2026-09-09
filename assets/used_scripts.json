@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Power of Small Moments",
-    "style": "love",
-    "script": "There's a kind of wonder that fits in your palm.\nA single raindrop on the window,\nholding the whole sky inside.\nIt doesn't ask to be noticed,\njust lingers,\nand the world feels softer for it.\nYour laugh does that too\u2014\nunfolds like a paper crane,\nsmall,\nbut suddenly the room is lighter.\nI keep these moments in my pockets,\nwhere they warm my hands.\nSend this to them.",
-    "hash": "94f67e162ef953c273de6c6d6b1f6fde",
-    "metaphors": [
-      "window",
-      "rain",
-      "wind",
-      "light"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Way You Look When You Do Not Know I Am Watching",
     "style": "emotional",
     "script": "You're folding laundry like it's sacred,\njust the way your mother taught you.\nThe sleeves align,\nperfect creases,\nbut your eyes drift\nto the window where the streetlight hums.\nSome nights,\nyou let the wrinkles stay,\nand I see the weight you carry\nwhen no one's looking.\nYou smooth the collar,\nslowly,\nlike you're tucking in a memory.\nI won't interrupt.",
@@ -829,5 +816,16 @@
       "door"
     ],
     "themes": []
+  },
+  {
+    "topic": "The People Who Leave When You Need Them Most",
+    "style": "lesson",
+    "script": "You didn't lose them. Not truly.\nYou just finally saw.\nNot the person you loved.\nThe idea you held.\nThey needed you less.\nYou needed them more.\nThat empty space where they stood?\nIt wasn't a void they created.\nIt was a boundary you found.",
+    "hash": "254bdcdafbdf82ad2d35063168e10488",
+    "metaphors": [],
+    "themes": [
+      "being_used",
+      "love"
+    ]
   }
 ]
