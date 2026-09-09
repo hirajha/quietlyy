@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Moment You Stopped Hoping",
-    "style": "emotional",
-    "script": "You\u2019re staring at the ceiling again.\nThe cracks don\u2019t spell anything anymore,\njust lines you\u2019ve memorized.\nSomewhere,\na clock ticks,\nbut it\u2019s not counting down to anything.\nThe hands that once reached,\nnow rest,\nweightless,\nlike balloons untied.\nYou don\u2019t flinch when the phone buzzes,\nnot even a blink.\nThe moment hope left,\nit didn\u2019t slam the door,\njust clicked the latch.\nand you let it go.",
-    "hash": "65b8e0c9d2250d4aa60aa51ff4bb2d23",
-    "metaphors": [
-      "phone",
-      "star",
-      "door",
-      "ring",
-      "ceiling"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "Falling For Someone Who Does Not Know",
     "style": "emotional",
     "script": "The porch light stays on all night.\njust for you,\nthough you\u2019ll never walk up the steps.\nI trace your name\nin the condensation on my window,\nbut the glass forgets by morning.\nSome nights,\nI swear I hear your laugh\nin the static between radio stations.\nThe universe keeps sending signals,\nand I keep pretending not to notice.\nThis is how ghosts are made.\nquietly.",
@@ -827,6 +811,18 @@
     "themes": [
       "growth",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The Cost Of Always Being Available",
+    "style": "lesson",
+    "script": "What's the word for that quiet exhaustion?\nThe one that settles deep.\nAfter you answered every call.\nFilled every gap.\nHeld every hand.\nYou kept your schedule open.\nYour energy on tap.\nFor every sudden want.\nUntil the well runs dry.\nAnd they just found a new spring.",
+    "hash": "fb8c7ebf1a04f858c41718b127f26bc4",
+    "metaphors": [
+      "ring"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
