@@ -1,20 +1,5 @@
 [
   {
-    "topic": "Staying Too Long",
-    "style": "emotional",
-    "script": "The porch light still flickers at 3 a.m.\nnot for safety\njust habit\nSome nights I sit there\nwatching the moths circle the bulb\nand wonder if they ever tire of orbiting\nThe key still fits the lock\nbut the door creaks louder now\nlike it\u2019s warning me\nI could leave the key on the table\nwalk away\nbut the moths don\u2019t know how to stop.",
-    "hash": "4d0a9a739827046fa04ed65e7864f72f",
-    "metaphors": [
-      "light",
-      "porch",
-      "door",
-      "table"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Person Behind My Smile",
     "style": "emotional",
     "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
@@ -820,6 +805,22 @@
     "themes": [
       "growth",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The Beauty of an Unfinished Life",
+    "style": "nostalgic",
+    "script": "The way the morning light\nlingers\non your unmade bed\nlike it knows\nsomething you don\u2019t.\nYou leave the door ajar\nnot for the breeze\nbut for the stories\nthat haven\u2019t arrived yet.\nTHE SUNSET STILL WAITS\nfor your shadow to stretch\njust a little longer.\nyou let it.",
+    "hash": "107ebda808c1250524183cd26cf3f711",
+    "metaphors": [
+      "door",
+      "shadow",
+      "bed",
+      "sun",
+      "light"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
