@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Person Behind My Smile",
-    "style": "emotional",
-    "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
-    "hash": "a1484fb15ac66345b89e7f6b30179a6e",
-    "metaphors": [
-      "song",
-      "radio"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Silent Suffering Nobody Sees",
     "style": "emotional",
     "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
@@ -818,6 +805,23 @@
       "bed",
       "sun",
       "light"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "You Are My Calm",
+    "style": "emotional",
+    "script": "There's a stillness that hums,\nlike a fridge in an empty kitchen.\nYou are the steady buzz,\nthe one I lean against\nwhen the world spins too loud.\nI don't need you to fix it,\njust stand there,\nquiet as a held breath,\nand let the noise\npass through me like wind.\nYou are my calm,\nnot the absence of storm,\nbut the hand I reach for in the dark.",
+    "hash": "304fb0f55bd7b62751f300929725085d",
+    "metaphors": [
+      "tea",
+      "dark",
+      "kitchen",
+      "noise",
+      "storm",
+      "wind"
     ],
     "themes": [
       "silence"

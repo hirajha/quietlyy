@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Beauty of an Unfinished Life"
+    "detail": "You Are My Calm"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17909549901495683"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18100048964305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/YIqY69R_y0c"
+    "detail": "https://www.youtube.com/shorts/nP4y7AwD2QE"
   }
 }
