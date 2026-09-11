@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Friends Who Only Call When They Need You",
-    "style": "emotional",
-    "script": "Friday night. The fridge hums low.\nYour name lights up the screen,\nnot with hello,\njust a question mark,\nsoft as a door left ajar.\nThe hands that once passed you a drink\nnow only pass you the weight,\nthe same old script,\nthe same old need.\nI answer,\nnot out of kindness,\nbut the ghost of a habit.\nLet them go.",
-    "hash": "d9af484d279bc971c950895be7c0fcc3",
-    "metaphors": [
-      "door",
-      "light"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "The One I Think About First",
     "style": "emotional",
     "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
@@ -827,6 +814,19 @@
       "wind",
       "porch",
       "rain"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Smile That Hides Everything",
+    "style": "love",
+    "script": "It\u2019s not a smile. It\u2019s a pocket.\nYou tuck the whole sky inside it,\nfolding edges neatly.\nNo one sees the storm you carry,\njust the quiet gold of your teeth.\nBut sometimes,\nthe stitches unravel,\nand the stars spill out like loose change.\nI pick them up,\npress them back into your palm.\nKeep the night safe for me.\nsend this to them.",
+    "hash": "883fb6debd0864326a3c80d1bb4875e8",
+    "metaphors": [
+      "storm",
+      "star"
     ],
     "themes": [
       "silence"
