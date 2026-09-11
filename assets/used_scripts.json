@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The One I Think About First",
-    "style": "emotional",
-    "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
-    "hash": "959854a0569ce7c23fe5253ff2900374",
-    "metaphors": [
-      "sun",
-      "sweater",
-      "text",
-      "light"
-    ],
-    "themes": [
-      "self_worth",
-      "silence"
-    ]
-  },
-  {
     "topic": "The Part You Never Talk About",
     "style": "nostalgic",
     "script": "The way you laugh\nwhen the story\u2019s too old to tell\nbut you tell it anyway.\n\nWE ALL KNOW\nit\u2019s not funny anymore\njust familiar.\n\nYour hands\nstill shape the air\nlike they did back then\nwhen the words mattered.\n\nNOW THEY DON\u2019T\nbut you keep talking\nand I keep listening\nfor the part you never say.",
@@ -827,6 +811,21 @@
     "metaphors": [
       "storm",
       "star"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "What I Mean When I Say I Love You",
+    "style": "emotional",
+    "script": "We forget how heavy light can be.\nThe way it lingers\non the edges of your shadow,\nnot fading,\njust waiting for you to turn around.\nSome promises don\u2019t need words,\nthey hum in the quiet hum of the fridge,\nin the way your keys still jingle\nlike they did the first time.\nI won\u2019t ask you to stay,\nbut I\u2019ll leave the porch light on,\njust in case you\u2019re passing through.\nLet them know.",
+    "hash": "812f25ab4f5cfa8e39ba724f077645c4",
+    "metaphors": [
+      "shadow",
+      "keys",
+      "light",
+      "porch"
     ],
     "themes": [
       "silence"
