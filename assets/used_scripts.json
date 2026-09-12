@@ -1,17 +1,5 @@
 [
   {
-    "topic": "When Being Nice Made You A Target",
-    "style": "lesson",
-    "script": "Generosity is often misread.\nSome people interpret kindness,\nas availability.\nThey see your open hand,\nnot your worth.\nThey assume your grace means,\nyou have no edge.\nNo line to cross.\nYou teach people how to take from you,\nby how much you let them.",
-    "hash": "69d70f7489de56640a25b51910dc216c",
-    "metaphors": [
-      "tea"
-    ],
-    "themes": [
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The Power of Small Moments",
     "style": "nostalgic",
     "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
@@ -838,6 +826,17 @@
     "themes": [
       "nostalgia",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "Why You Stopped Explaining Yourself",
+    "style": "lesson",
+    "script": "It wasn't exhaustion. Not exactly.\nYou just ran out of places to put the words.\nEvery careful sentence.\nEvery quiet plea.\nThey landed like pebbles.\nOn concrete.\nYou kept trying to paint in shades of gray.\nFor eyes that only saw black and white.\nUntil you learn. Some gaps just stay.",
+    "hash": "37c153ecdda4f8dbf7c92335f7448441",
+    "metaphors": [],
+    "themes": [
+      "heartbreak",
+      "silence"
     ]
   }
 ]
