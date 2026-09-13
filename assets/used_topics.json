@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Freedom of Acceptance",
-    "The Power of Small Moments",
     "Why Peace Is Not the Absence of Storm",
     "Why the Wound Is the Gift",
     "The Art of Letting Go",
@@ -65,11 +63,13 @@
     "When Grief Becomes a Teacher",
     "What Silence Teaches Us",
     "Learning to Trust the Journey",
-    "The Strength in Stillness"
+    "The Strength in Stillness",
+    "The Beauty of an Unfinished Life",
+    "The Ancient Truth About Happiness"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 2,
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -147,7 +147,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153651_0d1d62.mp3",
@@ -166,7 +165,8 @@
     "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_151550_7dfb17.mp3",
-    "2026-06-05_153744_816dfe.mp3"
+    "2026-06-05_153744_816dfe.mp3",
+    "2026-06-05_153651_0d1d62.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -175,13 +175,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "When You Finally Stopped Settling",
-    "The Quiet Power Of Letting Go",
-    "What Healing Actually Looks Like",
-    "Learning To Be Enough On Your Own",
-    "The Day You Chose Yourself",
-    "Loving Someone Who Wouldn't Stay",
-    "The People Who Leave When You Need Them Most",
     "The Love That Was Only Convenient",
     "The Friends Who Only Stayed For The Good Days",
     "The Cost Of Always Being Available",
@@ -194,6 +187,13 @@
     "When You Have Nothing Left",
     "The Truth About Being The Strong One",
     "Why You Stopped Explaining Yourself",
-    "When You Stop Chasing People"
+    "When You Stop Chasing People",
+    "When People Show You Who They Are",
+    "Why You Stopped Waiting For An Apology",
+    "What Pain Quietly Teaches You",
+    "What You Owe Yourself",
+    "When You Finally Stopped Settling",
+    "The Day You Chose Yourself",
+    "Learning To Be Enough On Your Own"
   ]
 }
