@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Found Me",
-    "style": "wisdom",
-    "script": "the desert wind whispered\nwhen you found me\ni was not lost\njust waiting\nfor the shape of your shadow to stretch across mine.\n\nyears of dust had settled\nyet my edges stayed sharp\nlike stones the river forgot to smooth.\n\nyou didn\u2019t carry a lantern\nor call my name\nyou simply walked\nuntil the space between us\nbecame a place.",
-    "hash": "54066e280c6cd047669c5874512194c9",
-    "metaphors": [
-      "shadow",
-      "wind"
-    ],
-    "themes": [
-      "grief_loss",
-      "growth"
-    ]
-  },
-  {
     "topic": "The Beauty of an Unfinished Life",
     "style": "nostalgic",
     "script": "The way the morning light\nlingers\non your unmade bed\nlike it knows\nsomething you don\u2019t.\nYou leave the door ajar\nnot for the breeze\nbut for the stories\nthat haven\u2019t arrived yet.\nTHE SUNSET STILL WAITS\nfor your shadow to stretch\njust a little longer.\nyou let it.",
@@ -834,6 +820,22 @@
     ],
     "themes": [
       "growth"
+    ]
+  },
+  {
+    "topic": "The Moment You Stopped Hoping",
+    "style": "emotional",
+    "script": "You\u2019re staring at the ceiling again.\nThe cracks don\u2019t spell anything anymore,\njust lines you\u2019ve memorized.\nSomewhere,\na clock ticks,\nbut it\u2019s not counting down to anything.\nThe hands that once reached,\nnow rest,\nweightless,\nlike balloons untied.\nYou don\u2019t flinch when the phone buzzes,\nnot even a blink.\nThe moment hope left,\nit didn\u2019t slam the door,\njust clicked the latch.\nand you let it go.",
+    "hash": "65b8e0c9d2250d4aa60aa51ff4bb2d23",
+    "metaphors": [
+      "phone",
+      "star",
+      "ring",
+      "door",
+      "ceiling"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
