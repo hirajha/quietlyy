@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generated_at": "2026-09-06T07:37:13.522456+00:00",
-  "total": 768,
+  "generated_at": "2026-09-13T08:01:18.252826+00:00",
+  "total": 770,
   "scripts": [
     {
       "id": 66,
@@ -11522,6 +11522,26 @@
       "quality_score": 7,
       "generated_at": "2026-05-31T12:31:12.535122+00:00",
       "fingerprint": "b168ae9fb84d7dda"
+    },
+    {
+      "id": 768,
+      "style": "nostalgic",
+      "topic": "Being Too Kind In A Cruel World",
+      "script": "You still find yourself softening\nwhen the edges\nof the world\nare sharpest.\n\nYour gentle current\nstill flows freely\neven when\nstones block its way.\n\nIt\u2019s a quiet ache\nto carry such softness\nthrough places\nthat demand steel.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-09-13T07:59:23.271133+00:00",
+      "fingerprint": "69a219b9c7b91b39"
+    },
+    {
+      "id": 769,
+      "style": "wisdom",
+      "topic": "The Quiet Power Of Letting Go",
+      "script": "Buddha once said,\nlet go\nof what is not yours.\na quiet untangling.\nlike breath held then softly exhaled.\nthe tension eases.\nmy fingers uncurl\nfrom the small, heavy things\nI thought I owned.\nonly open palms.\njust the quiet,\nsettling.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-09-13T08:00:09.564466+00:00",
+      "fingerprint": "e341c155a7d38cde"
     }
   ]
 }
