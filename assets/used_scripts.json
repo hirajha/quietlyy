@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Realized You Were the Option, Not the Priority",
-    "style": "nostalgic",
-    "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
-    "hash": "8c0467d2fae388b518ba0b20828aa470",
-    "metaphors": [
-      "ring",
-      "star"
-    ],
-    "themes": [
-      "growth",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "When You Found Me",
     "style": "wisdom",
     "script": "the desert wind whispered\nwhen you found me\ni was not lost\njust waiting\nfor the shape of your shadow to stretch across mine.\n\nyears of dust had settled\nyet my edges stayed sharp\nlike stones the river forgot to smooth.\n\nyou didn\u2019t carry a lantern\nor call my name\nyou simply walked\nuntil the space between us\nbecame a place.",
@@ -835,5 +821,19 @@
     "hash": "20aa6e1b41bac28b41d3788ee28821fb",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "What I Never Said Out Loud",
+    "style": "poetic",
+    "script": "The clock hands never asked for my secrets.\nI fed them anyway,\ntiny crumbs of truth\nswallowed by the gears.\nSome nights,\nthe ticking grows teeth,\nchews through the dark\nlike a moth through wool.\nI let it.\nThe holes are where the light gets in,\nbut the light doesn\u2019t know my name.",
+    "hash": "1f8df38c0aa0cfc32af064fe33598e3b",
+    "metaphors": [
+      "dark",
+      "light",
+      "wall"
+    ],
+    "themes": [
+      "growth"
+    ]
   }
 ]

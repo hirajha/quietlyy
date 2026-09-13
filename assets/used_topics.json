@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Strength in Stillness",
-    "The Meaning We Choose to Find",
     "Learning to Belong to Yourself",
     "The Quiet Revolution of Self-Respect",
     "The Freedom of Acceptance",
@@ -65,11 +63,13 @@
     "The Gift of Impermanence",
     "What Truly Matters in the End",
     "The Courage to Begin Again",
-    "What You Cannot Change and What You Can"
+    "What You Cannot Change and What You Can",
+    "When Grief Becomes a Teacher",
+    "What Silence Teaches Us"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 4,
+  "videos_since_wisdom": 3,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -147,7 +147,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153640_3f0c91.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153827_d3f4f7.mp3",
@@ -166,7 +165,8 @@
     "2026-06-05_153640_3f0c91.mp3",
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153627_53fd51.mp3",
-    "2026-06-05_153806_9773e5.mp3"
+    "2026-06-05_153806_9773e5.mp3",
+    "2026-06-05_151550_7dfb17.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -175,13 +175,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Being Too Kind In A Cruel World",
-    "What Rock Bottom Taught You",
-    "When People Show You Who They Are",
-    "Outgrowing People You Love",
-    "Why You Stopped Waiting For An Apology",
-    "When Being Nice Made You A Target",
-    "What Loneliness Actually Teaches You",
     "Why You Stopped Explaining Yourself",
     "When You Have Nothing Left",
     "When You Stop Chasing People",
@@ -194,6 +187,13 @@
     "What Healing Actually Looks Like",
     "Learning To Be Enough On Your Own",
     "The Day You Chose Yourself",
-    "Loving Someone Who Wouldn't Stay"
+    "Loving Someone Who Wouldn't Stay",
+    "The People Who Leave When You Need Them Most",
+    "The Love That Was Only Convenient",
+    "The Friends Who Only Stayed For The Good Days",
+    "The Cost Of Always Being Available",
+    "The Strength In Walking Away",
+    "Why Closure Never Comes",
+    "What Rock Bottom Taught You"
   ]
 }
