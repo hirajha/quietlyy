@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Person Behind My Smile"
+    "detail": "Silent Suffering Nobody Sees"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18100622045305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "17991291837013885"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/byH6reA5bzo"
+    "detail": "https://www.youtube.com/shorts/bYaJwMHdcDw"
   }
 }
