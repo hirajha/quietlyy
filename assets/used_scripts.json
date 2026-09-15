@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The People Who Disappear When It's Hard",
-    "style": "lesson",
-    "script": "Commitment is not measured in laughter.\nOr shared memory.\nWe confuse good times.\nWith deep roots.\nThen everything shifts.\nThe ground gets unsteady.\nAnd the hands you thought were holding yours.\nAre gone.\nThey just let go.\nQuietly.\nThey were never really holding on.",
-    "hash": "e8591c8718caa9136112e365db356f45",
-    "metaphors": [
-      "tea",
-      "roots"
-    ],
-    "themes": [
-      "grief_loss",
-      "silence"
-    ]
-  },
-  {
     "topic": "What I Never Said Out Loud",
     "style": "poetic",
     "script": "The clock hands never asked for my secrets.\nI fed them anyway,\ntiny crumbs of truth\nswallowed by the gears.\nSome nights,\nthe ticking grows teeth,\nchews through the dark\nlike a moth through wool.\nI let it.\nThe holes are where the light gets in,\nbut the light doesn\u2019t know my name.",
@@ -828,5 +814,16 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Power of Small Moments",
+    "style": "nostalgic",
+    "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
+    "hash": "fad71d57e80f79313745ebe29e3c5d59",
+    "metaphors": [
+      "door",
+      "wind"
+    ],
+    "themes": []
   }
 ]

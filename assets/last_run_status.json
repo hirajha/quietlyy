@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Part You Never Talk About"
+    "detail": "The Power of Small Moments"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18100794626305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18182922955415744"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/E6GXWribsaE"
+    "detail": "https://www.youtube.com/shorts/VcCiWWwJKWc"
   }
 }
