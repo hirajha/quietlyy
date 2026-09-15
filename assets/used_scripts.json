@@ -1,24 +1,5 @@
 [
   {
-    "topic": "Finding Yourself After Them",
-    "style": "emotional",
-    "script": "You're tracing the cracks in the ceiling again.\nThe same ones you memorized,\nbut now they look like rivers.\nNot maps,\njust paths you didn't choose.\nYour fingers remember their shape,\nand slowly,\nthe weight of their name\nfeels lighter than the dust\nsettling on your windowsill.\nSome mornings,\nyou wake up and forget to miss them.\nThe sun spills in,\nuninvited,\nand you let it stay.",
-    "hash": "6e033b74e24427b3b872034102bd9430",
-    "metaphors": [
-      "ceiling",
-      "wind",
-      "map",
-      "sun",
-      "window",
-      "path",
-      "light"
-    ],
-    "themes": [
-      "grief_loss",
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "Being Tired in Ways Sleep Cannot Fix",
     "style": "love",
     "script": "You\u2019re peeling an orange at midnight.\nThe rind spirals down like a tired question.\nNo one answers.\nSlowly the segments split,\ntoo bright,\ntoo much effort.\nYou press one to your tongue,\nbut the sweetness\ncan\u2019t dissolve the weight\nin your shoulders.\nThe juice drips.\nSend this to them.",
@@ -828,6 +809,22 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The One I Think About First",
+    "style": "emotional",
+    "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
+    "hash": "959854a0569ce7c23fe5253ff2900374",
+    "metaphors": [
+      "text",
+      "light",
+      "sun",
+      "sweater"
+    ],
+    "themes": [
+      "self_worth",
+      "silence"
     ]
   }
 ]

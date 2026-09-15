@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "Why Suffering Transforms Us",
-    "Finding Peace Within Yourself",
     "The Wisdom of Not Forcing",
     "The Gift of Impermanence",
     "What Truly Matters in the End",
@@ -65,11 +63,13 @@
     "The Meaning We Choose to Find",
     "The Freedom of Acceptance",
     "The Art of Letting Go",
-    "Loving Without Losing Yourself"
+    "Loving Without Losing Yourself",
+    "The Difference Between Living and Existing",
+    "What Real Love Requires"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 2,
+  "videos_since_wisdom": 1,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -147,7 +147,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_151550_7dfb17.mp3",
@@ -166,7 +165,8 @@
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153839_5a1856.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
-    "2026-06-05_153606_63f17d.mp3"
+    "2026-06-05_153606_63f17d.mp3",
+    "2026-06-05_153756_4972f7.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -175,13 +175,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The Love That Was Only Convenient",
-    "What You Learned After Being Broken",
-    "The Friends Who Only Stayed For The Good Days",
-    "What Healing Actually Looks Like",
-    "The Truth About Being The Strong One",
-    "The People Who Disappear When It's Hard",
-    "What Rock Bottom Taught You",
     "When You Stop Chasing People",
     "Being Too Kind In A Cruel World",
     "What You Owe Yourself",
@@ -194,6 +187,13 @@
     "When You Finally Stopped Settling",
     "What Loneliness Actually Teaches You",
     "The Day You Chose Yourself",
-    "Outgrowing People You Love"
+    "Outgrowing People You Love",
+    "Why Closure Never Comes",
+    "The People Who Leave When You Need Them Most",
+    "Why Silence Became Your Answer",
+    "The Love That Was Only Convenient",
+    "Why You Stopped Waiting For An Apology",
+    "What Healing Actually Looks Like",
+    "The Truth About Being The Strong One"
   ]
 }
