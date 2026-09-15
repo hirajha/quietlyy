@@ -1,20 +1,5 @@
 [
   {
-    "topic": "What I Mean When I Say I Love You",
-    "style": "emotional",
-    "script": "We forget how heavy light can be.\nThe way it lingers\non the edges of your shadow,\nnot fading,\njust waiting for you to turn around.\nSome promises don\u2019t need words,\nthey hum in the quiet hum of the fridge,\nin the way your keys still jingle\nlike they did the first time.\nI won\u2019t ask you to stay,\nbut I\u2019ll leave the porch light on,\njust in case you\u2019re passing through.\nLet them know.",
-    "hash": "812f25ab4f5cfa8e39ba724f077645c4",
-    "metaphors": [
-      "shadow",
-      "porch",
-      "keys",
-      "light"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Finding Yourself After Them",
     "style": "emotional",
     "script": "You're tracing the cracks in the ceiling again.\nThe same ones you memorized,\nbut now they look like rivers.\nNot maps,\njust paths you didn't choose.\nYour fingers remember their shape,\nand slowly,\nthe weight of their name\nfeels lighter than the dust\nsettling on your windowsill.\nSome mornings,\nyou wake up and forget to miss them.\nThe sun spills in,\nuninvited,\nand you let it stay.",
@@ -828,6 +813,19 @@
     "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
     "hash": "1e7beeb950401054760699c316db93c0",
     "metaphors": [],
+    "themes": [
+      "loneliness"
+    ]
+  },
+  {
+    "topic": "Friends Who Only Call When They Need You",
+    "style": "emotional",
+    "script": "Friday night. The fridge hums low.\nYour name lights up the screen,\nnot with hello,\njust a question mark,\nsoft as a door left ajar.\nThe hands that once passed you a drink\nnow only pass you the weight,\nthe same old script,\nthe same old need.\nI answer,\nnot out of kindness,\nbut the ghost of a habit.\nLet them go.",
+    "hash": "d9af484d279bc971c950895be7c0fcc3",
+    "metaphors": [
+      "door",
+      "light"
+    ],
     "themes": [
       "loneliness"
     ]
