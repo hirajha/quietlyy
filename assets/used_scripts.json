@@ -1,18 +1,5 @@
 [
   {
-    "topic": "When You Love Someone Who Is Leaving",
-    "style": "emotional",
-    "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
-    "hash": "6d0bc462964895731ac2015330b6c0d5",
-    "metaphors": [
-      "door",
-      "echo"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Quiet Exit",
     "style": "emotional",
     "script": "The last text never gets sent.\nIt sits in drafts,\nlike a boat\nthat missed the tide.\nSome exits don\u2019t slam,\nthey dissolve\u2014\nthe way sugar\nvanishes in tea.\nYour name stays sweet,\nbut the aftertaste\nfades to nothing.\nI won\u2019t wave goodbye.\nJust let the current take me.",
@@ -820,5 +807,21 @@
       "tea"
     ],
     "themes": []
+  },
+  {
+    "topic": "The Beauty of an Unfinished Life",
+    "style": "nostalgic",
+    "script": "The way the morning light\nlingers\non your unmade bed\nlike it knows\nsomething you don\u2019t.\nYou leave the door ajar\nnot for the breeze\nbut for the stories\nthat haven\u2019t arrived yet.\nTHE SUNSET STILL WAITS\nfor your shadow to stretch\njust a little longer.\nyou let it.",
+    "hash": "107ebda808c1250524183cd26cf3f711",
+    "metaphors": [
+      "door",
+      "bed",
+      "shadow",
+      "light",
+      "sun"
+    ],
+    "themes": [
+      "silence"
+    ]
   }
 ]
