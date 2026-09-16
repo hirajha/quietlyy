@@ -1,19 +1,5 @@
 [
   {
-    "topic": "What I Never Said Out Loud",
-    "style": "poetic",
-    "script": "The clock hands never asked for my secrets.\nI fed them anyway,\ntiny crumbs of truth\nswallowed by the gears.\nSome nights,\nthe ticking grows teeth,\nchews through the dark\nlike a moth through wool.\nI let it.\nThe holes are where the light gets in,\nbut the light doesn\u2019t know my name.",
-    "hash": "1f8df38c0aa0cfc32af064fe33598e3b",
-    "metaphors": [
-      "wall",
-      "light",
-      "dark"
-    ],
-    "themes": [
-      "growth"
-    ]
-  },
-  {
     "topic": "Loving Without Losing Yourself",
     "style": "nostalgic",
     "script": "You held the door,\nI\nlet the wind\ncarry my name out first.\nIt didn\u2019t mind,\njust curled around your ankles\nlike a cat who chose you,\nbut still sleeps on my side.\nSOMEHOW\nwe built a life\nwithout moving the furniture,\nand when the light slants just so,\nI forget\nwhich shadow is yours.",
@@ -825,5 +811,19 @@
       "wind"
     ],
     "themes": []
+  },
+  {
+    "topic": "When You Realized You Were the Option, Not the Priority",
+    "style": "nostalgic",
+    "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
+    "hash": "8c0467d2fae388b518ba0b20828aa470",
+    "metaphors": [
+      "star",
+      "ring"
+    ],
+    "themes": [
+      "grief_loss",
+      "growth"
+    ]
   }
 ]
