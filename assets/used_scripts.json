@@ -1,17 +1,5 @@
 [
   {
-    "topic": "When Just Being Near You Is Enough",
-    "style": "love",
-    "script": "You don\u2019t need words. Not here.\nThe air hums low between us,\nlike a radio left on in another room.\nI count the freckles on your shoulder,\neach one a tiny constellation I\u2019ve memorized.\nSometimes,\nyour breath syncs with mine\nwithout either of us trying.\nIt\u2019s not magic.\nJust physics.\nThe way gravity pulls without asking.\nI could stay like this forever.\nsend this to them.",
-    "hash": "f992fc9c4369c9004c0ebce8b79dc6cb",
-    "metaphors": [
-      "radio"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "When Someone Chooses You Every Day",
     "style": "emotional",
     "script": "Choosing is louder than saying yes once.\nThe morning light still lands,\njust on your side of the bed.\nNot grand gestures,\njust the way you reach,\nwhen the coffee\u2019s too hot.\nSome decisions aren\u2019t spoken,\nthey\u2019re the quiet weight of a hand,\nresting where yours has always been.\nAnd the world keeps asking why,\nbut the answer\u2019s in the way,\nyou turn the key,\nevery single day.",
@@ -822,6 +810,19 @@
       "rain",
       "wind",
       "porch"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Smile That Hides Everything",
+    "style": "love",
+    "script": "It\u2019s not a smile. It\u2019s a pocket.\nYou tuck the whole sky inside it,\nfolding edges neatly.\nNo one sees the storm you carry,\njust the quiet gold of your teeth.\nBut sometimes,\nthe stitches unravel,\nand the stars spill out like loose change.\nI pick them up,\npress them back into your palm.\nKeep the night safe for me.\nsend this to them.",
+    "hash": "883fb6debd0864326a3c80d1bb4875e8",
+    "metaphors": [
+      "star",
+      "storm"
     ],
     "themes": [
       "silence"
