@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Quiet Revolution of Self-Respect",
-    "style": "wisdom",
-    "script": "a japanese gardener whispered\nnot every root needs light\nsome grow strongest\nwhere the soil stays dark\ntrust the unseen work\nself-respect isn't a shout\nit's the quiet refusal\nto let others dig up your peace\nyou don't need their tools\nor their permission to thrive\nsome things grow best\nin the hush of your own hands",
-    "hash": "2724092aa1c41bc30f2b32b2fdfcbe59",
-    "metaphors": [
-      "dark",
-      "light",
-      "garden"
-    ],
-    "themes": [
-      "grief_loss",
-      "silence",
-      "growth"
-    ]
-  },
-  {
     "topic": "Grieving Someone Who Did Not Die",
     "style": "nostalgic",
     "script": "I keep your old voicemail\nsaved\nlike a secret\nno one else knows.\nThe way you laughed\nstill tangled in the wires,\nstatic humming your name.\nI press play\nwhen the house is too empty,\nbut the voice that answers\nisn\u2019t yours anymore.\nJust a ghost\nin the shape of hello.",
@@ -821,6 +805,23 @@
       "friendship_loss",
       "nostalgia",
       "growth"
+    ]
+  },
+  {
+    "topic": "You Are My Calm",
+    "style": "emotional",
+    "script": "There's a stillness that hums,\nlike a fridge in an empty kitchen.\nYou are the steady buzz,\nthe one I lean against\nwhen the world spins too loud.\nI don't need you to fix it,\njust stand there,\nquiet as a held breath,\nand let the noise\npass through me like wind.\nYou are my calm,\nnot the absence of storm,\nbut the hand I reach for in the dark.",
+    "hash": "304fb0f55bd7b62751f300929725085d",
+    "metaphors": [
+      "wind",
+      "kitchen",
+      "tea",
+      "storm",
+      "noise",
+      "dark"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
