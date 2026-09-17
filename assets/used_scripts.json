@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Quiet Exit",
-    "style": "emotional",
-    "script": "The last text never gets sent.\nIt sits in drafts,\nlike a boat\nthat missed the tide.\nSome exits don\u2019t slam,\nthey dissolve\u2014\nthe way sugar\nvanishes in tea.\nYour name stays sweet,\nbut the aftertaste\nfades to nothing.\nI won\u2019t wave goodbye.\nJust let the current take me.",
-    "hash": "9db51e34d268e9da039786a6497e27a5",
-    "metaphors": [
-      "text",
-      "tide",
-      "tea"
-    ],
-    "themes": [
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Quiet Revolution of Self-Respect",
     "style": "wisdom",
     "script": "a japanese gardener whispered\nnot every root needs light\nsome grow strongest\nwhere the soil stays dark\ntrust the unseen work\nself-respect isn't a shout\nit's the quiet refusal\nto let others dig up your peace\nyou don't need their tools\nor their permission to thrive\nsome things grow best\nin the hush of your own hands",
@@ -822,6 +808,19 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Outgrowing People You Love",
+    "style": "lesson",
+    "script": "The person you were, isn't who you are now.\nNot even close.\nRemember those old routines?\nThose easy connections?\nThey don't fit anymore.\nYou didn't change them.\nYou just outgrew them.\nAnd sometimes, holding on costs more than letting go.",
+    "hash": "3ec2d766ce5f6798070f61dfaec9c81f",
+    "metaphors": [],
+    "themes": [
+      "moving_on",
+      "friendship_loss",
+      "nostalgia",
+      "growth"
     ]
   }
 ]
