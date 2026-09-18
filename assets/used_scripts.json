@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Strength in Stillness",
-    "style": "nostalgic",
-    "script": "You held the door for the storm\nand it\nstayed.\nBare feet on wet wood\ncounting the seconds between thunder\nuntil the house learned to breathe again.\nWE WERE NEVER AFRAID\nwe were just\nwaiting\nfor the right kind of quiet\nto teach us how to stand\ninside the weight of it\nwithout breaking.",
-    "hash": "a67c03bf759752f397c69669d6e76341",
-    "metaphors": [
-      "tea",
-      "storm",
-      "door"
-    ],
-    "themes": [
-      "silence",
-      "growth"
-    ]
-  },
-  {
     "topic": "The Way You Look at Me",
     "style": "love",
     "script": "It\u2019s not a look. It\u2019s a slow dissolve.\nThe room tilts,\njust enough to notice.\nYour eyes don\u2019t hold mine\u2014\nthey unravel the seams,\nthread by careful thread.\nI forget how to stand.\nThe floor remembers your name,\nbut my knees don\u2019t.\nYou blink,\nand the world rewrites itself.\nSend this to them.",
@@ -827,6 +812,25 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Finding Yourself After Them",
+    "style": "emotional",
+    "script": "You're tracing the cracks in the ceiling again.\nThe same ones you memorized,\nbut now they look like rivers.\nNot maps,\njust paths you didn't choose.\nYour fingers remember their shape,\nand slowly,\nthe weight of their name\nfeels lighter than the dust\nsettling on your windowsill.\nSome mornings,\nyou wake up and forget to miss them.\nThe sun spills in,\nuninvited,\nand you let it stay.",
+    "hash": "6e033b74e24427b3b872034102bd9430",
+    "metaphors": [
+      "window",
+      "map",
+      "ceiling",
+      "path",
+      "wind",
+      "sun",
+      "light"
+    ],
+    "themes": [
+      "nostalgia",
+      "grief_loss"
     ]
   }
 ]
