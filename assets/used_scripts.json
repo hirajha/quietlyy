@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When Someone Chooses You Every Day",
-    "style": "emotional",
-    "script": "Choosing is louder than saying yes once.\nThe morning light still lands,\njust on your side of the bed.\nNot grand gestures,\njust the way you reach,\nwhen the coffee\u2019s too hot.\nSome decisions aren\u2019t spoken,\nthey\u2019re the quiet weight of a hand,\nresting where yours has always been.\nAnd the world keeps asking why,\nbut the answer\u2019s in the way,\nyou turn the key,\nevery single day.",
-    "hash": "6d6c43691b04cf2219727dfd7d6365c1",
-    "metaphors": [
-      "coffee",
-      "bed",
-      "light"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Strength in Stillness",
     "style": "nostalgic",
     "script": "You held the door for the storm\nand it\nstayed.\nBare feet on wet wood\ncounting the seconds between thunder\nuntil the house learned to breathe again.\nWE WERE NEVER AFRAID\nwe were just\nwaiting\nfor the right kind of quiet\nto teach us how to stand\ninside the weight of it\nwithout breaking.",
@@ -823,6 +809,21 @@
     "metaphors": [
       "star",
       "storm"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "What I Mean When I Say I Love You",
+    "style": "emotional",
+    "script": "We forget how heavy light can be.\nThe way it lingers\non the edges of your shadow,\nnot fading,\njust waiting for you to turn around.\nSome promises don\u2019t need words,\nthey hum in the quiet hum of the fridge,\nin the way your keys still jingle\nlike they did the first time.\nI won\u2019t ask you to stay,\nbut I\u2019ll leave the porch light on,\njust in case you\u2019re passing through.\nLet them know.",
+    "hash": "812f25ab4f5cfa8e39ba724f077645c4",
+    "metaphors": [
+      "porch",
+      "shadow",
+      "light",
+      "keys"
     ],
     "themes": [
       "silence"
