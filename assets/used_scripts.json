@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Why Peace Is Not the Absence of Storm",
-    "style": "wisdom",
-    "script": "Remember the last time you smelled\nburnt toast.\nThat sharp tang\nbefore the smoke alarm screamed.\nYou didn\u2019t know it yet\nbut the day was already different.\n\nPeace isn\u2019t the kitchen quiet again.\nIt\u2019s the way you stirred the jam\none last time\nbefore the jar disappeared from the fridge.\n\nYou still reach for it sometimes.",
-    "hash": "97334324d6e6400615b683f5128bfa3a",
-    "metaphors": [
-      "kitchen"
-    ],
-    "themes": [
-      "nostalgia",
-      "silence"
-    ]
-  },
-  {
     "topic": "The Strength In Walking Away",
     "style": "lesson",
     "script": "When did it become easier to stay\nthan to leave quietly?\n\nWe call it loyalty.\nThey call it convenience.\n\nYou memorize the cracks in their voice,\nthe exact shade of their bad moods,\nthe way they say your name like a question.\n\nYou think walking away is the coward\u2019s move.\nBut staying when you\u2019ve already checked out?\nThat\u2019s the real performance.\n\nThe strongest people aren\u2019t the ones who endure.\nThey\u2019re the ones who know when to stop.",
@@ -828,6 +815,20 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The First Heartbreak",
+    "style": "emotional",
+    "script": "The first heartbreak isn\u2019t about them leaving.\nIt\u2019s the way your own hands\nstart to feel like strangers,\nbuttoning shirts you\u2019ll never wear for them,\nfolding sleeves that no longer reach.\nSome mornings,\nyou catch your reflection mid-wave,\nmid-smile,\nand the mirror flinches first.\nNot from pain,\nfrom recognition\u2014\nthat version of you\nis already packed away.",
+    "hash": "e55637f2dab25bdc39804d4fe37455a2",
+    "metaphors": [
+      "star",
+      "mirror"
+    ],
+    "themes": [
+      "love",
+      "heartbreak"
     ]
   }
 ]

@@ -1004,8 +1004,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1785082041,
-    "uses": 1,
-    "last_used": 1785101777
+    "uses": 2,
+    "last_used": 1789839554
   },
   {
     "file": "5ca4b664_0.png",
@@ -4486,13 +4486,17 @@
     "topic": "Loving Without Losing Yourself",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1789818898
+    "timestamp": 1789818898,
+    "uses": 1,
+    "last_used": 1789839554
   },
   {
     "file": "85201bb2_1.png",
     "topic": "Loving Without Losing Yourself",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1789818943
+    "timestamp": 1789818943,
+    "uses": 1,
+    "last_used": 1789839554
   }
 ]
