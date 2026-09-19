@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Text You Read But Did Not Reply To",
-    "style": "love",
-    "script": "There's a quiet like the space between raindrops,\nstill holding the shape of what fell.\nThe screen glows,\nletters sharp as thorns you can't unsee.\nYour fingers hover,\nbut the cursor blinks like a held breath.\nIt's not hesitation,\njust the weight of words already spoken in silence.\nThe message stays,\nsoft as a footprint in new snow.\nYou trace the edges,\nbut never press send.\nThere's no reply,\nonly the echo of your own name.",
-    "hash": "fac9ce77f8aee3528210ab0c28ee1509",
-    "metaphors": [
-      "silence",
-      "echo",
-      "rain",
-      "letter"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Why Peace Is Not the Absence of Storm",
     "style": "wisdom",
     "script": "Remember the last time you smelled\nburnt toast.\nThat sharp tang\nbefore the smoke alarm screamed.\nYou didn\u2019t know it yet\nbut the day was already different.\n\nPeace isn\u2019t the kitchen quiet again.\nIt\u2019s the way you stirred the jam\none last time\nbefore the jar disappeared from the fridge.\n\nYou still reach for it sometimes.",
@@ -828,6 +813,21 @@
     ],
     "themes": [
       "growth"
+    ]
+  },
+  {
+    "topic": "Loving Without Losing Yourself",
+    "style": "nostalgic",
+    "script": "You held the door,\nI\nlet the wind\ncarry my name out first.\nIt didn\u2019t mind,\njust curled around your ankles\nlike a cat who chose you,\nbut still sleeps on my side.\nSOMEHOW\nwe built a life\nwithout moving the furniture,\nand when the light slants just so,\nI forget\nwhich shadow is yours.",
+    "hash": "628a74a6f081822e5982b8a41df360d6",
+    "metaphors": [
+      "door",
+      "wind",
+      "shadow",
+      "light"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
