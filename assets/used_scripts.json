@@ -1,19 +1,5 @@
 [
   {
-    "topic": "Lying Awake Replaying Everything",
-    "style": "emotional",
-    "script": "The night replays like a stuck record.\nNeedle skips,\nbut the song never changes.\nEvery word,\nevery pause,\ncarved deeper into the vinyl.\nSome grooves you can\u2019t smooth out,\njust learn to live inside.\nThe static hums,\nand I wonder\nif anyone else hears it.\nThe silence isn\u2019t empty.\nIt\u2019s full of echoes.\nSend this to them.",
-    "hash": "61b5587072d4e4109c77e68acc11125f",
-    "metaphors": [
-      "silence",
-      "echo",
-      "song"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Text You Read But Did Not Reply To",
     "style": "love",
     "script": "There's a quiet like the space between raindrops,\nstill holding the shape of what fell.\nThe screen glows,\nletters sharp as thorns you can't unsee.\nYour fingers hover,\nbut the cursor blinks like a held breath.\nIt's not hesitation,\njust the weight of words already spoken in silence.\nThe message stays,\nsoft as a footprint in new snow.\nYou trace the edges,\nbut never press send.\nThere's no reply,\nonly the echo of your own name.",
@@ -829,5 +815,19 @@
     "hash": "20aa6e1b41bac28b41d3788ee28821fb",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "What I Never Said Out Loud",
+    "style": "poetic",
+    "script": "The clock hands never asked for my secrets.\nI fed them anyway,\ntiny crumbs of truth\nswallowed by the gears.\nSome nights,\nthe ticking grows teeth,\nchews through the dark\nlike a moth through wool.\nI let it.\nThe holes are where the light gets in,\nbut the light doesn\u2019t know my name.",
+    "hash": "1f8df38c0aa0cfc32af064fe33598e3b",
+    "metaphors": [
+      "light",
+      "wall",
+      "dark"
+    ],
+    "themes": [
+      "growth"
+    ]
   }
 ]
