@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Strength In Walking Away",
-    "style": "lesson",
-    "script": "When did it become easier to stay\nthan to leave quietly?\n\nWe call it loyalty.\nThey call it convenience.\n\nYou memorize the cracks in their voice,\nthe exact shade of their bad moods,\nthe way they say your name like a question.\n\nYou think walking away is the coward\u2019s move.\nBut staying when you\u2019ve already checked out?\nThat\u2019s the real performance.\n\nThe strongest people aren\u2019t the ones who endure.\nThey\u2019re the ones who know when to stop.",
-    "hash": "41f2b30db90222a793dd0a3dc9cf675d",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Version of You That Did Not Make It",
     "style": "love",
     "script": "I carry it everywhere.\nA pocket-sized constellation,\nwrapped in receipts and lint.\nNo one sees the way it glows,\nsoft as a streetlamp through fog.\nYou left it behind,\nthat version of you,\nthe one who laughed at bad jokes.\nI press it to my ear sometimes,\nbut the static just hums your name.\nMaybe it\u2019s not a star after all.\nMaybe it\u2019s a door,\nleft slightly ajar.",
@@ -829,6 +819,19 @@
     "themes": [
       "love",
       "heartbreak"
+    ]
+  },
+  {
+    "topic": "When You Love Someone Who Is Leaving",
+    "style": "emotional",
+    "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
+    "hash": "6d0bc462964895731ac2015330b6c0d5",
+    "metaphors": [
+      "echo",
+      "door"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
