@@ -1,22 +1,5 @@
 [
   {
-    "topic": "What Home Actually Feels Like",
-    "style": "poetic",
-    "script": "Home isn\u2019t a place you find.\nIt\u2019s the echo of spoons,\nclinking in a kitchen drawer at 3 a.m.,\nwhen the world\u2019s asleep\nbut the fridge hums a lullaby.\nSomewhere,\na door left ajar,\njust enough to let the cat slip through,\nand the scent of rain on pavement\nlingers like a promise.\nThe walls don\u2019t hold it\u2014\nthe air does,\nthick with the weight of small, ordinary things.",
-    "hash": "1ac1da77f458a48454d62d2af5760bd2",
-    "metaphors": [
-      "wall",
-      "door",
-      "rain",
-      "echo",
-      "kitchen"
-    ],
-    "themes": [
-      "self_worth",
-      "loneliness"
-    ]
-  },
-  {
     "topic": "When You Cry in the Car Alone",
     "style": "emotional",
     "script": "Midnight. The engine hums like a lullaby.\nYou\u2019re not lost,\njust circling the same empty block,\nwindows fogged with ghosts of what could\u2019ve been.\nThe steering wheel knows your grip,\nknuckles white as the moon outside,\nbut the road doesn\u2019t ask questions.\nSome tears aren\u2019t for sadness,\nthey\u2019re for the version of you\nwho believed in answers.\nThe car keeps moving.\nYou don\u2019t have to.",
@@ -838,6 +821,16 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Silent Suffering Nobody Sees",
+    "style": "emotional",
+    "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
+    "hash": "1e7beeb950401054760699c316db93c0",
+    "metaphors": [],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
