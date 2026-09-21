@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Friends Who Only Stayed For The Good Days",
-    "style": "lesson",
-    "script": "You thought loyalty was a two-way street.\nIt wasn\u2019t.\nSome friends only show up for the view,\nnot the climb.\nYou carried the snacks,\nthey carried the stories.\nYou remember the laughter,\nbut who remembers the blisters?\nThey\u2019ll call you dramatic\nwhen you finally stop answering.\nThe truth?\nYou weren\u2019t the problem.\nYou were just the only one who stayed.",
-    "hash": "f2d5f78d5801e16e647a2ae61995111f",
-    "metaphors": [
-      "tree",
-      "ring"
-    ],
-    "themes": [
-      "nostalgia",
-      "friendship_loss"
-    ]
-  },
-  {
     "topic": "What Home Actually Feels Like",
     "style": "poetic",
     "script": "Home isn\u2019t a place you find.\nIt\u2019s the echo of spoons,\nclinking in a kitchen drawer at 3 a.m.,\nwhen the world\u2019s asleep\nbut the fridge hums a lullaby.\nSomewhere,\na door left ajar,\njust enough to let the cat slip through,\nand the scent of rain on pavement\nlingers like a promise.\nThe walls don\u2019t hold it\u2014\nthe air does,\nthick with the weight of small, ordinary things.",
@@ -836,6 +822,19 @@
       "light",
       "porch",
       "table"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "emotional",
+    "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
+    "hash": "a1484fb15ac66345b89e7f6b30179a6e",
+    "metaphors": [
+      "song",
+      "radio"
     ],
     "themes": [
       "silence"
