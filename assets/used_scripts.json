@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Being Strong for Everyone While Breaking Inside",
-    "style": "love",
-    "script": "You\u2019re stitching the seams of your sleeves again.\nNeedle pricks,\nbut the thread never snaps.\nThey see the embroidery,\nthe tiny flowers you add,\nnot the holes you\u2019re hiding.\nYour hands know the weight of holding,\nsteady for everyone,\nwhile your ribs learn to bend.\nThe fabric stretches,\nbut doesn\u2019t tear.\nYou fold the shirt neatly.\nPlace it back on the hanger.",
-    "hash": "22c477447fa06d18557bb5c2f373035a",
-    "metaphors": [
-      "tea",
-      "flower"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Friends Who Only Stayed For The Good Days",
     "style": "lesson",
     "script": "You thought loyalty was a two-way street.\nIt wasn\u2019t.\nSome friends only show up for the view,\nnot the climb.\nYou carried the snacks,\nthey carried the stories.\nYou remember the laughter,\nbut who remembers the blisters?\nThey\u2019ll call you dramatic\nwhen you finally stop answering.\nThe truth?\nYou weren\u2019t the problem.\nYou were just the only one who stayed.",
@@ -832,6 +821,21 @@
       "porch",
       "light",
       "glass"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Staying Too Long",
+    "style": "emotional",
+    "script": "The porch light still flickers at 3 a.m.\nnot for safety\njust habit\nSome nights I sit there\nwatching the moths circle the bulb\nand wonder if they ever tire of orbiting\nThe key still fits the lock\nbut the door creaks louder now\nlike it\u2019s warning me\nI could leave the key on the table\nwalk away\nbut the moths don\u2019t know how to stop.",
+    "hash": "4d0a9a739827046fa04ed65e7864f72f",
+    "metaphors": [
+      "door",
+      "light",
+      "porch",
+      "table"
     ],
     "themes": [
       "silence"
