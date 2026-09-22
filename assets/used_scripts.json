@@ -1,22 +1,5 @@
 [
   {
-    "topic": "The First Heartbreak",
-    "style": "emotional",
-    "script": "You\u2019re peeling the label off your water bottle,\nagain.\nThe glue sticks to your fingers like old promises,\nstubborn.\nYou tell yourself it\u2019s just habit,\nnot hunger,\nnot the way your ribs remember their shape.\nSome nights,\nthe bed feels like a raft\nadrift,\nand you\u2019re the only one who notices the tide.\nYou count the cracks in the ceiling,\nbut the numbers keep changing.\nThe first heartbreak isn\u2019t a wound,\nit\u2019s a shadow\nlearning to walk without you.",
-    "hash": "62b3884cad9fb9ba4eaf215c954b08e3",
-    "metaphors": [
-      "tide",
-      "ceiling",
-      "shadow",
-      "bed"
-    ],
-    "themes": [
-      "love",
-      "nostalgia",
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "What Truly Matters in the End",
     "style": "wisdom",
     "script": "The old gardener whispered\u2014\nturn the soil,\nnot the sky.\nwhat you plant stays,\nwhat you chase scatters.\n\nI stood there,\nhands full of seeds\nI\u2019d saved for storms\nthat never came.\nnow they\u2019re just weight,\nburied in pockets.\n\nthe earth remembers\neven when you forget.",
@@ -827,6 +810,19 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Friends Who Only Call When They Need You",
+    "style": "emotional",
+    "script": "Friday night. The fridge hums low.\nYour name lights up the screen,\nnot with hello,\njust a question mark,\nsoft as a door left ajar.\nThe hands that once passed you a drink\nnow only pass you the weight,\nthe same old script,\nthe same old need.\nI answer,\nnot out of kindness,\nbut the ghost of a habit.\nLet them go.",
+    "hash": "d9af484d279bc971c950895be7c0fcc3",
+    "metaphors": [
+      "door",
+      "light"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
