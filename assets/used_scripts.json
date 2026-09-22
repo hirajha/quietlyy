@@ -1,19 +1,5 @@
 [
   {
-    "topic": "What Truly Matters in the End",
-    "style": "wisdom",
-    "script": "The old gardener whispered\u2014\nturn the soil,\nnot the sky.\nwhat you plant stays,\nwhat you chase scatters.\n\nI stood there,\nhands full of seeds\nI\u2019d saved for storms\nthat never came.\nnow they\u2019re just weight,\nburied in pockets.\n\nthe earth remembers\neven when you forget.",
-    "hash": "fd97a51d43ed8253a30bc3c31f6aec9d",
-    "metaphors": [
-      "garden",
-      "storm",
-      "seed"
-    ],
-    "themes": [
-      "nostalgia"
-    ]
-  },
-  {
     "topic": "When Just Being Near You Is Enough",
     "style": "nostalgic",
     "script": "I forget the words\nbut\nI remember the shape of your laugh\ncurled at the edges\nlike old book pages\nWE USED TO SHARE\nNow the room hums\nwith something softer\nthan conversation\njust the sound of you\nbreathing beside me\nand I think\nmaybe that\u2019s all I ever wanted\nto hear.",
@@ -823,6 +809,22 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The One I Think About First",
+    "style": "emotional",
+    "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
+    "hash": "959854a0569ce7c23fe5253ff2900374",
+    "metaphors": [
+      "sweater",
+      "light",
+      "sun",
+      "text"
+    ],
+    "themes": [
+      "self_worth",
+      "silence"
     ]
   }
 ]
