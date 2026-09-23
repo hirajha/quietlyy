@@ -1,16 +1,5 @@
 [
   {
-    "topic": "Loving Someone Who Wouldn't Stay",
-    "style": "lesson",
-    "script": "Commitment isn't a shared understanding.\nWe often confuse our willingness,\nwith theirs.\nWe give pieces of our stability,\ntrying to anchor someone.\nSomeone who packed light.\nYou learn, some people are only visiting.\nThey are not staying.\nThey never were.\nAnd you were never the destination.",
-    "hash": "128e9369f06c79e844b8bce5b5297c9c",
-    "metaphors": [
-      "light",
-      "anchor"
-    ],
-    "themes": []
-  },
-  {
     "topic": "How You Changed Everything",
     "style": "love",
     "script": "I stopped counting the cracks in the ceiling.\nYour voice turned them into constellations,\nand I learned to navigate by the sound of your breath.\nThe dark wasn\u2019t empty anymore.\nEvery shadow held a shape I could name,\neven the ones that slipped away.\nI built a world inside the quiet hum,\nwhere your laughter was the only clock I needed.\nTime didn\u2019t pass\u2014it pooled.\nNow the air feels lighter,\nbut I still reach for the weight of you.\nsend this to them.",
@@ -822,5 +811,15 @@
       "grief_loss",
       "growth"
     ]
+  },
+  {
+    "topic": "What You Cannot Change and What You Can",
+    "style": "wisdom",
+    "script": "Marcus Aurelius wrote,\nyou have power\nonly over your mind.\nnot outside events.\nrealize this,\nand find strength.\n\nwe learn this\nwatching the river bend\naround the ancient rock.\nit holds its path.\nwe shift where we can.\nour current changes.",
+    "hash": "e60b47759c55f80412d1c358d405cc0a",
+    "metaphors": [
+      "path"
+    ],
+    "themes": []
   }
 ]
