@@ -1,18 +1,5 @@
 [
   {
-    "topic": "When You Delete the Message Before Sending It",
-    "style": "emotional",
-    "script": "I stopped the ink mid-sentence,\nlike a bird folding its wings\nbefore the storm even arrives.\nNot courage,\njust the quiet fear of being heard.\nThe screen glows,\nsoft and guilty,\nwhile my thumb hovers like a question\nno one asked.\nSome confessions aren\u2019t meant for air,\nthey\u2019re just ghosts\nwe keep feeding.\nI\u2019ll let it starve.",
-    "hash": "34427d10461385f76cc7201364abed49",
-    "metaphors": [
-      "storm",
-      "star"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Wisdom of Not Forcing",
     "style": "emotional",
     "script": "I stopped pushing the door\nthat only opens inward,\njust stood in the hallway\nwatching the light shift,\nsome shadows don\u2019t fight back,\nthey simply wait,\nand the air moves differently\nwhen you\u2019re not forcing it,\nI learned to breathe with the draft,\nnot against it,\nthe lock clicked open\non its own time.",
@@ -825,5 +812,16 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Power of Small Moments",
+    "style": "nostalgic",
+    "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
+    "hash": "fad71d57e80f79313745ebe29e3c5d59",
+    "metaphors": [
+      "wind",
+      "door"
+    ],
+    "themes": []
   }
 ]
