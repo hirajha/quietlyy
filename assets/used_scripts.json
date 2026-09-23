@@ -1,22 +1,5 @@
 [
   {
-    "topic": "How You Changed Everything",
-    "style": "love",
-    "script": "I stopped counting the cracks in the ceiling.\nYour voice turned them into constellations,\nand I learned to navigate by the sound of your breath.\nThe dark wasn\u2019t empty anymore.\nEvery shadow held a shape I could name,\neven the ones that slipped away.\nI built a world inside the quiet hum,\nwhere your laughter was the only clock I needed.\nTime didn\u2019t pass\u2014it pooled.\nNow the air feels lighter,\nbut I still reach for the weight of you.\nsend this to them.",
-    "hash": "ce505af3c08f0b9dc852d793120002af",
-    "metaphors": [
-      "shadow",
-      "ceiling",
-      "dark",
-      "light"
-    ],
-    "themes": [
-      "being_used",
-      "silence",
-      "growth"
-    ]
-  },
-  {
     "topic": "The First Time I Knew",
     "style": "love",
     "script": "You're tracing circles on the fogged-up window.\nThe streetlight hums a lullaby,\nand suddenly,\nyou understand\nhow dew chooses its leaves.\nNot with noise,\nnot with force\u2014\njust the quiet weight of morning.\nThat's when I knew.\nYou didn't have to say anything.\nThe way your fingers paused mid-air,\nlike the world had tilted,\njust for us.\nsend this to them.",
@@ -821,5 +804,19 @@
       "path"
     ],
     "themes": []
+  },
+  {
+    "topic": "When You Found Me",
+    "style": "wisdom",
+    "script": "the desert wind whispered\nwhen you found me\ni was not lost\njust waiting\nfor the shape of your shadow to stretch across mine.\n\nyears of dust had settled\nyet my edges stayed sharp\nlike stones the river forgot to smooth.\n\nyou didn\u2019t carry a lantern\nor call my name\nyou simply walked\nuntil the space between us\nbecame a place.",
+    "hash": "54066e280c6cd047669c5874512194c9",
+    "metaphors": [
+      "wind",
+      "shadow"
+    ],
+    "themes": [
+      "grief_loss",
+      "growth"
+    ]
   }
 ]
