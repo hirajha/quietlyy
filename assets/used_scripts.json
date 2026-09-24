@@ -1,22 +1,5 @@
 [
   {
-    "topic": "The First Time I Knew",
-    "style": "love",
-    "script": "You're tracing circles on the fogged-up window.\nThe streetlight hums a lullaby,\nand suddenly,\nyou understand\nhow dew chooses its leaves.\nNot with noise,\nnot with force\u2014\njust the quiet weight of morning.\nThat's when I knew.\nYou didn't have to say anything.\nThe way your fingers paused mid-air,\nlike the world had tilted,\njust for us.\nsend this to them.",
-    "hash": "422fa0e24d3d4f080e5a1c62564480ad",
-    "metaphors": [
-      "noise",
-      "wind",
-      "tree",
-      "window",
-      "light"
-    ],
-    "themes": [
-      "being_used",
-      "silence"
-    ]
-  },
-  {
     "topic": "The Moment You Stopped Hoping",
     "style": "emotional",
     "script": "You\u2019re staring at the ceiling again.\nThe cracks don\u2019t spell anything anymore,\njust lines you\u2019ve memorized.\nSomewhere,\na clock ticks,\nbut it\u2019s not counting down to anything.\nThe hands that once reached,\nnow rest,\nweightless,\nlike balloons untied.\nYou don\u2019t flinch when the phone buzzes,\nnot even a blink.\nThe moment hope left,\nit didn\u2019t slam the door,\njust clicked the latch.\nand you let it go.",
@@ -817,6 +800,22 @@
     "themes": [
       "grief_loss",
       "growth"
+    ]
+  },
+  {
+    "topic": "The Beauty of an Unfinished Life",
+    "style": "nostalgic",
+    "script": "The way the morning light\nlingers\non your unmade bed\nlike it knows\nsomething you don\u2019t.\nYou leave the door ajar\nnot for the breeze\nbut for the stories\nthat haven\u2019t arrived yet.\nTHE SUNSET STILL WAITS\nfor your shadow to stretch\njust a little longer.\nyou let it.",
+    "hash": "107ebda808c1250524183cd26cf3f711",
+    "metaphors": [
+      "bed",
+      "door",
+      "light",
+      "sun",
+      "shadow"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
