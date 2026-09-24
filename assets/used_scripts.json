@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Moment You Stopped Hoping",
-    "style": "emotional",
-    "script": "You\u2019re staring at the ceiling again.\nThe cracks don\u2019t spell anything anymore,\njust lines you\u2019ve memorized.\nSomewhere,\na clock ticks,\nbut it\u2019s not counting down to anything.\nThe hands that once reached,\nnow rest,\nweightless,\nlike balloons untied.\nYou don\u2019t flinch when the phone buzzes,\nnot even a blink.\nThe moment hope left,\nit didn\u2019t slam the door,\njust clicked the latch.\nand you let it go.",
-    "hash": "65b8e0c9d2250d4aa60aa51ff4bb2d23",
-    "metaphors": [
-      "door",
-      "ceiling",
-      "star",
-      "ring",
-      "phone"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "Falling For Someone Who Does Not Know",
     "style": "emotional",
     "script": "The porch light stays on all night.\njust for you,\nthough you\u2019ll never walk up the steps.\nI trace your name\nin the condensation on my window,\nbut the glass forgets by morning.\nSome nights,\nI swear I hear your laugh\nin the static between radio stations.\nThe universe keeps sending signals,\nand I keep pretending not to notice.\nThis is how ghosts are made.\nquietly.",
@@ -813,6 +797,23 @@
       "light",
       "sun",
       "shadow"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "You Are My Calm",
+    "style": "emotional",
+    "script": "There's a stillness that hums,\nlike a fridge in an empty kitchen.\nYou are the steady buzz,\nthe one I lean against\nwhen the world spins too loud.\nI don't need you to fix it,\njust stand there,\nquiet as a held breath,\nand let the noise\npass through me like wind.\nYou are my calm,\nnot the absence of storm,\nbut the hand I reach for in the dark.",
+    "hash": "304fb0f55bd7b62751f300929725085d",
+    "metaphors": [
+      "dark",
+      "storm",
+      "tea",
+      "wind",
+      "noise",
+      "kitchen"
     ],
     "themes": [
       "silence"
