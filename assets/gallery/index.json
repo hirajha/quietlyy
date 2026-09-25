@@ -977,8 +977,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1785384353,
-    "uses": 1,
-    "last_used": 1785404676
+    "uses": 2,
+    "last_used": 1790315584
   },
   {
     "file": "4a406e3a_1.png",
@@ -4486,13 +4486,17 @@
     "topic": "The Smile That Hides Everything",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1790291967
+    "timestamp": 1790291967,
+    "uses": 1,
+    "last_used": 1790315584
   },
   {
     "file": "423ceb1f_1.png",
     "topic": "The Smile That Hides Everything",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1790292010
+    "timestamp": 1790292010,
+    "uses": 1,
+    "last_used": 1790315584
   }
 ]

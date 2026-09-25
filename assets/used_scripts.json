@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Person Behind My Smile",
-    "style": "emotional",
-    "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
-    "hash": "a1484fb15ac66345b89e7f6b30179a6e",
-    "metaphors": [
-      "radio",
-      "song"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Silent Suffering Nobody Sees",
     "style": "emotional",
     "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
@@ -810,6 +797,21 @@
     "metaphors": [
       "star",
       "storm"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "What I Mean When I Say I Love You",
+    "style": "emotional",
+    "script": "We forget how heavy light can be.\nThe way it lingers\non the edges of your shadow,\nnot fading,\njust waiting for you to turn around.\nSome promises don\u2019t need words,\nthey hum in the quiet hum of the fridge,\nin the way your keys still jingle\nlike they did the first time.\nI won\u2019t ask you to stay,\nbut I\u2019ll leave the porch light on,\njust in case you\u2019re passing through.\nLet them know.",
+    "hash": "812f25ab4f5cfa8e39ba724f077645c4",
+    "metaphors": [
+      "light",
+      "keys",
+      "porch",
+      "shadow"
     ],
     "themes": [
       "silence"
