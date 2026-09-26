@@ -1,16 +1,5 @@
 [
   {
-    "topic": "The Power of Small Moments",
-    "style": "nostalgic",
-    "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
-    "hash": "fad71d57e80f79313745ebe29e3c5d59",
-    "metaphors": [
-      "wind",
-      "door"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The People Who Leave When You Need Them Most",
     "style": "lesson",
     "script": "You didn't lose them. Not truly.\nYou just finally saw.\nNot the person you loved.\nThe idea you held.\nThey needed you less.\nYou needed them more.\nThat empty space where they stood?\nIt wasn't a void they created.\nIt was a boundary you found.",
@@ -822,6 +811,20 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The First Heartbreak",
+    "style": "emotional",
+    "script": "The first heartbreak isn\u2019t about them leaving.\nIt\u2019s the way your own hands\nstart to feel like strangers,\nbuttoning shirts you\u2019ll never wear for them,\nfolding sleeves that no longer reach.\nSome mornings,\nyou catch your reflection mid-wave,\nmid-smile,\nand the mirror flinches first.\nNot from pain,\nfrom recognition\u2014\nthat version of you\nis already packed away.",
+    "hash": "e55637f2dab25bdc39804d4fe37455a2",
+    "metaphors": [
+      "star",
+      "mirror"
+    ],
+    "themes": [
+      "love",
+      "heartbreak"
     ]
   }
 ]
