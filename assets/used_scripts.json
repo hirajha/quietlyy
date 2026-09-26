@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Realized You Were the Option, Not the Priority",
-    "style": "nostalgic",
-    "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
-    "hash": "8c0467d2fae388b518ba0b20828aa470",
-    "metaphors": [
-      "star",
-      "ring"
-    ],
-    "themes": [
-      "growth",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Cost Of Always Being Available",
     "style": "lesson",
     "script": "What's the word for that quiet exhaustion?\nThe one that settles deep.\nAfter you answered every call.\nFilled every gap.\nHeld every hand.\nYou kept your schedule open.\nYour energy on tap.\nFor every sudden want.\nUntil the well runs dry.\nAnd they just found a new spring.",
@@ -827,6 +813,20 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Quiet Exit",
+    "style": "emotional",
+    "script": "The last text never gets sent.\nIt sits in drafts,\nlike a boat\nthat missed the tide.\nSome exits don\u2019t slam,\nthey dissolve\u2014\nthe way sugar\nvanishes in tea.\nYour name stays sweet,\nbut the aftertaste\nfades to nothing.\nI won\u2019t wave goodbye.\nJust let the current take me.",
+    "hash": "9db51e34d268e9da039786a6497e27a5",
+    "metaphors": [
+      "text",
+      "tea",
+      "tide"
+    ],
+    "themes": [
+      "grief_loss"
     ]
   }
 ]

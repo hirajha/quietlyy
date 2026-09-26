@@ -1,23 +1,5 @@
 [
   {
-    "file": "4e2fb41b_0.png",
-    "topic": "The Cost Of Always Being Available",
-    "panel": 0,
-    "source": "fresh",
-    "timestamp": 1784300746,
-    "uses": 2,
-    "last_used": 1788188458
-  },
-  {
-    "file": "bb5320b7_1.png",
-    "topic": "The Cost Of Always Being Available",
-    "panel": 1,
-    "source": "fresh",
-    "timestamp": 1784300750,
-    "uses": 2,
-    "last_used": 1788208539
-  },
-  {
     "file": "e012e121_0.png",
     "topic": "Loving in Silence",
     "panel": 0,
@@ -986,8 +968,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1785491929,
-    "uses": 1,
-    "last_used": 1785512769
+    "uses": 2,
+    "last_used": 1790463962
   },
   {
     "file": "0aa125b3_0.png",
@@ -4486,13 +4468,31 @@
     "topic": "When You Love Someone Who Is Leaving",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1790443321
+    "timestamp": 1790443321,
+    "uses": 1,
+    "last_used": 1790463962
   },
   {
     "file": "632e6b8a_1.png",
     "topic": "When You Love Someone Who Is Leaving",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1790443365
+    "timestamp": 1790443365,
+    "uses": 1,
+    "last_used": 1790463962
+  },
+  {
+    "file": "115d6f36_0.png",
+    "topic": "The Quiet Exit",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1790463965
+  },
+  {
+    "file": "93cda7ea_1.png",
+    "topic": "The Quiet Exit",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1790464011
   }
 ]
