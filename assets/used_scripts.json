@@ -1,16 +1,5 @@
 [
   {
-    "topic": "The People Who Leave When You Need Them Most",
-    "style": "lesson",
-    "script": "You didn't lose them. Not truly.\nYou just finally saw.\nNot the person you loved.\nThe idea you held.\nThey needed you less.\nYou needed them more.\nThat empty space where they stood?\nIt wasn't a void they created.\nIt was a boundary you found.",
-    "hash": "254bdcdafbdf82ad2d35063168e10488",
-    "metaphors": [],
-    "themes": [
-      "being_used",
-      "love"
-    ]
-  },
-  {
     "topic": "When You Realized You Were the Option, Not the Priority",
     "style": "nostalgic",
     "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
@@ -825,6 +814,19 @@
     "themes": [
       "love",
       "heartbreak"
+    ]
+  },
+  {
+    "topic": "When You Love Someone Who Is Leaving",
+    "style": "emotional",
+    "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
+    "hash": "6d0bc462964895731ac2015330b6c0d5",
+    "metaphors": [
+      "door",
+      "echo"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
