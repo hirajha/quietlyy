@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generated_at": "2026-09-20T08:18:50.383222+00:00",
-  "total": 773,
+  "generated_at": "2026-09-27T08:58:16.417676+00:00",
+  "total": 774,
   "scripts": [
     {
       "id": 66,
@@ -11572,6 +11572,16 @@
       "quality_score": 7,
       "generated_at": "2026-09-20T08:18:06.269334+00:00",
       "fingerprint": "1421182d1727d822"
+    },
+    {
+      "id": 773,
+      "style": "nostalgic",
+      "topic": "Loving Someone Who Wouldn't Stay",
+      "script": "You find a forgotten sweater\nin the back of the drawer.\nIt still carries\na faint, familiar scent\nthat was never truly yours.\nYou trace the worn threads\nand remember the way\nthey used to pull it close.\nAnd how some warmth\njust wouldn't stay.\nBut the imprint remains.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-09-27T08:56:07.112681+00:00",
+      "fingerprint": "f60512cc13cc90a6"
     }
   ]
 }
