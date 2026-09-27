@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Quiet Revolution of Self-Respect"
+    "detail": "The Moment You Stopped Hoping"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18442665658120274"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18102486104305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/qtpH89phFcU"
+    "detail": "https://www.youtube.com/shorts/1OuMPg6EOAw"
   }
 }
