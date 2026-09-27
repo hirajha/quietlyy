@@ -1,14 +1,5 @@
 [
   {
-    "file": "e012e121_0.png",
-    "topic": "Loving in Silence",
-    "panel": 0,
-    "source": "fresh",
-    "timestamp": 1784323808,
-    "uses": 2,
-    "last_used": 1788242582
-  },
-  {
     "file": "6d8ea1b0_1.png",
     "topic": "Loving in Silence",
     "panel": 1,
@@ -977,8 +968,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1785512772,
-    "uses": 1,
-    "last_used": 1785534422
+    "uses": 2,
+    "last_used": 1790489839
   },
   {
     "file": "cda5af91_1.png",
@@ -4486,13 +4477,24 @@
     "topic": "The Quiet Exit",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1790463965
+    "timestamp": 1790463965,
+    "uses": 1,
+    "last_used": 1790489839
   },
   {
     "file": "93cda7ea_1.png",
     "topic": "The Quiet Exit",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1790464011
+    "timestamp": 1790464011,
+    "uses": 1,
+    "last_used": 1790489839
+  },
+  {
+    "file": "8cb4c785_1.png",
+    "topic": "The Quiet Revolution of Self-Respect",
+    "panel": 1,
+    "source": "fresh",
+    "timestamp": 1790489888
   }
 ]
