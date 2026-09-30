@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When You Realized You Were the Option, Not the Priority"
+    "detail": "When You Found Me"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18093160841657450"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18102954536305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/qoqR5nx77uI"
+    "detail": "https://www.youtube.com/shorts/JcvuLDFmO7w"
   }
 }

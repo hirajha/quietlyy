@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Courage to Begin Again",
-    "Why the Wound Is the Gift",
     "Finding Peace Within Yourself",
     "What Silence Teaches Us",
     "The Strength in Stillness",
@@ -65,11 +63,13 @@
     "The Ancient Truth About Happiness",
     "Learning to Belong to Yourself",
     "Why Suffering Transforms Us",
-    "What Real Love Requires"
+    "What Real Love Requires",
+    "Loving Without Losing Yourself",
+    "The Courage to Begin Again"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -94,7 +94,6 @@
     "Kahlil Gibran"
   ],
   "used_wisdom_quotes": [
-    "you belong to no one but",
     "pain is inevitable suffering is optional",
     "you may not control all the events that happen",
     "you may not control all the events that happen",
@@ -143,11 +142,11 @@
     "when you found me i was not lost",
     "you have power only over your mind.",
     "when you found me i was not lost",
-    "not every root needs light some grow strongest"
+    "not every root needs light some grow strongest",
+    "when you found me i was not lost"
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153806_9773e5.mp3",
@@ -166,7 +165,8 @@
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153839_5a1856.mp3",
-    "2026-06-05_153640_3f0c91.mp3"
+    "2026-06-05_153640_3f0c91.mp3",
+    "2026-06-05_153806_9773e5.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -175,13 +175,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The People Who Leave When You Need Them Most",
-    "Why Closure Never Comes",
-    "When People Show You Who They Are",
-    "When You Stop Chasing People",
-    "Outgrowing People You Love",
-    "What Healing Actually Looks Like",
-    "What Loneliness Actually Teaches You",
     "Being Too Kind In A Cruel World",
     "The Quiet Power Of Letting Go",
     "Why You Stopped Explaining Yourself",
@@ -194,6 +187,13 @@
     "When Being Nice Made You A Target",
     "The Day You Chose Yourself",
     "The Love That Was Only Convenient",
-    "The Truth About Being The Strong One"
+    "The Truth About Being The Strong One",
+    "Loving Someone Who Wouldn't Stay",
+    "Why You Stopped Waiting For An Apology",
+    "Learning To Be Enough On Your Own",
+    "The Cost Of Always Being Available",
+    "When You Finally Stopped Settling",
+    "When You Stop Chasing People",
+    "What Healing Actually Looks Like"
   ]
 }
