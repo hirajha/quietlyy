@@ -1,13 +1,5 @@
 [
   {
-    "topic": "Being Tired in Ways Sleep Cannot Fix",
-    "style": "love",
-    "script": "You\u2019re peeling an orange at midnight.\nThe rind spirals down like a tired question.\nNo one answers.\nSlowly the segments split,\ntoo bright,\ntoo much effort.\nYou press one to your tongue,\nbut the sweetness\ncan\u2019t dissolve the weight\nin your shoulders.\nThe juice drips.\nSend this to them.",
-    "hash": "20aa6e1b41bac28b41d3788ee28821fb",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "What I Never Said Out Loud",
     "style": "poetic",
     "script": "The clock hands never asked for my secrets.\nI fed them anyway,\ntiny crumbs of truth\nswallowed by the gears.\nSome nights,\nthe ticking grows teeth,\nchews through the dark\nlike a moth through wool.\nI let it.\nThe holes are where the light gets in,\nbut the light doesn\u2019t know my name.",
@@ -822,5 +814,16 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Power of Small Moments",
+    "style": "nostalgic",
+    "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
+    "hash": "fad71d57e80f79313745ebe29e3c5d59",
+    "metaphors": [
+      "wind",
+      "door"
+    ],
+    "themes": []
   }
 ]
