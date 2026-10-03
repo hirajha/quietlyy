@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Realized You Were the Option, Not the Priority",
-    "style": "nostalgic",
-    "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
-    "hash": "8c0467d2fae388b518ba0b20828aa470",
-    "metaphors": [
-      "star",
-      "ring"
-    ],
-    "themes": [
-      "grief_loss",
-      "growth"
-    ]
-  },
-  {
     "topic": "When You Found Me",
     "style": "wisdom",
     "script": "the desert wind whispered\nwhen you found me\ni was not lost\njust waiting\nfor the shape of your shadow to stretch across mine.\n\nyears of dust had settled\nyet my edges stayed sharp\nlike stones the river forgot to smooth.\n\nyou didn\u2019t carry a lantern\nor call my name\nyou simply walked\nuntil the space between us\nbecame a place.",
@@ -834,6 +820,21 @@
     ],
     "themes": [
       "growth"
+    ]
+  },
+  {
+    "topic": "Loving Without Losing Yourself",
+    "style": "nostalgic",
+    "script": "You held the door,\nI\nlet the wind\ncarry my name out first.\nIt didn\u2019t mind,\njust curled around your ankles\nlike a cat who chose you,\nbut still sleeps on my side.\nSOMEHOW\nwe built a life\nwithout moving the furniture,\nand when the light slants just so,\nI forget\nwhich shadow is yours.",
+    "hash": "628a74a6f081822e5982b8a41df360d6",
+    "metaphors": [
+      "door",
+      "light",
+      "wind",
+      "shadow"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
