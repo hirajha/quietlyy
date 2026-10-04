@@ -1,15 +1,5 @@
 [
   {
-    "topic": "The Cost Of Always Being Available",
-    "style": "lesson",
-    "script": "When did 'yes' become your only answer?\nYou gave away your peace.\nPiece by piece.\nFor every expectation.\nEvery request.\nWe answer every time.\nNo matter the cost.\nThat exhaustion.\nThe constant hum.\nYour self isn't a renewable resource.\nAnd you teach people that.",
-    "hash": "73593e8d0358282847de8d05ea81395d",
-    "metaphors": [
-      "tea"
-    ],
-    "themes": []
-  },
-  {
     "topic": "The Beauty of an Unfinished Life",
     "style": "nostalgic",
     "script": "The way the morning light\nlingers\non your unmade bed\nlike it knows\nsomething you don\u2019t.\nYou leave the door ajar\nnot for the breeze\nbut for the stories\nthat haven\u2019t arrived yet.\nTHE SUNSET STILL WAITS\nfor your shadow to stretch\njust a little longer.\nyou let it.",
@@ -835,6 +825,19 @@
     "themes": [
       "heartbreak",
       "love"
+    ]
+  },
+  {
+    "topic": "When You Love Someone Who Is Leaving",
+    "style": "emotional",
+    "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
+    "hash": "6d0bc462964895731ac2015330b6c0d5",
+    "metaphors": [
+      "echo",
+      "door"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
