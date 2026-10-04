@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generated_at": "2026-09-27T08:58:16.417676+00:00",
-  "total": 774,
+  "generated_at": "2026-10-04T09:21:42.478531+00:00",
+  "total": 776,
   "scripts": [
     {
       "id": 66,
@@ -11582,6 +11582,26 @@
       "quality_score": 7,
       "generated_at": "2026-09-27T08:56:07.112681+00:00",
       "fingerprint": "f60512cc13cc90a6"
+    },
+    {
+      "id": 774,
+      "style": "love",
+      "topic": "When You Stop Chasing People",
+      "script": "I stopped trying to catch up.\nJust letting my steps slow,\nuntil they simply met the earth.\nIt was a quiet landing.\nLike the unexpected warmth of a stone,\nturned over in your palm.\nNo longer chasing the feeling.\nOnly finding your steady presence,\nalready there.\nAlways waiting.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-10-04T09:17:34.066159+00:00",
+      "fingerprint": "686dc3dc84f3b4fd"
+    },
+    {
+      "id": 775,
+      "style": "emotional",
+      "topic": "The Quiet Power Of Letting Go",
+      "script": "Your hand still remembers the ribbon's knot,\nand how it snagged your skin.\na quiet weight\nyou carried with you.\nYou tried to loosen it\nfor so long.\nBut some knots\ndon't need untangling.\nJust an open palm.\nIt simply falls.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-10-04T09:19:41.889740+00:00",
+      "fingerprint": "5b4c008419880550"
     }
   ]
 }
