@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Outgrowing People You Love",
-    "style": "lesson",
-    "script": "The person you were, isn't who you are now.\nNot even close.\nRemember those old routines?\nThose easy connections?\nThey don't fit anymore.\nYou didn't change them.\nYou just outgrew them.\nAnd sometimes, holding on costs more than letting go.",
-    "hash": "3ec2d766ce5f6798070f61dfaec9c81f",
-    "metaphors": [],
-    "themes": [
-      "moving_on",
-      "friendship_loss",
-      "nostalgia",
-      "growth"
-    ]
-  },
-  {
     "topic": "You Are My Calm",
     "style": "emotional",
     "script": "There's a stillness that hums,\nlike a fridge in an empty kitchen.\nYou are the steady buzz,\nthe one I lean against\nwhen the world spins too loud.\nI don't need you to fix it,\njust stand there,\nquiet as a held breath,\nand let the noise\npass through me like wind.\nYou are my calm,\nnot the absence of storm,\nbut the hand I reach for in the dark.",
@@ -838,6 +825,23 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "Falling For Someone Who Does Not Know",
+    "style": "emotional",
+    "script": "The porch light stays on all night.\njust for you,\nthough you\u2019ll never walk up the steps.\nI trace your name\nin the condensation on my window,\nbut the glass forgets by morning.\nSome nights,\nI swear I hear your laugh\nin the static between radio stations.\nThe universe keeps sending signals,\nand I keep pretending not to notice.\nThis is how ghosts are made.\nquietly.",
+    "hash": "2a00b5f7f9870384537351970c926728",
+    "metaphors": [
+      "porch",
+      "glass",
+      "window",
+      "light",
+      "wind",
+      "radio"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
