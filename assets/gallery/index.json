@@ -1,14 +1,5 @@
 [
   {
-    "file": "bf6551c7_0.png",
-    "topic": "When Grief Becomes a Teacher",
-    "panel": 0,
-    "source": "fresh",
-    "timestamp": 1784584318,
-    "uses": 2,
-    "last_used": 1788807813
-  },
-  {
     "file": "b95886bc_1.png",
     "topic": "When Grief Becomes a Teacher",
     "panel": 1,
@@ -1202,8 +1193,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1786063798,
-    "uses": 1,
-    "last_used": 1786091318
+    "uses": 2,
+    "last_used": 1791182138
   },
   {
     "file": "d0030603_0.png",
@@ -1211,8 +1202,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1786091321,
-    "uses": 1,
-    "last_used": 1786113311
+    "uses": 2,
+    "last_used": 1791182138
   },
   {
     "file": "3dc520cd_1.png",
@@ -1220,8 +1211,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1786091325,
-    "uses": 1,
-    "last_used": 1786113311
+    "uses": 2,
+    "last_used": 1791182138
   },
   {
     "file": "7776d0fb_0.png",
@@ -4498,5 +4489,12 @@
     "timestamp": 1791119275,
     "uses": 1,
     "last_used": 1791138661
+  },
+  {
+    "file": "1d95d6c8_0.png",
+    "topic": "Staying Too Long",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1791182143
   }
 ]
