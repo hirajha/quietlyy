@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "What Silence Teaches Us",
-    "What Truly Matters in the End",
     "The Quiet Revolution of Self-Respect",
     "The Gift of Impermanence",
     "The Strength in Stillness",
@@ -65,11 +63,13 @@
     "Loving Without Losing Yourself",
     "Why Suffering Transforms Us",
     "The Courage to Begin Again",
-    "The Freedom of Acceptance"
+    "The Freedom of Acceptance",
+    "Finding Peace Within Yourself",
+    "What Real Love Requires"
   ],
   "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 3,
+  "videos_since_wisdom": 2,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -147,7 +147,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153627_53fd51.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153839_5a1856.mp3",
@@ -166,7 +165,8 @@
     "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153724_b66b80.mp3",
     "2026-06-05_153627_53fd51.mp3",
-    "2026-06-05_153617_c5dd1f.mp3"
+    "2026-06-05_153617_c5dd1f.mp3",
+    "2026-06-05_153827_d3f4f7.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -175,13 +175,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Being Too Kind In A Cruel World",
-    "What Pain Quietly Teaches You",
-    "The Quiet Power Of Letting Go",
-    "Why You Stopped Explaining Yourself",
-    "Learning To Be Enough On Your Own",
-    "When You Stop Chasing People",
-    "What Healing Actually Looks Like",
     "The Cost Of Always Being Available",
     "What Loneliness Actually Teaches You",
     "What Rock Bottom Taught You",
@@ -194,6 +187,13 @@
     "When Being Nice Made You A Target",
     "Why Silence Became Your Answer",
     "The People Who Leave When You Need Them Most",
-    "The Lesson In Every Goodbye"
+    "The Lesson In Every Goodbye",
+    "The Day You Chose Yourself",
+    "When You Finally Stopped Settling",
+    "Why Closure Never Comes",
+    "The Quiet Power Of Letting Go",
+    "The Strength In Walking Away",
+    "Being Too Kind In A Cruel World",
+    "When People Show You Who They Are"
   ]
 }
