@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The First Heartbreak",
-    "style": "emotional",
-    "script": "The first heartbreak isn\u2019t about them leaving.\nIt\u2019s the way your own hands\nstart to feel like strangers,\nbuttoning shirts you\u2019ll never wear for them,\nfolding sleeves that no longer reach.\nSome mornings,\nyou catch your reflection mid-wave,\nmid-smile,\nand the mirror flinches first.\nNot from pain,\nfrom recognition\u2014\nthat version of you\nis already packed away.",
-    "hash": "e55637f2dab25bdc39804d4fe37455a2",
-    "metaphors": [
-      "star",
-      "mirror"
-    ],
-    "themes": [
-      "love",
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "When You Love Someone Who Is Leaving",
     "style": "emotional",
     "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
@@ -828,5 +814,19 @@
       "wind"
     ],
     "themes": []
+  },
+  {
+    "topic": "When You Realized You Were the Option, Not the Priority",
+    "style": "nostalgic",
+    "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
+    "hash": "8c0467d2fae388b518ba0b20828aa470",
+    "metaphors": [
+      "star",
+      "ring"
+    ],
+    "themes": [
+      "growth",
+      "grief_loss"
+    ]
   }
 ]
