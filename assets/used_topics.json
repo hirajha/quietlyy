@@ -46,7 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Difference Between Living and Existing",
     "Loving Without Losing Yourself",
     "Why Suffering Transforms Us",
     "The Courage to Begin Again",
@@ -65,11 +64,12 @@
     "The Power of Small Moments",
     "The Strength in Stillness",
     "The Meaning We Choose to Find",
-    "The Ancient Truth About Happiness"
+    "The Ancient Truth About Happiness",
+    "The Wisdom of Not Forcing"
   ],
-  "last_style": "wisdom",
+  "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 4,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -94,7 +94,6 @@
     "Kahlil Gibran"
   ],
   "used_wisdom_quotes": [
-    "pain is inevitable suffering is optional",
     "you may not control all the events that happen",
     "you may not control all the events that happen",
     "the impediment to action is very often a lot of thinking.",
@@ -143,11 +142,11 @@
     "you have power only over your mind.",
     "when you found me i was not lost",
     "not every root needs light some grow strongest",
+    "when you found me i was not lost",
     "when you found me i was not lost"
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153700_072547.mp3",
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153756_4972f7.mp3",
@@ -166,7 +165,8 @@
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_151550_7dfb17.mp3",
-    "2026-06-05_153640_3f0c91.mp3"
+    "2026-06-05_153640_3f0c91.mp3",
+    "2026-06-05_153839_5a1856.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -175,14 +175,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "When People Show You Who They Are",
-    "What Loneliness Actually Teaches You",
-    "What Healing Actually Looks Like",
-    "What Rock Bottom Taught You",
-    "Loving Someone Who Wouldn't Stay",
-    "The Quiet Power Of Letting Go",
-    "Why You Stopped Explaining Yourself",
-    "Why Silence Became Your Answer",
     "The Lesson In Every Goodbye",
     "When You Have Nothing Left",
     "Why You Stopped Waiting For An Apology",
@@ -194,6 +186,14 @@
     "The Cost Of Always Being Available",
     "Learning To Be Enough On Your Own",
     "The Truth About Being The Strong One",
-    "Why Closure Never Comes"
+    "Why Closure Never Comes",
+    "The Love That Was Only Convenient",
+    "When People Show You Who They Are",
+    "Being Too Kind In A Cruel World",
+    "Outgrowing People You Love",
+    "When You Finally Stopped Settling",
+    "What Healing Actually Looks Like",
+    "The Quiet Power Of Letting Go",
+    "Why You Stopped Explaining Yourself"
   ]
 }
