@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "You Are My Calm"
+    "detail": "Why Peace Is Not the Absence of Storm"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17926472733428245"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18104142629305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
-    "result": "fail",
-    "detail": "YouTube upload failed (410): Gone"
+    "result": "ok",
+    "detail": "https://www.youtube.com/shorts/LkQ-5hw3QNo"
   }
 }
