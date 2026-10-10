@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Truth About Being The Strong One",
-    "style": "lesson",
-    "script": "The quiet cost of always being okay.\nWe learn to keep our own counsel.\nTo carry the load.\nYou check in first.\nOffer the steady hand.\nAlways the first to reach out.\nUntil the silence stretches.\nAnd you feel the space you're leaving.\nThat nobody tried to fill.",
-    "hash": "670542269f5f0867b2041f2851ef7d2b",
-    "metaphors": [
-      "silence",
-      "tea"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Friends Who Only Call When They Need You",
     "style": "emotional",
     "script": "Friday night. The fridge hums low.\nYour name lights up the screen,\nnot with hello,\njust a question mark,\nsoft as a door left ajar.\nThe hands that once passed you a drink\nnow only pass you the weight,\nthe same old script,\nthe same old need.\nI answer,\nnot out of kindness,\nbut the ghost of a habit.\nLet them go.",
@@ -833,6 +820,25 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Finding Yourself After Them",
+    "style": "emotional",
+    "script": "You're tracing the cracks in the ceiling again.\nThe same ones you memorized,\nbut now they look like rivers.\nNot maps,\njust paths you didn't choose.\nYour fingers remember their shape,\nand slowly,\nthe weight of their name\nfeels lighter than the dust\nsettling on your windowsill.\nSome mornings,\nyou wake up and forget to miss them.\nThe sun spills in,\nuninvited,\nand you let it stay.",
+    "hash": "6e033b74e24427b3b872034102bd9430",
+    "metaphors": [
+      "ceiling",
+      "sun",
+      "map",
+      "light",
+      "wind",
+      "window",
+      "path"
+    ],
+    "themes": [
+      "nostalgia",
+      "grief_loss"
     ]
   }
 ]

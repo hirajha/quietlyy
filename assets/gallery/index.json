@@ -1328,8 +1328,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1786392297,
-    "uses": 1,
-    "last_used": 1786417982
+    "uses": 2,
+    "last_used": 1791615110
   },
   {
     "file": "e26c2d08_0.png",
@@ -1337,8 +1337,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1786417985,
-    "uses": 1,
-    "last_used": 1786441136
+    "uses": 2,
+    "last_used": 1791615110
   },
   {
     "file": "6bdb3cf0_1.png",
@@ -4495,6 +4495,8 @@
     "topic": "What I Mean When I Say I Love You",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1791575859
+    "timestamp": 1791575859,
+    "uses": 1,
+    "last_used": 1791615110
   }
 ]
