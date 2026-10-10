@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Finding Yourself After Them"
+    "detail": "Being Tired in Ways Sleep Cannot Fix"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18127165943491166"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18104329193305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/EJXa-epJcUI"
+    "detail": "https://www.youtube.com/shorts/4xG3BuP4DeI"
   }
 }
