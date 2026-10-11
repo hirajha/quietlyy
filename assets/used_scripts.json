@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Realized You Were the Option, Not the Priority",
-    "style": "nostalgic",
-    "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
-    "hash": "8c0467d2fae388b518ba0b20828aa470",
-    "metaphors": [
-      "star",
-      "ring"
-    ],
-    "themes": [
-      "grief_loss",
-      "growth"
-    ]
-  },
-  {
     "topic": "What You Cannot Change and What You Can",
     "style": "wisdom",
     "script": "Marcus Aurelius wrote,\nyou have power\nonly over your mind.\nnot outside events.\nrealize this,\nand find strength.\n\nwe learn this\nwatching the river bend\naround the ancient rock.\nit holds its path.\nwe shift where we can.\nour current changes.",
@@ -842,6 +828,23 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "Falling For Someone Who Does Not Know",
+    "style": "emotional",
+    "script": "The porch light stays on all night.\njust for you,\nthough you\u2019ll never walk up the steps.\nI trace your name\nin the condensation on my window,\nbut the glass forgets by morning.\nSome nights,\nI swear I hear your laugh\nin the static between radio stations.\nThe universe keeps sending signals,\nand I keep pretending not to notice.\nThis is how ghosts are made.\nquietly.",
+    "hash": "2a00b5f7f9870384537351970c926728",
+    "metaphors": [
+      "porch",
+      "wind",
+      "radio",
+      "glass",
+      "window",
+      "light"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
