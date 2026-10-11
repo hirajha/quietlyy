@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generated_at": "2026-10-04T09:21:42.478531+00:00",
-  "total": 776,
+  "generated_at": "2026-10-11T09:42:54.706149+00:00",
+  "total": 779,
   "scripts": [
     {
       "id": 66,
@@ -11602,6 +11602,36 @@
       "quality_score": 7,
       "generated_at": "2026-10-04T09:19:41.889740+00:00",
       "fingerprint": "5b4c008419880550"
+    },
+    {
+      "id": 776,
+      "style": "love",
+      "topic": "The Day You Chose Yourself",
+      "script": "It wasn't a grand exit.\nJust a quiet shift.\nThe loose stitch you'd ignored\nfinally caught your eye.\nA simple needle.\nAnd the deliberate pull.\nYou patched the tear\nnot for show.\nBut for the way it felt\nto be perfectly whole.\nJust for you. Quietlyy.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-10-11T09:38:22.706466+00:00",
+      "fingerprint": "66332732f900c518"
+    },
+    {
+      "id": 777,
+      "style": "emotional",
+      "topic": "The Strength in Stillness",
+      "script": "I stopped turning pages.\nThe story waits,\nuntouched on the shelf.\nI used to rush ahead,\nalways finding the ending.\nBut sometimes,\nthe truest power\nis in the pause,\nin letting worlds just be.\nMy own quiet current\nholds everything.\nI feel it settle.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-10-11T09:39:26.284097+00:00",
+      "fingerprint": "b1ebe18f7f1ac927"
+    },
+    {
+      "id": 778,
+      "style": "nostalgic",
+      "topic": "Learning to Belong to Yourself",
+      "script": "It feels like tracing the lines of your own palm.\nThe map etched there.\nYou used to search for trails\nin every passing face.\nNow you just breathe.\nAnd feel the quiet settling\nof your own steady pulse.\nThis is where you belong.\nRight here.\nSoftly.\nFinally.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-10-11T09:42:07.550678+00:00",
+      "fingerprint": "28cbc39e2b2b8f1c"
     }
   ]
 }
