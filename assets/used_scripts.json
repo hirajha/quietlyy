@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The First Heartbreak",
-    "style": "emotional",
-    "script": "The first heartbreak isn\u2019t about them leaving.\nIt\u2019s the way your own hands\nstart to feel like strangers,\nbuttoning shirts you\u2019ll never wear for them,\nfolding sleeves that no longer reach.\nSome mornings,\nyou catch your reflection mid-wave,\nmid-smile,\nand the mirror flinches first.\nNot from pain,\nfrom recognition\u2014\nthat version of you\nis already packed away.",
-    "hash": "e55637f2dab25bdc39804d4fe37455a2",
-    "metaphors": [
-      "star",
-      "mirror"
-    ],
-    "themes": [
-      "love",
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "When You Love Someone Who Is Leaving",
     "style": "emotional",
     "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
@@ -835,6 +821,21 @@
       "storm",
       "wind",
       "noise"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Why Peace Is Not the Absence of Storm",
+    "style": "emotional",
+    "script": "The porch swing still creaks at midnight.\nNot from wind,\njust the weight of what we carried.\nSome storms don\u2019t roar,\nthey settle in the joints of old wood,\nwarping the grain,\nbut never breaking it.\nThe quiet after isn\u2019t peace,\njust the shape of us,\nholding what we survived.\nYou\u2019ll recognize it,\nwhen the ache feels like home.",
+    "hash": "4d985a1afa36592863c9419b2dd0e65d",
+    "metaphors": [
+      "porch",
+      "wind",
+      "storm",
+      "rain"
     ],
     "themes": [
       "silence"
