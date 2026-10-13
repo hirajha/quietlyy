@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Why Peace Is Not the Absence of Storm"
+    "detail": "The Smile That Hides Everything"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18104755163305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "17919880608450174"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/-jugLyJ1hak"
+    "detail": "https://www.youtube.com/shorts/RGegIlivqNI"
   }
 }
