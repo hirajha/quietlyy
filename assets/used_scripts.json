@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Quiet Revolution of Self-Respect",
-    "style": "wisdom",
-    "script": "a japanese gardener whispered\nnot every root needs light\nsome grow strongest\nwhere the soil stays dark\ntrust the unseen work\nself-respect isn't a shout\nit's the quiet refusal\nto let others dig up your peace\nyou don't need their tools\nor their permission to thrive\nsome things grow best\nin the hush of your own hands",
-    "hash": "2724092aa1c41bc30f2b32b2fdfcbe59",
-    "metaphors": [
-      "light",
-      "garden",
-      "dark"
-    ],
-    "themes": [
-      "silence",
-      "growth",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Moment You Stopped Hoping",
     "style": "emotional",
     "script": "You\u2019re staring at the ceiling again.\nThe cracks don\u2019t spell anything anymore,\njust lines you\u2019ve memorized.\nSomewhere,\na clock ticks,\nbut it\u2019s not counting down to anything.\nThe hands that once reached,\nnow rest,\nweightless,\nlike balloons untied.\nYou don\u2019t flinch when the phone buzzes,\nnot even a blink.\nThe moment hope left,\nit didn\u2019t slam the door,\njust clicked the latch.\nand you let it go.",
@@ -840,6 +824,25 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Finding Yourself After Them",
+    "style": "emotional",
+    "script": "You're tracing the cracks in the ceiling again.\nThe same ones you memorized,\nbut now they look like rivers.\nNot maps,\njust paths you didn't choose.\nYour fingers remember their shape,\nand slowly,\nthe weight of their name\nfeels lighter than the dust\nsettling on your windowsill.\nSome mornings,\nyou wake up and forget to miss them.\nThe sun spills in,\nuninvited,\nand you let it stay.",
+    "hash": "6e033b74e24427b3b872034102bd9430",
+    "metaphors": [
+      "wind",
+      "path",
+      "ceiling",
+      "light",
+      "map",
+      "sun",
+      "window"
+    ],
+    "themes": [
+      "grief_loss",
+      "nostalgia"
     ]
   }
 ]
