@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Friends Who Only Call When They Need You",
-    "style": "emotional",
-    "script": "Friday night. The fridge hums low.\nYour name lights up the screen,\nnot with hello,\njust a question mark,\nsoft as a door left ajar.\nThe hands that once passed you a drink\nnow only pass you the weight,\nthe same old script,\nthe same old need.\nI answer,\nnot out of kindness,\nbut the ghost of a habit.\nLet them go.",
-    "hash": "d9af484d279bc971c950895be7c0fcc3",
-    "metaphors": [
-      "light",
-      "door"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "The One I Think About First",
     "style": "emotional",
     "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
@@ -836,6 +823,20 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Quiet Exit",
+    "style": "emotional",
+    "script": "The last text never gets sent.\nIt sits in drafts,\nlike a boat\nthat missed the tide.\nSome exits don\u2019t slam,\nthey dissolve\u2014\nthe way sugar\nvanishes in tea.\nYour name stays sweet,\nbut the aftertaste\nfades to nothing.\nI won\u2019t wave goodbye.\nJust let the current take me.",
+    "hash": "9db51e34d268e9da039786a6497e27a5",
+    "metaphors": [
+      "tide",
+      "tea",
+      "text"
+    ],
+    "themes": [
+      "grief_loss"
     ]
   }
 ]
