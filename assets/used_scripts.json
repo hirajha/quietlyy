@@ -1,20 +1,5 @@
 [
   {
-    "topic": "Staying Too Long",
-    "style": "emotional",
-    "script": "The porch light still flickers at 3 a.m.\nnot for safety\njust habit\nSome nights I sit there\nwatching the moths circle the bulb\nand wonder if they ever tire of orbiting\nThe key still fits the lock\nbut the door creaks louder now\nlike it\u2019s warning me\nI could leave the key on the table\nwalk away\nbut the moths don\u2019t know how to stop.",
-    "hash": "4d0a9a739827046fa04ed65e7864f72f",
-    "metaphors": [
-      "table",
-      "door",
-      "light",
-      "porch"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Person Behind My Smile",
     "style": "emotional",
     "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
@@ -832,6 +817,21 @@
     ],
     "themes": [
       "growth"
+    ]
+  },
+  {
+    "topic": "Loving Without Losing Yourself",
+    "style": "nostalgic",
+    "script": "You held the door,\nI\nlet the wind\ncarry my name out first.\nIt didn\u2019t mind,\njust curled around your ankles\nlike a cat who chose you,\nbut still sleeps on my side.\nSOMEHOW\nwe built a life\nwithout moving the furniture,\nand when the light slants just so,\nI forget\nwhich shadow is yours.",
+    "hash": "628a74a6f081822e5982b8a41df360d6",
+    "metaphors": [
+      "light",
+      "shadow",
+      "door",
+      "wind"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
