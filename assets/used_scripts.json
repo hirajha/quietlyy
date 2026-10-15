@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Person Behind My Smile",
-    "style": "emotional",
-    "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
-    "hash": "a1484fb15ac66345b89e7f6b30179a6e",
-    "metaphors": [
-      "song",
-      "radio"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Silent Suffering Nobody Sees",
     "style": "emotional",
     "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
@@ -832,6 +819,20 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The First Heartbreak",
+    "style": "emotional",
+    "script": "The first heartbreak isn\u2019t about them leaving.\nIt\u2019s the way your own hands\nstart to feel like strangers,\nbuttoning shirts you\u2019ll never wear for them,\nfolding sleeves that no longer reach.\nSome mornings,\nyou catch your reflection mid-wave,\nmid-smile,\nand the mirror flinches first.\nNot from pain,\nfrom recognition\u2014\nthat version of you\nis already packed away.",
+    "hash": "e55637f2dab25bdc39804d4fe37455a2",
+    "metaphors": [
+      "star",
+      "mirror"
+    ],
+    "themes": [
+      "love",
+      "heartbreak"
     ]
   }
 ]
