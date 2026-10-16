@@ -1526,8 +1526,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1786802508,
-    "uses": 1,
-    "last_used": 1786822177
+    "uses": 2,
+    "last_used": 1792172257
   },
   {
     "file": "086fb3dd_0.png",
@@ -1535,8 +1535,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1786822180,
-    "uses": 1,
-    "last_used": 1786847447
+    "uses": 2,
+    "last_used": 1792172257
   },
   {
     "file": "16293cbe_1.png",
@@ -4495,6 +4495,8 @@
     "topic": "Grieving Someone Who Did Not Die",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1792152922
+    "timestamp": 1792152922,
+    "uses": 1,
+    "last_used": 1792172257
   }
 ]

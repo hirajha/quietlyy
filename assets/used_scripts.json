@@ -1,16 +1,5 @@
 [
   {
-    "topic": "The Power of Small Moments",
-    "style": "nostalgic",
-    "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
-    "hash": "fad71d57e80f79313745ebe29e3c5d59",
-    "metaphors": [
-      "wind",
-      "door"
-    ],
-    "themes": []
-  },
-  {
     "topic": "When You Realized You Were the Option, Not the Priority",
     "style": "nostalgic",
     "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
@@ -839,6 +828,18 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "When Just Being Near You Is Enough",
+    "style": "love",
+    "script": "You don\u2019t need words. Not here.\nThe air hums low between us,\nlike a radio left on in another room.\nI count the freckles on your shoulder,\neach one a tiny constellation I\u2019ve memorized.\nSometimes,\nyour breath syncs with mine\nwithout either of us trying.\nIt\u2019s not magic.\nJust physics.\nThe way gravity pulls without asking.\nI could stay like this forever.\nsend this to them.",
+    "hash": "f992fc9c4369c9004c0ebce8b79dc6cb",
+    "metaphors": [
+      "radio"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
