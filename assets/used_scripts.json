@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Realized You Were the Option, Not the Priority",
-    "style": "nostalgic",
-    "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
-    "hash": "8c0467d2fae388b518ba0b20828aa470",
-    "metaphors": [
-      "star",
-      "ring"
-    ],
-    "themes": [
-      "growth",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "When You Found Me",
     "style": "wisdom",
     "script": "the desert wind whispered\nwhen you found me\ni was not lost\njust waiting\nfor the shape of your shadow to stretch across mine.\n\nyears of dust had settled\nyet my edges stayed sharp\nlike stones the river forgot to smooth.\n\nyou didn\u2019t carry a lantern\nor call my name\nyou simply walked\nuntil the space between us\nbecame a place.",
@@ -840,6 +826,20 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "When Someone Chooses You Every Day",
+    "style": "emotional",
+    "script": "Choosing is louder than saying yes once.\nThe morning light still lands,\njust on your side of the bed.\nNot grand gestures,\njust the way you reach,\nwhen the coffee\u2019s too hot.\nSome decisions aren\u2019t spoken,\nthey\u2019re the quiet weight of a hand,\nresting where yours has always been.\nAnd the world keeps asking why,\nbut the answer\u2019s in the way,\nyou turn the key,\nevery single day.",
+    "hash": "6d6c43691b04cf2219727dfd7d6365c1",
+    "metaphors": [
+      "light",
+      "bed",
+      "coffee"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

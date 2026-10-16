@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When Just Being Near You Is Enough"
+    "detail": "When Someone Chooses You Every Day"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18105213230305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18129712876703342"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/E_HIF4lctBM"
+    "detail": "https://www.youtube.com/shorts/GMsCd9P14I8"
   }
 }
