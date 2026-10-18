@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Way You Look at Me"
+    "detail": "Lying Awake Replaying Everything"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18144678064510867"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18105445652305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/yezFkcrfAF4"
+    "detail": "https://www.youtube.com/shorts/wTIXevJmOlo"
   }
 }
