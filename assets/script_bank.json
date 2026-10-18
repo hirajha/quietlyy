@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generated_at": "2026-10-11T09:42:54.706149+00:00",
-  "total": 779,
+  "generated_at": "2026-10-18T07:48:19.145982+00:00",
+  "total": 781,
   "scripts": [
     {
       "id": 66,
@@ -11632,6 +11632,26 @@
       "quality_score": 7,
       "generated_at": "2026-10-11T09:42:07.550678+00:00",
       "fingerprint": "28cbc39e2b2b8f1c"
+    },
+    {
+      "id": 779,
+      "style": "emotional",
+      "topic": "The People Who Leave When You Need Them Most",
+      "script": "The small latch gave way,.\nand you watched it all spill.\nNot with a crash,\nbut a soft sigh,\nlike air leaving a worn balloon.\nThey saw the trembling,\nand stepped back.\nNot out of malice,\nbut convenience.\nLeaving you to gather,\nevery broken piece alone.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-10-18T07:47:08.785337+00:00",
+      "fingerprint": "c8a947052d5171d9"
+    },
+    {
+      "id": 780,
+      "style": "nostalgic",
+      "topic": "Why Closure Never Comes",
+      "script": "You find the place\nwith a slip of paper,\nnot because it\u2019s finished.\nBut just to pause it.\nA breath held.\nBetween paragraphs, not chapters.\nAnd the dust collects,\nnot on the cover,\nbut on the meaning\nleft there, waiting.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-10-18T07:47:43.900956+00:00",
+      "fingerprint": "c7e91dc279589a65"
     }
   ]
 }
