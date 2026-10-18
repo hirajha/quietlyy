@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Smile That Hides Everything",
-    "style": "love",
-    "script": "It\u2019s not a smile. It\u2019s a pocket.\nYou tuck the whole sky inside it,\nfolding edges neatly.\nNo one sees the storm you carry,\njust the quiet gold of your teeth.\nBut sometimes,\nthe stitches unravel,\nand the stars spill out like loose change.\nI pick them up,\npress them back into your palm.\nKeep the night safe for me.\nsend this to them.",
-    "hash": "883fb6debd0864326a3c80d1bb4875e8",
-    "metaphors": [
-      "storm",
-      "star"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What I Mean When I Say I Love You",
     "style": "emotional",
     "script": "We forget how heavy light can be.\nThe way it lingers\non the edges of your shadow,\nnot fading,\njust waiting for you to turn around.\nSome promises don\u2019t need words,\nthey hum in the quiet hum of the fridge,\nin the way your keys still jingle\nlike they did the first time.\nI won\u2019t ask you to stay,\nbut I\u2019ll leave the porch light on,\njust in case you\u2019re passing through.\nLet them know.",
@@ -828,6 +815,22 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Moment You Stopped Hoping",
+    "style": "emotional",
+    "script": "You\u2019re staring at the ceiling again.\nThe cracks don\u2019t spell anything anymore,\njust lines you\u2019ve memorized.\nSomewhere,\na clock ticks,\nbut it\u2019s not counting down to anything.\nThe hands that once reached,\nnow rest,\nweightless,\nlike balloons untied.\nYou don\u2019t flinch when the phone buzzes,\nnot even a blink.\nThe moment hope left,\nit didn\u2019t slam the door,\njust clicked the latch.\nand you let it go.",
+    "hash": "65b8e0c9d2250d4aa60aa51ff4bb2d23",
+    "metaphors": [
+      "ring",
+      "phone",
+      "ceiling",
+      "star",
+      "door"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
