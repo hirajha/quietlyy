@@ -1,13 +1,5 @@
 [
   {
-    "topic": "Being Tired in Ways Sleep Cannot Fix",
-    "style": "love",
-    "script": "You\u2019re peeling an orange at midnight.\nThe rind spirals down like a tired question.\nNo one answers.\nSlowly the segments split,\ntoo bright,\ntoo much effort.\nYou press one to your tongue,\nbut the sweetness\ncan\u2019t dissolve the weight\nin your shoulders.\nThe juice drips.\nSend this to them.",
-    "hash": "20aa6e1b41bac28b41d3788ee28821fb",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "What I Never Said Out Loud",
     "style": "poetic",
     "script": "The clock hands never asked for my secrets.\nI fed them anyway,\ntiny crumbs of truth\nswallowed by the gears.\nSome nights,\nthe ticking grows teeth,\nchews through the dark\nlike a moth through wool.\nI let it.\nThe holes are where the light gets in,\nbut the light doesn\u2019t know my name.",
@@ -826,6 +818,19 @@
       "porch",
       "door",
       "light"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "emotional",
+    "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
+    "hash": "a1484fb15ac66345b89e7f6b30179a6e",
+    "metaphors": [
+      "radio",
+      "song"
     ],
     "themes": [
       "silence"
