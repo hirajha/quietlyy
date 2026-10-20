@@ -1652,8 +1652,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1787086390,
-    "uses": 1,
-    "last_used": 1787106164
+    "uses": 2,
+    "last_used": 1792500096
   },
   {
     "file": "9943763f_1.png",
@@ -1661,8 +1661,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1787086435,
-    "uses": 1,
-    "last_used": 1787106164
+    "uses": 2,
+    "last_used": 1792500096
   },
   {
     "file": "05024dc1_0.png",
@@ -4495,6 +4495,8 @@
     "topic": "Friends Who Only Call When They Need You",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1792474952
+    "timestamp": 1792474952,
+    "uses": 1,
+    "last_used": 1792500096
   }
 ]
