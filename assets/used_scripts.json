@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Strength In Walking Away",
-    "style": "lesson",
-    "script": "We learn the cost of staying still.\nIt drains you slowly.\nNot with a bang.\nJust a quiet emptying.\nYou stop recognizing yourself.\nThat song sounds different now.\nThe laughter feels distant.\nWe confuse obligation with care.\nThinking leaving is failure.\nBut the real strength,\nis choosing the blank space.",
-    "hash": "e2ba1b4888d490d451efc1dceb3f7da5",
-    "metaphors": [
-      "rain",
-      "song"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Person Behind My Smile",
     "style": "emotional",
     "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
@@ -818,6 +805,22 @@
     "themes": [
       "growth",
       "grief_loss"
+    ]
+  },
+  {
+    "topic": "The Beauty of an Unfinished Life",
+    "style": "nostalgic",
+    "script": "The way the morning light\nlingers\non your unmade bed\nlike it knows\nsomething you don\u2019t.\nYou leave the door ajar\nnot for the breeze\nbut for the stories\nthat haven\u2019t arrived yet.\nTHE SUNSET STILL WAITS\nfor your shadow to stretch\njust a little longer.\nyou let it.",
+    "hash": "107ebda808c1250524183cd26cf3f711",
+    "metaphors": [
+      "light",
+      "bed",
+      "shadow",
+      "door",
+      "sun"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
