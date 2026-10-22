@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "What You Learned After Being Broken"
+    "detail": "What I Mean When I Say I Love You"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18106157420305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "17947898190345066"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/DMUY_r8es4Y"
+    "detail": "https://www.youtube.com/shorts/EqH-glmo1Xc"
   }
 }
