@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The One I Think About First",
-    "style": "emotional",
-    "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
-    "hash": "959854a0569ce7c23fe5253ff2900374",
-    "metaphors": [
-      "sun",
-      "sweater",
-      "light",
-      "text"
-    ],
-    "themes": [
-      "silence",
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The Part You Never Talk About",
     "style": "nostalgic",
     "script": "The way you laugh\nwhen the story\u2019s too old to tell\nbut you tell it anyway.\n\nWE ALL KNOW\nit\u2019s not funny anymore\njust familiar.\n\nYour hands\nstill shape the air\nlike they did back then\nwhen the words mattered.\n\nNOW THEY DON\u2019T\nbut you keep talking\nand I keep listening\nfor the part you never say.",
@@ -830,6 +814,17 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "What You Learned After Being Broken",
+    "style": "lesson",
+    "script": "You didn't break. You simply hardened.\nNot in anger.\nBut with clarity.\nYour edges sharpened.\nYou see the cracks before they form.\nYou understand vulnerability is a choice.\nNot a given.\nYou learned to discern.\nWho deserved your tenderness.\nAnd who just wanted access.",
+    "hash": "b0fac17c157f5672067e17e9b0d94db3",
+    "metaphors": [],
+    "themes": [
+      "self_worth",
+      "growth"
     ]
   }
 ]
