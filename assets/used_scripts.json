@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Realized You Were the Option, Not the Priority",
-    "style": "nostalgic",
-    "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
-    "hash": "8c0467d2fae388b518ba0b20828aa470",
-    "metaphors": [
-      "star",
-      "ring"
-    ],
-    "themes": [
-      "growth",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "When You Found Me",
     "style": "wisdom",
     "script": "the desert wind whispered\nwhen you found me\ni was not lost\njust waiting\nfor the shape of your shadow to stretch across mine.\n\nyears of dust had settled\nyet my edges stayed sharp\nlike stones the river forgot to smooth.\n\nyou didn\u2019t carry a lantern\nor call my name\nyou simply walked\nuntil the space between us\nbecame a place.",
@@ -839,5 +825,13 @@
       "grief_loss",
       "nostalgia"
     ]
+  },
+  {
+    "topic": "Being Tired in Ways Sleep Cannot Fix",
+    "style": "love",
+    "script": "You\u2019re peeling an orange at midnight.\nThe rind spirals down like a tired question.\nNo one answers.\nSlowly the segments split,\ntoo bright,\ntoo much effort.\nYou press one to your tongue,\nbut the sweetness\ncan\u2019t dissolve the weight\nin your shoulders.\nThe juice drips.\nSend this to them.",
+    "hash": "20aa6e1b41bac28b41d3788ee28821fb",
+    "metaphors": [],
+    "themes": []
   }
 ]
