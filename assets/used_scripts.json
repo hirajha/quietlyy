@@ -1,16 +1,5 @@
 [
   {
-    "topic": "The Power of Small Moments",
-    "style": "nostalgic",
-    "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
-    "hash": "fad71d57e80f79313745ebe29e3c5d59",
-    "metaphors": [
-      "door",
-      "wind"
-    ],
-    "themes": []
-  },
-  {
     "topic": "When You Realized You Were the Option, Not the Priority",
     "style": "nostalgic",
     "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
@@ -830,6 +819,25 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Finding Yourself After Them",
+    "style": "emotional",
+    "script": "You're tracing the cracks in the ceiling again.\nThe same ones you memorized,\nbut now they look like rivers.\nNot maps,\njust paths you didn't choose.\nYour fingers remember their shape,\nand slowly,\nthe weight of their name\nfeels lighter than the dust\nsettling on your windowsill.\nSome mornings,\nyou wake up and forget to miss them.\nThe sun spills in,\nuninvited,\nand you let it stay.",
+    "hash": "6e033b74e24427b3b872034102bd9430",
+    "metaphors": [
+      "wind",
+      "light",
+      "map",
+      "path",
+      "window",
+      "sun",
+      "ceiling"
+    ],
+    "themes": [
+      "grief_loss",
+      "nostalgia"
     ]
   }
 ]
