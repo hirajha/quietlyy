@@ -1,14 +1,5 @@
 [
   {
-    "file": "b8e5aa0a_1.png",
-    "topic": "Learning To Be Enough On Your Own",
-    "panel": 1,
-    "source": "fresh",
-    "timestamp": 1785212198,
-    "uses": 2,
-    "last_used": 1790056450
-  },
-  {
     "file": "2d49714d_0.png",
     "topic": "The Cost Of Always Being Available",
     "panel": 0,
@@ -1850,8 +1841,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1787470795,
-    "uses": 1,
-    "last_used": 1787493278
+    "uses": 2,
+    "last_used": 1792864035
   },
   {
     "file": "ca6539ed_1.png",
@@ -1859,8 +1850,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1787470840,
-    "uses": 1,
-    "last_used": 1787493278
+    "uses": 2,
+    "last_used": 1792864035
   },
   {
     "file": "5ce27eb2_0.png",
@@ -1868,8 +1859,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1787493281,
-    "uses": 1,
-    "last_used": 1787512892
+    "uses": 2,
+    "last_used": 1792864035
   },
   {
     "file": "e2c21c4a_1.png",
@@ -4498,5 +4489,12 @@
     "timestamp": 1792819543,
     "uses": 1,
     "last_used": 1792843083
+  },
+  {
+    "file": "fa4e0ccb_0.png",
+    "topic": "The Quiet Exit",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1792864042
   }
 ]
