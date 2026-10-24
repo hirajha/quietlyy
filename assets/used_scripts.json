@@ -1,20 +1,5 @@
 [
   {
-    "topic": "Why Peace Is Not the Absence of Storm",
-    "style": "emotional",
-    "script": "The porch swing still creaks at midnight.\nNot from wind,\njust the weight of what we carried.\nSome storms don\u2019t roar,\nthey settle in the joints of old wood,\nwarping the grain,\nbut never breaking it.\nThe quiet after isn\u2019t peace,\njust the shape of us,\nholding what we survived.\nYou\u2019ll recognize it,\nwhen the ache feels like home.",
-    "hash": "4d985a1afa36592863c9419b2dd0e65d",
-    "metaphors": [
-      "wind",
-      "porch",
-      "storm",
-      "rain"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Smile That Hides Everything",
     "style": "love",
     "script": "It\u2019s not a smile. It\u2019s a pocket.\nYou tuck the whole sky inside it,\nfolding edges neatly.\nNo one sees the storm you carry,\njust the quiet gold of your teeth.\nBut sometimes,\nthe stitches unravel,\nand the stars spill out like loose change.\nI pick them up,\npress them back into your palm.\nKeep the night safe for me.\nsend this to them.",
@@ -828,6 +813,19 @@
     "themes": [
       "love",
       "heartbreak"
+    ]
+  },
+  {
+    "topic": "When You Love Someone Who Is Leaving",
+    "style": "emotional",
+    "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
+    "hash": "6d0bc462964895731ac2015330b6c0d5",
+    "metaphors": [
+      "echo",
+      "door"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

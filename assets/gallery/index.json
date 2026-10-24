@@ -1832,8 +1832,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1787451853,
-    "uses": 1,
-    "last_used": 1787470792
+    "uses": 2,
+    "last_used": 1792843083
   },
   {
     "file": "646a88da_1.png",
@@ -1841,8 +1841,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1787451898,
-    "uses": 1,
-    "last_used": 1787470792
+    "uses": 2,
+    "last_used": 1792843083
   },
   {
     "file": "a9aa58fa_0.png",
@@ -4495,6 +4495,8 @@
     "topic": "The First Heartbreak",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1792819543
+    "timestamp": 1792819543,
+    "uses": 1,
+    "last_used": 1792843083
   }
 ]
