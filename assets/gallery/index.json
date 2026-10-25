@@ -1,14 +1,5 @@
 [
   {
-    "file": "2d49714d_0.png",
-    "topic": "The Cost Of Always Being Available",
-    "panel": 0,
-    "source": "fresh",
-    "timestamp": 1785232135,
-    "uses": 2,
-    "last_used": 1790056450
-  },
-  {
     "file": "bba772d1_1.png",
     "topic": "The Cost Of Always Being Available",
     "panel": 1,
@@ -1868,8 +1859,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1787493325,
-    "uses": 1,
-    "last_used": 1787512892
+    "uses": 2,
+    "last_used": 1792907054
   },
   {
     "file": "3dfb33c0_0.png",
@@ -1877,8 +1868,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1787512895,
-    "uses": 1,
-    "last_used": 1787538198
+    "uses": 2,
+    "last_used": 1792907054
   },
   {
     "file": "fa893b15_1.png",
@@ -4495,6 +4486,15 @@
     "topic": "The Quiet Exit",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1792864042
+    "timestamp": 1792864042,
+    "uses": 1,
+    "last_used": 1792907054
+  },
+  {
+    "file": "6e0be099_0.png",
+    "topic": "The Quiet Revolution of Self-Respect",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1792907060
   }
 ]
