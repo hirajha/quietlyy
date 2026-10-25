@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generated_at": "2026-10-18T07:48:19.145982+00:00",
-  "total": 781,
+  "generated_at": "2026-10-25T08:09:24.228537+00:00",
+  "total": 783,
   "scripts": [
     {
       "id": 66,
@@ -11652,6 +11652,26 @@
       "quality_score": 7,
       "generated_at": "2026-10-18T07:47:43.900956+00:00",
       "fingerprint": "c7e91dc279589a65"
+    },
+    {
+      "id": 781,
+      "style": "emotional",
+      "topic": "What Rock Bottom Taught You",
+      "script": "I stopped filling the jar.\nIt was never for me.\njust small pieces\nof my own breath,\nuntil it finally emptied.\nAnd then I saw it,\nthe cracked base,\nalways there.\nI learned to keep what makes you.\nNo one else ever will.\nThey just watch it spill.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-10-25T08:06:57.833097+00:00",
+      "fingerprint": "4eeb0a27892adde1"
+    },
+    {
+      "id": 782,
+      "style": "nostalgic",
+      "topic": "The Lesson In Every Goodbye",
+      "script": "You find yourself\nfolding clothes a certain way now,\npressing each seam\nwith a quiet care\nyou didn't know you had.\nIt\u2019s not sadness\nor the sting of absence.\nJust a learning.\nthat some tenderness\nis only truly found\nin the space between.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-10-25T08:08:01.457617+00:00",
+      "fingerprint": "7253d35c27b2e5d8"
     }
   ]
 }
