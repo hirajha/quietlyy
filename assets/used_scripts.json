@@ -1,19 +1,5 @@
 [
   {
-    "topic": "What I Never Said Out Loud",
-    "style": "poetic",
-    "script": "The clock hands never asked for my secrets.\nI fed them anyway,\ntiny crumbs of truth\nswallowed by the gears.\nSome nights,\nthe ticking grows teeth,\nchews through the dark\nlike a moth through wool.\nI let it.\nThe holes are where the light gets in,\nbut the light doesn\u2019t know my name.",
-    "hash": "1f8df38c0aa0cfc32af064fe33598e3b",
-    "metaphors": [
-      "wall",
-      "light",
-      "dark"
-    ],
-    "themes": [
-      "growth"
-    ]
-  },
-  {
     "topic": "Loving Without Losing Yourself",
     "style": "nostalgic",
     "script": "You held the door,\nI\nlet the wind\ncarry my name out first.\nIt didn\u2019t mind,\njust curled around your ankles\nlike a cat who chose you,\nbut still sleeps on my side.\nSOMEHOW\nwe built a life\nwithout moving the furniture,\nand when the light slants just so,\nI forget\nwhich shadow is yours.",
@@ -831,6 +817,21 @@
       "window",
       "light",
       "wind"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Staying Too Long",
+    "style": "emotional",
+    "script": "The porch light still flickers at 3 a.m.\nnot for safety\njust habit\nSome nights I sit there\nwatching the moths circle the bulb\nand wonder if they ever tire of orbiting\nThe key still fits the lock\nbut the door creaks louder now\nlike it\u2019s warning me\nI could leave the key on the table\nwalk away\nbut the moths don\u2019t know how to stop.",
+    "hash": "4d0a9a739827046fa04ed65e7864f72f",
+    "metaphors": [
+      "table",
+      "porch",
+      "door",
+      "light"
     ],
     "themes": [
       "silence"
