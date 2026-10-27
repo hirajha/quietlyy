@@ -1,15 +1,5 @@
 [
   {
-    "topic": "Silent Suffering Nobody Sees",
-    "style": "emotional",
-    "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
-    "hash": "1e7beeb950401054760699c316db93c0",
-    "metaphors": [],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "Friends Who Only Call When They Need You",
     "style": "emotional",
     "script": "Friday night. The fridge hums low.\nYour name lights up the screen,\nnot with hello,\njust a question mark,\nsoft as a door left ajar.\nThe hands that once passed you a drink\nnow only pass you the weight,\nthe same old script,\nthe same old need.\nI answer,\nnot out of kindness,\nbut the ghost of a habit.\nLet them go.",
@@ -822,5 +812,16 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Power of Small Moments",
+    "style": "nostalgic",
+    "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
+    "hash": "fad71d57e80f79313745ebe29e3c5d59",
+    "metaphors": [
+      "door",
+      "wind"
+    ],
+    "themes": []
   }
 ]
