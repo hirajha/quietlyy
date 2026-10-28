@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The One I Think About First",
-    "style": "emotional",
-    "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
-    "hash": "959854a0569ce7c23fe5253ff2900374",
-    "metaphors": [
-      "light",
-      "sun",
-      "text",
-      "sweater"
-    ],
-    "themes": [
-      "self_worth",
-      "silence"
-    ]
-  },
-  {
     "topic": "The Part You Never Talk About",
     "style": "nostalgic",
     "script": "The way you laugh\nwhen the story\u2019s too old to tell\nbut you tell it anyway.\n\nWE ALL KNOW\nit\u2019s not funny anymore\njust familiar.\n\nYour hands\nstill shape the air\nlike they did back then\nwhen the words mattered.\n\nNOW THEY DON\u2019T\nbut you keep talking\nand I keep listening\nfor the part you never say.",
@@ -819,6 +803,20 @@
     "metaphors": [
       "star",
       "ring"
+    ],
+    "themes": [
+      "grief_loss",
+      "growth"
+    ]
+  },
+  {
+    "topic": "When You Found Me",
+    "style": "wisdom",
+    "script": "the desert wind whispered\nwhen you found me\ni was not lost\njust waiting\nfor the shape of your shadow to stretch across mine.\n\nyears of dust had settled\nyet my edges stayed sharp\nlike stones the river forgot to smooth.\n\nyou didn\u2019t carry a lantern\nor call my name\nyou simply walked\nuntil the space between us\nbecame a place.",
+    "hash": "54066e280c6cd047669c5874512194c9",
+    "metaphors": [
+      "wind",
+      "shadow"
     ],
     "themes": [
       "grief_loss",
