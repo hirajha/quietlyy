@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The Beauty of an Unfinished Life",
-    "style": "nostalgic",
-    "script": "The way the morning light\nlingers\non your unmade bed\nlike it knows\nsomething you don\u2019t.\nYou leave the door ajar\nnot for the breeze\nbut for the stories\nthat haven\u2019t arrived yet.\nTHE SUNSET STILL WAITS\nfor your shadow to stretch\njust a little longer.\nyou let it.",
-    "hash": "107ebda808c1250524183cd26cf3f711",
-    "metaphors": [
-      "sun",
-      "door",
-      "shadow",
-      "light",
-      "bed"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "You Are My Calm",
     "style": "emotional",
     "script": "There's a stillness that hums,\nlike a fridge in an empty kitchen.\nYou are the steady buzz,\nthe one I lean against\nwhen the world spins too loud.\nI don't need you to fix it,\njust stand there,\nquiet as a held breath,\nand let the noise\npass through me like wind.\nYou are my calm,\nnot the absence of storm,\nbut the hand I reach for in the dark.",
@@ -830,6 +814,21 @@
     "metaphors": [
       "star",
       "storm"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "What I Mean When I Say I Love You",
+    "style": "emotional",
+    "script": "We forget how heavy light can be.\nThe way it lingers\non the edges of your shadow,\nnot fading,\njust waiting for you to turn around.\nSome promises don\u2019t need words,\nthey hum in the quiet hum of the fridge,\nin the way your keys still jingle\nlike they did the first time.\nI won\u2019t ask you to stay,\nbut I\u2019ll leave the porch light on,\njust in case you\u2019re passing through.\nLet them know.",
+    "hash": "812f25ab4f5cfa8e39ba724f077645c4",
+    "metaphors": [
+      "light",
+      "keys",
+      "porch",
+      "shadow"
     ],
     "themes": [
       "silence"
