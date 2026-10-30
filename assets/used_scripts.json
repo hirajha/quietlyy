@@ -1,22 +1,5 @@
 [
   {
-    "topic": "You Are My Calm",
-    "style": "emotional",
-    "script": "There's a stillness that hums,\nlike a fridge in an empty kitchen.\nYou are the steady buzz,\nthe one I lean against\nwhen the world spins too loud.\nI don't need you to fix it,\njust stand there,\nquiet as a held breath,\nand let the noise\npass through me like wind.\nYou are my calm,\nnot the absence of storm,\nbut the hand I reach for in the dark.",
-    "hash": "304fb0f55bd7b62751f300929725085d",
-    "metaphors": [
-      "tea",
-      "kitchen",
-      "dark",
-      "storm",
-      "wind",
-      "noise"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Why Peace Is Not the Absence of Storm",
     "style": "emotional",
     "script": "The porch swing still creaks at midnight.\nNot from wind,\njust the weight of what we carried.\nSome storms don\u2019t roar,\nthey settle in the joints of old wood,\nwarping the grain,\nbut never breaking it.\nThe quiet after isn\u2019t peace,\njust the shape of us,\nholding what we survived.\nYou\u2019ll recognize it,\nwhen the ache feels like home.",
@@ -832,6 +815,25 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Finding Yourself After Them",
+    "style": "emotional",
+    "script": "You're tracing the cracks in the ceiling again.\nThe same ones you memorized,\nbut now they look like rivers.\nNot maps,\njust paths you didn't choose.\nYour fingers remember their shape,\nand slowly,\nthe weight of their name\nfeels lighter than the dust\nsettling on your windowsill.\nSome mornings,\nyou wake up and forget to miss them.\nThe sun spills in,\nuninvited,\nand you let it stay.",
+    "hash": "6e033b74e24427b3b872034102bd9430",
+    "metaphors": [
+      "path",
+      "map",
+      "sun",
+      "wind",
+      "ceiling",
+      "window",
+      "light"
+    ],
+    "themes": [
+      "nostalgia",
+      "grief_loss"
     ]
   }
 ]

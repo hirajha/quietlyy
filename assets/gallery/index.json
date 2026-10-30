@@ -2048,8 +2048,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1787968891,
-    "uses": 1,
-    "last_used": 1787989347
+    "uses": 2,
+    "last_used": 1793343052
   },
   {
     "file": "acfb90ff_0.png",
@@ -4486,13 +4486,17 @@
     "topic": "What I Mean When I Say I Love You",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1793304092
+    "timestamp": 1793304092,
+    "uses": 1,
+    "last_used": 1793343052
   },
   {
     "file": "a91ccce1_1.png",
     "topic": "What I Mean When I Say I Love You",
     "panel": 1,
     "source": "fresh",
-    "timestamp": 1793304096
+    "timestamp": 1793304096,
+    "uses": 1,
+    "last_used": 1793343052
   }
 ]
