@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Being Tired in Ways Sleep Cannot Fix"
+    "detail": "What I Never Said Out Loud"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v26.0/18107556560305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "17961401847080490"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/p88BbnIYkBY"
+    "detail": "https://www.youtube.com/shorts/SEbRMHloO4s"
   }
 }
