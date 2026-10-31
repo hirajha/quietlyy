@@ -1,13 +1,5 @@
 [
   {
-    "topic": "Being Tired in Ways Sleep Cannot Fix",
-    "style": "love",
-    "script": "You\u2019re peeling an orange at midnight.\nThe rind spirals down like a tired question.\nNo one answers.\nSlowly the segments split,\ntoo bright,\ntoo much effort.\nYou press one to your tongue,\nbut the sweetness\ncan\u2019t dissolve the weight\nin your shoulders.\nThe juice drips.\nSend this to them.",
-    "hash": "20aa6e1b41bac28b41d3788ee28821fb",
-    "metaphors": [],
-    "themes": []
-  },
-  {
     "topic": "What I Never Said Out Loud",
     "style": "poetic",
     "script": "The clock hands never asked for my secrets.\nI fed them anyway,\ntiny crumbs of truth\nswallowed by the gears.\nSome nights,\nthe ticking grows teeth,\nchews through the dark\nlike a moth through wool.\nI let it.\nThe holes are where the light gets in,\nbut the light doesn\u2019t know my name.",
@@ -823,6 +815,19 @@
     "themes": [
       "love",
       "heartbreak"
+    ]
+  },
+  {
+    "topic": "When You Love Someone Who Is Leaving",
+    "style": "emotional",
+    "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
+    "hash": "6d0bc462964895731ac2015330b6c0d5",
+    "metaphors": [
+      "door",
+      "echo"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
