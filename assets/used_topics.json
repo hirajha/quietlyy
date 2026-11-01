@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Courage to Begin Again",
-    "Why Peace Is Not the Absence of Storm",
     "The Beauty of an Unfinished Life",
     "The Ancient Truth About Happiness",
     "What You Cannot Change and What You Can",
@@ -65,11 +63,13 @@
     "Learning to Belong to Yourself",
     "Finding Peace Within Yourself",
     "Why Suffering Transforms Us",
-    "The Gift of Impermanence"
+    "The Gift of Impermanence",
+    "The Freedom of Acceptance",
+    "The Courage to Begin Again"
   ],
-  "last_style": "lesson",
+  "last_style": "wisdom",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -147,7 +147,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153734_d4c320.mp3",
@@ -166,7 +165,8 @@
     "2026-06-05_153816_e5f3ea.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
     "2026-06-05_153651_0d1d62.mp3",
-    "2026-06-05_153627_53fd51.mp3"
+    "2026-06-05_153627_53fd51.mp3",
+    "2026-06-05_153700_072547.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -175,13 +175,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "The Truth About Being The Strong One",
-    "When You Finally Stopped Settling",
-    "The People Who Leave When You Need Them Most",
-    "The Quiet Power Of Letting Go",
-    "When You Have Nothing Left",
-    "Learning To Be Enough On Your Own",
-    "The Strength In Walking Away",
     "What Loneliness Actually Teaches You",
     "The Lesson In Every Goodbye",
     "Being Too Kind In A Cruel World",
@@ -194,6 +187,13 @@
     "Why You Don't Beg To Be Loved",
     "What Rock Bottom Taught You",
     "What Pain Quietly Teaches You",
-    "Why You Stopped Explaining Yourself"
+    "Why You Stopped Explaining Yourself",
+    "When You Stop Chasing People",
+    "When Being Nice Made You A Target",
+    "What You Owe Yourself",
+    "When People Show You Who They Are",
+    "When You Finally Stopped Settling",
+    "The People Who Disappear When It's Hard",
+    "Why Closure Never Comes"
   ]
 }
