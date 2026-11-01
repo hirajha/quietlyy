@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The First Heartbreak",
-    "style": "emotional",
-    "script": "The first heartbreak isn\u2019t about them leaving.\nIt\u2019s the way your own hands\nstart to feel like strangers,\nbuttoning shirts you\u2019ll never wear for them,\nfolding sleeves that no longer reach.\nSome mornings,\nyou catch your reflection mid-wave,\nmid-smile,\nand the mirror flinches first.\nNot from pain,\nfrom recognition\u2014\nthat version of you\nis already packed away.",
-    "hash": "e55637f2dab25bdc39804d4fe37455a2",
-    "metaphors": [
-      "star",
-      "mirror"
-    ],
-    "themes": [
-      "love",
-      "heartbreak"
-    ]
-  },
-  {
     "topic": "When You Love Someone Who Is Leaving",
     "style": "emotional",
     "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
@@ -829,6 +815,23 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "Falling For Someone Who Does Not Know",
+    "style": "emotional",
+    "script": "The porch light stays on all night.\njust for you,\nthough you\u2019ll never walk up the steps.\nI trace your name\nin the condensation on my window,\nbut the glass forgets by morning.\nSome nights,\nI swear I hear your laugh\nin the static between radio stations.\nThe universe keeps sending signals,\nand I keep pretending not to notice.\nThis is how ghosts are made.\nquietly.",
+    "hash": "2a00b5f7f9870384537351970c926728",
+    "metaphors": [
+      "light",
+      "glass",
+      "porch",
+      "wind",
+      "window",
+      "radio"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
