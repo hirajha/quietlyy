@@ -1,18 +1,5 @@
 [
   {
-    "topic": "When You Love Someone Who Is Leaving",
-    "style": "emotional",
-    "script": "How do you name the ache\nwhen the suitcase is still open\nbut the room already echoes?\nNot goodbye,\njust the shape of air\nafter they step through.\nThe door doesn\u2019t slam,\njust sighs,\nsettles into its frame\nlike a tired shoulder.\nSome part of you stays unpacked,\nwaiting for the weight to shift back.\nLet them go.",
-    "hash": "6d0bc462964895731ac2015330b6c0d5",
-    "metaphors": [
-      "door",
-      "echo"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Quiet Exit",
     "style": "emotional",
     "script": "The last text never gets sent.\nIt sits in drafts,\nlike a boat\nthat missed the tide.\nSome exits don\u2019t slam,\nthey dissolve\u2014\nthe way sugar\nvanishes in tea.\nYour name stays sweet,\nbut the aftertaste\nfades to nothing.\nI won\u2019t wave goodbye.\nJust let the current take me.",
@@ -829,6 +816,21 @@
       "wind",
       "window",
       "radio"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "Staying Too Long",
+    "style": "emotional",
+    "script": "The porch light still flickers at 3 a.m.\nnot for safety\njust habit\nSome nights I sit there\nwatching the moths circle the bulb\nand wonder if they ever tire of orbiting\nThe key still fits the lock\nbut the door creaks louder now\nlike it\u2019s warning me\nI could leave the key on the table\nwalk away\nbut the moths don\u2019t know how to stop.",
+    "hash": "4d0a9a739827046fa04ed65e7864f72f",
+    "metaphors": [
+      "light",
+      "door",
+      "porch",
+      "table"
     ],
     "themes": [
       "silence"
