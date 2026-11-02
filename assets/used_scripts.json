@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Quiet Exit",
-    "style": "emotional",
-    "script": "The last text never gets sent.\nIt sits in drafts,\nlike a boat\nthat missed the tide.\nSome exits don\u2019t slam,\nthey dissolve\u2014\nthe way sugar\nvanishes in tea.\nYour name stays sweet,\nbut the aftertaste\nfades to nothing.\nI won\u2019t wave goodbye.\nJust let the current take me.",
-    "hash": "9db51e34d268e9da039786a6497e27a5",
-    "metaphors": [
-      "tide",
-      "tea",
-      "text"
-    ],
-    "themes": [
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Quiet Revolution of Self-Respect",
     "style": "wisdom",
     "script": "a japanese gardener whispered\nnot every root needs light\nsome grow strongest\nwhere the soil stays dark\ntrust the unseen work\nself-respect isn't a shout\nit's the quiet refusal\nto let others dig up your peace\nyou don't need their tools\nor their permission to thrive\nsome things grow best\nin the hush of your own hands",
@@ -831,6 +817,19 @@
       "door",
       "porch",
       "table"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "emotional",
+    "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
+    "hash": "a1484fb15ac66345b89e7f6b30179a6e",
+    "metaphors": [
+      "radio",
+      "song"
     ],
     "themes": [
       "silence"
