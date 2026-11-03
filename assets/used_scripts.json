@@ -1,17 +1,5 @@
 [
   {
-    "topic": "Grieving Someone Who Did Not Die",
-    "style": "nostalgic",
-    "script": "I keep your old voicemail\nsaved\nlike a secret\nno one else knows.\nThe way you laughed\nstill tangled in the wires,\nstatic humming your name.\nI press play\nwhen the house is too empty,\nbut the voice that answers\nisn\u2019t yours anymore.\nJust a ghost\nin the shape of hello.",
-    "hash": "e63b9d94af7fefb9f594ba838cae88c5",
-    "metaphors": [
-      "voicemail"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "When Just Being Near You Is Enough",
     "style": "love",
     "script": "You don\u2019t need words. Not here.\nThe air hums low between us,\nlike a radio left on in another room.\nI count the freckles on your shoulder,\neach one a tiny constellation I\u2019ve memorized.\nSometimes,\nyour breath syncs with mine\nwithout either of us trying.\nIt\u2019s not magic.\nJust physics.\nThe way gravity pulls without asking.\nI could stay like this forever.\nsend this to them.",
@@ -825,6 +813,19 @@
     "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
     "hash": "1e7beeb950401054760699c316db93c0",
     "metaphors": [],
+    "themes": [
+      "loneliness"
+    ]
+  },
+  {
+    "topic": "Friends Who Only Call When They Need You",
+    "style": "emotional",
+    "script": "Friday night. The fridge hums low.\nYour name lights up the screen,\nnot with hello,\njust a question mark,\nsoft as a door left ajar.\nThe hands that once passed you a drink\nnow only pass you the weight,\nthe same old script,\nthe same old need.\nI answer,\nnot out of kindness,\nbut the ghost of a habit.\nLet them go.",
+    "hash": "d9af484d279bc971c950895be7c0fcc3",
+    "metaphors": [
+      "door",
+      "light"
+    ],
     "themes": [
       "loneliness"
     ]
