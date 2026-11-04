@@ -1,20 +1,5 @@
 [
   {
-    "topic": "The Strength in Stillness",
-    "style": "nostalgic",
-    "script": "You held the door for the storm\nand it\nstayed.\nBare feet on wet wood\ncounting the seconds between thunder\nuntil the house learned to breathe again.\nWE WERE NEVER AFRAID\nwe were just\nwaiting\nfor the right kind of quiet\nto teach us how to stand\ninside the weight of it\nwithout breaking.",
-    "hash": "a67c03bf759752f397c69669d6e76341",
-    "metaphors": [
-      "door",
-      "storm",
-      "tea"
-    ],
-    "themes": [
-      "silence",
-      "growth"
-    ]
-  },
-  {
     "topic": "The Love That Was Only Convenient",
     "style": "lesson",
     "script": "Proximity doesn't mean priority.\nRemember the specific hum of their car engine, pulling up.\nWe created a world around their schedule.\nYou were the reliable constant.\nAlways there. Always ready.\nThe easy comfort.\nWe thought it was affection.\nYou discover, eventually,\nthat some people just like having a placeholder.",
@@ -829,5 +814,16 @@
     "themes": [
       "silence"
     ]
+  },
+  {
+    "topic": "The Power of Small Moments",
+    "style": "nostalgic",
+    "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
+    "hash": "fad71d57e80f79313745ebe29e3c5d59",
+    "metaphors": [
+      "door",
+      "wind"
+    ],
+    "themes": []
   }
 ]
