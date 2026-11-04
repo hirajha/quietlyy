@@ -46,8 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "Why Suffering Transforms Us",
-    "The Gift of Impermanence",
     "The Freedom of Acceptance",
     "The Courage to Begin Again",
     "How to Carry Loss Without Being Crushed",
@@ -65,11 +63,13 @@
     "The Ancient Truth About Happiness",
     "The Wisdom of Not Forcing",
     "What Real Love Requires",
-    "Learning to Belong to Yourself"
+    "Learning to Belong to Yourself",
+    "Finding Peace Within Yourself",
+    "When Grief Becomes a Teacher"
   ],
-  "last_style": "lesson",
+  "last_style": "wisdom",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 1,
+  "videos_since_wisdom": 0,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -94,7 +94,6 @@
     "Kahlil Gibran"
   ],
   "used_wisdom_quotes": [
-    "water does not resist it flows around every stone",
     "when you found me i was not lost",
     "in the quiet moments you find your strength,",
     "the greatest wealth is to live content",
@@ -143,11 +142,11 @@
     "not every root needs light some grow strongest",
     "when you found me i was not lost",
     "not every root needs light some grow strongest",
+    "when you found me i was not lost",
     "when you found me i was not lost"
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153756_4972f7.mp3",
     "2026-06-05_153744_816dfe.mp3",
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153724_b66b80.mp3",
@@ -166,7 +165,8 @@
     "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153806_9773e5.mp3",
-    "2026-06-05_153555_7cd9b3.mp3"
+    "2026-06-05_153555_7cd9b3.mp3",
+    "2026-06-05_153816_e5f3ea.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -175,13 +175,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Why Silence Became Your Answer",
-    "When You Have Nothing Left",
-    "When You Finally Stopped Settling",
-    "Loving Someone Who Wouldn't Stay",
-    "Outgrowing People You Love",
-    "Why You Stopped Explaining Yourself",
-    "When You Stop Chasing People",
     "The Strength In Walking Away",
     "What Healing Actually Looks Like",
     "The Lesson In Every Goodbye",
@@ -194,6 +187,13 @@
     "The Truth About Being The Strong One",
     "The Friends Who Only Stayed For The Good Days",
     "The People Who Disappear When It's Hard",
-    "When Being Nice Made You A Target"
+    "When Being Nice Made You A Target",
+    "What Rock Bottom Taught You",
+    "The People Who Leave When You Need Them Most",
+    "What You Owe Yourself",
+    "When You Have Nothing Left",
+    "The Day You Chose Yourself",
+    "Loving Someone Who Wouldn't Stay",
+    "Why You Stopped Waiting For An Apology"
   ]
 }
