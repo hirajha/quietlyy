@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The One I Think About First",
-    "style": "emotional",
-    "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
-    "hash": "959854a0569ce7c23fe5253ff2900374",
-    "metaphors": [
-      "text",
-      "light",
-      "sweater",
-      "sun"
-    ],
-    "themes": [
-      "silence",
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The Part You Never Talk About",
     "style": "nostalgic",
     "script": "The way you laugh\nwhen the story\u2019s too old to tell\nbut you tell it anyway.\n\nWE ALL KNOW\nit\u2019s not funny anymore\njust familiar.\n\nYour hands\nstill shape the air\nlike they did back then\nwhen the words mattered.\n\nNOW THEY DON\u2019T\nbut you keep talking\nand I keep listening\nfor the part you never say.",
@@ -837,5 +821,15 @@
     "hash": "20aa6e1b41bac28b41d3788ee28821fb",
     "metaphors": [],
     "themes": []
+  },
+  {
+    "topic": "What Healing Actually Looks Like",
+    "style": "lesson",
+    "script": "It doesn't get easier.\nIt just becomes less urgent.\nThat constant ache?\nYou notice it less.\nWe expect healing to be a destination.\nA finish line.\nBut it\u2019s just the quiet choice.\nEvery single day.\nTo keep going.\nEven when nothing feels repaired.",
+    "hash": "30b5819b41edabe37c74c027d5187bd7",
+    "metaphors": [],
+    "themes": [
+      "silence"
+    ]
   }
 ]
