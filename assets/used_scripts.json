@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Found Me",
-    "style": "wisdom",
-    "script": "the desert wind whispered\nwhen you found me\ni was not lost\njust waiting\nfor the shape of your shadow to stretch across mine.\n\nyears of dust had settled\nyet my edges stayed sharp\nlike stones the river forgot to smooth.\n\nyou didn\u2019t carry a lantern\nor call my name\nyou simply walked\nuntil the space between us\nbecame a place.",
-    "hash": "54066e280c6cd047669c5874512194c9",
-    "metaphors": [
-      "shadow",
-      "wind"
-    ],
-    "themes": [
-      "growth",
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Beauty of an Unfinished Life",
     "style": "nostalgic",
     "script": "The way the morning light\nlingers\non your unmade bed\nlike it knows\nsomething you don\u2019t.\nYou leave the door ajar\nnot for the breeze\nbut for the stories\nthat haven\u2019t arrived yet.\nTHE SUNSET STILL WAITS\nfor your shadow to stretch\njust a little longer.\nyou let it.",
@@ -840,6 +826,23 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "Falling For Someone Who Does Not Know",
+    "style": "emotional",
+    "script": "The porch light stays on all night.\njust for you,\nthough you\u2019ll never walk up the steps.\nI trace your name\nin the condensation on my window,\nbut the glass forgets by morning.\nSome nights,\nI swear I hear your laugh\nin the static between radio stations.\nThe universe keeps sending signals,\nand I keep pretending not to notice.\nThis is how ghosts are made.\nquietly.",
+    "hash": "2a00b5f7f9870384537351970c926728",
+    "metaphors": [
+      "light",
+      "wind",
+      "porch",
+      "glass",
+      "radio",
+      "window"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
