@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generated_at": "2026-11-01T10:02:52.623228+00:00",
-  "total": 783,
+  "generated_at": "2026-11-08T09:53:06.648604+00:00",
+  "total": 785,
   "scripts": [
     {
       "id": 66,
@@ -11672,6 +11672,26 @@
       "quality_score": 7,
       "generated_at": "2026-10-25T08:08:01.457617+00:00",
       "fingerprint": "7253d35c27b2e5d8"
+    },
+    {
+      "id": 783,
+      "style": "poetic",
+      "topic": "Why You Stopped Explaining Yourself",
+      "script": "The river knows.\nIt carves its own path,\nthrough stone and soil,\nnot needing to declare (5)\nits course to the banks.\nSome people will always (5)\nquestion the flow.\nBut your steady current (5)\nhas simply deepened.\nYou stopped explaining\nwhat you already are.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-11-08T09:50:00.975467+00:00",
+      "fingerprint": "c66bd9cc614c215b"
+    },
+    {
+      "id": 784,
+      "style": "nostalgic",
+      "topic": "When You Have Nothing Left",
+      "script": "Your palms remember the curve of things\nthey used to cup.\nNow they just\nrest flat\non an empty table.\nNo more plans\nto gather,\nno more to keep safe.\nJust the echo of purpose\nthat once filled them,\na soft ache\nthat lingers.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-11-08T09:50:35.281955+00:00",
+      "fingerprint": "165547b8f4659e84"
     }
   ]
 }
