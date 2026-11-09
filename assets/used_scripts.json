@@ -1,22 +1,5 @@
 [
   {
-    "topic": "You Are My Calm",
-    "style": "emotional",
-    "script": "There's a stillness that hums,\nlike a fridge in an empty kitchen.\nYou are the steady buzz,\nthe one I lean against\nwhen the world spins too loud.\nI don't need you to fix it,\njust stand there,\nquiet as a held breath,\nand let the noise\npass through me like wind.\nYou are my calm,\nnot the absence of storm,\nbut the hand I reach for in the dark.",
-    "hash": "304fb0f55bd7b62751f300929725085d",
-    "metaphors": [
-      "dark",
-      "wind",
-      "noise",
-      "tea",
-      "storm",
-      "kitchen"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "Why Peace Is Not the Absence of Storm",
     "style": "emotional",
     "script": "The porch swing still creaks at midnight.\nNot from wind,\njust the weight of what we carried.\nSome storms don\u2019t roar,\nthey settle in the joints of old wood,\nwarping the grain,\nbut never breaking it.\nThe quiet after isn\u2019t peace,\njust the shape of us,\nholding what we survived.\nYou\u2019ll recognize it,\nwhen the ache feels like home.",
@@ -841,6 +824,17 @@
       "porch"
     ],
     "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Quiet Power Of Letting Go",
+    "style": "lesson",
+    "script": "Some bonds are held together by only one person.\nYou recognize it.\nThat familiar pull.\nAlways reaching first.\nAlways planning the next moment.\nWe confuse constancy with real connection.\nUntil you just\u2026 stop.\nNo grand declaration.\nJust quiet detachment.\nThen you see.\nWho was really there.",
+    "hash": "1a4b196dc049cf8d3aed369e8b587973",
+    "metaphors": [],
+    "themes": [
+      "love",
       "silence"
     ]
   }

@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Staying Too Long"
+    "detail": "The Quiet Power Of Letting Go"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18219631873360455"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v27.0/18109062302305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/3XlsM7l89ys"
+    "detail": "https://www.youtube.com/shorts/K8U5lRTW_Ng"
   }
 }
