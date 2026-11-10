@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Silent Suffering Nobody Sees"
+    "detail": "Friends Who Only Call When They Need You"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v27.0/18109201154305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18120149261102860"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/CtAhmT6epkM"
+    "detail": "https://www.youtube.com/shorts/Jyqrq0Wu2y0"
   }
 }
