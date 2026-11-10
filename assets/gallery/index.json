@@ -1,14 +1,5 @@
 [
   {
-    "file": "c60f5384_1.png",
-    "topic": "The First Time I Knew",
-    "panel": 1,
-    "source": "fresh",
-    "timestamp": 1785706470,
-    "uses": 2,
-    "last_used": 1790797800
-  },
-  {
     "file": "0d0c6df2_0.png",
     "topic": "What I Never Said Out Loud",
     "panel": 0,
@@ -2435,8 +2426,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1788977891,
-    "uses": 1,
-    "last_used": 1789018718
+    "uses": 2,
+    "last_used": 1794324928
   },
   {
     "file": "da1909a5_0.png",
@@ -2444,8 +2435,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1789018722,
-    "uses": 1,
-    "last_used": 1789042273
+    "uses": 2,
+    "last_used": 1794324928
   },
   {
     "file": "847379b4_1.png",
@@ -4495,6 +4486,15 @@
     "topic": "The Person Behind My Smile",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1794297780
+    "timestamp": 1794297780,
+    "uses": 1,
+    "last_used": 1794324928
+  },
+  {
+    "file": "44db7231_0.png",
+    "topic": "Silent Suffering Nobody Sees",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1794324935
   }
 ]

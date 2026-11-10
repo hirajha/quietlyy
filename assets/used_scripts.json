@@ -1,16 +1,5 @@
 [
   {
-    "topic": "What You Learned After Being Broken",
-    "style": "lesson",
-    "script": "You didn't break. You simply hardened.\nNot in anger.\nBut with clarity.\nYour edges sharpened.\nYou see the cracks before they form.\nYou understand vulnerability is a choice.\nNot a given.\nYou learned to discern.\nWho deserved your tenderness.\nAnd who just wanted access.",
-    "hash": "b0fac17c157f5672067e17e9b0d94db3",
-    "metaphors": [],
-    "themes": [
-      "self_worth",
-      "growth"
-    ]
-  },
-  {
     "topic": "What I Mean When I Say I Love You",
     "style": "emotional",
     "script": "We forget how heavy light can be.\nThe way it lingers\non the edges of your shadow,\nnot fading,\njust waiting for you to turn around.\nSome promises don\u2019t need words,\nthey hum in the quiet hum of the fridge,\nin the way your keys still jingle\nlike they did the first time.\nI won\u2019t ask you to stay,\nbut I\u2019ll leave the porch light on,\njust in case you\u2019re passing through.\nLet them know.",
@@ -832,6 +821,16 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "Silent Suffering Nobody Sees",
+    "style": "emotional",
+    "script": "4:17 a.m. The fridge hums alone.\nIt\u2019s not hunger,\njust the sound of something breathing.\nThe bruises on your ribs\nare pressed into the mattress,\nnot from fists,\nfrom carrying what you can\u2019t name.\nSome nights,\nthe weight doesn\u2019t even wake you.\nIt just sits,\na guest who never leaves,\nand you learn to sleep through the ache.\nThe house won\u2019t tell.",
+    "hash": "1e7beeb950401054760699c316db93c0",
+    "metaphors": [],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
