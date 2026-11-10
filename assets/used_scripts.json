@@ -1,18 +1,5 @@
 [
   {
-    "topic": "The Smile That Hides Everything",
-    "style": "love",
-    "script": "It\u2019s not a smile. It\u2019s a pocket.\nYou tuck the whole sky inside it,\nfolding edges neatly.\nNo one sees the storm you carry,\njust the quiet gold of your teeth.\nBut sometimes,\nthe stitches unravel,\nand the stars spill out like loose change.\nI pick them up,\npress them back into your palm.\nKeep the night safe for me.\nsend this to them.",
-    "hash": "883fb6debd0864326a3c80d1bb4875e8",
-    "metaphors": [
-      "storm",
-      "star"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What You Learned After Being Broken",
     "style": "lesson",
     "script": "You didn't break. You simply hardened.\nNot in anger.\nBut with clarity.\nYour edges sharpened.\nYou see the cracks before they form.\nYou understand vulnerability is a choice.\nNot a given.\nYou learned to discern.\nWho deserved your tenderness.\nAnd who just wanted access.",
@@ -832,6 +819,19 @@
     "themes": [
       "silence",
       "loneliness"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "emotional",
+    "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
+    "hash": "a1484fb15ac66345b89e7f6b30179a6e",
+    "metaphors": [
+      "song",
+      "radio"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]

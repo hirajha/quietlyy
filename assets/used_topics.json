@@ -46,7 +46,6 @@
     "The Text You Read But Did Not Reply To"
   ],
   "used_wisdom": [
-    "The Gift of Impermanence",
     "What You Cannot Change and What You Can",
     "The Art of Letting Go",
     "Learning to Trust the Journey",
@@ -65,11 +64,12 @@
     "When Grief Becomes a Teacher",
     "What Silence Teaches Us",
     "The Courage to Begin Again",
-    "The Meaning We Choose to Find"
+    "The Meaning We Choose to Find",
+    "How to Carry Loss Without Being Crushed"
   ],
-  "last_style": "wisdom",
+  "last_style": "lesson",
   "last_regular_style": "lesson",
-  "videos_since_wisdom": 0,
+  "videos_since_wisdom": 4,
   "used_scene_keys": [
     "A man with tired eyes staring ",
     "Wide view of a dark city at ni",
@@ -147,7 +147,6 @@
   ],
   "lyria_last_429": "2026-06-05T12:37:44.338889+00:00",
   "recent_gallery_tracks": [
-    "2026-06-05_153711_704e70.mp3",
     "2026-06-05_153734_d4c320.mp3",
     "2026-06-05_153806_9773e5.mp3",
     "2026-06-05_153555_7cd9b3.mp3",
@@ -166,7 +165,8 @@
     "2026-06-05_153617_c5dd1f.mp3",
     "2026-06-05_153606_63f17d.mp3",
     "2026-06-05_153734_d4c320.mp3",
-    "2026-06-05_153806_9773e5.mp3"
+    "2026-06-05_153806_9773e5.mp3",
+    "2026-06-05_151550_7dfb17.mp3"
   ],
   "recent_cc0_tracks": [
     "Kevin MacLeod - Aftermath",
@@ -175,14 +175,6 @@
     "Kevin MacLeod - Sad Trio"
   ],
   "used_lesson": [
-    "Learning To Be Enough On Your Own",
-    "The Truth About Being The Strong One",
-    "The People Who Leave When You Need Them Most",
-    "The Friends Who Only Stayed For The Good Days",
-    "When You Finally Stopped Settling",
-    "The Love That Was Only Convenient",
-    "What You Owe Yourself",
-    "The Day You Chose Yourself",
     "The Quiet Power Of Letting Go",
     "Why Silence Became Your Answer",
     "When Being Nice Made You A Target",
@@ -194,6 +186,14 @@
     "What Healing Actually Looks Like",
     "The Cost Of Always Being Available",
     "What Loneliness Actually Teaches You",
-    "When You Stop Chasing People"
+    "When You Stop Chasing People",
+    "When You Have Nothing Left",
+    "Learning To Be Enough On Your Own",
+    "Why You Stopped Explaining Yourself",
+    "The Strength In Walking Away",
+    "Why Closure Never Comes",
+    "Outgrowing People You Love",
+    "The People Who Leave When You Need Them Most",
+    "When You Finally Stopped Settling"
   ]
 }
