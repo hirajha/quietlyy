@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The One I Think About First"
+    "detail": "The Part You Never Talk About"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v27.0/18109304849305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18109603244633047"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/G2Kq5rK_9RE"
+    "detail": "https://www.youtube.com/shorts/g-rd_vB0zKQ"
   }
 }
