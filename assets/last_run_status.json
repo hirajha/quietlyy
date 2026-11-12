@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When You Found Me"
+    "detail": "The Beauty of an Unfinished Life"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v27.0/18109540061305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18428625301154751"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/er8hyPoU5X8"
+    "detail": "https://www.youtube.com/shorts/XEwVIFK5Qs0"
   }
 }
