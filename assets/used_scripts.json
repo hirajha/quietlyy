@@ -1,19 +1,5 @@
 [
   {
-    "topic": "The Quiet Exit",
-    "style": "emotional",
-    "script": "The last text never gets sent.\nIt sits in drafts,\nlike a boat\nthat missed the tide.\nSome exits don\u2019t slam,\nthey dissolve\u2014\nthe way sugar\nvanishes in tea.\nYour name stays sweet,\nbut the aftertaste\nfades to nothing.\nI won\u2019t wave goodbye.\nJust let the current take me.",
-    "hash": "9db51e34d268e9da039786a6497e27a5",
-    "metaphors": [
-      "tide",
-      "tea",
-      "text"
-    ],
-    "themes": [
-      "grief_loss"
-    ]
-  },
-  {
     "topic": "The Quiet Revolution of Self-Respect",
     "style": "wisdom",
     "script": "a japanese gardener whispered\nnot every root needs light\nsome grow strongest\nwhere the soil stays dark\ntrust the unseen work\nself-respect isn't a shout\nit's the quiet refusal\nto let others dig up your peace\nyou don't need their tools\nor their permission to thrive\nsome things grow best\nin the hush of your own hands",
@@ -824,6 +810,23 @@
       "shadow",
       "sun",
       "bed"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "You Are My Calm",
+    "style": "emotional",
+    "script": "There's a stillness that hums,\nlike a fridge in an empty kitchen.\nYou are the steady buzz,\nthe one I lean against\nwhen the world spins too loud.\nI don't need you to fix it,\njust stand there,\nquiet as a held breath,\nand let the noise\npass through me like wind.\nYou are my calm,\nnot the absence of storm,\nbut the hand I reach for in the dark.",
+    "hash": "304fb0f55bd7b62751f300929725085d",
+    "metaphors": [
+      "noise",
+      "dark",
+      "wind",
+      "storm",
+      "tea",
+      "kitchen"
     ],
     "themes": [
       "silence"
