@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generated_at": "2026-11-08T09:53:06.648604+00:00",
-  "total": 785,
+  "generated_at": "2026-11-15T10:21:11.720477+00:00",
+  "total": 786,
   "scripts": [
     {
       "id": 66,
@@ -11692,6 +11692,16 @@
       "quality_score": 7,
       "generated_at": "2026-11-08T09:50:35.281955+00:00",
       "fingerprint": "165547b8f4659e84"
+    },
+    {
+      "id": 785,
+      "style": "wisdom",
+      "topic": "When You Stop Chasing People",
+      "script": "Lao Tzu once asked.\ndo you have the patience\nto wait until your mud settles\nand the water is clear?\n\nwe keep stirring.\nbelieving motion\nwill bring connection.\nbut sometimes,\nthe greatest arrival\nis what gently drifts to the surface\nwhen we finally stop chasing the ripples.",
+      "visual_keywords": [],
+      "quality_score": 7,
+      "generated_at": "2026-11-15T10:19:51.028947+00:00",
+      "fingerprint": "c6f471a768c24c09"
     }
   ]
 }
