@@ -1,14 +1,5 @@
 [
   {
-    "file": "2a877478_0.png",
-    "topic": "Healing Alone",
-    "panel": 0,
-    "source": "fresh",
-    "timestamp": 1785966989,
-    "uses": 2,
-    "last_used": 1791048703
-  },
-  {
     "file": "0d7318e2_1.png",
     "topic": "Healing Alone",
     "panel": 1,
@@ -2570,8 +2561,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1789513897,
-    "uses": 1,
-    "last_used": 1789537272
+    "uses": 2,
+    "last_used": 1794869962
   },
   {
     "file": "361562a1_0.png",
@@ -2579,8 +2570,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1789537276,
-    "uses": 1,
-    "last_used": 1789562026
+    "uses": 2,
+    "last_used": 1794869962
   },
   {
     "file": "431d4e02_1.png",
@@ -4495,6 +4486,15 @@
     "topic": "The Person Behind My Smile",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1794848123
+    "timestamp": 1794848123,
+    "uses": 1,
+    "last_used": 1794869962
+  },
+  {
+    "file": "2afd4eef_0.png",
+    "topic": "Silent Suffering Nobody Sees",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1794869966
   }
 ]
