@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "Staying Too Long"
+    "detail": "The Person Behind My Smile"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "fail",
-    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v27.0/18110141954305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "result": "ok",
+    "detail": "18110861321252175"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/dg65XndwPuE"
+    "detail": "https://www.youtube.com/shorts/Zs4aBzpPZGw"
   }
 }

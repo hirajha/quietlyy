@@ -1,19 +1,5 @@
 [
   {
-    "topic": "When You Realized You Were the Option, Not the Priority",
-    "style": "nostalgic",
-    "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
-    "hash": "8c0467d2fae388b518ba0b20828aa470",
-    "metaphors": [
-      "star",
-      "ring"
-    ],
-    "themes": [
-      "grief_loss",
-      "growth"
-    ]
-  },
-  {
     "topic": "When You Found Me",
     "style": "wisdom",
     "script": "the desert wind whispered\nwhen you found me\ni was not lost\njust waiting\nfor the shape of your shadow to stretch across mine.\n\nyears of dust had settled\nyet my edges stayed sharp\nlike stones the river forgot to smooth.\n\nyou didn\u2019t carry a lantern\nor call my name\nyou simply walked\nuntil the space between us\nbecame a place.",
@@ -837,6 +823,19 @@
       "porch",
       "door",
       "light"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "emotional",
+    "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
+    "hash": "a1484fb15ac66345b89e7f6b30179a6e",
+    "metaphors": [
+      "radio",
+      "song"
     ],
     "themes": [
       "silence"
