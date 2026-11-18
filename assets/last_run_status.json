@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Part You Never Talk About"
+    "detail": "The Power of Small Moments"
   },
   "audio": {
     "result": "ok",
@@ -26,5 +26,33 @@
   "music": {
     "result": "ok",
     "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/background_music.mp3 [gallery_library]"
+  },
+  "video": {
+    "result": "ok",
+    "detail": "/home/runner/work/quietlyy/quietlyy/scripts/../output/quietlyy_video.mp4"
+  },
+  "quality_gate": {
+    "result": "ok",
+    "detail": ""
+  },
+  "copyright": {
+    "result": "ok",
+    "detail": ""
+  },
+  "seo": {
+    "result": "ok",
+    "detail": ""
+  },
+  "facebook": {
+    "result": "ok",
+    "detail": ""
+  },
+  "instagram": {
+    "result": "ok",
+    "detail": "18379907452240953"
+  },
+  "youtube": {
+    "result": "ok",
+    "detail": "https://www.youtube.com/shorts/GxFRk_6sFUM"
   }
 }
