@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "What I Never Said Out Loud"
+    "detail": "Loving Without Losing Yourself"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18147700171606321"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v27.0/18110861507305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/X9f8IrseTRc"
+    "detail": "https://www.youtube.com/shorts/JFKF4_mUVOU"
   }
 }
