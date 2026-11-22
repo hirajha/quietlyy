@@ -1,21 +1,5 @@
 [
   {
-    "topic": "The One I Think About First",
-    "style": "emotional",
-    "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
-    "hash": "959854a0569ce7c23fe5253ff2900374",
-    "metaphors": [
-      "text",
-      "light",
-      "sweater",
-      "sun"
-    ],
-    "themes": [
-      "silence",
-      "self_worth"
-    ]
-  },
-  {
     "topic": "The Part You Never Talk About",
     "style": "nostalgic",
     "script": "The way you laugh\nwhen the story\u2019s too old to tell\nbut you tell it anyway.\n\nWE ALL KNOW\nit\u2019s not funny anymore\njust familiar.\n\nYour hands\nstill shape the air\nlike they did back then\nwhen the words mattered.\n\nNOW THEY DON\u2019T\nbut you keep talking\nand I keep listening\nfor the part you never say.",
@@ -831,6 +815,23 @@
     ],
     "themes": [
       "loneliness"
+    ]
+  },
+  {
+    "topic": "Falling For Someone Who Does Not Know",
+    "style": "emotional",
+    "script": "The porch light stays on all night.\njust for you,\nthough you\u2019ll never walk up the steps.\nI trace your name\nin the condensation on my window,\nbut the glass forgets by morning.\nSome nights,\nI swear I hear your laugh\nin the static between radio stations.\nThe universe keeps sending signals,\nand I keep pretending not to notice.\nThis is how ghosts are made.\nquietly.",
+    "hash": "2a00b5f7f9870384537351970c926728",
+    "metaphors": [
+      "wind",
+      "porch",
+      "window",
+      "radio",
+      "glass",
+      "light"
+    ],
+    "themes": [
+      "silence"
     ]
   }
 ]
