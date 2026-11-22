@@ -2786,8 +2786,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1790118640,
-    "uses": 1,
-    "last_used": 1790141671
+    "uses": 2,
+    "last_used": 1795360243
   },
   {
     "file": "03ab6b8e_1.png",
@@ -2795,8 +2795,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1790118685,
-    "uses": 1,
-    "last_used": 1790141671
+    "uses": 2,
+    "last_used": 1795360243
   },
   {
     "file": "64d3e69a_0.png",
@@ -4495,6 +4495,8 @@
     "topic": "When You Love Someone Who Is Leaving",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1795333709
+    "timestamp": 1795333709,
+    "uses": 1,
+    "last_used": 1795360243
   }
 ]

@@ -1,18 +1,5 @@
 [
   {
-    "topic": "Friends Who Only Call When They Need You",
-    "style": "emotional",
-    "script": "Friday night. The fridge hums low.\nYour name lights up the screen,\nnot with hello,\njust a question mark,\nsoft as a door left ajar.\nThe hands that once passed you a drink\nnow only pass you the weight,\nthe same old script,\nthe same old need.\nI answer,\nnot out of kindness,\nbut the ghost of a habit.\nLet them go.",
-    "hash": "d9af484d279bc971c950895be7c0fcc3",
-    "metaphors": [
-      "door",
-      "light"
-    ],
-    "themes": [
-      "loneliness"
-    ]
-  },
-  {
     "topic": "The One I Think About First",
     "style": "emotional",
     "script": "How do you name the person\nwho lives in the first light of morning?\nNot the sunrise,\nbut the thought\nbefore your eyes open.\nSome memories\nare like a favorite sweater\u2014\nnot worn,\njust kept close enough to touch.\nThe one I reach for\nwhen the room is too quiet,\ntoo full,\ntoo anything.\nI don\u2019t call,\nI don\u2019t text,\nI just let the weight of them\nsettle like dust on my shoulders.\nLet them know.",
@@ -828,6 +815,22 @@
     ],
     "themes": [
       "silence"
+    ]
+  },
+  {
+    "topic": "The Moment You Stopped Hoping",
+    "style": "emotional",
+    "script": "You\u2019re staring at the ceiling again.\nThe cracks don\u2019t spell anything anymore,\njust lines you\u2019ve memorized.\nSomewhere,\na clock ticks,\nbut it\u2019s not counting down to anything.\nThe hands that once reached,\nnow rest,\nweightless,\nlike balloons untied.\nYou don\u2019t flinch when the phone buzzes,\nnot even a blink.\nThe moment hope left,\nit didn\u2019t slam the door,\njust clicked the latch.\nand you let it go.",
+    "hash": "65b8e0c9d2250d4aa60aa51ff4bb2d23",
+    "metaphors": [
+      "door",
+      "star",
+      "ceiling",
+      "ring",
+      "phone"
+    ],
+    "themes": [
+      "loneliness"
     ]
   }
 ]
