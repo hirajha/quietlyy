@@ -2822,8 +2822,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1790186287,
-    "uses": 1,
-    "last_used": 1790204679
+    "uses": 2,
+    "last_used": 1795423081
   },
   {
     "file": "fe7f8046_0.png",
@@ -2831,8 +2831,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1790204682,
-    "uses": 1,
-    "last_used": 1790229208
+    "uses": 2,
+    "last_used": 1795423081
   },
   {
     "file": "c7eef4dc_1.png",
@@ -4495,6 +4495,8 @@
     "topic": "Falling For Someone Who Does Not Know",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1795379224
+    "timestamp": 1795379224,
+    "uses": 1,
+    "last_used": 1795423081
   }
 ]
