@@ -1,16 +1,5 @@
 [
   {
-    "topic": "The Power of Small Moments",
-    "style": "nostalgic",
-    "script": "The way you laughed\nbefore you knew\nI was listening\nstuck in my ribs\nlike a loose button\nI never sewed back.\nYOU KEPT IT\nin a drawer with ticket stubs\nand that one sock\nno one ever claimed.\nNow it rattles\nwhen the wind blows just right\nthrough the screen door.",
-    "hash": "fad71d57e80f79313745ebe29e3c5d59",
-    "metaphors": [
-      "door",
-      "wind"
-    ],
-    "themes": []
-  },
-  {
     "topic": "When You Realized You Were the Option, Not the Priority",
     "style": "nostalgic",
     "script": "YOU WERE THE EXTRA\nkey on the ring\nI carried loose\nin my pocket\nclinking against the one\nthat actually started the car.\nI never lost you\njust stopped reaching\nfor the jingle\nthat didn\u2019t matter.\nSomewhere between then and now\nyou became the station\nI only scan\nwhen static fills the drive.",
@@ -834,6 +823,19 @@
       "door",
       "light",
       "table"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "The Person Behind My Smile",
+    "style": "emotional",
+    "script": "How do you tell someone\nabout the weight\nthat lives behind your teeth,\nnot sadness,\njust the quiet hum\nof a radio tuned to static,\nSome days it\u2019s louder,\nothers it fades\nbut the dial never moves,\nThe smile isn\u2019t a lie,\njust the volume turned down,\nso the world can hear\nthe song I pretend to sing.",
+    "hash": "a1484fb15ac66345b89e7f6b30179a6e",
+    "metaphors": [
+      "song",
+      "radio"
     ],
     "themes": [
       "silence"

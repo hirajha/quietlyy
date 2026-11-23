@@ -1,14 +1,5 @@
 [
   {
-    "file": "5fa73a53_0.png",
-    "topic": "Learning to Trust the Journey",
-    "panel": 0,
-    "source": "fresh",
-    "timestamp": 1786157819,
-    "uses": 2,
-    "last_used": 1791270964
-  },
-  {
     "file": "11fe26bd_1.png",
     "topic": "Learning to Trust the Journey",
     "panel": 1,
@@ -2840,8 +2831,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1790204728,
-    "uses": 1,
-    "last_used": 1790229208
+    "uses": 2,
+    "last_used": 1795460895
   },
   {
     "file": "ed162d00_0.png",
@@ -2849,8 +2840,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1790229211,
-    "uses": 1,
-    "last_used": 1790253741
+    "uses": 2,
+    "last_used": 1795460895
   },
   {
     "file": "9a24a16b_1.png",
@@ -2858,8 +2849,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1790229263,
-    "uses": 1,
-    "last_used": 1790253741
+    "uses": 2,
+    "last_used": 1795460895
   },
   {
     "file": "f51dc0f2_0.png",
@@ -4498,5 +4489,12 @@
     "timestamp": 1795379224,
     "uses": 1,
     "last_used": 1795423081
+  },
+  {
+    "file": "e0a14547_0.png",
+    "topic": "The Person Behind My Smile",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1795460902
   }
 ]
