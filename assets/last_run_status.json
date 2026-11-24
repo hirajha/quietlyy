@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "When Being Nice Made You A Target"
+    "detail": "Friends Who Only Call When They Need You"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "17917358430501267"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v27.0/18111292340305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/0OmQTLp51TM"
+    "detail": "https://www.youtube.com/shorts/CBZ_KFM_5mc"
   }
 }
