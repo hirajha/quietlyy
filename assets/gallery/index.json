@@ -1,14 +1,5 @@
 [
   {
-    "file": "11fe26bd_1.png",
-    "topic": "Learning to Trust the Journey",
-    "panel": 1,
-    "source": "fresh",
-    "timestamp": 1786157823,
-    "uses": 2,
-    "last_used": 1791270964
-  },
-  {
     "file": "7eb39d9c_0.png",
     "topic": "The People Who Leave When You Need Them Most",
     "panel": 0,
@@ -2858,8 +2849,8 @@
     "panel": 0,
     "source": "fresh",
     "timestamp": 1790253745,
-    "uses": 1,
-    "last_used": 1790272629
+    "uses": 2,
+    "last_used": 1795482486
   },
   {
     "file": "b0bd155f_1.png",
@@ -2867,8 +2858,8 @@
     "panel": 1,
     "source": "fresh",
     "timestamp": 1790253790,
-    "uses": 1,
-    "last_used": 1790272629
+    "uses": 2,
+    "last_used": 1795482486
   },
   {
     "file": "70bec71d_0.png",
@@ -4495,6 +4486,15 @@
     "topic": "The Person Behind My Smile",
     "panel": 0,
     "source": "fresh",
-    "timestamp": 1795460902
+    "timestamp": 1795460902,
+    "uses": 1,
+    "last_used": 1795482486
+  },
+  {
+    "file": "3f84c030_0.png",
+    "topic": "Silent Suffering Nobody Sees",
+    "panel": 0,
+    "source": "fresh",
+    "timestamp": 1795482493
   }
 ]
