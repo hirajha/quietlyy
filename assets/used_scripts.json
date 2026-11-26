@@ -1,15 +1,5 @@
 [
   {
-    "topic": "What Healing Actually Looks Like",
-    "style": "lesson",
-    "script": "It doesn't get easier.\nIt just becomes less urgent.\nThat constant ache?\nYou notice it less.\nWe expect healing to be a destination.\nA finish line.\nBut it\u2019s just the quiet choice.\nEvery single day.\nTo keep going.\nEven when nothing feels repaired.",
-    "hash": "30b5819b41edabe37c74c027d5187bd7",
-    "metaphors": [],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "What I Never Said Out Loud",
     "style": "poetic",
     "script": "The clock hands never asked for my secrets.\nI fed them anyway,\ntiny crumbs of truth\nswallowed by the gears.\nSome nights,\nthe ticking grows teeth,\nchews through the dark\nlike a moth through wool.\nI let it.\nThe holes are where the light gets in,\nbut the light doesn\u2019t know my name.",
@@ -823,6 +813,23 @@
       "bed",
       "door",
       "sun"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "You Are My Calm",
+    "style": "emotional",
+    "script": "There's a stillness that hums,\nlike a fridge in an empty kitchen.\nYou are the steady buzz,\nthe one I lean against\nwhen the world spins too loud.\nI don't need you to fix it,\njust stand there,\nquiet as a held breath,\nand let the noise\npass through me like wind.\nYou are my calm,\nnot the absence of storm,\nbut the hand I reach for in the dark.",
+    "hash": "304fb0f55bd7b62751f300929725085d",
+    "metaphors": [
+      "wind",
+      "tea",
+      "storm",
+      "dark",
+      "noise",
+      "kitchen"
     ],
     "themes": [
       "silence"
