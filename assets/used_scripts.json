@@ -1,20 +1,5 @@
 [
   {
-    "topic": "Loving Without Losing Yourself",
-    "style": "nostalgic",
-    "script": "You held the door,\nI\nlet the wind\ncarry my name out first.\nIt didn\u2019t mind,\njust curled around your ankles\nlike a cat who chose you,\nbut still sleeps on my side.\nSOMEHOW\nwe built a life\nwithout moving the furniture,\nand when the light slants just so,\nI forget\nwhich shadow is yours.",
-    "hash": "628a74a6f081822e5982b8a41df360d6",
-    "metaphors": [
-      "wind",
-      "light",
-      "door",
-      "shadow"
-    ],
-    "themes": [
-      "silence"
-    ]
-  },
-  {
     "topic": "The Moment You Stopped Hoping",
     "style": "emotional",
     "script": "You\u2019re staring at the ceiling again.\nThe cracks don\u2019t spell anything anymore,\njust lines you\u2019ve memorized.\nSomewhere,\na clock ticks,\nbut it\u2019s not counting down to anything.\nThe hands that once reached,\nnow rest,\nweightless,\nlike balloons untied.\nYou don\u2019t flinch when the phone buzzes,\nnot even a blink.\nThe moment hope left,\nit didn\u2019t slam the door,\njust clicked the latch.\nand you let it go.",
@@ -831,6 +816,18 @@
       "wind",
       "porch",
       "rain"
+    ],
+    "themes": [
+      "silence"
+    ]
+  },
+  {
+    "topic": "When You Stop Chasing People",
+    "style": "lesson",
+    "script": "Every connection has an invisible ledger.\nWe keep reaching, always first.\nUntil our spirit feels threadbare.\nYou stop initiating that one specific brand of coffee order.\nYou let the last interaction hang.\nThe empty space isn't quiet.\nIt simply exists, enormous.\nNo one fills it.\nYou realize you were the only current.",
+    "hash": "0b28b7963107b7531c772504fa9f1d3f",
+    "metaphors": [
+      "coffee"
     ],
     "themes": [
       "silence"
