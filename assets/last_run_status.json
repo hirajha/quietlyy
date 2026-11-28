@@ -13,7 +13,7 @@
   },
   "script": {
     "result": "ok",
-    "detail": "The Smile That Hides Everything"
+    "detail": "What I Mean When I Say I Love You"
   },
   "audio": {
     "result": "ok",
@@ -48,11 +48,11 @@
     "detail": ""
   },
   "instagram": {
-    "result": "ok",
-    "detail": "18141873854498094"
+    "result": "fail",
+    "detail": "400 Client Error: Bad Request for url: https://rupload.facebook.com/ig-api-upload/v27.0/18111736979305932 | API response: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   },
   "youtube": {
     "result": "ok",
-    "detail": "https://www.youtube.com/shorts/ahpXK_H9mCY"
+    "detail": "https://www.youtube.com/shorts/Ng1orSV5wEs"
   }
 }
